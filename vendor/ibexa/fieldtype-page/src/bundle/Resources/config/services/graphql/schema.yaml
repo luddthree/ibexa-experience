@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\BaseWorker:
+        abstract: true
+        calls:
+            - [setNameHelper, ['@Ibexa\FieldTypePage\GraphQL\Schema\Worker\NameHelper']]
+
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\NameHelper: ~
+
+

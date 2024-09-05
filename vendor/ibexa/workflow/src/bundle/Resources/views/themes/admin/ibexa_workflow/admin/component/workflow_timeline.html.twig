@@ -1,0 +1,11 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% for workflow in workflows %}
+    {% if workflow.timeline.entries|length > 0 %}
+        <div class="container ibexa-content-edit-workflow">
+            <div class="ibexa-content-edit-workflow__chart">
+                {% embed '@ibexadesign/ibexa_workflow/timeline/list.html.twig' with workflow only %}{% endembed %}
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}

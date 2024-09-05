@@ -1,0 +1,30 @@
+Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\AbstractEvent:
+    exclusion_policy: all
+    access_type: public_method
+    discriminator:
+        field_name: type
+        disabled: false
+        map:
+            itemAdded: Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\ItemAddedEvent
+            itemRemoved: Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\ItemRemovedEvent
+            itemsReordered: Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\ItemsReorderedEvent
+            limitChanged: Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\LimitChangedEvent
+    properties:
+        id:
+            type: string
+            skip_when_empty: false
+            expose: true
+        type:
+            type: string
+            skip_when_empty: false
+            expose: true
+            accessor:
+                getter: getType
+        dateTime:
+            type: DateTime<'U'>
+            skip_when_empty: false
+            expose: true
+            serialized_name: dateTime
+            accessor:
+                getter: getDateTime
+                setter: setDateTime

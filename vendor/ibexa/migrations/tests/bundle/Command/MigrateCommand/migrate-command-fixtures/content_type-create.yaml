@@ -1,0 +1,167 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: foo
+        mainTranslation: eng-GB
+        creatorId: 14
+        creationDate: '2012-07-24T14:35:34+00:00'
+        remoteId: foobar
+        urlAliasSchema: ''
+        nameSchema: '<short_title|title>'
+        container: true
+        defaultAlwaysAvailable: false
+        defaultSortField: 1
+        defaultSortOrder: 1
+        contentTypeGroups:
+            - 1
+        translations:
+            eng-GB:
+                name: Article
+                description: ''
+    fields:
+        -
+            identifier: title
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Title
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: 'New article'
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -
+            identifier: short_title
+            type: ezstring
+            position: 2
+            translations:
+                eng-GB:
+                    name: 'Short title'
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -
+            identifier: author
+            type: ezauthor
+            position: 3
+            translations:
+                eng-GB:
+                    name: Author
+                    description: ''
+            required: false
+            searchable: false
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: {  }
+            fieldSettings:
+                defaultAuthor: 0
+            validatorConfiguration: {  }
+        -
+            identifier: image
+            type: ezimage
+            position: 6
+            translations:
+                eng-GB:
+                    name: Image
+                    description: ''
+            required: false
+            searchable: false
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration:
+                FileSizeValidator:
+                    maxFileSize: null
+            thumbnail: true
+        -
+            identifier: publish_date
+            type: ezdatetime
+            position: 8
+            translations:
+                eng-GB:
+                    name: 'Publish date'
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings:
+                defaultType: 0
+                useSeconds: false
+                dateInterval: null
+            validatorConfiguration: {  }
+        -
+            identifier: tags
+            type: ezkeyword
+            position: 10
+            translations:
+                eng-GB:
+                    name: Tags
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: {  }
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+        -
+            identifier: location
+            type: ezgmaplocation
+            position: 11
+            translations:
+                eng-GB:
+                    name: Location
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+        -
+            identifier: comments
+            type: ezcomcomments
+            position: 12
+            translations:
+                eng-GB:
+                    name: Comments
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+    references:
+        -
+            name: ref__article__content_type_id
+            type: content_type_id

@@ -1,0 +1,122 @@
+ProductInterface:
+    type: interface
+    config:
+        description: "Ibexa Product"
+        fields:
+            code:
+                type: String
+                description: "Product's unique code"
+            name:
+                type: String
+                description: "Product's name"
+            productType:
+                type: ProductTypeInterface
+                description: "Product Type which the product is based on"
+            thumbnail:
+                type: Thumbnail
+                description: "Product's thumbnail"
+            createdAt:
+                type: DateTime
+                description: "Product's creation date and time"
+            updatedAt:
+                type: DateTime
+                description: "Product's last update date and time"
+            fields:
+                type: ProductContentFieldsInterface
+                description: "Underlying content's fields"
+            attributes:
+                type: ProductAttributesInterface
+                description: "Product's attributes"
+
+ContentAwareInterface:
+    type: interface
+    config:
+        fields:
+            _content:
+                type: Content
+                description: "Underlying content item"
+
+BaseProduct:
+    type: object
+    inherits:
+        - ProductInterface
+        - ContentAwareInterface
+    config:
+        fields:
+            code:
+                type: String
+            name:
+                type: String
+            productType:
+                type: BaseProductType
+                resolve: '@=query("ProductTypeByIdentifier", value.getProductType().getIdentifier())'
+            thumbnail:
+                type: Thumbnail
+                resolve: '@=query("ContentThumbnail", value.getContent())'
+            createdAt:
+                type: DateTime
+            updatedAt:
+                type: DateTime
+            attributes:
+                type: ProductAttributesInterface
+                resolve: '@=value'
+            fields:
+                type: ProductContentFieldsInterface
+                resolve: '@=value'
+            _content:
+                type: Content
+                resolve: '@=query("ContentById", value.getContent().id)'
+
+ProductContentFieldsInterface:
+    type: interface
+    config:
+        resolveType: '@=query("ContentFieldsType", value)'
+        fields:
+            _all:
+                type: '[ProductContentField]'
+                description: "All the product's content fields"
+
+ProductContentField:
+    type: object
+    config:
+        fields:
+            fieldDefIdentifier:
+                type: String
+            value:
+                type: String
+
+Price:
+    type: object
+    config:
+        fields:
+            product:
+                type: BaseProduct
+            amount:
+                type: Float
+            currency:
+                type: Currency
+            priceString:
+                type: String
+
+Currency:
+    type: object
+    config:
+        fields:
+            id:
+                type: Int
+            code:
+                type: String
+            subUnits:
+                type: Int
+            isEnabled:
+                type: Boolean
+
+BaseProductConnection:
+    type: relay-connection
+    config:
+        nodeType: BaseProduct
+        connectionFields:
+            sliceSize:
+                type: Int!
+            orderBy:
+                type: String

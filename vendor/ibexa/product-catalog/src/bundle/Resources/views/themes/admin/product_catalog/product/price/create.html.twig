@@ -1,0 +1,51 @@
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set price_create_menu = knp_menu_get('ibexa_product_catalog.menu.product_price_create_context_menu', [], {
+        'submit_selector': '#product-price-create-save',
+        'cancel_route': 'ibexa.product_catalog.product.view',
+        'cancel_route_params': {
+            productCode: product.getCode(),
+            currency: currency.getCode(),
+            _fragment: 'ibexa-tab-product-prices'
+        }
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'product_price.creating.action_name'|trans|desc('Creating new product price'),
+        icon_name: 'file',
+        title: 'product_price.creating.title'|trans|desc('New product price'),
+        context_actions: knp_menu_render(price_create_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+        {% block form %}
+            {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+            {% set currency = form.vars.currency %}
+
+            {{ form_start(form, {
+                attr: {
+                    class: 'ibexa-pc-edit__form ibexa-pc-product-price-edit-form',
+                    'data-currency-subunits': currency.getSubUnits()
+                }
+            }) }}
+                <button
+                    id="product-price-create-save"
+                    class="ibexa-pc-edit__submit-btn"
+                    type="submit"
+                    hidden
+                ></button>
+            {{ form_end(form) }}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-product-catalog-product-price-edit-js', null, 'ibexa') }}
+{% endblock %}

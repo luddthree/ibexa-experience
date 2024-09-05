@@ -1,0 +1,105 @@
+{
+    "name": "ibexa/taxonomy",
+    "license": "proprietary",
+    "description": "Taxonomy bundle for Ibexa DXP",
+    "type": "ibexa-bundle",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "keywords": [
+        "ibexa-dxp"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "doctrine/cache": "^2.0",
+        "doctrine/orm": "^2.6",
+        "gedmo/doctrine-extensions": "^3.1",
+        "ibexa/admin-ui": "~4.6",
+        "ibexa/content-forms": "~4.6",
+        "ibexa/core": "~4.6",
+        "ibexa/graphql": "~4.6",
+        "ibexa/installer": "~4.6",
+        "ibexa/migrations": "~4.6",
+        "ibexa/rest": "~4.6",
+        "jms/translation-bundle": "^1.6",
+        "stof/doctrine-extensions-bundle": "^1.6",
+        "symfony/config": "^5.3",
+        "symfony/console": "^5.3",
+        "symfony/dependency-injection": "^5.3",
+        "symfony/event-dispatcher": "^5.3",
+        "symfony/http-foundation": "^5.3",
+        "symfony/http-kernel": "^5.3",
+        "symfony/yaml": "^5.3"
+    },
+    "require-dev": {
+        "dama/doctrine-test-bundle": "^6.7.5",
+        "doctrine/persistence": "^2.2",
+        "ibexa/behat": "~4.6.0",
+        "ibexa/cdp": "~4.6",
+        "ibexa/code-style": "~1.2",
+        "ibexa/elasticsearch": "~4.6",
+        "ibexa/notifications": "~4.6",
+        "ibexa/solr": "~4.6",
+        "ibexa/test-core": "~4.6",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.2",
+        "mikey179/vfsstream": "^1.6",
+        "phpstan/phpstan": "^1.2",
+        "phpstan/phpstan-doctrine": "^1.3",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "suggest": {
+        "ibexa/elasticsearch": "Integrated Elasticsearch support for Taxonomy related criterions",
+        "ibexa/solr": "Integrated Solr support for Taxonomy related criterions"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Bundle\\Taxonomy\\": "src/bundle/",
+            "Ibexa\\Contracts\\Taxonomy\\": "src/contracts/",
+            "Ibexa\\Taxonomy\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Bundle\\Taxonomy\\": "tests/bundle/",
+            "Ibexa\\Tests\\Integration\\Taxonomy\\": "tests/integration/",
+            "Ibexa\\Tests\\Taxonomy\\": "tests/lib/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix -v --config=.php-cs-fixer.php --show-progress=dots",
+        "fix-cs-changed": "@fix-cs $(git diff ${GIT_DIFF_BASE:-origin/main} --diff-filter=ACMR --name-only \"*.php\"|paste -sd ' ')",
+        "test": "phpunit -c phpunit.xml.dist",
+        "test-integration": "phpunit -c phpunit.integration.xml.dist",
+        "phpstan": "phpstan analyse -c phpstan.neon",
+        "check-cs-changed": "@fix-cs-changed --dry-run",
+        "check-cs": "@fix-cs --dry-run"
+    },
+    "scripts-descriptions": {
+        "fix-cs": "Automatically fixes code style in all files",
+        "fix-cs-changed": "Automatically fixes code style in changed files only, compared to branch in GIT_DIFF_BASE env variable, defaults to origin/main",
+        "test": "Run automatic tests",
+        "test-integration": "Run automatic integration tests",
+        "phpstan": "Run static code analysis",
+        "check-cs-changed": "Run code style checker against changed files only, compared to branch in GIT_DIFF_BASE env variable, defaults to origin/main",
+        "check-cs": "Run code style checker for all files"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "php-http/discovery": false
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    }
+}

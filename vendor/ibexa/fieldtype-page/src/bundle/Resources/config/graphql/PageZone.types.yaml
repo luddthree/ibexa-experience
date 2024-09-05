@@ -1,0 +1,10 @@
+PageZone:
+    type: object
+    config:
+        fields:
+            id:
+                type: Int
+            name:
+                type: String
+            blocks:
+                type: '[PageBlock]'

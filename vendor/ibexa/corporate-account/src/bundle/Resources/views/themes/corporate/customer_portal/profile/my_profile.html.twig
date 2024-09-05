@@ -1,0 +1,96 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'my_profile.breadcrumb'|trans|desc('My profile') },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'my_profile.title'|trans|desc('My profile'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-container">
+        <div class="ibexa-ca-my-profile">
+            <div class="ibexa-ca-my-profile__about">
+                <div class="ibexa-ca-my-profile__header">
+                    <h2 class="ibexa-ca-my-profile__headline">
+                        {{ 'my_profile.about_me.edit.headline'|trans|desc('About me') }}
+                    </h2>
+                    <label class="ibexa-label ibexa-ca-my-profile__edit-label">
+                        {{ 'my_profile.about_me.edit.label'|trans|desc('Change your personal information.') }}
+                    </label>
+                    <div class="ibexa-ca-my-profile__edit-btn-wrapper">
+                        <a
+                            class="btn ibexa-btn ibexa-btn--ghost"
+                            href="{{ path('ibexa.corporate_account.customer_portal.my_profile.edit') }}"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                            </svg>
+                            <span class="ibexa-btn__label">
+                                {{ 'my_profile.about_me.edit.btn.label'|trans|desc('Edit') }}
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibexa-ca-my-profile__details">
+                    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                        items: [
+                            {
+                                label: 'my_profile.about_me.name'|trans|desc('Name'),
+                                content: user.getName(),
+                            },
+                            {
+                                label: 'my_profile.about_me.email'|trans|desc('Email'),
+                                content: user.email,
+                            },
+                        ],
+                        view_mode: 'vertical',
+                    } only %}
+                </div>
+            </div>
+            <div class="ibexa-ca-my-profile__sign-in">
+                <div class="ibexa-ca-my-profile__header">
+                    <h2 class="ibexa-ca-my-profile__headline">
+                        {{ 'my_profile.sign_in.edit.headline'|trans|desc('Sign-in') }}
+                    </h2>
+                    <label class="ibexa-label ibexa-ca-my-profile__edit-label">
+                        {{ 'my_profile.sign_in.edit.label'|trans|desc('Change your password.') }}
+                    </label>
+                    <div class="ibexa-ca-my-profile__edit-btn-wrapper">
+                        <a
+                            class="btn ibexa-btn ibexa-btn--ghost"
+                            href="{{ path('ibexa.user_profile.change_password') }}"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                            </svg>
+                            <span class="ibexa-btn__label">
+                                {{ 'my_profile.sign_in.edit.btn.label'|trans|desc('Edit') }}
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibexa-ca-my-profile__details">
+                    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                        items: [
+                            {
+                                label: 'my_profile.sign_in.password'|trans|desc('Password'),
+                                content: '**********',
+                            },
+                        ],
+                        view_mode: 'vertical',
+                    } only %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

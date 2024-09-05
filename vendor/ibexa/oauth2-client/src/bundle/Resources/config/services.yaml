@@ -1,0 +1,6 @@
+imports:
+  - { resource: services/controller.yaml }
+  - { resource: services/oauth2_client.yaml }
+  - { resource: services/repository.yaml }
+  - { resource: services/security.yaml }
+  - { resource: services/twig.yaml }

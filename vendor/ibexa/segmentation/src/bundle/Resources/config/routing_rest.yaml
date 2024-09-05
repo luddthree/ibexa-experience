@@ -1,0 +1,43 @@
+#Segments
+ibexa.segmentation.rest.segments.view:
+    path: /segments/{identifier}
+    methods: [GET]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\Segment\SegmentViewController::createView
+
+ibexa.segmentation.rest.segment_groups.list.segments:
+    path: /segment_groups/{identifier}/segments
+    methods: [GET]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\Segment\SegmentListController::createView
+
+# Segment Groups
+ibexa.segmentation.rest.segment_groups.view:
+    path: /segment_groups/{identifier}
+    methods: [GET]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\SegmentGroup\SegmentGroupViewController::createView
+
+ibexa.segmentation.rest.segment_groups.list:
+    path: /segment_groups
+    methods: [GET]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\SegmentGroup\SegmentGroupListController::createView
+
+# User Segment assignments
+ibexa.segmentation.rest.user.segments.view:
+    path: /user/users/{userId}/segments
+    methods: [GET]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\UserSegment\UserSegmentListController::createView
+    requirements:
+        userId: \d+
+
+ibexa.segmentation.rest.user.segments.assign:
+    path: /user/users/{userId}/segments
+    methods: [POST]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\UserSegment\UserSegmentAssignController::assignSegmentToUser
+    requirements:
+        userId: \d+
+
+ibexa.segmentation.rest.user.segments.unnassign:
+    path: /user/users/{userId}/segments/{segmentIdentifier}
+    methods: [DELETE]
+    controller: Ibexa\Bundle\Segmentation\Controller\REST\UserSegment\UserSegmentUnassignController::removeSegmentFromUser
+    requirements:
+        userId: \d+

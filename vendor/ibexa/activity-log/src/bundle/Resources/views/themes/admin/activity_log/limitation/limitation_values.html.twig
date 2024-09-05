@@ -1,0 +1,10 @@
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{% block ez_limitation_activity_log_owner_value %}
+    {% apply spaceless %}
+        {{ values
+            |map(value => ('activity_log.limitation.' ~ value)|trans)
+            |join(', ')
+        }}
+    {% endapply %}
+{% endblock %}

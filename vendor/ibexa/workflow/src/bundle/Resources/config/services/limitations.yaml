@@ -1,0 +1,46 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Repository Limitation Types
+    #
+
+    Ibexa\Workflow\Security\Limitation\WorkflowTransitionLimitationType:
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: WorkflowTransition }
+
+    Ibexa\Workflow\Security\Limitation\WorkflowStageLimitationType:
+        lazy: true # due to an API object needed to get current state in workflows and no access to SPI DomainMapper
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: WorkflowStage }
+
+    #
+    # Mappers
+    #
+
+    Ibexa\Workflow\Security\Limitation\Mapper\WorkflowStageLimitationMapper:
+        calls:
+            - [setFormTemplate, ['%ibexa.content_forms.limitation.multiple_selection.template%']]
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: WorkflowStage }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: WorkflowStage }
+
+    Ibexa\Workflow\Security\Limitation\Mapper\WorkflowTransitionLimitationMapper:
+        calls:
+            - [setFormTemplate, ['%ibexa.content_forms.limitation.multiple_selection.template%']]
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: WorkflowTransition }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: WorkflowTransition }
+
+    Ibexa\Workflow\Security\Limitation\Mapper\VersionLockLimitationMapper:
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: VersionLock }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: VersionLock }
+
+    Ibexa\Workflow\Security\Limitation\VersionLockLimitationType:
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: VersionLock }

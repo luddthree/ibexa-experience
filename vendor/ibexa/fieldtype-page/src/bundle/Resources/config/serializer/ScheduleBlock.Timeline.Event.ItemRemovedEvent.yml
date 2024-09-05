@@ -1,0 +1,12 @@
+Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\ItemRemovedEvent:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        itemId:
+            type: string
+            skip_when_empty: false
+            serialized_name: itemId
+            expose: true
+            accesor:
+                getter: getItemId
+                setter: setItemId

@@ -1,0 +1,28 @@
+ibexa.personalization.rest.content_list:
+    path: /personalization/v1/content/list/{contentIds}
+    defaults:
+        _controller: 'Ibexa\Bundle\Personalization\Controller\REST\ContentController::getContentListAction'
+    methods: [GET]
+
+ibexa.personalization.rest.content.get_by_id:
+    path: /personalization/v1/content/id/{contentId}
+    defaults:
+        _controller: 'Ibexa\Bundle\Personalization\Controller\REST\ContentController::getContentByIdAction'
+    methods: [GET]
+    requirements:
+        contentId: '\d+'
+
+ibexa.personalization.rest.content.get_by_remote_id:
+    path: /personalization/v1/content/remote-id/{remoteId}
+    defaults:
+        _controller: 'Ibexa\Bundle\Personalization\Controller\REST\ContentController::getContentByRemoteIdAction'
+    requirements:
+        remoteId: '[a-zA-Z0-9\_\-\/]+'
+    methods: [GET]
+
+ibexa.personalization.rest.export.download:
+    path: /personalization/v1/export/download/{filePath}
+    defaults:
+        _controller: 'Ibexa\Bundle\Personalization\Controller\REST\ExportController::downloadAction'
+    requirements:
+        filePath: '[a-zA-Z0-9\_\-\/]+'

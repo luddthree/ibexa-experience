@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteFactory\ParamConverter\:
+        resource: '../../ParamConverter/*'
+        public: false
+        tags:
+            - { name: 'request.param_converter' }
+
+

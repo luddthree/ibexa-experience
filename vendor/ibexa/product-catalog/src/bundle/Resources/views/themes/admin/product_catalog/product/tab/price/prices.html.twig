@@ -1,0 +1,99 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set can_edit_product = ibexa_permission_edit_product(product) %}
+
+<section class="ibexa-pc-product-prices">
+    {% set price_actions %}
+        {% if not no_currencies %}
+            <div class="ibexa-pc-product-prices__actions">
+                {% if currency is defined %}
+                    {% set currency_symbol = currency.code|currency_symbol %}
+                    {% set currency_subunits = currency.subunits %}
+                    {% if can_edit_product %}
+                        <div class="ibexa-pc-product-prices__actions-edit">
+                            {% if main_price is defined and main_price %}
+                                {% set action_url = path('ibexa.product_catalog.product.price.update', {
+                                    productCode: product.code,
+                                    currencyCode: currency.code,
+                                }) %}
+                                {% set action_icon = 'edit' %}
+                                {% set action_label = 'product.view.prices.actions.edit1'|trans|desc('Edit prices') %}
+                            {% else %}
+                                {% set action_url = path('ibexa.product_catalog.product.price.create', {
+                                    productCode: product.code,
+                                    currencyCode: currency.code,
+                                }) %}
+                                {% set action_icon = 'create' %}
+                                {% set action_label = 'product.view.prices.actions.create'|trans|desc('Create') %}
+                            {% endif %}
+
+                            <a
+                                href="{{ action_url }}"
+                                class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small"
+                            >
+                                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+                                    <use xlink:href="{{ ibexa_icon_path(action_icon) }}"></use>
+                                </svg>
+                                <span class="ibexa-btn__label">{{ action_label }}</span>
+                            </a>
+                        </div>
+                    {% endif %}
+
+                    <div class="ibexa-pc-product-prices__actions-currency">
+                        {% form_theme currency_choice_form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+                        {{ form_start(currency_choice_form, {
+                            attr: {
+                                class: 'ibexa-pc-product-prices__actions-currency-form'
+                            }
+                        }) }}
+                            {{ form_widget(currency_choice_form.children.currency, {
+                                attr: {
+                                    dropdown_class: 'ibexa-pc-product-prices__actions-currency-dropdown ibexa-dropdown--small'
+                                }
+                            }) }}
+                        {{ form_end(currency_choice_form) }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        headline: 'product.view.prices'|trans|desc('Prices'),
+        actions: price_actions
+    } %}
+
+    {% if no_currencies %}
+        {% include '@ibexadesign/product_catalog/product/empty_product_tab_content.html.twig' with {
+            header_msg: 'product.view.prices.no_currencies.header'|trans|desc('Enable currency'),
+            description_msg: 'product.view.prices.no_currencies.descrptions'|trans|desc('To create prices, you need to have at least one currency enabled.'),
+            action_url: path('ibexa.product_catalog.currency.list'),
+            action_label: 'product.view.prices.no_currencies.action_label'|trans|desc('Go to currency list'),
+        } %}
+    {% else %}
+        {% if main_price is defined and main_price %}
+            {% embed '@ibexadesign/product_catalog/product/tab/price/custom_prices.html.twig' %}{% endembed %}
+        {% else %}
+            {% if can_edit_product %}
+                {% embed '@ibexadesign/product_catalog/product/tab/price/empty_custom_prices.html.twig' %}{% endembed %}
+            {% else %}
+                {% embed '@ibexadesign/product_catalog/product/empty_product_tab_content.html.twig' with {
+                    header_msg: 'product_price.no_customer_group.info_text_no_permission'|trans|desc('No custom prices to show'),
+                    description_msg: 'product_price.no_customer_group.action_text_no_permission'|trans|desc('To create custom prices, you need to have at least one customer group.'),
+                } %}
+                    {% block action %}
+                        {% trans_default_domain 'ibexa_product_catalog' %}
+
+                        {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                            type: 'info',
+                            title: 'product_price.no_customer_group.alert_no_permission'|trans|desc('You do not have permissions to edit products. Contact your administrator.'),
+                        } %}
+                    {% endblock %}
+                {% endembed %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+</section>

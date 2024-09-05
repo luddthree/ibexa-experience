@@ -1,0 +1,26 @@
+{% trans_default_domain 'ibexa_calendar_events' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'modal.future_hide.reschedule.header'|trans|desc('Reschedule hide'),
+    class: 'ibexa-modal--reschedule-future-hide ibexa-reschedule-future-hide-modal',
+    id: 'reschedule-future-hide-modal',
+} %}
+    {% trans_default_domain 'ibexa_calendar_events' %}
+
+    {% block body_content %}
+        <div class="ibexa-reschedule-publish-later-modal__widget">
+            <span class="ibexa-reschedule-future-hide-modal__input-label">
+                {{ 'modal.future_hide.reschedule.date_picker.label'|trans|desc('Date and time') }}
+            </span>
+            {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with { is_datetime_popup_inline: true, is_small: true } %}
+        </div>
+    {% endblock %}
+    {% block footer_content %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm-reschedule" data-bs-dismiss="modal" disabled>
+            {{ 'modal.future_hide.reschedule.button.confirm.label'|trans|desc('Confirm rescheduling') }}
+        </button>
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--cancel-reschedule" data-bs-dismiss="modal">
+            {{ 'modal.future_hide.reschedule.button.cancel.label'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+{% endembed %}

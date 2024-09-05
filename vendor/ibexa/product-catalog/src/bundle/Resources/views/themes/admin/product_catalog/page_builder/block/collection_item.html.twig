@@ -1,0 +1,67 @@
+{% trans_default_domain 'ibexa_page_builder_block' %}
+
+<li
+    class="ibexa-pb-product-collection-item"
+    data-id="{{ id }}"
+    data-location-id="{{ location_id }}"
+    data-product-code="{{ product_code }}"
+    draggable="true"
+>
+    <div
+        class="ibexa-pb-product-collection-item__content"
+        data-id="{{ id }}"
+        draggable="true"
+    >
+        <div class="ibexa-pb-product-collection-item__left">
+            <div class="ibexa-pb-product-collection-item__drag-handler">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="ibexa-pb-product-collection-item__middle">
+            <div 
+                class="ibexa-pb-product-collection-item__label ibexa-pb-product-collection-item__label--product-name"
+                data-ibexa-update-content-id="{{ content_id }}"
+                data-ibexa-update-source-data-path="Content.Name"
+                data-ibexa-update-middle-ellipsis="1"
+            >
+                {{ include('@ibexadesign/ui/component/middle_ellipsis/middle_ellipsis.html.twig', {
+                    name: product_name,
+                }) }}
+            </div>
+            <div class="ibexa-pb-product-collection-item__label ibexa-pb-product-collection-item__label--product-code">
+                {{ include('@ibexadesign/ui/component/middle_ellipsis/middle_ellipsis.html.twig', {
+                    name: product_code,
+                }) }}
+            </div>
+            <div class="ibexa-pb-product-collection-item__label ibexa-pb-product-collection-item__label--product-type">
+                {{ include('@ibexadesign/ui/component/middle_ellipsis/middle_ellipsis.html.twig', {
+                    name: product_type,
+                }) }}
+            </div>
+        </div>
+        <div class="ibexa-pb-product-collection-item__right">
+            <div class="ibexa-pb-product-collection-item__trash-wrapper">
+                <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--trash ibexa-btn--small" title="{{ 'delete'|trans|desc('Delete') }}">
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="ibexa-pb-product-collection-item__embedded-item-actions-wrapper">
+                {% set embedded_item_actions_variables = {} %}
+
+                {% if content_id is defined and content_id != '__content_id__' %}
+                    {% set embedded_item_actions_variables = {
+                        content_id: content_id,
+                        location_id: location_id,
+                        product_code: product_code,
+                    } %}
+                {% endif %}
+
+                {% include '@ibexadesign/ui/component/embedded_item_actions/embedded_item_actions.html.twig' with embedded_item_actions_variables only %}
+            </div>
+        </div>
+    </div>
+</li>

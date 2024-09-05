@@ -1,0 +1,27 @@
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
+
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% block icon %}
+    <span class="type__icon">
+        <svg class="ibexa-icon ibexa-icon--review">
+            <use xlink:href="{{ ibexa_icon_path('review') }}"></use>
+        </svg>
+    </span>
+{% endblock %}
+
+{% block notification_type %}
+    <span class="type__text">
+        {{ 'content.review.ready'|trans|desc('Content is ready for review') }}
+    </span>
+{% endblock %}
+
+{% block message %}
+    {% embed '@ibexadesign/ui/component/table/table_body_cell.html.twig' with { class: 'ibexa-notifications-modal__description' } %}
+        {% block content %}
+            <p class="description__title">{{ 'content.review.from'|trans|desc('From:') }} <span class="description__title__item">{{ sender_firstname }} {{ sender_lastname }}</span></p>
+            <p class="description__text{% if notification.data.message|length > 50 %} description__text--ellipsis{% endif %}">{{ notification.data.message }}</p>
+            <span class="description__read-more">{{ 'content.review.read_more'|trans|desc('Read more') }}</span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

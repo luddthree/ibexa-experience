@@ -1,0 +1,9 @@
+services:
+  Ibexa\FieldTypePage\Calendar\REST\BlockVisibilityEventVisitor:
+    parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+    arguments:
+      $translator: '@translator'
+      $blockDefinitionFactory: '@Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionFactoryInterface'
+    tags:
+      - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\FieldTypePage\Calendar\BlockHideEvent }
+      - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\FieldTypePage\Calendar\BlockRevealEvent }

@@ -1,0 +1,8 @@
+ibexa_measurement:
+    conversion:
+        formulas:
+            - { source_unit: foo, target_unit: bar, formula: 'value / 100' }
+    types:
+        area:
+            foo: { symbol: foo }
+            bar: { symbol: bar }

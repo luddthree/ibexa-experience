@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\Personalization\Templating\Twig\DateExtension: ~
+
+    Ibexa\Bundle\Personalization\Templating\Twig\NumberExtension: ~
+
+    Ibexa\Bundle\Personalization\Templating\Twig\RecommendationExtension: ~
+
+    Ibexa\Bundle\Personalization\Templating\Twig\Functions\Recommendation:
+        public: true
+        arguments:
+            $credentialsResolver: '@Ibexa\Personalization\Config\PersonalizationClientCredentialsResolver'
+
+    Ibexa\Bundle\Personalization\Templating\Twig\Functions\UserTracking:
+        arguments:
+            $consumeTimeout: '%ibexa.personalization.recommendation.consume_timeout%'
+            $trackingScriptUrl: '%ibexa.personalization.server.event_tracking.script_url%'
+
+    Ibexa\Bundle\Personalization\Templating\Twig\SupportedModelDataTypesExtension: ~

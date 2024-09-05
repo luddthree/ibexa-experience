@@ -1,0 +1,34 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Measurement\Storage\Gateway\Definition\TypeGatewayInterface:
+        alias: Ibexa\Measurement\Storage\Gateway\Definition\TypeGateway
+
+    Ibexa\Measurement\Storage\Gateway\Definition\TypeGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Measurement\Storage\Gateway\Definition\UnitGatewayInterface:
+        alias: Ibexa\Measurement\Storage\Gateway\Definition\UnitGateway
+
+    Ibexa\Measurement\Storage\Gateway\Definition\UnitGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Measurement\ProductCatalog\Local\Attribute\MeasurementStorageConverter:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'measurement' }
+
+    ibexa.product_catalog.attribute.measurement.storage_definition:
+        class: Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\SimpleCustom\StorageDefinition
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'measurement' }
+
+    Ibexa\Measurement\ProductCatalog\Local\AssetTags\SingleMeasurementAssetTagsStorageConverter:
+        arguments:
+            $converter: '@Ibexa\Measurement\ProductCatalog\Local\Attribute\SingleMeasurementStorageConverter'
+        tags:
+            - { name: ibexa.product_catalog.asset.tag.storage_converter, priority: 0 }

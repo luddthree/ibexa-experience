@@ -1,0 +1,44 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Ibexa\ProductCatalog\Behat\Component\ProductPreview:
+        arguments:
+            $fieldTypeComponents: !tagged_iterator ibexa.testing.browser.component.field_type
+
+    Ibexa\ProductCatalog\Behat\Component\Fields\ProductSpecification:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\NewFilterDefinitionSideMenu: ~
+
+    Ibexa\ProductCatalog\Behat\Component\ProductPriceTab: ~
+
+    Ibexa\ProductCatalog\Behat\Component\ProductVariantTab: ~
+
+    Ibexa\ProductCatalog\Behat\Component\ProductAvailabilityTab: ~
+
+    Ibexa\ProductCatalog\Behat\Component\GenerateProductVariantsPopupWindow: ~
+
+    Ibexa\ProductCatalog\Behat\Component\Attributes\IntegerAttribute:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\Attributes\SelectionAttribute:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\Attributes\FloatAttribute:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\Attributes\CheckboxAttribute:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\Attributes\ColorAttribute:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\Fields\CustomerGroup:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]
+
+    Ibexa\ProductCatalog\Behat\Component\CategoryFilter: ~
+
+    Ibexa\ProductCatalog\Behat\Component\TypeOfProductTypeSelect: ~

@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Connector\Dam\Variation\DefaultAssetVariationGeneratorRegistry:
+        arguments:
+            $generators: !tagged_iterator { tag: ibexa.platform.connector.dam.variation_generator, index_by: source }
+
+    Ibexa\Connector\Dam\Variation\URLBasedVariationGenerator: ~
+
+    Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry:
+        arguments:
+            $factories: !tagged_iterator { tag: ibexa.platform.connector.dam.transformation_factory, index_by: source }

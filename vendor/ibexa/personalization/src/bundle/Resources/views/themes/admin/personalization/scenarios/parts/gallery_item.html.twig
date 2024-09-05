@@ -1,0 +1,8 @@
+{%- include '@ibexadesign/ui/component/grid_view/grid_view_item.html.twig' with {
+    item_attr: {
+        title: description|default('{{ description }}'),
+    },
+    image_url: image|default('{{ image }}'),
+    title: title|default('{{ title }}'),
+    is_template: is_template|default(false),
+} -%}

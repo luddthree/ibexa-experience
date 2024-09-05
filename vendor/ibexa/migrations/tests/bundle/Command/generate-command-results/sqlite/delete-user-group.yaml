@@ -1,0 +1,36 @@
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: f5c88a2209584891056f987fd965b0ba
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: 9b47a45624b023b1a76c73b74d704acf
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: 3c160cca19fb135f83bd02d911f04db2
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: 15b256dbea2ae72418ff5facc999e8f9
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: 14e4411b264a6194a33847843919451a
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: 5f7f0bdb3381d6a461d8c29ff53d908f

@@ -1,0 +1,19 @@
+{% extends '@ibexadesign/personalization/base_item.html.twig' %}
+
+{% block content %}
+    <div class="row align-items-stretch ibexa-main-row">
+        <div class="ibexa-content-edit-container">
+            <div class="container">
+                {% block details %}{% endblock %}
+            </div>
+        </div>
+
+        {% block right_sidebar_wrapper %}
+            <div class="ibexa-context-menu">
+                <div class="ibexa-sticky-container">
+                    {% block right_sidebar %}{% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}

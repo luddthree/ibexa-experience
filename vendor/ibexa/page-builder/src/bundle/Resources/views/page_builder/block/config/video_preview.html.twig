@@ -1,0 +1,14 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config/embed_preview.html.twig' %}
+
+{% import '@IbexaPageBuilder/page_builder/macros.html.twig' as macros %}
+
+{% block embed_widget_meta_preview %}
+    {% if content_type is not null and content is not null %}
+        {{ macros.video_preview(content, content_type) }}
+    {% else %}
+        <video class="ibexa-pb-embed-meta__preview" src="" controls></video>
+        <svg class="ibexa-pb-embed-meta__preview-icon ibexa-icon">
+            <use xlink:href=""></use>
+        </svg>
+    {% endif %}
+{% endblock %}

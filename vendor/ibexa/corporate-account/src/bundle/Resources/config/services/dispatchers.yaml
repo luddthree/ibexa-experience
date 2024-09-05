@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Form\ActionDispatcher\CompanyDispatcher:
+        parent: Ibexa\ContentForms\Form\ActionDispatcher\AbstractActionDispatcher
+
+    Ibexa\CorporateAccount\Form\ActionDispatcher\ShippingAddressDispatcher:
+        parent: Ibexa\ContentForms\Form\ActionDispatcher\AbstractActionDispatcher
+
+    Ibexa\CorporateAccount\Form\ActionDispatcher\MemberDispatcher:
+        parent: Ibexa\ContentForms\Form\ActionDispatcher\AbstractActionDispatcher
+
+    Ibexa\CorporateAccount\Form\ActionDispatcher\InvitationDispatcher:
+        parent: Ibexa\ContentForms\Form\ActionDispatcher\AbstractActionDispatcher
+
+    Ibexa\CorporateAccount\Form\ActionDispatcher\ApplicationDispatcher:
+        parent: Ibexa\ContentForms\Form\ActionDispatcher\AbstractActionDispatcher

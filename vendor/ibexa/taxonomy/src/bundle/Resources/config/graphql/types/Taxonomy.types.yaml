@@ -1,0 +1,11 @@
+BaseTaxonomy:
+    type: object
+    config:
+        fields:
+            identifier:
+                type: String!
+            name:
+                type: String!
+            root:
+                type: TaxonomyEntry!
+                description: "Root element"

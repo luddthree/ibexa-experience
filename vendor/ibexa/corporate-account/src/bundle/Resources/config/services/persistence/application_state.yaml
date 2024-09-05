@@ -1,0 +1,35 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    _instanceof:
+        Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\GatewayInterface:
+            tags:
+                - 'ibexa.product_catalog.common.doctrine_gateway'
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\GatewayInterface:
+        alias: Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\Gateway\DoctrineDatabase
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\HandlerInterface:
+        alias: Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\Handler
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\Handler: ~
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\DomainMapper: ~
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\DomainMapperInterface:
+        alias: Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\DomainMapper
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\Mapper: ~
+
+    Ibexa\CorporateAccount\Persistence\Legacy\ApplicationState\Criterion\ApplicationState:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }

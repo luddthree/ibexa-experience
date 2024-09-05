@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to protected property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\LookupLimitationResult\\:\\:\\$hasAccess\\.$#"
+			count: 1
+			path: src/lib/Menu/FullscreenSidebarBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$item of method Ibexa\\\\Bundle\\\\SiteContext\\\\Specification\\\\IsAdmin\\:\\:isSatisfiedBy\\(\\) expects Ibexa\\\\Core\\\\MVC\\\\Symfony\\\\SiteAccess, string given\\.$#"
+			count: 1
+			path: tests/bundle/Specification/IsAdminTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$item of method Ibexa\\\\SiteContext\\\\Specification\\\\IsContextAware\\:\\:isSatisfiedBy\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location, string given\\.$#"
+			count: 1
+			path: tests/lib/Specification/IsContextAwareTest.php

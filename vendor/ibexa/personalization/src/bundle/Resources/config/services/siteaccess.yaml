@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\SiteAccess\ScopeParameterNativeResolver:
+        arguments:
+            $configResolver: '@ibexa.config.resolver'
+
+    Ibexa\Personalization\SiteAccess\ScopeParameterResolver:
+        '@Ibexa\Personalization\SiteAccess\ScopeParameterNativeResolver'

@@ -1,0 +1,76 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_page_builder' %}
+
+{% form_theme form with '@IbexaPageBuilder/content_edit/form_fields.html.twig' %}
+
+{% block meta %}
+    <meta name="LanguageCode" content="{{ language.languageCode }}" />
+{% endblock %}
+
+{%- block body_class -%}{%- endblock -%}
+
+{% block navigation %}{% endblock %}
+{% block side_column %}{% endblock %}
+{% block header_row %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% set default_toolbox_title = 'toolbox.title'|trans|desc('Page blocks') %}
+{% set default_config_panel_subtitle = 'fields_editing_details'|trans({
+        '%location%': parent_location.contentInfo.name,
+        '%language_name%': language.name,
+    })|desc('Location: %location% in %language_name%')
+%}
+{% set toolbox_title = toolbox_title|default(default_toolbox_title) %}
+{% set config_panel_subtitle = config_panel_subtitle is not defined ? default_config_panel_subtitle : config_panel_subtitle %}
+
+{% block content_column %}
+    <div class="ibexa-main-container__content-column">
+        {% block content %}
+            {% block infobar %}{% endblock %}
+            {% block alerts %}{% endblock %}
+
+            {% block preview_options %}
+                <div class="ibexa-pb-preview-block-options-menu"></div>
+            {% endblock %}
+
+            {% block config_panel %}{% endblock %}
+
+            {% block app_wrapper %}
+                <div class="ibexa-pb-app-wrapper">
+                    <div class="ibexa-pb-app">
+                        <div id="ibexa-pb-app-root" class="ibexa-pb-app__landingpage"></div>
+                    </div>
+                </div>
+            {% endblock %}
+
+            {% block configuration %}
+                {{ form(block_configuration_request_form, {'attr': {'hidden': 'hidden'}}) }}
+            {% endblock %}
+
+            {% block config %}{% endblock %}
+
+            {% block backdrop %}
+                <div class="ibexa-pb-iframe-backdrop ibexa-pb-iframe-backdrop--is-loading">
+                    <div class="ibexa-pb-iframe-backdrop__loader-container">
+                        <div class="ibexa-pb-iframe-backdrop__loader"></div>
+                    </div>
+                </div>
+            {% endblock %}
+            {% block tooltip %}
+                <div class="ibexa-pb-events-tooltip-container"></div>
+            {% endblock %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include '@ibexadesign/content/edit/javascripts.html.twig' %}
+    {% include '@IbexaPageBuilder/page_builder/parts/javascripts.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% include '@ibexadesign/content/edit/stylesheets.html.twig' %}
+{% endblock %}

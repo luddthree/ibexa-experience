@@ -1,0 +1,27 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
+
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% set visible_attributes = [constant('Ibexa\\FieldTypePage\\ScheduleBlock\\ScheduleBlock::ATTRIBUTE_LIMIT')] %}
+
+{% block body_class %}{{ parent() }} ibexa-pb-block-config--scheduler{% endblock %}
+
+{% block basic_attributes %}
+    <div class="form-group ibexa-pb-schedule" data-model="{{ serialized_data }}">
+        {% if attributes_per_category['default'] is defined %}
+            {% for identifier in attributes_per_category['default'] %}
+                {% block config_entry %}
+                    {% if identifier in visible_attributes %}
+                        {{ form_row(form.attributes[identifier]) }}
+                    {% else %}
+                        <div hidden="hidden">
+                            {{ form_row(form.attributes[identifier]) }}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            {% endfor %}
+        {% endif %}
+
+        {% include '@IbexaPageBuilder/page_builder/block/config/schedule_preview.html.twig' %}
+    </div>
+{% endblock %}

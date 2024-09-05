@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\Bundle\FieldTypeQuery\Controller\QueryFieldRestController:
+        arguments:
+            $requestParser: '@Ibexa\Bundle\Rest\RequestParser\Router'
+
+    Ibexa\FieldTypeQuery\QueryFieldService:
+        arguments:
+            $queryTypeRegistry: '@Ibexa\Core\QueryType\ArrayQueryTypeRegistry'
+
+    Ibexa\Contracts\FieldTypeQuery\QueryFieldServiceInterface: '@Ibexa\FieldTypeQuery\QueryFieldService'

@@ -1,0 +1,4 @@
+ibexa_connector_qualifio:
+    client_id: 42
+    channel: FAKE-CHANNEL
+    feed_url: https://api.qualif.io/v1/campaignfeed/channels

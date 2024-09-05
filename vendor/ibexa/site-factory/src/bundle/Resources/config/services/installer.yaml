@@ -1,0 +1,6 @@
+services:
+    Ibexa\SiteFactory\Event\Subscriber\BuildSchemaSubscriber:
+        autoconfigure: true
+        public: false
+        arguments:
+            - '@=service("kernel").locateResource("@IbexaSiteFactoryBundle/Resources/config/storage/schema.yaml")'

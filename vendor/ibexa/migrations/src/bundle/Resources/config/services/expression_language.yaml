@@ -1,0 +1,85 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ExpressionLanguageContext:
+        arguments:
+            $parameters: !tagged_iterator
+                tag: 'ibexa.migrations.template.default_context_provider'
+                index_by: 'key'
+                default_index_method: 'getKey'
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ExpressionLanguageProvider:
+        arguments:
+            $functions: !tagged_locator
+                tag: 'ibexa.migrations.template.expression_language.function'
+                index_by: 'function'
+                default_index_method: 'getFunctionName'
+        tags:
+            -   name: 'ibexa.migrations.template.default_context_provider'
+                key: !php/const Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ExpressionLanguageProvider::_FUNCTIONS
+
+    ibexa.migrations.template.expression_language:
+        class: Symfony\Component\ExpressionLanguage\ExpressionLanguage
+        arguments:
+            - null
+            - [ '@Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ExpressionLanguageProvider' ]
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ReferenceResolver:
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: reference
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ProjectDirectoryResolver:
+        arguments:
+            $projectDir: '%kernel.project_dir%'
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: project_dir
+
+    ibexa.migrations.template.to_bool:
+        class: Closure
+        factory: [ Closure, fromCallable ]
+        arguments:
+            - 'boolval'
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: to_bool
+
+    ibexa.migrations.template.to_int:
+        class: Closure
+        factory: [ Closure, fromCallable ]
+        arguments:
+            - 'intval'
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: to_int
+
+    ibexa.migrations.template.to_float:
+        class: Closure
+        factory: [ Closure, fromCallable ]
+        arguments:
+            - 'floatval'
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: to_float
+
+    ibexa.migrations.template.to_string:
+        class: Closure
+        factory: [ Closure, fromCallable ]
+        arguments:
+            - 'strval'
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: to_string
+
+    ibexa.migrations.template.env:
+        class: Closure
+        factory: [ Closure, fromCallable ]
+        arguments:
+            - [ '@service_container', 'getEnv' ]
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: env

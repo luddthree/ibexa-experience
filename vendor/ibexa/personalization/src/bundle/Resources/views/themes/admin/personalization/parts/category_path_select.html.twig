@@ -1,0 +1,63 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% set is_disabled = is_disabled|default(false) %}
+
+<div
+    class="ibexa-tag-view-select ibexa-perso-category-path-select
+        {{ is_single_select|default(false) ? 'ibexa-perso-category-path-select--single-select' }}
+        {{ is_disabled|default(false) ? 'ibexa-perso-category-path-select--disabled' }}"
+    data-tag-template="{{ include('@ibexadesign/personalization/parts/category_path_select_tag.html.twig', {
+        label: '{{ label }}',
+        value: '{{ value }}',
+    })|e('html_attr') }}"
+>
+    <div class="ibexa-tag-view-select__info">
+        {{ 'category_path_select.select_path.title'|trans|desc('Set up a category path') }}
+    </div>
+    <div class="ibexa-perso-category-path-select__body">
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary ibexa-perso-category-path-select__add-path-udw-btn"
+            data-udw-title="{{ 'category_path_select.select_path_udw_title'|trans|desc('Select path') }}"
+            data-udw-config="{{ ibexa_udw_config('category_path') }}"
+            {{ is_disabled ? 'disabled' }}
+        >
+            {{ 'category_path_select.select_path'|trans|desc('Select path') }}
+        </button>
+        <span class="ibexa-perso-category-path-select__or">
+            {{ 'category_path_select.select_path.or'|trans|desc('Or') }}
+        </span>
+        <div class="ibexa-perso-category-path-select__custom-path">
+            <div class="form-group">
+                <label class="ibexa-label">{{ 'category_path_select.select_path.custom.label'|trans|desc('Path') }}</label>
+                {%- embed '@ibexadesign/ui/component/input_text.html.twig' with {
+                    search_btn_type: 'button',
+                } -%}
+                    {% block content %}
+                        <input
+                            type="text"
+                            class="ibexa-input ibexa-input--text form-control ibexa-perso-category-path-select__custom-path-input"
+                            {{ is_disabled ? 'disabled' }}
+                            placeholder=" "
+                        />
+                    {% endblock %}
+                {%- endembed -%}
+            </div>
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-perso-category-path-select__add-custom-path-btn"
+                {{ is_disabled ? 'disabled' }}
+            >
+                {{ 'category_path_select.select_path.custom.btn.title'|trans|desc('Add') }}
+            </button>
+        </div>
+    </div>
+    <div class="ibexa-perso-scenario-preview__tags">
+        {% for selected_item in selected_items|default([]) %}
+            {{ include('@ibexadesign/personalization/parts/category_path_select_tag.html.twig', {
+                label: selected_item.label,
+                value: selected_item.value,
+            }) }}
+        {% endfor %}
+    </div>
+</div>

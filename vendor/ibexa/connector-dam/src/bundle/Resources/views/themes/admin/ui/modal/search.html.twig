@@ -1,0 +1,60 @@
+{% trans_default_domain 'ibexa_connector_dam_ui' %}
+
+{% set main_form_rendered %}
+    {% block main_form %}
+        <div class="ibexa-dam-query-form">
+            {% if form is defined %}
+                {{ form_widget(form, { attr: { class: 'ibexa-input ibexa-input--text ibexa-dam-query-form__input' }}) }}
+            {% endif %}
+            <button
+                type="submit"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--search"
+            >
+                {{ 'search'|trans|desc('Search') }}
+            </button>
+        </div>
+    {% endblock %}
+{% endset %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'dam.modal.title'|trans|desc('Select Image Asset'),
+    class: 'ibexa-modal--search-dam',
+    id: 'select-from-dam-modal',
+} %}
+    {% trans_default_domain 'ibexa_connector_dam_ui' %}
+
+    {% block body_content %}
+        {{ main_form_rendered }}
+
+        {% set tabs_to_show = tabs|map((tab, index) => {
+            id: group ~ '-' ~ tab.identifier,
+            label: tab.name,
+            content: tab.view,
+            active: index == 0,
+        }) %}
+        {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+            tabs: tabs_to_show,
+            hide_toggler: true,
+        } %}
+            {% block tab_content %}
+                {% for tab in tabs_to_show %}
+                    {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                        id : tab.id,
+                        active: tab.active,
+                        tab_pane_class: "ibexa-dam-wrapper"
+                    } %}
+                        {% block content %}
+                            <div class="ibexa-dam-tab-content">
+                                {{ tab.content|raw }}
+                                {% include '@ibexadesign/ui/pagination/list.html.twig' %}
+                            </div>
+                            <div class="ibexa-dam-search-results">
+                                <div class="ibexa-dam-search-results__content {{ tab.id }}"></div>
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}

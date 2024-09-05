@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\SiteContext\SiteContextServiceInterface:
+        alias: Ibexa\SiteContext\SiteContextService
+
+    Ibexa\SiteContext\SiteContextService: ~
+
+    Ibexa\Contracts\SiteContext\PreviewUrlResolver\LocationPreviewUrlResolverInterface:
+        alias: Ibexa\SiteContext\PreviewUrlResolver\LocationPreviewUrlResolver
+
+    Ibexa\SiteContext\PreviewUrlResolver\LocationPreviewUrlResolver: ~

@@ -1,0 +1,146 @@
+ibexa.corporate_account.company.create:
+    path: /company/create
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyCreateController::createAction'
+
+ibexa.corporate_account.company.list:
+    path: /company/list
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyListController::listAction'
+
+ibexa.corporate_account.company.bulk_deactivate:
+    path: /company/deactivate/bulk
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyStatusController::bulkDeactivateAction'
+
+ibexa.corporate_account.company.details:
+    path: /company/details/{companyId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyDetailsController::detailsAction'
+
+ibexa.corporate_account.company.deactivate:
+    path: /company/deactivate/{companyId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyStatusController::deactivateAction'
+
+ibexa.corporate_account.company.activate:
+    path: /company/activate/{companyId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyStatusController::activateAction'
+
+ibexa.corporate_account.individual.list:
+    path: /individual/list
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\IndividualListController::listAction'
+
+ibexa.corporate_account.company.edit:
+    path: /company/edit/{companyId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyEditController::editAction'
+
+ibexa.corporate_account.company.basic_information.edit:
+    path: /company/edit/{companyId}/basic_information
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyEditController::editBasicInformationAction'
+
+ibexa.corporate_account.company.billing_address.edit:
+    path: /company/edit/{companyId}/billing_address
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyEditController::editBillingAddressAction'
+
+ibexa.corporate_account.company.contact.edit:
+    path: /company/edit/{companyId}/contact
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CompanyEditController::editContactAction'
+
+ibexa.corporate_account.company.shipping_address.create:
+    path: /company/{companyId}/shipping_address/create
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressCreateController::createAction'
+
+ibexa.corporate_account.company.shipping_address.edit:
+    path: /company/{companyId}/shipping_address/{shippingAddressId}/edit
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressEditController::editAction'
+
+ibexa.corporate_account.company.shipping_address.delete:
+    path: /company/{companyId}/shipping_address/delete
+    methods: [ POST ]
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressDeleteController::deleteAction'
+
+ibexa.corporate_account.company.shipping_address.set_as_default:
+    path: /company/{companyId}/shipping_address/set-as-default
+    methods: [ POST ]
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressSetAsDefaultController::setAsDefaultAction'
+
+ibexa.corporate_account.company.member.create:
+    path: /company/{companyId}/member/create
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\MemberCreateController::createAction'
+
+ibexa.corporate_account.company.member.edit:
+    path: /company/{companyId}/member/{memberId}/edit
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\MemberEditController::editAction'
+
+ibexa.corporate_account.company.member.activate:
+    path: /company/{companyId}/member/{memberId}/activate
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\MemberEditController::activateAction'
+
+ibexa.corporate_account.company.member.deactivate:
+    path: /company/{companyId}/member/{memberId}/deactivate
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\MemberEditController::deactivateAction'
+
+ibexa.corporate_account.company.member.change_role:
+    path: /company/member/change_role
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\MemberEditController::changeRoleAction'
+
+ibexa.corporate_account.company.invite:
+    path: /company/{companyId}/invite
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\InvitationController::sendInvitationsAction'
+
+ibexa.corporate_account.company.invite.resend:
+    path: /company/{companyId}/invite/resend
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\InvitationController::resendAction'
+
+ibexa.corporate_account.company.invite.reinvite:
+    path: /company/{companyId}/invite/reinvite
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\InvitationController::reinviteAction'
+
+ibexa.corporate_account.application.list:
+    path: /application/list
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ApplicationListController::listAction'
+
+ibexa.corporate_account.application.details:
+    path: /application/details/{applicationId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ApplicationDetailsController::detailsAction'
+
+ibexa.corporate_account.application.edit:
+    path: /application/edit/{applicationId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ApplicationEditController::editAction'
+
+ibexa.corporate_account.application.edit.internal:
+    path: /application/edit/{applicationId}/internal
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ApplicationEditController::editInternalAction'
+
+ibexa.corporate_account.application.workflow.state:
+    path: /application/{applicationId}/workflow/{state}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ApplicationWorkflowController::dispatchAction'
+
+ibexa.corporate_account.application.delete.bulk:
+    path: /application/delete/bulk
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\ApplicationDeleteController::bulkDeleteAction'

@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Permissions\Security\Limitation\FieldGroupLimitationType:
+        lazy: true # Race condition somewhere in Kernel, results in different PermissionResolver instances
+        arguments:
+            $fieldsGroupsList: '@Ibexa\Core\Helper\FieldsGroups\FieldsGroupsList'
+            $fieldTypeRegistry: '@Ibexa\Core\FieldType\FieldTypeRegistry' # Triggers race condition
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: FieldGroup }
+
+    Ibexa\Permissions\Security\Limitation\Mapper\FieldGroupLimitationMapper:
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $fieldsGroupsList: '@Ibexa\Core\Helper\FieldsGroups\FieldsGroupsList'
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: FieldGroup }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: FieldGroup }
+
+    Ibexa\Permissions\EventSubscriber\FieldPermissionCheckSubscriber: ~

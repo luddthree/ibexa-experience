@@ -1,0 +1,33 @@
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: '',
+    class: 'ibexa-ca-user-status-change-confirmation-modal',
+    id: 'ibexa-ca-user-status-change-confirmation-modal',
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block body_content %}
+        <span class="ibexa-ca-user-status-change-confirmation-modal__question"></span>
+        <span class="ibexa-ca-user-status-change-confirmation-modal__note"></span>
+    {% endblock %}
+    {% block footer_content %}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--primary ibexa-ca-user-status-change-confirmation-modal__activate-btn"
+        >
+            {{ 'user.status_change.confirmation_modal.activate'|trans|desc('Activate') }}
+        </button>
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--primary ibexa-ca-user-status-change-confirmation-modal__deactivate-btn"
+        >
+            {{ 'user.status_change.confirmation_modal.deactivate'|trans|desc('De-activate') }}
+        </button>
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary"
+            data-bs-dismiss="modal"
+        >
+            {{ 'user.status_change.confirmation_modal.cancel'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+{% endembed %}

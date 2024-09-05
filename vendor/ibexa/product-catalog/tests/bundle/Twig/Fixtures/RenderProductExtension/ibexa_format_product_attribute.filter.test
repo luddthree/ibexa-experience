@@ -1,0 +1,11 @@
+--TEST--
+"ibexa_format_product_attribute" filter
+--TEMPLATE--
+{{ null|ibexa_format_product_attribute }}
+{{ attribute|ibexa_format_product_attribute }}
+--DATA--
+return [
+    'attribute' => $this->getAttribute('foo'),
+];
+--EXPECT--
+FOO

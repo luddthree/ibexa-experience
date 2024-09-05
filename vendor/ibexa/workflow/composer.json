@@ -1,0 +1,99 @@
+{
+    "name": "ibexa/workflow",
+    "description": "Workflow bundle for Ibexa DXP",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Ibexa AS",
+            "email": "dev-team@ibexa.co"
+        }
+    ],
+    "replace": {
+        "ezsystems/ezplatform-workflow": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Workflow\\": "src/lib",
+            "Ibexa\\Bundle\\Workflow\\": "src/bundle/",
+            "Ibexa\\Contracts\\Workflow\\": "src/contracts/",
+            "EzSystems\\EzPlatformWorkflow\\": "src/lib",
+            "EzSystems\\EzPlatformWorkflowBundle\\": "src/bundle"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Workflow\\": "tests/lib/",
+            "Ibexa\\Tests\\Integration\\Workflow\\": "tests/integration/",
+            "Ibexa\\Tests\\Bundle\\Workflow\\": "tests/bundle/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ibexa/icons": "~4.6.0",
+        "ibexa/core": "~4.6.0",
+        "ibexa/admin-ui": "~4.6.0",
+        "ibexa/content-forms": "~4.6.0",
+        "ibexa/design-engine": "~4.6.0",
+        "knplabs/knp-menu": "^3.1",
+        "symfony/workflow": "^5.4",
+        "symfony/dependency-injection": "^5.0",
+        "symfony/http-foundation": "^5.0",
+        "symfony/config": "^5.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/yaml": "^5.0",
+        "symfony/event-dispatcher": "^5.0",
+        "symfony/routing": "^5.0",
+        "symfony/form": "^5.0",
+        "symfony/options-resolver": "^5.0",
+        "symfony/translation": "^5.0",
+        "symfony/translation-contracts": "^2.0",
+        "pagerfanta/pagerfanta": "^2.1",
+        "twig/intl-extra": "^3.0",
+        "ocramius/proxy-manager": "^2.1"
+    },
+    "suggest": {
+        "ezsystems/ezplatform-page-builder": "Page Builder integration"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "require-dev": {
+        "ibexa/behat": "~4.6.0",
+        "ibexa/doctrine-schema": "~4.6.0",
+        "ibexa/http-cache": "~4.6.0",
+        "ibexa/notifications": "~4.6",
+        "ibexa/rest": "~4.6.0",
+        "ibexa/fieldtype-richtext": "~4.6.0",
+        "ibexa/test-core": "^0.1.0",
+        "ibexa/user": "~4.6.0",
+        "ibexa/search": "~4.6.0",
+        "phpunit/phpunit": "^8.1",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "ibexa/code-style": "^1.0",
+        "ibexa/ci-scripts": "^0.2",
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-symfony": "^1.3",
+        "phpstan/phpstan-phpunit": "^1.3"
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run",
+        "test": "phpunit -c phpunit.xml",
+        "test-integration": "phpunit -c phpunit.integration.xml",
+        "phpstan": "phpstan analyse -c phpstan.neon"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    },
+    "config": {
+        "allow-plugins": false
+    }
+}

@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Provider\Chart\ChartDataStructProvider: ~
+
+    Ibexa\Personalization\Provider\Chart\ChartDataStructProviderInterface:
+        '@Ibexa\Personalization\Provider\Chart\ChartDataStructProvider'

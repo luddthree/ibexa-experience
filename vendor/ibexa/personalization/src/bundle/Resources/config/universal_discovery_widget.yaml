@@ -1,0 +1,10 @@
+system:
+    default:
+        universal_discovery_widget_module:
+            configuration:
+                editorial_list:
+                    multiple: true
+                context_items:
+                    multiple: true
+                category_path:
+                    multiple: false

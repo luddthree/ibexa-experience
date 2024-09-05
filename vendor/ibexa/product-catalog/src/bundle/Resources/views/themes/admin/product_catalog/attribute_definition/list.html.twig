@@ -1,0 +1,53 @@
+{% extends "@ibexadesign/product_catalog/list.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set pager = attributes_definitions %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { value: 'attribute_definition.breadcrumb.list'|trans|desc('Attributes') }
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if is_editable %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                <button
+                    data-actions="pre-create-attribute-definition"
+                    class="btn ibexa-btn ibexa-btn--primary ibexa-btn--extra-actions ibexa-btn--create"
+                    {{ no_attributes_groups ? 'disabled' }}
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{ 'list.action.create'|trans|desc('Create') }}</span>
+                </button>
+            </li>
+        </ul>
+
+        {% include '@ibexadesign/product_catalog/attribute_definition/extra_actions.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'attribute_definition.list.title'|trans|desc('Attributes')
+    } %}
+{% endblock %}
+
+{% block data_grid %}
+    {% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+    {% set search_query = search_form.vars.value.getQuery() ?? null %}
+    {% set default_headline = results_headline(attributes_definitions|length, false, search_query) %}
+    {% set headline = custom_results_headline ?? default_headline %}
+
+    {% if is_editable %}
+        {% include '@ibexadesign/product_catalog/attribute_definition/data_grid_editable.html.twig' %}
+    {% else %}
+        {% include '@ibexadesign/product_catalog/attribute_definition/data_grid.html.twig' %}
+    {% endif %}
+{% endblock %}

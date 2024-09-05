@@ -1,0 +1,32 @@
+name: Browser tests
+
+on:
+    push:
+        branches:
+            - main
+            - '[0-9]+.[0-9]+'
+    pull_request: ~
+
+jobs:
+    scheduler-headless:
+        name: "Headless edition"
+        uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
+        with:
+            project-edition: 'headless'
+            test-suite:  '--mode=standard --profile=browser --suite=scheduler'
+        secrets:
+            SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+            SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+            TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    scheduler-experience:
+        name: "Experience edition"
+        uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
+        with:
+            project-edition: 'experience'
+            test-suite:  '--mode=standard --profile=browser --suite=scheduler'
+        secrets:
+            SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+            SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+            TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

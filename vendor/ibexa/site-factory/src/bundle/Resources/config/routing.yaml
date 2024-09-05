@@ -1,0 +1,53 @@
+
+### Site
+
+ibexa.site_factory.grid:
+    path: /site/grid/{locationId}
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::gridAction'
+        locationId: ~
+    requirements:
+        siteId: \d+
+
+ibexa.site_factory.list:
+    path: /site/list/{locationId}
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::listAction'
+        locationId: ~
+    requirements:
+        siteId: \d+
+
+ibexa.site_factory.create:
+    path: /site/create
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::createAction'
+
+ibexa.site_factory.delete:
+    path: /site/delete
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::deleteAction'
+
+ibexa.site_factory.bulk_delete:
+    path: /site/bulk/delete
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::bulkDeleteAction'
+
+ibexa.site_factory.edit:
+    path: /site/{siteId}/edit
+    methods: [GET, POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::editAction'
+    requirements:
+        siteId: \d+
+
+ibexa.site_factory.view:
+    path: /site/{siteId}
+    defaults:
+        _controller: 'Ibexa\Bundle\SiteFactory\Controller\SiteController::viewAction'
+    requirements:
+        siteId: \d+

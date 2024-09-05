@@ -1,0 +1,26 @@
+{% extends '@ibexadesign/customer_portal/account/base.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% form_theme form_forgot_user_password '@ibexadesign/ui/form_fields.html.twig'  %}
+
+{%- block content -%}
+    <a href="{{ path('login') }}" class="btn ibexa-btn ibexa-btn--ghost ibexa-ca-login__btn--back">
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">{{ 'account.forgot_user_password.back'|trans|desc('Back') }}
+    </a>
+    <h2 class="ibexa-ca-login__actions-headline">{{ 'account.forgot_user_password.reset_your_password'|trans|desc('Reset your password') }}</h2>
+    {% if reason == userForgotPasswordReasonMigration %}
+        <p>{{ 'account.forgot_user_password.reason.migration'|trans|desc('Your password has expired, change it.') }}</p>
+    {% endif %}
+    {% if form_forgot_user_password is defined %}
+        {{ form_start(form_forgot_user_password, {'attr': {'class': 'ibexa-form-validate ibexa-ca-login__forgot-password-form'}}) }}
+        <fieldset>
+            {{ form_row(form_forgot_user_password.email, {'attr': {'class': 'form-control ibexa-input ibexa-input--text ibexa-ca-login__input'}}) }}
+        </fieldset>
+        {{ form_widget(form_forgot_user_password.reset, {'attr': {'class': 'btn ibexa-btn ibexa-btn--primary ibexa-ca-login__btn--reset-password'}}) }}
+
+        {{ form_end(form_forgot_user_password) }}
+    {% endif %}
+{%- endblock content -%}

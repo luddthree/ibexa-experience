@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Converter\\\\AddressConverter\\:\\:getDefaultSettings\\(\\) should return array but returns array\\<int\\|string, mixed\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of function array_keys expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php

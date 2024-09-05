@@ -1,0 +1,9 @@
+{% block ezcontent_asset %}
+    {% set content_id = asset.uri|url_component('host') %}
+
+    {{ render(controller('ibexa_content:viewAction', {
+        contentId: content_id,
+        viewType: 'embed',
+        no_layout: true
+    })) }}
+{% endblock %}

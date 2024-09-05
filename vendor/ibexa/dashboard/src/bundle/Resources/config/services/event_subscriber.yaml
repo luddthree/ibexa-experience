@@ -1,0 +1,21 @@
+parameters:
+    ibexa.dashboard.page_builder.config:
+        builder_name: 'dashboard'
+        info_bar:
+            base_template: '@@ibexadesign/dashboard/builder/info_bar/base.html.twig'
+        layout:
+            base_template: '@@ibexadesign/dashboard/builder/base.html.twig'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        bind:
+            $pageBuilderConfig: '%ibexa.dashboard.page_builder.config%'
+
+    Ibexa\Dashboard\EventSubscriber\:
+        resource: "./../../../../lib/EventSubscriber/*"
+        public: true
+        tags:
+            - { name: kernel.event_subscriber }

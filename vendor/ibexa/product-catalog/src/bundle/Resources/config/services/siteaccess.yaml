@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\SiteAccess\ProductCatalogSiteAccessPreviewVoter:
+        tags:
+            - { name: ibexa.admin_ui.site_access.preview.voter }
+            - { name: monolog.logger, channel: ibexa.product-catalog }

@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Configuration\CorporateAccount:
+        arguments:
+            $configuration: '%ibexa.corporate_account%'
+
+    Ibexa\CorporateAccount\Configuration\CorporateAccountConfiguration: '@Ibexa\CorporateAccount\Configuration\CorporateAccount'

@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\Workflow\Behat\Context\WorkflowContext:
+    class: Ibexa\Workflow\Behat\Context\WorkflowExperienceContext

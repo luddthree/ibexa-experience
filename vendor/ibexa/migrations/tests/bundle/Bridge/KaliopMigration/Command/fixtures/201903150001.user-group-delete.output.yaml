@@ -1,0 +1,6 @@
+-
+    type: user_group
+    mode: delete
+    match:
+        field: id
+        value: 11

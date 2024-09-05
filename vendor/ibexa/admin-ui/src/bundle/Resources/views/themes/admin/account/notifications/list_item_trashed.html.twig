@@ -1,0 +1,17 @@
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
+
+{% trans_default_domain 'ibexa_notifications' %}
+
+{% block icon %}
+    <span class="type__icon">
+        <svg class="ibexa-icon">
+            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+        </svg>
+    </span>
+{% endblock %}
+
+{% block notification_type %}
+    <span class="type__text">
+        {{ 'notification.trashed'|trans|desc('Sent to Trash')}}
+    </span>
+{% endblock %}

@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\ConnectorQualifio\Event\Subscriber\Block\QualifioBlockSubscriber: ~
+
+    Ibexa\ConnectorQualifio\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\QualifioChannelListFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: qualifiochannellist }

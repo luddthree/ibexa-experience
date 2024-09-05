@@ -1,0 +1,78 @@
+{% trans_default_domain 'ibexa_segmentation' %}
+
+<li class="ibexa-segmentation__item" draggable="true">
+    <div class="ibexa-segmentation__item-drag">
+        <svg class="ibexa-icon ibexa-icon--tiny-small">
+            <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+        </svg>
+    </div>
+    <div class="ibexa-segmentation__select-wrapper">
+        {% set source_option_template %}
+            <option
+                data-group-id="{{ '{{ group_id }}' }}"
+                data-group-name="{{ '{{ group_name }}' }}"
+                value="{{ '{{ value }}' }}"
+            >
+                {{ '{{ label }}' }}
+            </option>
+        {% endset %}
+        {% set dropdown_group_template %}
+            <li
+                class="ibexa-dropdown__item-group"
+                data-group-id="{{ group_id|default('{{ group_id }}') }}"
+                data-group-name="{{ group_name|default('{{ group_name }}') }}"
+            >
+                <label class="ibexa-dropdown__item-group-label">{{ group_name|default('{{ group_name }}') }}</label>
+                <ul class="ibexa-dropdown__item-group-list"></ul>
+            </li>
+        {% endset %}
+        {% set source %}
+            <select
+                class="ibexa-input ibexa-input--select form-control ibexa-dropdown__source d-none
+                    ibexa-segmentation__select ibexa-segmentation__select--segment"
+                data-option-template="{{ source_option_template|e('html_attr') }}"
+                data-dropdown-group-template="{{ dropdown_group_template|e('html_attr') }}"
+            ></select>
+        {% endset %}
+        <div class="form-group ibexa-segmentation__select-group">
+            {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                source,
+                choices: [],
+                is_dynamic: true,
+                class: 'ibexa-dropdown--small ibexa-dropdown--segment',
+            } only %}
+        </div>
+    </div>
+    <div class="ibexa-segmentation__content-wrapper">
+        <button
+            class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small ibexa-btn--select-content ibexa-segmentation__select-content-btn"
+            type="button"
+            data-udw-config="{{ ibexa_udw_config('single', {}) }}">
+            {{ 'select.content'|trans|desc('Select content') }}
+        </button>
+        <div class="ibexa-segmentation__content-info ibexa-segmentation__content-info--hidden">
+            {{ include('@ibexadesign/ui/tag.html.twig', {
+                content: '',
+                is_loading_state: false,
+            }) }}
+            <a
+                href="#"
+                class="ibexa-link ibexa-link--change"
+            >
+                {{ 'change.content'|trans|desc('Change') }}
+            </a>
+
+        </div>
+    </div>
+    <div class="ibexa-segmentation__item-actions">
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-btn--trash"
+            title="{{ 'delete'|trans|desc('Delete') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    </div>
+</li>

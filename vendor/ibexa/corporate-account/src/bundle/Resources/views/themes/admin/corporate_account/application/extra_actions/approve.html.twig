@@ -1,0 +1,31 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% embed '@ibexadesign/corporate_account/application/extra_actions/extra_actions.html.twig' with {
+    id: 'application-approve',
+    title: 'application.workflow.extra_actions.approve.title'|trans|desc('Approving application'),
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+    {% form_theme accept_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+    {% block content %}
+        {{ form_start(accept_form, { action: path('ibexa.corporate_account.application.workflow.state', {
+            state: 'accept',
+            applicationId: application.id,
+        }), method: 'POST'}) }}
+            {{ form_row(accept_form.customer_group) }}
+            {{ form_row(accept_form.sales_rep) }}
+            {{ form_row(accept_form.notes) }}
+
+            {% embed '@ibexadesign/corporate_account/application/extra_actions/extra_actions_btns.html.twig' %}
+                {% trans_default_domain 'ibexa_corporate_account' %}
+                {% form_theme accept_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+                {% block extra_btns %}
+                    {{ form_widget(accept_form.accept, { attr: {
+                        class: 'ibexa-btn ibexa-btn--primary ibexa-ca-application-workflow-extra-actions__btn',
+                    }}) }}
+                {% endblock %}
+            {% endembed %}
+        {{ form_end(accept_form) }}
+    {% endblock %}
+{% endembed %}

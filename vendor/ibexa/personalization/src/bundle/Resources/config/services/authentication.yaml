@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\Authentication\TokenAuthentication: ~
+
+    Ibexa\Personalization\Authentication\AuthenticationInterface:
+        alias: Ibexa\Personalization\Authentication\TokenAuthentication

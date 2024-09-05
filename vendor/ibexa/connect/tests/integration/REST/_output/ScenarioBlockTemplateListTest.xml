@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScenarioBlockTemplateList media-type="application/vnd.ibexa.api.ScenarioBlockTemplateList+xml">
+ <ScenarioBlockTemplate media-type="application/vnd.ibexa.api.ScenarioBlockTemplate+xml">
+  <id>foo</id>
+  <label>foo</label>
+  <template>@ibexa_design/foo.html.twig</template>
+ </ScenarioBlockTemplate>
+ <ScenarioBlockTemplate media-type="application/vnd.ibexa.api.ScenarioBlockTemplate+xml">
+  <id>bar</id>
+  <label>Bar</label>
+  <template>@ibexa_design/bar.html.twig</template>
+  <ScenarioBlockTemplateParameter media-type="application/vnd.ibexa.api.ScenarioBlockTemplateParameter+xml">
+   <name>foo</name>
+   <label>foo</label>
+   <type>text</type>
+   <required>false</required>
+  </ScenarioBlockTemplateParameter>
+  <ScenarioBlockTemplateParameter media-type="application/vnd.ibexa.api.ScenarioBlockTemplateParameter+xml">
+   <name>bar</name>
+   <label>bar</label>
+   <type>text</type>
+   <required>true</required>
+   <mappable>true</mappable>
+  </ScenarioBlockTemplateParameter>
+  <ScenarioBlockTemplateParameter media-type="application/vnd.ibexa.api.ScenarioBlockTemplateParameter+xml">
+   <name>collection</name>
+   <label>collection</label>
+   <type>array</type>
+   <required>false</required>
+   <spec>
+    <value>
+     <value key="name">email</value>
+     <value key="type">email</value>
+     <value key="label">Email</value>
+    </value>
+    <value>
+     <value key="name">name</value>
+     <value key="type">text</value>
+     <value key="label">Name</value>
+    </value>
+   </spec>
+  </ScenarioBlockTemplateParameter>
+  <ScenarioBlockTemplateParameter media-type="application/vnd.ibexa.api.ScenarioBlockTemplateParameter+xml">
+   <name>events</name>
+   <label>My Text</label>
+   <type>text</type>
+   <required>false</required>
+   <nested>
+    <value>
+     <value key="name">data</value>
+     <value key="mappable">true</value>
+     <value key="type">array</value>
+     <value key="spec">
+      <value>
+       <value key="label">Name</value>
+       <value key="name">name</value>
+       <value key="type">text</value>
+       <value key="required">true</value>
+       <value key="mappable">true</value>
+      </value>
+     </value>
+    </value>
+   </nested>
+  </ScenarioBlockTemplateParameter>
+ </ScenarioBlockTemplate>
+</ScenarioBlockTemplateList>

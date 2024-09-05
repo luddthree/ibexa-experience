@@ -1,0 +1,2091 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Elasticsearch\\\\Command\\\\PutIndexTemplateCommand\\:\\:buildRequest\\(\\) has parameter \\$template with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Command/PutIndexTemplateCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Elasticsearch\\\\Command\\\\PutIndexTemplateCommand\\:\\:buildRequest\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Command/PutIndexTemplateCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\AggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/AggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/AggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/CriterionVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/FacetBuilderVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\FacetResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/FacetResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\LanguageFilter\\:\\:__construct\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/LanguageFilter.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\LanguageFilter\\:\\:fromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/LanguageFilter.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Query/SortClauseVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Pinned\\:\\:__construct\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Repository/Values/Content/Query/Pinned.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\DocumentMapper\\\\DocumentFactory\\:\\:getLocationAncestors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/DocumentMapper/DocumentFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\DocumentMapper\\\\DocumentFactory\\:\\:getObjectStateIds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/DocumentMapper/DocumentFactory.php
+
+		-
+			message: "#^Offset 'ancestors' does not exist on array\\{ancestors\\?\\: non\\-empty\\-array\\<int\\<0, max\\>, mixed\\>, ids\\: non\\-empty\\-array\\<int\\<0, max\\>, mixed\\>, parent_ids\\: non\\-empty\\-array\\<int\\<0, max\\>, mixed\\>, path_strings\\: non\\-empty\\-array\\<int\\<0, max\\>, string\\>, remote_ids\\: non\\-empty\\-array\\<int\\<0, max\\>, mixed\\>\\}\\.$#"
+			count: 1
+			path: src/lib/DocumentMapper/DocumentFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$locationIds of method Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\Location\\\\Handler\\:\\:loadList\\(\\) expects array\\<int\\>, array\\<int, string\\> given\\.$#"
+			count: 1
+			path: src/lib/DocumentMapper/DocumentFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\DocumentSerializer\\\\DocumentSerializer\\:\\:serialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/DocumentSerializer/DocumentSerializer.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\DocumentSerializer\\\\DocumentSerializerInterface\\:\\:serialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/DocumentSerializer/DocumentSerializerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\ClientConfigurationProvider\\:\\:__construct\\(\\) has parameter \\$availableConfigurations with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/ClientConfigurationProvider.php
+
+		-
+			message: "#^Call to RuntimeException\\:\\:__construct\\(\\) on a separate line has no effect\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/ClientFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$logger of method Elasticsearch\\\\ClientBuilder\\:\\:setLogger\\(\\) expects Psr\\\\Log\\\\LoggerInterface, Psr\\\\Log\\\\LoggerInterface\\|null given\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/ClientFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$tracer of method Elasticsearch\\\\ClientBuilder\\:\\:setTracer\\(\\) expects Psr\\\\Log\\\\LoggerInterface, Psr\\\\Log\\\\LoggerInterface\\|null given\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/ClientFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Elasticsearch\\\\ClientBuilder\\:\\:setSSLVerification\\(\\) expects bool\\|string, bool\\|string\\|null given\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/ClientFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Authentication\\:\\:__construct\\(\\) has parameter \\$credentials with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Authentication.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Authentication\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Authentication.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Authentication\\:\\:getCredentials\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Authentication.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Client\\:\\:__construct\\(\\) has parameter \\$indexTemplates with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Client.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Client\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Client.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Client\\:\\:getHosts\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Client.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Client\\:\\:getIndexTemplates\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Client.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\Host\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/Host.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSL\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/SSL.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLCACert\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/SSLCACert.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLCert\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/SSLCert.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLKey\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Client/Config/SSLKey.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Index\\\\FieldTypeResolver\\:\\:__construct\\(\\) has parameter \\$mappings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Index/FieldTypeResolver.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Index\\\\FieldTypeResolver\\:\\:\\$mappings type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Index/FieldTypeResolver.php
+
+		-
+			message: "#^Class Ibexa\\\\Contracts\\\\Elasticsearch\\\\Mapping\\\\BaseDocument referenced with incorrect case\\: Ibexa\\\\Contracts\\\\ElasticSearch\\\\Mapping\\\\BaseDocument\\.$#"
+			count: 2
+			path: src/lib/ElasticSearch/Index/IndexResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Index\\\\IndexResolver\\:\\:__construct\\(\\) has parameter \\$prefixMap with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/Index/IndexResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\IndexTemplate\\\\IndexTemplateRegistry\\:\\:__construct\\(\\) has parameter \\$templates with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/IndexTemplate/IndexTemplateRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\IndexTemplate\\\\IndexTemplateRegistry\\:\\:getIndexTemplate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/IndexTemplate/IndexTemplateRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\IndexTemplate\\\\IndexTemplateRegistry\\:\\:\\$templates type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/IndexTemplate/IndexTemplateRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\IndexTemplate\\\\IndexTemplateRegistryInterface\\:\\:getIndexTemplate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/IndexTemplate/IndexTemplateRegistryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Aggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/Aggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:__construct\\(\\) has parameter \\$filter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:__construct\\(\\) has parameter \\$must with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:__construct\\(\\) has parameter \\$mustNot with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:__construct\\(\\) has parameter \\$should with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:buildNodes\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:buildNodes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/BoolQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\DateRange\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/DateRange.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\DateRangeAggregation\\:\\:__construct\\(\\) has parameter \\$ranges with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/DateRangeAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\DateRangeAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/DateRangeAggregation.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\DateRangeAggregation\\:\\:\\$ranges \\(array\\<Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Range\\>\\) does not accept array\\<Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\DateRange\\|Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Range\\>\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/DateRangeAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\ExistsQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/ExistsQuery.php
+
+		-
+			message: "#^Cannot call method toArray\\(\\) on Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Query\\|null\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/FilterAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\FilterAggregation\\:\\:__construct\\(\\) has parameter \\$aggregations with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/FilterAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\FilterAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/FilterAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GeoDistanceQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/GeoDistanceQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GlobalAggregation\\:\\:__construct\\(\\) has parameter \\$aggregations with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/GlobalAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GlobalAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/GlobalAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Query\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/Query.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Range\\:\\:__construct\\(\\) has parameter \\$from with no type specified\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/Range.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Range\\:\\:__construct\\(\\) has parameter \\$to with no type specified\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/Range.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Range\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/Range.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeAggregation\\:\\:__construct\\(\\) has parameter \\$ranges with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQuery\\:\\:__construct\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQuery\\:\\:withRange\\(\\) has parameter \\$a with no type specified\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQuery\\:\\:withRange\\(\\) has parameter \\$b with no type specified\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeQuery.php
+
+		-
+			message: "#^Parameter \\#1 \\$operator of method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQuery\\:\\:toElasticSearchOperator\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RangeQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RawAggregation\\:\\:__construct\\(\\) has parameter \\$aggregation with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RawAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RawAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RawAggregation.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RawAggregation\\:\\:\\$aggregation type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RawAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RawQuery\\:\\:__construct\\(\\) has parameter \\$query with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RawQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RawQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RawQuery.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RawQuery\\:\\:\\$query type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/RawQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\StatsAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/StatsAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermQuery\\:\\:__construct\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermQuery\\:\\:withValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsAggregation\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsAggregation\\:\\:withExcludeValues\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsAggregation\\:\\:withIncludeValues\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsAggregation.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQuery\\:\\:__construct\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQuery\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsQuery.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQuery\\:\\:withValue\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsQuery.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQuery\\:\\:\\$value type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ElasticSearch/QueryDSL/TermsQuery.php
+
+		-
+			message: "#^Cannot access property \\$valueObject on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Search\\\\SearchHit\\|false\\.$#"
+			count: 1
+			path: src/lib/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Handler\\:\\:findContent\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Handler\\:\\:findLocations\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Handler\\:\\:findSingle\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Handler\\:\\:findSingle\\(\\) should return Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\ContentInfo but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\.$#"
+			count: 1
+			path: src/lib/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Handler\\:\\:suggest\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Handler.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Search\\\\Handler\\:\\:addDocuments\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Indexer.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractDateRangeAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AbstractDateRangeAggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractRangeAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AbstractRangeAggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractStatsAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AbstractStatsAggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractTermAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AbstractTermAggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AggregationDispatcherVisitor\\:\\:__construct\\(\\) has parameter \\$visitors with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AggregationDispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AggregationDispatcherVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AggregationDispatcherVisitor.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AggregationDispatcherVisitor\\:\\:\\$visitors \\(array\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AggregationDispatcherVisitor.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$aggregation with type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\FieldAggregation is not subtype of native type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/AggregationFieldResolver/ContentFieldAggregationFieldResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\ObjectStateAggregationVisitor\\:\\:getObjectStateIds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/ObjectStateAggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\ObjectStateAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/ObjectStateAggregationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\SubtreeTermAggregationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/AggregationVisitor/SubtreeTermAggregationVisitor.php
+
+		-
+			message: "#^Cannot call method getQuery\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Spellcheck\\|null\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:buildPayload\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:execute\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:visitAggregations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:visitFacetBuilder\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:visitFilter\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:visitQuery\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\Coordinator\\:\\:visitSortClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/Coordinator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CoordinatorInterface\\:\\:execute\\(\\) has parameter \\$languageFilter with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CoordinatorInterface.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:getOrganicCriteria\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractPinnedVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractPinnedVisitor\\:\\:getDocumentIds\\(\\) has parameter \\$ids with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractPinnedVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractPinnedVisitor\\:\\:getDocumentIds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractPinnedVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractPinnedVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractPinnedVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$ids of method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractPinnedVisitor\\:\\:getDocumentIds\\(\\) expects iterable, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractPinnedVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractRangeVisitor\\:\\:getRangeExpression\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractRangeVisitor\\:\\:getRangeExpression\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractRangeVisitor\\:\\:getTargetValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractRangeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractRangeVisitor.php
+
+		-
+			message: "#^Argument of an invalid type array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractSubtreeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractSubtreeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractSubtreeVisitor.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractSubtreeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractTermVisitor\\:\\:getTargetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractTermVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractTermVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractTermVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractTermsVisitor\\:\\:getTargetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractTermsVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractTermsVisitor\\:\\:getTargetValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractTermsVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\AbstractTermsVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/AbstractTermsVisitor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$criteria\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/CompositeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\CompositeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/CompositeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Content\\\\AncestorVisitor\\:\\:getTargetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Content/AncestorVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Content\\\\AncestorVisitor\\:\\:getTargetValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Content/AncestorVisitor.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Content/VisibilityVisitor.php
+
+		-
+			message: "#^Argument of an invalid type array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ContentTypeIdentifierVisitor.php
+
+		-
+			message: "#^Cannot call method warning\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ContentTypeIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\ContentTypeIdentifierVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ContentTypeIdentifierVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\Type\\\\Handler\\:\\:loadByIdentifier\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ContentTypeIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\CustomFieldInVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/CustomFieldInVisitor.php
+
+		-
+			message: "#^Argument of an invalid type array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DateMetadataInVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\DateMetadataInVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DateMetadataInVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Utils\\\\DateFormatter\\:\\:toElasticSearchDateTime\\(\\) expects int\\|string\\|null, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DateMetadataInVisitor.php
+
+		-
+			message: "#^Part \\$criterion\\-\\>value \\(array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DateMetadataInVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\DateMetadataRangeVisitor\\:\\:getTargetValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DateMetadataRangeVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Utils\\\\DateFormatter\\:\\:toElasticSearchDateTime\\(\\) expects int\\|string\\|null, bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 2
+			path: src/lib/Query/CriterionVisitor/DateMetadataRangeVisitor.php
+
+		-
+			message: "#^Part \\$criterion\\-\\>value \\(array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DateMetadataRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\DispatcherVisitor\\:\\:__construct\\(\\) has parameter \\$visitors with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\DispatcherVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\DispatcherVisitor\\:\\:\\$visitors \\(array\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FieldInVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FieldInVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FieldLikeVisitor\\:\\:supportsLikeWildcard\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FieldLikeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FieldLikeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FieldLikeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FieldRangeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FieldRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FieldRelationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FieldRelationVisitor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$boost\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FullTextVisitor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$fuzziness\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FullTextVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FullTextVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FullTextVisitor.php
+
+		-
+			message: "#^Parameter \\#2 \\$term of method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\FullTextVisitor\\:\\:convertToEditDistance\\(\\) expects string, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/FullTextVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Image\\\\AbstractImageRangeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Image/AbstractImageRangeVisitor.php
+
+		-
+			message: "#^Parameter \\#3 \\$value of class Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQuery constructor expects array, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Image/AbstractImageRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Image\\\\AbstractImageTermsVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Image/AbstractImageTermsVisitor.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of class Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQuery constructor expects array\\|null, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Image/AbstractImageTermsVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\IsFieldEmptyVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/IsFieldEmptyVisitor.php
+
+		-
+			message: "#^Class Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Iterator\\\\FieldCriterionTargetIterator implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Iterator/FieldCriterionTargetIterator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Iterator\\\\FieldCriterionTargetIterator\\:\\:prepareValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Iterator/FieldCriterionTargetIterator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Iterator\\\\FieldCriterionTargetIterator\\:\\:prepareValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Iterator/FieldCriterionTargetIterator.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$matchAlwaysAvailable\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/LanguageCodeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\LanguageCodeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/LanguageCodeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Location\\\\AncestorVisitor\\:\\:getTargetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Location/AncestorVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Location\\\\AncestorVisitor\\:\\:getTargetValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Location/AncestorVisitor.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Location/IsMainLocationVisitor.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/Location/VisibilityVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\LogicalAndVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/LogicalAndVisitor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$criteria\\.$#"
+			count: 2
+			path: src/lib/Query/CriterionVisitor/LogicalNotVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\LogicalNotVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/LogicalNotVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\LogicalOrVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/LogicalOrVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceInVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceInVisitor.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Cannot access offset 1 on array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createBetweenGeoDistanceQuery\\(\\) has parameter \\$searchFields with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createGtGeoDistanceQuery\\(\\) has parameter \\$searchFields with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createLtGeoDistanceQuery\\(\\) has parameter \\$searchFields with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Parameter \\#3 \\$a of method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createBetweenGeoDistanceQuery\\(\\) expects float, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Parameter \\#3 \\$distance of method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createGtGeoDistanceQuery\\(\\) expects float, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Parameter \\#3 \\$distance of method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createLtGeoDistanceQuery\\(\\) expects float, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Parameter \\#4 \\$b of method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MapLocationDistanceRangeVisitor\\:\\:createBetweenGeoDistanceQuery\\(\\) expects float, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MapLocationDistanceRangeVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MatchAllVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MatchAllVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\MatchNoneVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/MatchNoneVisitor.php
+
+		-
+			message: "#^Cannot call method warning\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 2
+			path: src/lib/Query/CriterionVisitor/ObjectStateIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\ObjectStateIdentifierVisitor\\:\\:getObjectStateIds\\(\\) has parameter \\$identifiers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ObjectStateIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\ObjectStateIdentifierVisitor\\:\\:getObjectStateIds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ObjectStateIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\ObjectStateIdentifierVisitor\\:\\:getObjectStateIdsForGroup\\(\\) has parameter \\$identifiers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ObjectStateIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\ObjectStateIdentifierVisitor\\:\\:getObjectStateIdsForGroup\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ObjectStateIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\ObjectStateIdentifierVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/ObjectStateIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\RandomScoreVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/RandomScoreVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\UserEmailVisitor\\:\\:getTargetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/UserEmailVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\UserEmailVisitor\\:\\:getTargetValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/UserEmailVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\UserLoginVisitor\\:\\:getTargetValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/UserLoginVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\UserLoginVisitor\\:\\:getTargetValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Query/CriterionVisitor/UserLoginVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\EventSubscriber\\\\LanguageQueryFilter\\:\\:createLanguageFilter\\(\\) never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: src/lib/Query/EventSubscriber/LanguageQueryFilter.php
+
+		-
+			message: "#^Parameter \\#1 \\$criteria of class Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\LogicalAnd constructor expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\>, array\\<int, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|null\\> given\\.$#"
+			count: 1
+			path: src/lib/Query/EventSubscriber/LanguageQueryFilter.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\:\\:\\$filter \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|null\\.$#"
+			count: 1
+			path: src/lib/Query/EventSubscriber/LanguageQueryFilter.php
+
+		-
+			message: "#^Cannot access property \\$seed on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\SortClause\\\\Target\\|null\\.$#"
+			count: 1
+			path: src/lib/Query/EventSubscriber/RandomScoreQueryFilter.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\:\\:\\$query \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/Query/EventSubscriber/RandomScoreQueryFilter.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\\\AbstractTermsVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/FacetBuilderVisitor/AbstractTermsVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\\\DispatcherVisitor\\:\\:__construct\\(\\) has parameter \\$visitors with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/FacetBuilderVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\\\DispatcherVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/FacetBuilderVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\\\DispatcherVisitor\\:\\:\\$visitors \\(array\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Query/FacetBuilderVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\\\FilteredFacetVisitorDecorator\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/FacetBuilderVisitor/FilteredFacetVisitorDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\FacetBuilderVisitor\\\\GlobalFacetVisitorDecorator\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/FacetBuilderVisitor/GlobalFacetVisitorDecorator.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\FacetBuilder\\:\\:\\$type\\.$#"
+			count: 2
+			path: src/lib/Query/FacetBuilderVisitor/UserVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractAggregations\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractFacets\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractFacets\\(\\) has parameter \\$facetBuilders with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractFacets\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractSearchHits\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractSearchHits\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractSpellcheckResults\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:loadValueObject\\(\\) has parameter \\$document with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Parameter \\#1 \\$spellcheck of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AbstractResultsExtractor\\:\\:extractSpellcheckResults\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Spellcheck, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Spellcheck\\|null given\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AbstractResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\DateRangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/DateRangeAggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\DispatcherAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/DispatcherAggregationResultExtractor.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\DispatcherAggregationResultExtractor\\:\\:\\$extractors \\(array\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\AggregationResultExtractor\\>\\) does not accept iterable\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\AggregationResultExtractor\\>\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/DispatcherAggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\NestedAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/NestedAggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\RangeAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/RangeAggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\StatsAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/StatsAggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\AuthorAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/AuthorAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\BooleanAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/BooleanAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\BooleanAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/BooleanAggregationKeyMapper.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\:\\:getType\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/CountryAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\CountryAggregationKeyMapper\\:\\:__construct\\(\\) has parameter \\$countriesInfo with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/CountryAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\CountryAggregationKeyMapper\\:\\:findCountryInfoByIDC\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/CountryAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\CountryAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/CountryAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\CountryAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/CountryAggregationKeyMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\CountryAggregationKeyMapper\\:\\:\\$countriesInfo type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/CountryAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\InvertedBooleanAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/InvertedBooleanAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\InvertedBooleanAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/InvertedBooleanAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\LanguageAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/LanguageAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\LanguageAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/LanguageAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\LocationAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/LocationAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\LocationAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/LocationAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\NullAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/NullAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\NullAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/NullAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ObjectStateAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ObjectStateAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ObjectStateAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ObjectStateAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SubtreeAggregationKeyMapper\\:\\:getAncestors\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SubtreeAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SubtreeAggregationKeyMapper\\:\\:map\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SubtreeAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SubtreeAggregationKeyMapper\\:\\:map\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SubtreeAggregationKeyMapper.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\:\\:getType\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserMetadataAggregationKeyMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ContentResultsExtractor\\:\\:getExpectedSourceFields\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/ContentResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ContentResultsExtractor\\:\\:loadValueObject\\(\\) has parameter \\$document with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/ContentResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\AbstractTermsResultExtractor\\:\\:extractEntries\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/AbstractTermsResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\AbstractTermsResultExtractor\\:\\:extractEntries\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/AbstractTermsResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\ContentTypeResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/ContentTypeResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\DispatcherResultExtractor\\:\\:__construct\\(\\) has parameter \\$extractors with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/DispatcherResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\DispatcherResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/DispatcherResultExtractor.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\DispatcherResultExtractor\\:\\:\\$extractors \\(array\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\FacetResultExtractor\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/DispatcherResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\FilteredFacetResultExtractorDecorator\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/FilteredFacetResultExtractorDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\GlobalFacetResultExtractorDecorator\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/GlobalFacetResultExtractorDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\SectionResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/SectionResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\FacetResultExtractor\\\\UserResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/FacetResultExtractor/UserResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\LocationResultsExtractor\\:\\:getExpectedSourceFields\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/LocationResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\LocationResultsExtractor\\:\\:loadValueObject\\(\\) has parameter \\$document with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/LocationResultsExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ResultExtractor\\:\\:extract\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/ResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ResultExtractor\\:\\:getExpectedSourceFields\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/ResultExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\ContentIdVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/ContentIdVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\ContentNameVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/ContentNameVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\ContentTranslatedNameVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/ContentTranslatedNameVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\CustomFieldVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/CustomFieldVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\DateModifiedVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/DateModifiedVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\DatePublishedVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/DatePublishedVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\DispatcherVisitor\\:\\:__construct\\(\\) has parameter \\$visitors with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\DispatcherVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Property Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\DispatcherVisitor\\:\\:\\$visitors \\(array\\<Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/DispatcherVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\FieldVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/FieldVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\Location\\\\DepthVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/Location/DepthVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\Location\\\\IdVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/Location/IdVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\Location\\\\IsMainLocationVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/Location/IsMainLocationVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\Location\\\\PathVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/Location/PathVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\Location\\\\PriorityVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/Location/PriorityVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\Location\\\\VisibilityVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/Location/VisibilityVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\MapLocationDistanceVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/MapLocationDistanceVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\ScoreVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/ScoreVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\SectionIdentifierVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/SectionIdentifierVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\SortClauseVisitor\\\\SectionNameVisitor\\:\\:visit\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Query/SortClauseVisitor/SectionNameVisitor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\SiteAccess\\\\ConfigResolverInterface\\:\\:method\\(\\)\\.$#"
+			count: 2
+			path: tests/bundle/ElasticSearch/Index/RepositoryAwareIndexResolverTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Elasticsearch\\\\ElasticSearch\\\\Index\\\\IndexResolverInterface\\:\\:method\\(\\)\\.$#"
+			count: 2
+			path: tests/bundle/ElasticSearch/Index/RepositoryAwareIndexResolverTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:create\\(\\)\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Cannot call method fetchAll\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\Elasticsearch\\\\LegacySetupFactory\\:\\:externalBuildContainer\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\Elasticsearch\\\\LegacySetupFactory\\:\\:getContentIdsToIndex\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\Elasticsearch\\\\LegacySetupFactory\\:\\:loadCoreSettings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\AuthenticationTest\\:\\:dataProviderForFromArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/AuthenticationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\AuthenticationTest\\:\\:testFromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/AuthenticationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\ClientTest\\:\\:dataProviderForFromArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/ClientTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\ClientTest\\:\\:testFromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/ClientTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\HostTest\\:\\:dataProviderForFromArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/HostTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\HostTest\\:\\:testFromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/HostTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLCertTest\\:\\:dataProviderForFromArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/SSLCertTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLCertTest\\:\\:testFromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/SSLCertTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLKeyTest\\:\\:dataProviderForFromArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/SSLKeyTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLKeyTest\\:\\:testFromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/SSLKeyTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLTest\\:\\:dataProviderForFromArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/SSLTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Client\\\\Config\\\\SSLTest\\:\\:testFromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Client/Config/SSLTest.php
+
+		-
+			message: "#^Constant Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Index\\\\IndexResolverTest\\:\\:EXAMPLE_CONTENT_TYPE_ID is unused\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Index/IndexResolverTest.php
+
+		-
+			message: "#^Constant Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\Index\\\\IndexResolverTest\\:\\:EXAMPLE_LANGUAGE_CODE is unused\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/Index/IndexResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQueryTest\\:\\:createDummyQuery\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/BoolQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/BoolQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\BoolQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/BoolQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\ExistsQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/ExistsQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\ExistsQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/ExistsQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\FilterAggregationTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/FilterAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\FilterAggregationTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/FilterAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GeoDistanceQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/GeoDistanceQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GeoDistanceQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/GeoDistanceQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GlobalAggregationTest\\:\\:createAggregationMock\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/GlobalAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GlobalAggregationTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/GlobalAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\GlobalAggregationTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/GlobalAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/RangeQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQueryTest\\:\\:dateProviderForSingleArgOperator\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/RangeQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\RangeQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/RangeQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/TermQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/TermQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsAggregationTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/TermsAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsAggregationTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/TermsAggregationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/TermsQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\TermsQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/TermsQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Utils\\\\DateFormatterTest\\:\\:dataProviderForToElasticSearchDateTime\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/Utils/DateFormatterTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\Utils\\\\DateFormatterTest\\:\\:testToElasticSearchDateTime\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/Utils/DateFormatterTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\WildcardQueryTest\\:\\:dataProviderForToArray\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/WildcardQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\ElasticSearch\\\\QueryDSL\\\\WildcardQueryTest\\:\\:testToArray\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ElasticSearch/QueryDSL/WildcardQueryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractAggregationVisitorTest\\:\\:configureMocksForTestVisit\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/AbstractAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/AbstractAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/AbstractAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\AbstractAggregationVisitorTest\\:\\:testVisit\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/AbstractAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\DateRangeAggregationVisitorTest\\:\\:configureMocksForTestVisit\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/DateRangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\DateRangeAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/DateRangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\DateRangeAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/DateRangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RangeAggregationVisitorTest\\:\\:configureMocksForTestVisit\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RangeAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RangeAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RawRangeAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RawRangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RawRangeAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RawRangeAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RawStatsAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RawStatsAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RawStatsAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RawStatsAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RawTermAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RawTermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\RawTermAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/RawTermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\StatsAggregationVisitorTest\\:\\:configureMocksForTestVisit\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/StatsAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\StatsAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/StatsAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\StatsAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/StatsAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\SubtreeTermAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/SubtreeTermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\SubtreeTermAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/SubtreeTermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\TermAggregationVisitorTest\\:\\:configureMocksForTestVisit\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/TermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\TermAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/TermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\TermAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/TermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\UserMetadataTermAggregationVisitorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/UserMetadataTermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\AggregationVisitor\\\\UserMetadataTermAggregationVisitorTest\\:\\:dataProviderForTestVisit\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/AggregationVisitor/UserMetadataTermAggregationVisitorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Iterator\\\\FieldCriterionTargetIteratorTest\\:\\:assertIterableResults\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/CriterionVisitor/Iterator/FieldCriterionTargetIteratorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\CriterionVisitor\\\\Iterator\\\\FieldCriterionTargetIteratorTest\\:\\:assertIterableResults\\(\\) has parameter \\$iter with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/CriterionVisitor/Iterator/FieldCriterionTargetIteratorTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$value of class Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\Utils\\\\Stub\\\\TestCriterion constructor expects array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string, array\\<int, string\\|null\\> given\\.$#"
+			count: 1
+			path: tests/lib/Query/CriterionVisitor/Iterator/FieldCriterionTargetIteratorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\EventSubscriber\\\\RandomScoreQueryFilterTest\\:\\:createQuery\\(\\) has parameter \\$sortClauses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/EventSubscriber/RandomScoreQueryFilterTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\EventSubscriber\\\\RandomScoreQueryFilterTest\\:\\:dataProviderForTestOnQueryFilterEvent\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/EventSubscriber/RandomScoreQueryFilterTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\:\\:\\$query \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|null\\.$#"
+			count: 1
+			path: tests/lib/Query/EventSubscriber/RandomScoreQueryFilterTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\AbstractAggregationResultExtractorTest\\:\\:configureMocksForTestExtract\\(\\) has parameter \\$rawData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/AbstractAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\AbstractAggregationResultExtractorTest\\:\\:dataProviderForTestExtract\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/AbstractAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\AbstractAggregationResultExtractorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/AbstractAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\AbstractAggregationResultExtractorTest\\:\\:testExtract\\(\\) has parameter \\$rawData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/AbstractAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\DateRangeAggregationResultExtractorTest\\:\\:dataProviderForTestExtract\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/DateRangeAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\DateRangeAggregationResultExtractorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/DateRangeAggregationResultExtractorTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Elasticsearch\\\\Query\\\\AggregationResultExtractor\\:\\:method\\(\\)\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/DispatcherAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\RangeAggregationResultExtractorTest\\:\\:dataProviderForTestExtract\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/RangeAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\RangeAggregationResultExtractorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/RangeAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\StatsAggregationResultExtractorTest\\:\\:dataProviderForTestExtract\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/StatsAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\StatsAggregationResultExtractorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/StatsAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\AuthorAggregationKeyMapperTest\\:\\:dataProviderForTestMap\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/AuthorAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\AuthorAggregationKeyMapperTest\\:\\:testMap\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/AuthorAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\AuthorAggregationKeyMapperTest\\:\\:testMap\\(\\) has parameter \\$keys with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/AuthorAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeAggregationKeyMapperTest\\:\\:createContentTypesList\\(\\) has parameter \\$ids with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeAggregationKeyMapperTest\\:\\:createContentTypesList\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aggregation of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeAggregationKeyMapper\\:\\:map\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\ContentTypeTermAggregation, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$keys of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeAggregationKeyMapper\\:\\:map\\(\\) expects array\\<string\\>, array\\<int, int\\> given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeGroupAggregationKeyMapperTest\\:\\:configureContentTypeServiceMock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeGroupAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aggregation of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeGroupAggregationKeyMapper\\:\\:map\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\ContentTypeGroupTermAggregation, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeGroupAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentTypeService of class Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\ContentTypeGroupAggregationKeyMapper constructor expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentTypeService, PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/ContentTypeGroupAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\LocationAggregationKeyMapperTest\\:\\:createExpectedLocations\\(\\) has parameter \\$ids with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/LocationAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\LocationAggregationKeyMapperTest\\:\\:createExpectedLocations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/LocationAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SectionAggregationKeyMapperTest\\:\\:configureSectionServiceMock\\(\\) has parameter \\$ids with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SectionAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SectionAggregationKeyMapperTest\\:\\:configureSectionServiceMock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SectionAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aggregation of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SectionAggregationKeyMapper\\:\\:map\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\SectionTermAggregation, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SectionAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SubtreeAggregationKeyMapperTest\\:\\:createExpectedLocations\\(\\) has parameter \\$locationIds with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SubtreeAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\SubtreeAggregationKeyMapperTest\\:\\:createExpectedLocations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/SubtreeAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\UserAggregationKeyMapperTest\\:\\:configureUserServiceMock\\(\\) has parameter \\$ids with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\UserAggregationKeyMapperTest\\:\\:configureUserServiceMock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aggregation of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\UserAggregationKeyMapper\\:\\:map\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\UserMetadataTermAggregation, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\UserGroupAggregationKeyMapperTest\\:\\:configureUserServiceMock\\(\\) has parameter \\$ids with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserGroupAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\UserGroupAggregationKeyMapperTest\\:\\:configureUserServiceMock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserGroupAggregationKeyMapperTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$aggregation of method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\UserGroupAggregationKeyMapper\\:\\:map\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\UserMetadataTermAggregation, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject given\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/UserGroupAggregationKeyMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationResultExtractorTest\\:\\:dataProviderForTestExtract\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationResultExtractorTest\\:\\:dataProviderForTestSupports\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationResultExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ContentResultsExtractorTest\\:\\:createExpectedSearchResults\\(\\) has parameter \\$items with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/ContentResultsExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ContentResultsExtractorTest\\:\\:createInputData\\(\\) has parameter \\$generator with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/ContentResultsExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\ContentResultsExtractorTest\\:\\:createInputData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/ContentResultsExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\LocationResultsExtractorTest\\:\\:createExpectedSearchResults\\(\\) has parameter \\$items with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/LocationResultsExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\LocationResultsExtractorTest\\:\\:createInputData\\(\\) has parameter \\$generator with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/LocationResultsExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\LocationResultsExtractorTest\\:\\:createInputData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/LocationResultsExtractorTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\LocationResultsExtractorTest\\:\\:createQueryContext\\(\\) is unused\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/LocationResultsExtractorTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$operator \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: tests/lib/Query/Utils/Stub/TestCriterion.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$target \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: tests/lib/Query/Utils/Stub/TestCriterion.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\:\\:\\$valueData \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\Value\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\Value\\|null\\.$#"
+			count: 1
+			path: tests/lib/Query/Utils/Stub/TestCriterion.php

@@ -1,0 +1,30 @@
+imports:
+    - { resource: services/components.yaml }
+    - { resource: services/controller.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/field_definitions.yaml }
+    - { resource: services/field_mappers.yaml	 }
+    - { resource: services/field_type.yaml }
+    - { resource: services/form_attribute_mappers.yaml }
+    - { resource: services/form_block.yaml }
+    - { resource: services/form_submission.yaml }
+    - { resource: services/form_types.yaml }
+    - { resource: services/form_validator_constraint_mappers.yaml }
+    - { resource: services/form_validator_mappers.yaml }
+    - { resource: services/misc.yaml }
+    - { resource: services/serialization.yaml }
+    - { resource: services/siteaccess.yaml }
+    - { resource: services/tab.yaml }
+    - { resource: services/tab/locationview.yaml }
+    - { resource: services/templating.yaml }
+    - { resource: services/ui_config.yaml }
+
+#
+# Do not place any services here,
+# it's required to keep services well organized in services/ directory
+#
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false

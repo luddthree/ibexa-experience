@@ -1,0 +1,49 @@
+ibexa:
+    repositories:
+        default:
+            product_catalog:
+                engine: default
+                regions:
+                    __REGION_1__:
+                        vat_categories:
+                            fii: 12
+                            foo: 0
+                            bar: ~
+                    __REGION_2__:
+                        vat_categories:
+                            fii: 24
+                            foo: 0
+                            bar: ~
+                    __REGION_3__:
+                        vat_categories:
+                            fii: 24
+                            foo: 0
+                            bar: ~
+            search:
+                engine: '%env(SEARCH_ENGINE)%'
+                connection: default
+
+    siteaccess:
+        groups:
+            admin_group: []
+
+    system:
+        default:
+            product_catalog:
+                regions:
+                    - __REGION_1__
+                    - __REGION_2__
+                currencies:
+                    - EUR
+                    - USD
+                    - BTC
+            languages:
+                - eng-US
+                - eng-GB
+                - ger-DE
+        __second_site_access__:
+            product_catalog:
+                regions: __REGION_1__
+                currencies:
+                    - EUR
+                    - BTC

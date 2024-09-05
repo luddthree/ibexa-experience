@@ -1,0 +1,46 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: blog_foo
+        mainTranslation: eng-GB
+        creatorId: 14
+        creationDate: '2020-09-17T13:22:00+00:00'
+        remoteId: 323c1b32e506163c357552edd81706b4
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: true
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Blog
+                description: 'Defines a structure for storing blog posts (short articles by a single person and/or on a particular topic).'
+    fields:
+        -
+            identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+                    description: 'Name or title of the blog.'
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            thumbnail: null
+            category: content
+            defaultValue: New article
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+    references:
+        -
+            name: ref__content_type_id__blog
+            type: content_type_id

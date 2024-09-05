@@ -1,0 +1,7 @@
+-
+    type: user
+    mode: update
+    match:
+        field: login
+        value: admin
+

@@ -1,0 +1,31 @@
+{% extends '@ibexadesign/customer_portal/account/base.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{%- block content -%}
+    <a href="{{ path('login') }}" class="btn ibexa-btn ibexa-btn--ghost ibexa-ca-login__btn--back">
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">{{ 'account.forgot_user_password.confrimation.back'|trans|desc('Back') }}
+    </a>
+    <h2 class="ibexa-ca-login__actions-headline">{{ 'account.forgot_user_password.confrimation.reset_your_password'|trans|desc('Reset your password') }}</h2>
+    {% embed '@ibexadesign/ui/component/alert/alert.html.twig' with {
+        type: 'success',
+        title: 'account.forgot_user_password.confrimation.success.alert'|trans|desc('We’ve sent to your email account a link to reset your password.'),
+        icon_path: ibexa_icon_path('checkmark'),
+        class: 'mt-4',
+    } only %}
+        {% block extra_content %}
+            <span class="ibexa-datetime-format-preview-value" />
+        {% endblock %}
+    {% endembed %}
+    <p class="ibexa-ca-login__actions-subheadline">
+        {{ 'account.forgot_user_password.confrimation.success.message'|trans|raw
+        |desc('<p>If you don’t receive the email, double check that you entered the correct email address and check your spam folder.</p>') }}
+    </p>
+    <div class="ibexa-ca-login__actions">
+        <a href="{{ path('login') }}" class="btn ibexa-btn ibexa-btn--primary">
+            <span class="ibexa-btn__label">{{ 'account.forgot_user_password.confrimation.back_to_sign_in'|trans|desc('Go back to Sign in') }}
+        </a>
+    </div>
+{%- endblock content -%}

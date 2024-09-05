@@ -1,0 +1,6 @@
+ibexa.rest.corporate_account.sales_representatives.get:
+  path: /corporate/sales-representatives
+  methods: [ GET ]
+  controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\SalesRepresentativesController::getAllAction'
+  options:
+    exposed: true

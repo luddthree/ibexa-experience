@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\Migration\ValueObject\UserGroup;
+
+use DateTime;
+use Ibexa\Contracts\Core\Repository\Values\User\UserGroup;
+
+final class UpdateMetadata
+{
+    /** @var bool|null */
+    public $alwaysAvailable;
+
+    /** @var string|null */
+    public $mainLanguage;
+
+    /** @var \DateTime|null */
+    public $modificationDate;
+
+    /** @var int|null */
+    public $ownerId;
+
+    /** @var int|null */
+    public $parentGroupId;
+
+    /** @var string|null */
+    public $remoteId;
+
+    /** @var int|null */
+    public $sectionId;
+
+    public function __construct(
+        ?bool $alwaysAvailable,
+        ?string $mainLanguage,
+        ?DateTime $modificationDate,
+        ?int $ownerId,
+        ?int $parentGroupId,
+        ?string $remoteId,
+        ?int $sectionId
+    ) {
+        $this->alwaysAvailable = $alwaysAvailable;
+        $this->mainLanguage = $mainLanguage;
+        $this->modificationDate = $modificationDate;
+        $this->ownerId = $ownerId;
+        $this->parentGroupId = $parentGroupId;
+        $this->remoteId = $remoteId;
+        $this->sectionId = $sectionId;
+    }
+
+    /**
+     * @phpstan-param array{
+     *     alwaysAvailable?: ?bool,
+     *     mainLanguage?: ?string,
+     *     modificationDate?: ?string,
+     *     ownerId?: ?int,
+     *     parentGroupId?: ?int,
+     *     remoteId?: ?string,
+     *     sectionId?: ?int,
+     * } $data
+     */
+    public static function createFromArray(array $data): self
+    {
+        return new self(
+            $data['alwaysAvailable'] ?? null,
+            $data['mainLanguage'] ?? null,
+            isset($data['modificationDate']) ? new DateTime($data['modificationDate']) : null,
+            $data['ownerId'] ?? null,
+            $data['parentGroupId'] ?? null,
+            $data['remoteId'] ?? null,
+            $data['sectionId'] ?? null
+        );
+    }
+
+    public static function createFromApi(UserGroup $userGroup): self
+    {
+        return new self(
+            $userGroup->contentInfo->alwaysAvailable,
+            $userGroup->contentInfo->mainLanguageCode,
+            clone $userGroup->contentInfo->modificationDate,
+            $userGroup->contentInfo->ownerId,
+            $userGroup->parentId,
+            $userGroup->contentInfo->remoteId,
+            $userGroup->contentInfo->sectionId
+        );
+    }
+}
+
+class_alias(UpdateMetadata::class, 'Ibexa\Platform\Migration\ValueObject\UserGroup\UpdateMetadata');

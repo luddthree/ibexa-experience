@@ -1,0 +1,6 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, array\\<Ibexa\\\\Migration\\\\ValueObject\\\\Step\\\\StepInterface\\> given\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Command/BulkConvertCommand.php

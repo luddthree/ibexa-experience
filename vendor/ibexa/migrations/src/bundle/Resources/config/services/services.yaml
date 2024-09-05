@@ -1,0 +1,149 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+        bind:
+            string $migrationPath: '%ibexa.migrations.default.migration_path%'
+            string $migrationsSubdir: '%ibexa.migrations.default.migrations_files_subdir%'
+
+    _instanceof:
+        Psr\Log\LoggerAwareInterface:
+            calls:
+                - [setLogger, ['@?logger']]
+
+        Ibexa\Bundle\Migration\Serializer\Denormalizer\StepNormalizerInterface:
+            tags: [ 'ibexa.migrations.serializer.step_normalizer' ]
+
+    Ibexa\Migration\Service\FieldTypeService: ~
+
+    Ibexa\Migration\Service\FieldTypeServiceInterface: '@Ibexa\Migration\Service\FieldTypeService'
+
+    Ibexa\Migration\Reference\Collector: ~
+    Ibexa\Migration\Reference\Dumper: ~
+    Ibexa\Migration\Reference\Loader: ~
+    Ibexa\Migration\Reference\Resolver: ~
+
+    Ibexa\Migration\Reference\CollectorInterface: '@Ibexa\Migration\Reference\Collector'
+    Ibexa\Migration\Reference\DumperInterface: '@Ibexa\Migration\Reference\Dumper'
+    Ibexa\Migration\Reference\LoaderInterface: '@Ibexa\Migration\Reference\Loader'
+    Ibexa\Migration\Reference\ResolverInterface: '@Ibexa\Migration\Reference\Resolver'
+
+    Ibexa\Migration\Dumper\MigrationDumper: ~
+    Ibexa\Migration\Dumper\MigrationDumperInterface: '@Ibexa\Migration\Dumper\MigrationDumper'
+
+    Ibexa\Migration\Gateway\MigrationMetadata\DoctrineGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Migration\Gateway\MigrationMetadata\SchemaProvider: ~
+
+    Ibexa\Migration\Gateway\MigrationMetadata\BuildSchemaSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    ibexa.migrations.io.flysystem.default_adapter:
+        class: League\Flysystem\Local\LocalFilesystemAdapter
+        lazy: true
+        arguments:
+            - '%ibexa.migrations.default.migration_path%'
+
+    ibexa.migrations.io.flysystem.default_filesystem:
+        class: League\Flysystem\Filesystem
+        lazy: true
+        arguments:
+            $adapter: '@ibexa.migrations.io.flysystem.default_adapter'
+
+    League\Flysystem\FilesystemOperator: '@ibexa.migrations.io.flysystem.default_filesystem'
+
+    Ibexa\Migration\Generator\User\RandomPasswordGenerator: ~
+
+    Ibexa\Migration\Generator\User\PasswordGeneratorInterface: '@Ibexa\Migration\Generator\User\RandomPasswordGenerator'
+
+    ibexa.migrations.serializer.by_definition_normalizer.class_metadata_factory.loader:
+        class: Symfony\Component\Serializer\Mapping\Loader\YamlFileLoader
+        arguments:
+            - '%ibexa.migrations.serializer.by_definition_normalizer.definition_file_path%'
+
+    ibexa.migrations.serializer.by_definition_normalizer.class_metadata_factory:
+        class: Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory
+        arguments:
+            - '@ibexa.migrations.serializer.by_definition_normalizer.class_metadata_factory.loader'
+
+    ibexa.migrations.serializer.by_definition_normalizer.name_converter:
+        class: Symfony\Component\Serializer\NameConverter\MetadataAwareNameConverter
+        arguments:
+            - '@ibexa.migrations.serializer.by_definition_normalizer.class_metadata_factory'
+
+    # Encoders
+    ibexa.migrations.encoder.yaml_encoder:
+        class: Symfony\Component\Serializer\Encoder\YamlEncoder
+        tags: ['ibexa.migrations.serializer.encoder']
+        arguments:
+            $defaultContext:
+                yaml_indent: 0
+                yaml_inline: 6
+                yaml_flags: 384
+                # !php/const Symfony\Component\Yaml\Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK | !php/const Symfony\Component\Yaml\Yaml::PARSE_CONSTANT
+
+    # Generators
+    Ibexa\Migration\Generator\Reference\ContentTypeGenerator: ~
+
+    Ibexa\Migration\Generator\StepBuilder\ContentTypeCreateStepBuilder:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\ContentTypeGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content_type', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\StepBuilder\ContentTypeUpdateStepBuilder:
+        lazy: true
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content_type', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\StepBuilder\LoggerContentTypeCreateStepBuilder:
+        decorates: 'Ibexa\Migration\Generator\StepBuilder\ContentTypeCreateStepBuilder'
+        arguments:
+            - '@.inner'
+
+    Ibexa\Migration\Generator\ContentTypeMigrationGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+        arguments:
+            $contentTypeService: '@ibexa.api.service.content_type'
+            $contentTypeStepFactory: '@Ibexa\Migration\Generator\StepBuilder\ContentTypeStepFactory'
+
+    Ibexa\Migration\Generator\StepBuilder\ContentTypeStepFactory:
+        arguments:
+            $serviceLocator: !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.content_type', index_by: 'key' }
+            $type: 'content_type'
+
+    Ibexa\Bundle\Migration\Serializer\SerializerFactory:
+        class: Ibexa\Bundle\Migration\Serializer\SerializerFactory
+        arguments:
+            - !tagged_iterator 'ibexa.migrations.serializer.normalizer'
+            - !tagged_iterator 'ibexa.migrations.serializer.encoder'
+
+    ibexa.migrations.serializer:
+        # Warning: Do NOT enable autoconfigure for Serializer and Normalizer services.
+        # They will be tagged with "serializer.normalizer" tag and injected to main app serializer service if done so.
+        class: Symfony\Component\Serializer\Serializer
+        factory: ['@Ibexa\Bundle\Migration\Serializer\SerializerFactory', 'create']
+
+    ibexa.migrations.lock_store:
+        class: Symfony\Component\Lock\Store\DoctrineDbalStore
+        arguments:
+            $connOrUrl: '@ibexa.persistence.connection'
+            $options:
+                db_table: 'ibexa_migrations_lock'
+                db_id_col: 'key_id'
+                db_token_col: 'key_token'
+                db_expiration_col: 'key_expiration'
+
+    ibexa.migrations.lock_factory:
+        class: Symfony\Component\Lock\LockFactory
+        arguments:
+            $store: '@ibexa.migrations.lock_store'
+        calls:
+            - [ setLogger, [ '@logger' ] ]
+        tags:
+            - { name: monolog.logger, channel: lock }

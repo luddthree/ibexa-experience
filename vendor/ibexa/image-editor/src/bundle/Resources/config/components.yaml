@@ -1,0 +1,7 @@
+services:
+    ibexa.image_editor.component.image_edit_actions:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@ibexadesign/ibexa_image_editor/ui/field_type/edit/ezimage_edit_button.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'image-edit-actions-after' }

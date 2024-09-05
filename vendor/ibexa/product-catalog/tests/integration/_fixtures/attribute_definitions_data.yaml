@@ -1,0 +1,30 @@
+ibexa_attribute_definition:
+    - { id: 1, identifier: foo, type: integer, attribute_group_id: 1, position: 0, options: '{"min":10,"max":100}' }
+    - { id: 2, identifier: bar, type: checkbox, attribute_group_id: 1, position: 1, options: null }
+    - { id: 3, identifier: baz, type: integer, attribute_group_id: 1, position: 2, options: null }
+    - { id: 4, identifier: foobar, type: selection, attribute_group_id: 2, position: 0, options: null }
+    - { id: 5, identifier: foobaz, type: selection, attribute_group_id: 2, position: 1, options: null }
+    - { id: 6, identifier: foobarbaz, type: selection, attribute_group_id: 5, position: 1, options: null }
+    - { id: 7, identifier: empty, type: integer, attribute_group_id: 2, position: 2, options: null }
+    - { id: 8, identifier: foo_boolean, type: checkbox, attribute_group_id: 7, position: 2, options: null }
+    - { id: 9, identifier: foo_integer, type: integer, attribute_group_id: 7, position: 3, options: null }
+    - { id: 10, identifier: foo_float, type: float, attribute_group_id: 7, position: 4, options: null }
+    - { id: 11, identifier: foo_selection, type: selection, attribute_group_id: 7, position: 5,
+        options: '{"choices":[{"value":"first","label":"first option"},{"value":"second","label":"second option"}]}' }
+    - { id: 12, identifier: foo_color, type: color, attribute_group_id: 7, position: 5,
+        options: '{"choices":[{"value":"first","label":"first option"},{"value":"second","label":"second option"}]}' }
+
+ibexa_attribute_definition_ml:
+    - { id: 1, attribute_definition_id: 1, language_id: 2, name: 'Foo', name_normalized: 'foo', description: 'Description foo' }
+    - { id: 2, attribute_definition_id: 1, language_id: 4, name: 'Foo_de', name_normalized: 'foo_de', description: 'Description foo_de' }
+    - { id: 3, attribute_definition_id: 2, language_id: 2, name: 'Bar', name_normalized: 'bar', description: 'Description bar' }
+    - { id: 4, attribute_definition_id: 2, language_id: 4, name: 'Bar_de', name_normalized: 'bar_de', description: 'Description bar_de' }
+    - { id: 5, attribute_definition_id: 3, language_id: 2, name: 'Baz', name_normalized: 'baz', description: 'Description baz' }
+    - { id: 6, attribute_definition_id: 3, language_id: 4, name: 'Baz_de', name_normalized: 'baz_de', description: 'Description baz_de' }
+    - { id: 7, attribute_definition_id: 4, language_id: 2, name: 'Foobar', name_normalized: 'foobar', description: 'Description foobar' }
+    - { id: 8, attribute_definition_id: 4, language_id: 4, name: 'Foobar_de', name_normalized: 'foobar_de', description: 'Description foobar_de' }
+    - { id: 9, attribute_definition_id: 5, language_id: 2, name: 'Foobaz', name_normalized: 'foobaz', description: 'Description foobaz' }
+    - { id: 10, attribute_definition_id: 5, language_id: 4, name: 'Foobaz_de', name_normalized: 'foobaz_de', description: 'Description foobaz_de' }
+    - { id: 11, attribute_definition_id: 6, language_id: 2, name: 'Foobarbaz', name_normalized: 'foobarbaz', description: 'Description foobarbaz' }
+    - { id: 12, attribute_definition_id: 6, language_id: 4, name: 'Foobarbaz_de', name_normalized: 'foobarbaz_de', description: 'Description foobarbaz_de' }
+    - { id: 13, attribute_definition_id: 7, language_id: 2, name: 'Empty', name_normalized: 'empty', description: 'Empty' }

@@ -1,0 +1,55 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Siteaccess\SiteaccessService: ~
+
+    Ibexa\PageBuilder\Siteaccess\ReverseMatcher:
+        arguments:
+            $requestStack: '@request_stack'
+            $siteaccessRouter: '@Ibexa\Core\MVC\Symfony\SiteAccess\Router'
+            $matcherBuilder: '@Ibexa\Bundle\Core\SiteAccess\MatcherBuilder'
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+
+    Ibexa\PageBuilder\Siteaccess\UrlGenerator:
+        arguments:
+            $defaultSiteAccess: '%ibexa.site_access.default%'
+            $urlAliasGenerator: '@Ibexa\Core\MVC\Symfony\Routing\Generator\UrlAliasGenerator'
+
+    #
+    # Default implementation for interfaces
+    #
+    Ibexa\Contracts\PageBuilder\Siteaccess\SiteaccessServiceInterface: '@Ibexa\PageBuilder\Siteaccess\SiteaccessService'
+    Ibexa\Contracts\PageBuilder\Siteaccess\SiteAccessResolver: '@Ibexa\PageBuilder\Siteaccess\SiteaccessService'
+
+    Ibexa\PageBuilder\Siteaccess\UrlGeneratorInterface: '@Ibexa\PageBuilder\Siteaccess\UrlGenerator'
+
+    Ibexa\PageBuilder\Siteaccess\PageBuilderSiteAccessResolver:
+        arguments:
+            $resolverStrategies: !tagged_iterator ibexa.page_builder.site_access.list_resolver.strategy
+
+    Ibexa\PageBuilder\Siteaccess\Selector\TreeRootStrategy:
+        tags:
+          - { name: ibexa.page_builder.site_access.selector.strategy, priority: -40 }
+
+    Ibexa\PageBuilder\Siteaccess\Selector\LanguageStrategy:
+        tags:
+          - { name: ibexa.page_builder.site_access.selector.strategy, priority: -50 }
+
+    Ibexa\PageBuilder\Siteaccess\Selector\FirstFromSiteAccessListStrategy:
+        tags:
+            - { name: ibexa.page_builder.site_access.selector.strategy, priority: -60 }
+
+    Ibexa\PageBuilder\Siteaccess\Selector\SiteAccessSelector:
+        arguments:
+            $strategies: !tagged_iterator ibexa.page_builder.site_access.selector.strategy
+
+    Ibexa\Contracts\PageBuilder\Siteaccess\Selector\SiteAccessSelector: '@Ibexa\PageBuilder\Siteaccess\Selector\SiteAccessSelector'
+
+    Ibexa\PageBuilder\Siteaccess\Resolver\PageBuilderListResolverStrategy:
+        arguments:
+            $nonAdminSiteAccessResolver: '@Ibexa\AdminUi\Siteaccess\NonAdminSiteaccessResolver'
+        tags:
+            - { name: ibexa.page_builder.site_access.list_resolver.strategy, priority: 0 }

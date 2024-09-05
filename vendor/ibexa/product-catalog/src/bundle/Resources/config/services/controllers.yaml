@@ -1,0 +1,51 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Controller\:
+        resource: './../../Controller'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\ProductCatalog\Controller\REST\:
+        resource: './../../Controller/REST'
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\ProductCatalog\Controller\REST\ProductController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        arguments:
+            $denormalizer: '@ibexa.rest.serializer'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\ProductCatalog\Controller\Product\UpdateController:
+        arguments:
+            $productActionDispatcher: '@Ibexa\Bundle\ProductCatalog\Form\ActionDispatcher\ProductActionDispatcher'
+
+    Ibexa\Bundle\ProductCatalog\Controller\Product\CreateController:
+        arguments:
+            $productActionDispatcher: '@Ibexa\Bundle\ProductCatalog\Form\ActionDispatcher\ProductActionDispatcher'
+
+    Ibexa\Bundle\ProductCatalog\Controller\Catalog\ProductsPreviewController:
+        arguments:
+            $serializer: '@ibexa.product_catalog.product.serializer'
+
+    Ibexa\Bundle\ProductCatalog\Controller\Product\ListController:
+        arguments:
+            $productTaxonomyName: 'product_categories'
+
+    # REST
+    Ibexa\Bundle\ProductCatalog\Controller\Personalization\REST\ProductVariantController:
+        parent: Ibexa\Rest\Server\Controller
+        arguments:
+            $authentication: '@Ibexa\Personalization\Authentication\AuthenticationInterface'
+            $dataSourceService: '@Ibexa\Personalization\Service\Storage\DataSourceServiceInterface'
+        tags:
+            - controller.service_arguments
+            - { name: monolog.logger, channel: ibexa.personalization }

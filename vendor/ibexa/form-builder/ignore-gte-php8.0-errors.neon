@@ -1,0 +1,56 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$keys of function array_combine expects array\\<int\\|string\\>, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 2
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fclose expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Parameter \\#1 \\$stream of function fputcsv expects resource, resource\\|false given\\.$#"
+			count: 2
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/FormFactory.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/CaptchaCompilerPass.php
+
+		-
+			message: "#^Parameter \\#1 \\.\\.\\.\\$arrays of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/FormBlockRelationCompilerPass.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/MaxChoicesValidator.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/MinChoicesValidator.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_filter expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\> given\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php

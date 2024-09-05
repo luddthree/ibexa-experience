@@ -1,0 +1,38 @@
+ibexa:
+    locale_conversion:
+        # nor-NO: nb_NO
+    siteaccess:
+        list:
+    
+            - ludvik
+
+        groups:
+            ludvik_group: [ ludvik ]
+
+
+        default_siteaccess: ludvik
+        match:
+            URIElement: 1
+    system:
+        # default:
+            # languages: [ nor-NO ]
+        # admin_group:
+        #     content_tree_module:
+        #         ignored_content_types:
+        #             - image
+        #             - file
+        #     # languages: [ nor-NO, eng-GB ]
+        #     page_builder:
+        #         siteaccess_list: [ ludvik]
+
+        ludvik:
+            translation_siteaccesses: [ ludvik ]
+            design: ludvik
+            content:
+                tree_root:
+                    location_id: 72
+                    excluded_uri_prefixes: [ /media, /users ]     
+
+ibexa_design_engine:
+    design_list:
+        ludvik: [ ludvik, standard ]

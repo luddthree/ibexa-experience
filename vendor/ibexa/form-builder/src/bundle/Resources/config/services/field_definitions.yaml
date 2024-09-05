@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Definition\FieldDefinitionFactory:
+        arguments:
+            $configuration: '%ibexa.form_builder.fields%'
+
+    Ibexa\FormBuilder\ApplicationConfig\FieldDefinitionsProvider: ~

@@ -1,0 +1,11 @@
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: JEANS_1
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: BLOUSE_1

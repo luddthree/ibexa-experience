@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Persistence\Gateway\DoctrineGateway:
+        lazy: true
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $criteriaConverter: '@ibexa.workflow.search.criteria_converter'
+
+    Ibexa\Workflow\Persistence\Handler\WorkflowHandler:
+        arguments:
+            $gateway: '@Ibexa\Workflow\Persistence\Gateway\DoctrineGateway'
+
+    Ibexa\Contracts\Workflow\Persistence\Handler\HandlerInterface: '@Ibexa\Workflow\Persistence\Handler\WorkflowHandler'
+

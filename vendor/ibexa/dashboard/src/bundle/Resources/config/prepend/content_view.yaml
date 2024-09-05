@@ -1,0 +1,16 @@
+ibexa:
+    system:
+        admin_group:
+            content_view:
+                dashboard:
+                    dashboard_page:
+                        template: '@ibexadesign/dashboard/dashboard_view.html.twig'
+                        match:
+                            Ibexa\IsDashboard: true
+                            IsPreview: false
+
+                    dashboard_preview_page:
+                        template: '@ibexadesign/dashboard/dashboard_preview.html.twig'
+                        match:
+                            Ibexa\IsDashboard: true
+                            IsPreview: true

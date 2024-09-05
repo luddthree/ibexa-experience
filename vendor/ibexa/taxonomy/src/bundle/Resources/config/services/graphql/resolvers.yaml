@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Taxonomy\GraphQL\Resolver\TaxonomyResolver:
+        tags:
+            - { name: overblog_graphql.resolver, alias: "Taxonomy", method: "resolveByIdentifier" }
+
+    Ibexa\Taxonomy\GraphQL\Resolver\TaxonomyEntryResolver:
+        tags:
+            - { name: overblog_graphql.resolver, alias: "TaxonomyEntryChildren", method: "resolveChildrenByParentId" }
+            - { name: overblog_graphql.resolver, alias: "TaxonomyEntry", method: "resolveTaxonomyEntry" }
+            - { name: overblog_graphql.resolver, alias: "TaxonomyEntryAll", method: "resolveTaxonomyEntries" }

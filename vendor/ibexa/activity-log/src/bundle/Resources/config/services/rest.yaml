@@ -1,0 +1,13 @@
+imports:
+    - { resource: rest/*.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ActivityLog\REST\Serializer\ActivityLogDataNormalizer:
+        autoconfigure: false
+        tags:
+            - { name: ibexa.rest.serializer.normalizer, priority: -10 }

@@ -1,0 +1,36 @@
+imports:
+    - { resource: input_parsers/criteria.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\CorporateAccount\REST\Input\Parser\BaseContentParser:
+        abstract: true
+        arguments:
+            $requestParser: '@Ibexa\Bundle\Rest\RequestParser\Router'
+
+    Ibexa\CorporateAccount\REST\Input\Parser\CompanyCreate:
+        parent: Ibexa\CorporateAccount\REST\Input\Parser\BaseContentParser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CompanyCreate }
+
+    Ibexa\CorporateAccount\REST\Input\Parser\CompanyUpdate:
+        parent: Ibexa\CorporateAccount\REST\Input\Parser\BaseContentParser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CompanyUpdate }
+
+    Ibexa\CorporateAccount\REST\Input\Parser\BaseMemberInputParser:
+        parent: Ibexa\CorporateAccount\REST\Input\Parser\BaseContentParser
+
+    Ibexa\CorporateAccount\REST\Input\Parser\MemberCreate:
+        parent: Ibexa\CorporateAccount\REST\Input\Parser\BaseMemberInputParser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.MemberCreate }
+
+    Ibexa\CorporateAccount\REST\Input\Parser\MemberUpdate:
+        parent: Ibexa\CorporateAccount\REST\Input\Parser\BaseMemberInputParser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.MemberUpdate }

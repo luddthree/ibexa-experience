@@ -1,0 +1,8 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: pol-PL
+        name: Polski
+        enabled: true
+

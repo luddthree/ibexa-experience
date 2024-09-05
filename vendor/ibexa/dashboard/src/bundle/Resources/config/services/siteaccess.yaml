@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Dashboard\SiteAccess\DashboardSiteAccessPreviewVoter:
+        tags:
+            - { name: ibexa.admin_ui.site_access.preview.voter }
+            - { name: monolog.logger, channel: ibexa.dashboard }
+
+    Ibexa\Dashboard\SiteAccess\Selector\Strategy\DashboardPageBuilderSiteAccessSelectorStrategy:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+        tags:
+            - { name: ibexa.page_builder.site_access.selector.strategy, priority: -30 }
+
+    Ibexa\Dashboard\SiteAccess\Resolver\Strategy\DashboardPageBuilderSiteAccessListResolverStrategy:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+        tags:
+            - { name: ibexa.page_builder.site_access.list_resolver.strategy, priority: 50 }

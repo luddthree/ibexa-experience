@@ -1,0 +1,5 @@
+{%- block _company_search_query_widget -%}
+    {% with { should_clear_button_send_form: true } %}
+        {{ block('form_widget_simple') }}
+    {% endwith %}
+{%- endblock _company_search_query_widget -%}

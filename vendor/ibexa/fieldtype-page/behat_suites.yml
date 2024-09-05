@@ -1,0 +1,13 @@
+browser:
+    suites:
+        page-fieldtype:
+            paths:
+              - '%paths.base%/vendor/ibexa/fieldtype-page/features/eventSource'
+            contexts:
+              - Ibexa\Behat\API\Context\ContentContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NotificationContext
+              - Ibexa\Behat\Browser\Context\AuthenticationContext
+              - Ibexa\FieldTypePage\Behat\Context\BlockHideEventsSourceContext
+              - Ibexa\FieldTypePage\Behat\Context\BlockRevealEventsSourceContext
+              - Ibexa\PageBuilder\Behat\Context\PageBuilderContext

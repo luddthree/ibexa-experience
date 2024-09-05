@@ -1,0 +1,79 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+
+{{ form_start(bulk_delete_form) }}
+    {% for attribute_definition in attributes_definitions %}
+        {% set edit_url = path('ibexa.product_catalog.attribute_definition.update', {
+            'attributeDefinitionIdentifier': attribute_definition.getIdentifier()
+        }) %}
+        {% set view_url = path('ibexa.product_catalog.attribute_definition.view', {
+            'attributeDefinitionIdentifier': attribute_definition.getIdentifier()
+        }) %}
+        {% set checkbox_value = attribute_definition.identifier %}
+        {% set checkbox_name = bulk_delete_form.attributesDefinitions.vars.full_name ~ '[]' %}
+        {% set disabled = attribute_definition is ibexa_attribute_definition_used %}
+        {% set body_rows = body_rows|merge([{ cols: [
+            {
+                has_checkbox: true,
+                content: data_grid_macros.cell_checkbox(
+                    checkbox_name,
+                    checkbox_value,
+                    disabled
+                )
+            },
+            { content: data_grid_macros.cell_name(attribute_definition.getName(), view_url) },
+            { content: attribute_definition.getIdentifier() },
+            { content: attribute_definition.type.getName() },
+            { content: attribute_definition.group.getName() },
+            { content: attribute_definition.getPosition() },
+            {
+                has_action_btns: true,
+                content: data_grid_macros.cell_edit(edit_url)
+            }
+        ]}]) %}
+    {% endfor %}
+
+    {% set actions %}
+        {% set delete_modal_id = 'attribute-definition-delete-modal' %}
+        {% set delete_modal_message = 'modal.bulk_delete.attribute_definition.confirm_message'|trans|desc(
+            'Delete the selected attributes permanently?'
+        ) %}
+
+        {% for extra_action in extra_actions|default([]) %}
+            {{ data_grid_macros.header_custom_action(extra_action) }}
+        {% endfor %}
+
+        {{ data_grid_macros.header_delete_action(delete_modal_id, delete_modal_message) }}
+    {% endset %}
+
+    {% if no_attributes %}
+        {% set empty_table_info_text = 'attribute_definition.no_attributes.info_text'|trans|desc('Add your first attribute') %}
+        {% set empty_table_action_text = 'attribute_definition.no_attributes.action_text'|trans|desc('Content items which you or your User group can review will show up here.') %}
+    {% else %}
+        {% set empty_table_info_text = 'attribute_definition.no_search_results.info_text'|trans|desc('Sorry, there are no attributes for your search') %}
+        {% set empty_table_action_text = 'attribute_definition.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+    {% endif %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with
+        {
+            headline,
+            head_cols: [
+                { has_checkbox: true },
+                { content: 'attribute_definition.list.column.name'|trans|desc('Name') },
+                { content: 'attribute_definition.list.column.identifier'|trans|desc('Identifier') },
+                { content: 'attribute_definition.list.column.attribute_type'|trans|desc('Type') },
+                { content: 'attribute_definition.list.column.attribute_group'|trans|desc('Attribute Group') },
+                { content: 'attribute_definition.list.column.position'|trans|desc('Position') },
+                { }
+            ],
+            actions,
+            body_rows,
+            empty_table_info_text,
+            empty_table_action_text,
+            empty_table_extra_actions: empty_table_extra_actions|default(''),
+        }
+    %}
+{{ form_end(bulk_delete_form) }}

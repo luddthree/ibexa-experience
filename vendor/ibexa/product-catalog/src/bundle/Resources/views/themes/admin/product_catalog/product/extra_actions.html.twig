@@ -1,0 +1,26 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% form_theme create_form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+<div class="ibexa-extra-actions-container">
+    <div
+        class="ibexa-extra-actions ibexa-extra-actions--product ibexa-extra-actions--hidden"
+        data-actions="pre-create-product"
+    >
+        <div class="ibexa-extra-actions__header">
+            <h2>{{ 'product.pre_create.title'|trans|desc('Create product') }}</h2>
+        </div>
+
+        <div class="ibexa-extra-actions__content ibexa-extra-actions__content--create">
+            {{ form_start(create_form, { attr: { class: 'ibexa-extra-actions__pre-form' } }) }}
+                {{ form_row(create_form.language, { row_attr: { class: 'ibexa-form-field' } }) }}
+                {{ form_row(create_form.productType, { row_attr: { class: 'ibexa-form-field' } }) }}
+
+                <div class="ibexa-extra-actions__btns ibexa-extra-actions__pre-form-btns">
+                    <button class="btn ibexa-btn ibexa-btn--primary" type="submit">{{ 'product.pre_create.create'|trans|desc('Create') }}</button>
+                    <button class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--close" type="button">{{ 'product.pre_create.discard'|trans|desc('Discard') }}</button>
+                </div>
+            {{ form_end(create_form) }}
+        </div>
+    </div>
+</div>

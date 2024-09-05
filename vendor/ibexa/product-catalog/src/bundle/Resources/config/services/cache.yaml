@@ -1,0 +1,63 @@
+parameters:
+    ibexa.product_catalog.persistence.cache.tag_patterns:
+        attribute_group: 'ag-%s'
+        currency: 'cu-%s'
+        attribute_definition: 'ad-%s'
+        customer_group: 'cg-%s'
+        content_fields_type: 'cft-%s'
+        type: 't-%s'
+        type_map: 'tm'
+
+    ibexa.product_catalog.persistence.cache.key_patterns:
+        attribute_group: 'ag-%s'
+        currency: 'cu-%s'
+        attribute_definition: 'ad-%s'
+        customer_group: 'cg-%s'
+        content_fields_type: 'cft-%s'
+        type: 't-%s'
+        type_map: 'tm'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Persistence\Cache\AttributeGroup\Handler:
+        decorates: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\HandlerInterface
+        arguments:
+            $logger: '@Ibexa\Core\Persistence\Cache\PersistenceLogger'
+            $innerHandler: '@.inner'
+            $cacheIdentifierGenerator: '@ibexa.product_catalog.cache_identifier_generator'
+            $cache: '@ibexa.cache_pool'
+
+    Ibexa\ProductCatalog\Local\Persistence\Cache\Currency\Handler:
+        decorates: Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\HandlerInterface
+        arguments:
+            $logger: '@Ibexa\Core\Persistence\Cache\PersistenceLogger'
+            $innerHandler: '@.inner'
+            $cacheIdentifierGenerator: '@ibexa.product_catalog.cache_identifier_generator'
+            $cache: '@ibexa.cache_pool'
+
+    Ibexa\ProductCatalog\Local\Persistence\Cache\AttributeDefinition\Handler:
+        decorates: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\HandlerInterface
+        arguments:
+            $logger: '@Ibexa\Core\Persistence\Cache\PersistenceLogger'
+            $innerHandler: '@.inner'
+            $cacheIdentifierGenerator: '@ibexa.product_catalog.cache_identifier_generator'
+            $cache: '@ibexa.cache_pool'
+
+    Ibexa\ProductCatalog\Local\Persistence\Cache\CustomerGroup\Handler:
+        decorates: Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\HandlerInterface
+        arguments:
+            $logger: '@Ibexa\Core\Persistence\Cache\PersistenceLogger'
+            $innerHandler: '@.inner'
+            $cacheIdentifierGenerator: '@ibexa.product_catalog.cache_identifier_generator'
+            $cache: '@ibexa.cache_pool'
+
+    ibexa.product_catalog.cache_identifier_generator:
+        class: Ibexa\Core\Persistence\Cache\Identifier\CacheIdentifierGenerator
+        arguments:
+            $prefix: '%ibexa.core.persistence.cache.tag_prefix%'
+            $tagPatterns: '%ibexa.product_catalog.persistence.cache.tag_patterns%'
+            $keyPatterns: '%ibexa.product_catalog.persistence.cache.key_patterns%'

@@ -1,0 +1,61 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_form_builder_field_config' %}
+
+{% block meta %}
+    <meta name="LanguageCode" content="{{ languageCode }}" />
+{% endblock %}
+
+{% block body_class %}ibexa-fb-form-field-config ibexa-fb-form-field-config--default{% endblock %}
+
+{% block header_row %}{% endblock %}
+{% block side_column %}{% endblock %}
+
+{% block content_column %}
+    {% block content %}
+        {% set default_form_templates = ['@IbexaFormBuilder/fields/config/form_fields.html.twig'] %}
+        {% set form_templates = form_templates is defined ? default_form_templates|merge(form_templates) : default_form_templates %}
+        {% form_theme form with form_templates %}
+
+        {{ form_start(form, { 'attr': { 'novalidate': true }}) }}
+            <div class="ibexa-fb-form-field-config__wrapper">
+                {% include '@IbexaFormBuilder/fields/config/config_nav.html.twig' with { class: 'ibexa-fb-form-field-config__header' } %}
+                <div class="tab-content ibexa-tab-content ibexa-fb-form-field-config__content">
+                    {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { 
+                        id: 'basic',
+                        active: true,
+                        tab_pane_class: 'ibexa-fb-form-field-config__tab',
+                    } %}
+                        {% block content %}
+                            {{ form_row(form.name) }}
+                            {{ form_widget(form.attributes) }}
+                        {% endblock %}
+                    {% endembed %}
+                    {% if form.validators is not empty %}
+                        {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                            id: 'validators',
+                            tab_pane_class: 'ibexa-fb-form-field-config__tab',
+                        } %}
+                            {% block content %}
+                                {{ form_widget(form.validators) }}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+                </div>
+                {{ include('@IbexaFormBuilder/fields/config/config_actions.html.twig') }}
+            </div>
+        {{ form_end(form) }}
+    {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-richtext-onlineeditor-js', null, 'richtext') }}
+    {{ encore_entry_script_tags('ibexa-form-builder-fields-config-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-richtext-onlineeditor-css', null, 'richtext') }}
+    {{ encore_entry_link_tags('ibexa-form-builder-fields-config-css', null, 'ibexa') }}
+{% endblock %}

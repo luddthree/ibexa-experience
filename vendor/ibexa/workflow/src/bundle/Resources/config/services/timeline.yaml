@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Entry Renderer
+    #
+    Ibexa\Workflow\Renderer\WorkflowTimelineEntryRenderer:
+        lazy: true
+
+    Ibexa\Workflow\Renderer\WorkflowTimelineEntryRendererInterface: '@Ibexa\Workflow\Renderer\WorkflowTimelineEntryRenderer'
+
+    #
+    # Factory
+    #
+    Ibexa\Workflow\WorkflowTimeline\WorkflowTimelineFactory: ~

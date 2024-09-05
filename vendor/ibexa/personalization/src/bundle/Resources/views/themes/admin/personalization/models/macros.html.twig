@@ -1,0 +1,7 @@
+{% macro submodel_name(submodel) %}
+    {% if submodel.type == 'NOMINAL' %}
+        {{ 'model.details.nominal_submodel_name'|trans({ '%attribut_source%': submodel.attributeSource|lower, '%key%': submodel.attributeKey })|desc('[ABC][%attribut_source%] %key%') }}
+    {% else %}
+        {{ 'model.details.numeric_submodel_name'|trans({ '%attribut_source%': submodel.attributeSource|lower, '%key%': submodel.attributeKey })|desc('[123][%attribut_source%] %key%') }}
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,22 @@
+{
+    "UserSegmentList": {
+        "_media-type": "application\/vnd.ibexa.api.UserSegmentList+json",
+        "_href": "\/api\/ibexa\/v2\/user\/users\/14\/segments",
+        "UserSegment": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.UserSegment+json",
+                "id": 1,
+                "identifier": "segment_test_foo",
+                "name": "SEGMENT foo NAME",
+                "SegmentGroup": {
+                    "_media-type": "application\/vnd.ibexa.api.SegmentGroup+json",
+                    "_href": "\/api\/ibexa\/v2\/segment_groups\/segment_test_group_foo"
+                },
+                "User": {
+                    "_media-type": "application\/vnd.ibexa.api.User+json",
+                    "_href": "\/api\/ibexa\/v2\/user\/users\/14"
+                }
+            }
+        ]
+    }
+}

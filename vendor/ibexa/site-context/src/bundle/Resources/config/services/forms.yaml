@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteContext\Form\Type\:
+        resource: './../../Form/Type'
+        tags:
+            - { name: form.type }
+
+    Ibexa\Bundle\SiteContext\Form\Choice\SiteContextChoiceViewFactory:
+        arguments:
+            $siteAccessNameGenerator: '@Ibexa\AdminUi\Siteaccess\SiteAccessNameGenerator'
+
+    Ibexa\Bundle\SiteContext\Form\Type\SiteContextChoiceType:
+        arguments:
+            $siteService: '@?Ibexa\Contracts\SiteFactory\Service\SiteServiceInterface'
+        tags:
+            - { name: form.type }
+
+    Ibexa\Bundle\SiteContext\Form\Extension\ContentCreateExtension:
+        tags:
+            - { name: form.type_extension }
+

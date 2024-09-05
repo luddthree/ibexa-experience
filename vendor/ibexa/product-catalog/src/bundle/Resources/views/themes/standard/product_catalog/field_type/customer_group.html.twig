@@ -1,0 +1,6 @@
+{% block ibexa_customer_group_field %}
+    {% set customer_group = parameters.customer_group %}
+    {% if customer_group is not null %}
+        {{ customer_group.name }}
+    {% endif %}
+{% endblock %}

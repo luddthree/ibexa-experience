@@ -1,0 +1,39 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% use '@ibexadesign/ui/form_fields/dropdown_widget.html.twig' %}
+
+{% block context_switch_enabled_widget %}
+    {% set attr = attr|default({})|merge({
+        class: (attr.class|default('') ~ ' ibexa-toggle__input ibexa-input ibexa-input--toggle')|trim,
+    }) %}
+
+    <div class="ibexa-toggle ibexa-toggle--checkbox {% if checked %}ibexa-toggle--is-checked {% endif %} ibexa-toggle-preview">
+        <span class="ibexa-toggle__label ibexa-toggle__label--edit" style="">
+            Edit
+        </span>
+        <label class="ibexa-toggle__switcher">
+            <span class="ibexa-toggle__indicator"></span>
+            <input type="checkbox" {% with attr %}{{ block('widget_attributes') }}{% endwith %} {% if checked %}checked{% endif %} />
+        </label>
+        <span class="ibexa-toggle__label ibexa-toggle__label--preview">
+            Preview
+        </span>
+    </div>
+{% endblock %}
+
+{% block context_switch_siteaccess_widget %}
+    {% trans_default_domain 'ibexa_site_context' %}
+
+    {% set attr = attr|default({})|merge({
+        'dropdown_class': 'ibexa-change-sa-context-dropdown',
+        'class': 'ibexa-change-siteaccess-context',
+        'is_small': true,
+    }) %}
+    {% set selected_item_template_path = '@ibexadesign/site_context/dropdown/dropdown_selected_item.html.twig' %}
+    {% set list_item_template_path = '@ibexadesign/site_context/dropdown/dropdown_item.html.twig' %}
+    {% set items_class = 'ibexa-change-sa-context-dropdown__items' %}
+    {% set items_list_header = 'site_context.dropdown.label'|trans|desc('Sites') %}
+    {% set placeholder = 'site_context.dropdown.placeholder'|trans|desc('All context') %}
+
+    {{ block('choice_widget') }}
+{% endblock %}

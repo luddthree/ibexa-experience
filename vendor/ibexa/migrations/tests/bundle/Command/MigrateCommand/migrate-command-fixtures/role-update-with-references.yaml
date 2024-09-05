@@ -1,0 +1,32 @@
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Editor
+    metadata:
+        identifier: Editor
+    references:
+        -
+            name: ref__role__editor__role_id
+            type: role_id
+-
+    type: user_group
+    mode: create
+    metadata:
+        alwaysAvailable: true
+        contentTypeIdentifier: user_group
+        mainLanguage: eng-US
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: __foo__role__
+        sectionId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Second User Group
+    roles:
+        - 'reference:ref__role__editor__role_id'

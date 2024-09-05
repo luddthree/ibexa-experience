@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\PageBlock\DataProvider\OutputType\OutputTypeDataProvider: ~
+
+    Ibexa\Personalization\PageBlock\DataProvider\OutputType\OutputTypeDataProviderInterface:
+        '@Ibexa\Personalization\PageBlock\DataProvider\OutputType\OutputTypeDataProvider'
+
+    Ibexa\Personalization\PageBlock\DataProvider\Scenario\ScenarioDataProvider: ~
+
+    Ibexa\Personalization\PageBlock\DataProvider\Scenario\ScenarioDataProviderInterface:
+        '@Ibexa\Personalization\PageBlock\DataProvider\Scenario\ScenarioDataProvider'

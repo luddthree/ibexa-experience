@@ -1,0 +1,96 @@
+{% extends '@ibexadesign/corporate_account/edit.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% from '@ibexadesign/content/edit_macros.html.twig' import render_form_field, render_field_group %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-company-create-edit{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'comapany.create.action_name'|trans|desc('Creating'),
+        content_type_name: content_type.name,
+        title: 'comapany.create.title'|trans({'%contentType%': content_type.name})|desc('New %contentType%'),
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set menu_items %}
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <button
+                type="button"
+                data-click="#ezplatform_content_forms_content_edit_publish"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--trigger"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'company.create.save_btn.label'|trans|desc('Save') }}
+                </span>
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <a
+                href="{{ path('ibexa.corporate_account.company.list') }}"
+                class="btn ibexa-btn ibexa-btn--secondary"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'company.create.cancel_btn.label'|trans|desc('Cancel') }}
+                </span>
+            </a>
+        </li>
+    {% endset %}
+
+    {{ include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', {
+        menu_items,
+    }) }}
+{% endset %}
+
+{% block form %}
+    {% if is_submitted %}
+        Application submited. Quick link to <a href="/admin/application/list">Application List</a>
+    {% else %}
+    {{ form_start(form, {'attr': {'class': 'ibexa-form-validate ibexa-form'}}) }}
+        {% block form_fields %}
+            <div class="ibexa-anchor-navigation-sections">
+                {% set company_group = grouped_fields['Company'] %}
+                {% set member_group = grouped_fields['Member'] %}
+
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: 'Company',
+                    group: company_group,
+                    parent_self: _self,
+                } %}
+                    {% trans_default_domain 'ibexa_corporate_account' %}
+                    {% import parent_self as parent_self %}
+
+                    {% block anchor_section_body %}
+                        {% from '@ibexadesign/content/edit_macros.html.twig' import render_field_group %}
+                        <h2 class="ibexa-ca-company-create-edit__company-header">
+                            {{ 'comapany.create.section.company.title'|trans|desc('Company') }}
+                        </h2>
+                        {{ render_field_group(group, form) }}
+                    {% endblock %}
+                {% endembed %}
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: 'Member',
+                    group: member_group,
+                    parent_self: _self,
+                } %}
+                    {% trans_default_domain 'ibexa_corporate_account' %}
+                    {% import parent_self as parent_self %}
+
+                    {% block anchor_section_body %}
+                        {% from '@ibexadesign/content/edit_macros.html.twig' import render_field_group %}
+                        <h2 class="ibexa-ca-company-create-edit__member-header">
+                            {{ 'comapany.create.section.member.title'|trans|desc('Member') }}
+                        </h2>
+                        {{ render_field_group(group, form) }}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        {% endblock %}
+        {{- form_widget(form.publish, { attr: { hidden: true }}) -}}
+    {{ form_end(form) }}
+    {% endif %}
+{% endblock %}

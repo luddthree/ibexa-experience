@@ -1,0 +1,299 @@
+-   type: customer_group
+    mode: create
+    identifier: standard
+    names:
+        eng-GB: Standard
+    descriptions:
+        eng-GB: Standard
+    global_price_rate: 0.0
+
+-   type: customer_group
+    mode: create
+    identifier: vip
+    names:
+        eng-GB: VIP
+    descriptions:
+        eng-GB: VIP
+    global_price_rate: -10.0
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '100E'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '100E'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '100E'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '100E'
+
+-   type: product_price
+    mode: create
+    product_code: '100E'
+    currency_code: 'EUR'
+    amount: 100
+    custom_prices:
+        -   customer_group: standard
+            base_amount: 110
+            custom_amount: 100
+        -   customer_group: vip
+            custom_amount: 80
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '200E'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '200E'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '200E'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '200E'
+
+-   type: product_price
+    mode: create
+    product_code: '200E'
+    currency_code: 'EUR'
+    amount: 200
+    custom_prices:
+        -   customer_group: vip
+            custom_amount: 100
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '300E'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '300E'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '300E'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '300E'
+
+-   type: product_price
+    mode: create
+    product_code: '300E'
+    currency_code: 'EUR'
+    amount: 300
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '50E'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '50E'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '50E'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '50E'
+
+-   type: product_price
+    mode: create
+    product_code: '50E'
+    currency_code: 'EUR'
+    amount: 50
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '25E'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '25E'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '25E'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '25E'
+
+-   type: product_price
+    mode: create
+    product_code: '25E'
+    currency_code: 'EUR'
+    amount: 25
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '100USD'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '100USD'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '100USD'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '100USD'
+
+-   type: product_price
+    mode: create
+    product_code: '100USD'
+    currency_code: 'USD'
+    amount: 100
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '50USD'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '50USD'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '50USD'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '50USD'
+
+-   type: product_price
+    mode: create
+    product_code: '50USD'
+    currency_code: 'USD'
+    amount: 50
+
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: '200USD'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: '200USD'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '200USD'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '200USD'
+
+-   type: product_price
+    mode: create
+    product_code: '200USD'
+    currency_code: 'USD'
+    amount: 200

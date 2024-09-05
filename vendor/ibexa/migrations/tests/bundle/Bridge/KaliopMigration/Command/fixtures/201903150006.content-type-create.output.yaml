@@ -1,0 +1,121 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: __IDENTIFIER__
+        contentTypeGroups:
+            - Content
+        mainTranslation: eng-GB
+        nameSchema: '<name>'
+        urlAliasSchema: __URL_ALIAS_SCHEMA__
+        container: false
+        remoteId: null
+        translations:
+            eng-GB:
+                name: __NAME__
+                description: __DESCRIPTION__
+    fields:
+        -
+            identifier: name
+            type: ezstring
+            position: null
+            translations:
+                eng-GB:
+                    name: Title
+                    description: ''
+            required: true
+            searchable: null
+            infoCollector: null
+            translatable: null
+            category: null
+            defaultValue: null
+            fieldSettings: null
+            validatorConfiguration: null
+        -
+            identifier: date
+            type: ezdate
+            position: null
+            translations:
+                eng-GB:
+                    name: Date
+                    description: ''
+            required: true
+            searchable: null
+            infoCollector: null
+            translatable: null
+            category: null
+            defaultValue: 1610551700
+            fieldSettings: null
+            validatorConfiguration: null
+        -
+            identifier: image
+            type: ezimage
+            position: null
+            translations:
+                eng-GB:
+                    name: 'Thumbnail Image'
+                    description: 'Image size 920x690'
+            required: true
+            searchable: false
+            infoCollector: null
+            translatable: true
+            category: null
+            defaultValue: null
+            fieldSettings: null
+            validatorConfiguration: null
+        -
+            identifier: provider
+            type: ezselection
+            position: null
+            translations:
+                eng-GB:
+                    name: 'Video Provider'
+                    description: 'Select an video provider'
+            required: true
+            searchable: false
+            infoCollector: null
+            translatable: null
+            category: null
+            defaultValue: null
+            fieldSettings:
+                options:
+                    - Youtube
+                    - 'Moving Image'
+            validatorConfiguration: null
+        -
+            identifier: video-options
+            type: ezselection
+            position: null
+            translations:
+                eng-GB:
+                    name: 'Video Options'
+                    description: 'Select one'
+            required: true
+            searchable: false
+            infoCollector: null
+            translatable: null
+            category: null
+            defaultValue: null
+            fieldSettings:
+                isMultiple: true
+                options:
+                    - auto-show
+                    - auto-play
+                    - auto-mute
+            validatorConfiguration: null
+        -
+            identifier: size_calculator_link
+            type: ezstring
+            position: null
+            translations:
+                eng-GB:
+                    name: Link
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: content
+            defaultValue: 'https://link.com/'
+            fieldSettings: null
+            validatorConfiguration: null

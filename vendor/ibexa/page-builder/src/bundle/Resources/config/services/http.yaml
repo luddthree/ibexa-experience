@@ -1,0 +1,30 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\HTTP\Request\Resolver\:
+        resource: "../../../../lib/HTTP/Request/Resolver/**"
+
+    Ibexa\PageBuilder\HTTP\Request\Resolver\SiteaccessResolver:
+        arguments:
+            $siteaccessRouter: '@Ibexa\Core\MVC\Symfony\SiteAccess\Router'
+
+    Ibexa\PageBuilder\HTTP\Request\Resolver\UrlAliasResolver:
+        arguments:
+            $urlAliasGenerator: '@Ibexa\Core\MVC\Symfony\Routing\Generator\UrlAliasGenerator'
+
+    Ibexa\PageBuilder\HTTP\Kernel\Fragment\DecoratedFragmentRenderer:
+        public: false
+        decorates: fragment.renderer.esi
+        decoration_priority: 0
+        arguments:
+            $surrogate: '@esi'
+            $inlineStrategy: '@fragment.renderer.inline'
+            $signer: '@uri_signer'
+            $innerRenderer: '@Ibexa\PageBuilder\HTTP\Kernel\Fragment\DecoratedFragmentRenderer.inner'
+
+    Ibexa\PageBuilder\HTTP\Kernel\ControllerResolver:
+        arguments:
+            $controllerResolver: '@controller_resolver'

@@ -1,0 +1,124 @@
+{# @deprecated, will be removed in 5.0 #}
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_page_builder' %}
+
+{% block navigation %}{% endblock %}
+
+{% block body_class %}ibexa-pb-app--edit{% endblock %}
+
+{% block content %}
+    {% include '@IbexaPageBuilder/page_builder/infobar/translate.html.twig' with {
+        'content': content,
+        'location': location,
+        'language': language,
+        'base_language': base_language,
+        'preview_url': preview_url,
+        'display_url': display_url,
+        'preview_mode_url': preview_mode_url,
+        'creator': creator,
+        'editor_mode': editor_mode,
+    } only %}
+
+    {% block timeline %}
+        <div class="ibexa-pb-timeline-wrapper"></div>
+    {% endblock %}
+
+    {% if location.hidden or location.invisible %}
+        {% include '@IbexaPageBuilder/page_builder/parts/alerts_tray.html.twig' with {'selected' : true } %}
+    {% endif %}
+
+    {% set mode = base_language is not null
+        ? constant('Ibexa\\PageBuilder\\PageBuilder\\PageBuilderMode::MODE_TRANSLATE')
+        : constant('Ibexa\\PageBuilder\\PageBuilder\\PageBuilderMode::MODE_TRANSLATE_WITHOUT_BASE_LANGUAGE')
+    %}
+
+    <div class="ibexa-pb-app-wrapper">
+        <div class="ibexa-pb-app">
+            <div id="ibexa-pb-app-root" class="ibexa-pb-app__landingpage"></div>
+            <div class="ibexa-pb-app__fields">
+                {% embed '@ibexadesign/content/edit/edit.html.twig' with {
+                    'view_base_layout': '@IbexaPageBuilder/content_edit/content_wrapper.html.twig',
+                } %}
+                    {% block close_button %}{% endblock %}
+                    {% block right_sidebar_wrapper %}{% endblock %}
+                {% endembed %}
+            </div>
+            <div class="ibexa-context-menu ibexa-pb-right-sidebar ibexa-pb-right-sidebar--expanded">
+                <div class="ibexa-sticky-container">
+                    {% set page_edit_actions = knp_menu_get('ezplatform_page_builder.edit.actions', [], {
+                        'content': content,
+                        'location': location,
+                        'language': language,
+                        'parent_location': parent_location,
+                    }) %}
+                    {{ knp_menu_render(page_edit_actions, {'template': '@ibexadesign/ui/menu/sidebar_right.html.twig'}) }}
+                </div>
+            </div>
+            <button class="ibexa-right-sidebar-toggler ibexa-right-sidebar-toggler--expanded">
+                <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--light">
+                    <use xlink:href="{{ ibexa_icon_path('caret-expanded') }}"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    {{ form(block_configuration_request_form, {'attr': {'hidden': 'hidden'}}) }}
+
+    {% set blocks_json = landing_page_config.blocks|json_encode %}
+    {% set layouts_json = landing_page_config.layouts|json_encode %}
+    {% set form_page_value = page_field_identifier is not null ? attribute(form.fieldsData, page_field_identifier).value : null %}
+
+    {% set iframe_css_url = encore_entry_css_files('ibexa-page-builder-iframe-editor-ui-css', 'ibexa')|first %}
+
+    <script>
+        window.ibexa.addConfig('pageBuilder.callbacks', {});
+        window.ibexa.addConfig('pageBuilder.timeline', {
+            events: {{ timeline_events|raw }},
+        });
+        window.ibexa.addConfig('pageBuilder.data', {
+            contentId: {{ content.id }},
+            locationId: {{ location is not null ? location.id : 'null' }},
+            versionNo: {{ content.versionInfo.versionNo }},
+            languageCode: '{{ language.languageCode }}',
+            baseLanguageCode: '{{ base_language is not null ? base_language.languageCode : null }}',
+            siteaccess: '{{ siteaccess_name }}'
+        });
+        window.ibexa.addConfig('pageBuilder.config', {
+            fieldValue: JSON.parse('{{ page|raw|e('js') }}'),
+            blocksConfig: JSON.parse({{ blocks_json|json_encode|raw }}),
+            previewUrl: `{{ preview_url }}`,
+            pageFieldValueSelector: `{{ form_page_value is not null ? '#' ~ form_page_value.vars.id : '' }}`,
+            iframeCss: '{{ iframe_css_url }}',
+            layoutsConfig: JSON.parse({{ layouts_json|json_encode|raw }}),
+            mode: '{{ mode }}',
+            intentParameters: {
+                locationId: {{ location.id }},
+                languageCode: '{{ language.languageCode }}',
+                baseLanguageCode: '{{ base_language is not null ? base_language.languageCode : null }}'
+            },
+            previewSiteaccess: '{{ siteaccess_name }}',
+            blockPreviewRequestParams: {},
+            timelineGetEventsRequestParams: {},
+            referenceTimestamp: {{ reference_timestamp }}
+        });
+    </script>
+
+    <div class="ibexa-pb-iframe-backdrop"></div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% include '@ibexadesign/content/edit/javascripts.html.twig' %}
+    {% include '@IbexaPageBuilder/page_builder/parts/javascripts.html.twig' %}
+
+    {{ encore_entry_script_tags('ibexa-page-builder-translate-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {% include '@ibexadesign/content/edit/stylesheets.html.twig' %}
+
+    {{ encore_entry_link_tags('ibexa-page-builder-translate-css', null, 'ibexa') }}
+{% endblock %}

@@ -1,0 +1,5 @@
+{% if is_trashed %}
+    <em>({{ 'content.in_trash'|trans(domain='content')|desc('In Trash') }})</em>
+{% else %}
+    <a href="{{ url }}">{{ name }}</a>
+{% endif %}

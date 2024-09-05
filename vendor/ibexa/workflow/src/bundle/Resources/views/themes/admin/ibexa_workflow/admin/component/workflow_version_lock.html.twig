@@ -1,0 +1,10 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+<div class="container ibexa-content-edit-workflow">
+    <div class="ibexa-alert ibexa-alert--info">
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('warning') }}"></use>
+        </svg>
+        {{ 'draft.edit.locked'|trans()|desc('This content is now assigned to you for review. It will unlock when you exit this screen.') }}
+    </div>
+</div>

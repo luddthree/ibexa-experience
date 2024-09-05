@@ -1,0 +1,8 @@
+system:
+    admin_group:
+        admin_ui_forms:
+            content_type_edit:
+                field_types:
+                    ibexa_seo:
+                        meta: true
+                        position: 100

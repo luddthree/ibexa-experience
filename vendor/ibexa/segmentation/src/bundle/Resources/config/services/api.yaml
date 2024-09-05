@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\Service\SegmentationService:
+        arguments:
+            $purgeClient: '@ibexa.http_cache.purge_client'
+
+    Ibexa\Segmentation\Service\Mapper\DomainMapper: ~
+
+    Ibexa\Contracts\Segmentation\SegmentationServiceInterface: '@Ibexa\Segmentation\Service\SegmentationService'
+
+    Ibexa\Segmentation\Service\Event\SegmentationServiceEventDecorator:
+        decorates: 'Ibexa\Contracts\Segmentation\SegmentationServiceInterface'

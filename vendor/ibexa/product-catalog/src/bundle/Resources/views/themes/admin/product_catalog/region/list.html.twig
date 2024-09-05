@@ -1,0 +1,56 @@
+{% extends "@ibexadesign/product_catalog/list.html.twig" %}
+
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set pager = regions %}
+{% set header_title = 'regions.list.title'|trans|desc('Regions') %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { value: 'regions.breadcrumb.list'|trans|desc('Regions') }
+    ]} %}
+{% endblock %}
+
+{% block data_grid %}
+    {% set body_rows = [] %}
+
+    {% for region in regions %}
+        {% set view_url = '#' %}
+
+        {% set vat_rows %}
+            {% set vat_body_rows = [] %}
+            {% for vat_category in vat_categories_by_region[region.identifier] %}
+                {% set vat_body_rows = vat_body_rows|merge([{
+                    cols: [
+                        { content: data_grid_macros.cell_name(vat_category.identifier, '#')},
+                        { content: vat_category.vatValue is same as null ? 'regions.vat.value.not_applicable'|trans|desc('N/A') : vat_category.vatValue },
+                    ],
+                }]) %}
+            {% endfor %}
+
+            {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                head_cols: [
+                    { content: 'regions.vat.list.column.identifier'|trans|desc('vat category identifier') },
+                    { content: 'regions.vat.list.column.value'|trans|desc('value') },
+                ],
+                body_rows: vat_body_rows,
+            } only %}
+        {% endset %}
+
+        {% set body_rows = body_rows|merge([{ cols: [
+            { content: data_grid_macros.cell_name(region.identifier, view_url) },
+            { content: vat_rows, raw: true },
+        ]}]) %}
+    {% endfor %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline: 'regions.list.number_of_results'|trans({'%number_of_results%': regions|length })|desc('%number_of_results% Results'),
+        head_cols: [
+            { content: 'regions.list.column.identifier'|trans|desc('identifier') },
+        ],
+        body_rows: body_rows,
+    } %}
+{% endblock %}

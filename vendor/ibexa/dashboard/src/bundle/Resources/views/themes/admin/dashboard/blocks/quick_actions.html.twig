@@ -1,0 +1,16 @@
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% set default_block_name = 'block.quick_actions.title'|trans|desc('Quick actions') %}
+
+<div class="ibexa-db-quick-actions {{ block_class|default('') }}">
+    <div class="ibexa-card ibexa-card--no-padding">
+        <div class="ibexa-card__title">{{ block_name|default(default_block_name) }}</div>
+        <div class="ibexa-card__body">
+            <div class="ibexa-db-quick-actions__tiles">
+                {% for tile_data in tiles %}
+                    {% include '@ibexadesign/dashboard/blocks/parts/quick_actions_tile.html.twig' with tile_data %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

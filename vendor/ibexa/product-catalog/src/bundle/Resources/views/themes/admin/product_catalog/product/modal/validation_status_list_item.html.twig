@@ -1,0 +1,16 @@
+{% set extra_classess = extra_classess|default('{{ extra_classess }}') %}
+{% set file_name = file_name|default('{{ file_name }}') %}
+{% set icon_name = icon_name|default('{{ icon_name }}') %}
+{% set msg = msg|default('{{ msg }}') %}
+
+<li class="ibexa-pc-product-assets__validation-status-list-item {{ extra_classess }}">
+    <div class="ibexa-pc-product-assets__validation-status-file-name">
+        {{ file_name }}
+    </div>
+    <div class="ibexa-pc-product-assets__validation-status-msg">
+        <svg class="ibexa-icon ibexa-icon--tiny-small">
+            <use xlink:href="{{ ibexa_icon_path(icon_name) }}"></use>
+        </svg>
+        {{ msg }}
+    </div>
+</li>

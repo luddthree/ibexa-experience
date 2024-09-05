@@ -1,0 +1,30 @@
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Anonymous
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Administrator
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Editor
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Partner
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Member

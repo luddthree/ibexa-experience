@@ -1,0 +1,79 @@
+ibexa_fieldtype_page:
+    blocks:
+        ibexa_news:
+            name: Ibexa news
+            category: Dashboard
+            thumbnail: '/bundles/ibexaicons/img/all-icons.svg#news'
+            views:
+                default:
+                    name: 'Default block layout'
+                    template: '@ibexadesign/dashboard/blocks/ibexa_news.html.twig'
+            attributes:
+                limit:
+                    name: Number of news
+                    type: integer
+                    value: '%ibexa.dashboard.ibexa_news.limit%'
+                    options:
+                        help: Min. 1, max. 10
+                    validators:
+                        not_blank:
+                            message: News limit cannot be empty.
+                        less_than:
+                            options:
+                                value: 11
+                            message: The limit should be a maximum of 10.
+                        regexp:
+                            options:
+                                pattern: '/^[0-9]+$/'
+                            message: News limit must be a positive integer.
+
+        quick_actions:
+            name: Quick actions
+            category: Dashboard
+            thumbnail: '/bundles/ibexaicons/img/all-icons.svg#flash'
+            views:
+                default:
+                    name: 'Default block layout'
+                    template: '@ibexadesign/dashboard/blocks/quick_actions.html.twig'
+            attributes:
+                actions:
+                    type: select
+                    name: Actions
+                    value: 'create_content,create_form,create_product,create_catalog,create_company'
+                    options:
+                        multiple: true
+                        choices:
+                            'Create content': create_content
+                            'Create form': create_form
+                            'Create product': create_product
+                            'Create catalog': create_catalog
+                            'Create company': create_company
+                    identifier: actions
+                    validators:
+                        not_blank:
+                            message: Actions cannot be empty.
+                    category: default
+
+        my_content:
+            name: My content
+            category: Dashboard
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#contentlist
+            views:
+                default:
+                    template: '@ibexadesign/dashboard/blocks/my_content.html.twig'
+
+        common_content:
+            name: Common content
+            category: Dashboard
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#content-write
+            views:
+                default:
+                    template: '@ibexadesign/dashboard/blocks/common_content.html.twig'
+
+        review_queue:
+            name: Review queue
+            category: Dashboard
+            thumbnail: /bundles/ibexaicons/img/all-icons.svg#review
+            views:
+                default:
+                    template: '@ibexadesign/dashboard/blocks/review_queue.html.twig'

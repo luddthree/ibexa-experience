@@ -1,0 +1,101 @@
+-   type: currency
+    mode: create
+    code: EUR
+    subunits: 2
+    enabled: true
+
+-   type: currency
+    mode: create
+    code: PLN
+    subunits: 2
+    enabled: true
+
+-   type: currency
+    mode: create
+    code: USD
+    subunits: 2
+    enabled: true
+
+-   type: attribute_group
+    mode: create
+    identifier: test_attribute_group
+    position: 0
+    names:
+        eng-GB: Test Attribute Group
+
+-   type: attribute
+    mode: create
+    identifier: measurement_single_identifier
+    attribute_group_identifier: test_attribute_group
+    attribute_type_identifier: measurement_single
+    position: 0
+    names:
+        eng-GB: Test Single Measurement Attribute Definition
+    options:
+        sign: none
+        type: length
+        unit: centimeter
+
+-   type: attribute
+    mode: create
+    identifier: measurement_range_identifier
+    attribute_group_identifier: test_attribute_group
+    attribute_type_identifier: measurement_range
+    position: 0
+    names:
+        eng-GB: Test Range Measurement Attribute Definition
+    options:
+        type: length
+        unit: centimeter
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: attribute_measurement_check
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:48+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Dress
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: measurement_single_identifier, required: false, discriminator: false }
+                        - { attributeDefinition: measurement_range_identifier, required: false, discriminator: false }

@@ -1,0 +1,25 @@
+-
+    type: user
+    mode: create
+    metadata:
+        login: __LOGIN__
+        email: anonymous@link.invalid
+        password: __PASSWORD__
+        enabled: true
+        mainLanguage: eng-GB
+        contentType: user
+    groups:
+        - __GROUP_REMOTE_ID__
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-GB
+            value: __FIRST_NAME__
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-GB
+            value: __LAST_NAME__
+    references:
+        -
+            name: ref__user_anonymous
+            type: user_id

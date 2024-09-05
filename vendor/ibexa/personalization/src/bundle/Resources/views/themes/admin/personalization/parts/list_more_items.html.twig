@@ -1,0 +1,23 @@
+{% set visible_items_limit = 2 %}
+
+{% set visible_items = items|slice(0, visible_items_limit) %}
+{% set hidden_items = items|slice(visible_items_limit) %}
+
+<ul class="list-unstyled">
+    {% for item in visible_items %}
+        <li class="{{ li_class }}">
+            {{ item }}
+        </li>
+    {% endfor %}
+    {% if hidden_items|length %}
+        <li class="{{ li_class }}">
+            <span
+                class="ibexa-perso-list-more-items"
+                title="{{ hidden_items|join('<br/>') }}"
+                data-tooltip-use-html
+            >
+                {{ 'list.more_items'|trans({ '%count%': hidden_items|length })|desc('+%count% more') }}
+            </span>
+        </li>
+    {% endif %}
+</ul>

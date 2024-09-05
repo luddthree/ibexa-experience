@@ -1,0 +1,20 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
+
+{% block body_class %}{{ parent() }} ibexa-pb-block-config--content-list{% endblock %}
+
+{% block content %}
+    {% set form_templates = [_self] %}
+    {{ parent() }}
+{% endblock %}
+
+{% block block_configuration_attribute_embed_widget %}
+    {% set attr = attr|merge({'hidden': true}) %}
+    {{ form_widget(form, {'attr': attr})}}
+    <div class="ibexa-pb-block-embed-field">
+        {% include '@IbexaPageBuilder/page_builder/block/config/embed_button.html.twig' with {
+            udw_config_name: 'block_content_list',
+            data_open_udw: 'data-open-udw-embed'
+        } %}
+        {% include '@IbexaPageBuilder/page_builder/block/config/embed_preview.html.twig' %}
+    </div>
+{% endblock %}

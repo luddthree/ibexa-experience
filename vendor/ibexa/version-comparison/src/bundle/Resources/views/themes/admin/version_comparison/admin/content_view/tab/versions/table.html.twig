@@ -1,0 +1,21 @@
+{% trans_default_domain 'ibexa_fieldtypes_comparison_ui' %}
+
+{% set custom_actions = true %}
+
+{% extends '@ibexadesign/ibexa_workflow/admin/content_view/tab/versions/table.html.twig' %}
+
+{% block custom_actions_column %}
+    <a href="{{ path('ibexa.version.compare.split', {
+        contentInfoId: version.contentInfo.id,
+        versionNoA: version.versionNo,
+        versionALanguageCode: version.initialLanguageCode
+    }) }}"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+        title="{{ 'tab.versions.table.action.version_compare'|trans|desc('Version compare') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('version-compare') }}"></use>
+        </svg>
+    </a>
+    {{ parent() }}
+{% endblock %}

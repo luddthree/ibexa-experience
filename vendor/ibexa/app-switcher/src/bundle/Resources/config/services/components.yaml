@@ -1,0 +1,10 @@
+services:
+    ibexa.app.switcher.twig:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@IbexaAppSwitcher/themes/admin/app_switcher.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'header-user-menu-middle' }

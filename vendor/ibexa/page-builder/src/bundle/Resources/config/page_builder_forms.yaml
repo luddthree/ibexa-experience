@@ -1,0 +1,5 @@
+system:
+    admin_group:
+        page_builder_forms:
+            block_edit_form_templates:
+                - { template: '@IbexaPageBuilder/page_builder/block/form_fields.html.twig', priority: 0 }

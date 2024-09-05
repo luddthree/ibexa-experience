@@ -1,0 +1,23 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set selected_language = app.request.query.get('language') ?? attribute_definition.languages|first %}
+{% set body_rows = [] %}
+{% set options = attribute_definition.options.all.choices|default([]) %}
+
+{% for option in options %}
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: option.label[selected_language] },
+        { content: option.value },
+    ] }]) %}
+{% endfor %}
+
+{% if options is not empty %}
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline: 'attribute_definition.view.options'|trans|desc('Attribute options'),
+        head_cols: [
+            { content: 'attribute_definition.view.options.name'|trans|desc('Name') },
+            { content: 'attribute_definition.view.options.value'|trans|desc('Value') },
+        ],
+        body_rows,
+    } %}
+{% endif %}

@@ -1,0 +1,28 @@
+{% trans_default_domain 'ibexa_fieldtypes_comparison_ui' %}
+
+<div class="ibexa-version-compare-header">
+    <div class="ibexa-version-compare-header__back-wrapper">
+        <a 
+            href="{{path('ibexa.content.view', {'contentId': content_a.id, 'locationId': content_a.contentInfo.mainLocationId }) }}"
+            class="ibexa-version-compare-header__back-link btn ibexa-btn ibexa-btn--ghost"
+        >
+            <svg class="ibexa-icon ibexa-icon--small-medium">
+                <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+            </svg>
+            {{ 'content.comparison.header.back_button'|trans|desc('Back') }}
+        </a>
+    </div>
+    <div class="ibexa-version-compare-header__title-wrapper">
+        <h1 class="ibexa-version-compare-header__title">{{ 'content.comparison.title'|trans|desc('Comparing versions') }}</h1>
+        <div
+            class="ibexa-version-compare-header__tooltip"
+            title="{{ include('@ibexadesign/version_comparison/header_tooltip.html.twig')|e('html_attr') }}"
+            data-tooltip-use-html
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('about') }}"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="ibexa-version-compare-header__menu-wrapper">{% include '@ibexadesign/version_comparison/menu.html.twig' %}</div>
+</div>

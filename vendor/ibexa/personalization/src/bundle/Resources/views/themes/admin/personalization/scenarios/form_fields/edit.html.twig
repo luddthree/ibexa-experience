@@ -1,0 +1,147 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block _scenario_input_type_widget %}
+    {{ block('choice_widget') }}
+{% endblock %}
+
+{% block _scenario_output_type_widget %}
+    {{ block('choice_widget') }}
+{% endblock %}
+
+{% block _scenario_user_profile_settings_widget %}
+    {% for child in form.children %}
+        {{ form_widget(child, { attr:  { class: classess|default('') } }) }}
+    {% endfor %}
+{% endblock %}
+
+{% block scenario_excluded_categories_widget %}
+    <div
+        class="ibexa-perso-scenario-edit__checkbox ibexa-perso-scenario-edit__checkbox--with-category-path
+            ibexa-perso-scenario-edit__category-path-select"
+    >
+        {{ form_row(form.enabled) }}
+        <div class="ibexa-perso-scenario-edit__checkbox-subfield">
+            {% set selected_items = form.paths|map(
+                path => { label: paths[path.vars.value]|default(path.vars.value), value: path.vars.value }
+            ) %}
+            {{ include('@ibexadesign/personalization/parts/category_path_select.html.twig', {
+                is_disabled: not form.enabled.vars.checked,
+                selected_items,
+            }) }}
+            <div
+                id="path-fields-list"
+                class="ibexa-perso-scenario-edit__category-path-inputs d-none"
+                data-input-template="{{ form_widget(form.paths.vars.prototype)|e('html_attr') }}"
+            >
+                {% for path in form.paths %}
+                    {{ form_widget(path, {
+                        attr: { 'data-value': path.vars.value }
+                    }) }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scenario_commerce_settings_widget %}
+    {% for child in form.children %}
+        {% set classess = (child.children|length == 0) ? 'ibexa-input ibexa-input--checkbox' : '' %}
+        {{ form_widget(child, { attr:  { class: classess|default('') } }) }}
+    {% endfor %}
+{% endblock %}
+
+{% block _scenario_user_profile_settings_exclude_repeated_recommendations_widget %}
+    <div class="ibexa-perso-scenario-edit__checkbox ibexa-perso-scenario-edit__checkbox--with-subfields">
+        {{ form_row(form.enabled, {
+            label: 'scenario.edit.exclude_repeated_recommendations.'|trans|desc("Max. repeated shows of identical recommendations per session."),
+        }) }}
+        {{ form_row(form.value, {
+            label: 'scenario.edit.exclude_repeated_recommendations.label'|trans|desc("Amount"),
+            row_attr: { class: 'ibexa-perso-scenario-edit__checkbox-subfield' },
+            attr: {
+                disabled: not form.enabled.vars.checked,
+                class: 'ibexa-perso-scenario-edit__checkbox-input ibexa-input--small',
+            }
+        }) }}
+    </div>
+{% endblock %}
+
+{% block _scenario_user_profile_settings_boost_item_widget %}
+    <div class="ibexa-perso-scenario-edit__checkbox ibexa-perso-scenario-edit__checkbox--with-subfields">
+        <div class="form-group ibexa-perso-scenario-edit__multiline-label-wrapper">
+            {{ form_widget(form.enabled, {
+                label_attr: { hidden: true },
+            }) }}
+            <label class="form-check-label ibexa-label ibexa-label--checkbox-radio">
+                {{ 'scenario.edit.boost_item.enable'|trans|desc("Enable item boosting") }}<br>
+                {{ 'scenario.edit.boost_item.info'|trans|desc("User attribute has the same name") }}
+            </label>
+        </div>
+        {{ form_row(form.attribute, {
+            label: 'Type attribute',
+            row_attr: { class: 'ibexa-perso-scenario-edit__checkbox-subfield' },
+            attr: {
+                disabled: not form.enabled.vars.checked,
+                class: 'ibexa-perso-scenario-edit__checkbox-input ibexa-input--small',
+            }
+        }) }}
+        <div class="form-group ibexa-perso-scenario-edit__checkbox-subfield">
+            <label class="ibexa-label">
+                {{ 'scenario.edit.boost_item.position.label'|trans|desc("Move up by") }}<br>
+            </label>
+            <div class="ibexa-perso-scenario-edit__boost-position-move-up">
+                {{ form_widget(form.position, {
+                    row_attr: { class: 'ibexa-perso-scenario-edit__checkbox-subfield' },
+                    attr: {
+                        disabled: not form.enabled.vars.checked,
+                        class: 'ibexa-perso-scenario-edit__checkbox-input ibexa-input--small',
+                    }
+                }) }}
+                {{ 'scenario.edit.boost_item.positions'|trans|desc("positions") }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _scenario_user_profile_settings_user_attribute_name_widget %}
+    {% set related_to = form.parent.boost_item.children.enabled %}
+
+    <div class="ibexa-perso-scenario-edit__checkbox ibexa-perso-scenario-edit__checkbox--with-subfields ibexa-perso-scenario-edit__checkbox--user-attribute">
+        {{ form_row(form.enabled, {
+            label: 'scenario.edit.user_attribute_name'|trans|desc("User attribute has different name"),
+            disabled: not related_to.vars.checked,
+        }) }}
+        {{ form_row(form.value, {
+            label: 'Type attribute',
+            row_attr: { class: 'ibexa-perso-scenario-edit__checkbox-subfield' },
+            attr: {
+                disabled: not form.enabled.vars.checked,
+                class: 'ibexa-perso-scenario-edit__checkbox-input ibexa-input--small',
+            }
+        }) }}
+    </div>
+{% endblock %}
+
+{% block _scenario_commerce_settings_exclude_minimal_item_price_widget %}
+    <div class="ibexa-perso-scenario-edit__checkbox ibexa-perso-scenario-edit__checkbox--with-subfields">
+        {{ form_row(form.enabled, {
+            label: 'scenario.edit.exclude_minimal_item_price'|trans|desc("Minimum price of the recommended product"),
+        }) }}
+        {{ form_row(form.value, {
+            label: 'scenario.edit.exclude_minimal_item_price.label'|trans|desc("Amount"),
+            row_attr: { class: 'ibexa-perso-scenario-edit__checkbox-subfield' },
+            attr: {
+                disabled: not form.enabled.vars.checked,
+                class: 'ibexa-perso-scenario-edit__checkbox-input ibexa-input--small',
+            }
+        }) }}
+    </div>
+{% endblock %}
+
+{% block _scenario_commerce_settings_exclude_items_without_price_widget %}
+    {{ form_widget(form, {
+        attr:  {
+            class: 'ibexa-input ibexa-input--checkbox'
+        }
+    }) }}
+{% endblock %}

@@ -1,0 +1,358 @@
+ibexa.product_catalog.product.asset.create:
+    path: /product/asset/create/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\CreateAssetController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.asset.tag:
+    path: /product/asset/group/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\TagAssetController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.asset.delete:
+    path: /product/asset/delete/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\DeleteAssetController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.bulk_delete:
+    path: /product/bulk/delete
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\BulkDeleteController::executeAction'
+
+ibexa.product_catalog.product.create_proxy:
+    path: /product/create
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\CreateController::createProxyAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.create:
+    path: /product/create/{productTypeIdentifier}/{languageCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\CreateController::createAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.edit:
+    path: /product/edit/{productCode}/{languageCode}/{baseLanguageCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\UpdateController::updateAction'
+    methods: [GET, POST]
+    options:
+        expose: true
+    defaults:
+        languageCode: ~
+        baseLanguageCode: ~
+
+ibexa.product_catalog.product.variant.create:
+    path: /product/variant/create/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\CreateVariantController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.variant.edit:
+    path: /product/variant/edit/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\UpdateVariantController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.variant_generator:
+    path: /product/variant-generator/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\GenerateVariantController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.delete:
+    path: /product/delete/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\DeleteController::execute'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.translation.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\CreateTranslationController::executeAction'
+    path: /product/translation/create/{productCode}
+    methods: [POST]
+
+ibexa.product_catalog.product.translation.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\DeleteTranslationController::executeAction'
+    path: /product/translation/delete/{productCode}
+    methods: [POST]
+
+ibexa.product_catalog.product_type.list:
+  path: /product-type/list
+  controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\ListController::renderAction'
+  methods: [GET]
+
+ibexa.product_catalog.product_type.bulk_delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\BulkDeleteController::executeAction'
+    path: /product-type/bulk/delete
+    methods: [POST]
+
+ibexa.product_catalog.product_type.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\CreateController::renderAction'
+    path: /product-type/create
+    methods: [GET, POST]
+
+ibexa.product_catalog.product_type.view:
+    path: /product-type/view/{productTypeIdentifier}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\ViewController::renderAction'
+    methods: [GET]
+
+ibexa.product_catalog.product_type.delete:
+    path: /product-type/delete/{productTypeIdentifier}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\DeleteController::executeAction'
+    methods: [GET, POST]
+
+ibexa.product_catalog.product_type.edit:
+    path: /product-type/edit/{productTypeIdentifier}/{languageCode}/{baseLanguageCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\UpdateController::updateAction'
+    methods: [GET, POST]
+    defaults:
+        languageCode: null
+        baseLanguageCode: null
+
+ibexa.product_catalog.product_type.translation.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\CreateTranslationController::executeAction'
+    path: /product-type/translation/create/{productTypeIdentifier}
+    methods: [POST]
+
+ibexa.product_catalog.product_type.translation.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\ProductType\DeleteTranslationController::executeAction'
+    path: /product-type/translation/delete/{productTypeIdentifier}
+    methods: [POST]
+
+ibexa.product_catalog.product.view:
+    path: /product/{productCode}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\ViewController::renderAction'
+    methods: [GET]
+    options:
+        expose: true
+
+ibexa.product_catalog.product.price.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\Price\CreateController::renderAction'
+    path: /product/{productCode}/price/create/{currencyCode}
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.price.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\Price\UpdateController::renderAction'
+    path: /product/{productCode}/price/update/{currencyCode}
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.price.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\Price\DeleteController::renderAction'
+    path: /product/{productCode}/price/bulk_delete
+    methods: [POST]
+
+ibexa.product_catalog.customer_group.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\ListController::renderAction'
+    path: /customer-group
+    methods: [GET]
+
+ibexa.product_catalog.customer_group.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\CreateController::renderAction'
+    path: /customer-group/create
+    methods: [GET, POST]
+
+ibexa.product_catalog.customer_group.bulk_delete:
+    path: /customer-group/bulk/delete
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\BulkDeleteController::executeAction'
+
+ibexa.product_catalog.customer_group.view:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\ViewController::renderAction'
+    path: /customer-group/{customerGroupId}
+    methods: [GET]
+
+ibexa.product_catalog.customer_group.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\DeleteController::executeAction'
+    path: /customer-group/{customerGroupId}/delete
+    methods: [GET, POST]
+
+ibexa.product_catalog.customer_group.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\UpdateController::renderAction'
+    path: /customer-group/{customerGroupId}/update/{toLanguageCode}/{fromLanguageCode}
+    methods: [GET, POST]
+    defaults:
+        toLanguageCode: ~
+        fromLanguageCode: ~
+
+ibexa.product_catalog.customer_group.translation.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\CreateTranslationController::renderAction'
+    path: /customer-group/{customerGroupId}/translation/create
+    methods: [POST]
+
+ibexa.product_catalog.customer_group.translation.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\CustomerGroup\DeleteTranslationController::executeAction'
+    path: /customer-group/{customerGroupId}/translation/delete
+    methods: [POST]
+
+ibexa.product_catalog.attribute_definition.bulk_delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\BulkDeleteController::executeAction'
+    path: /attribute-definition/bulk-delete
+    methods: [POST]
+
+ibexa.product_catalog.attribute_definition.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\CreateController::executeAction'
+    path: /attribute-definition/create/{attributeType}/{languageCode}/{attributeGroupIdentifier}
+    methods: [GET, POST]
+    defaults:
+        attributeGroupIdentifier: ~
+
+ibexa.product_catalog.attribute_definition.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\ListController::renderAction'
+    path: /attribute-definition/list
+    methods: [GET]
+
+ibexa.product_catalog.attribute_definition.pre_create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\PreCreateController::executeAction'
+    path: /attribute-definition/pre-create
+    methods: [POST]
+
+ibexa.product_catalog.attribute_definition.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\UpdateController::executeAction'
+    path: /attribute-definition/{attributeDefinitionIdentifier}/update/{toLanguageCode}/{fromLanguageCode}
+    methods: [GET, POST]
+    defaults:
+        toLanguageCode: ~
+        fromLanguageCode: ~
+
+ibexa.product_catalog.attribute_definition.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\DeleteController::executeAction'
+    path: /attribute-definition/delete/{attributeDefinitionIdentifier}
+    methods: [GET, POST]
+
+ibexa.product_catalog.attribute_definition.view:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\ViewController::renderAction'
+    path: /attribute-definition/{attributeDefinitionIdentifier}
+    methods: [GET]
+
+ibexa.product_catalog.attribute_definition.translation.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\CreateTranslationController::renderAction'
+    path: /attribute-definition/translation/create
+    methods: [POST]
+
+ibexa.product_catalog.attribute_definition.translation.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeDefinition\DeleteTranslationController::executeAction'
+    path: /attribute-definition/translation/delete
+    methods: [POST]
+
+ibexa.product_catalog.attribute_group.bulk_delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\BulkDeleteController::executeAction'
+    path: /attribute-group/bulk/delete
+    methods: [POST]
+
+ibexa.product_catalog.attribute_group.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\CreateController::executeAction'
+    path: /attribute-group/create
+    methods: [GET, POST]
+
+ibexa.product_catalog.attribute_group.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\ListController::renderAction'
+    path: /attribute-group
+    methods: [GET]
+
+ibexa.product_catalog.attribute_group.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\UpdateController::executeAction'
+    path: /attribute-group/{attributeGroupIdentifier}/update/{toLanguageCode}/{fromLanguageCode}
+    methods: [GET, POST]
+    defaults:
+        toLanguageCode: ~
+        fromLanguageCode: ~
+
+ibexa.product_catalog.attribute_group.view:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\ViewController::renderAction'
+    path: /attribute-group/{attributeGroupIdentifier}
+    methods: [GET]
+
+ibexa.product_catalog.attribute_group.translation.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\CreateTranslationController::renderAction'
+    path: /attribute-group/translation/create
+    methods: [POST]
+
+ibexa.product_catalog.attribute_group.translation.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\AttributeGroup\DeleteTranslationController::executeAction'
+    path: /attribute-group/translation/delete
+    methods: [POST]
+
+ibexa.product_catalog.currency.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Currency\ListController::renderAction'
+    path: /currencies/list
+    methods: [GET]
+
+ibexa.product_catalog.currency.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Currency\CreateController::renderAction'
+    path: /currencies/create
+    methods: [GET, POST]
+
+ibexa.product_catalog.currency.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Currency\UpdateController::renderAction'
+    path: /currencies/{currencyCode}/update
+    methods: [ GET, POST ]
+
+ibexa.product_catalog.currency.bulk_delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Currency\BulkDeleteController::executeAction'
+    path: /currencies/bulk/delete
+    methods: [POST]
+
+ibexa.product_catalog.product.availability.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\Availability\CreateController::renderAction'
+    path: /product/{productCode}/availability/create
+    methods: [GET, POST]
+
+ibexa.product_catalog.product.availability.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\Availability\UpdateController::renderAction'
+    path: /product/{productCode}/availability/update
+    methods: [GET, POST]
+
+ibexa.product_catalog.region.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Regions\ListController::renderAction'
+    path: /region/list
+    methods: [GET]
+
+# CATALOG
+ibexa.product_catalog.catalog.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\ListController::renderAction'
+    path: /catalog
+    methods: [GET]
+
+ibexa.product_catalog.catalog.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\CreateController::renderAction'
+    path: /catalog/create
+    methods: [GET, POST]
+
+ibexa.product_catalog.catalog.bulk_delete:
+    path: /catalog/bulk/delete
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\BulkDeleteController::executeAction'
+
+ibexa.product_catalog.catalog.view:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\ViewController::renderAction'
+    path: /catalog/{catalogId}
+    methods: [GET]
+
+ibexa.product_catalog.catalog.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\DeleteController::executeAction'
+    path: /catalog/{catalogId}/delete
+    methods: [GET, POST]
+
+ibexa.product_catalog.catalog.update:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\UpdateController::renderAction'
+    path: /catalog/{catalogId}/update
+    methods: [GET, POST]
+
+ibexa.product_catalog.catalog.copy:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\CopyController::renderAction'
+    path: /catalog/copy
+    methods: [POST]
+
+ibexa.product_catalog.catalog.transition:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\TransitionController::renderAction'
+    path: /catalog/{catalogId}/transition
+    methods: [POST]
+
+ibexa.product_catalog.catalog.translation.create:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\CreateTranslationController::renderAction'
+    path: /catalog/{catalogId}/translation/create
+    methods: [POST]
+
+ibexa.product_catalog.catalog.translation.delete:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\DeleteTranslationController::executeAction'
+    path: /catalog/{catalogId}/translation/delete
+    methods: [POST]
+
+ibexa.product_catalog.catalog.products.preview.list:
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Catalog\ProductsPreviewController::listAction'
+    path: /catalog/products/preview
+    options:
+        expose: true
+    methods: [POST]

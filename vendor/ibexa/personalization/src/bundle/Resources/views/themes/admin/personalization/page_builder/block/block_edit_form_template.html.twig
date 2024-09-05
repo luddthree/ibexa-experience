@@ -1,0 +1,20 @@
+{% block personalization_scenario_list_widget %}
+    {{ form_widget(form, { attr: {
+        hidden: 'hidden',
+        class: 'ibexa-personalization-block-config__select ibexa-personalization-block-config__select--scenario-list',
+    }}) }}
+{% endblock %}
+
+{% block personalization_output_type_list_widget %}
+    {{ form_widget(form, { attr: {
+        hidden: 'hidden',
+        class: 'ibexa-personalization-block-config__select ibexa-personalization-block-config__select--output-type-list',
+    }}) }}
+{% endblock %}
+
+{% block personalization_segment_scenario_map_widget %}
+    {% set attr = attr|merge({'hidden': true}) %}
+    {{ form_widget(form, {'attr': attr})}}
+
+    {% include '@ibexadesign/personalization/page_builder/block/config/perso_segmentation.html.twig' %}
+{% endblock %}

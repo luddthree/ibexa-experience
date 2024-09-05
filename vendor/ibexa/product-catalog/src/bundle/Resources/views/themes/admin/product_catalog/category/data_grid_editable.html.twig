@@ -1,0 +1,142 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+{% import "@ibexadesign/product_catalog/product_macros.html.twig" as product_macros %}
+{% import _self as tab %}
+
+{% form_theme form_taxonomy_products_unassign '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% set body_rows = [] %}
+{% set products_count = products|length %}
+
+{{ form(form_taxonomy_products_assign, {
+    'action': path('ibexa.taxonomy.entry.assign', { 'taxonomyName': taxonomy_entry.taxonomy })
+}) }}
+
+{{ form_start(form_taxonomy_products_unassign, {
+    'action': path('ibexa.taxonomy.entry.unassign', { 'taxonomyName': taxonomy_entry.taxonomy }),
+    'attr': { 'class': 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#taxonomy-unassign-content' }
+}) }}
+    {% for product in products %}
+        {% set product_id = product.content.id %}
+        {% set is_product_available = product.hasAvailability() and product.availability.isAvailable() %}
+        {% set edit_url = path('ibexa.product_catalog.product.edit', { productCode: product.code }) %}
+        {% set view_url = path('ibexa.product_catalog.product.view', { productCode: product.code }) %}
+        {% set checkbox_value = product_id %}
+        {% set checkbox_name = form_taxonomy_products_unassign.vars.full_name ~ "[]" %}
+        {% set availability %}
+            {{ product_macros.availability_badge(is_product_available) }}
+        {% endset %}
+        {% set stock %}
+            {% if product.hasAvailability() %}
+                {{ product.availability.isInfinite()
+                    ? 'product.list.unlimited'|trans|desc('Unlimited')
+                    : product.availability.stock
+                }}
+            {% endif %}
+        {% endset %}
+        {% set variantsCount = product.variantsList.totalCount|default(0) %}
+        {% set variantsColText = variantsCount > 0
+            ? 'product.is_variant.yes'|trans|desc('Yes') ~ ' (' ~ variantsCount ~ ')'
+            : 'product.is_variant.no'|trans|desc('No')
+        %}
+        {% set body_rows = body_rows|merge([{ cols: [
+            {
+                has_checkbox: true,
+                content: form_widget(form_taxonomy_products_unassign.assignedContentItems[product_id]),
+                raw: true,
+            },
+            { content: data_grid_macros.cell_name(product.name, view_url) },
+            { content: data_grid_macros.cell_image(product, ['ibexa-pc-data-grid__image-wrapper--product']) },
+            { content: product.code },
+            { content: product.productType.name },
+            { content: product.createdAt | ibexa_full_datetime },
+            { content: variantsColText },
+            { content: availability },
+            { content: stock },
+            { has_action_btns: true, content: ibexa_permission_delete_product(product) ? data_grid_macros.cell_edit(edit_url) : '' }
+        ]}]) %}
+    {% endfor %}
+
+    {% if no_products %}
+        {% set empty_table_info_text = 'product.no_category_products.info_text'|trans|desc('No products assigned to the currently viewed category.') %}
+        {% set empty_table_action_text = 'product.no_category_products.action_text'|trans|desc('Assign some products to it.') %}
+    {% else %}
+        {% set empty_table_info_text = 'product.no_search_results.info_text'|trans|desc('Sorry, there are no products for your search') %}
+        {% set empty_table_action_text = 'product.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+    {% endif %}
+
+    {% set actions %}
+        {{ tab.table_header_tools(form_taxonomy_products_unassign) }}
+        {% if search_form.sortClause is defined %}
+            {% include '@ibexadesign/product_catalog/product/data_grid_sort_order_dropdown.html.twig' %}
+        {% endif %}
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline,
+        head_cols: [
+            { has_checkbox: true },
+            { content: 'product.list.column.name'|trans|desc('Name') },
+            { content: 'product.list.column.thumbnail'|trans|desc('Image') },
+            { content: 'product.list.column.code'|trans|desc('Code') },
+            { content: 'product.list.column.type'|trans|desc('Type') },
+            { content: 'product.list.column.created'|trans|desc('Created') },
+            { content: 'product.list.column.variant'|trans|desc('Variant') },
+            { content: 'product.list.column.available'|trans|desc('Availability') },
+            { content: 'product.list.column.stock'|trans|desc('Stock') },
+            { },
+        ],
+        actions,
+        body_rows,
+        empty_table_info_text,
+        empty_table_action_text,
+        empty_table_extra_actions: empty_table_extra_actions|default('')
+    } %}
+
+    {{ form_widget(form_taxonomy_products_unassign.entry) }}
+    {{ form_widget(form_taxonomy_products_unassign.unassign) }}
+{{ form_end(form_taxonomy_products_unassign) }}
+
+{% macro table_header_tools(form_taxonomy_products_unassign) %}
+    <button
+        type="button"
+        id="taxonomy-assign-content"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--assign-content"
+        data-universaldiscovery-title="{{ "product.category.assign.udw_title"|trans({}, 'ibexa_product_catalog')|desc("Select Products") }}"
+        data-udw-config="{{ ibexa_udw_config('products') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'product.category.assign'|trans|desc('Assign') }}
+        </span>
+    </button>
+
+    {% set modal_data_target = 'taxonomy-unassign-content-modal' %}
+
+    <button
+        type="button"
+        id="taxonomy-unassign-content"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+        disabled
+        data-bs-toggle="modal"
+        data-bs-target="#{{ modal_data_target }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'products.category.unassign'|trans|desc('Unassign') }}
+        </span>
+    </button>
+
+    {% include '@ibexadesign/ibexa/taxonomy/ui/modal/bulk_unassign_confirmation.html.twig' with {
+        'id': modal_data_target,
+        'message': 'tab.category.products.unassign.modal.message'|trans|desc(
+            'Unassign the products?'
+        ),
+        'data_click': '#' ~ form_taxonomy_products_unassign.unassign.vars.id,
+    }%}
+{% endmacro %}

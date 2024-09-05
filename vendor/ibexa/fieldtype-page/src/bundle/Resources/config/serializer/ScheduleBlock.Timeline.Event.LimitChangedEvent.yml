@@ -1,0 +1,8 @@
+Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\LimitChangedEvent:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        limit:
+            type: integer
+            skip_when_empty: false
+            expose: true

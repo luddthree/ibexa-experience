@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\Contracts\ProductCatalog\NameSchema\NameSchemaStrategyInterface:
+        alias: 'Ibexa\ProductCatalog\NameSchema\NameSchemaStrategy'
+
+    Ibexa\ProductCatalog\NameSchema\NameSchemaStrategy:
+        arguments:
+            $strategies: !tagged_iterator { tag: ibexa.product_catalog.naming_schema_strategy }
+
+    Ibexa\ProductCatalog\NameSchema\IntegerStrategy: ~
+
+    Ibexa\ProductCatalog\NameSchema\CheckboxStrategy: ~
+
+    Ibexa\ProductCatalog\NameSchema\ColorStrategy: ~
+
+    Ibexa\ProductCatalog\NameSchema\SelectionStrategy: ~

@@ -1,0 +1,125 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor:
+        abstract: true
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\CheckboxAttributeVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\ColorAttributeVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\FloatAttributeVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\IntegerAttributeVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\SelectionAttributeVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\CompositeCriterionVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\CustomerGroupIdVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\IsProductBasedVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\ProductCodeVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\ProductNameVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\ProductAvailabilityVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\ProductStockVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\CriterionConverterVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        arguments:
+            $converterRegistry: '@Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverterRegistry'
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\SortClause\ProductCodeVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\SortClauseHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.content }
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\SortClause\ProductNameVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\SortClauseHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.content }
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\SortClause\ProductAvailabilityVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\SortClauseHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.content }
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\SortClause\ProductStockVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\SortClauseHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.content }
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\SortClause\CreatedAtVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\SortClauseHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.content }
+            - { name: ibexa.search.legacy.gateway.sort_clause_handler.location }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\IsVirtualVisitor:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }

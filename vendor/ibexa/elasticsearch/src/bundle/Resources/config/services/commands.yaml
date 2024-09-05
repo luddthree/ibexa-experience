@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Elasticsearch\Command\PutIndexTemplateCommand:
+        tags:
+            - { name: console.command }

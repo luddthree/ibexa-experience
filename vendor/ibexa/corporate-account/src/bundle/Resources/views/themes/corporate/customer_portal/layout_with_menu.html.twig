@@ -1,0 +1,21 @@
+{% extends '@ibexadesign/customer_portal/layout.html.twig' %}
+
+{% block side_column %}
+    <div class="ibexa-main-container__side-column {% block side_column_class %}{% endblock %}">
+        {% block left_sidebar %}
+            {% set main_menu = knp_menu_get('customer_portal.menu.main', [], {}) %}
+            {{ knp_menu_render(main_menu, {
+                depth: 1,
+                template: '@ibexadesign/customer_portal/menu.html.twig',
+                currentClass: 'active',
+                ancestorClass: 'active',
+            }) }}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="columns">
+        {{ ibexa_render_content(content) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.site_context.content_tree.preview_template:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@ibexadesign/content/content_tree_preview_template.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-before' }

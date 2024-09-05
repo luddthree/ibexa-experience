@@ -1,0 +1,19 @@
+types:
+    meta_tags:
+        label: Meta tags
+        fields:
+            title: { label: Title, type: text }
+            description: { label: Description, type: text }
+            keywords: { label: Keywords, type: text }
+            canonical: { label: Canonical, type: text }
+    open_graph:
+        label: OpenGraph
+        fields:
+            'og_title': { label: Title, type: text, key: 'og:title' }
+            'og_description': { label: Description, type: text, key: 'og:description' }
+    twitter:
+        label: Twitter
+        template: '@ibexadesign/ibexa/seo/preview/card/twitter.html.twig'
+        fields:
+            'twitter_title': { label: Title, type: text, key: 'twitter:title' }
+            'twitter_description': { label: Description, type: text, key: 'twitter:description' }

@@ -1,0 +1,26 @@
+{% trans_default_domain 'ibexa_corporate_account_applications' %}
+
+{% block ez_limitation_applicationstate_value %}
+    {% if values['from'] is defined and values['from'] is not empty %}
+    <p>
+        {{ 'application.workflow.from'|trans|desc('From') }}:
+        {% apply spaceless %}
+            {{ values['from']
+                |map(value => ('application.state.' ~ value)|trans)
+                |join(', ')
+            }}
+        {% endapply %}
+    </p>
+    {% endif %}
+    {% if values['to'] is defined and values['to'] is not empty %}
+    <p>
+        {{ 'application.workflow.to'|trans|desc('To') }}:
+        {% apply spaceless %}
+            {{ values['to']
+                |map(value => ('application.state.' ~ value)|trans)
+                |join(', ')
+            }}
+        {% endapply %}
+    </p>
+    {% endif %}
+{% endblock %}

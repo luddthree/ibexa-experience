@@ -1,0 +1,17 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<div class="ibexa-pc-attributes-empty-drop-zone {% if is_hidden %}ibexa-pc-attributes-empty-drop-zone--hidden{% endif %}">
+    <img
+        class="ibexa-pc-attributes-empty-drop-zone__image"
+        src="{{ asset('bundles/ibexaadminui/img/empty-field-definition-group.svg') }}"
+        alt="{{ 'product_type.edit.empty_drop_zone.image_alt'|trans|desc('Empty attributes section, please drag some attribute') }}"
+    >
+    <label class="ibexa-pc-attributes-empty-drop-zone__label">
+        {{ 'product_type.edit.empty_drop_zone.label'|trans|desc('Your section is empty') }}
+    </label>
+    <h3 class="ibexa-pc-attributes-empty-drop-zone__title">
+        {{ 'product_type.edit.empty_drop_zone.title'|trans|desc(
+            'Drag and drop attributes from the library'
+        ) }}
+    </h3>
+</div>

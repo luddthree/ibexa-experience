@@ -1,0 +1,45 @@
+{% trans_default_domain 'ibexa_page_builder' %}
+
+<div class="ibexa-pb-config-panel ibexa-pb-config-panel--left
+    {% if not is_opened|default(false) %}ibexa-pb-config-panel--closed{% endif %}
+    {{ class|default('') -}}"
+>
+    <div class="ibexa-pb-config-panel__header ibexa-edit-header">
+        {% block header %}
+            <div class="ibexa-edit-header__container">
+                <div class="ibexa-pb-config-panel__headline">
+                    <h2 class="ibexa-pb-config-panel__title">
+                        {{ title|default('') }}
+                    </h2>
+                    {% if subtitle is defined %}
+                        <span class="ibexa-pb-config-panel__subtitle">
+                            {{ subtitle }}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% if not no_close_btn|default(false) %}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-pb-config-panel__close-btn"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+        {% endif %}
+        {% endblock %}
+    </div>
+    <div class="ibexa-pb-config-panel__body">
+        {% block body %}{% endblock %}
+    </div>
+    <div class="ibexa-pb-config-panel__footer">
+        {% block footer %}
+            <button type="button" class="btn ibexa-btn ibexa-btn--filled-info ibexa-pb-config-panel__footer-close">
+                {{ 'config_panel.save_and_close'|trans|desc('Save and close') }}
+            </button>
+        {% endblock %}
+    </div>
+    <div class='ibexa-pb-config-panel__resizer ibexa-pb-config-panel__resizer--left' />
+</div>

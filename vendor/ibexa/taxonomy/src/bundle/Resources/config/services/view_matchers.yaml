@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\View\Matcher\IsTaxonomy:
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Taxonomy\View\Matcher\IsTaxonomyParentFolder:
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Id:
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Identifier:
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Level:
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Taxonomy\View\Matcher\TaxonomyEntryBased\Taxonomy:
+        tags:
+            - { name: ibexa.view.matcher }

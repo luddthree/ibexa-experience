@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Persistence\Gateway\ContentGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Taxonomy\Persistence\Gateway\ContentGatewayInterface: '@Ibexa\Taxonomy\Persistence\Gateway\ContentGateway'

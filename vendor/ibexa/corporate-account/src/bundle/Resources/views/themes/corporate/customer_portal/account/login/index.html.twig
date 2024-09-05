@@ -1,0 +1,87 @@
+{% extends '@ibexadesign/customer_portal/account/base.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{%- block content -%}
+    <h2 class="ibexa-ca-login__actions-headline">{{ 'account.authentication.get_started'|trans|desc('Get started') }}</h2>
+
+    {% block login_form %}
+        <form action="{{ path( 'login_check' ) }}" method="post" role="form">
+            <fieldset>
+                {% block login_form_errors %}
+                    {% if error %}
+                        <div class="ibexa-ca-login__errors-container">
+                            {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                                type: 'error',
+                                title: error.message|trans,
+                            } only %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+
+                {% block login_form_fields %}
+                    <div class="form-group{% if error %} has-error{% endif %}">
+                        <div class="ibexa-ca-login__input-label-wrapper">
+                            <label class="ibexa-label" for="username">{{ 'account.authentication.username'|trans|desc('Username') }}</label>
+                        </div>
+                        {%- embed '@ibexadesign/ui/component/input_text.html.twig' -%}
+                            {% block content %}
+                                <input
+                                    type="text"
+                                    id="username"
+                                    class="form-control ibexa-input ibexa-input--text ibexa-ca-login__input ibexa-ca-login__input--name"
+                                    name="_username"
+                                    value="{{ last_username }}"
+                                    required="required"
+                                    autofocus="autofocus"
+                                    autocomplete="on"
+                                    tabindex="1"
+                                    placeholder=" "
+                                />
+                            {% endblock %}
+                        {%- endembed -%}
+                    </div>
+                    <div class="form-group{% if error %} has-error{% endif %} position-relative">
+                        <div class="ibexa-ca-login__input-label-wrapper">
+                            <label class="ibexa-label" for="password">{{ 'account.authentication.password'|trans|desc('Password') }}</label>
+                        </div>
+                        {%- embed '@ibexadesign/ui/component/input_text.html.twig' with {
+                            type: 'password',
+                        } -%}
+                            {% block content %}
+                                <input
+                                    type="password"
+                                    id="password"
+                                    class="form-control ibexa-input ibexa-input--text ibexa-ca-login__input ibexa-ca-login__input--password"
+                                    name="_password"
+                                    required="required"
+                                    tabindex="2"
+                                    placeholder=" "
+                                />
+                            {% endblock %}
+                        {%- endembed -%}
+                    </div>
+
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token("authenticate") }}" />
+                {% endblock %}
+
+                {% block login_form_buttons %}
+                    <button
+                        type="submit"
+                        class="btn ibexa-btn ibexa-btn--primary ibexa-ca-login__btn ibexa-ca-login__btn--sign-in"
+                        tabindex="3"
+                        disabled
+                    >
+                        {{ 'account.authentication.login'|trans|desc('Login') }}
+                    </button>
+                {% endblock %}
+
+                <div class="ibexa-ca-login__link-wrapper">
+                    <a href="{{ path('ibexa.user.forgot_password') }}" tabindex="4">
+                        {{ 'account.authentication.forgot_password'|trans|desc('Forgot your password?') }}
+                    </a>
+                </div>
+            </fieldset>
+        </form>
+    {% endblock %}
+    {{ encore_entry_script_tags('ibexa-customer-portal-login-js', null, 'ibexa') }}
+{%- endblock content -%}

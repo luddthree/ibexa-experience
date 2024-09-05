@@ -1,0 +1,4 @@
+parameters:
+    ibexa.site_access.config.default.site_factory.sites_location_id: 2
+    ibexa.site_access.config.default.site_factory.site_skeletons_location_id: 56
+    ibexa.site_access.config.default.pagination_site_factory.sites_limit: 10

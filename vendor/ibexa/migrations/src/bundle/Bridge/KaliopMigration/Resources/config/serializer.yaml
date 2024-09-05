@@ -1,0 +1,10 @@
+services:
+    ibexa.migrations.kaliop_bridge.serializer_factory:
+        class: Ibexa\Bundle\Migration\Serializer\SerializerFactory
+        arguments:
+            - !tagged_iterator 'ibexa.migrations.kaliop_bridge.serializer.normalizer'
+            - !tagged_iterator 'ibexa.migrations.kaliop_bridge.serializer.encoder'
+
+    ibexa.migrations.kaliop_bridge.serializer:
+        class: Symfony\Component\Serializer\Serializer
+        factory: ['@ibexa.migrations.kaliop_bridge.serializer_factory', 'create']

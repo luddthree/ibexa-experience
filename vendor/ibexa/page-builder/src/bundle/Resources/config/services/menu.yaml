@@ -1,0 +1,53 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Event Listeners
+    #
+
+    Ibexa\Bundle\PageBuilder\Menu\EventListener\ConfigureMainMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.main_menu, method: onMenuConfigure, priority: 10 }
+
+    #
+    # Event Subscribers
+    #
+
+    Ibexa\Bundle\PageBuilder\Menu\Event\Subscriber\:
+        resource: "../../../../bundle/Menu/Event/Subscriber/*"
+        autowire: true
+        autoconfigure: false
+        public: true
+        tags:
+            - kernel.event_subscriber
+
+    #
+    # Menu Builders
+    #
+
+    Ibexa\Bundle\PageBuilder\Menu\Builder\InfobarEditModeActionsBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform_page_builder.edit.actions }
+
+    Ibexa\Bundle\PageBuilder\Menu\Builder\InfobarCreateModeActionsBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform_page_builder.create.actions }
+
+    Ibexa\Bundle\PageBuilder\Menu\Builder\Preview\InfobarToolsBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform_page_builder.preview.tools }
+
+    Ibexa\Bundle\PageBuilder\Menu\Builder\Edit\InfobarToolsBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform_page_builder.edit.tools }
+
+    Ibexa\Bundle\PageBuilder\Menu\Builder\Create\InfobarToolsBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform_page_builder.create.tools }
+
+    Ibexa\Bundle\PageBuilder\Menu\Builder\Translate\InfobarToolsBuilder:
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform_page_builder.translate.tools }

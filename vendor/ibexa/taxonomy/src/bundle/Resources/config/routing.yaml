@@ -1,0 +1,72 @@
+ibexa.taxonomy.entry.create.proxy:
+    path: /taxonomy/{taxonomyName}/entry/create
+    methods: [POST]
+    controller: Ibexa\Bundle\Taxonomy\Controller\ContentProxyController::createProxyAction
+    requirements:
+        taxonomyName: "[A-Za-z0-9_/-]+"
+
+ibexa.taxonomy.entry.delete:
+    path: /taxonomy/{taxonomyName}/entry/delete
+    methods: [POST]
+    controller: Ibexa\Bundle\Taxonomy\Controller\ContentController::deleteAction
+    requirements:
+        taxonomyName: "[A-Za-z0-9_/-]+"
+
+ibexa.taxonomy.entry.move:
+    path: /taxonomy/{taxonomyName}/entry/move
+    methods: [POST]
+    controller: Ibexa\Bundle\Taxonomy\Controller\ContentController::moveAction
+    requirements:
+        taxonomyName: "[A-Za-z0-9_/-]+"
+
+ibexa.taxonomy.entry.assign:
+    path: /taxonomy/{taxonomyName}/entry/assign
+    methods: [POST]
+    controller: Ibexa\Bundle\Taxonomy\Controller\ContentController::assignTaxonomyEntryAction
+    requirements:
+        taxonomyName: "[A-Za-z0-9_/-]+"
+
+ibexa.taxonomy.entry.unassign:
+    path: /taxonomy/{taxonomyName}/entry/unassign
+    methods: [POST]
+    controller: Ibexa\Bundle\Taxonomy\Controller\ContentController::unassignTaxonomyEntryAction
+    requirements:
+        taxonomyName: "[A-Za-z0-9_/-]+"
+
+#
+# Tree
+#
+ibexa.taxonomy.tree.root:
+    path: /taxonomy/{taxonomyName}/tree/root
+    methods: [GET]
+    defaults:
+        taxonomyName: ~
+    controller: Ibexa\Bundle\Taxonomy\Controller\TreeController::getRootAction
+    options:
+        expose: true
+
+ibexa.taxonomy.tree.subtree:
+    path: /taxonomy/{taxonomyName}/tree/subtree
+    methods: [GET]
+    controller: Ibexa\Bundle\Taxonomy\Controller\TreeController::getSubtreeAction
+    options:
+        expose: true
+
+ibexa.taxonomy.tree.node:
+    path: /taxonomy/{taxonomyName}/tree/{entryId}
+    methods: [GET]
+    controller: Ibexa\Bundle\Taxonomy\Controller\TreeController::getNodeAction
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+        entryId: "\\d+"
+    options:
+        expose: true
+
+ibexa.taxonomy.tree.search:
+    path: /taxonomy/{taxonomyName}/tree/search
+    methods: [GET]
+    controller: Ibexa\Bundle\Taxonomy\Controller\TreeController::nodeSearchAction
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+    options:
+        expose: true

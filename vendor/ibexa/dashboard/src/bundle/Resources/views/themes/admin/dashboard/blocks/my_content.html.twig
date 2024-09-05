@@ -1,0 +1,12 @@
+<div class="ibexa-db-my-content {{ block_class }}">
+    {% include '@ibexadesign/ui/dashboard/block/me.html.twig'
+        with {
+            parameters: {
+                render_encore_entry: false,
+                pager_options: { routeName: 'ibexa.dashboard' }
+            }
+        }
+    %}
+</div>
+
+{% include '@ibexadesign/dashboard/blocks/parts/content_edit_form.html.twig' %}

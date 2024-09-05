@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Formatter\NumberFormatter: ~
+
+    Ibexa\Personalization\Formatter\NumberFormatterInterface:
+        '@Ibexa\Personalization\Formatter\NumberFormatter'

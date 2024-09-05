@@ -1,0 +1,21 @@
+{% block ajax_captcha_widget %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('ibexa-form-builder-ajax-captcha-js', null, 'ibexa') }}
+    {% endblock %}
+
+    {% if is_human %}
+        -
+    {% else %}
+        {% apply spaceless %}
+            {% set form_id = form.parent.vars.id %}
+            <div class="captcha__fail-to-load" hidden>
+                {{ 'captcha.failed_to_load'|trans(domain='messages')|desc('Captcha could not be loaded. Try refreshing page.') }}
+            </div>
+            <img class="captcha_image" src="#" data-field-id="{{ field.id }}" alt="" title="captcha" width="{{ captcha_width }}" height="{{ captcha_height }}" />
+            {% if reload %}
+                <a class="captcha_reload" href="#">{{ 'Renew'|trans({}, 'gregwar_captcha') }}</a>
+            {% endif %}
+            {{ form_widget(form) }}
+        {% endapply %}
+    {% endif %}
+{% endblock %}

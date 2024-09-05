@@ -1,0 +1,180 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "products": {
+                    "type": "object",
+                    "properties": {
+                        "_types": {
+                            "type": "object",
+                            "properties": {
+                                "dress": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "attributesDefinitions": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "isRequired": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "isDiscriminator": {
+                                                        "type": "boolean"
+                                                    },
+                                                    "attributeDefinition": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "description": {
+                                                                "type": ["string", "null"]
+                                                            },
+                                                            "identifier": {
+                                                                "type": "string"
+                                                            },
+                                                            "type": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "identifier": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "identifier",
+                                                                    "name"
+                                                                ]
+                                                            },
+                                                            "group": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "identifier": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "position": {
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "identifier",
+                                                                    "name",
+                                                                    "position"
+                                                                ]
+                                                            },
+                                                            "position": {
+                                                                "type": "integer"
+                                                            },
+                                                            "options": {
+                                                                "type": "array",
+                                                                "items": [
+                                                                    {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "key": {
+                                                                                "type": ["string", "null"]
+                                                                            },
+                                                                            "name": {
+                                                                                "type": ["string", "null"]
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "key",
+                                                                            "name"
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "name",
+                                                            "description",
+                                                            "identifier",
+                                                            "type",
+                                                            "group",
+                                                            "position",
+                                                            "options"
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "isRequired",
+                                                    "isDiscriminator",
+                                                    "attributeDefinition"
+                                                ]
+                                            }
+                                        },
+                                        "_contentType": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "description": {
+                                                    "type": ["string", "null"]
+                                                },
+                                                "status": {
+                                                    "type": "integer"
+                                                },
+                                                "creationDate": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "format": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "format"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "description",
+                                                "status",
+                                                "creationDate"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "identifier",
+                                        "name",
+                                        "attributesDefinitions",
+                                        "_contentType"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "dress"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "_types"
+                    ]
+                }
+            },
+            "required": [
+                "products"
+            ]
+        }
+    },
+    "required": [
+        "data"
+    ]
+}

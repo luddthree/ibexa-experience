@@ -1,0 +1,114 @@
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: __role_identifier__
+    metadata:
+        identifier: __role_identifier__
+    policies:
+        -
+            module: user
+            function: login
+            limitations:
+                -
+                    identifier: SiteAccess
+                    values: [__default_site_access__, __second_site_access__]
+        -
+            module: user
+            function: password
+        -
+            module: content
+            function: read
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard, users]
+        -
+            module: section
+            function: view
+        -
+            module: content
+            function: reverserelatedlist
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard, users]
+                -
+                    identifier: Class
+                    values: [folder, article, user_group, user, image, file, landing_page]
+                -
+                    identifier: Language
+                    values: [eng-GB]
+    references:
+        -
+            name: ref__role__1__role_id
+            type: role_id
+-
+    type: role
+    mode: update
+    match:
+        field: id
+        value: __id__
+    metadata:
+        identifier: null
+    policies:
+        -
+            module: user
+            function: login
+            limitations:
+                -
+                    identifier: SiteAccess
+                    values: [__default_site_access__, __second_site_access__]
+        -
+            module: user
+            function: password
+        -
+            module: content
+            function: read
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard, users]
+        -
+            module: section
+            function: view
+        -
+            module: content
+            function: reverserelatedlist
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard, users]
+                -
+                    identifier: Class
+                    values: [folder, article, user_group, user, image, file, landing_page]
+                -
+                    identifier: Language
+                    values: [eng-GB]
+    references:
+        -
+            name: ref__role__1__role_id
+            type: role_id
+    actions:
+        -
+            action: assign_role_to_user_group
+            id: 42
+        -
+            action: assign_role_to_user
+            id: 42
+        -
+            action: assign_role_to_user_group
+            remote_id: '42'
+        -
+            action: assign_role_to_user
+            email: '42'
+        -
+            action: assign_role_to_user
+            login: '42'

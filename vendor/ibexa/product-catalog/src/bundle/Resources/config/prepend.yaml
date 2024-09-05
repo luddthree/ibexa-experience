@@ -1,0 +1,95 @@
+bazinga_js_translation:
+    active_domains:
+        - 'forms'
+        - 'ibexa_product_catalog'
+        - 'ibexa_page_builder_block'
+
+framework:
+    workflows:
+        ibexa_catalog:
+            type: 'state_machine'
+            audit_trail:
+                enabled: false
+            marking_store:
+                type: 'method'
+                property: 'status'
+            supports:
+                - Ibexa\Contracts\ProductCatalog\Values\Catalog\CatalogUpdateStruct
+            initial_marking: !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::DRAFT_PLACE
+            places:
+                - !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::DRAFT_PLACE
+                - !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::PUBLISHED_PLACE
+                - !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::ARCHIVED_PLACE
+            transitions:
+                !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::PUBLISH_TRANSITION:
+                    from: !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::DRAFT_PLACE
+                    to: !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::PUBLISHED_PLACE
+                !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::ARCHIVE_TRANSITION:
+                    from: !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::PUBLISHED_PLACE
+                    to: !php/const Ibexa\ProductCatalog\Local\Repository\Values\Catalog\Status::ARCHIVED_PLACE
+
+ibexa_taxonomy:
+    taxonomies:
+        product_categories:
+            parent_location_remote_id: product_category_taxonomy_folder
+            content_type: product_category_tag
+            register_main_menu: false
+            field_mappings:
+                identifier: identifier
+                parent: parent
+                name: name
+            assigned_content_tab: false
+
+ibexa:
+    system:
+        default:
+            field_templates:
+                - { template: '@ibexadesign/product_catalog/field_type/product.html.twig', priority: 1 }
+                - { template: '@ibexadesign/product_catalog/field_type/customer_group.html.twig', priority: 1 }
+            product_catalog:
+                catalogs:
+                    default_filters:
+                        - product_category
+                        - product_type
+                        - product_price
+
+            universal_discovery_widget_module:
+                configuration:
+                    products:
+                        multiple: true
+                        root_location_id: 60
+        admin_group:
+            content_view:
+                full:
+                    product:
+                        controller: Ibexa\Bundle\ProductCatalog\Controller\Product\RedirectController::execute
+                        match:
+                            '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct': true
+            content_create_view:
+                full:
+                    product:
+                        template: '@ibexadesign/product_catalog/product/create.html.twig'
+                        match:
+                            '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductTypeBased\IsProduct': true
+                        params:
+                            view_base_layout: '@ibexadesign/ui/layout.html.twig'
+            content_edit_view:
+                full:
+                    product:
+                        template: '@ibexadesign/product_catalog/product/edit.html.twig'
+                        match:
+                            '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductTypeBased\IsProduct': true
+                        params:
+                            view_base_layout: '@ibexadesign/ui/layout.html.twig'
+            content_translate_view:
+                full:
+                    product:
+                        template: '@ibexadesign/product_catalog/product/edit.html.twig'
+                        match:
+                            '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductTypeBased\IsProduct': true
+                        params:
+                            view_base_layout: '@ibexadesign/ui/layout.html.twig'
+            admin_ui_forms:
+                content_edit:
+                    form_templates:
+                        - { template: '@ibexadesign/product_catalog/product/taxonomy_fieldtypes.html.twig', priority: 50 }

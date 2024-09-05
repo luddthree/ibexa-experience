@@ -1,0 +1,180 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: article
+        mainTranslation: eng-GB
+        creatorId: 14
+        creationDate: '2002-06-18T11:21:38+02:00'
+        remoteId: c15b600eb9198b1924063b5a68758232
+        urlAliasSchema: ''
+        nameSchema: '<short_title|title>'
+        container: true
+        defaultAlwaysAvailable: false
+        defaultSortField: 1
+        defaultSortOrder: 1
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Article
+                description: ''
+    fields:
+        -
+            identifier: title
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Title
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: 'New article'
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -
+            identifier: short_title
+            type: ezstring
+            position: 2
+            translations:
+                eng-GB:
+                    name: 'Short title'
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -
+            identifier: author
+            type: ezauthor
+            position: 3
+            translations:
+                eng-GB:
+                    name: Author
+                    description: ''
+            required: false
+            searchable: false
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: {  }
+            fieldSettings:
+                defaultAuthor: 1
+            validatorConfiguration: {  }
+        -
+            identifier: intro
+            type: ezrichtext
+            position: 4
+            translations:
+                eng-GB:
+                    name: Intro
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue:
+                xml: |-
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0-variant ezpublish-1.0"/>
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+        -
+            identifier: body
+            type: ezrichtext
+            position: 5
+            translations:
+                eng-GB:
+                    name: Body
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue:
+                xml: |-
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0-variant ezpublish-1.0"/>
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+        -
+            identifier: enable_comments
+            type: ezboolean
+            position: 6
+            translations:
+                eng-GB:
+                    name: 'Enable comments'
+                    description: ''
+            required: false
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue: false
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+    references:
+        -
+            name: ref__content_type_id__article
+            type: content_type_id
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: blog
+        mainTranslation: eng-GB
+        creatorId: 14
+        creationDate: '2020-09-17T15:22:00+02:00'
+        remoteId: 323c1b32e506163c357552edd81706b4
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: true
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Blog
+                description: 'Defines a structure for storing blog posts (short articles by a single person and/or on a particular topic).'
+    fields:
+        -
+            identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+                    description: 'Name or title of the blog.'
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: content
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: null
+                    minStringLength: null
+    references:
+        -
+            name: ref__content_type_id__blog
+            type: content_type_id

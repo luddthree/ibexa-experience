@@ -1,0 +1,20 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.2/phpunit.xsd"
+        bootstrap="tests/integration/bootstrap.php"
+        failOnIncomplete="true"
+        failOnRisky="true"
+        colors="true">
+    <php>
+        <env name="DATABASE_URL" value="postgres://localhost:5432/postgres" />
+        <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\Segmentation\TestKernel" />
+    </php>
+    <testsuites>
+        <testsuite name="integration">
+            <directory>tests/integration</directory>
+        </testsuite>
+    </testsuites>
+    <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+    </extensions>
+</phpunit>

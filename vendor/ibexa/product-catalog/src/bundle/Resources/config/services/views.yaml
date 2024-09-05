@@ -1,0 +1,29 @@
+parameters:
+    ibexa.product_catalog.content_view.default_matcher_factory.configuration:
+        full:
+            default:
+                template: '@@ibexadesign/full/product.html.twig'
+                match:
+                    '@Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct': true
+                params:
+                    is_basket_available: "@@=config.hasParameter('commerce.enabled') and config.getParameter('commerce.enabled')"
+
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    ibexa.product_catalog.content_view_provider:
+        class: Ibexa\Bundle\Core\View\Provider\Configured
+        arguments: ['@ibexa.product_catalog.content_view.default_matcher_factory']
+        tags:
+            - { name: ibexa.view.provider, type: 'Ibexa\Core\MVC\Symfony\View\ContentView', priority: 10 }
+
+    ibexa.product_catalog.content_view.default_matcher_factory:
+        class: Ibexa\Bundle\Core\Matcher\ServiceAwareMatcherFactory
+        arguments:
+            - '@Ibexa\Bundle\Core\Matcher\ViewMatcherRegistry'
+            - '@ibexa.api.repository'
+            - 'Ibexa\Core\MVC\Symfony\Matcher\ContentBased'
+            - '%ibexa.product_catalog.content_view.default_matcher_factory.configuration%'

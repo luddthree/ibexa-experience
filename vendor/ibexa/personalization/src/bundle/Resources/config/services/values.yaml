@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\Value\ContentDataVisitor:
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Personalization\Value\ContentData }

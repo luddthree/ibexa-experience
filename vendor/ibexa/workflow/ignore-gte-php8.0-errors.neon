@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$string of function trim expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/WorkflowParser.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_replace expects array, Symfony\\\\Component\\\\Workflow\\\\Workflow given\\.$#"
+			count: 1
+			path: src/lib/Factory/Registry/WorkflowRegistryFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_filter expects array, array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\|null given\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/WorkflowTransitionLimitationType.php

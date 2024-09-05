@@ -1,0 +1,80 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block main_container_class %}ibexa-pc-view{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { url: path('ibexa.product_catalog.attribute_definition.list'), value: 'attribute_definition.breadcrumb.list'|trans|desc('Attributes') },
+        { value: 'attribute_definition.breadcrumb.view'|trans({ '%attribute_definition_name%': attribute_definition.name })|desc('%attribute_definition_name%') },
+    ]} %}
+{% endblock %}
+
+{% block title %}
+    {{ 'attribute_definition.view.title'
+        |trans({ '%attribute_definition_name%': attribute_definition.name })
+        |desc('Attribute definition "%attribute_definition_name%"')
+    }}
+{% endblock %}
+
+{% block context_menu %}
+    {% if is_editable %}
+        {% set context_menu = knp_menu_get(
+            'ibexa_product_catalog.menu.attribute_definition_view_context_menu',
+            [],
+            {
+                'attribute_definition': attribute_definition,
+                'delete_form_selector': '#delete-attribute-definition'
+            }
+        ) %}
+
+        {{ knp_menu_render(context_menu, {
+            'template': '@ibexadesign/ui/menu/context_menu.html.twig'
+        }) }}
+
+    {% include '@ibexadesign/product_catalog/ui/modal/delete_confirmation.html.twig' with {
+        id: 'delete-attribute-definition-modal',
+        message: 'modal.delete.attribute_definition.confirm_message'|trans|desc(
+            'Delete the attribute permanently?'
+        ),
+        data_click: '#delete-attribute-definition',
+    } %}{% endif %}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: attribute_definition.getName(),
+    } %}
+        {% block bottom %}
+            {% set attribute_definition_type = attribute_definition.getType() %}
+
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('file') }}"></use>
+                </svg>
+                {{ attribute_definition_type.getName() }}
+            </span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {{ ibexa_render_component_group('attribute-definition-block', {
+        'attribute_definition': attribute_definition,
+        'is_editable': is_editable
+    }) }}
+
+    {% if is_editable and ibexa_permission_delete_attribute_definition(attribute_definition) and delete_form is defined %}
+        {{ form_start(delete_form) }}
+            <button id="delete-attribute-definition" type="submit" hidden></button>
+        {{ form_end(delete_form) }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

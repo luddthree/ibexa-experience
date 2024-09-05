@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\PageBuilder\ConfigurationResolver:
+        arguments:
+            $siteaccessGroups: '%ibexa.site_access.groups%'
+            $siteAccesses: '%ibexa.site_access.list%'
+
+    Ibexa\PageBuilder\PageBuilder\PermissionAwareConfigurationResolver: ~
+
+    #
+    # Default implementation for interfaces
+    #
+    Ibexa\Contracts\PageBuilder\PageBuilder\ConfigurationResolverInterface: '@Ibexa\PageBuilder\PageBuilder\ConfigurationResolver'
+
+    Ibexa\PageBuilder\PageBuilder\PreviewLanguageCodeResolver:
+        deprecated: 'Since ibexa/page-builder 4.5: The "%service_id%" service is deprecated, will be removed in 5.0'

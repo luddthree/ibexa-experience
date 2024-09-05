@@ -1,0 +1,53 @@
+{% extends '@ibexadesign/personalization/account/base_account_layout.html.twig' %}
+
+{% trans_default_domain "ibexa_personalization" %}
+
+{% set step_name = 'details' %}
+{% set steps = steps ?? [] %}
+
+{% set credentials = [
+    {
+        id: 'id',
+        title: 'account.details.id'|trans|desc('ID'),
+        text: account.customerId
+    },
+    {
+        id: 'licence',
+        title: 'account.details.license_key'|trans|desc('Licence key'),
+        text: account.licenseKey
+    }
+] %}
+
+
+{% block content %}
+    <div class="ibexa-perso-details">
+        <h2 class="ibexa-perso-details__title">{{ 'account.set_up.service'|trans|desc('Set up service account') }}</h2>
+        <div class="ibexa-perso-details__intro">
+            {{ 'account.details.pass_credentials'|trans|desc('Pass the credentials to your administrator to finish service account setup and start using the Personalization service.') }}
+        </div>
+        <ul class="ibexa-perso-details__credentials">
+            {% for credential in credentials %}
+                <li class="ibexa-perso-details__item ibexa-perso-details__{{ credential.id }}">
+                    <h3 class="ibexa-perso-details__subtitle">{{ credential.title }}</h3>
+                    <div class="ibexa-perso-details__text">
+                        <p class="ibexa-perso-details__key">{{ credential.text }}</p>
+                        <button
+                            class="ibexa-perso-details__copy-button btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text"
+                            type="button"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--copy">
+                                <use xlink:href="{{ ibexa_icon_path('copy') }}"></use>
+                            </svg>
+                        </button>
+                        <div class="ibexa-perso-details__copy-confirmation-icon">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--copy">
+                                <use xlink:href="{{ ibexa_icon_path('checkmark') }}"></use>
+                            </svg>
+                        </div>
+                        <p class="ibexa-perso-details__copy-confirmation-text">{{ 'account.copied'|trans|desc('Copied') }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

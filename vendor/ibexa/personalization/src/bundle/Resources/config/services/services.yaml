@@ -1,0 +1,123 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Service\Performance\RecommendationPerformanceService: ~
+
+    Ibexa\Personalization\Service\Performance\RecommendationPerformanceServiceInterface:
+        '@Ibexa\Personalization\Service\Performance\RecommendationPerformanceService'
+
+    Ibexa\Personalization\Service\Customer\CustomerInformationService: ~
+
+    Ibexa\Personalization\Service\Customer\CustomerInformationServiceInterface:
+        '@Ibexa\Personalization\Service\Customer\CustomerInformationService'
+
+    Ibexa\Personalization\Service\Scenario\ScenarioService: ~
+
+    Ibexa\Personalization\Service\Scenario\ScenarioServiceInterface:
+        '@Ibexa\Personalization\Service\Scenario\ScenarioService'
+
+    Ibexa\Personalization\Service\Chart\ChartService: ~
+
+    Ibexa\Personalization\Service\Chart\ChartServiceInterface:
+        '@Ibexa\Personalization\Service\Chart\ChartService'
+
+    Ibexa\Personalization\Service\Report\ReportService: ~
+
+    Ibexa\Personalization\Service\Report\ReportServiceInterface:
+        '@Ibexa\Personalization\Service\Report\ReportService'
+
+    Ibexa\Personalization\Service\Recommendation\RecommendationService: ~
+
+    Ibexa\Personalization\Service\Recommendation\RecommendationServiceInterface:
+        '@Ibexa\Personalization\Service\Recommendation\RecommendationService'
+
+    Ibexa\Personalization\Service\Model\ModelService: ~
+
+    Ibexa\Personalization\Service\Model\ModelServiceInterface:
+        '@Ibexa\Personalization\Service\Model\ModelService'
+
+    Ibexa\Personalization\Service\ModelBuild\ModelBuildService: ~
+
+    Ibexa\Personalization\Service\ModelBuild\ModelBuildServiceInterface:
+        '@Ibexa\Personalization\Service\ModelBuild\ModelBuildService'
+
+    Ibexa\Personalization\Service\Import\ImportService: ~
+
+    Ibexa\Personalization\Service\Import\ImportServiceInterface:
+        '@Ibexa\Personalization\Service\Import\ImportService'
+
+    Ibexa\Personalization\Service\Segments\SegmentsService: ~
+
+    Ibexa\Personalization\Service\Segments\SegmentsServiceInterface:
+        '@Ibexa\Personalization\Service\Segments\SegmentsService'
+
+    Ibexa\Personalization\Mapper\SegmentMapper: ~
+
+    Ibexa\Personalization\Mapper\SegmentMapperInterface:
+        '@Ibexa\Personalization\Mapper\SegmentMapper'
+
+    Ibexa\Personalization\Service\Setting\SettingService:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+
+    Ibexa\Personalization\Service\Setting\SettingServiceInterface:
+        '@Ibexa\Personalization\Service\Setting\SettingService'
+
+    Ibexa\Personalization\Service\Setting\DefaultSiteAccessSettingService:
+        decorates: 'Ibexa\Personalization\Service\Setting\SettingService'
+        arguments:
+            $defaultSiteAccessName: '%ibexa.site_access.default%'
+
+    Ibexa\Personalization\Service\Search\SearchService: ~
+
+    Ibexa\Personalization\Service\Search\SearchServiceInterface:
+        '@Ibexa\Personalization\Service\Search\SearchService'
+
+    Ibexa\Personalization\Service\RecommendationService:
+        arguments:
+            $credentialsResolver: '@Ibexa\Personalization\Config\PersonalizationClientCredentialsResolver'
+
+    Ibexa\Personalization\Service\RecommendationServiceInterface:
+        '@Ibexa\Personalization\Service\RecommendationService'
+
+    Ibexa\Personalization\Service\UserService: ~
+
+    Ibexa\Personalization\Service\UserServiceInterface:
+        '@Ibexa\Personalization\Service\UserService'
+
+    Ibexa\Personalization\Service\Storage\DataSourceService:
+        arguments:
+            $sources: !tagged_iterator ibexa.personalization.data_source
+
+    Ibexa\Personalization\Service\Storage\DataSourceServiceInterface:
+        '@Ibexa\Personalization\Service\Storage\DataSourceService'
+
+    Ibexa\Personalization\Service\Event\EventTrackingService: ~
+
+    Ibexa\Personalization\Service\Event\EventTrackingServiceInterface:
+        '@Ibexa\Personalization\Service\Event\EventTrackingService'
+
+    Ibexa\Personalization\Service\User\UserService: ~
+
+    Ibexa\Personalization\Service\User\UserServiceInterface:
+        '@Ibexa\Personalization\Service\User\UserService'
+
+    Ibexa\Personalization\Service\Account\AccountService: ~
+
+    Ibexa\Personalization\Service\Account\AccountServiceInterface:
+        '@Ibexa\Personalization\Service\Account\AccountService'
+
+    Ibexa\Personalization\Service\Item\ItemService:
+        arguments:
+            $tokenTtl: '%ibexa.personalization.authentication.token.ttl%'
+
+    Ibexa\Personalization\Service\Item\ItemServiceInterface:
+        alias: Ibexa\Personalization\Service\Item\ItemService
+
+    Ibexa\Personalization\Service\Content\ContentService: ~
+
+    Ibexa\Personalization\Service\Content\ContentServiceInterface:
+        alias: Ibexa\Personalization\Service\Content\ContentService

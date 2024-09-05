@@ -1,0 +1,32 @@
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        bootstrap="vendor/autoload.php"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        colors="true">
+    <testsuites>
+        <testsuite name="Ibexa\Bundle\VersionComparison">
+            <directory>tests/bundle/</directory>
+        </testsuite>
+        <testsuite name="Ibexa\VersionComparison">
+            <directory>tests/lib/</directory>
+            <exclude>
+                <directory>tests/lib/HtmlDiff</directory>
+            </exclude>
+        </testsuite>
+        <testsuite name="Ibexa\VersionComparison\HtmlDiff">
+            <directory>tests/lib/HtmlDiff</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+            <exclude>
+                <directory>tests/bundle/</directory>
+                <directory>tests/lib/</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

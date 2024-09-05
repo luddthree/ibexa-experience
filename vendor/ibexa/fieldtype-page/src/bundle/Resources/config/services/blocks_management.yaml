@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\FieldTypePage\FieldType\Page\Service\BlockService:
+        arguments:
+            $constraintValidatorFactory: '@validator.validator_factory'
+
+    Ibexa\FieldTypePage\Registry\BlockTypeRegistry: ~
+
+    Ibexa\Bundle\FieldTypePage\Controller\BlockController:
+        public: true
+
+    Ibexa\Contracts\FieldTypePage\FieldType\Page\Service\BlockServiceInterface: '@Ibexa\FieldTypePage\FieldType\Page\Service\BlockService'

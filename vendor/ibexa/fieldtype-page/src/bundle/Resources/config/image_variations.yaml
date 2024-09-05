@@ -1,0 +1,6 @@
+system:
+    default:
+        image_variations:
+            gallery:
+                reference: null
+                filters: []

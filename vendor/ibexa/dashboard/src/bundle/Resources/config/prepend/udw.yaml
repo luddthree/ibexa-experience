@@ -1,0 +1,16 @@
+ibexa:
+    system:
+        default: # using default scope to inherit its _default configuration from admin-ui
+            universal_discovery_widget_module:
+                configuration:
+                    quick_action_create_form:
+                        tabs:
+                            search:
+                                hidden: true
+                            bookmarks:
+                                hidden: true
+                        multiple: false
+                        allowed_content_types: [ 'form', 'folder' ]
+                        content_on_the_fly:
+                            preselected_content_type: 'form'
+                        allow_confirmation: false

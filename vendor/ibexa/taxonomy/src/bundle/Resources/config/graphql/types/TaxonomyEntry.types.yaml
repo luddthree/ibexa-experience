@@ -1,0 +1,44 @@
+TaxonomyEntry:
+    type: object
+    config:
+        fields:
+            _content:
+                type: "Content"
+                description: "Underlying content item"
+                resolve: '@=value.content.contentInfo'
+            id:
+                type: Int!
+                description: "Unique Taxonomy Entry ID"
+            identifier:
+                type: String!
+                description: "Unique Taxonomy Entry string identifier"
+            name:
+                type: String!
+                description: "The computed name (via name schema) in the main language of the Content item."
+            mainLanguageCode:
+                type: String!
+            names:
+                type: "[String]"
+            parent:
+                type: TaxonomyEntry
+                description: "Parent Taxonomy Entry"
+            taxonomy:
+                type: String!
+            children:
+                type: "TaxonomyEntryConnection"
+                description: "Children Taxonomy Entries"
+                argsBuilder: 'Relay::Connection'
+                resolve: '@=query("TaxonomyEntryChildren", args, value.id)'
+            level:
+                type: Int!
+                description: "Taxonomy Entry Depth"
+
+TaxonomyEntryConnection:
+    type: relay-connection
+    config:
+        nodeType: TaxonomyEntry
+        connectionFields:
+            sliceSize:
+                type: Int!
+            orderBy:
+                type: String

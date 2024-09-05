@@ -1,0 +1,98 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: jeans
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:30+02:00'
+        publicationDate: '2021-07-26T07:45:30+02:00'
+        remoteId: 'JEANS_1'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'JEANS_1'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'JEANS_1'
+        -   fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'JEANS_1'
+        -   fieldDefIdentifier: name
+            languageCode: pol-PL
+            value: 'JEANS_1_PL'
+        -   fieldDefIdentifier: name
+            languageCode: fre-FR
+            value: 'JEANS_1_FR'
+        -   fieldDefIdentifier: name
+            languageCode: ger-DE
+            value: 'JEANS_1_GER'
+
+-   type: product_availability
+    mode: create
+    product_code: 'JEANS_1'
+    is_available: true
+    is_infinite: false
+    stock: 10
+
+-   type: product_price
+    mode: create
+    product_code: 'JEANS_1'
+    currency_code: 'EUR'
+    amount: 100
+
+-   type: product_price
+    mode: create
+    product_code: 'JEANS_1'
+    currency_code: 'USD'
+    amount: 100
+
+-   type: product_price
+    mode: create
+    product_code: 'JEANS_1'
+    currency_code: 'BTC'
+    amount: 100
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: blouse
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:30+02:00'
+        publicationDate: '2021-07-26T07:45:30+02:00'
+        remoteId: 'BLOUSE_1'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'BLOUSE_1'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: null
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'BLOUSE_1'
+                attributes:
+                    bar: true
+                    foobar: 'test'
+
+-   type: product_price
+    mode: create
+    product_code: 'BLOUSE_1'
+    currency_code: 'EUR'
+    amount: 100

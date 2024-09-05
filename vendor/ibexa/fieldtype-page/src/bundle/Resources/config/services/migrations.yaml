@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FieldTypePage\Migration\Action\PutBlockOntoPage\PutBlockOntoPageActionDenormalizer:
+        tags:
+            - { name: ibexa.migrations.serializer.normalizer }
+
+    Ibexa\FieldTypePage\Migration\Data\ZonesBlocksListDenormalizer:
+        tags:
+            - { name: ibexa.migrations.serializer.normalizer }
+
+    Ibexa\FieldTypePage\Migration\Model\AttributeDenormalizer:
+        tags:
+            - { name: ibexa.migrations.serializer.normalizer }
+
+    Ibexa\FieldTypePage\Migration\Model\BlockValueDenormalizer:
+        tags:
+            - { name: ibexa.migrations.serializer.normalizer }
+
+    Ibexa\FieldTypePage\Migration\Action\PutBlockOntoPage\PutBlockOntoPageActionExecutor:
+        tags:
+            -
+                name: ibexa.migrations.executor.action.content
+                key: !php/const \Ibexa\FieldTypePage\Migration\Action\PutBlockOntoPage\PutBlockOntoPageAction::ACTION_NAME

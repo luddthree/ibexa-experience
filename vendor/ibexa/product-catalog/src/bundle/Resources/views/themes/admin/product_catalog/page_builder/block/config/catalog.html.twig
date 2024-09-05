@@ -1,0 +1,28 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+{% block body_class %}{{ parent() }} ibexa-pb-block-config--catalog{% endblock %}
+
+{% block basic_tab_content %}
+    {% trans_default_domain 'ibexa_page_builder_block' %}
+
+    <div class="ibexa-catalog-block">
+        {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+            type: 'info',
+            title: 'block.product_catalog.cannot_preview_in_visibility'|trans|desc('You cannot preview Catalog block using Visibility tab'),
+        } only %}
+    </div>
+
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-catalog-block-js', null, 'ibexa') }}
+{% endblock %}

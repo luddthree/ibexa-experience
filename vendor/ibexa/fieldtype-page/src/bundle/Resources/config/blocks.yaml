@@ -1,0 +1,242 @@
+blocks:
+    tag:
+        name: Code
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/code.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/tag.html.twig', priority: -255 }
+        attributes:
+            content:
+                type: 'text'
+                name: Content
+                validators:
+                    not_blank:
+                        message: You must provide Content of Code block
+                    regexp:
+                        options:
+                            pattern: '/[^\\s]/'
+                        message: Only valid HTML code is allowed
+
+    contentlist:
+        name: Content List
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/content_list.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/contentlist.html.twig', priority: -255 }
+        attributes:
+            contentId:
+                type: 'embed'
+                name: Parent
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a Content item
+            limit:
+                type: 'integer'
+                name: Limit
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/^[1-9][0-9]*$/'
+                        message: Limit must be a number greater than 0
+            contentType:
+                type: 'contenttypelist'
+                name: Content types to be displayed
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/^([a-zA-Z_-]+|,[a-zA-Z_-]+)+$/i'
+                        message: Choose at least one content type
+
+    banner:
+        name: Banner
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/banner.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/banner.html.twig', priority: -255 }
+        attributes:
+            contentId:
+                name: Image
+                type: embed
+                validators:
+                    content_type:
+                        message: You must select an Image
+                        options:
+                            types: image
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a Content item
+            url:
+                name: URL
+                type: string
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/^(https?|ftp):\/\/[^\s\/$.?#].[^\s]*$/'
+                        message: Provide a URL
+                value: 'http://'
+
+    collection:
+        name: Collection
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/collection.svg'
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/collection.html.twig'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/collection.html.twig', priority: -255 }
+        attributes:
+            locationlist:
+                name: Location list
+                type: locationlist
+                validators:
+                    not_blank:
+                        message: Choose location items
+
+    embed:
+        name: Embed
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/embed.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/embed.html.twig', priority: -255 }
+        attributes:
+            contentId:
+                name: Content
+                type: embed
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a Content item
+
+    gallery:
+        name: Gallery
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/gallery.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/gallery.html.twig', priority: -255 }
+        attributes:
+            contentId:
+                name: Folder
+                type: embed
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose an image folder
+                    content_container:
+                        message: You must select a container
+
+    video:
+        name: Video
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/video.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/video.html.twig', priority: -255 }
+        attributes:
+            contentId:
+                name: Video
+                type: embedvideo
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a video Content item
+
+    rss:
+        name: RSS
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/rss.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/rss.html.twig', priority: -255 }
+        attributes:
+            url:
+                name: URL
+                type: string
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/^(https?|ftp):\/\/[^\s\/$.?#].[^\s]*$/'
+                        message: Provide a feed url
+                value: 'http://'
+            limit:
+                name: Limit
+                type: integer
+                validators:
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Limit must be a number
+                value: 10
+            offset:
+                name: Offset
+                type: integer
+                validators:
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Offset must be a number
+                value: 0
+
+    schedule:
+        name: Content Scheduler
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/schedule.svg'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFieldTypePage/blocks/schedule.html.twig', priority: -255 }
+        attributes:
+            limit:
+                name: Limit
+                type: integer
+                validators:
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Limit must be a number
+                value: 10
+            events:
+                name: Events
+                type: schedule_events
+                value: '[]'
+            snapshots:
+                name: Snapshots
+                type: schedule_snapshots
+                value: '[]'
+            initial_items:
+                name: Initial Items
+                type: schedule_initial_items
+                value: '[]'
+            slots:
+                name: Slots
+                type: schedule_slots
+                value: '[]'
+            loaded_snapshot:
+                name: Loaded Snapshot
+                type: schedule_loaded_snapshot
+                value: ''
+    richtext:
+        name: Text
+        category: default
+        thumbnail: 'bundles/ibexafieldtypepage/images/thumbnails/richtext.svg'
+        views:
+            default: { name: 'Default view', template: '@IbexaFieldTypePage/blocks/richtext.html.twig', priority: -255 }
+        attributes:
+            content:
+                name: 'Content'
+                type: 'richtext'

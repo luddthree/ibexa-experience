@@ -1,0 +1,51 @@
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
+
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% block icon %}
+    <span class="type__icon">
+        <svg class="ibexa-icon ibexa-icon--review">
+            <use xlink:href="{{ ibexa_icon_path('lock') }}"></use>
+        </svg>
+    </span>
+{% endblock %}
+
+{% block notification_type %}
+    <span class="type__text">
+        {{ 'content.unlock.request'|trans|desc('Unlock request') }}
+    </span>
+{% endblock %}
+
+{% block message %}
+    <td class="ibexa-notifications-modal__description">
+        <p class="description__title">
+            {{ 'content.review.from'|trans|desc('From:') }}
+            <span class="description__title__item">{{ sender }}</span>
+        </p>
+        <p class="description__title">
+            {{ 'content.review.title'|trans|desc('Title:') }}
+            <span class="description__title__item">{{ title }}</span>
+        </p>
+    </td>
+{% endblock %}
+
+{% block date %}
+    <td class="ibexa-notifications-modal__time">
+        <div class="ibexa-workflow-unlock-accept">
+            <div class="ibexa-workflow-unlock-accept__time">{{ notification.created|ibexa_full_datetime }}</div>
+            <div class="ibexa-workflow-unlock-accept__button-wrapper">
+                {% if version_lock is not null and version_lock.isLocked %}
+                    <a
+                        class="btn btn-secondary"
+                        href="{{ path('ibexa.workflow.unlock', {
+                            'contentId': version_lock.contentId,
+                            'versionNo': version_lock.version
+                        }) }}"
+                    >
+                        {{ 'content.unlock.accept'|trans|desc('Accept') }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </td>
+{% endblock %}

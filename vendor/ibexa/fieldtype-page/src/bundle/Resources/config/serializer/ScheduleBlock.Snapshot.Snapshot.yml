@@ -1,0 +1,21 @@
+Ibexa\FieldTypePage\ScheduleBlock\Snapshot\Snapshot:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        date:
+            type: DateTime<'U'>
+            skip_when_empty: false
+            expose: true
+        initialItems:
+            serialized_name: initialItems
+            type: array<string, Ibexa\FieldTypePage\ScheduleBlock\Item\Item>
+            skip_when_empty: false
+            expose: true
+        slots:
+            type: array<string, Ibexa\FieldTypePage\ScheduleBlock\Slot>
+            skip_when_empty: false
+            expose: true
+        limit:
+            type: int
+            skip_when_empty: false
+            expose: true

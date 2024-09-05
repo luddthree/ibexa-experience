@@ -1,0 +1,55 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set table_actions %}
+    {% block table_actions %}{% endblock %}
+{% endset %}
+
+{% set body_rows = [] %}
+{% for order in orders %}
+    {% set col_order_id %}
+        {% if order.invoice is null %}
+            {{ order.id }}
+        {% else %}
+            <a href="{{ order.invoice.url }}">#{{ order.invoice.symbol }}</a>
+        {% endif %}
+    {% endset %}
+
+    {% set order_user_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: order.member.getUser() } only %}
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: col_order_id },
+        { content: order.date|ibexa_short_datetime },
+        { content: order.total|ibexa_format_price },
+        { content: order_user_name },
+        { content: order.state },
+        { content: order.shippingMethod },
+    ] }]) %}
+{% endfor %}
+
+{% set no_orders_text = 'orders.table.empty.info'|trans|desc('No orders') %}
+
+{% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline,
+    head_cols: [
+        { content: 'orders.table.header.identifier'|trans|desc('Order ID') },
+        { content: 'orders.table.header.order_created_date'|trans|desc('Created date') },
+        { content: 'orders.table.header.total_value'|trans|desc('Total value') },
+        { content: 'orders.table.header.customer_name'|trans|desc('Customer name') },
+        { content: 'orders.table.header.status'|trans|desc('Status') },
+        { content: 'orders.table.header.shipping_method'|trans|desc('Shipping method') },
+        { },
+    ],
+    body_rows,
+    empty_table_info_text: empty_table_text|default(no_orders_text),
+    empty_table_action_text: empty_table_action_text|default(''),
+} %}
+    {% block header %}
+        {% embed '@ibexadesign/ui/component/table/table_header.html.twig' %}
+            {% block actions %}
+                {{ table_actions }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}

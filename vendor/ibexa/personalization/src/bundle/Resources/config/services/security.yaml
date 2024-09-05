@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Security\PersonalizationPolicyProvider: ~
+
+    Ibexa\Personalization\Security\Service\SecurityService: ~
+
+    Ibexa\Personalization\Security\Service\SecurityServiceInterface:
+        '@Ibexa\Personalization\Security\Service\SecurityService'

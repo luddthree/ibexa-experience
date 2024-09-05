@@ -1,0 +1,8 @@
+system:
+    default:
+        field_templates:
+            - { template: '@ibexadesign/ibexa/seo/field_type/content_fields.html.twig', priority: 0 }
+    admin_group:
+        field_templates:
+            - { template: '@ibexadesign/ibexa/seo/field_type/content_fields.html.twig', priority: 5 }
+

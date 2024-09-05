@@ -1,0 +1,10 @@
+ibexa:
+    system:
+        admin_group:
+            content_view:
+                full:
+                    fullscreen:
+                        controller: 'Ibexa\Bundle\SiteContext\Controller\FullscreenPreviewController::locationViewAction'
+                        template: '@ibexadesign/content/fullscreen.html.twig'
+                        match:
+                            '@Ibexa\SiteContext\Matcher\IsFullscreen': true

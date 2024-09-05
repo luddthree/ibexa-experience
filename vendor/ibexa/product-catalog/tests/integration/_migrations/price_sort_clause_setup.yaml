@@ -1,0 +1,131 @@
+-   type: customer_group
+    mode: create
+    identifier: standard
+    names:
+        eng-GB: Standard
+    descriptions:
+        eng-GB: Standard
+    global_price_rate: 0.0
+
+-   type: customer_group
+    mode: create
+    identifier: vip
+    names:
+        eng-GB: VIP
+    descriptions:
+        eng-GB: VIP
+    global_price_rate: -10.0
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'A'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'A'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'A'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'A'
+
+-   type: product_price
+    mode: create
+    product_code: 'A'
+    currency_code: 'EUR'
+    amount: 100
+    custom_prices:
+        -   customer_group: standard
+            base_amount: 110
+            custom_amount: 100
+        -   customer_group: vip
+            custom_amount: 80
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'B'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'B'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'B'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'B'
+
+-   type: product_price
+    mode: create
+    product_code: 'B'
+    currency_code: 'EUR'
+    amount: 200
+    custom_prices:
+        -   customer_group: vip
+            custom_amount: 60
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'C'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'C'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'C'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'C'
+
+-   type: product_price
+    mode: create
+    product_code: 'C'
+    currency_code: 'EUR'
+    amount: 300
+    custom_prices:
+        -   customer_group: vip
+            custom_amount: 290

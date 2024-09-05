@@ -1,0 +1,24 @@
+{% block ibexa_taxonomy_entry_field %}
+    {% apply spaceless %}
+        {% if field.value.taxonomyEntry is not null %}
+            <a href="{{ path('ibexa.content.view', {'contentId': field.value.taxonomyEntry.content.id } ) }}">
+                {{ field.value.taxonomyEntry.name}}
+            </a>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block ibexa_taxonomy_entry_assignment_field %}
+    {% apply spaceless %}
+        {% if field.value.getTaxonomyEntries()|length > 0 %}
+            {% for taxonomyEntry in field.value.getTaxonomyEntries() %}
+                <a href="{{ path('ibexa.content.view', {'contentId': taxonomyEntry.content.id } ) }}">
+                    {{- taxonomyEntry.names[field.languageCode]|default(taxonomyEntry.name) -}}
+                </a>
+                {%- if not loop.last %}, {% endif -%}
+            {% endfor %}
+        {% else %}
+            <em>{{ 'fieldview.field.empty'|trans({}, 'ibexa_fieldview')|desc('This field is empty') }}</em>
+        {% endif %}
+    {% endapply %}
+{% endblock %}

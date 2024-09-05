@@ -1,0 +1,46 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set label = label|default('{{ label }}') %}
+{% set value = value|default('') %}
+{% set name = name|default('{{ name }}') %}
+{% set type = type|default('{{ type }}') %}
+
+<div
+    data-filter-type="{{ type }}"
+    data-filter-name="{{ name }}"
+    class="ibexa-pc-edit-catalog-filter-preview"
+>
+    <div class="ibexa-pc-edit-catalog-filter-preview__left-col">
+        <div class="ibexa-pc-edit-catalog-filter-preview__name">{{ label }}</div>
+        <div class="ibexa-pc-edit-catalog-filter-preview__value">
+            <div class="ibexa-pc-edit-catalog-filter-preview__value-content ibexa-pc-edit-catalog-filter-preview__value-content--no-value">
+                {{ 'catalog.edit.config_filter.empty_value'|trans|desc('(All)') }}
+            </div>
+            {{ include('@ibexadesign/ui/tag.html.twig', {
+                content: '',
+                is_loading_state: false,
+                tag_attributes: {
+                    'class': 'ibexa-pc-edit-catalog-filter-preview__value-content ibexa-pc-edit-catalog-filter-preview__value-content--has-value',
+                }
+            }) }}
+        </div>
+    </div>
+    <div class="ibexa-pc-edit-catalog-filter-preview__right-col">
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-pc-edit-catalog-filter-preview__remove-filter-preview ibexa-pc-edit-catalog-filter-preview__remove-filter-preview--hidden"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('circle-close') }}"></use>
+            </svg>
+        </button>
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-pc-edit-catalog-filter-preview__open-config-panel"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('filters') }}"></use>
+            </svg>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Menu\Listener\ConfigureMainMenuListener:
+        arguments:
+            $pageBuilderConfigurationResolver: '@Ibexa\SiteFactory\PageBuilder\ConfigurationResolver.inner'
+            $siteService: '@Ibexa\SiteFactory\Service\SiteService'
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.main_menu, method: onMenuConfigure, priority: 5 }
+
+    Ibexa\Bundle\SiteFactory\Menu\Builder\SiteCreateRightSidebarBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform.sitefactory.menu_configure.site.create_actions }
+
+    Ibexa\Bundle\SiteFactory\Menu\Builder\SiteEditRightSidebarBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform.sitefactory.menu_configure.site.edit_actions }
+
+    Ibexa\Bundle\SiteFactory\Menu\Builder\SiteViewRightSidebarBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ezplatform.sitefactory.menu_configure.site.view_actions }

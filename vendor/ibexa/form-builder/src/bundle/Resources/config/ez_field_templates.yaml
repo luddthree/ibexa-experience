@@ -1,0 +1,7 @@
+system:
+    default:
+        field_templates:
+            - { template: '@ibexadesign/fields/ezform_field.html.twig', priority: 0 }
+    admin_group:
+        field_templates:
+            - { template: '@ibexadesign/fields/ezform_preview.html.twig', priority: 10 }

@@ -1,0 +1,5 @@
+{% if url is defined %}
+    <div class="qualifio__custom-tag-iframe">
+        <iframe src="{{ url }}" width="{{ width|default('100%') }}" height="{{ height|default('400') }}" hspace="0" vspace="0"></iframe>
+    </div>
+{% endif %}

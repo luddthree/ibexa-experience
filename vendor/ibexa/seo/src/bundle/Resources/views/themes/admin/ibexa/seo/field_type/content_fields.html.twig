@@ -1,0 +1,5 @@
+{% trans_default_domain 'seo_fieldtype' %}
+
+{% block ibexa_seo_field %}
+    {{- 'content.field.seo.no_preview'|trans({}, 'ibexa_seo_fieldtype')|desc('Preview is not available.') -}}
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends '@ibexadesign/customer_portal/layout.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block user_menu_container %}{% endblock %}
+
+{% block content_column %}
+    <div class="ibexa-ca-registration">
+        <div class="ibexa-ca-banner">
+            <div class="ibexa-ca-banner__container">
+                <div class="ibexa-ca-registration-banner"></div>
+            </div>
+        </div>
+        <div class="ibexa-ca-registration-confirmation">
+            <div class="ibexa-ca-registration-confirmation__wrapper">
+                <img
+                    class="ibexa-ca-registration-confirmation__fancy-image"
+                    src="{{ asset('bundles/ibexacorporateaccount/img/registration-fail-image.svg') }}"
+                    alt="{{ 'registration_wait.image.alt'|trans|desc('registration is currently locked') }}"
+                />
+                <div class="ibexa-ca-registration-confirmation__info">
+                    <h1 class="ibexa-ca-registration-confirmation__info-title">
+                        {{ 'registration_wait.info.title'|trans|desc('Registration is currently locked.') }}
+                    </h1>
+                    <div class="ibexa-ca-registration-confirmation__approval-info">
+                        {{ 'registration_wait.info.explanation'|trans|desc('As a security measure, registration is locked for another 5 minutes to prevent malicious behaviour.') }}<br>
+                        {{ 'registration_wait.info.try_again'|trans|desc('Please, try again later.') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include '@ibexadesign/content/edit/stylesheets.html.twig' %}
+{% endblock %}

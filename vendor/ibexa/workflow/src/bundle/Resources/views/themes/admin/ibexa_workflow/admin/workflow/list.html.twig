@@ -1,0 +1,79 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% block body_class %}ibexa-workflow-list-view{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { value: 'workflow.list.title'|trans|desc('Workflow') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'workflow.list.title'|trans|desc('Workflow'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <section class="container ibexa-container ibexa-workflow-list">
+        {% set body_rows = [] %}
+        {% for workflow_identifier, workflow in pager.currentPageResults %}
+            {% set col_name %}
+                <a href="{{ path('ibexa.workflow.view', { 'workflowName': workflow_identifier }) }}">
+                    {{ workflow.name }}
+                </a>
+            {% endset %}
+
+            {% set col_limitations %}
+                {%- if workflow.matchersMetadata is not empty -%}
+                    <ul class="ibexa-workflow-list__limitations">
+                        {%- for identifier, matcherDefinitionMetadata in workflow.matchersMetadata -%}
+                            <li>
+                                <span class="font-weight-bold">
+                                    {{ ('matcher.' ~ identifier|lower)|trans({'%identifier%': identifier}, 'ibexa_workflow')|desc('%identifier%') }}:
+                                </span>
+                                {{ ibexa_render_workflow_matcher_value(identifier, matcherDefinitionMetadata) }}
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                {%- else -%}
+                    {{- 'matcher.none'|trans|desc('None') -}}
+                {%- endif -%}
+            {% endset %}
+
+            {% set col_stages %}
+                {% for stage in workflow.stagesMetadata %}
+                    {{ stage.label }}<br />
+                {% endfor %}
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{ cols: [
+                { content: col_name, raw: true },
+                { content: col_limitations, raw: true },
+                { content: col_stages, raw: true },
+            ] }]) %}
+        {% endfor %}
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: custom_results_headline ?? results_headline(pager.getNbResults()),
+            head_cols: [
+                { content: 'workflow.list.name'|trans|desc('Name') },
+                { content: 'workflow.list.limitations'|trans|desc('Limitations') },
+                { content: 'workflow.list.stages'|trans|desc('Stages') },
+            ],
+            body_rows,
+            empty_table_info_text: 'workflow.list.empty'|trans|desc('No workflows configured. All workflows will show up here.'),
+        } %}
+
+        {% if pager.haveToPaginate %}
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                'pager': pager
+            } %}
+        {% endif %}
+    </section>
+{% endblock %}

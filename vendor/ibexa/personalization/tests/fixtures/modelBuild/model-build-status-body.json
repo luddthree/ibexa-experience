@@ -1,0 +1,13 @@
+{
+    "referenceCode": "foo",
+    "buildReports": [
+        {
+            "queueTime": "2022-06-10T13:21:01.000Z",
+            "startTime": null,
+            "finishTime": null,
+            "numberOfItems": -1,
+            "taskUuid": "7509d1e7-822c-4176-b9ef-45e5f7e3f6e7",
+            "state": "RUNNING"
+        }
+    ]
+}

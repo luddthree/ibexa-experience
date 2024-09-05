@@ -1,0 +1,498 @@
+#Views
+ibexa.product_catalog.rest.attributes.view:
+    path: /product/catalog/attributes/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.view:
+    path: /product/catalog/catalogs/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.products.view:
+    path: /product/catalog/catalogs/{catalogIdentifier}/products/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogProductsViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.currencies.view:
+    path: /product/catalog/currencies/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CurrencyViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_groups.view:
+    path: /product/catalog/attribute_groups/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.customer_groups.view:
+    path: /product/catalog/customer_groups/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.regions.view:
+    path: /product/catalog/regions/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\RegionViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.products.view:
+    path: /product/catalog/products/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_variants.view:
+    path: /product/catalog/product_variants/view/{baseProductCode}
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductVariantViewController::createView'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_types.view:
+    path: /product/catalog/product_types/view
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeViewController::createView'
+    options:
+        expose: true
+
+#Attribute Groups
+ibexa.product_catalog.rest.attribute_groups:
+    path: /product/catalog/attribute_groups
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupController::listAttributeGroupsAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_group:
+    path: /product/catalog/attribute_groups/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupController::getAttributeGroupAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_groups.create:
+    path: /product/catalog/attribute_groups
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupController::createAttributeGroupAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_groups.update:
+    path: /product/catalog/attribute_groups/{identifier}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupController::updateAttributeGroupAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_groups.delete:
+    path: /product/catalog/attribute_groups/{identifier}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupController::deleteAttributeGroupAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_groups.translation.delete:
+    path: /product/catalog/attribute_groups/translation/{identifier}/{languageCode}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeGroupController::deleteAttributeGroupTranslationAction'
+    options:
+        expose: true
+
+#Attributes
+ibexa.product_catalog.rest.attributes:
+    path: /product/catalog/attributes
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::listAttributesAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute:
+    path: /product/catalog/attributes/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::getAttributeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_types:
+    path: /product/catalog/attribute_types
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::listAttributeTypesAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attribute_type:
+    path: /product/catalog/attribute_types/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::getAttributeTypeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attributes.create:
+    path: /product/catalog/attributes
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::createAttributeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attributes.update:
+    path: /product/catalog/attributes/{identifier}/{groupIdentifier}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::updateAttributeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attributes.delete:
+    path: /product/catalog/attributes/{identifier}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::deleteAttributeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.attributes.translation.delete:
+    path: /product/catalog/attributes/translation/{identifier}/{languageCode}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\AttributeController::deleteAttributeTranslationAction'
+    options:
+        expose: true
+
+#Catalogs
+ibexa.product_catalog.rest.catalogs.filters:
+    path: /product/catalog/catalogs/filters
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::getFiltersAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.sort_clauses:
+    path: /product/catalog/catalogs/sort_clauses
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::getSortClausesAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs:
+    path: /product/catalog/catalogs/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::getCatalogAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.create:
+    path: /product/catalog/catalogs
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::createCatalogAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.update:
+    path: /product/catalog/catalogs/{identifier}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::updateCatalogAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.delete:
+    path: /product/catalog/catalogs/{identifier}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::deleteCatalogAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.catalogs.copy:
+    path: /product/catalog/catalogs/copy/{identifier}
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CatalogController::copyCatalogAction'
+    options:
+        expose: true
+
+#Currencies
+ibexa.product_catalog.rest.currencies:
+    path: /product/catalog/currencies
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CurrencyController::listCurrenciesAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.currency:
+    path: /product/catalog/currencies/{id}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CurrencyController::getCurrencyAction'
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.currencies.create:
+    path: /product/catalog/currencies
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CurrencyController::createCurrencyAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.currencies.update:
+    path: /product/catalog/currencies/{id}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CurrencyController::updateCurrencyAction'
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.currencies.delete:
+    path: /product/catalog/currencies/{id}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CurrencyController::deleteCurrencyAction'
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+#Customer Groups
+ibexa.product_catalog.rest.customer_groups.list:
+    path: /product/catalog/customer_groups
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupController::listCustomerGroupsAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.customer_group:
+    path: /product/catalog/customer_groups/{id}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupController::getCustomerGroupAction'
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.customer_groups.identifier:
+    path: /product/catalog/customer_groups/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupController::getCustomerGroupByIdentifierAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.customer_group.create:
+    path: /product/catalog/customer_groups
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupController::createCustomerGroupAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.customer_group.update:
+    path: /product/catalog/customer_groups/{id}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupController::updateCustomerGroupAction'
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.customer_groups.delete:
+    path: /product/catalog/customer_groups/{id}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\CustomerGroupController::deleteCustomerGroupAction'
+    requirements:
+        id: \d+
+    options:
+        expose: true
+
+#Product Types
+ibexa.product_catalog.rest.product_types:
+    path: /product/catalog/product_types
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeController::listProductTypesAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_type:
+    path: /product/catalog/product_types/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeController::getProductTypeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_types.create:
+    path: /product/catalog/product_types
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeController::createProductTypeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_types.update:
+    path: /product/catalog/product_types/{identifier}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeController::updateProductTypeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_types.delete:
+    path: /product/catalog/product_types/{identifier}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeController::deleteProductTypeAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_types.is_used:
+    path: /product/catalog/product_types/is_used/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductTypeController::isProductTypeUsedAction'
+    options:
+        expose: true
+
+# Prices
+
+ibexa.product_catalog.rest.prices.create:
+    path: /product/catalog/products/{productCode}/prices
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\PriceController::createPrice'
+
+ibexa.product_catalog.rest.prices.list:
+    path: /product/catalog/products/{productCode}/prices
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\PriceController::getPrices'
+
+ibexa.product_catalog.rest.prices.get.custom_price:
+    path: /product/catalog/products/{productCode}/prices/{currencyCode}/customer-group/{customerGroupIdentifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\PriceController::getPrice'
+
+ibexa.product_catalog.rest.prices.get.base_price:
+    path: /product/catalog/products/{productCode}/prices/{currencyCode}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\PriceController::getPrice'
+
+ibexa.product_catalog.rest.prices.update:
+    path: /product/catalog/products/{productCode}/prices/{id}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\PriceController::updatePrice'
+
+ibexa.product_catalog.rest.prices.delete:
+    path: /product/catalog/products/{productCode}/prices/{id}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\PriceController::deletePrice'
+
+#Products
+ibexa.product_catalog.rest.products:
+    path: /product/catalog/products
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductController::listProductsAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product:
+    path: /product/catalog/products/{code}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductController::getProductAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.products.create:
+    path: /product/catalog/products/{productTypeIdentifier}
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductController::createProductAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.products.update:
+    path: /product/catalog/products/{code}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductController::updateProductAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.products.delete:
+    path: /product/catalog/products/{identifier}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductController::deleteProductAction'
+    options:
+        expose: true
+
+#Product Variants
+ibexa.product_catalog.rest.product_variant:
+    path: /product/catalog/product_variant/{code}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductVariantController::getProductVariantAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_variants.create:
+    path: /product/catalog/product_variants/{baseProductCode}
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductVariantController::createProductVariantAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_variants.generate:
+    path: /product/catalog/product_variants/generate/{baseProductCode}
+    methods: [POST]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductVariantController::generateProductVariantsAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_variants.update:
+    path: /product/catalog/product_variants/{code}
+    methods: [PATCH]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductVariantController::updateProductVariantAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.product_variants.delete:
+    path: /product/catalog/product_variants/{code}
+    methods: [DELETE]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\ProductVariantController::deleteProductVariantAction'
+    options:
+        expose: true
+
+#Regions
+ibexa.product_catalog.rest.regions:
+    path: /product/catalog/regions
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\RegionController::listRegionsAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.region:
+    path: /product/catalog/regions/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\RegionController::getRegionAction'
+    options:
+        expose: true
+
+#VAT
+ibexa.product_catalog.rest.vat.list:
+    path: /product/catalog/vat/{region}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\VatController::getVatCategories'
+    options:
+        expose: true
+
+ibexa.product_catalog.rest.vat:
+    path: /product/catalog/vat/{region}/{identifier}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\REST\VatController::getVatCategoryAction'
+    options:
+        expose: true
+
+ibexa.product_catalog.personalization.rest.product_variant.get_by_code:
+    path: /personalization/v1/product_variant/code/{code}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Personalization\REST\ProductVariantController::getProductVariantByCodeAction'
+    methods: [GET]
+
+ibexa.product_catalog.personalization.rest.product_variant_list:
+    path: /personalization/v1/product_variant/list/{codes}
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Personalization\REST\ProductVariantController::getProductVariantListAction'
+    methods: [GET]

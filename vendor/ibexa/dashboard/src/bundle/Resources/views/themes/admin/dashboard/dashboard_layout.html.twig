@@ -1,0 +1,59 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{%- block main_container_class -%}ibexa-db-main-container {% block dashboard_main_class %}{% endblock %}{%- endblock -%}
+
+{% block header %}
+    {% trans_default_domain 'ibexa_dashboard' %}
+
+    {% set user_field_name = ibexa_admin_ui_config.user.user.content.getField('first_name') %}
+    {% set title_morning = 'dashboard.title.morning'|trans({ '%user_name%': user_field_name.value })|desc('Good morning, %user_name%!') %}
+    {% set title_afternoon = 'dashboard.title.afternoon'|trans({ '%user_name%': user_field_name.value })|desc('Good afternoon, %user_name%!') %}
+    {% set title_evening = 'dashboard.title.evening'|trans({ '%user_name%': user_field_name.value })|desc('Good evening, %user_name%!') %}
+    {% set user_timezone = ibexa_admin_ui_config.timezone %}
+    {% set hour = "now"|date("H", user_timezone) %}
+    {% set dashboard_title = null %}
+    {% set actions %}{% block actions %}{% endblock %}{% endset %}
+
+    {% if hour >= 6 and hour < 12 %}
+        {% set dashboard_title = title_morning %}
+    {% elseif hour >= 12 and hour < 18 %}
+        {% set dashboard_title = title_afternoon %}
+    {% else %}
+        {% set dashboard_title = title_evening %}
+    {% endif %}
+
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: dashboard_title,
+        page_title_class: 'ibexa-db-header'
+    } %}
+        {% trans_default_domain 'ibexa_dashboard' %}
+
+        {% block top_side %}
+            {{ actions }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-db-blocks {% block content_class %}{% endblock %}">
+        {% block content_body %}{% endblock %}
+        {{ ibexa_render_field(
+            content,
+            'dashboard',
+            {
+                'template': landing_page_field_template_path|default('@IbexaFieldTypePage/fields/ezlandingpage.html.twig')
+            }
+        ) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-dashboard-css', null, 'ibexa') }}
+    {{ encore_entry_link_tags('ibexa-dashboard-blocks-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-dashboard-blocks-js', null, 'ibexa') }}
+{% endblock %}

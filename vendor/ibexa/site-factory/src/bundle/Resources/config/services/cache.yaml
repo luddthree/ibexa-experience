@@ -1,0 +1,14 @@
+services:
+    Ibexa\SiteFactory\Persistence\Cache\SiteHandler:
+        lazy: true
+        arguments:
+            $cachePool: '@site_factory_pool'
+            $logger: '@Ibexa\Core\Persistence\Cache\PersistenceLogger'
+            $siteHandler: '@Ibexa\SiteFactory\Persistence\Site\Handler\SiteHandler'
+
+    Ibexa\SiteFactory\Persistence\Cache\PublicAccessHandler:
+        lazy: true
+        arguments:
+            $cachePool: '@site_factory_pool'
+            $logger: '@Ibexa\Core\Persistence\Cache\PersistenceLogger'
+            $publicAccessHandler: '@Ibexa\SiteFactory\Persistence\PublicAccess\Handler\PublicAccessHandler'

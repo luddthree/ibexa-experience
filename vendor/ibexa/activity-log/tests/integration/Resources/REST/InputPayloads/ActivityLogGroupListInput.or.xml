@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ActivityLogGroupListInput>
+    <criteria>
+        <criterion type="or">
+            <criterion type="action">
+                <value>bar_action</value>
+            </criterion>
+            <criterion type="object_class">
+                <class>stdClass</class>
+                <ids>bar</ids>
+            </criterion>
+            <criterion type="user">
+                <value>14</value>
+            </criterion>
+        </criterion>
+    </criteria>
+</ActivityLogGroupListInput>

@@ -1,0 +1,9 @@
+{% if url is defined %}
+    <div class="qualifio__block-iframe {{ block_class }}">
+        <iframe src="{{ url }}" id="qualifio-{{ block_id }}" width="{{ width|default('100%') }}" height="{{ height|default('1200') }}" hspace="0" vspace="0"></iframe>
+
+        {% if block_style is not empty %}
+            <style type="text/css">{{ block_style|raw }}</style>
+        {% endif %}
+    </div>
+{% endif %}

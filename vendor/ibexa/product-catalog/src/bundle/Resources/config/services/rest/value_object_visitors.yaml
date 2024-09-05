@@ -1,0 +1,293 @@
+services:
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Attribute:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        arguments:
+            $postProcessors: !tagged_iterator ibexa.product_catalog.rest.output.attribute.post_processor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Attribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeAssignment:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeAssignment }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeTypeList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeTypeList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeType:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeType }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeGroupList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeGroupList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeGroup:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeGroup }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Availability:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Availability }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CatalogList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CatalogList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Catalog:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        arguments:
+            $mappers: !tagged_iterator ibexa.product_catalog.rest.product.criterion.mapper
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Catalog }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CatalogProductFilterList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CatalogProductFilterList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CatalogProductFilter:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CatalogProductFilter }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CatalogProductSortClauseList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CatalogProductSortClauseList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CatalogProductSortClause:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CatalogProductSortClause }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CurrencyList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CurrencyList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Currency:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Currency }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductTypeList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductTypeList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Price:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\ProductCatalog\Local\Repository\Values\Price }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CustomPrice:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\ProductCatalog\Local\Repository\Values\Price\CustomGroupPrice }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\RestPrice:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Price }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductType:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductType }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductTypeUsage:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductTypeUsage }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Product:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        arguments:
+            $contentService: '@ibexa.api.service.content'
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Product }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductVariantList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductVariantList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductVariant:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductVariant }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Thumbnail:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Thumbnail }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CustomerGroupList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CustomerGroupList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CustomerGroup:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CustomerGroup }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\RegionList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\RegionList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Region:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Region }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\VatCategoryList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\VatCategoryList }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\VatCategory:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\VatCategory }
+
+    #Views
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductVariantView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductVariantView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\ProductTypeView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\ProductTypeView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\AttributeGroupView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\AttributeGroupView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CustomerGroupView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CustomerGroupView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\RegionView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\RegionView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CatalogView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CatalogView }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\CurrencyView:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\CurrencyView }
+
+    #Criteria
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\ProductAvailability:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\ProductAvailability }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\ProductCategory:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\ProductCategory }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\ProductCode:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\ProductCode }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\ProductName:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\ProductName }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\ProductType:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\ProductType }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\ColorAttribute:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\ColorAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\CreatedAt:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\CreatedAt }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\CreatedAtRange:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\CreatedAtRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\FloatAttribute:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\FloatAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\FloatAttributeRange:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\FloatAttributeRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\IntegerAttribute:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\IntegerAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\IntegerAttributeRange:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\IntegerAttributeRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\SelectionAttribute:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\SelectionAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\Criterion\IsVirtual:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\IsVirtual }
+
+    Ibexa\Bundle\ProductCatalog\REST\Output\ValueObjectVisitor\PriceList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\ProductCatalog\Local\Repository\Values\PriceList }

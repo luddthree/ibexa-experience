@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Validator\Constraints\UniqueScenarioReferenceCodeValidator: ~
+
+    Ibexa\Personalization\Validator\Constraints\UniqueScenarioNameValidator: ~

@@ -1,0 +1,27 @@
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        bootstrap="tests/bootstrap.php"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        colors="true">
+    <testsuites>
+        <testsuite name="integration">
+            <directory>tests/integration</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\CorporateAccount\IbexaTestKernel" />
+        <env name="DATABASE_URL" value="postgres://localhost:5432/postgres" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled"/>
+        <env name="PERSONALIZATION_CUSTOMER_ID" value="0"/>
+        <env name="PERSONALIZATION_LICENSE_KEY" value="0"/>
+    </php>
+    <extensions>
+        <extension class="\DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+    </extensions>
+    <listeners>
+        <listener class="\Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
+    </listeners>
+</phpunit>

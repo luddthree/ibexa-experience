@@ -1,0 +1,13 @@
+{
+  "ActivityLogGroupListInput": {
+    "criteria": [
+      {"type": "logged_at", "value": "2023-10-03 10:50:00", "operator": ">"},
+      {"type": "action", "value": ["bar_action", "foo_action"]},
+      {"type": "action", "value": "bar_action"},
+      {"type": "object_class", "class": "stdClass"},
+      {"type": "object_class", "class": "stdClass", "ids": ["bar"]},
+      {"type": "object_class", "class": "stdClass", "ids": "bar"},
+      {"type": "user", "value": [14]}
+    ]
+  }
+}

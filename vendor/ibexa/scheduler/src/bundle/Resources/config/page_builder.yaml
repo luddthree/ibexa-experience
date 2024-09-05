@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Scheduler\Event\Subscriber\PageTimelineEventsSubscriber:
+        arguments:
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+
+    Ibexa\Scheduler\Event\Subscriber\PageBuilderTemplatesSubscriber: ~
+
+    ibexa.scheduler.listener.page_builder_context_menu.configure_publish_later:
+        class: Ibexa\Scheduler\Menu\ConfigureMenuListener
+        tags:
+            - name: kernel.event_listener
+              event: !php/const Ibexa\Bundle\PageBuilder\Menu\Event\PageBuilderConfigureMenuEventName::PAGE_BUILDER_INFOBAR_EDIT_MODE_ACTIONS
+              method: onPageBuilderMenuConfigure
+            - name: kernel.event_listener
+              event: !php/const Ibexa\Bundle\PageBuilder\Menu\Event\PageBuilderConfigureMenuEventName::PAGE_BUILDER_INFOBAR_CREATE_MODE_ACTIONS
+              method: onPageBuilderMenuConfigure
+        arguments:
+            $publishButtonsNames: [
+                    !php/const Ibexa\Bundle\PageBuilder\Menu\Builder\InfobarCreateModeActionsBuilder::ITEM__PUBLISH,
+                    !php/const Ibexa\Bundle\PageBuilder\Menu\Builder\InfobarEditModeActionsBuilder::ITEM__PUBLISH,
+                ]

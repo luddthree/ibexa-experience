@@ -1,0 +1,14 @@
+{% trans_default_domain 'ibexa_submissions' %}
+
+{% for field_value in values %}
+    {% if field_value is not null %}
+    <tr class='ibexa-table__row'>
+        <td class='ibexa-table__cell'>
+            {{ field_value.name }}
+        </td>
+        <td class='ibexa-table__cell'>
+            {{ field_value.displayValue }}
+        </td>
+    </tr>
+    {% endif %}
+{% endfor %}

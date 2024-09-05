@@ -1,0 +1,152 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\OptionsValidatorRegistryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Attribute\OptionsValidatorRegistry
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\OptionsValidatorRegistry:
+        arguments:
+            $validators: !tagged_iterator { tag: ibexa.product_catalog.attribute.validator.options, index_by: type }
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\OptionsValidatorDispatcher: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueFormatterRegistryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Attribute\ValueFormatterRegistry
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueFormatterRegistry:
+        arguments:
+            $formatters: !tagged_iterator { tag: ibexa.product_catalog.attribute.formatter.value, index_by: type }
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueFormatterDispatcherInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Attribute\ValueFormatterDispatcher
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueFormatterDispatcher: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueValidatorRegistryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Attribute\ValueValidatorRegistry
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueValidatorRegistry:
+        arguments:
+            $validators: !tagged_iterator { tag: ibexa.product_catalog.attribute.validator.value, index_by: type }
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ValueValidatorDispatcher: ~
+
+    ### Checkbox
+
+    ibexa.product_catalog.attribute_type.checkbox:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'checkbox'
+        tags:
+            - name: ibexa.product_catalog.attribute_type
+              alias: checkbox
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\CheckboxValueFormatter:
+        tags:
+            - name: ibexa.product_catalog.attribute.formatter.value
+              type: checkbox
+
+    ### Color
+
+    ibexa.product_catalog.attribute_type.color:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'color'
+        tags:
+            -   name: ibexa.product_catalog.attribute_type
+                alias: color
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\ColorValueValidator:
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.value
+                type: color
+
+    ibexa.product_catalog.attribute.value_formatter.color:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NullValueFormatter
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: color
+
+    ### Float
+
+    ibexa.product_catalog.attribute_type.float:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'float'
+        tags:
+            - name: ibexa.product_catalog.attribute_type
+              alias: float
+
+    ibexa.product_catalog.attribute.value_formatter.float:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NumericValueFormatter
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: float
+
+    ibexa.product_catalog.attribute.options_validator.float:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NumericOptionsValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.options
+                type: float
+
+    ibexa.product_catalog.attribute.value_validator.float:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NumericValueValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.value
+                type: float
+
+    ### Integer
+
+    ibexa.product_catalog.attribute_type.integer:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'integer'
+        tags:
+            - name: ibexa.product_catalog.attribute_type
+              alias: integer
+
+    ibexa.product_catalog.attribute.value_formatter.integer:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NumericValueFormatter
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: integer
+
+    ibexa.product_catalog.attribute.options_validator.integer:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NumericOptionsValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.options
+                type: integer
+
+    ibexa.product_catalog.attribute.value_validator.integer:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\NumericValueValidator
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.value
+                type: integer
+
+    ### Selection
+
+    ibexa.product_catalog.attribute_type.selection:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'selection'
+        tags:
+            - name: ibexa.product_catalog.attribute_type
+              alias: selection
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\SelectionValueFormatter:
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: selection
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\SelectionValueValidator:
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.value
+                type: selection
+
+    Ibexa\ProductCatalog\Local\Repository\Attribute\SelectionOptionsValidator:
+        tags:
+            -   name: ibexa.product_catalog.attribute.validator.options
+                type: selection

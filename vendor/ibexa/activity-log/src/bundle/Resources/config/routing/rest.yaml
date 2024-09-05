@@ -1,0 +1,8 @@
+# Note: this resource needs to be imported with `prefix: '%ibexa.rest.path_prefix%'` attribute
+
+ibexa.activity_log.rest.activity_log_group.list:
+    path: /activity-log-group/list
+    methods: [ GET, POST ]
+    controller: Ibexa\Bundle\ActivityLog\Controller\REST\ActivityLog\ListController::list
+    options:
+        exposed: true

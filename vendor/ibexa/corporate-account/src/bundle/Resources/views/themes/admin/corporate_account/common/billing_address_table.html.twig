@@ -1,0 +1,53 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set table_actions %}
+    {% block table_actions %}{% endblock %}
+{% endset %}
+
+{% set col_action_btns %}
+    <a
+        href="{{ path(edit_path, {
+            companyId: company_id,
+        }) }}"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+        title="{{ 'table.billing_address.action.edit'|trans|desc('Edit') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+        </svg>
+    </a>
+{% endset %}
+
+{% set body_rows = [{ cols: [
+    { content: billing_address.name },
+    { content: billing_address },
+    { content: billing_address.fields['email'] },
+    { content: billing_address.fields['phone_number'] },
+    { has_action_btns: true, content: col_action_btns },
+] }] %}
+
+{% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+    class: 'ibexa-ca-billing-address-table',
+    head_cols: [
+        { content: 'table.billing_address.header.name'|trans|desc('Name') },
+        { content: 'table.billing_address.header.address'|trans|desc('Address') },
+        { content: 'table.billing_address.header.email'|trans|desc('Email') },
+        { content: 'table.billing_address.header.phone'|trans|desc('Phone') },
+        { },
+    ],
+    body_rows,
+    empty_table_info_text: 'table.billing_address.empty.info'|trans|desc('Company has no billing address.'),
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block header %}
+        {% embed '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: 'table.billing_address.headline'|trans|desc('Billing address'),
+            table_actions,
+        } only %}
+            {% block actions %}
+                {{ table_actions }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}

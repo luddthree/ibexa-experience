@@ -1,0 +1,24 @@
+{% set first_option_value = search_form.sortClause.vars.choices[0].value %}
+{% set value = search_form.sortClause.vars.value|default(first_option_value)%}
+{% set source %}
+    <select class="ibexa-input ibexa-pc-data-grid__sort-order-select">
+        {% for option in search_form.sortClause.vars.choices %}
+            <option
+                value="{{ option.value }}"
+                {% if option is selectedchoice(value) %}selected{% endif %}
+            >
+                {{ option.label }}
+            </option>
+        {% endfor %}
+    </select>
+{% endset %}
+
+<div class="ibexa-pc-data-grid__sort-order">
+    {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+        source,
+        value,
+        class: 'ibexa-pc-data-grid__sort-order-dropdown ibexa-dropdown--switcher',
+        choices: search_form.sortClause.vars.choices,
+        translation_domain: 'ibexa_product_catalog'
+    } %}
+</div>

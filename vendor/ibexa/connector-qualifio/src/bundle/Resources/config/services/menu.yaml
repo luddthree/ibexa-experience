@@ -1,0 +1,4 @@
+services:
+    Ibexa\ConnectorQualifio\Menu\MainMenuEventListener:
+        tags:
+            - 'kernel.event_subscriber'

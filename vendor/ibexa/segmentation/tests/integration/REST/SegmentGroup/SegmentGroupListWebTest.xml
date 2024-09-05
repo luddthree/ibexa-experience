@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SegmentGroupList media-type="application/vnd.ibexa.api.SegmentGroupList+xml" href="/api/ibexa/v2/segment_groups">
+ <SegmentGroup media-type="application/vnd.ibexa.api.SegmentGroup+xml" href="/api/ibexa/v2/segment_groups/segment_test_group_foo">
+  <id>1</id>
+  <identifier>segment_test_group_foo</identifier>
+  <name>SEGMENT GROUP foo NAME</name>
+ </SegmentGroup>
+ <SegmentGroup media-type="application/vnd.ibexa.api.SegmentGroup+xml" href="/api/ibexa/v2/segment_groups/segment_test_group_bar">
+  <id>2</id>
+  <identifier>segment_test_group_bar</identifier>
+  <name>SEGMENT GROUP bar NAME</name>
+ </SegmentGroup>
+</SegmentGroupList>
+

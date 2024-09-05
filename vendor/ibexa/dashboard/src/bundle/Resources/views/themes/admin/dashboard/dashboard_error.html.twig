@@ -1,0 +1,15 @@
+{% extends "@ibexadesign/dashboard/dashboard_view.html.twig" %}
+
+{% block content %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-dashboard-blocks-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-dashboard-css', null, 'ibexa') }}
+    {{ encore_entry_link_tags('ibexa-dashboard-blocks-css', null, 'ibexa') }}
+{% endblock %}

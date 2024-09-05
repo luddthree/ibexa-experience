@@ -1,0 +1,114 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\BuildSchemaSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Event\Listener\ConfigureCorporateAccountMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.main_menu, method: renderMenu, priority: -45 }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CompanyListViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CompanyDetailsViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CompanyCreateViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CompanyEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CompanyEditSuccessViewSubscriber:
+        tags:
+              - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\ShippingAddressCreateViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\ShippingAddressEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\MemberCreateViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\MemberEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\ApplicationListViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\ApplicationDetailsViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\ApplicationEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    # Form Processors
+    Ibexa\CorporateAccount\Form\Processor\CompanyFormProcessor:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Form\Processor\ShippingAddressFormProcessor:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Form\Processor\MemberFormProcessor:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Form\Processor\MemberNotificationFormProcessor:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Form\Processor\InvitationsFormProcessor:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Form\Processor\ApplicationFormProcessor:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Event\Listener\RoleSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Event\Listener\SegmentationSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Event\Listener\ApplicationMapperSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Form\EventListener\ApplicationWorkflowFormSubscriber:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\ApplicationRateLimitSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Event\Listener\CompanyHistorySubscriber: ~

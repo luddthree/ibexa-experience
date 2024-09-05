@@ -1,0 +1,41 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set billing_address_headline_items %}
+    {% if billing_address and edit_path and company_id %}
+        <a
+            title="{{ 'details.billing_address.action.edit'|trans|desc('Edit') }}"
+            href="{{ path(edit_path, {
+                companyId: company_id,
+            }) }}"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </a>
+    {% endif %}
+{% endset %}
+
+{% include '@ibexadesign/ui/component/details/details.html.twig' with {
+    view_mode: view_mode|default('horizontal'),
+    headline: 'details.billing_address.headline'|trans|desc('Billing address'),
+    headline_items: billing_address_headline_items,
+    items: [
+        {
+            label: 'details.billing_address.label.name'|trans|desc('Name'),
+            content: billing_address ? billing_address.name : '-',
+        },
+        {
+            label: 'details.billing_address.label.email'|trans|desc('Email'),
+            content: billing_address ? billing_address.fields['email'] : '-',
+        },
+        {
+            label: 'details.billing_address.label.phone'|trans|desc('Phone'),
+            content: billing_address ? billing_address.fields['phone_number'] : '-',
+        },
+        {
+            label: 'details.billing_address.label.address'|trans|desc('Address'),
+            content: billing_address ? billing_address : '-',
+        },
+    ],
+} only %}

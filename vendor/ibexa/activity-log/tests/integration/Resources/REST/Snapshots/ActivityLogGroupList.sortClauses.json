@@ -1,0 +1,80 @@
+{
+    "ActivityLogGroupList": {
+        "_media-type": "application\/vnd.ibexa.api.ActivityLogGroupList+json",
+        "_href": "\/api\/ibexa\/v2\/activity-log-group\/list",
+        "ActivityLogGroups": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 0,
+                "logged_at": 1696337404,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "foo",
+                        "object_class": "stdClass",
+                        "action": "foo_action",
+                        "data": {}
+                    }
+                ]
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 0,
+                "logged_at": 1696337403,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "foo",
+                        "object_class": "otherClass",
+                        "action": "foo_action",
+                        "data": {}
+                    }
+                ]
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 14,
+                "logged_at": 1696337402,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "bar",
+                        "object_class": "stdClass",
+                        "action": "bar_action",
+                        "data": {}
+                    }
+                ]
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 42,
+                "logged_at": 1696337401,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "bar",
+                        "object_class": "stdClass",
+                        "action": "bar_action",
+                        "data": {}
+                    }
+                ]
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 0,
+                "logged_at": 1696337400,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "foo",
+                        "object_class": "stdClass",
+                        "action": "foo_action",
+                        "data": {
+                            "foo": "bar"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

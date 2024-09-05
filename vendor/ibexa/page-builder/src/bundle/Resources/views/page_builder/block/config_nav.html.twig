@@ -1,0 +1,64 @@
+{% trans_default_domain 'ibexa_page_builder_block_config_nav' %}
+
+{% set tabs = [
+    {
+        id: 'basic',
+        label: 'tab.label.properties'|trans|desc('Properties'),
+    },
+] %}
+
+{% for category in attributes_per_category|keys %}
+    {% if category not in ['default', 'design', 'scheduler'] %}
+        {% set tabs = tabs|merge([
+            {
+                id: category,
+                label: category|capitalize,
+            },
+        ]) %}
+    {% endif %}
+{% endfor %}
+
+{% set tabs = tabs|merge([
+    {
+        id: 'design',
+        label: 'tab.label.design'|trans|desc('Design'),
+    }
+]) %}
+
+{% if block_type.getCategory() != 'Dashboard' %}
+    {% set tabs = tabs|merge([
+        {
+            id: 'scheduler',
+            label: 'tab.label.scheduler'|trans|desc('Scheduler'),
+        }
+    ]) %}
+{% endif %}
+
+{% embed '@ibexadesign/ui/component/tab/tabs_header.html.twig' with {
+    tabs,
+    active_tab: tabs[0],
+    hide_toggler: true,
+    include_tab_more: true,
+    attr: { class },
+    tabs_attr: {
+        class: 'ibexa-tabs--switcher',
+        'data-form-selector': 'form[name="block_configuration"]',
+        'data-form-tab-group-selector': '.ibexa-pb-block-config__tab',
+    },
+} %}
+    {% block popup_menu_more %}
+        {{ include('@ibexadesign/ui/component/tab_switcher/popup_menu.html.twig', {
+            'class': 'ibexa-tabs__popup-menu',
+            'items': [],
+        }) }}
+    {% endblock %}
+    {% block btn_more_content %}
+        {% trans_default_domain 'ibexa_page_builder_block_config_nav' %}
+
+        {{ 'anchor_menu.more'|trans|desc('More') }}
+        <svg class="ibexa-icon ibexa-icon--tiny-small">
+            <use xlink:href="{{ ibexa_icon_path('caret-double-next') }}"></use>
+        </svg>
+        {% include '@ibexadesign/ui/component/tab/tabs_tab_error_icon.html.twig' %}
+    {% endblock %}
+{% endembed %}

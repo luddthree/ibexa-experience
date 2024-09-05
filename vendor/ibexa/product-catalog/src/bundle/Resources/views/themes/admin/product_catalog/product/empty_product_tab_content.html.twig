@@ -1,0 +1,30 @@
+<div class="ibexa-pc-empty-product-tab-content">
+    <img
+        class="ibexa-pc-empty-product-tab-content__image"
+        src="/bundles/ibexaadminui/img/ibexa-empty-table.svg"
+        alt="{{ header_msg|default('') }}"
+    />
+    <div class="ibexa-pc-empty-product-tab-content__info">
+        <h2 class="ibexa-pc-empty-product-tab-content__header">{{ header_msg|default('') }}</h2>
+
+        {% if description_msg is defined %}
+            <div class="ibexa-pc-empty-product-tab-content__description">{{ description_msg }}</div>
+        {% endif %}
+
+        {% block action %}
+            {% if action_url is defined %}
+                <div class="ibexa-pc-empty-product-tab-content__action">
+                    <a
+                        href="{{ action_url }}"
+                        class="ibexa-pc-empty-product-tab-content__action-link"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small-medium">
+                            <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+                        </svg>
+                        <span class="ibexa-pc-empty-product-tab-content__action-label">{{ action_label|default('') }}</span>
+                    </a>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+</div>

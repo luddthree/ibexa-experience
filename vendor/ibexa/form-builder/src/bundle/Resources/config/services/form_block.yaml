@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.form_builder.block.attribute_form_type_mapper.embed_form:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\BlockAttribute\AttributeEmbedFormType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: embedform }
+
+    ibexa.form_builder.block.attribute_subscriber.embed_form:
+        class: Ibexa\FieldTypePage\Event\Subscriber\EmbedAttributeSubscriber
+        arguments:
+            $attributeTypes: ['embedform']

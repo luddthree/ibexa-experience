@@ -1,0 +1,52 @@
+ibexa_fieldtype_page:
+    blocks:
+        ibexa_activity_log_list:
+            identifier: !php/const Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ActivityLogEventListener::IBEXA_ACTIVITY_LOG_BLOCK
+            name: 'Recent activity'
+            category: 'Dashboard'
+            thumbnail: '/bundles/ibexaicons/img/all-icons.svg#recent-activity'
+            visible: true
+            configuration_template: '@IbexaPageBuilder/page_builder/block/config.html.twig'
+            views:
+                activity_log_list:
+                    template: '@ibexadesign/dashboard/blocks/activity_log.html.twig'
+                    name: 'Ibexa Data Grid'
+                    priority: 0
+            attributes:
+                !php/const Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ActivityLogEventListener::IBEXA_ACTIVITY_LOG_ATTRIBUTE_USER:
+                    name: Users
+                    type: Ibexa\AdminUi\Form\Type\UserChoiceType
+                    category: default
+                    options:
+                        required: false
+                        multiple: true
+
+                !php/const Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ActivityLogEventListener::IBEXA_ACTIVITY_LOG_ATTRIBUTE_OBJECT_CLASS:
+                    name: Activity area
+                    type: Ibexa\Bundle\ActivityLog\Form\Type\ObjectClassChoiceType
+                    category: default
+                    options:
+                        required: false
+                        multiple: true
+
+                !php/const Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ActivityLogEventListener::IBEXA_ACTIVITY_LOG_ATTRIBUTE_LIMIT:
+                    name: Number of activities
+                    type: integer
+                    category: default
+                    options:
+                        help: Min. 1, max. 10
+                    validators:
+                        not_blank: ~
+                        type:
+                            options:
+                                type: integer
+                        range:
+                            options:
+                                max: 10
+                                min: 1
+
+ibexa:
+    system:
+        admin_group:
+            limitation_value_templates:
+                - { template: '@ibexadesign/activity_log/limitation/limitation_values.html.twig', priority: 10 }

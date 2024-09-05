@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Behat\Context\WorkflowServiceContext:
+        arguments:
+            $workflowService: '@Ibexa\Workflow\Service\WorkflowService'
+            $userService: '@ibexa.api.service.user'
+            $workflowFacade: '@Ibexa\Workflow\Behat\Facade\WorkflowFacade'
+            $argumentParser: '@Ibexa\Behat\Core\Behat\ArgumentParser'
+            $contentFacade: '@Ibexa\Behat\API\Facade\ContentFacade'
+
+    Ibexa\Workflow\Behat\Context\WorkflowAdminContext: ~
+
+    Ibexa\Workflow\Behat\Context\WorkflowContext: ~
+

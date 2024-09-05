@@ -1,0 +1,48 @@
+{% extends "@ibexadesign/product_catalog/list.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set pager = product_types %}
+{% set header_title = 'product_type.list.title'|trans|desc('Product Types') %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { value: 'product_type.breadcrumb.list'|trans|desc('Product Types') }
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    <ul class="ibexa-context-menu">
+        {% if is_editable and ibexa_permission_create_product_type() %}
+            <li class="ibexa-context-menu__item">
+                <button
+                    data-actions="pre-create-product-type"
+                    class="btn ibexa-btn ibexa-btn--primary ibexa-btn--create ibexa-btn--extra-actions"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{ 'list.action.create'|trans|desc('Create') }}</span>
+                </button>
+            </li>
+
+            {% include '@ibexadesign/product_catalog/product_type/extra_actions.html.twig' %}
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block data_grid %}
+    {% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+    {% set search_query = search_form.vars.value.getQuery() ?? null %}
+    {% set default_headline = results_headline(product_types|length, false, search_query) %}
+    {% set headline = custom_results_headline ?? default_headline %}
+    {% set has_filters = search_query %}
+
+    {% if is_editable %}
+        {% include '@ibexadesign/product_catalog/product_type/data_grid_editable.html.twig' %}
+    {% else %}
+        {% include '@ibexadesign/product_catalog/product_type/data_grid.html.twig' %}
+    {% endif %}
+{% endblock %}

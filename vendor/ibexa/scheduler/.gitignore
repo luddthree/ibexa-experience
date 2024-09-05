@@ -1,0 +1,10 @@
+node_modules/
+.php_cs.cache
+composer.lock
+composer.phar
+*-coverage.js
+/vendor/
+bundle/Tests/report/
+bundle/Tests/instrument/
+yarn.lock
+.php-cs-fixer.cache

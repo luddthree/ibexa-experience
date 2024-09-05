@@ -1,0 +1,13 @@
+{% block ibexa_taxonomy_entry_field %}
+    {% apply spaceless %}
+        {% if field.value.taxonomyEntry is not null %}
+            {{ field.value.taxonomyEntry.name }}
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block ibexa_taxonomy_entry_assignment_field %}
+    {% apply spaceless %}
+        {{ field.value.getTaxonomyEntries()|default([])|map(taxonomyEntry => taxonomyEntry.names[field.languageCode]|default(taxonomyEntry.name))|join(', ') }}
+    {% endapply %}
+{% endblock %}

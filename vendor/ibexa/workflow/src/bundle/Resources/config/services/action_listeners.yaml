@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Registry\WorkflowActionListenerRegistry:
+        arguments:
+            $actionListeners: !tagged ibexa.workflow.action.listener
+
+    Ibexa\Workflow\Event\Action\PublishActionListener:
+        tags:
+            - { name: ibexa.workflow.action.listener }
+
+    Ibexa\Workflow\Event\Action\NotifyReviewerActionListener:
+        tags:
+            - { name: ibexa.workflow.action.listener }
+
+    Ibexa\Contracts\Workflow\Registry\WorkflowActionListenerRegistryInterface: '@Ibexa\Workflow\Registry\WorkflowActionListenerRegistry'

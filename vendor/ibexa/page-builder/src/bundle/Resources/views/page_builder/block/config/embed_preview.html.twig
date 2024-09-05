@@ -1,0 +1,74 @@
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+{% import '@IbexaPageBuilder/page_builder/macros.html.twig' as macros %}
+
+{% set content_name = content is not null ? ibexa_content_name(content) : '' %}
+{% set content_type_name = content_type ? content_type.getName() : '' %}
+
+<div 
+    {% if content_name is empty %} hidden{% endif %}
+    class="ibexa-pb-block-config__embed-meta ibexa-pb-embed-meta{% if main_classes is defined %} {{ main_classes }}{% endif %}"
+    data-embedded-item-actions-template="{{ include('@ibexadesign/ui/component/embedded_item_actions/embedded_item_actions.html.twig')|e('html_attr')  }}"
+>
+    {% block embed_widget_meta_preview %}
+        {% if content_type is not null and content is not null %}
+            {{ macros.image_preview(content, content_type) }}
+        {% else %}
+            <img class="ibexa-pb-embed-meta__preview" src="" />
+            <svg class="ibexa-pb-embed-meta__preview-icon ibexa-icon">
+                <use xlink:href=""></use>
+            </svg>
+        {% endif %}
+    {% endblock %}
+    <div class="ibexa-pb-embed-meta__info">
+        {% block embed_widget_meta_info %}
+            <div
+                class="ibexa-pb-embed-meta__title"
+                data-ibexa-update-content-id="{{ value }}"
+                data-ibexa-update-source-data-path="Content.Name"
+            >
+                {{- content_name -}}
+            </div>
+
+            {{ include('@ibexadesign/ui/tag.html.twig', {
+                content: content_type_name,
+                tag_attributes: {
+                    class: 'ibexa-pb-embed-meta__content-type',
+                },
+                is_loading_state: false,
+                is_deletable: false,
+            }) }}
+        {% endblock %}
+    </div>
+    <div class="ibexa-pb-embed-meta__actions">
+        {% block embed_widget_meta_actions %}
+            <button type="button" class="btn ibexa-btn ibexa-btn--info ibexa-btn--small ibexa-pb-embed-meta__action ibexa-pb-embed-meta__action--change">
+                <span class="ibexa-btn__label">
+                    {{ 'embed_preview.change'|trans|desc('Change') }}
+                </span>
+            </button>
+            <button
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-pb-embed-meta__action ibexa-pb-embed-meta__action--remove"
+                data-tooltip-container-selector=".ibexa-pb-embed-meta__actions"
+                type="button"
+                title="{{ 'delete'|trans|desc('Delete') }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+            </button>
+            
+            {% set embedded_item_actions_variables = {} %}
+
+            {% if content %}
+                {% set embedded_item_actions_variables = {
+                    content_id: value,
+                    location_id: content.versionInfo.contentInfo.mainLocationId,
+                    language_codes: content.versionInfo.languages|reduce((output, language) => output|merge([ language.getLanguageCode() ]), [])
+                } %}
+            {% endif %}
+
+            {% include '@ibexadesign/ui/component/embedded_item_actions/embedded_item_actions.html.twig' with embedded_item_actions_variables only %}
+        {% endblock %}
+    </div>
+</div>

@@ -1,0 +1,46 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\:
+        resource: '../../Controller/CorporatePortal/'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\BillingAddressController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\CompanyDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ShippingAddressController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ShippingAddressDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\MemberDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MyProfileController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\MemberDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\InvitationController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\InvitationDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ApplicationController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ApplicationDispatcher'
+        tags:
+            - controller.service_arguments

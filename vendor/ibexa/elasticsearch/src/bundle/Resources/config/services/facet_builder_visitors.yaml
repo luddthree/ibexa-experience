@@ -1,0 +1,50 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.elasticsearch.query.content.facet_builder_visitor.filter_decorator:
+        class: Ibexa\Elasticsearch\Query\FacetBuilderVisitor\FilteredFacetVisitorDecorator
+        decorates: ibexa.elasticsearch.query.content.facet_builder_visitor.dispatcher
+        arguments:
+            $criterionVisitor: '@ibexa.elasticsearch.query.content.criterion_visitor.dispatcher'
+
+    ibexa.elasticsearch.query.content.facet_builder_visitor.global_decorator:
+        class: Ibexa\Elasticsearch\Query\FacetBuilderVisitor\GlobalFacetVisitorDecorator
+        decorates: ibexa.elasticsearch.query.content.facet_builder_visitor.dispatcher
+
+    ibexa.elasticsearch.query.content.facet_builder_visitor.dispatcher:
+        class: Ibexa\Elasticsearch\Query\FacetBuilderVisitor\DispatcherVisitor
+        arguments:
+            $visitors: !tagged ibexa.search.elasticsearch.query.content.facet_builder.visitor
+
+    ibexa.elasticsearch.query.location.facet_builder_visitor.filter_decorator:
+        class: Ibexa\Elasticsearch\Query\FacetBuilderVisitor\FilteredFacetVisitorDecorator
+        decorates: ibexa.elasticsearch.query.location.facet_builder_visitor.dispatcher
+        arguments:
+            $criterionVisitor: '@ibexa.elasticsearch.query.location.criterion_visitor.dispatcher'
+
+    ibexa.elasticsearch.query.location.facet_builder_visitor.global_decorator:
+        class: Ibexa\Elasticsearch\Query\FacetBuilderVisitor\GlobalFacetVisitorDecorator
+        decorates: ibexa.elasticsearch.query.location.facet_builder_visitor.dispatcher
+
+    ibexa.elasticsearch.query.location.facet_builder_visitor.dispatcher:
+        class: Ibexa\Elasticsearch\Query\FacetBuilderVisitor\DispatcherVisitor
+        arguments:
+            $visitors: !tagged ibexa.search.elasticsearch.query.location.facet_builder.visitor
+
+    Ibexa\Elasticsearch\Query\FacetBuilderVisitor\SectionVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.facet_builder.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.facet_builder.visitor }
+
+    Ibexa\Elasticsearch\Query\FacetBuilderVisitor\ContentTypeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.facet_builder.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.facet_builder.visitor }
+
+    Ibexa\Elasticsearch\Query\FacetBuilderVisitor\UserVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.facet_builder.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.facet_builder.visitor }

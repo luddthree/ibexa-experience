@@ -1,0 +1,5 @@
+parameters:
+    # Pagination limits
+    ibexa.site_access.config.default.workflows_config.pagination.workflow_limit: 10
+    ibexa.site_access.config.default.workflows_config.pagination.suggested_reviewers_limit: 10
+    ibexa.site_access.config.default.workflows: []

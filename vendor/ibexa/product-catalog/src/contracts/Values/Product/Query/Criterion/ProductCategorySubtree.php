@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion;
+
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\CriterionInterface;
+
+final class ProductCategorySubtree implements CriterionInterface
+{
+    private int $taxonomyEntryId;
+
+    public function __construct(int $taxonomyEntryId)
+    {
+        $this->taxonomyEntryId = $taxonomyEntryId;
+    }
+
+    public function getTaxonomyEntryId(): int
+    {
+        return $this->taxonomyEntryId;
+    }
+}

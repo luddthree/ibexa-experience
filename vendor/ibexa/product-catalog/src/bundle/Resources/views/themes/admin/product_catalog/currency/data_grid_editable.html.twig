@@ -1,0 +1,59 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{{ form_start(bulk_delete_form) }}
+    {% set body_rows = [] %}
+
+    {% for currency in currencies %}
+        {% set checkbox_value = currency.code %}
+        {% set checkbox_name = bulk_delete_form.currencies.vars.full_name ~ "[]" %}
+        {% set edit_url = path('ibexa.product_catalog.currency.update', {
+            currencyCode: currency.code,
+        }) %}
+        {% set col_enabled %}
+            <div class="form-check">
+                <input
+                    type="checkbox"
+                    class="ibexa-input ibexa-input--checkbox form-check-input"
+                    disabled
+                    {% if currency.enabled %}checked{% endif %}
+                />
+            </div>
+        {% endset %}
+        {% set body_rows = body_rows|merge([{ cols: [
+            {
+                has_checkbox: true,
+                content: data_grid_macros.cell_checkbox(checkbox_name, checkbox_value)
+            },
+            { content: currency.code },
+            { content: col_enabled, raw: true },
+            { content: currency.subunits },
+            { content: currency.code|currency_symbol },
+            { content: data_grid_macros.cell_edit(edit_url), has_action_btns: true }
+        ]}]) %}
+    {% endfor %}
+
+    {% set actions %}
+        {% set delete_modal_id = 'currency-delete-modal' %}
+        {% set delete_modal_message = 'modal.bulk_delete.currency.confirm_message'|trans|desc(
+            'Delete the selected currencies permanently?'
+        ) %}
+
+        {{ data_grid_macros.header_delete_action(delete_modal_id, delete_modal_message) }}
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline,
+        head_cols: [
+            { has_checkbox: true },
+            { content: 'currency.list.column.name'|trans|desc('Code') },
+            { content: 'currency.list.column.enabled'|trans|desc('Enabled') },
+            { content: 'currency.list.column.subunits'|trans|desc('Subunits') },
+            { content: 'currency.list.column.symbol'|trans|desc('Symbol') },
+            { },
+        ],
+        actions,
+        body_rows,
+    } %}
+{{ form_end(bulk_delete_form) }}

@@ -1,0 +1,59 @@
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set attribute_definition_create_menu = knp_menu_get('ibexa_product_catalog.menu.attribute_definition_create_context_menu', [], {
+        'submit_selector': '#attribute-definition-create-save',
+        'cancel_route': 'ibexa.product_catalog.attribute_definition.list'
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'attribute_definition.new.action_name'|trans|desc('Creating'),
+        icon_name: 'file',
+        title: 'attribute_definition.new.title'
+            |trans({ '%attribute_type_name%': attribute_type.getName() })
+            |desc('New %attribute_type_name% Attribute'),
+        subtitle: 'attribute_definition.new.subtitle'
+            |trans({ '%language_name%': language.name })
+            |desc('in %language_name%'),
+        show_autosave_status: false,
+        context_actions: knp_menu_render(attribute_definition_create_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block form %}
+    {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+    {{ form_start(form, { attr: { class: 'ibexa-pc-edit__form' } }) }}
+        <div class="ibexa-form-block">
+            {{ form_row(form.name, {
+                row_attr: { class: 'ibexa-form-field' },
+                attr: { 'data-autogenerate-identifier-target-selector': '.ibexa-pc-edit-attribute-identifier' },
+            }) }}
+            {{ form_row(form.identifier, {
+                row_attr: { class: 'ibexa-form-field' },
+                attr: { class: 'ibexa-pc-edit-attribute-identifier' },
+            }) }}
+            {{ form_row(form.attributeGroup, { row_attr: { class: 'ibexa-form-field' } }) }}
+            {{ form_row(form.description, { row_attr: { class: 'ibexa-form-field' } }) }}
+            {{ form_row(form.position, { row_attr: { class: 'ibexa-form-field' } }) }}
+            {% if form.options is defined %}
+                {{ form_errors(form.options) }}
+                {{ form_widget(form.options) }}
+            {% endif %}
+
+            <button
+                id="attribute-definition-create-save"
+                class="ibexa-pc-edit__submit-btn"
+                type="submit"
+                hidden
+            ></button>
+        </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-product-catalog-attribute-definition-edit-js', null, 'ibexa') }}
+{% endblock %}

@@ -1,0 +1,36 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Personalization\Storage\ProductDataSource: ~
+
+    Ibexa\ProductCatalog\Personalization\Product\DataResolverInterface:
+        alias: Ibexa\ProductCatalog\Personalization\Product\DataResolver
+
+    Ibexa\ProductCatalog\Personalization\Product\DataResolver:
+        arguments:
+            $dataProviders: !tagged_iterator { tag: ibexa.product_catalog.personalization.data_provider }
+
+    Ibexa\ProductCatalog\Personalization\Product\PriceDataProvider:
+        tags:
+            - { name: ibexa.product_catalog.personalization.data_provider }
+
+    Ibexa\ProductCatalog\Personalization\Product\CategoryDataProvider:
+        tags:
+            - { name: ibexa.product_catalog.personalization.data_provider }
+
+    Ibexa\ProductCatalog\Personalization\Product\AttributeDataProvider:
+        arguments:
+            $attributeConverters: !tagged_iterator { tag: ibexa.product_catalog.personalization.attribute_converter }
+        tags:
+            - { name: ibexa.product_catalog.personalization.data_provider }
+
+    Ibexa\ProductCatalog\Personalization\Product\VariantDataProvider:
+        tags:
+            - { name: ibexa.product_catalog.personalization.data_provider }
+
+    Ibexa\ProductCatalog\Personalization\Product\BaseProductDataProvider:
+        tags:
+            - { name: ibexa.product_catalog.personalization.data_provider }

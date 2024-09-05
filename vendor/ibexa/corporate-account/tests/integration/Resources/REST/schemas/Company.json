@@ -1,0 +1,576 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Company": {
+      "type": "object",
+      "properties": {
+        "_media-type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "Content": {
+          "type": "object",
+          "properties": {
+            "_media-type": {
+              "type": "string"
+            },
+            "_href": {
+              "type": "string"
+            },
+            "_remoteId": {
+              "type": "string"
+            },
+            "_id": {
+              "type": "integer"
+            },
+            "ContentType": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            },
+            "Name": {
+              "type": "string"
+            },
+            "TranslatedName": {
+              "type": "string"
+            },
+            "Versions": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            },
+            "CurrentVersion": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                },
+                "Version": {
+                  "type": "object",
+                  "properties": {
+                    "_media-type": {
+                      "type": "string"
+                    },
+                    "_href": {
+                      "type": "string"
+                    },
+                    "VersionInfo": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer"
+                        },
+                        "versionNo": {
+                          "type": "integer"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "modificationDate": {
+                          "type": "string"
+                        },
+                        "Creator": {
+                          "type": "object",
+                          "properties": {
+                            "_media-type": {
+                              "type": "string"
+                            },
+                            "_href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "_media-type",
+                            "_href"
+                          ]
+                        },
+                        "creationDate": {
+                          "type": "string"
+                        },
+                        "initialLanguageCode": {
+                          "type": "string"
+                        },
+                        "languageCodes": {
+                          "type": "string"
+                        },
+                        "VersionTranslationInfo": {
+                          "type": "object",
+                          "properties": {
+                            "_media-type": {
+                              "type": "string"
+                            },
+                            "Language": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "languageCode": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "languageCode"
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "_media-type",
+                            "Language"
+                          ]
+                        },
+                        "names": {
+                          "type": "object",
+                          "properties": {
+                            "value": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "_languageCode": {
+                                      "type": "string"
+                                    },
+                                    "#text": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "_languageCode",
+                                    "#text"
+                                  ]
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "value"
+                          ]
+                        },
+                        "Content": {
+                          "type": "object",
+                          "properties": {
+                            "_media-type": {
+                              "type": "string"
+                            },
+                            "_href": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "_media-type",
+                            "_href"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "versionNo",
+                        "status",
+                        "modificationDate",
+                        "Creator",
+                        "creationDate",
+                        "initialLanguageCode",
+                        "languageCodes",
+                        "VersionTranslationInfo",
+                        "names",
+                        "Content"
+                      ]
+                    },
+                    "Fields": {
+                      "type": "object",
+                      "properties": {
+                        "field": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "integer"
+                              },
+                              "fieldDefinitionIdentifier": {
+                                "type": "string"
+                              },
+                              "languageCode": {
+                                "type": "string"
+                              },
+                              "fieldTypeIdentifier": {
+                                "type": "string"
+                              },
+                              "fieldValue": {
+                                "anyOf": [
+                                  {
+                                    "type": "array"
+                                  },
+                                  {
+                                    "type": "boolean"
+                                  },
+                                  {
+                                    "type": "integer"
+                                  },
+                                  {
+                                    "type": "number"
+                                  },
+                                  {
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "object"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "fieldDefinitionIdentifier",
+                              "languageCode",
+                              "fieldTypeIdentifier",
+                              "fieldValue"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "field"
+                      ]
+                    },
+                    "Relations": {
+                      "type": "object",
+                      "properties": {
+                        "_media-type": {
+                          "type": "string"
+                        },
+                        "_href": {
+                          "type": "string"
+                        },
+                        "Relation": {
+                          "type": "array",
+                          "items": {}
+                        }
+                      },
+                      "required": [
+                        "_media-type",
+                        "_href",
+                        "Relation"
+                      ]
+                    },
+                    "Thumbnail": {
+                      "type": "object",
+                      "properties": {
+                        "_media-type": {
+                          "type": "string"
+                        },
+                        "resource": {
+                          "type": "string"
+                        },
+                        "width": {
+                          "type": "null"
+                        },
+                        "height": {
+                          "type": "null"
+                        },
+                        "mimeType": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "_media-type",
+                        "resource",
+                        "width",
+                        "height",
+                        "mimeType"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "_media-type",
+                    "_href",
+                    "VersionInfo",
+                    "Fields",
+                    "Relations",
+                    "Thumbnail"
+                  ]
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href",
+                "Version"
+              ]
+            },
+            "Section": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            },
+            "MainLocation": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            },
+            "Locations": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            },
+            "Owner": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            },
+            "lastModificationDate": {
+              "type": "string"
+            },
+            "publishedDate": {
+              "type": "string"
+            },
+            "mainLanguageCode": {
+              "type": "string"
+            },
+            "currentVersionNo": {
+              "type": "integer"
+            },
+            "alwaysAvailable": {
+              "type": "boolean"
+            },
+            "isHidden": {
+              "type": "boolean"
+            },
+            "status": {
+              "type": "string"
+            },
+            "ObjectStates": {
+              "type": "object",
+              "properties": {
+                "_media-type": {
+                  "type": "string"
+                },
+                "_href": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "_media-type",
+                "_href"
+              ]
+            }
+          },
+          "required": [
+            "_media-type",
+            "_href",
+            "_remoteId",
+            "_id",
+            "ContentType",
+            "Name",
+            "TranslatedName",
+            "Versions",
+            "CurrentVersion",
+            "Section",
+            "MainLocation",
+            "Locations",
+            "Owner",
+            "lastModificationDate",
+            "publishedDate",
+            "mainLanguageCode",
+            "currentVersionNo",
+            "alwaysAvailable",
+            "isHidden",
+            "status",
+            "ObjectStates"
+          ]
+        },
+        "billingAddress": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "country": {
+              "type": "string"
+            },
+            "fields": {
+              "type": "object",
+              "properties": {
+                "region": {
+                  "type": "string"
+                },
+                "locality": {
+                  "type": "string"
+                },
+                "street": {
+                  "type": "string"
+                },
+                "postal_code": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phone_number": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "region",
+                "locality",
+                "street",
+                "postal_code",
+                "email",
+                "phone_number"
+              ]
+            }
+          },
+          "required": [
+            "name",
+            "country",
+            "fields"
+          ]
+        },
+        "contactId": {
+          "anyOf": [
+            {"type": "null"},
+            {"type": "integer"}
+          ]
+        },
+        "salesRepresentativeId": {
+          "type": "integer"
+        },
+        "defaultAddressId": {
+          "type": "integer"
+        },
+        "addressBookId": {
+          "type": "integer"
+        },
+        "membersId": {
+          "type": "integer"
+        },
+        "MemberList": {
+          "type": "object",
+          "properties": {
+            "_media-type": {
+              "type": "string"
+            },
+            "_href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "_media-type",
+            "_href"
+          ]
+        },
+        "Location": {
+          "type": "object",
+          "properties": {
+            "_media-type": {
+              "type": "string"
+            },
+            "_href": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "_media-type",
+            "_href"
+          ]
+        },
+        "locationPath": {
+          "type": "string"
+        },
+        "isActive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "_media-type",
+        "id",
+        "name",
+        "Content",
+        "billingAddress",
+        "contactId",
+        "salesRepresentativeId",
+        "defaultAddressId",
+        "addressBookId",
+        "membersId",
+        "MemberList",
+        "Location",
+        "locationPath",
+        "isActive"
+      ]
+    }
+  },
+  "required": [
+    "Company"
+  ]
+}

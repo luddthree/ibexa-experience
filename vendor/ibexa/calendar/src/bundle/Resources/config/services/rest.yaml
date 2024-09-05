@@ -1,0 +1,39 @@
+services:
+    Ibexa\Bundle\Calendar\ArgumentResolver\EventQueryResolver:
+        arguments:
+            $languageService: '@ibexa.api.service.language'
+            $userSettingService: '@Ibexa\User\UserSetting\UserSettingService'
+        tags:
+            - { name: controller.argument_value_resolver, priority: 50 }
+
+    Ibexa\Bundle\Calendar\Controller\REST\EventController:
+        parent: Ibexa\Rest\Server\Controller
+        arguments:
+            $calendarService: '@Ibexa\Calendar\CalendarService'
+        tags: ['controller.service_arguments']
+
+    Ibexa\Bundle\Calendar\REST\ValueObjectVisitor\EventGroupListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Calendar\EventGroupList }
+
+    Ibexa\Bundle\Calendar\REST\ValueObjectVisitor\EventGroupVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Calendar\EventGroup }
+
+    Ibexa\Bundle\Calendar\REST\ValueObjectVisitor\EventListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Calendar\EventList }
+
+    Ibexa\Bundle\Calendar\REST\ValueObjectVisitor\DefaultEventVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Calendar\Event }
+
+    Ibexa\Bundle\Calendar\REST\ValueObjectVisitor\DateRangeVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Calendar\DateRange }
+

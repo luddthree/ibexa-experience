@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\DesignFactory:
+        public: false
+
+    Ibexa\SiteFactory\DesignRegistry:
+        lazy: true
+        factory: ['@Ibexa\SiteFactory\DesignFactory', getDesignRegistry]
+
+    Ibexa\SiteFactory\Provider\SiteFactoryConfigurationProvider:
+        public: false
+        arguments:
+            $templates: '%ibexa.site_factory.templates%'

@@ -1,0 +1,238 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: false
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupDeleteStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupDeleteStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupMigrationGenerator:
+        arguments:
+            $stepBuilderFactory: '@Ibexa\ProductCatalog\Migrations\AttributeGroup\StepBuilder\Factory'
+        tags:
+            - 'ibexa.migrations.generator'
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupUpdateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\AttributeGroupUpdateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\StepBuilder\Create:
+        tags:
+            -   name: 'ibexa.migrations.generator.step_builder.attribute_group'
+                key: !php/const \Ibexa\Migration\Generator\Mode::CREATE
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\StepBuilder\Update:
+        tags:
+            -   name: 'ibexa.migrations.generator.step_builder.attribute_group'
+                key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\StepBuilder\Delete:
+        tags:
+            -   name: 'ibexa.migrations.generator.step_builder.attribute_group'
+                key: !php/const \Ibexa\Migration\Generator\Mode::DELETE
+
+    Ibexa\ProductCatalog\Migrations\AttributeGroup\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.generator.step_builder.attribute_group'
+                index_by: 'key'
+            - 'attribute_group'
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeDeleteStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeDeleteStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeMigrationGenerator:
+        arguments:
+            $stepBuilderFactory: '@Ibexa\ProductCatalog\Migrations\Attribute\StepBuilder\Factory'
+        tags:
+            - 'ibexa.migrations.generator'
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeUpdateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Attribute\AttributeUpdateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\Attribute\StepBuilder\Create:
+        tags:
+            -   name: 'ibexa.migrations.generator.step_builder.attribute'
+                key: !php/const \Ibexa\Migration\Generator\Mode::CREATE
+
+    Ibexa\ProductCatalog\Migrations\Attribute\StepBuilder\Update:
+        tags:
+            -   name: 'ibexa.migrations.generator.step_builder.attribute'
+                key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE
+
+    Ibexa\ProductCatalog\Migrations\Attribute\StepBuilder\Delete:
+        tags:
+            -   name: 'ibexa.migrations.generator.step_builder.attribute'
+                key: !php/const \Ibexa\Migration\Generator\Mode::DELETE
+
+    Ibexa\ProductCatalog\Migrations\Attribute\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.generator.step_builder.attribute'
+                index_by: 'key'
+            - 'attribute'
+
+    Ibexa\ProductCatalog\Migrations\Criterion\Currency\CurrencyCodeCriterionNormalizer:
+        tags:
+            # Needs to be greater than FieldValueCriterionNormalizer
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -90 }
+
+    Ibexa\ProductCatalog\Migrations\Criterion\FieldValueCriterionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Criterion\LogicalAndCriterionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Criterion\LogicalOrCriterionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Currency\CurrencyCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Currency\CurrencyCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\Currency\CurrencyDeleteStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Currency\CurrencyDeleteStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\Currency\CurrencyUpdateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\Currency\CurrencyUpdateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\CustomerGroup\CustomerGroupCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\CustomerGroup\CustomerGroupCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\CustomerGroup\CustomerGroupDeleteStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\CustomerGroup\CustomerGroupDeleteStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\CustomerGroup\CustomerGroupUpdateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\CustomerGroup\CustomerGroupUpdateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\ProductAvailability\ProductAvailabilityCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\ProductAvailability\ProductAvailabilityCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\ProductPrice\ProductPriceCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\ProductPrice\ProductPriceCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\ProductVariant\ProductVariantCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\ProductVariant\ProductVariantCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'
+
+    Ibexa\ProductCatalog\Migrations\ProductAsset\ProductAssetCreateStepNormalizer:
+        tags:
+            - 'ibexa.migrations.serializer.step_normalizer'
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\ProductCatalog\Migrations\ProductAsset\ProductAssetCreateStepExecutor:
+        tags:
+            - 'container.service_subscriber'
+            - 'ibexa.migrations.step_executor'

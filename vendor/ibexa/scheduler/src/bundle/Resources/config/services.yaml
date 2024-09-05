@@ -1,0 +1,236 @@
+imports:
+    - { resource: components.yaml }
+
+parameters:
+
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    ibexa.scheduler.api.service.datebasedpublisher:
+        alias: Ibexa\Scheduler\Repository\DateBasedPublisherService
+
+    ibexa.scheduler.api.service.datebasedhide:
+        alias: Ibexa\Scheduler\Repository\DateBasedHideService
+
+    Ibexa\Scheduler\Repository\DateBasedPublisherService: ~
+
+    Ibexa\Scheduler\Repository\DateBasedHideService:
+        class: Ibexa\Scheduler\Repository\DateBasedHideService
+
+    Ibexa\Scheduler\Persistence\Handler:
+        arguments:
+            - '@Ibexa\Scheduler\Persistence\Gateway\DoctrineDatabase'
+
+    Ibexa\Scheduler\Persistence\Gateway\DoctrineDatabase:
+        arguments:
+            - '@ibexa.api.storage_engine.legacy.connection'
+        lazy: true
+
+    Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:
+        parent: Ibexa\Scheduler\REST\Server\RestController
+        autowire: true
+        autoconfigure: false
+        public: true
+        arguments:
+            - '@ibexa.scheduler.api.service.datebasedpublisher'
+            - '@ibexa.api.service.content'
+            - '@router'
+            - '%ibexa.site_access.default%'
+        tags: ['controller.service_arguments']
+
+    Ibexa\Bundle\Scheduler\Controller\DateBasedContentController:
+        class: Ibexa\Bundle\Scheduler\Controller\DateBasedContentController
+        autowire: true
+        autoconfigure: false
+        public: true
+        arguments:
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+        tags: ['controller.service_arguments']
+
+    Ibexa\Bundle\Scheduler\Command\ScheduledRunCommand:
+        tags:
+            - { name: console.command }
+            - { name: ibexa.cron.job, schedule: '* * * * *' }
+
+    Ibexa\Scheduler\ValueObject\NotificationFactory:
+        arguments:
+            - '@router'
+            - '@ibexa.api.service.content'
+            - '@ibexa.api.service.content_type'
+            - '@ibexa.api.service.location'
+            - '@Ibexa\Core\MVC\Symfony\Routing\Generator\UrlAliasGenerator'
+
+    Ibexa\Contracts\Scheduler\Repository\DateBasedPublishServiceInterface: '@ibexa.scheduler.api.service.datebasedpublisher'
+
+    Ibexa\Contracts\Scheduler\Repository\DateBasedHideServiceInterface: '@ibexa.scheduler.api.service.datebasedhide'
+
+    Ibexa\Scheduler\Form\ContentEditTypeExtension: ~
+
+    Ibexa\Scheduler\Form\Processor\:
+        resource: "../../../lib/Form/Processor/*"
+        public: true
+        autoconfigure: true
+        autowire: true
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ibexa.scheduler.javascripts:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@IbexaScheduler/assets/javascripts.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'script-body' }
+
+    ibexa.scheduler.stylesheets:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@IbexaScheduler/assets/stylesheets.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'stylesheet-head' }
+
+    Ibexa\Scheduler\Menu\ConfigureMenuListener:
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.content_edit_sidebar_right, method: onAdminUiMenuConfigure }
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.content_create_sidebar_right, method: onAdminUiMenuConfigure }
+
+    Ibexa\Scheduler\Menu\ConfigureRightMenuSidebarListener:
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.content_sidebar_right, method: onAdminUiMenuConfigure }
+
+    Ibexa\Scheduler\Dashboard\MyScheduledTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+        tags:
+            - { name: ibexa.admin_ui.tab, group: dashboard-my }
+
+    Ibexa\Scheduler\Dashboard\AllScheduledTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+        tags:
+            - { name: ibexa.admin_ui.tab, group: dashboard-everyone }
+
+    Ibexa\Scheduler\Notification\Renderer:
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            - '@twig'
+            - '@router'
+        tags:
+            - { name: ibexa.notification.renderer, alias: 'DateBasedPublisher:Published' }
+            - { name: ibexa.notification.renderer, alias: 'DateBasedPublisher:Hidden' }
+            - { name: ibexa.notification.renderer, alias: 'DateBasedPublisher:Unscheduled' }
+
+    Ibexa\Scheduler\Notification\Sender: ~
+    Ibexa\Scheduler\Notification\SenderInterface: '@Ibexa\Scheduler\Notification\Sender'
+
+    Ibexa\Scheduler\Event\Subscriber\QuickReviewEventSubscriber: ~
+    Ibexa\Scheduler\Event\Subscriber\RepositoryEventSubscriber: ~
+
+    Ibexa\Scheduler\Persistence\HandlerInterface: '@Ibexa\Scheduler\Persistence\Handler'
+
+    ibexa.scheduler.listener.reorder_by_order_number_listener:
+        class: Ibexa\AdminUi\Menu\Listener\ReorderByOrderNumberListener
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.content_edit_sidebar_right, method: reorderMenuItems, priority: -50 }
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.content_create_sidebar_right, method: reorderMenuItems, priority: -50 }
+            - { name: kernel.event_listener, event: ezplatform_page_builder.menu_configure.infobar.edit.actions, method: reorderMenuItems, priority: -50 }
+            - { name: kernel.event_listener, event: ezplatform_page_builder.menu_configure.infobar.create.actions, method: reorderMenuItems, priority: -50 }
+
+
+    Ibexa\Scheduler\Calendar\EventAction\ReschedulePublishEventAction:
+        class: Ibexa\Scheduler\Calendar\EventAction\ReschedulePublishEventAction
+        arguments:
+            $dateBasedPublishService: '@ibexa.scheduler.api.service.datebasedpublisher'
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type.action.future_publication }
+
+    Ibexa\Scheduler\Calendar\EventAction\RescheduleHideEventAction:
+        class: Ibexa\Scheduler\Calendar\EventAction\RescheduleHideEventAction
+        arguments:
+            $dateBasedHideService: '@ibexa.scheduler.api.service.datebasedhide'
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type.action.future_hide }
+
+    Ibexa\Scheduler\Calendar\EventAction\UnschedulePublishEventAction:
+        class: Ibexa\Scheduler\Calendar\EventAction\UnschedulePublishEventAction
+        arguments:
+            $dateBasedPublishService: '@ibexa.scheduler.api.service.datebasedpublisher'
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type.action.future_publication }
+
+    Ibexa\Scheduler\Calendar\EventAction\UnscheduleHideEventAction:
+        class: Ibexa\Scheduler\Calendar\EventAction\UnscheduleHideEventAction
+        arguments:
+            $dateBasedHideService: '@ibexa.scheduler.api.service.datebasedhide'
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type.action.future_hide }
+
+    Ibexa\Scheduler\Calendar\FuturePublicationEventType:
+        arguments:
+            $actions: !tagged ibexa.calendar.event.type.action.future_publication
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type }
+
+    Ibexa\Scheduler\Calendar\FutureHideEventType:
+        arguments:
+            $actions: !tagged ibexa.calendar.event.type.action.future_hide
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type }
+
+    Ibexa\Scheduler\Calendar\FuturePublicationEventSource:
+        arguments:
+            $dateBasedService: '@ibexa.scheduler.api.service.datebasedpublisher'
+            $languageService: '@ibexa.api.service.language'
+            $eventType: '@Ibexa\Scheduler\Calendar\FuturePublicationEventType'
+        tags:
+            - { name: ibexa.calendar.event.source }
+
+    Ibexa\Scheduler\Calendar\FutureHideEventSource:
+        arguments:
+            $dateBasedService: '@ibexa.scheduler.api.service.datebasedhide'
+            $eventType: '@Ibexa\Scheduler\Calendar\FutureHideEventType'
+        tags:
+            - { name: ibexa.calendar.event.source }
+
+    Ibexa\Scheduler\Repository\DateBasedContentStrategy: ~
+
+    Ibexa\Scheduler\Repository\DateBasedVersionStrategy: ~
+
+    Ibexa\Scheduler\Schedule\DateBasedContentStrategyInterface: '@Ibexa\Scheduler\Repository\DateBasedContentStrategy'
+
+    Ibexa\Scheduler\Schedule\DateBasedVersionStrategyInterface: '@Ibexa\Scheduler\Repository\DateBasedVersionStrategy'
+
+    ibexa.scheduler.build_schema_subscriber:
+        class: Ibexa\Bundle\RepositoryInstaller\Event\Subscriber\BuildSchemaSubscriber
+        arguments:
+            - '@=service("kernel").locateResource("@IbexaSchedulerBundle/Resources/config/storage/schema.yaml")'

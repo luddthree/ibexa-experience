@@ -1,0 +1,20 @@
+<div class="block-contentlist {{ block_class }}">
+    <h3>{{ parentName }}</h3>
+    {% if contentArray|length > 0 %}
+        <div class="block-contentlist-items">
+            {% for content in contentArray %}
+                {{ ibexa_http_cache_tag_relation_ids(content.content.id) }}
+                <div class="block-contentlist-child">
+                    {% set href = path('ibexa.url.alias', {
+                        'locationId': content.location.id
+                    }) %}
+                    <h4><a href="{{ href }}">{{ ibexa_content_name(content.content) }}</a></h4>
+                    {% if content.content.getField('intro') %}
+                        <p>{{ ibexa_render_field(content.content, 'intro') }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <style type="text/css">{{ block_style|raw }}</style>
+</div>

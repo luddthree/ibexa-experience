@@ -1,0 +1,7 @@
+browser:
+  suites:
+    app-switcher:
+      paths:
+        - '%paths.base%/features/browser'
+      contexts:
+        - Ibexa\Behat\API\Context\TestContext

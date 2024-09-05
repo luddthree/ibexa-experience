@@ -1,0 +1,140 @@
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: __IDENTIFIER__
+    metadata:
+        contentTypeGroups: null
+        mainTranslation: __LANG__
+        remoteId: null
+        urlAliasSchema: null
+        nameSchema: null
+        container: null
+        translations: {  }
+    fields:
+        -
+            identifier: age_restriction
+            type: ezboolean
+            position: 83
+            translations:
+                __LANG__:
+                    name: 'Show Age Restriction'
+                    description: ''
+            required: null
+            searchable: null
+            infoCollector: null
+            translatable: null
+            category: null
+            defaultValue: null
+            fieldSettings: null
+            validatorConfiguration: null
+    actions:
+        -
+            action: remove_drafts
+            value: null
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: __IDENTIFIER__
+    metadata:
+        contentTypeGroups: null
+        mainTranslation: null
+        remoteId: null
+        urlAliasSchema: null
+        nameSchema: null
+        container: null
+        translations: {  }
+    fields:
+        -
+            identifier: age_restriction
+            type: ezboolean
+            position: 83
+            translations:
+                __LANG__:
+                    name: 'Show Age Restriction'
+                    description: ''
+            required: null
+            searchable: null
+            infoCollector: null
+            translatable: null
+            category: null
+            defaultValue: null
+            fieldSettings: null
+            validatorConfiguration: null
+    actions:
+        -
+            action: remove_drafts
+            value: null
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: __IDENTIFIER_2__
+    metadata:
+        contentTypeGroups:
+            - Content
+        mainTranslation: __LANG__
+        remoteId: null
+        urlAliasSchema: null
+        nameSchema: __NAME_PATTERN__
+        container: null
+        translations: {  }
+    fields:
+        -
+            identifier: ribbon
+            type: ezobjectrelationlist
+            position: 75
+            translations:
+                __LANG__:
+                    name: __RIBBON_TITLE__
+                    description: ''
+            required: false
+            searchable: false
+            infoCollector: false
+            translatable: true
+            category: content
+            defaultValue: null
+            fieldSettings:
+                selectionMethod: 0
+                selectionDefaultLocation: null
+                selectionContentTypes:
+                    - retail_ribbon
+            validatorConfiguration:
+                RelationListValueValidator:
+                    selectionLimit: 3
+    actions:
+        -
+            action: remove_drafts
+            value: null
+        -
+            action: remove_field_by_identifier
+            value: text
+        -
+            action: remove_field_by_identifier
+            value: colour
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: __IDENTIFIER_3__
+    metadata:
+        contentTypeGroups: null
+        mainTranslation: __LANG__
+        remoteId: null
+        urlAliasSchema: null
+        nameSchema: null
+        container: null
+        translations:
+            __LANG__:
+                name: __NAME_3__
+                description: __DESCRIPTION_3__
+    fields: {  }
+    actions:
+        -
+            action: remove_drafts
+            value: null

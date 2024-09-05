@@ -1,0 +1,69 @@
+tables:
+    ezpage_attributes:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            name: { type: string, nullable: false, length: 255, options: { default: '' } }
+            value: { type: text, nullable: true, length: 4294967295 }
+    ezpage_blocks:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            type: { type: string, nullable: false, length: 255, options: { default: '' } }
+            view: { type: string, nullable: false, length: 255, options: { default: '' } }
+            name: { type: string, nullable: false, length: 255, options: { default: '' } }
+    ezpage_blocks_design:
+        indexes:
+            ezpage_blocks_design_block_id: { fields: [block_id] }
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            block_id: { type: integer, nullable: false }
+            style: { type: text, nullable: true, length: 65535 }
+            compiled: { type: text, nullable: true, length: 65535 }
+            class: { type: string, nullable: true, length: 255 }
+    ezpage_blocks_visibility:
+        indexes:
+            ezpage_blocks_visibility_block_id: { fields: [block_id] }
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            block_id: { type: integer, nullable: false }
+            since: { type: integer, nullable: true }
+            till: { type: integer, nullable: true }
+    ezpage_map_attributes_blocks:
+        indexes:
+            ezpage_map_attributes_blocks_attribute_id: { fields: [attribute_id] }
+            ezpage_map_attributes_blocks_block_id: { fields: [block_id] }
+        id:
+            attribute_id: { type: integer, nullable: false }
+            block_id: { type: integer, nullable: false }
+    ezpage_map_blocks_zones:
+        indexes:
+            ezpage_map_blocks_zones_block_id: { fields: [block_id] }
+            ezpage_map_blocks_zones_zone_id: { fields: [zone_id] }
+        id:
+            block_id: { type: integer, nullable: false }
+            zone_id: { type: integer, nullable: false }
+    ezpage_map_zones_pages:
+        indexes:
+            ezpage_map_zones_pages_zone_id: { fields: [zone_id] }
+            ezpage_map_zones_pages_page_id: { fields: [page_id] }
+        id:
+            zone_id: { type: integer, nullable: false }
+            page_id: { type: integer, nullable: false }
+    ezpage_pages:
+        indexes:
+            ezpage_pages_content_id_version_no: { fields: [content_id, version_no] }
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            version_no: { type: integer, nullable: false }
+            content_id: { type: integer, nullable: false }
+            language_code: { type: string, nullable: false, length: 255, options: { default: '' } }
+            layout: { type: string, nullable: false, length: 255, options: { default: '' } }
+    ezpage_zones:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            name: { type: string, nullable: false, length: 255, options: { default: '' } }

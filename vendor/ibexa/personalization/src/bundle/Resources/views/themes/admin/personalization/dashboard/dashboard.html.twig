@@ -1,0 +1,40 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% form_theme customer_switcher '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'dashboard.title'|trans|desc('Data and analytics'),
+    } %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if customer_switcher.customer_id.vars.choices|length > 1 %}
+        <div class="ibexa-perso-mandator-selector">
+            {{ form_start(customer_switcher) }}
+            {{ form_label(customer_switcher.customer_id) }}
+            {{ form_widget(customer_switcher.customer_id, {
+                attr: { class: 'ibexa-perso-mandator-selector__select' },
+            }) }}
+            {{ form_end(customer_switcher) }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% block summary %} {% endblock %}
+    {{ form_start(form) }}
+        {% block charts %} {% endblock %}
+        {% block popularity %} {% endblock %}
+        {% block products_purchased %} {% endblock %}
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-dashboard-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}

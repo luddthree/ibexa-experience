@@ -1,0 +1,5 @@
+{% extends "@IbexaCore/content_fields.html.twig" %}
+
+{% block ezform_field %}
+    {{ 'form.no_preview'|trans({}, 'ibexa_form_builder')|desc('Preview is not available.') }}
+{% endblock %}

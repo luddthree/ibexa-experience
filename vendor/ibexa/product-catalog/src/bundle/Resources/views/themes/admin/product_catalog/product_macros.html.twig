@@ -1,0 +1,15 @@
+{% macro availability_badge(status) %}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+
+    {% set status_classess = {
+        0: '',
+        1: 'ibexa-badge--success',
+    } %}
+
+    {% set status_label = {
+        0: 'product.availability_badge.not_available'|trans|desc('Not available'),
+        1: 'product.availability_badge.available'|trans|desc('Available'),
+    } %}
+
+    <span class="ibexa-badge ibexa-badge--status {{ status_classess[status] }}">{{ status_label[status] }}</span>
+{% endmacro %}

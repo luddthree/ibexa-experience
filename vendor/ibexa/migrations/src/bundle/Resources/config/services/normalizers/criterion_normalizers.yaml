@@ -1,0 +1,89 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\VisibilityOptionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -60 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\ContentIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\ContentRemoteIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\ContentTypeGroupIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\ContentTypeIdentifierNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\ContentTypeIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\LocationIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\LocationRemoteIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\ParentLocationIdNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    ibexa.migrations.serializer.normalizer.criterion.user.user_email_normalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\UserEmailNormalizer
+        arguments:
+            $fieldName: 'email'
+            $contextType: 'user'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    ibexa.migrations.serializer.normalizer.criterion.content.user_email_normalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\UserEmailNormalizer
+        arguments:
+            $fieldName: 'user_email'
+            $contextType: 'content'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    ibexa.migrations.serializer.normalizer.criterion.user.user_id_normalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\UserIdNormalizer
+        arguments:
+            $fieldName: 'id'
+            $contextType: 'user'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    ibexa.migrations.serializer.normalizer.criterion.content.user_id_normalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\UserIdNormalizer
+        arguments:
+            $fieldName: 'user_id'
+            $contextType: 'content'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    ibexa.migrations.serializer.normalizer.criterion.user.user_login_normalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\UserLoginNormalizer
+        arguments:
+            $fieldName: 'login'
+            $contextType: 'user'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    ibexa.migrations.serializer.normalizer.criterion.content.user_login_normalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Normalizer\Criterion\UserLoginNormalizer
+        arguments:
+            $fieldName: 'user_login'
+            $contextType: 'content'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }

@@ -1,0 +1,55 @@
+parameters:
+    ibexa.page_builder.token_authorized_router.routes_map:
+        page_builder_pre_auth_content_preview: 'ibexa.page_builder.content.preview'
+    ibexa.page_builder.token_authenticator.query_param_name: 'editorial_mode_bearer'
+    ibexa.page_builder.token_authenticator.cookie_name: 'editorial_mode_bearer'
+    ibexa.page_builder.token_authenticator.ttl: 60
+    ibexa.page_builder.token_authenticator.verify_ip: true
+    # The following parameter is available only in EZEE < v2.5
+    ibexa.page_builder.token_authenticator.enabled: false
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Security\EditorialMode\TokenManager:
+        arguments:
+            $userIdClaim: '%lexik_jwt_authentication.user_id_claim%'
+            $ttl: '%ibexa.page_builder.token_authenticator.ttl%'
+            $verifyIp: '%ibexa.page_builder.token_authenticator.verify_ip%'
+        calls:
+            - ['setUserIdentityField', ['%lexik_jwt_authentication.user_identity_field%']]
+
+    Ibexa\PageBuilder\Security\EditorialMode\TokenAuthenticator:
+        arguments:
+            $tokenManager: '@Ibexa\PageBuilder\Security\EditorialMode\TokenManager'
+            $tokenQueryParamName: '%ibexa.page_builder.token_authenticator.query_param_name%'
+            $tokenCookieName: '%ibexa.page_builder.token_authenticator.cookie_name%'
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+            $enabled: '%ibexa.page_builder.token_authenticator.enabled%'
+
+    Ibexa\PageBuilder\Security\EditorialMode\TokenRevoker: ~
+
+    Ibexa\PageBuilder\Security\EditorialMode\TokenRevokerInterface: '@Ibexa\PageBuilder\Security\EditorialMode\TokenRevoker'
+
+    Ibexa\PageBuilder\Security\EditorialMode\TokenAuthorizedRouter:
+        lazy: true
+        arguments:
+            $routesMap: '%ibexa.page_builder.token_authorized_router.routes_map%'
+        tags:
+            - { name: router }
+
+    Ibexa\PageBuilder\Security\EventListener\SecurityListener:
+        arguments:
+            - '@Ibexa\Contracts\Core\Repository\PermissionResolver'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\PageBuilder\Event\Subscriber\SetPreAuthCookieSubscriber:
+        arguments:
+            $tokenCookieName: '%ibexa.page_builder.token_authenticator.cookie_name%'
+            $ttl: '%ibexa.page_builder.token_authenticator.ttl%'
+            $routesMap: '%ibexa.page_builder.token_authorized_router.routes_map%'
+            $enabled: '%ibexa.page_builder.token_authenticator.enabled%'

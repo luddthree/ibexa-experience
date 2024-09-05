@@ -1,0 +1,21 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#3 \\$attribute of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeFactoryInterface\\:\\:create\\(\\) expects array\\{identifier\\: string, name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, value\\?\\: mixed, category\\: string, options\\?\\: array\\}, array\\{name\\: string, type\\: 'checkbox', category\\: 'default', validators\\: array\\{\\}\\} given\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/PageBuilder/AbstractEnabledQueryParameterWebhookSubscriber.php
+
+		-
+			message: "#^Parameter \\#4 \\$configuration of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeFactoryInterface\\:\\:create\\(\\) expects array\\{identifier\\: string, name\\: string\\|null, category\\: string\\|null, thumbnail\\: string\\|null, visible\\: bool, configuration_template\\: string, component\\: string, attributes\\: array\\<string, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\}\\>\\}\\|array\\{identifier\\: string, name\\: string\\|null, category\\: string\\|null, thumbnail\\: string\\|null, visible\\: bool, configuration_template\\: string, views\\: array\\<string, array\\{name\\: string, template\\: string, priority\\: int\\}\\>, attributes\\: array\\<string, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\}\\>\\}, array given\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/PageBuilder/AbstractEnabledQueryParameterWebhookSubscriber.php
+
+		-
+			message: "#^Cannot call method import\\(\\) on mixed\\.$#"
+			count: 1
+			path: tests/integration/bootstrap.php
+
+		-
+			message: "#^Cannot call method importSchema\\(\\) on mixed\\.$#"
+			count: 1
+			path: tests/integration/bootstrap.php

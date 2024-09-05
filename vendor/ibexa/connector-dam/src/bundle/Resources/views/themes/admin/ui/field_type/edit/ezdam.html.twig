@@ -1,0 +1,46 @@
+{% trans_default_domain 'ibexa_content_forms_content' %}
+
+{% extends '@ibexadesign/ui/field_type/edit/ezimageasset.html.twig' %}
+
+{%- block ezplatform_fieldtype_ezimageasset_row -%}
+    {% set dam_connector_enabled = form.vars.dam_connector_enabled %}
+    {{ parent() }}
+{%- endblock -%}
+
+{% block ezplatform_fieldtype_ezimageasset_widget %}
+    {{ parent() }}
+    {{- form_row(form.source, {'attr': {
+        'class': 'ibexa-data-source__destination-source-id',
+    }}) -}}
+{% endblock %}
+
+{% block ezimageasset_source_buttons %}
+    {{ parent() }}
+    {% if dam_connector_enabled is defined and dam_connector_enabled %}
+        <div
+            class="ibexa-data-source__btn-select btn ibexa-btn ibexa-btn--secondary"
+            data-name="{{ full_name }}"
+            data-bs-toggle="modal"
+            data-bs-target="#select-from-dam-modal"
+        >
+            <span class="ibexa-data-source__btn-label">
+                {{ 'fieldtype.ezimageasset.dam_select.label'|trans({}, 'ibexa_connector_dam_ui')|desc('Select from DAM') }}
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block ezimageasset_preview %}
+    {% form_theme form '@ibexadesign/ui/field_type/edit/binary_base_fields.html.twig' %}
+
+    {% if value.source is not null %}
+        {% set destination_content_url = path('ibexa.connector.dam.asset_view', {
+            destinationContentId: value.destinationContentId,
+            assetSource: value.source,
+        }) %}
+        {% set asset = ibexa_dam_asset(value.destinationContentId, value.source) %}
+        {% set image_uri = asset.assetUri.path %}
+    {% endif %}
+
+    {{ parent() }}
+{% endblock %}

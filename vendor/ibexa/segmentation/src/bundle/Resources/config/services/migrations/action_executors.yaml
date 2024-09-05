@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Segmentation\StepExecutor\ActionExecutor\Segment\AssignToUser:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.segment'
+
+    Ibexa\Segmentation\StepExecutor\ActionExecutor\Segment\UnassignFromUser:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.segment'
+
+    Ibexa\Segmentation\StepExecutor\ActionExecutor\Segment\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.segment'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'

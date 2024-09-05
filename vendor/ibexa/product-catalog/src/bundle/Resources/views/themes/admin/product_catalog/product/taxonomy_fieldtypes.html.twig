@@ -1,0 +1,13 @@
+{% extends '@ibexadesign/ibexa/taxonomy/forms/content_edit/fieldtypes.html.twig' %}
+
+{% block ibexa_fieldtype_taxonomy_entry_assignment_widget %}
+    {% set taxonomy_root_selection_disabled = true %}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block ibexa_fieldtype_taxonomy_entry_widget %}
+    {% set taxonomy_root_selection_disabled = true %}
+
+    {{ parent() }}
+{% endblock %}

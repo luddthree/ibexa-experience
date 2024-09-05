@@ -1,0 +1,7 @@
+{% extends '@IbexaPageBuilder/page_builder/parts/no_language.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_infobar' %}
+
+{% block info %}
+    {{ 'infobar.translation.using_fallback_language'|trans|desc('You are on the fallback language') }}
+{% endblock %}

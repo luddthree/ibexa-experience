@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\ActivityLog\ActivityLogServiceInterface:
+        alias: Ibexa\ActivityLog\ActivityLogService
+
+    Ibexa\ActivityLog\ActivityLogService: ~

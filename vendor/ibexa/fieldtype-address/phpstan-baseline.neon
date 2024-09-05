@@ -1,0 +1,256 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:sudo\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/AddressController.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: src/bundle/Controller/AddressController.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldDefinitionIdentifier of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentType\\:\\:getFieldDefinition\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/bundle/Controller/AddressController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentTypeService\\:\\:loadContentTypeByIdentifier\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/bundle/Controller/AddressController.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value constructor expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: src/bundle/Controller/AddressController.php
+
+		-
+			message: "#^Parameter \\#2 \\$country of class Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value constructor expects string\\|null, mixed given\\.$#"
+			count: 2
+			path: src/bundle/Controller/AddressController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypeAddress\\\\DependencyInjection\\\\IbexaFieldTypeAddressExtension\\:\\:loadInternal\\(\\) has parameter \\$mergedConfig with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaFieldTypeAddressExtension.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 2
+			path: src/bundle/DependencyInjection/IbexaFieldTypeAddressExtension.php
+
+		-
+			message: "#^Parameter \\#2 \\$config of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerBuilder\\:\\:prependExtensionConfig\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
+			count: 2
+			path: src/bundle/DependencyInjection/IbexaFieldTypeAddressExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/MapFieldEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent\\:\\:setOption\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/contracts/Event/MapFieldEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent\\:\\:setOptions\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/MapFieldEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent\\:\\:\\$label \\(string\\|false\\|null\\) does not accept bool\\|string\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/MapFieldEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/MapFieldEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Converter\\\\AddressConverter\\:\\:getDefaultSettings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_column expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\Content\\\\FieldValue\\:\\:\\$data \\(array\\|bool\\|float\\|int\\|string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataText5 \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AddressConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Mapper\\\\AddressFormMapper\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Mapper/AddressFormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Mapper\\\\AddressFormMapper\\:\\:getTypeChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Mapper/AddressFormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Mapper\\\\AddressFormMapper\\:\\:mapFieldValueForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Mapper/AddressFormMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Mapper\\\\AddressFormMapper\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Mapper/AddressFormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Resolver\\\\FormatConfigurationResolver\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Resolver/FormatConfigurationResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Resolver\\\\FormatConfigurationResolver\\:\\:resolveFields\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Resolver/FormatConfigurationResolver.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Resolver\\\\FormatConfigurationResolver\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Resolver/FormatConfigurationResolver.php
+
+		-
+			message: "#^Cannot access offset 'country' on mixed\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Cannot access offset 'fields' on mixed\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Cannot access offset 'name' on mixed\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Type\\:\\:toHash\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Parameter \\#2 \\$country of class Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Parameter \\#3 \\$fields of class Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value constructor expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value\\:\\:__construct\\(\\) has parameter \\$fields with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Value.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value\\:\\:\\$fields type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Value.php
+
+		-
+			message: "#^Cannot access property \\$country on Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FieldTypeModelTransformer.php
+
+		-
+			message: "#^Cannot access property \\$fields on Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FieldTypeModelTransformer.php
+
+		-
+			message: "#^Cannot access property \\$name on Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FieldTypeModelTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypeAddress\\\\Form\\\\Transformer\\\\FieldTypeModelTransformer\\:\\:transform\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FieldTypeModelTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Value constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FieldTypeModelTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Resolver\\\\FormatConfigurationResolver\\:\\:resolveFields\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressFieldsType.php
+
+		-
+			message: "#^Parameter \\#2 \\$addressType of class Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressFieldsType.php
+
+		-
+			message: "#^Parameter \\#2 \\$country of method Ibexa\\\\FieldTypeAddress\\\\FieldType\\\\Resolver\\\\FormatConfigurationResolver\\:\\:resolveFields\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressFieldsType.php
+
+		-
+			message: "#^Parameter \\#2 \\$type of static method Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\Events\\:\\:getMapFieldEventNames\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressFieldsType.php
+
+		-
+			message: "#^Parameter \\#3 \\$country of class Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\MapFieldEvent constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressFieldsType.php
+
+		-
+			message: "#^Parameter \\#3 \\$country of static method Ibexa\\\\Contracts\\\\FieldTypeAddress\\\\Event\\\\Events\\:\\:getMapFieldEventNames\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressFieldsType.php
+
+		-
+			message: "#^Cannot access offset 'country' on mixed\\.$#"
+			count: 2
+			path: src/lib/Form/Type/AddressType.php
+
+		-
+			message: "#^Cannot access property \\$country on mixed\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressType.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method Ibexa\\\\FieldTypeAddress\\\\Form\\\\Type\\\\BaseAddressType\\:\\:getCountryBlockPrefix\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressType.php
+
+		-
+			message: "#^Parameter \\#2 \\$country of method Ibexa\\\\FieldTypeAddress\\\\Form\\\\Type\\\\BaseAddressType\\:\\:getCountryBlockPrefix\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AddressType.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method Ibexa\\\\FieldTypeAddress\\\\Form\\\\Type\\\\BaseAddressType\\:\\:getCountryBlockPrefix\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BaseAddressType.php
+
+		-
+			message: "#^Parameter \\#2 \\$country of method Ibexa\\\\FieldTypeAddress\\\\Form\\\\Type\\\\BaseAddressType\\:\\:getCountryBlockPrefix\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BaseAddressType.php

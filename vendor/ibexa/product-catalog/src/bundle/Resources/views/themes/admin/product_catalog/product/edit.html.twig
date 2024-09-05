@@ -1,0 +1,174 @@
+{% extends '@ibexadesign/content/edit_base.html.twig' %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block meta %}
+    <meta name="LanguageCode" content="{{ language.languageCode }}" />
+{% endblock %}
+
+{% set product_type = product.productType %}
+
+{% block main_container_class %}
+    ibexa-main-container--edit-container
+
+    {%- set has_anchor_menu_items = grouped_fields|default([])|length > 1 or form.attributes is not empty -%}
+    {%- set has_anchor_close_btn = anchor_params.close_href|default(null) is not empty -%}
+
+    {{- has_anchor_menu_items ? ' ibexa-main-container--with-anchor-menu-items ' : ' ibexa-main-container--without-anchor-menu-items ' -}}
+    {{- not has_anchor_close_btn ? ' ibexa-main-container--without-anchor-close-btn ' -}}
+{% endblock %}
+
+{% set anchor_navigation_item_content_label = 'product.anchor_navigation_item.content'|trans|desc('Content') %}
+{% set anchor_navigation_item_attributes_label = 'product.anchor_navigation_item.attributes'|trans|desc('Attributes') %}
+
+{% block header %}
+    {% set product_edit_menu = knp_menu_get('ibexa_product_catalog.menu.product_edit_context_menu', [], {
+        'submit_selector': '#product_update_update',
+        'cancel_route': 'ibexa.product_catalog.product.list'
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'product.edit.action_name'|trans({ '%product_type%': product_type.getName() })|desc('Editing %product_type%'),
+        title: product.getName(),
+        subtitle: 'product.edit.subtitle'|trans({ '%language_name%': language.name })|desc('in %language_name%'),
+        icon_name: 'file',
+        show_autosave_status: true,
+        context_actions: knp_menu_render(product_edit_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block left_sidebar %}
+    {% set anchor_navigation_items = grouped_fields|keys|default([anchor_navigation_item_content_label]) %}
+    {% if form.attributes is not empty %}
+        {% set anchor_navigation_items = anchor_navigation_items|merge([
+            anchor_navigation_item_attributes_label
+        ]) %}
+    {% endif %}
+
+    {% set anchor_params = {
+        items: anchor_navigation_items,
+    } %}
+
+    {% include '@ibexadesign/ui/anchor_navigation_menu.html.twig' with anchor_params %}
+{% endblock %}
+
+{% block form_fields %}
+    {% set default_form_templates = ['@ibexadesign/product_catalog/product/form_fields.html.twig'] %}
+    {% set form_templates = form_templates is defined ? default_form_templates|merge(form_templates) : default_form_templates %}
+
+    {% form_theme form with form_templates %}
+
+    {% set anchor_section_class = 'ibexa-pc-anchor-section' %}
+
+    <div class="ibexa-anchor-navigation-sections">
+        {% if grouped_fields|length > 1 %}
+            {% for key, group in grouped_fields %}
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: key
+                } %}
+                    {% trans_default_domain 'ibexa_product_catalog' %}
+
+                    {% block anchor_section_header %}
+                        <h2 class="ibexa-pc-anchor-section__header">{{ key }}</h2>
+                    {% endblock %}
+                    {% block anchor_section_body %}
+                        {% for field in group %}
+                            {% set form_field = form.fieldsData[field] %}
+
+                            {% if not form_field.rendered %}
+                                {% if form_field.value is defined %}
+                                    {{- form_widget(form_field) -}}
+                                {% else %}
+                                    <div class="ibexa-field-edit ibexa-field-edit--eznoneditable">
+                                        {{- form_label(form_field) -}}
+                                        <p class="non-editable">
+                                            {{ "content.field.non_editable"|trans|desc('This Field Type is not editable') }}
+                                        </p>
+                                        {% do form_field.setRendered() %}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endblock %}
+                {% endembed %}
+            {% endfor %}
+        {% elseif form.attributes is not empty %}
+            {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                anchor_section_key: anchor_navigation_item_content_label
+            } %}
+                {% trans_default_domain 'ibexa_product_catalog' %}
+
+                {% block anchor_section_header %}
+                    <h2 class="ibexa-pc-anchor-section__header">{{ anchor_navigation_item_content_label }}</h2>
+                {% endblock %}
+                {% block anchor_section_body %}
+                    {% for field in form.fieldsData %}
+                        {% if not field.rendered %}
+                            {% if field.value is defined %}
+                                {{- form_widget(field) -}}
+                            {% else %}
+                                <div class="ibexa-field-edit ibexa-field-edit--eznoneditable">
+                                    {{- form_label(field) -}}
+                                    <p class="non-editable">
+                                        {{ "content.field.non_editable"|trans|desc('This Field Type is not editable') }}
+                                    </p>
+                                    {% do field.setRendered() %}
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        {% else %}
+            {% for field in form.fieldsData %}
+                {% if not field.rendered %}
+                    {% if field.value is defined %}
+                        {{- form_widget(field) -}}
+                    {% else %}
+                        <div class="ibexa-field-edit ibexa-field-edit--eznoneditable">
+                            {{- form_label(field) -}}
+                            <p class="non-editable">
+                                {{ "content.field.non_editable"|trans|desc('This Field Type is not editable') }}
+                            </p>
+                            {% do field.setRendered() %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {%- endfor %}
+        {% endif %}
+
+        {% if form.attributes is not empty %}
+            {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                anchor_section_key: anchor_navigation_item_attributes_label
+            } %}
+                {% trans_default_domain 'ibexa_product_catalog' %}
+
+                {% block anchor_section_header %}
+                    <h2 class="ibexa-pc-anchor-section__header">{{ anchor_navigation_item_attributes_label }}</h2>
+                {% endblock %}
+                {% block anchor_section_body %}
+                    {{ form_row(form.attributes) }}
+                {% endblock %}
+            {% endembed %}
+        {% else %}
+            {% do form.attributes.setRendered(true) %}
+        {% endif %}
+        {{ form_widget(form.update, {'attr': {'hidden': 'hidden'}}) }}
+    </div>
+{% endblock %}
+
+{% block form_after %}
+    {{ ibexa_render_component_group('product-edit-form-after', {}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-product-catalog-product-edit-js', null, 'ibexa') }}
+{% endblock %}

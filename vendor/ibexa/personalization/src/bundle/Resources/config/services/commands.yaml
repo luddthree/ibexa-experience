@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Personalization\Command\ExportCommand:
+        tags:
+            - { name: console.command }
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    Ibexa\Bundle\Personalization\Command\UserAttributesUpdateCommand:
+        tags:
+            - { name: console.command }
+            - { name: monolog.logger, channel: ibexa.personalization }

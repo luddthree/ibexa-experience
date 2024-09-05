@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\QueryType\QueryTypeRegistry:
+        arguments:
+            $queryTypes: !tagged_iterator
+                tag: ibexa.product_catalog.query_type
+                index_by: 'key'
+                default_index_method: 'getName'
+
+    Ibexa\Contracts\ProductCatalog\QueryTypeRegistryInterface:
+        alias: Ibexa\ProductCatalog\QueryType\QueryTypeRegistry
+
+    Ibexa\ProductCatalog\QueryType\Product\SearchQueryType:
+        tags:
+            - { name: ibexa.product_catalog.query_type }
+
+    Ibexa\ProductCatalog\QueryType\Product\ProductsWithLowestStockQueryType:
+        tags:
+            - { name: ibexa.product_catalog.query_type }
+
+    # Content queries
+
+    Ibexa\ProductCatalog\Local\QueryType\CatalogQueryType:
+        tags:
+            - { name: ibexa.query_type, alias: 'Catalog' }

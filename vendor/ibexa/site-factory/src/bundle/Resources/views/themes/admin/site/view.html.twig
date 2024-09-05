@@ -1,0 +1,122 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_site_factory' %}
+
+{% set modal_delete_target = 'delete-site-modal' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-sf-view{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'site.list'|trans|desc('Sites'), url: path('ibexa.site_factory.list') },
+        { value: site.name }
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    {% set content_sidebar_right = knp_menu_get('ezplatform.sitefactory.menu_configure.site.view_actions', [], {
+        'site': site,
+        'modal_delete_target': modal_delete_target,
+        'delete_selector': '#site_delete_delete',
+    }) %}
+    {{ knp_menu_render(content_sidebar_right, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'}) }}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: site.name,
+    } %}
+{% endblock %}
+
+
+{%- block content -%}
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        hide_toggler: true,
+        tabs: [
+            {
+                id: 'public-access',
+                active: true,
+                label: 'site.view.tab.header.public_access'|trans|desc('Public access')
+            },
+            {
+                id: 'details',
+                label: 'site.view.tab.header.details'|trans|desc('Details')
+            },
+        ]
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'public-access', active: true } %}
+                {% block content %}
+                    {% trans_default_domain 'ibexa_site_factory' %}
+
+                    {% include '@ibexadesign/public_access/list.html.twig' with {
+                        'publicAccesses': site.publicAccesses,
+                    } %}
+
+                    {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+                        'id': modal_delete_target,
+                        'message': 'site.modal.delete.message'|trans|desc('Are you sure you want to delete this site and all the related elements?'),
+                        'data_click': '#site_delete_delete',
+                    }%}
+
+                    {{ form_start(form_site_delete, {
+                        action: path('ibexa.site_factory.delete'),
+                        attr: { 'hidden': true }
+                    }) }}
+                    {{ form_widget(form_site_delete.delete, {'attr': {'class': 'ibexa-btn ibexa-btn--primary', 'disabled': not deletable }}) }}
+                    {{ form_end(form_site_delete) }}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'details' } %}
+                {% block content %}
+                    {% trans_default_domain 'ibexa_site_factory' %}
+
+                    {% set detail_site_name %}
+                        {% include '@ibexadesign/common/status.html.twig' with {
+                            'status': site.status,
+                            'class': 'ibexa-sf-status--one-line'
+                        } %}
+                        <span>{{ site.name }}</span>
+                    {% endset %}
+
+                    {% set detail_site_design %}
+                        {% if site.template is not null %}
+                            <img src="{{ site.template.thumbnail }}" class="ibexa-sf-view__site-thumbnail" />
+                            <div>{{ site.template.name }}</div>
+                        {% else %}
+                            <div class="ibexa-site-factory-list-table__image ibexa-site-factory-list-table__image--default">
+                                <svg class="ibexa-icon ibexa-icon--dark ibexa-icon--medium-large">
+                                    <use xlink:href="{{ ibexa_icon_path('landing_page') }}"></use>
+                                </svg>
+                            </div>
+                        {% endif %}
+                    {% endset %}
+                    {% set details_items = [
+                        {
+                            label: 'site.view.global_properties.name'|trans|desc('Name'),
+                            content: detail_site_name,
+                        },
+                        {
+                            label: 'site.view.global_properties.design'|trans|desc('Design'),
+                            content: detail_site_design,
+                        },
+                    ] %}
+
+                    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                        headline: 'site.view.tab.header.details'|trans|desc('Details'),
+                        items: details_items,
+                    } only %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-site-factory-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

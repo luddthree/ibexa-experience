@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Filter\:
+        resource: './../../../lib/Local/Persistence/Legacy/Filter'

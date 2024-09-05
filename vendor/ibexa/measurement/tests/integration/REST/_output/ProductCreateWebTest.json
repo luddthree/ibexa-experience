@@ -1,0 +1,347 @@
+{
+    "Product": {
+        "_media-type": "application\/vnd.ibexa.api.Product+json",
+        "code": "testProduct",
+        "isBaseProduct": false,
+        "isVariant": false,
+        "name": "new product",
+        "ProductType": {
+            "_media-type": "application\/vnd.ibexa.api.ProductType+json",
+            "identifier": "attribute_measurement_check",
+            "name": "Dress",
+            "AttributeAssignmentList": [
+                {
+                    "_media-type": "application\/vnd.ibexa.api.AttributeAssignment+json",
+                    "is_required": false,
+                    "is_discriminator": false,
+                    "Attribute": {
+                        "_media-type": "application\/vnd.ibexa.api.Attribute+json",
+                        "identifier": "measurement_single_identifier",
+                        "name": "",
+                        "description": null,
+                        "type": "Measurement (single)",
+                        "type_identifier": "measurement_single",
+                        "group": "",
+                        "position": 0,
+                        "options": {
+                            "sign": "none",
+                            "type": "length",
+                            "unit": "centimeter"
+                        },
+                        "value": null,
+                        "extra_options": {
+                            "available_units": [
+                                {
+                                    "label": "Centimeter",
+                                    "value": "centimeter"
+                                },
+                                {
+                                    "label": "Foot",
+                                    "value": "foot"
+                                },
+                                {
+                                    "label": "Inch",
+                                    "value": "inch"
+                                },
+                                {
+                                    "label": "Meter",
+                                    "value": "meter"
+                                },
+                                {
+                                    "label": "Millimeter",
+                                    "value": "millimeter"
+                                },
+                                {
+                                    "label": "Yard",
+                                    "value": "yard"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "_media-type": "application\/vnd.ibexa.api.AttributeAssignment+json",
+                    "is_required": false,
+                    "is_discriminator": false,
+                    "Attribute": {
+                        "_media-type": "application\/vnd.ibexa.api.Attribute+json",
+                        "identifier": "measurement_range_identifier",
+                        "name": "",
+                        "description": null,
+                        "type": "Measurement (range)",
+                        "type_identifier": "measurement_range",
+                        "group": "",
+                        "position": 0,
+                        "options": {
+                            "type": "length",
+                            "unit": "centimeter"
+                        },
+                        "value": null,
+                        "extra_options": {
+                            "available_units": [
+                                {
+                                    "label": "Centimeter",
+                                    "value": "centimeter"
+                                },
+                                {
+                                    "label": "Foot",
+                                    "value": "foot"
+                                },
+                                {
+                                    "label": "Inch",
+                                    "value": "inch"
+                                },
+                                {
+                                    "label": "Meter",
+                                    "value": "meter"
+                                },
+                                {
+                                    "label": "Millimeter",
+                                    "value": "millimeter"
+                                },
+                                {
+                                    "label": "Yard",
+                                    "value": "yard"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "Content": {
+            "_media-type": "application\/vnd.ibexa.api.Content+json",
+            "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__",
+            "_remoteId": "__REMOTE_ID__",
+            "_id": "__FIXED_ID__",
+            "ContentType": {
+                "_media-type": "application\/vnd.ibexa.api.ContentType+json",
+                "_href": "\/api\/ibexa\/v2\/content\/types\/__FIXED_ID__"
+            },
+            "Name": "new product",
+            "TranslatedName": "new product",
+            "Versions": {
+                "_media-type": "application\/vnd.ibexa.api.VersionList+json",
+                "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__\/versions"
+            },
+            "CurrentVersion": {
+                "_media-type": "application\/vnd.ibexa.api.Version+json",
+                "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__\/currentversion",
+                "Version": {
+                    "_media-type": "application\/vnd.ibexa.api.Version+json",
+                    "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__\/versions\/1",
+                    "VersionInfo": {
+                        "id": "__FIXED_ID__",
+                        "versionNo": 1,
+                        "status": "PUBLISHED",
+                        "modificationDate": "__MODIFICATION_DATE__",
+                        "Creator": {
+                            "_media-type": "application\/vnd.ibexa.api.User+json",
+                            "_href": "\/api\/ibexa\/v2\/user\/users\/__FIXED_ID__"
+                        },
+                        "creationDate": "__CREATION_DATE__",
+                        "initialLanguageCode": "eng-GB",
+                        "languageCodes": "eng-GB",
+                        "VersionTranslationInfo": {
+                            "_media-type": "application\/vnd.ibexa.api.VersionTranslationInfo+json",
+                            "Language": [
+                                {
+                                    "languageCode": "eng-GB"
+                                }
+                            ]
+                        },
+                        "names": {
+                            "value": [
+                                {
+                                    "_languageCode": "eng-GB",
+                                    "#text": "new product"
+                                }
+                            ]
+                        },
+                        "Content": {
+                            "_media-type": "application\/vnd.ibexa.api.ContentInfo+json",
+                            "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__"
+                        }
+                    },
+                    "Fields": {
+                        "field": [
+                            {
+                                "id": "__FIXED_ID__",
+                                "fieldDefinitionIdentifier": "specification",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ibexa_product_specification",
+                                "fieldValue": {
+                                    "id": "__FIXED_ID__",
+                                    "code": "testProduct",
+                                    "is_virtual": false,
+                                    "attributes": [
+                                        {
+                                            "type": "length",
+                                            "value": 50,
+                                            "unit": "millimeter"
+                                        },
+                                        {
+                                            "type": "length",
+                                            "min_value": 100,
+                                            "max_value": 200,
+                                            "unit": "meter"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "__FIXED_ID__",
+                                "fieldDefinitionIdentifier": "name",
+                                "languageCode": "eng-GB",
+                                "fieldTypeIdentifier": "ezstring",
+                                "fieldValue": "new product"
+                            }
+                        ]
+                    },
+                    "Relations": {
+                        "_media-type": "application\/vnd.ibexa.api.RelationList+json",
+                        "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__\/versions\/1\/relations",
+                        "Relation": []
+                    },
+                    "Thumbnail": {
+                        "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+                        "resource": "\/bundles\/ibexaadminui\/img\/ibexa-icons.svg#file",
+                        "width": null,
+                        "height": null,
+                        "mimeType": "image\/svg+xml"
+                    }
+                }
+            },
+            "Section": {
+                "_media-type": "application\/vnd.ibexa.api.Section+json",
+                "_href": "\/api\/ibexa\/v2\/content\/sections\/__FIXED_ID__"
+            },
+            "Locations": {
+                "_media-type": "application\/vnd.ibexa.api.LocationList+json",
+                "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__\/locations"
+            },
+            "Owner": {
+                "_media-type": "application\/vnd.ibexa.api.User+json",
+                "_href": "\/api\/ibexa\/v2\/user\/users\/__FIXED_ID__"
+            },
+            "lastModificationDate": "__LAST_MODIFICATION_DATE__",
+            "publishedDate": "__PUBLISHED_DATE__",
+            "mainLanguageCode": "eng-GB",
+            "currentVersionNo": 1,
+            "alwaysAvailable": true,
+            "isHidden": false,
+            "status": "PUBLISHED",
+            "ObjectStates": {
+                "_media-type": "application\/vnd.ibexa.api.ContentObjectStates+json",
+                "_href": "\/api\/ibexa\/v2\/content\/objects\/__FIXED_ID__\/objectstates"
+            }
+        },
+        "Thumbnail": {
+            "_media-type": "application\/vnd.ibexa.api.Thumbnail+json",
+            "resource": "\/bundles\/ibexaadminui\/img\/ibexa-icons.svg#file",
+            "width": null,
+            "height": null,
+            "mimeType": "image\/svg+xml"
+        },
+        "created_at": "__CREATED_AT__",
+        "updated_at": "__UPDATED_AT__",
+        "AttributesList": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.Attribute+json",
+                "identifier": "measurement_single_identifier",
+                "name": "",
+                "description": null,
+                "type": "Measurement (single)",
+                "type_identifier": "measurement_single",
+                "group": "",
+                "position": 0,
+                "options": {
+                    "sign": "none",
+                    "type": "length",
+                    "unit": "centimeter"
+                },
+                "value": {
+                    "type": "length",
+                    "value": 50,
+                    "unit": "millimeter"
+                },
+                "extra_options": {
+                    "available_units": [
+                        {
+                            "label": "Centimeter",
+                            "value": "centimeter"
+                        },
+                        {
+                            "label": "Foot",
+                            "value": "foot"
+                        },
+                        {
+                            "label": "Inch",
+                            "value": "inch"
+                        },
+                        {
+                            "label": "Meter",
+                            "value": "meter"
+                        },
+                        {
+                            "label": "Millimeter",
+                            "value": "millimeter"
+                        },
+                        {
+                            "label": "Yard",
+                            "value": "yard"
+                        }
+                    ]
+                }
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.Attribute+json",
+                "identifier": "measurement_range_identifier",
+                "name": "",
+                "description": null,
+                "type": "Measurement (range)",
+                "type_identifier": "measurement_range",
+                "group": "",
+                "position": 0,
+                "options": {
+                    "type": "length",
+                    "unit": "centimeter"
+                },
+                "value": {
+                    "type": "length",
+                    "min_value": 100,
+                    "max_value": 200,
+                    "unit": "meter"
+                },
+                "extra_options": {
+                    "available_units": [
+                        {
+                            "label": "Centimeter",
+                            "value": "centimeter"
+                        },
+                        {
+                            "label": "Foot",
+                            "value": "foot"
+                        },
+                        {
+                            "label": "Inch",
+                            "value": "inch"
+                        },
+                        {
+                            "label": "Meter",
+                            "value": "meter"
+                        },
+                        {
+                            "label": "Millimeter",
+                            "value": "millimeter"
+                        },
+                        {
+                            "label": "Yard",
+                            "value": "yard"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

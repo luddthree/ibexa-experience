@@ -1,0 +1,18 @@
+Ibexa\Contracts\FieldTypePage\FieldType\LandingPage\Model\Zone:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        id:
+            type: string
+            skip_when_empty: false
+            expose: true
+        name:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        blocks:
+            type: array<Ibexa\Contracts\FieldTypePage\FieldType\LandingPage\Model\BlockValue>
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]

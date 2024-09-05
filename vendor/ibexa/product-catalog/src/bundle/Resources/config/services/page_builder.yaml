@@ -1,0 +1,53 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    # Mappers
+    ibexa.product_catalog.form_type_attribute.mapper.catalog_list:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\Bundle\ProductCatalog\Form\Type\CatalogChoiceType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: catalog_list }
+
+    ibexa.product_catalog.form_type_attribute.mapper.targeted_catalog_customer_group_map_attribute:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\Bundle\ProductCatalog\Form\Type\BlockAttribute\TargetedCatalogCustomerGroupMapAttributeType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: targeted_catalog_customer_group_map_attribute }
+
+    ibexa.product_catalog.form_type_attribute.mapper.product_collection:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\Bundle\ProductCatalog\Form\Type\BlockAttribute\ProductListAttributeType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: product_list }
+
+    # Custom attribute types
+    Ibexa\Bundle\ProductCatalog\Form\Type\CatalogChoiceType: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\Type\TargetedCatalogCustomerGroupType: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\Type\BlockAttribute\TargetedCatalogCustomerGroupMapAttributeType: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\Type\BlockAttribute\ProductListAttributeType: ~
+
+    # Event subscribers
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\PageBuilder\CatalogBlockSubscriber: ~
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\PageBuilder\ProductCollectionBlockSubscriber: ~
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\PageBuilder\ProductsWithLowestStockBlockSubscriber: ~
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\PageBuilder\ProductsByCategoriesBlockSubscriber:
+        arguments:
+            $productTaxonomyName: 'product_categories'
+
+    # Query types
+    Ibexa\ProductCatalog\QueryType\Product\Block\ProductsByCategoriesQueryType:
+        arguments:
+            $productTaxonomyIdentifier: 'product_categories'
+        tags:
+            - { name: ibexa.product_catalog.query_type }

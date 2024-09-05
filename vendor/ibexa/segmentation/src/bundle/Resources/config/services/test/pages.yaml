@@ -1,0 +1,9 @@
+services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+      public: true
+
+    Ibexa\Segmentation\Behat\Page\SegmentGroupsPage: ~
+
+    Ibexa\Segmentation\Behat\Page\SegmentGroupPage: ~

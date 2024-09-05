@@ -1,0 +1,14 @@
+{% if recommendations is defined and recommendations|length > 0 %}
+    <div class="ibexa-recommendation ibexa-recommendation--horizontal">
+        {% for recommendation in recommendations %}
+            <div class="block">
+                <a href="#">
+                    <div class="ibexa-recommendation__thumbnail"></div>
+                    <div class="ibexa-recommendation__data-placeholder"></div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endif %}

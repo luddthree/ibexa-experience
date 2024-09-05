@@ -1,0 +1,47 @@
+ibexa.rest.corporate_account.members.list:
+    path: /corporate/companies/{companyId}/members
+    methods: [ GET ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\MemberController::getCompanyMembers'
+    requirements:
+        companyId: '\d+'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.members.create:
+    path: /corporate/companies/{companyId}/members
+    methods: [ POST ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\MemberController::createMember'
+    requirements:
+        companyId: '\d+'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.members.get:
+    path: /corporate/companies/{companyId}/members/{memberId}
+    methods: [ GET ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\MemberController::getMember'
+    requirements:
+        companyId: '\d+'
+        memberId: '\d+'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.members.delete:
+    path: /corporate/companies/{companyId}/members/{memberId}
+    methods: [ DELETE ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\MemberController::deleteMember'
+    requirements:
+        companyId: '\d+'
+        memberId: '\d+'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.members.patch:
+    path: /corporate/companies/{companyId}/members/{memberId}
+    methods: [ PATCH ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\MemberController::updateMember'
+    requirements:
+        companyId: '\d+'
+        memberId: '\d+'
+    options:
+        exposed: true

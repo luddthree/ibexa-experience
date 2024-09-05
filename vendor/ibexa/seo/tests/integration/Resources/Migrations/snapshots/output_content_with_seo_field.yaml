@@ -1,0 +1,39 @@
+    -
+        type: content
+        mode: create
+        metadata:
+            contentType: seo_content_type
+            mainTranslation: eng-GB
+            creatorId: 14
+            modificationDate: __DYNAMIC__
+            publicationDate: __DYNAMIC__
+            remoteId: __DYNAMIC__
+            alwaysAvailable: true
+            section:
+                id: 1
+                identifier: standard
+        location:
+            parentLocationId: 2
+            parentLocationRemoteId: __DYNAMIC__
+            locationRemoteId: __DYNAMIC__
+            hidden: false
+            sortField: 2
+            sortOrder: 0
+            priority: 0
+        fields:
+            -
+                fieldDefIdentifier: seo_field
+                languageCode: eng-GB
+                value:
+                    types:
+                        foo: { type: foo, fields: { field1: 'Field 1 content value' } }
+        references:
+            -
+                name: ref__content__seo_content_type__
+                type: content_id
+            -
+                name: ref_location__seo_content_type__
+                type: location_id
+            -
+                name: ref_path__seo_content_type__
+                type: path

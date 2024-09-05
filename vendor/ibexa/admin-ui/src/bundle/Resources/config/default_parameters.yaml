@@ -1,0 +1,106 @@
+parameters:
+    ibexa.site_access.config.default.content_type.about:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#about'
+    ibexa.site_access.config.default.content_type.article:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#article'
+    ibexa.site_access.config.default.content_type.blog:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#blog'
+    ibexa.site_access.config.default.content_type.blog_post:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#blog_post'
+    ibexa.site_access.config.default.content_type.folder:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#folder'
+    ibexa.site_access.config.default.content_type.form:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#form'
+    ibexa.site_access.config.default.content_type.place:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#place'
+    ibexa.site_access.config.default.content_type.product:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#product'
+    ibexa.site_access.config.default.content_type.field:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#fields'
+    ibexa.site_access.config.default.content_type.user:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#user'
+    ibexa.site_access.config.default.content_type.user_group:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#user_group'
+    ibexa.site_access.config.default.content_type.file:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#file'
+    ibexa.site_access.config.default.content_type.gallery:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#gallery'
+    ibexa.site_access.config.default.content_type.image:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#image'
+    ibexa.site_access.config.default.content_type.video:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#video'
+    ibexa.site_access.config.default.content_type.landing_page:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#landing_page'
+    ibexa.site_access.config.default.content_type.editor:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#author'
+    ibexa.site_access.config.default.content_type.default-config:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#file'
+
+    ibexa.site_access.config.default.content_type_group.default-config:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#file'
+    ibexa.site_access.config.default.content_type_group.content:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#content-type-content'
+    ibexa.site_access.config.default.content_type_group.users:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#user-type'
+    ibexa.site_access.config.default.content_type_group.media:
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#media-type'
+
+    ibexa.content_view.tabs.default_template: '@@ibexadesign/ui/tab/default.html.twig'
+
+    ibexa.multifile_upload.location.mappings: []
+
+    ibexa.multifile_upload.location.default_mappings:
+        # Image
+        - mime_types:
+              - image/jpeg
+              - image/jpg
+              - image/pjpeg
+              - image/pjpg
+              - image/png
+              - image/bmp
+              - image/gif
+              - image/tiff
+              - image/x-icon
+              - image/webp
+          content_type_identifier: image
+          content_field_identifier: image
+          name_field_identifier: name
+        # File
+        - mime_types:
+              - image/svg+xml
+              - application/msword
+              - application/vnd.openxmlformats-officedocument.wordprocessingml.document
+              - application/vnd.ms-excel
+              - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+              - application/vnd.ms-powerpoint
+              - application/vnd.openxmlformats-officedocument.presentationml.presentation
+              - application/pdf
+          content_type_identifier: file
+          content_field_identifier: file
+          name_field_identifier: name
+
+    ibexa.multifile_upload.fallback_content_type:
+        content_type_identifier: file
+        content_field_identifier: file
+        name_field_identifier: name
+
+    ibexa.io.multifile_upload.max_file_size: 5242880
+
+    ibexa.admin_ui.content_tree.node_factory.max_location_ids_in_single_aggregation: 100
+
+    ibexa.site_access.config.default.admin_ui.default_focus_mode: '1'
+
+    #### DAM WIDGET
+    ibexa.dam_widget.image.mappings:
+        image:
+            imageFieldIdentifier: image
+
+    ibexa.dam_widget.image.aggregations:
+        KeywordTermAggregation:
+            name: keywords
+            contentTypeIdentifier: image
+            fieldDefinitionIdentifier: tags
+
+    ibexa.dam_widget.image.download_limit: 25
+
+    ibexa.dam_widget.folder.content_type_identifier: folder

@@ -1,0 +1,79 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<div class="ibexa-pc-attributes-sidebar">
+    <div class="ibexa-pc-attributes-sidebar__action-bar"></div>
+    <div class="ibexa-pc-attributes-sidebar__title-bar">
+        <h3 class="ibexa-pc-attributes-sidebar__title">{{ 'product_type.edit.library'|trans|desc('Library') }}</h3>
+    </div>
+    <div class="ibexa-pc-attributes-sidebar__search-bar">
+        {% embed '@ibexadesign/ui/component/input_text.html.twig' with { has_search: true, search_button_type: 'button' } %}
+            {% block content %}
+                <input
+                    type="text"
+                    class="ibexa-input ibexa-input--text ibexa-pc-attributes-sidebar__filter form-control"
+                    placeholder=" "
+                />
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    <ul class="ibexa-pc-attributes-sidebar__list">
+        {% for attributes_group in attributes_definitions_toolbar %}
+            {% set not_assigned_attributes_no = attributes_group.items|filter(item => not item.assigned)|length %}
+
+            <li
+                draggable="true"
+                data-type="group"
+                data-group-id="{{ attributes_group.identifier }}"
+                data-group-name="{{ attributes_group.name }}"
+                class="ibexa-available-attribute-item-group {{ not not_assigned_attributes_no ? 'ibexa-available-attribute-item-group--hidden' }}"
+            >
+                <div class="ibexa-available-attribute-item-group__header">
+                    <div class="ibexa-available-attribute-item-group__header-drag">
+                        <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-available-attribute-item-group__header-drag-icon">
+                            <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                        </svg>
+                    </div>
+                    <div class="ibexa-available-attribute-item-group__header-label">{{ attributes_group.name }}</div>
+                    <button type="button" class="ibexa-btn ibexa-btn--no-text ibexa-btn--small ibexa-available-attribute-item-group__header-toggler">
+                        <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-available-attribute-item-group__header-toggler-icon">
+                            <use xlink:href="{{ ibexa_icon_path('caret-down') }}"></use>
+                        </svg>
+                    </button>
+                </div>
+
+                <ul class="ibexa-available-attribute-item-group__attributes">
+                    {% for attribute in attributes_group.items %}
+                        <li class="ibexa-available-attribute-item-group__attribute-wrapper {{ attribute.assigned ? 'ibexa-available-attribute-item-group__attribute-wrapper--assigned' }}">
+                            <svg class="ibexa-icon ibexa-icon--small">
+                                <use xlink:href="{{ ibexa_icon_path('go-right') }}"></use>
+                            </svg>
+                            <div
+                                class="ibexa-available-attribute-item ibexa-available-attribute-item--subitem"
+                            >
+                                <div
+                                    class="ibexa-available-attribute-item__content"
+                                    draggable="true"
+                                    data-type="item"
+                                    data-attribute-id="{{ attribute.identifier }}"
+                                    data-attribute-name="{{ attribute.name }}"
+                                    data-attribute-type="{{ attribute.type }}"
+                                    data-attribute-position="{{ loop.index0 }}"
+                                    data-attribute-group-id="{{ attributes_group.identifier }}"
+                                    data-attribute-group-name="{{ attributes_group.name }}"
+                                >
+                                    <div class="ibexa-available-attribute-item__drag">
+                                        <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-available-attribute-item__drag-icon">
+                                            <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ibexa-available-attribute-item__label">{{ attribute.name }}</div>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

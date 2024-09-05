@@ -1,0 +1,102 @@
+[
+    {
+        "item": {
+            "id": 1,
+            "type": 1,
+            "typeName": "Test",
+            "title": "Title 1"
+        },
+        "renderRatings": 5294,
+        "rating": "70"
+    },
+    {
+        "item": {
+            "id": 2,
+            "type": 1,
+            "typeName": "Test",
+            "title": "Title 2"
+        },
+        "renderRatings": 22107,
+        "rating": "68"
+    },
+    {
+        "item": {
+            "id": 3,
+            "type": 1,
+            "typeName": "Test",
+            "title": null
+        },
+        "renderRatings": 10975,
+        "rating": "65"
+    },
+    {
+        "item": {
+            "id": 4,
+            "type": 1,
+            "typeName": "Test",
+            "title": "Title 4"
+        },
+        "renderRatings": 15017  ,
+        "rating": "63"
+    },
+    {
+        "item": {
+            "id": 5,
+            "type": 1,
+            "typeName": "Test",
+            "title": null
+        },
+        "renderRatings": 8268,
+        "rating": "63"
+    },
+    {
+        "item": {
+            "id": 6,
+            "type": 1,
+            "typeName": "Test",
+            "title": "Title 6"
+        },
+        "renderRatings": null,
+        "rating": "63"
+    },
+    {
+        "item": {
+            "id": 7,
+            "type": 1,
+            "typeName": "Test",
+            "title": null
+        },
+        "renderRatings": null,
+        "rating": "63"
+    },
+    {
+        "item": {
+            "id": 8,
+            "type": 1,
+            "typeName": "Test",
+            "title": null
+        },
+        "renderRatings": null,
+        "rating": "62"
+    },
+    {
+        "item": {
+            "id": 9,
+            "type": 1,
+            "typeName": "Test",
+            "title": null
+        },
+        "renderRatings": null,
+        "rating": "61"
+    },
+    {
+        "item": {
+            "id": 10,
+            "type": 1,
+            "typeName": "Test",
+            "title": "Title 10"
+        },
+        "renderRatings": null,
+        "rating": "60"
+    }
+]

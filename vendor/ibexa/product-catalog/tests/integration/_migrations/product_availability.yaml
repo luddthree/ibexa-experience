@@ -1,0 +1,6 @@
+-   type: product_availability
+    mode: create
+    product_code: '0002'
+    is_available: true
+    is_infinite: false
+    stock: 10

@@ -1,0 +1,646 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeDefinitionInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeDefinition/DeleteController.php
+
+		-
+			message: "#^Parameter \\#1 \\$attributeDefinition of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\LocalAttributeDefinitionServiceInterface\\:\\:deleteAttributeDefinition\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeDefinitionInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeDefinitionInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeDefinition/DeleteController.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeGroup/CreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\LocalAttributeGroupServiceInterface\\:\\:newAttributeGroupCreateStruct\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeGroup/CreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$names of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeGroup\\\\AttributeGroupCreateStruct\\:\\:setNames\\(\\) expects array\\<string, string\\>, array\\<string, string\\|null\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeGroup/CreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$position of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeGroup\\\\AttributeGroupCreateStruct\\:\\:setPosition\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeGroup/CreateController.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeGroup/UpdateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$names of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeGroup\\\\AttributeGroupUpdateStruct\\:\\:setNames\\(\\) expects array\\<string, string\\>, array\\<string, string\\|null\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AttributeGroup/UpdateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$catalog of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\CatalogServiceInterface\\:\\:copyCatalog\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/Catalog/CopyController.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/Catalog/DeleteController.php
+
+		-
+			message: "#^Parameter \\#1 \\$catalog of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\CatalogServiceInterface\\:\\:deleteCatalog\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/Catalog/DeleteController.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/CustomerGroup/DeleteController.php
+
+		-
+			message: "#^Parameter \\#1 \\$customerGroup of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\CustomerGroupServiceInterface\\:\\:deleteCustomerGroup\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CustomerGroup/DeleteController.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/CreateController.php
+
+		-
+			message: "#^Cannot call method getIdentifier\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/CreateController.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/CreateTranslationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$code of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\ProductServiceInterface\\:\\:getProduct\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/CreateVariantController.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/DeleteController.php
+
+		-
+			message: "#^Parameter \\#1 \\$product of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\LocalProductServiceInterface\\:\\:deleteProduct\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/DeleteController.php
+
+		-
+			message: "#^Cannot access offset 'category' on array\\|bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/ListController.php
+
+		-
+			message: "#^Cannot call method getIdentifier\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeDefinitionInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/TagAssetController.php
+
+		-
+			message: "#^Parameter \\#1 \\$tags of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\Asset\\\\AssetUpdateStruct\\:\\:setTags\\(\\) expects array\\<string\\>\\|null, array\\<string, array\\|bool\\|float\\|int\\|object\\|string\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/Product/TagAssetController.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/ProductType/CreateTranslationController.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/ProductType/DeleteController.php
+
+		-
+			message: "#^Parameter \\#1 \\$productType of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\LocalProductTypeServiceInterface\\:\\:deleteProductType\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/ProductType/DeleteController.php
+
+		-
+			message: "#^Cannot call method getFieldSettings\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/ContentTypeEditViewSubscriber.php
+
+		-
+			message: "#^Cannot call method getIdentifier\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeDefinitionInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/ProductFormSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$group of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeDefinition\\\\AttributeDefinitionCreateStruct\\:\\:setGroup\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeGroupInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeGroupInterface\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/AttributeDefinitionCreateMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeDefinition\\\\AttributeDefinitionCreateStruct constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/AttributeDefinitionCreateMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$position of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeDefinition\\\\AttributeDefinitionCreateStruct\\:\\:setPosition\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/AttributeDefinitionCreateMapper.php
+
+		-
+			message: "#^Parameter \\#2 \\$description of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeDefinition\\\\AttributeDefinitionCreateStruct\\:\\:setDescription\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/AttributeDefinitionCreateMapper.php
+
+		-
+			message: "#^Parameter \\#2 \\$name of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Local\\\\Values\\\\AttributeDefinition\\\\AttributeDefinitionCreateStruct\\:\\:setName\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/AttributeDefinitionCreateMapper.php
+
+		-
+			message: "#^Cannot call method getId\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/Catalog/CatalogCopyMapper.php
+
+		-
+			message: "#^Parameter \\#2 \\$identifier of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Catalog\\\\CatalogCopyStruct constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/Catalog/CatalogCopyMapper.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/Catalog/CatalogCreateMapper.php
+
+		-
+			message: "#^Parameter \\#5 \\$names of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Catalog\\\\CatalogUpdateStruct constructor expects array\\<string, string\\>, array\\<string, string\\|null\\> given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/Catalog/CatalogUpdateMapper.php
+
+		-
+			message: "#^Parameter \\#3 \\$isInfinite of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Availability\\\\ProductAvailabilityCreateStruct constructor expects bool, bool\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/ProductAvailabilityCreateMapper.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 1
+			path: src/bundle/Form/DataMapper/ProductUpdateMapper.php
+
+		-
+			message: "#^Class Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\CustomerGroupValueTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			count: 1
+			path: src/bundle/Form/DataTransformer/CustomerGroupValueTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$innerTransformer of class Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\StringToArrayTransformer constructor expects Symfony\\\\Component\\\\Form\\\\DataTransformerInterface\\<Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Asset\\\\AssetInterface, int\\|string\\>\\|null, Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\AssetTransformer given\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/AssetReferenceListType.php
+
+		-
+			message: "#^Parameter \\#2 \\$groupBy of static method Symfony\\\\Component\\\\Form\\\\ChoiceList\\\\ChoiceList\\:\\:groupBy\\(\\) expects callable\\(\\)\\: mixed, 'groupName' given\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/FilterChoiceType.php
+
+		-
+			message: "#^Parameter \\#2 \\$label of static method Symfony\\\\Component\\\\Form\\\\ChoiceList\\\\ChoiceList\\:\\:label\\(\\) expects \\(callable\\(\\)\\: mixed\\)\\|false, 'name' given\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/FilterChoiceType.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of static method Symfony\\\\Component\\\\Form\\\\ChoiceList\\\\ChoiceList\\:\\:value\\(\\) expects callable\\(\\)\\: mixed, 'identifier' given\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/FilterChoiceType.php
+
+		-
+			message: "#^Parameter \\#3 \\$ranges of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Aggregation\\\\AttributeFloatRangeAggregation constructor expects non\\-empty\\-array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\Range\\>, array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\Range\\> given\\.$#"
+			count: 1
+			path: src/bundle/REST/Input/Parser/Aggregation/AttributeFloatRangeAggregationParser.php
+
+		-
+			message: "#^Parameter \\#3 \\$ranges of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Aggregation\\\\AttributeIntegerRangeAggregation constructor expects non\\-empty\\-array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\Range\\>, array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Aggregation\\\\Range\\> given\\.$#"
+			count: 1
+			path: src/bundle/REST/Input/Parser/Aggregation/AttributeIntegerRangeAggregationParser.php
+
+		-
+			message: "#^Parameter \\#2 \\$subunits of class Ibexa\\\\Bundle\\\\ProductCatalog\\\\REST\\\\Value\\\\CurrencyCreateStruct constructor expects int\\<0, max\\>, int given\\.$#"
+			count: 1
+			path: src/bundle/REST/Input/Parser/CurrencyCreate.php
+
+		-
+			message: "#^Parameter \\#2 \\$subunits of class Ibexa\\\\Bundle\\\\ProductCatalog\\\\REST\\\\Value\\\\CurrencyUpdateStruct constructor expects int\\<0, max\\>\\|null, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/REST/Input/Parser/CurrencyUpdate.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:setLimit\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/REST/Input/Parser/Query/AbstractQuery.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:setOffset\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/REST/Input/Parser/Query/AbstractQuery.php
+
+		-
+			message: "#^Parameter \\#3 \\$data \\(Ibexa\\\\Bundle\\\\ProductCatalog\\\\REST\\\\Value\\\\Price\\) of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\REST\\\\Output\\\\ValueObjectVisitor\\\\RestPrice\\:\\:visit\\(\\) should be compatible with parameter \\$data \\(Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\PriceInterface\\) of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\REST\\\\Output\\\\ValueObjectVisitor\\\\Price\\:\\:visit\\(\\)$#"
+			count: 1
+			path: src/bundle/REST/Output/ValueObjectVisitor/RestPrice.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Twig\\\\ParseUrlExtension\\:\\:getUrlComponent\\(\\) should return string\\|null but returns int\\<0, 65535\\>\\|string\\|null\\.$#"
+			count: 1
+			path: src/bundle/Twig/ParseUrlExtension.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\:\\:getContentType\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/UI/Config/ProductTypes.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Iterator\\\\BatchIteratorAdapter\\\\ProductTypeListAdapter\\:\\:fetch\\(\\) should return Iterator\\<mixed, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\> but returns Traversable\\<int, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\>\\.$#"
+			count: 1
+			path: src/contracts/Iterator/BatchIteratorAdapter/ProductTypeListAdapter.php
+
+		-
+			message: "#^Method Ibexa\\\\ProductCatalog\\\\Config\\\\ConfigProvider\\:\\:__construct\\(\\) has parameter \\$engines with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Config/ConfigProvider.php
+
+		-
+			message: "#^Property Ibexa\\\\ProductCatalog\\\\Config\\\\ConfigProvider\\:\\:\\$engines type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Config/ConfigProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$sortClauses of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\ProductQuery\\:\\:setSortClauses\\(\\) expects array\\<Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\SortClause\\>, array\\<int\\<0, max\\>, object\\> given\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Query/ProductQueryMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Legacy\\\\AttributeGroup\\\\Gateway\\\\DoctrineDatabase\\:\\:findMatching\\(\\) should return array\\<int, array\\{id\\: int, identifier\\: string, position\\: int\\}\\> but returns array\\<int, array\\<string, mixed\\>\\>\\.$#"
+			count: 1
+			path: src/lib/Local/Persistence/Legacy/AttributeGroup/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Property Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\AbstractProduct\\:\\:\\$attributes with generic class Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\Attribute does not specify its types\\: TValue$#"
+			count: 1
+			path: src/lib/Local/Persistence/Values/AbstractProduct.php
+
+		-
+			message: "#^Property Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\AssetCreateStruct\\:\\:\\$uri \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/AssetService.php
+
+		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/AttributeDefinitionService.php
+
+		-
+			message: "#^Property Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\CatalogCopyStruct\\:\\:\\$creatorId \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/CatalogService.php
+
+		-
+			message: "#^Property Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\CatalogCreateStruct\\:\\:\\$creatorId \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/CatalogService.php
+
+		-
+			message: "#^Cannot call method getCode\\(\\) on Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/CodeGenerator/Strategy/IncrementalCodeGenerator.php
+
+		-
+			message: "#^Parameter \\#3 \\$code of class Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\Values\\\\Product constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/DomainMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$productVariant of method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\ProductAvailabilityService\\:\\:updateBaseProductAvailability\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductVariantInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface given\\.$#"
+			count: 5
+			path: src/lib/Local/Repository/ProductAvailabilityService.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\AbstractProduct\\:\\:\\$contentId\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#1 \\$attributeDefinitionId of method Ibexa\\\\ProductCatalog\\\\FieldType\\\\ProductSpecification\\\\Value\\:\\:setAttribute\\(\\) expects int, int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#1 \\$criterion of class Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\ProductCriterionAdapter constructor expects T of Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\CriterionInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\CriterionInterface\\|null given\\.$#"
+			count: 2
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#2 \\$code of method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\ProductService\\:\\:assertProductCodeIsUnique\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#2 \\$code of method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\ProductService\\:\\:assertProductCodeLength\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#2 \\$code of method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\ProductService\\:\\:assertProductCodePattern\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#2 \\$total of class Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\Values\\\\ProductList constructor expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Parameter \\#3 \\$code of class Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\ProductVariantCreateStruct constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/ProductService.php
+
+		-
+			message: "#^Method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\Region\\\\RegionPoolFactory\\:\\:getRegionIdentifiers\\(\\) should return array\\<string\\> but returns array\\<int, int\\|string\\>\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Region/RegionPoolFactory.php
+
+		-
+			message: "#^Cannot call method visit\\(\\) on Ibexa\\\\Contracts\\\\Solr\\\\Query\\\\CriterionVisitor\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Search/Solr/Criterion/CompositeCriterionVisitor.php
+
+		-
+			message: "#^Cannot call method visit\\(\\) on Ibexa\\\\Contracts\\\\Solr\\\\Query\\\\CriterionVisitor\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Search/Solr/Criterion/CriterionConverterVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(bool\\|float\\|int\\|string\\)\\: mixed\\)\\|null, Closure\\(int\\)\\: non\\-falsy\\-string given\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Search/Solr/Criterion/CustomerGroupIdVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\Values\\\\Asset\\\\Asset\\:\\:getName\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Values/Asset/Asset.php
+
+		-
+			message: "#^Method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\Values\\\\Asset\\\\AssetCollection\\:\\:withTags\\(\\) should return Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Asset\\\\AssetCollectionInterface but returns Ibexa\\\\Contracts\\\\Core\\\\Collection\\\\AbstractInMemoryCollection\\<Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Asset\\\\AssetInterface\\>\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Values/Asset/AssetCollection.php
+
+		-
+			message: "#^Method Ibexa\\\\ProductCatalog\\\\Local\\\\Repository\\\\Values\\\\ProductType\\:\\:getName\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/lib/Local/Repository/Values/ProductType.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CatalogInterface\\:\\:getFirstLanguage\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Tab/Catalog/ProductsTab.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/lib/Tab/Product/DetailsTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$product of method Ibexa\\\\ProductCatalog\\\\Tab\\\\Product\\\\DetailsTab\\:\\:getFieldDefinitionByGroup\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ContentAwareProductInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface given\\.$#"
+			count: 1
+			path: src/lib/Tab/Product/DetailsTab.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 1
+			path: src/lib/Tab/ProductType/DetailsTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\AssetTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Asset\\\\AssetInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/AssetTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\AttributeDefinitionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeDefinitionInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/AttributeDefinitionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\AttributeGroupTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\AttributeGroupInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/AttributeGroupTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\CheckboxAttributeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\CheckboxAttribute\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/CheckboxAttributeCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ColorAttributeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\ColorAttribute\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ColorAttributeCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\CreatedAtCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\CreatedAtRange\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/CreatedAtCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\CurrencyTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CurrencyInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/CurrencyTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\CustomerGroupTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/CustomerGroupTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\FloatAttributeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\FloatAttributeRange\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/FloatAttributeCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\IntegerAttributeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\IntegerAttributeRange\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/IntegerAttributeCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\MoneyCurrencyTransformer\\:\\:transform\\(\\) expects Money\\\\Currency\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/MoneyCurrencyTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductAvailabilityCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\ProductAvailability\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductAvailabilityCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductBasePriceCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\BasePriceRange\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductBasePriceCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductCategoryCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\ProductCategory\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductCategoryCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductCategoryTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductCategoryTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductCodeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\ProductCode\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductCodeCriterionTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductPriceTransformerTest\\:\\:dataProviderForTestReverseTransformWithInvalidInputDataProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductPriceTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductPriceTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\PriceInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductPriceTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductTypeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\ProductType\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductTypeCriterionTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\ProductTypeTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\ProductTypeInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/ProductTypeTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\SelectionAttributeCriterionTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\Product\\\\Query\\\\Criterion\\\\SelectionAttribute\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/bundle/Form/DataTransformer/SelectionAttributeCriterionTransformerTest.php
+
+		-
+			message: "#^Cannot call method executeOne\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/Bridge/CatalogDataProviderTest.php
+
+		-
+			message: "#^Cannot call method executeOne\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/Completeness/Task/BaseTaskTest.php
+
+		-
+			message: "#^Cannot call method executeOne\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/IbexaKernelTestCase.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Legacy\\\\ProductPrice\\\\Gateway\\\\DoctrineDatabaseTest\\:\\:provideForTestInsert\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/Local/Persistence/Legacy/ProductPrice/Gateway/DoctrineDatabaseTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\ProductCatalog\\\\Local\\\\Repository\\\\ProductPriceServiceTest\\:\\:getExampleCustomerGroup\\(\\) should return Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface but returns Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\|null\\.$#"
+			count: 1
+			path: tests/integration/Local/Repository/ProductPriceServiceTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$customerGroup of method Ibexa\\\\Contracts\\\\ProductCatalog\\\\ProductPriceServiceInterface\\:\\:findOneForCustomerGroup\\(\\) expects Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface, Ibexa\\\\Contracts\\\\ProductCatalog\\\\Values\\\\CustomerGroupInterface\\|null given\\.$#"
+			count: 2
+			path: tests/integration/Migrations/ProductPrice/ProductPriceCreateStepExecutorTest.php
+
+		-
+			message: "#^Cannot call method executeOne\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/AbstractPriceRestWebTestCase.php
+
+		-
+			message: "#^Cannot call method findOneForCustomerGroup\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/CustomPriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getCurrencyByCode\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/CustomPriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getCustomerGroupByIdentifier\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/CustomPriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getPriceByProductAndCurrency\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/CustomPriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getProduct\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/CustomPriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method sudo\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/CustomPriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getCurrencyByCode\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/PriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getPriceByProductAndCurrency\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/PriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method getProduct\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/PriceUpdateWebTest.php
+
+		-
+			message: "#^Cannot call method sudo\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/REST/PriceUpdateWebTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\ProductCatalog\\\\FieldType\\\\CustomerGroup\\\\TypeTest\\:\\:provideDataForGetName\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/CustomerGroup/TypeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\ProductCatalog\\\\FieldType\\\\CustomerGroup\\\\TypeTest\\:\\:provideInputForFromHash\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/CustomerGroup/TypeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\ProductCatalog\\\\FieldType\\\\CustomerGroup\\\\TypeTest\\:\\:provideInputForToHash\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/CustomerGroup/TypeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\ProductCatalog\\\\FieldType\\\\CustomerGroup\\\\TypeTest\\:\\:provideInvalidDataForValidate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/CustomerGroup/TypeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\ProductCatalog\\\\FieldType\\\\CustomerGroup\\\\TypeTest\\:\\:provideValidDataForValidate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/CustomerGroup/TypeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\ProductCatalog\\\\FieldType\\\\CustomerGroup\\\\TypeTest\\:\\:provideValidInputForAcceptValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/CustomerGroup/TypeTest.php

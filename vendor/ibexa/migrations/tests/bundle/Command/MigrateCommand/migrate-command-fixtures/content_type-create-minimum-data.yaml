@@ -1,0 +1,19 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: foo_minimal
+        mainTranslation: eng-GB
+        contentTypeGroups:
+            - 1
+        translations:
+            eng-GB:
+                name: Article
+    fields:
+        -
+            identifier: title
+            type: ezstring
+    references:
+        -
+            name: ref__article__content_type_id
+            type: content_type_id

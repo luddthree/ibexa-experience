@@ -1,0 +1,35 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\Form\Type\AttributeTargetedContentMapType: ~
+
+    #
+    # Form Types
+    #
+
+    Ibexa\Segmentation\Form\Type\SegmentGroupCreateType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentGroupUpdateType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentGroupDeleteType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentGroupsDeleteType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentGroupType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentCreateType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentUpdateType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentBulkDeleteType: ~
+
+    Ibexa\Segmentation\Form\Type\SegmentGroupChoiceType: ~
+
+    #
+    # Choice Loaders
+    #
+
+    Ibexa\Segmentation\Form\ChoiceLoader\SegmentGroupChoiceLoader: ~

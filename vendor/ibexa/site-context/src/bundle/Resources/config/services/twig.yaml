@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteContext\Twig\SiteContextExtension:
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\Bundle\SiteContext\Twig\SiteContextRuntime:
+        tags:
+            - { name: twig.runtime }
+
+    Ibexa\Bundle\SiteContext\Twig\PreviewUrlExtension:
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\Bundle\SiteContext\Twig\PreviewUrlRuntime:
+        tags:
+            - { name: twig.runtime }

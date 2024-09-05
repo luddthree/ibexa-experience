@@ -1,0 +1,38 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set pager = products %}
+
+{% block content %}
+    {% block list_search %}
+        {% include '@ibexadesign/product_catalog/search_form.html.twig' with {
+            is_inside_tabs: true,
+        } %}
+    {% endblock %}
+
+    <div class="ibexa-pc-data-grid">
+        {% block data_grid %}
+            {% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+            {% set search_query = search_form.vars.value.getQuery() ?? null %}
+            {% set default_headline = results_headline(products|length, false, search_query) %}
+            {% set headline = custom_results_headline ?? default_headline %}
+
+            {% include '@ibexadesign/product_catalog/category/data_grid_editable.html.twig' %}
+        {% endblock %}
+        {% block data_grid_pagination %}
+            {% if pager.haveToPaginate() %}
+                {% include '@ibexadesign/ui/pagination.html.twig' with {
+                    'pager': pager,
+                } %}
+            {% endif %}
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-product-catalog-category-products-list-js', null, 'ibexa') }}
+{% endblock %}

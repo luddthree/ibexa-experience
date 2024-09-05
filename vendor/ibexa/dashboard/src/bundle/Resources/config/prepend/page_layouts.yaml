@@ -1,0 +1,155 @@
+ibexa_fieldtype_page:
+    layouts:
+        dashboard_one_column:
+            identifier: 'dashboard_one_column'
+            name: 'One column'
+            description: 'One column'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/one_column.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/one_column.html.twig'
+            zones:
+                top:
+                    name: 'top'
+        dashboard_two_columns:
+            identifier: 'dashboard_two_columns'
+            name: 'Two columns'
+            description: 'Two columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/two_columns.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/two_columns.html.twig'
+            zones:
+                left:
+                    name: 'left'
+                right:
+                    name: 'right'
+        dashboard_one_third_left:
+            identifier: 'dashboard_one_third_left'
+            name: 'One-third left'
+            description: 'One-third left'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/one_third_left.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/one_third_left.html.twig'
+            zones:
+                left:
+                    name: 'left'
+                right:
+                    name: 'right'
+        dashboard_one_third_right:
+            identifier: 'dashboard_one_third_right'
+            name: 'One-third right'
+            description: 'One-third right'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/one_third_right.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/one_third_right.html.twig'
+            zones:
+                left:
+                    name: 'left'
+                right:
+                    name: 'right'
+        dashboard_two_rows_two_columns:
+            identifier: 'dashboard_two_rows_two_columns'
+            name: 'Two rows, two columns'
+            description: 'Two rows, two columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/two_rows_two_columns.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/two_rows_two_columns.html.twig'
+            zones:
+                top:
+                    name: 'top'
+                bottom_left:
+                    name: 'bottom-left'
+                bottom_right:
+                    name: 'bottom-right'
+        dashboard_three_rows_two_columns:
+            identifier: 'dashboard_three_rows_two_columns'
+            name: 'Three rows, two columns'
+            description: 'Three rows, two columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/three_rows_two_columns.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/three_rows_two_columns.html.twig'
+            zones:
+                top:
+                    name: 'top'
+                middle_left:
+                    name: 'middle-left'
+                middle_right:
+                    name: 'middle-right'
+                bottom:
+                    name: 'bottom'
+        dashboard_three_rows_two_columns_2:
+            identifier: 'dashboard_three_rows_two_columns_2'
+            name: 'Three rows, two columns'
+            description: 'Three rows, two columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/three_rows_two_columns_2.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/three_rows_two_columns_2.html.twig'
+            zones:
+                top_left:
+                    name: 'top-left'
+                top_right:
+                    name: 'top-right'
+                middle:
+                    name: 'middle'
+                bottom_left:
+                    name: 'bottom-left'
+                bottom_right:
+                    name: 'bottom-right'
+        dashboard_three_columns:
+            identifier: 'dashboard_three_columns'
+            name: 'Three columns'
+            description: 'Three columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/three_columns.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/three_columns.html.twig'
+            zones:
+                left:
+                    name: 'left'
+                center:
+                    name: 'center'
+                right:
+                    name: 'right'
+        dashboard_two_rows_three_columns:
+            identifier: 'dashboard_two_rows_three_columns'
+            name: 'Two rows, three columns'
+            description: 'Two rows, three columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/two_rows_three_columns.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/two_rows_three_columns.html.twig'
+            zones:
+                top:
+                    name: 'top'
+                bottom_left:
+                    name: 'bottom-left'
+                bottom_center:
+                    name: 'bottom-center'
+                bottom_right:
+                    name: 'bottom-right'
+        dashboard_three_rows_three_columns:
+            identifier: 'dashboard_three_rows_three_columns'
+            name: 'Three rows, three columns'
+            description: 'Three rows, three columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/three_rows_three_columns.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/three_rows_three_columns.html.twig'
+            zones:
+                top:
+                    name: 'top'
+                middle_left:
+                    name: 'middle-left'
+                middle_center:
+                    name: 'middle-center'
+                middle_right:
+                    name: 'middle-right'
+                bottom:
+                    name: 'bottom'
+        dashboard_three_rows_three_columns_2:
+            identifier: 'dashboard_three_rows_three_columns_2'
+            name: 'Three rows, three columns'
+            description: 'Three rows, three columns'
+            thumbnail: '/bundles/ibexadashboard/img/layouts/three_rows_three_columns_2.svg'
+            template: '@ibexadesign/dashboard/builder/layouts/three_rows_three_columns_2.html.twig'
+            zones:
+                top_left:
+                    name: 'top-left'
+                top_center:
+                    name: 'top-center'
+                top_right:
+                    name: 'top-right'
+                middle:
+                    name: 'middle'
+                bottom_left:
+                    name: 'bottom-left'
+                bottom_center:
+                    name: 'bottom-center'
+                bottom_right:
+                    name: 'bottom-right'

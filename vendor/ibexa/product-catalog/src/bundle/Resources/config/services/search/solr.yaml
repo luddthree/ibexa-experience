@@ -1,0 +1,426 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\Attribute\BooleanIndexDataProvider:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.index_data_provider', type: 'checkbox' }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\Attribute\ColorIndexDataProvider:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.index_data_provider', type: 'color' }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\Attribute\FloatIndexDataProvider:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.index_data_provider', type: 'float' }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\Attribute\IntegerIndexDataProvider:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.index_data_provider', type: 'integer' }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\Attribute\SelectionIndexDataProvider:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.index_data_provider', type: 'selection' }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\AttributeIndexDataProvider:
+        arguments:
+            $indexDataProviders: !tagged_iterator
+                tag: 'ibexa.product_catalog.attribute.index_data_provider'
+                index_by: 'type'
+        tags:
+            - { name: monolog.logger }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\CustomerGroupIndexDataProvider: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\ProductSpecificationIndexDataProvider: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\PriceIndexDataProvider: ~
+
+    ibexa.product_catalog.search.solr.block_mapper.customer_group:
+        class: Ibexa\ProductCatalog\Local\Repository\Search\Solr\FieldTypeBlockFieldMapper
+        arguments:
+            $indexDataProvider: '@Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\CustomerGroupIndexDataProvider'
+        tags:
+            - { name: ibexa.search.solr.field.mapper.block }
+
+    ibexa.product_catalog.search.solr.block_mapper.product_specification:
+        class: Ibexa\ProductCatalog\Local\Repository\Search\Solr\FieldTypeBlockFieldMapper
+        arguments:
+            $indexDataProvider: '@Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\ProductSpecificationIndexDataProvider'
+        tags:
+            - { name: ibexa.search.solr.field.mapper.block }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\BasePriceVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    ibexa.product_catalog.search.solr.block_mapper.product_attribute:
+        class: Ibexa\ProductCatalog\Local\Repository\Search\Solr\FieldTypeBlockFieldMapper
+        arguments:
+            $indexDataProvider: '@Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\AttributeIndexDataProvider'
+        tags:
+            - { name: ibexa.search.solr.field.mapper.block }
+
+    ibexa.product_catalog.search.solr.block_mapper.product_price:
+        class: Ibexa\ProductCatalog\Local\Repository\Search\Solr\FieldTypeBlockFieldMapper
+        arguments:
+            $indexDataProvider: '@Ibexa\ProductCatalog\Local\Repository\Search\Common\IndexDataProvider\PriceIndexDataProvider'
+        tags:
+            - { name: ibexa.search.solr.field.mapper.block }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\CheckboxAttributeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\ColorAttributeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\FloatAttributeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\IntegerAttributeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\SelectionAttributeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\CompositeCriterionVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\CriterionConverterVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\CustomerGroupIdVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\CustomPriceVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\IsProductBasedVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\ProductCodeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\ProductNameVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\ProductAvailabilityVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\ProductCodeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\ProductNameVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\ProductStockVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Criterion\IsVirtualVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\ProductAvailabilityVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\CreatedAtVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\BasePriceVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\CustomPriceVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\SortClause\ProductStockVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.content.sort_clause.visitor }
+            - { name: ibexa.search.solr.query.location.sort_clause.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation.product_type_term_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductTypeTermAggregation'
+            $aggregationFieldResolver: !service
+                class: Ibexa\Solr\Query\Common\AggregationVisitor\AggregationFieldResolver\SearchFieldAggregationFieldResolver
+                arguments:
+                    $searchIndexFieldName: 'content_type_id_id'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.product_type_term:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductTypeTermAggregation'
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ContentTypeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Aggregation\BasePriceStatsVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.base_price_stats:
+        class: Ibexa\ProductCatalog\Local\Repository\Search\Solr\Aggregation\ResultExtractor\PriceStatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\BasePriceStatsAggregation
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Aggregation\CustomPriceStatsVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.custom_price_stats:
+        class: Ibexa\ProductCatalog\Local\Repository\Search\Solr\Aggregation\ResultExtractor\PriceStatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\CustomPriceStatsAggregation
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Aggregation\ProductPriceRangeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.product_price_range:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductPriceRangeAggregation'
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\FloatRangeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Solr\Aggregation\ProductStockRangeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.product_stock_range:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductStockRangeAggregation'
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.product_availability_term_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductAvailabilityTermAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\Solr\Query\Common\AggregationVisitor\AggregationFieldResolver\SearchFieldAggregationFieldResolver
+                arguments:
+                    $searchIndexFieldName: 'product_availability_b'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.product_availability:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\ProductAvailabilityTermAggregation
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\BooleanAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_boolean_term_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeBooleanTermAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 'b'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_boolean_term:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeBooleanTermAggregation
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\BooleanAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_selection_term_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeSelectionTermAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 's'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_selection_term:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeSelectionTermAggregation
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_color_term_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\TermAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeColorTermAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 's'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_color_term:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeColorTermAggregation
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_integer_stats_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\StatsAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeIntegerStatsAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 'i'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_integer_stats:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeIntegerStatsAggregation
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_integer_range_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeIntegerRangeAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 'i'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_range_integer:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeIntegerRangeAggregation
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\IntRangeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_float_stats_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\StatsAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeFloatStatsAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 'f'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_float_stats:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeFloatStatsAggregation
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }
+
+    ibexa.product_catalog.search.solr.aggregation.attribute_float_range_visitor:
+        class: Ibexa\Solr\Query\Common\AggregationVisitor\RangeAggregationVisitor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeFloatRangeAggregation
+            $aggregationFieldResolver: !service
+                class: Ibexa\ProductCatalog\Local\Repository\Search\Common\AttributeAggregationFieldResolver
+                arguments:
+                    $indexSuffix: 'f'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.visitor }
+            - { name: ibexa.search.solr.query.content.aggregation.visitor }
+
+    ibexa.product_catalog.search.solr.aggregation_result_extractor.attribute_range_float:
+        class: Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Aggregation\AttributeFloatRangeAggregation
+            $keyMapper: '@Ibexa\Solr\ResultExtractor\AggregationResultExtractor\RangeAggregationKeyMapper\FloatRangeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.solr.query.location.aggregation.result.extractor }
+            - { name: ibexa.search.solr.query.content.aggregation.result.extractor }

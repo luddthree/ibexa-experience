@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Siteaccess\FormBuilderSiteaccessPreviewVoter:
+        arguments:
+            $repositoryConfigurationProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+        tags: [ ibexa.admin_ui.site_access.preview.voter ]

@@ -1,0 +1,13 @@
+{% form_theme form '@ibexadesign/content-tree/form_fields.html.twig' %}
+
+<div class="ibexa-content-tree-content-form-container ibexa-content-tree-content-form-container--create">
+    <div class="ibexa-extra-actions-container">
+        {% include '@ibexadesign/content/widget/content_create.html.twig' with {
+            form,
+            data_actions: 'content-tree-create',
+            action: path('ibexa.content.create', {
+                'formName': 'content_tree_content_create'
+            })
+        } only %}
+    </div>
+</div>

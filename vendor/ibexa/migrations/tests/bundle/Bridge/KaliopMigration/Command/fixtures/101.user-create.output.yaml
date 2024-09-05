@@ -1,0 +1,55 @@
+-
+    type: user
+    mode: create
+    metadata:
+        login: __USERNAME__
+        email: editor@emailbox.com
+        password: __PASSWORD__
+        contentType: user
+    groups:
+        - 9b47a45624b023b1a76c73b74d704acf
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            value: __FIRST_NAME__
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            value: __LAST_NAME__
+    actions:
+        -
+            action: assign_user_to_role
+            id: 1
+        -
+            action: assign_user_to_role
+            id: 2
+        -
+            action: assign_user_to_role
+            id: 3
+-
+    type: user
+    mode: create
+    metadata:
+        login: __USERNAME_2__
+        email: editor2@emailbox.com
+        password: __PASSWORD_2__
+        contentType: user
+    groups:
+        - 42
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            value: __FIRST_NAME_2__
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            value: __LAST_NAME_2__
+    actions:
+        -
+            action: assign_user_to_role
+            identifier: foo
+        -
+            action: assign_user_to_role
+            identifier: bar

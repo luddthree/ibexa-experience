@@ -1,0 +1,109 @@
+{% trans_default_domain 'ibexa_taxonomy_fieldtypes' %}
+
+{% block ibexa_fieldtype_taxonomy_entry_assignment_row %}
+    {% if disabled %}
+        {% set wrapper_attr = wrapper_attr|default({})|merge({'readonly': 'readonly', class: (wrapper_attr.class|default('') ~ ' ibexa-field-edit--disabled')|trim}) %}
+    {% endif %}
+
+    {{ block('form_row') }}
+{% endblock %}
+
+{% block ibexa_fieldtype_taxonomy_entry_assignment_widget %}
+    {% set taxonomy_type = form.taxonomy_entries.vars.taxonomyType %}
+    {% set taxonomy_name = taxonomy_type|ibexa_taxonomy_name|lower %}
+    {% set tag_content = 'taxonomy.tag.content.modal.title'|trans({'%name%': taxonomy_name})|desc('Select %name%') %}
+    {% set tag_tree_modal_id = attr['data-taxonomy'] ~ '-taxonomy-entry-assignment-modal-' ~ id %}
+    {% set confirm_button_label = 'taxonomy.tag.content.modal.confirm'|trans|desc('Select') %}
+    {% set language_name = ibexa_admin_ui_config.languages.mappings[form.taxonomy_entries.vars.languageCode].name %}
+    {% set modal_subtitle %}
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('languages') }}"></use>
+        </svg>
+        {{ 'taxonomy.tag.content.modal.subtitle'|trans({ '%languageName%': language_name })|desc('in %languageName%') }}
+    {% endset %}
+    <div
+        class="ibexa-taxonomy-tag-modal-root"
+        data-multiple="1"
+        data-root-selection-disabled="{{ taxonomy_root_selection_disabled|default(false) }}"
+    >
+        {{ include('@ibexadesign/ibexa/taxonomy/taxonomy_entry/tag_tree_modal.html.twig', {
+            id: tag_tree_modal_id,
+            title: tag_content,
+            subtitle: modal_subtitle,
+            content: '',
+            confirm_button: confirm_button_label,
+        }, with_context = false) }}
+    </div>
+
+    <div class="ibexa-taxonomy-select-parent">
+        {% set items = form.taxonomy_entries.vars.entries|default([])|map((entry) => {
+            id: entry.id,
+            name: entry.name
+        }) %}
+
+        {{ include('@ibexadesign/ui/component/tag_view_select/tag_view_select.html.twig', {
+            form: form.taxonomy_entries,
+            items,
+            attr: {
+                'data-bs-toggle': 'modal',
+                'data-bs-target': '#' ~ tag_tree_modal_id,
+                'data-entry-id': value,
+            },
+            is_single_select: false,
+            can_be_empty: true,
+            show_title:  false,
+            type: taxonomy_name,
+        }) }}
+
+        {{ form_widget(form.taxonomy, {
+            attr: { hidden: true }
+        }) }}
+    </div>
+{% endblock %}
+
+{% block ibexa_fieldtype_taxonomy_entry_widget %}
+    {% set tag_tree_modal_id = attr['data-taxonomy'] ~ '-select-parent-modal-' ~ id %}
+    {% set select_parent = 'taxonomy.select_parent'|trans({}, 'ibexa_taxonomy_fieldtypes')|desc('Select parent') %}
+    {% set language_name = ibexa_admin_ui_config.languages.mappings[form.parent.vars.languageCode].name %}
+    {% set is_parent_field = attr['data-is-parent']|default(false) %}
+    {% set taxonomy_root_selection_disabled = not is_parent_field and taxonomy_root_selection_disabled|default(false) %}
+    {% set modal_subtitle %}
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('languages') }}"></use>
+        </svg>
+        {{ 'taxonomy.tag.content.modal.subtitle'|trans({ '%languageName%': language_name })|desc('in %languageName%') }}
+    {% endset %}
+
+    <div
+        class="ibexa-taxonomy-tag-modal-root"
+        data-root-selection-disabled="{{ taxonomy_root_selection_disabled|default(false) }}"
+    >
+        {{ include('@ibexadesign/ibexa/taxonomy/taxonomy_entry/tag_tree_modal.html.twig', {
+            id: tag_tree_modal_id,
+            title: select_parent,
+            subtitle: modal_subtitle,
+            content: '',
+            confirm_button: select_parent
+        }, with_context = false) }}
+    </div>
+
+    <div class="ibexa-taxonomy-select-parent">
+        {% set items = taxonomy_entry is null ? [] : [{
+            id: taxonomy_entry.id,
+            name: taxonomy_entry.name
+        }] %}
+
+        {{ include('@ibexadesign/ui/component/tag_view_select/tag_view_select.html.twig', {
+            form,
+            items,
+            attr: {
+                'data-bs-toggle': 'modal',
+                'data-bs-target': '#' ~ tag_tree_modal_id,
+                'disabled': attr.readonly|default(false),
+            },
+            is_single_select: true,
+            can_be_empty: false,
+            title: select_parent
+        }) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #Components
+    ibexa.site_context.location_preview.component.scripts:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@ibexadesign/site_context/scripts.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: script-body }
+
+    Ibexa\Bundle\SiteContext\UI\Component\SiteContextFormComponent:
+        tags:
+            - { name: ibexa.admin_ui.component, group: user-menu, priority: 100 }
+
+    Ibexa\Bundle\SiteContext\UI\Component\FullscreenButtonComponent:
+        tags:
+            - { name: ibexa.admin_ui.component, group: location-view-tabs-after, priority: 100 }
+
+    #Tabs
+    Ibexa\Bundle\SiteContext\UI\Tabs\PreviewTab:
+        public: true
+        tags:
+            - { name: ibexa.admin_ui.tab, group: location-view }
+
+    #Config Providers
+    Ibexa\Bundle\SiteContext\UI\ConfigProvider:
+        tags:
+            -   name: ibexa.admin_ui.config.provider
+                key: siteContext
+
+    #View Matchers
+    Ibexa\SiteContext\Matcher\IsFullscreen:
+        tags:
+            - { name: ibexa.view.matcher }

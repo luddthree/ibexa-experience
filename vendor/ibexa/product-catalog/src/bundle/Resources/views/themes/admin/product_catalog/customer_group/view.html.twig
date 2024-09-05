@@ -1,0 +1,109 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block main_container_class %}ibexa-pc-view{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { url: path('ibexa.product_catalog.customer_group.list'), value: 'customer_group.breadcrumb.list'|trans|desc('Customer Groups') },
+        { value: 'customer_group.view.identifier'|trans({ '%customer_group%': customer_group.name })|desc('%customer_group%') },
+    ]} %}
+{% endblock %}
+
+{% block title %}
+    {{ 'customer_group.view.title.identifier'
+        |trans({ '%customer_group%': customer_group.name })
+        |desc('Customer Group "%customer_group%"')
+    }}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'customer_group.view.title.header'
+            |trans({ '%customer_group%': customer_group.name })
+            |desc('Customer Group "%customer_group%"'),
+        icon_name: 'file',
+    } %}
+{% endblock %}
+
+{% block context_menu %}
+    {% set context_menu = knp_menu_get(
+        'ibexa_product_catalog.menu.customer_group_view_context_menu',
+        [],
+        {
+            'customer_group': customer_group,
+            'delete_form_selector': '#delete-customer-group'
+        }
+    ) %}
+
+    {{ knp_menu_render(context_menu, {
+        'template': '@ibexadesign/ui/menu/context_menu.html.twig'
+    }) }}
+
+    {% include '@ibexadesign/product_catalog/ui/modal/delete_confirmation.html.twig' with {
+        id: 'delete-customer-group-modal',
+        message: 'modal.delete.customer_group.confirm_message'|trans|desc(
+            'Delete this customer group?'
+        ),
+        data_click: '#delete-customer-group',
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ ibexa_render_component_group('customer-group-block', {
+        'customer_group': customer_group,
+        'is_editable': is_editable|default(false)
+    }) }}
+
+    <div class="container ibexa-pc-wrapper ibexa-pc-wrapper--users-in-group">
+        {% set users_body_row = [] %}
+
+        {% for user in users %}
+            {% set user_name_col %}
+                {% set href = url('ibexa.content.view', {
+                    'contentId': user.id,
+                    'locationId': user.contentInfo.mainLocationId
+                }) %}
+                <a href="{{ href }}">{{ ibexa_content_name(user) }}</a>
+            {% endset %}
+
+            {% set users_body_row = users_body_row|merge([{ cols: [
+                { content: user_name_col },
+            ] }]) %}
+        {% endfor %}
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            class: 'ibexa-table--users-in-group',
+            headline: 'customer_group.list.user.header'|trans({ '%group_name%': customer_group.name })|desc('Users in \'%group_name%\''),
+            empty_table_info_text: 'customer_group.list.user.empty'|trans|desc('There are no users in this group'),
+            head_cols: [
+                { content: 'customer_group.list.user.column.name'|trans|desc('Name') },
+            ],
+            body_rows: users_body_row,
+        } %}
+        {% if users.haveToPaginate %}
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                'pager': users,
+            } %}
+        {% endif %}
+    </div>
+
+    {% if delete_form is defined %}
+        {{ form_start(delete_form) }}
+            <button id="delete-customer-group" type="submit" hidden></button>
+        {{ form_end(delete_form) }}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

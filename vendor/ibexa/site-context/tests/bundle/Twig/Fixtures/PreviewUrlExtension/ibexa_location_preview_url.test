@@ -1,0 +1,10 @@
+--TEST--
+"ibexa_location_preview_url" function
+--TEMPLATE--
+{{ ibexa_location_preview_url(location) }}
+--DATA--
+return [
+    'location' => $this->createExampleLocation(),
+];
+--EXPECT--
+https://example.com/location-preview-url

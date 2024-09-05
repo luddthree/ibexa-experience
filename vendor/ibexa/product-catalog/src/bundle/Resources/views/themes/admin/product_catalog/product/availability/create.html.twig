@@ -1,0 +1,54 @@
+
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set availability_create_menu = knp_menu_get('ibexa_product_catalog.menu.product_availability_create_context_menu', [], {
+        'submit_selector': '#product-availability-create-save',
+        'cancel_route': 'ibexa.product_catalog.product.view',
+        'cancel_route_params': {
+            productCode: product.code,
+            _fragment: 'ibexa-tab-product-availability'
+        }
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'product.availability.creating.action_name'|trans|desc('Creating new availability'),
+        icon_name: 'file',
+        title: 'product.availability.creating.title'|trans|desc('New availability'),
+        context_actions: knp_menu_render(availability_create_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block form %}
+    {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+    {{ form_start(form, {
+        attr: { class: 'ibexa-pc-edit__form' }
+    }) }}
+        {{ form_row(form.available, {
+            row_attr: { class: 'ibexa-pc-edit__product-availability-row' }
+        }) }}
+        {{ form_row(form.stock, {
+            row_attr: { class: 'ibexa-pc-edit__product-stock-row' },
+            attr: { class: 'ibexa-pc-edit__product-stock-input' }
+        }) }}
+        {{ form_widget(form.infinite, {
+            attr: { class: 'ibexa-pc-edit__product-infinite-checkbox' }
+        }) }}
+
+        <button
+            id="product-availability-create-save"
+            class="ibexa-pc-edit__submit-btn"
+            type="submit"
+            hidden
+        ></button>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-product-catalog-product-availability-edit-js', null, 'ibexa') }}
+{% endblock %}

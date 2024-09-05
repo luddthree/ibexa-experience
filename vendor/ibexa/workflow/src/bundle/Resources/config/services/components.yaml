@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.workflow.js:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@ibexadesign/ibexa_workflow/workflow_widget_javascripts.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'script-body' }
+
+    ibexa.workflow.css:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@ibexadesign/ibexa_workflow/workflow_widget_stylesheet.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'stylesheet-head' }

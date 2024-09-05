@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypePage\Form\Type\:
+        resource: '../../../lib/Form/Type/*'
+        autoconfigure: true
+
+    Ibexa\FieldTypePage\Form\Type\BlockAttribute\ScheduleAttributeType:
+        arguments:
+            $serializer: '@Ibexa\FieldTypePage\Serializer\Serializer'
+
+    Ibexa\FieldTypePage\Form\Type\BlockAttribute\NestedAttributeType: ~
+
+    Ibexa\FieldTypePage\Form\Type\BlockAttribute\NestedAttributeEntryType: ~
+
+    Ibexa\FieldTypePage\Form\Type\BlockAttribute\NestedAttributeValueType: ~
+
+    Ibexa\FieldTypePage\Form\Type\BlockAttribute\NestedAttributeCollectionType: ~

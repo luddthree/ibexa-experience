@@ -1,0 +1,18 @@
+# Siteaccess aware services definitions
+
+imports:
+    - { resource: services.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Elasticsearch\ElasticSearch\Client\RepositoryAwareClientConfigurationProvider:
+        decorates: Ibexa\Elasticsearch\ElasticSearch\Client\ClientConfigurationProvider
+        arguments:
+            $repositoryConfigurationProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+
+    Ibexa\Bundle\Elasticsearch\ElasticSearch\Index\RepositoryAwareIndexResolver:
+        decorates: Ibexa\Elasticsearch\ElasticSearch\Index\IndexResolver

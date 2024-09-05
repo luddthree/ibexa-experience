@@ -1,0 +1,49 @@
+{% extends '@KnpMenu/menu.html.twig' %}
+
+{% import 'knp_menu.html.twig' as macros %}
+
+{% block root %}
+    <ul class="ibexa-page-info-bar__tools-list">
+        {% for item in item.children %}
+            {{ block('item') }}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block item -%}
+    {%- if item.displayed -%}
+        {% set list_item_attributes = item.extra('list_item_attributes', {}) %}
+        {% set list_item_attributes = list_item_attributes|merge({'class': (list_item_attributes.class|default('') ~ ' ibexa-page-info-bar__tools-item')|trim}) %}
+        <li{{ macros.attributes(list_item_attributes) }}>
+            {%- set attributes = item.attributes|merge({'class': (item.attributes.class|default('') ~ ' ' ~ default_classes|default('btn ibexa-btn ibexa-btn--selector ibexa-btn--no-text'))|trim}) -%}
+
+            {%- if not item.extra('empty_list_item', false) -%}
+                {%- if item.uri is not empty %}
+                    {% set attributes = attributes|merge({'href': item.uri}) %}
+                    {% set element = 'a' %}
+                    {{ block('element') }}
+                {%- else %}
+                    {% set element = 'button' %}
+                    {{ block('element') }}
+                {%- endif %}
+                {%- if item.extras.template is defined -%}
+                    {% include item.extras.template with item.extras.template_parameters|default({}) %}
+                {%- endif -%}
+            {%- endif -%}
+        </li>
+    {%- endif -%}
+{%- endblock %}
+
+{% block element %}
+    {% set element = element|default('a') %}
+    {% set attributes = attributes|merge({
+        title: attributes.title|default(block('label')),
+    }) %}
+    {% set icon = item.extras.icon|default('file') %}
+
+    <{{ element }}{{ macros.attributes(attributes) }}>
+        <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--tools ibexa-icon--{{ icon }}">
+            <use xlink:href="{{ ibexa_icon_path(icon) }}"></use>
+        </svg>
+    </{{ element }}>
+{% endblock %}

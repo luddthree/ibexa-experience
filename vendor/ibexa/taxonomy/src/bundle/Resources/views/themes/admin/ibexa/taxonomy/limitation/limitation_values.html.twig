@@ -1,0 +1,9 @@
+{% trans_default_domain 'ibexa_taxonomy' %}
+
+{% block ez_limitation_taxonomy_value %}
+    {% apply spaceless %}
+        {% for value in values %}
+            {{ ('taxonomy.' ~ value)|trans }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    {% endapply %}
+{% endblock %}

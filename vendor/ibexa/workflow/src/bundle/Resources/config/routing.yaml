@@ -1,0 +1,63 @@
+ibexa.workflow.transition.list:
+    path: /workflow/{workflowName}/content/{contentId}/{versionNo}/transition/list
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\TransitionController::getTransitionListSnippetAction'
+    requirements:
+        workflowName: .+
+        contentId: \d+
+        versionNo: \d+
+
+ibexa.workflow.list:
+    path: /workflow/list
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\WorkflowController::listAction'
+
+ibexa.workflow.view:
+    path: /workflow/view/{workflowName}
+    requirements:
+        workflowId: .+
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\WorkflowController::viewAction'
+
+ibexa.workflow.unlock:
+    path: /workflow/unlock/{contentId}/{versionNo}
+    requirements:
+        contentId: \d+
+        versionNo: \d+
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\WorkflowController::unlockVersionAction'
+
+ibexa.workflow.unlock.ask:
+    path: /workflow/unlock/{contentId}/{versionNo}/ask/{userId}
+    requirements:
+        contentId: \d+
+        versionNo: \d+
+        userId: \d+
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\WorkflowController::askUnlockVersionAction'
+
+ibexa.workflow.content_create.reviewer_suggest:
+    path: /workflow/{workflowName}/transition/{transitionName}/reviewers-suggest/content-create/content-type/{contentTypeIdentifier}/language/{languageCode}/location/{locationId}
+    options:
+        expose: true
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\SuggestReviewerController::findForContentCreateAction'
+    requirements:
+        workflowName: .+
+        transitionName: .+
+        contentTypeIdentifier: .+
+        languageCode: .+
+        locationId: \d+
+
+ibexa.workflow.content_edit.reviewer_suggest:
+    path: /workflow/{workflowName}/transition/{transitionName}/reviewers-suggest/content-edit/content/{contentId}/version/{versionNo}/location/{locationId}
+    options:
+        expose: true
+    defaults:
+        _controller: 'Ibexa\Bundle\Workflow\Controller\SuggestReviewerController::findForContentEditAction'
+    requirements:
+        workflowName: .+
+        transitionName: .+
+        contentId: \d+
+        versionNo: \d+
+        locationId: \d+

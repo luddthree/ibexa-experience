@@ -1,0 +1,74 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% set options = context.options %}
+
+<div class="ibexa-extra-actions-container">
+    <div
+        class="ibexa-extra-actions ibexa-extra-actions--dropdown ibexa-extra-actions--workflow-apply-transition ibexa-extra-actions--hidden ibexa-workflow-apply-transition"
+        data-actions="{{ action }}"
+        data-workflow-name="{{ workflow }}"
+        data-transition-name="{{ transition }}"
+        data-reviewer-required="{{ reviewer.required }}"
+        data-context-action="{{ context.action }}"
+        {% if context.action == 'create' %}
+            data-parent-location-id="{{ options.parent_location.id }}"
+            data-content-type-identifier="{{ options.content_type.identifier }}"
+            data-language-code="{{ options.language.languageCode }}"
+        {% else %}
+            data-content-id="{{ options.content.id }}"
+            data-version-no="{{ options.content.versionInfo.versionNo }}"
+            data-location-id="{{ options.location ? options.location.id : options.parent_location.id }}"
+        {% endif %}
+    >
+
+        <div class="ibexa-extra-actions__header">
+            {% set title = reviewer.required ? 'widget.reviewer.add'|trans|desc('Add a reviewer') : item.label %}
+
+            <h3>{{ title }}</h3>
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-btn--close">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="ibexa-extra-actions__content">
+            <div class="ibexa-workflow-apply-transition__reviewer-wrapper">
+                <input
+                    type="text"
+                    class="form-control ibexa-workflow-apply-transition__user-input"
+                    placeholder="{{ 'widget.reviewer.placeholder'|trans|desc('Type to search') }}"
+                >
+                <div class="ibexa-workflow-apply-transition__user-list-wrapper ibexa-workflow-apply-transition__user-list-wrapper--hidden">
+                    <ul class="ibexa-workflow-apply-transition__user-list"></ul>
+                    <div class="ibexa-workflow-apply-transition__user-list-info" hidden>
+                        {{ 'widget.reviewer.not_permitted'|trans|desc('You cannot select a User who does not have permission to view/edit this Content item') }}
+                    </div>
+                </div>
+                <div class="ibexa-workflow-apply-transition__user" hidden>
+                    <div class="ibexa-workflow-apply-transition__selected-user ibexa-tag ibexa-tag--deletable">
+                        <span class="ibexa-workflow-apply-transition__user-name"></span>
+                        <button type="button" class="ibexa-tag__remove-btn ibexa-tag__remove-btn--remove-reviewer">
+                            <svg class="ibexa-icon ibexa-icon--small">
+                                <use xlink:href="{{ ibexa_icon_path('circle-close') }}"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="ibexa-workflow-apply-transition__message-wrapper"{% if reviewer.required %} hidden{% endif %}>
+                <span>{{ 'widget.message'|trans|desc('Message (optional):') }}</span>
+                <textarea
+                    cols="30"
+                    rows="5"
+                    class="form-control"
+                    placeholder="{{ 'widget.message.placeholder'|trans|desc('Type your message...') }}"
+                ></textarea>
+            </div>
+            <div class="ibexa-workflow-apply-transition__actions"{% if reviewer.required %} hidden{% endif %}>
+                <button class="btn ibexa-btn ibexa-btn--primary ibexa-btn--workflow-apply">
+                    {{ 'widget.submit'|trans|desc('Send to review') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

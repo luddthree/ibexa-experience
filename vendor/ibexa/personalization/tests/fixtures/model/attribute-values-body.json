@@ -1,0 +1,19 @@
+{
+    "attribute": {
+        "key": "color",
+        "type": "NOMINAL",
+        "values": [
+            "Beige",
+            "Blue",
+            "Brown",
+            "Dark blue",
+            "Dark green",
+            "Dark grey",
+            "Grey",
+            "Light grey",
+            "Olive",
+            "Yellow",
+            "green"
+        ]
+    }
+}

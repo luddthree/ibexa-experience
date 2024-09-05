@@ -1,0 +1,12 @@
+-
+    type: content_type_group
+    mode: create
+    metadata:
+        identifier: Media
+        creationDate: '2002-09-14T13:22:23+00:00'
+        creatorId: 14
+        isSystem: false
+    references:
+        -
+            name: ref__Media__content_type_group_id
+            type: content_type_group_id

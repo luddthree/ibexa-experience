@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Product media-type="application/vnd.ibexa.api.Product+xml">
+ <code>testProduct</code>
+ <isBaseProduct></isBaseProduct>
+ <isVariant></isVariant>
+ <name>new product</name>
+ <ProductType media-type="application/vnd.ibexa.api.ProductType+xml">
+  <identifier>attribute_measurement_check</identifier>
+  <name>Dress</name>
+  <AttributeAssignment media-type="application/vnd.ibexa.api.AttributeAssignment+xml">
+   <is_required></is_required>
+   <is_discriminator></is_discriminator>
+   <Attribute media-type="application/vnd.ibexa.api.Attribute+xml">
+    <identifier>measurement_single_identifier</identifier>
+    <name></name>
+    <description></description>
+    <type>Measurement (single)</type>
+    <type_identifier>measurement_single</type_identifier>
+    <group></group>
+    <position>0</position>
+    <options>
+     <value key="sign">none</value>
+     <value key="type">length</value>
+     <value key="unit">centimeter</value>
+    </options>
+    <value/>
+    <extra_options>
+     <value key="available_units">
+      <value>
+       <value key="label">Centimeter</value>
+       <value key="value">centimeter</value>
+      </value>
+      <value>
+       <value key="label">Foot</value>
+       <value key="value">foot</value>
+      </value>
+      <value>
+       <value key="label">Inch</value>
+       <value key="value">inch</value>
+      </value>
+      <value>
+       <value key="label">Meter</value>
+       <value key="value">meter</value>
+      </value>
+      <value>
+       <value key="label">Millimeter</value>
+       <value key="value">millimeter</value>
+      </value>
+      <value>
+       <value key="label">Yard</value>
+       <value key="value">yard</value>
+      </value>
+     </value>
+    </extra_options>
+   </Attribute>
+  </AttributeAssignment>
+  <AttributeAssignment media-type="application/vnd.ibexa.api.AttributeAssignment+xml">
+   <is_required></is_required>
+   <is_discriminator></is_discriminator>
+   <Attribute media-type="application/vnd.ibexa.api.Attribute+xml">
+    <identifier>measurement_range_identifier</identifier>
+    <name></name>
+    <description></description>
+    <type>Measurement (range)</type>
+    <type_identifier>measurement_range</type_identifier>
+    <group></group>
+    <position>0</position>
+    <options>
+     <value key="type">length</value>
+     <value key="unit">centimeter</value>
+    </options>
+    <value/>
+    <extra_options>
+     <value key="available_units">
+      <value>
+       <value key="label">Centimeter</value>
+       <value key="value">centimeter</value>
+      </value>
+      <value>
+       <value key="label">Foot</value>
+       <value key="value">foot</value>
+      </value>
+      <value>
+       <value key="label">Inch</value>
+       <value key="value">inch</value>
+      </value>
+      <value>
+       <value key="label">Meter</value>
+       <value key="value">meter</value>
+      </value>
+      <value>
+       <value key="label">Millimeter</value>
+       <value key="value">millimeter</value>
+      </value>
+      <value>
+       <value key="label">Yard</value>
+       <value key="value">yard</value>
+      </value>
+     </value>
+    </extra_options>
+   </Attribute>
+  </AttributeAssignment>
+ </ProductType>
+ <Content media-type="application/vnd.ibexa.api.Content+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__" remoteId="__REMOTE_ID__" id="__FIXED_ID__">
+  <ContentType media-type="application/vnd.ibexa.api.ContentType+xml" href="/api/ibexa/v2/content/types/__FIXED_ID__"/>
+  <Name>new product</Name>
+  <TranslatedName>new product</TranslatedName>
+  <Versions media-type="application/vnd.ibexa.api.VersionList+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__/versions"/>
+  <CurrentVersion media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__/currentversion">
+   <Version media-type="application/vnd.ibexa.api.Version+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__/versions/1">
+    <VersionInfo>
+     <id>__FIXED_ID__</id>
+     <versionNo>1</versionNo>
+     <status>PUBLISHED</status>
+     <modificationDate>__MODIFICATION_DATE__</modificationDate>
+     <Creator media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/__FIXED_ID__"/>
+     <creationDate>__CREATION_DATE__</creationDate>
+     <initialLanguageCode>eng-GB</initialLanguageCode>
+     <languageCodes>eng-GB</languageCodes>
+     <VersionTranslationInfo media-type="application/vnd.ibexa.api.VersionTranslationInfo+xml">
+      <Language>
+       <languageCode>eng-GB</languageCode>
+      </Language>
+     </VersionTranslationInfo>
+     <names>
+      <value languageCode="eng-GB">new product</value>
+     </names>
+     <Content media-type="application/vnd.ibexa.api.ContentInfo+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__"/>
+    </VersionInfo>
+    <Fields>
+     <field>
+      <id>__FIXED_ID__</id>
+      <fieldDefinitionIdentifier>specification</fieldDefinitionIdentifier>
+      <languageCode>eng-GB</languageCode>
+      <fieldTypeIdentifier>ibexa_product_specification</fieldTypeIdentifier>
+      <fieldValue>
+       <value key="id">__FIXED_ID__</value>
+       <value key="code">testProduct</value>
+       <value key="attributes">
+        <value>
+         <value key="type">length</value>
+         <value key="value">50.000000</value>
+         <value key="unit">millimeter</value>
+        </value>
+        <value>
+         <value key="type">length</value>
+         <value key="min_value">100.000000</value>
+         <value key="max_value">200.000000</value>
+         <value key="unit">meter</value>
+        </value>
+       </value>
+       <value key="is_virtual">false</value>
+      </fieldValue>
+     </field>
+     <field>
+      <id>__FIXED_ID__</id>
+      <fieldDefinitionIdentifier>name</fieldDefinitionIdentifier>
+      <languageCode>eng-GB</languageCode>
+      <fieldTypeIdentifier>ezstring</fieldTypeIdentifier>
+      <fieldValue>new product</fieldValue>
+     </field>
+    </Fields>
+    <Relations media-type="application/vnd.ibexa.api.RelationList+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__/versions/1/relations"/>
+    <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+     <resource>/bundles/ibexaadminui/img/ibexa-icons.svg#file</resource>
+     <width></width>
+     <height></height>
+     <mimeType>image/svg+xml</mimeType>
+    </Thumbnail>
+   </Version>
+  </CurrentVersion>
+  <Section media-type="application/vnd.ibexa.api.Section+xml" href="/api/ibexa/v2/content/sections/__FIXED_ID__"/>
+  <Locations media-type="application/vnd.ibexa.api.LocationList+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__/locations"/>
+  <Owner media-type="application/vnd.ibexa.api.User+xml" href="/api/ibexa/v2/user/users/__FIXED_ID__"/>
+  <lastModificationDate>__LAST_MODIFICATION_DATE__</lastModificationDate>
+  <publishedDate>__PUBLISHED_DATE__</publishedDate>
+  <mainLanguageCode>eng-GB</mainLanguageCode>
+  <currentVersionNo>1</currentVersionNo>
+  <alwaysAvailable>true</alwaysAvailable>
+  <isHidden>false</isHidden>
+  <status>PUBLISHED</status>
+  <ObjectStates media-type="application/vnd.ibexa.api.ContentObjectStates+xml" href="/api/ibexa/v2/content/objects/__FIXED_ID__/objectstates"/>
+ </Content>
+ <Thumbnail media-type="application/vnd.ibexa.api.Thumbnail+xml">
+  <resource>/bundles/ibexaadminui/img/ibexa-icons.svg#file</resource>
+  <width></width>
+  <height></height>
+  <mimeType>image/svg+xml</mimeType>
+ </Thumbnail>
+ <created_at>__CREATED_AT__</created_at>
+ <updated_at>__UPDATED_AT__</updated_at>
+ <Attribute media-type="application/vnd.ibexa.api.Attribute+xml">
+  <identifier>measurement_single_identifier</identifier>
+  <name></name>
+  <description></description>
+  <type>Measurement (single)</type>
+  <type_identifier>measurement_single</type_identifier>
+  <group></group>
+  <position>0</position>
+  <options>
+   <value key="sign">none</value>
+   <value key="type">length</value>
+   <value key="unit">centimeter</value>
+  </options>
+  <value>
+   <value key="type">length</value>
+   <value key="value">50.000000</value>
+   <value key="unit">millimeter</value>
+  </value>
+  <extra_options>
+   <value key="available_units">
+    <value>
+     <value key="label">Centimeter</value>
+     <value key="value">centimeter</value>
+    </value>
+    <value>
+     <value key="label">Foot</value>
+     <value key="value">foot</value>
+    </value>
+    <value>
+     <value key="label">Inch</value>
+     <value key="value">inch</value>
+    </value>
+    <value>
+     <value key="label">Meter</value>
+     <value key="value">meter</value>
+    </value>
+    <value>
+     <value key="label">Millimeter</value>
+     <value key="value">millimeter</value>
+    </value>
+    <value>
+     <value key="label">Yard</value>
+     <value key="value">yard</value>
+    </value>
+   </value>
+  </extra_options>
+ </Attribute>
+ <Attribute media-type="application/vnd.ibexa.api.Attribute+xml">
+  <identifier>measurement_range_identifier</identifier>
+  <name></name>
+  <description></description>
+  <type>Measurement (range)</type>
+  <type_identifier>measurement_range</type_identifier>
+  <group></group>
+  <position>0</position>
+  <options>
+   <value key="type">length</value>
+   <value key="unit">centimeter</value>
+  </options>
+  <value>
+   <value key="type">length</value>
+   <value key="min_value">100.000000</value>
+   <value key="max_value">200.000000</value>
+   <value key="unit">meter</value>
+  </value>
+  <extra_options>
+   <value key="available_units">
+    <value>
+     <value key="label">Centimeter</value>
+     <value key="value">centimeter</value>
+    </value>
+    <value>
+     <value key="label">Foot</value>
+     <value key="value">foot</value>
+    </value>
+    <value>
+     <value key="label">Inch</value>
+     <value key="value">inch</value>
+    </value>
+    <value>
+     <value key="label">Meter</value>
+     <value key="value">meter</value>
+    </value>
+    <value>
+     <value key="label">Millimeter</value>
+     <value key="value">millimeter</value>
+    </value>
+    <value>
+     <value key="label">Yard</value>
+     <value key="value">yard</value>
+    </value>
+   </value>
+  </extra_options>
+ </Attribute>
+</Product>

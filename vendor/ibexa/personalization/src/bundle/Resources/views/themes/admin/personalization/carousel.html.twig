@@ -1,0 +1,33 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div class="ibexa-perso-carousel">
+    <ul class="ibexa-perso-carousel__container">
+        {% for item in perso_items %}
+            <li
+                class="ibexa-perso-carousel__item {% if loop.first %}ibexa-perso-carousel__item--active{% endif %}"
+                data-carousel-item={{ loop.index }}
+            >
+                <div class="ibexa-perso-carousel__img-container">
+                    <img class="ibexa-perso-carousel__img" src={{ item.image_src }} alt={{ item.image_alt }} draggable="false" />
+                </div>
+
+                <h1 class="ibexa-perso-carousel__title">{{ "welcome.title"|trans|desc("Welcome to Ibexa Personalization") }}</h1>
+                <span class="ibexa-perso-carousel__subtitle">{{ "welcome.subtitle"|trans|desc("Personalize every part of your Customer Experience") }}</span>
+
+                <div class="ibexa-perso-carousel__paragraph">
+                    <h3 class="ibexa-perso-carousel__item-title">{{ item.title }}</h3>
+                    <span>{{ item.text }}</span>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="ibexa-perso-carousel__buttons">
+        {% for item in perso_items %}
+            <button
+                type="button"
+                class="ibexa-perso-carousel__btn {% if loop.first %}ibexa-perso-carousel__btn--active{% endif %}"
+                data-carousel-btn={{ loop.index }}
+            ></button>
+        {% endfor %}
+    </div>
+</div>

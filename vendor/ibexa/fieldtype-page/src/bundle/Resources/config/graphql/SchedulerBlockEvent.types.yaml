@@ -1,0 +1,55 @@
+ItemAddedSchedulerBlockEvent:
+    type: object
+    config:
+        interfaces: [SchedulerBlockEvent]
+        fields:
+            id:
+                type: String
+            type:
+                type: String
+            dateTime:
+                type: DateTime
+            item:
+                type: SchedulerBlockItem
+
+ItemRemovedSchedulerBlockEvent:
+    type: object
+    config:
+        interfaces: [SchedulerBlockEvent]
+        fields:
+            id:
+                type: String
+            type:
+                type: String
+            dateTime:
+                type: DateTime
+            itemId:
+                type: String
+
+ItemsReorderedSchedulerBlockEvent:
+    type: object
+    config:
+        interfaces: [SchedulerBlockEvent]
+        fields:
+            id:
+                type: String
+            type:
+                type: String
+            dateTime:
+                type: DateTime
+            map:
+                type: '[String]'
+
+LimitChangedSchedulerBlockEvent:
+    type: object
+    config:
+        interfaces: [SchedulerBlockEvent]
+        fields:
+            id:
+                type: String
+            type:
+                type: String
+            dateTime:
+                type: DateTime
+            limit:
+                type: Int

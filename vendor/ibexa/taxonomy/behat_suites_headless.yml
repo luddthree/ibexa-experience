@@ -1,0 +1,20 @@
+browser:
+  suites:
+    taxonomy:
+      filters:
+        tags: '@IbexaHeadless'
+      paths:
+        - '%paths.base%/vendor/ibexa/taxonomy/features'
+      contexts:
+        - Ibexa\Behat\API\Context\ContentContext
+        - Ibexa\Behat\API\Context\ContentTypeContext
+        - Ibexa\Behat\API\Context\TestContext
+        - Ibexa\AdminUi\Behat\BrowserContext\ContentViewContext
+        - Ibexa\AdminUi\Behat\BrowserContext\ContentActionsMenuContext
+        - Ibexa\Behat\Browser\Context\AuthenticationContext
+        - Ibexa\AdminUi\Behat\BrowserContext\NotificationContext
+        - Ibexa\Taxonomy\Behat\Context\Browser\TaxonomyContext
+        - Ibexa\Taxonomy\Behat\Context\Service\TaxonomyContext
+        - Ibexa\AdminUi\Behat\BrowserContext\ContentUpdateContext
+        - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
+        - Ibexa\Workflow\Behat\Context\WorkflowContext

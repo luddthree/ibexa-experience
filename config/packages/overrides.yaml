@@ -1,0 +1,27 @@
+ibexa:
+  system:
+    ludvik_group:
+      pagelayout: '@ibexadesign/pagelayout.html.twig'
+      content_view:
+        full:
+          blog:
+            controller: ibexa_query::contentQueryAction
+            template: '@ibexadesign/full/blog.html.twig'
+            match:
+              Identifier\ContentType: blog
+            params:
+                query:
+                    query_type: 'Children'
+                    parameters:
+                        location: '@=location'
+                        #content: '@=content'
+                        filter:
+                            content_type: [ 'blog_post' ]
+                        # sort: 'location_priority desc, date_published desc'
+                    limit: 20
+                    assign_results_to: children
+          blog_post:
+            # controller: ibexa_query::contentQueryAction
+            template: '@ibexadesign/full/blog_post.html.twig'
+            match:
+              Identifier\ContentType: blog_post

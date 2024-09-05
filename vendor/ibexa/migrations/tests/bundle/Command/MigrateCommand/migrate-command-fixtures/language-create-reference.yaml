@@ -1,0 +1,51 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: pol-PL
+        name: Polski
+        enabled: true
+    references:
+        -
+            name: language_code_PL
+            type: language_code
+    
+
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: 'reference:language_code_PL'
+        creatorId: 14
+        modificationDate: '2003-08-12T13:37:37+00:00'
+        publicationDate: '2003-08-12T13:37:37+00:00'
+        remoteId: foo
+        alwaysAvailable: true
+        section:
+            identifier: media
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: null
+        locationRemoteId: foo_location
+        hidden: false
+        sortField: !php/const Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_NAME
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: 'reference:language_code_PL'
+            value: Media
+        -
+            fieldDefIdentifier: short_name
+            languageCode: 'reference:language_code_PL'
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: 'reference:language_code_PL'
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: 'reference:language_code_PL'
+            value: {  }

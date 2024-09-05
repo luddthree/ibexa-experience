@@ -1,0 +1,37 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\Service\SiteService:
+        public: true
+
+    Ibexa\SiteFactory\Service\PublicAccessService:
+        public: true
+        lazy: true
+
+    Ibexa\SiteFactory\PageBuilder\ConfigurationResolver:
+        decorates: Ibexa\PageBuilder\PageBuilder\ConfigurationResolver
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+            $inner: '@Ibexa\SiteFactory\PageBuilder\ConfigurationResolver.inner'
+
+    Ibexa\Bundle\SiteFactory\Command\:
+        resource: "../../../Command/*"
+
+    Ibexa\SiteFactory\SiteAccess\SiteAccessNameGenerator:
+        decorates: Ibexa\AdminUi\Siteaccess\SiteAccessNameGenerator
+        arguments:
+            $inner: '@Ibexa\SiteFactory\SiteAccess\SiteAccessNameGenerator.inner'
+            $publicAccessService: '@Ibexa\SiteFactory\Service\PublicAccessService'
+
+    Ibexa\SiteFactory\SiteAccess\SiteSkeletonSiteAccessPreviewVoter:
+        arguments:
+            $repositoryConfigurationProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+        tags:
+            - { name: ibexa.admin_ui.site_access.preview.voter }
+
+    Ibexa\SiteFactory\Event\Subscriber\CopyUserGroupSkeletonSubscriber:
+        tags:
+            - {name: kernel.event_subscriber}

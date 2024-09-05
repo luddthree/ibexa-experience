@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="CorporateAccountRoot">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="link">
+                    <xs:complexType>
+                        <xs:attribute name="media-type" type="xs:string" use="required"/>
+                        <xs:attribute name="rel" type="xs:string" use="required"/>
+                        <xs:attribute name="href" type="xs:string" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="media-type" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

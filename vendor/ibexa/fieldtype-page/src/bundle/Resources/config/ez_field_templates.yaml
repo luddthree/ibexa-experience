@@ -1,0 +1,13 @@
+system:
+    default:
+        field_templates:
+            - { template: '@IbexaFieldTypePage/fields/ezlandingpage.html.twig', priority: 0 }
+        fielddefinition_settings_templates:
+            - { template: '@IbexaFieldTypePage/fields/fielddefinition_settings.html.twig' }
+        fielddefinition_edit_templates:
+            - { template: '@IbexaFieldTypePage/fields/fielddefinition_edit.html.twig'}
+    admin_group:
+        field_templates:
+            - { template: '@IbexaFieldTypePage/fields/admin_ezlandingpage.html.twig', priority: 10 }
+        fielddefinition_settings_templates:
+            - { template: '@IbexaFieldTypePage/fields/fielddefinition_settings.html.twig' }

@@ -1,0 +1,94 @@
+{
+    "name": "ibexa/form-builder",
+    "description": "Ibexa DXP Form Builder",
+    "license": "proprietary",
+    "type": "ibexa-bundle",
+    "replace": {
+        "ezsystems/ezplatform-form-builder": "*"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*",
+        "ibexa/admin-ui": "~4.6.0",
+        "ibexa/user": "~4.6.0",
+        "ibexa/page-builder": "~4.6.0",
+        "ibexa/core": "~4.6.0",
+        "ibexa/content-forms": "~4.6.0",
+        "ibexa/doctrine-schema": "~4.6.0",
+        "jms/serializer": "^3.5",
+        "gregwar/captcha-bundle": "^2.1",
+        "swiftmailer/swiftmailer": "^6.2",
+        "symfony/dependency-injection": "^5.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/console": "^5.0",
+        "symfony/http-foundation": "^5.0",
+        "symfony/translation": "^5.0",
+        "symfony/translation-contracts": "^2.0",
+        "symfony/routing": "^5.0",
+        "symfony/config": "^5.0",
+        "symfony/yaml": "^5.0",
+        "symfony/form": "^5.0",
+        "symfony/event-dispatcher": "^5.0",
+        "symfony/validator": "^5.0",
+        "symfony/options-resolver": "^5.0",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "ibexa/behat": "~4.6.0",
+        "ibexa/calendar": "~4.6.0",
+        "ibexa/ci-scripts": "^0.2",
+        "ibexa/code-style": "~1.2.0",
+        "ibexa/design-engine": "~4.6.0",
+        "ibexa/fieldtype-page": "~4.6.0",
+        "ibexa/fieldtype-richtext": "~4.6.0",
+        "ibexa/http-cache": "~4.6.0",
+        "ibexa/icons": "~4.6.0",
+        "ibexa/rest": "~4.6.0",
+        "ibexa/search": "~4.6.0",
+        "ibexa/test-core": "^4.6",
+        "phpstan/phpstan": "^1.9",
+        "phpstan/phpstan-phpunit": "^1.2",
+        "phpstan/phpstan-symfony": "^1.2",
+        "phpstan/phpstan-webmozart-assert": "^1.2",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "EzSystems\\EzPlatformFormBuilderBundle\\": "src/bundle/",
+            "EzSystems\\EzPlatformFormBuilder\\": "src/lib/",
+            "Ibexa\\FormBuilder\\": "src/lib/",
+            "Ibexa\\Bundle\\FormBuilder\\": "src/bundle/",
+            "Ibexa\\Contracts\\FormBuilder\\": "src/contracts/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EzSystems\\EzPlatformFormBuilder\\Tests\\": "tests/lib/",
+            "Ibexa\\Tests\\Bundle\\FormBuilder\\": "tests/bundle/",
+            "Ibexa\\Tests\\Integration\\FormBuilder\\": "tests/integration/",
+            "Ibexa\\Tests\\FormBuilder\\": "tests/lib/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run",
+        "test": "phpunit -c phpunit.xml.dist",
+        "test-integration": "phpunit -c phpunit.integration.xml.dist",
+        "phpstan": "phpstan analyse -c phpstan.neon"
+    },
+    "config": {
+        "allow-plugins": false,
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    }
+}

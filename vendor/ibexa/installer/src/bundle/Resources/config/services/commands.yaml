@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # ibexa:upgrade command
+    Ibexa\Bundle\Installer\Command\IbexaUpgradeCommand: ~

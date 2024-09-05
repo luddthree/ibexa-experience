@@ -1,0 +1,193 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% block body_class %}ibexa-workflow-list-view ibexa-has-full-width-footer{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans(domain='messages')|desc('Admin') },
+        { url: path('ibexa.workflow.list'), value: 'workflow.list.title'|trans|desc('Workflow') },
+        { value: workflow.name }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: workflow.name,
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        tabs: [
+            { id: 'details', label: 'workflow.view.tab.details'|trans|desc('Details'), active: true },
+            { id: 'content-list', label: 'workflow.view.tab.content_list'|trans|desc('Content under review') },
+        ]
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'details', active: true } %}
+                {% trans_default_domain 'ibexa_workflow' %}
+
+                {% block content %}
+                    <section class="container">
+                        {% set limitations_content %}
+                            {%- if workflow.matchersMetadata is not empty -%}
+                                <ul class="list-unstyled">
+                                    {%- for identifier, matcherDefinitionMetadata in workflow.matchersMetadata -%}
+                                        <li>
+                                            <span>
+                                                {{ ('matcher.' ~ identifier|lower)|trans({'%identifier%': identifier}, 'ibexa_workflow')|desc('%identifier%') }}:
+                                            </span>
+                                            {{ ibexa_render_workflow_matcher_value(identifier, matcherDefinitionMetadata) }}
+                                        </li>
+                                    {%- endfor -%}
+                                </ul>
+                            {%- else -%}
+                                {{- 'matcher.none'|trans|desc('None') -}}
+                            {%- endif -%}
+                        {% endset %}
+                        {% set stages_content %}
+                            {% for stage in workflow.stagesMetadata %}
+                                {{ stage.label }}<br />
+                            {% endfor %}
+                        {% endset %}
+                        {% set items = [
+                            {
+                                label: 'workflow.list.name'|trans|desc('Name'),
+                                content: workflow.name,
+                            },
+                            {
+                                label: 'workflow.list.limitations'|trans|desc('Limitations'),
+                                content: limitations_content,
+                            },
+                            {
+                                label: 'workflow.list.stages'|trans|desc('Stages'),
+                                content: stages_content,
+                            },
+                        ] %}
+
+                        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                            headline: 'workflow.view.title'|trans|desc('Workflow information'),
+                            items,
+                        } only %}
+
+                        {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+                            headline: 'workflow.view.diagram'|trans|desc('Workflow diagram'),
+                        } %}
+                        <div>
+                            <svg id="diagram" class="ibexa-workflow-diagram" data-workflow-definition="{{ workflow_definition|json_encode }}"></svg>
+                        </div>
+                        <script type="text/javascript">
+                            window.addEventListener('load', function(event) {
+                                const svgElement = document.querySelector('#diagram');
+                                const diagramSvg = d3.select(svgElement);
+                                const svgGraph = diagramSvg.append('g');
+                                const definition = JSON.parse(svgElement.dataset.workflowDefinition);
+                                const renderer = new dagreD3.render();
+                                const graph = new dagreD3.graphlib.Graph().setGraph({});
+
+                                graph.graph().rankDir = 'LR';
+
+                                Object.entries(definition.stages).forEach(([identifier, stage]) => {
+                                    graph.setNode(identifier, {
+                                        label: stage.label,
+                                        class: `stage-${identifier}`,
+                                    });
+                                });
+
+                                Object.values(definition.transitions).forEach((transition) => {
+                                    transition.from.forEach((from) => {
+                                        transition.to.forEach((to) => {
+                                            graph.setEdge(from, to, { label: transition.label });
+                                        });
+                                    });
+                                });
+
+                                renderer(svgGraph, graph);
+
+                                svgGraph.attr('transform', `translate(${((svgElement.width.baseVal.value - graph.graph().width) / 2)}, 20)`);
+                                diagramSvg.attr('height', graph.graph().height + 40);
+                            });
+                        </script>
+                        <style>
+                            .ibexa-workflow-diagram text {
+                                font-weight: 300;
+                                font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
+                                font-size: 14px;
+                            }
+
+                            .ibexa-workflow-diagram .node rect {
+                                stroke: #333;
+                                fill: #fff;
+                                stroke-width: 1px;
+                            }
+
+                            .ibexa-workflow-diagram .edgePath path.path {
+                                stroke: #333;
+                                fill: none;
+                                stroke-width: 1px;
+                            }
+                        </style>
+                    </section>
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'content-list' } %}
+                {% trans_default_domain 'ibexa_workflow' %}
+
+                {% block content %}
+                    <section class="container">
+                        {% for stage, pager in content_by_stage_pagination_list %}
+                            {% set body_rows = [] %}
+                            {% for workflow_metadata in pager.currentPageResults %}
+                                {% set body_rows = body_rows|merge([{ cols: [
+                                    { content: ibexa_content_name(workflow_metadata.content) },
+                                    { content: workflow_metadata.content.contentType.name },
+                                    { content: ibexa_admin_ui_config.languages.mappings[workflow_metadata.versionInfo.initialLanguageCode].name },
+                                ] }]) %}
+                            {% endfor %}
+
+                            {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                                headline: 'workflow.view.content_list.table.title'|trans(
+                                    {
+                                        '%stageName%': stages_metadata[stage].label,
+                                        '%count%': pager.getNbResults()
+                                    }
+                                )|desc('Content in %stageName% stage (%count%)'),
+                                head_cols: [
+                                    { content: 'workflow.view.content_list.table.name'|trans|desc('Name') },
+                                    { content: 'workflow.view.content_list.table.content_type'|trans|desc('Content type') },
+                                    { content: 'workflow.view.content_list.table.modified_language'|trans|desc('Modified language') },
+                                ],
+                                body_rows,
+                                empty_table_info_text: 'workflow.view.content_list.table.empty'|trans(
+                                    {'%stageName%': stages_metadata[stage].label}
+                                )|desc('There is no content to review. Content items to review in the %stageName% stage will show up here.'),
+                            } %}
+
+                            {% if pager.haveToPaginate %}
+                                {% include '@ibexadesign/ui/pagination.html.twig' with {
+                                    'pager': pager,
+                                    'paginaton_params': {
+                                        'pageParameter': '[page][' ~ stage ~ ']',
+                                        'routeParams': {'_fragment': 'content-list'}
+                                    }
+                                } %}
+                            {% endif %}
+                        {% endfor %}
+                    </section>
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/ibexaadminuiassets/vendors/d3/dist/d3.min.js') }}"></script>
+    <script src="{{ asset('bundles/ibexaadminuiassets/vendors/dagre-d3/dist/dagre-d3.min.js') }}"></script>
+
+    {{ encore_entry_script_tags('ibexa-workflow-view-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

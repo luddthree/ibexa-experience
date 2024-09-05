@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\ProductCatalog\VatServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\VatService
+
+    Ibexa\ProductCatalog\Local\Repository\VatCategory\VatCategoryPoolFactory: ~
+
+    Ibexa\ProductCatalog\Local\Repository\VatCategory\VatCategoryPoolFactoryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\VatCategory\VatCategoryPoolFactory
+
+    Ibexa\ProductCatalog\Local\Repository\VatCategory\VatCategoryProvider: ~
+
+    Ibexa\ProductCatalog\Local\Repository\VatCategory\VatCategoryProviderInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\VatCategory\VatCategoryProvider
+
+    Ibexa\ProductCatalog\Local\Repository\VatService:
+        arguments:
+            $repositoryConfigProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+
+    Ibexa\ProductCatalog\Local\Repository\VatCalculator: ~
+
+    Ibexa\Contracts\ProductCatalog\VatCalculatorInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\VatCalculator

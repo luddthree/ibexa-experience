@@ -1,0 +1,72 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-GB
+        modificationDate: '2021-08-01T07:45:17+02:00'
+        publicationDate: '2021-08-01T07:45:17+02:00'
+        remoteId: 'sa_root_1_permissions'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'sa_root_1_location_permissions'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'SA Root With Permissions'
+    references:
+        -
+            name: ref__sa_root_path
+            type: path
+
+-   type: role
+    mode: create
+    metadata:
+        identifier: 'SA root role'
+    policies:
+        -
+            module: content
+            function: read
+            limitations:
+                -
+                    identifier: Subtree
+                    values: [/1/2/]
+        -
+            module: content
+            function: read
+            limitations:
+                -   identifier: Subtree
+                    values: ['reference:ref__sa_root_path']
+    references:
+        -
+            name: ref__role__sa_root_id
+            type: role_id
+
+-
+    type: user
+    mode: create
+    metadata:
+        login: __sa__access__
+        email: admin@link.invalid
+        password: __PASSWORD__
+        enabled: true
+        mainLanguage: eng-US
+    groups:
+        - 42
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: SA ROOT
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: TEST
+
+    actions:
+        -   action: assign_user_to_role
+            id:  ['reference:ref__role__sa_root_id']
+

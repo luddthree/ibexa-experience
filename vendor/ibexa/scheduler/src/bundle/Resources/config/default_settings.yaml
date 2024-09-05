@@ -1,0 +1,3 @@
+parameters:
+    # URI part that DateBasedPublisher bundle REST routes begin with
+    ibexa.scheduler.rest.prefix: /api/datebasedpublisher/v1

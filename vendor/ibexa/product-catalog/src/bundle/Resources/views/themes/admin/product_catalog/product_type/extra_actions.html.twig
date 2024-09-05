@@ -1,0 +1,25 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% form_theme create_form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+<div class="ibexa-extra-actions-container">
+    <div
+        class="ibexa-extra-actions ibexa-extra-actions--product ibexa-extra-actions--hidden"
+        data-actions="pre-create-product-type"
+    >
+        <div class="ibexa-extra-actions__header">
+            <h2>{{ 'product_type.pre_create.title'|trans|desc('Create product type') }}</h2>
+        </div>
+
+        <div class="ibexa-extra-actions__content ibexa-extra-actions__content--create">
+            {{ form_start(create_form, { attr: { class: 'ibexa-extra-actions__pre-form' } }) }}
+                {{ form_row(create_form.type, { row_attr: { class: 'ibexa-form-field' } }) }}
+
+                <div class="ibexa-extra-actions__btns ibexa-extra-actions__pre-form-btns">
+                    <button class="btn ibexa-btn ibexa-btn--primary" type="submit">{{ 'product_type.pre_create.add'|trans|desc('Add') }}</button>
+                    <button class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--close" type="button">{{ 'product_type.pre_create.cancel'|trans|desc('Cancel') }}</button>
+                </div>
+            {{ form_end(create_form) }}
+        </div>
+    </div>
+</div>

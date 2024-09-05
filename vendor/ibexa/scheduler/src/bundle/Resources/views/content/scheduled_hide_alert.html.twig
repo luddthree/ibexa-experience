@@ -1,0 +1,26 @@
+{% trans_default_domain 'ibexa_scheduler' %}
+
+<div class="pb-4">
+    {% embed '@ibexadesign/ui/component/alert/alert.html.twig' with {
+        type: 'info',
+        title: 'content.scheduled_hide.message'
+            |trans({'%date%': scheduledDate|ibexa_full_datetime})
+            |desc("This Content item will be hidden and won't be publicly available after %date%"),
+        icon_path: ibexa_icon_path('hide'),
+        class: 'ibexa-alert--location-scheduled-hide',
+    } %}
+        {% trans_default_domain 'ibexa_scheduler' %}
+
+        {% block actions %}
+            <button class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--small ibexa-btn--schedule-hide-cancel">
+                {{ 'content.scheduled_hide.action.cancel'|trans()|desc('Cancel') }}
+            </button>
+
+            {{ form_start(form_date_based_hide_cancel, {'action': path('ibexa.scheduler.content.schedule.hide.cancel')}) }}
+                {{ form_widget(form_date_based_hide_cancel.location) }}
+                {{ form_widget(form_date_based_hide_cancel.versionInfo) }}
+            {{ form_end(form_date_based_hide_cancel) }}
+        {% endblock %}
+    {% endembed %}
+</div>
+{% include '@IbexaScheduler/content/modal/reveal_confirmation.html.twig' %}

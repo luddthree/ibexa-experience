@@ -1,0 +1,20 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block prices_completeness_task %}
+    {% set entry = task.getEntry(product) %}
+    {% set completeness = entry.completeness %}
+    {% set progress_value = completeness.getValue() %}
+    {% set progress_value_label = completeness.getValueAsFloat()|format_percent_number %}
+    {% set title = 'product.view.completeness.prices.title'|trans|desc('Prices') %}
+
+    {% embed '@ibexadesign/product_catalog/ui/component/completeness_task.html.twig' with {
+        title,
+        progress_value,
+        progress_value_label,
+        id: 'ibexa-prices-completeness-task',
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block edit_task_action %}{% endblock %}
+    {% endembed %}
+{% endblock %}

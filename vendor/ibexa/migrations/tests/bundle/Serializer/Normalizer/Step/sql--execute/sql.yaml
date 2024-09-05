@@ -1,0 +1,10 @@
+-
+    type: sql
+    mode: execute
+    query:
+        -
+            driver: mysql
+            sql: 'CREATE TABLE `test_migration_mysql` (`name` varchar(255) NOT NULL);'
+        -
+            driver: sqlite
+            sql: 'CREATE TABLE `test_migration_sqlite` (`name` varchar(255) NOT NULL);'

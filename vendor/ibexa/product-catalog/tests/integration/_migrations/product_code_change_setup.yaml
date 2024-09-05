@@ -1,0 +1,102 @@
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: code_integration_test
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:35:43+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: 'Product Code integration test'
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+                    description: ''
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings: { }
+            validatorConfiguration: { }
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: code_integration_test
+        mainTranslation: eng-GB
+        remoteId: 'CODE_CHANGE_AVAILABILITY_TEST'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'CODE_CHANGE_AVAILABILITY_TEST'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'CODE_CHANGE_AVAILABILITY_TEST'
+
+-   type: product_availability
+    mode: create
+    product_code: 'CODE_CHANGE_AVAILABILITY_TEST'
+    is_available: true
+    is_infinite: false
+    stock: 100
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: code_integration_test
+        mainTranslation: eng-GB
+        remoteId: 'CODE_CHANGE_PRICE_TEST'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'CODE_CHANGE_PRICE_TEST'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'CODE_CHANGE_PRICE_TEST'
+
+-   type: product_price
+    mode: create
+    product_code: 'CODE_CHANGE_PRICE_TEST'
+    currency_code: 'USD'
+    amount: 200
+

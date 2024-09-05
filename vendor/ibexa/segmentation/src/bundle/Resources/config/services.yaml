@@ -1,0 +1,21 @@
+imports:
+    - { resource: services/api.yaml }
+    - { resource: services/components.yaml }
+    - { resource: services/configuration.yaml }
+    - { resource: services/controllers.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/http_cache.yaml }
+    - { resource: services/limitations.yaml }
+    - { resource: services/load_segments_strategy.yaml }
+    - { resource: services/persistence.yaml }
+    - { resource: services/page_builder/form_type_mappers.yaml }
+    - { resource: services/rest.yaml }
+    - { resource: services/ui.yaml }
+    - { resource: services/migrations/*.yaml }
+    - { resource: services/validator.yaml }
+
+##
+## Keep this file empty.
+## For better organization put your services grouped in services/ directory.
+##

@@ -1,0 +1,62 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<li class="ibexa-personalization__item" draggable="true">
+    <div class="ibexa-personalization__item-drag">
+        <svg class="ibexa-icon ibexa-icon--tiny-small">
+            <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+        </svg>
+    </div>
+    <div class="ibexa-personalization__select-wrapper">
+        {% set source_option_template %}
+            <option
+                data-group-id="{{ '{{ group_id }}' }}"
+                data-group-name="{{ '{{ group_name }}' }}"
+                value="{{ '{{ value }}' }}"
+            >
+                {{ '{{ label }}' }}
+            </option>
+        {% endset %}
+        {% set dropdown_group_template %}
+            <li
+                class="ibexa-dropdown__item-group"
+                data-group-id="{{ group_id|default('{{ group_id }}') }}"
+                data-group-name="{{ group_name|default('{{ group_name }}') }}"
+            >
+                <label class="ibexa-dropdown__item-group-label">{{ group_name|default('{{ group_name }}') }}</label>
+                <ul class="ibexa-dropdown__item-group-list"></ul>
+            </li>
+        {% endset %}
+
+        {% set dropdown_types = ['segment', 'scenario', 'output-type'] %}
+        {% for dropdown_type in dropdown_types %}
+            {% set source %}
+                <select
+                    class="ibexa-input ibexa-input--select form-control ibexa-dropdown__source d-none
+                        ibexa-personalization__select ibexa-personalization__select--{{ dropdown_type }}"
+                    data-option-template="{{ source_option_template|e('html_attr') }}"
+                    data-dropdown-group-template="{{ dropdown_group_template|e('html_attr') }}"
+                ></select>
+            {% endset %}
+
+            <div class="form-group ibexa-personalization__select-group ibexa-personalization__select-group--{{ dropdown_type }}">
+                {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                    source,
+                    choices: [],
+                    is_dynamic: true,
+                    class: 'ibexa-dropdown--small ibexa-dropdown--' ~ dropdown_type,
+                } only %}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="ibexa-personalization__item-actions">
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-btn--trash"
+            title="{{ 'delete'|trans|desc('Delete') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    </div>
+</li>

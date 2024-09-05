@@ -1,0 +1,102 @@
+ibexa_fieldtype_richtext:
+    custom_tags:
+        qualifio:
+            template: '@ibexadesign/field_type/ezrichtext/custom_tags/qualifio.html.twig'
+            icon: '/bundles/ibexaicons/img/all-icons.svg#campaign'
+            attributes:
+                campaign:
+                    type: number
+                    required: true
+                width:
+                    type: string
+                    required: false
+                    default_value: '100%'
+                height:
+                    type: string
+                    required: false
+                    default_value: '400'
+
+ibexa_fieldtype_page:
+    blocks:
+        qualifio:
+            name: 'Campaign'
+            views:
+                default:
+                    template: '@ibexadesign/blocks/qualifio/default.html.twig'
+                    name: 'Default'
+            category: 'Engage'
+            configuration_template: '@ibexadesign/qualifio/page_builder/block/engage.html.twig'
+            thumbnail: '/bundles/ibexaicons/img/all-icons.svg#campaign'
+            attributes:
+                campaign:
+                    type: qualifiochannellist
+                    name: Campaign
+                    validators:
+                        not_blank:
+                            message: Please select a Campaign
+                width:
+                    type: string
+                    category: 'design'
+                    name: Width
+                    value: ''
+                    options:
+                        required: false
+                height:
+                    type: string
+                    category: 'design'
+                    name: Height
+                    value: ''
+                    options:
+                        required: false
+ibexa:
+    system:
+        admin_group:
+            fieldtypes:
+                ezrichtext:
+                    custom_tags: [qualifio]
+                    toolbar:
+                        custom_tags_group:
+                            buttons:
+                                qualifio:
+                                    priority: 10
+
+ibexa_connector_qualifio:
+    feed_url: 'https://api.qualif.io/v1/campaignfeed/channels'
+    variable_map:
+        form:
+            shipping_address:
+                first_name: 'firstname'
+                last_name: 'lastname'
+                email: 'email'
+                street: 'address'
+                postal_code: 'zip_code'
+                locality: 'locality'
+                country: 'country'
+                phone_number: 'phone'
+            billing_address:
+                first_name: 'firstname'
+                last_name: 'lastname'
+                email: 'email'
+                street: 'address'
+                postal_code: 'zip_code'
+                locality: 'locality'
+                country: 'country'
+                phone_number: 'phone'
+            content:
+                birthday: 'birthday'
+                first_name: 'firstname'
+                last_name: 'lastname'
+                company: 'company'
+                position: 'position'
+                phone: 'phone'
+                gender: 'gender'
+            account:
+                name: 'name'
+                email: 'email'
+                id: 'userid'
+                remote_id: 'identifier'
+                login: 'login'
+
+twig:
+    form_themes:
+        - '@IbexaConnectorQualifio/themes/admin/qualifio/form_fields.html.twig'

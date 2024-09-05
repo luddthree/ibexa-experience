@@ -1,0 +1,3 @@
+{% for location in locations %}
+    {{ ibexa_content_name(location.contentInfo) }}{% if not loop.last  %} /{% endif %}
+{% endfor %}

@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    test.migrations.Ibexa\Migration\Gateway\MigrationMetadata\SchemaProvider:
+        class: Ibexa\Migration\Gateway\MigrationMetadata\SchemaProvider
+        parent: Ibexa\Migration\Gateway\MigrationMetadata\SchemaProvider
+        arguments:
+            $tableName: 'test_ibexa_migrations'
+            $nameColumn: 'test_name'
+            $executedAtColumn: 'test_executed_at'
+            $executionTimeColumn: 'test_execution_time'
+
+    test.migrations.Ibexa\Migration\Gateway\MigrationMetadata\DoctrineGateway:
+        class: Ibexa\Migration\Gateway\MigrationMetadata\DoctrineGateway
+        parent: Ibexa\Migration\Gateway\MigrationMetadata\DoctrineGateway
+        arguments:
+            $schemaProvider: '@test.migrations.Ibexa\Migration\Gateway\MigrationMetadata\SchemaProvider'
+
+    test.migrations.Ibexa\Migration\Metadata\Storage\MetadataStorage:
+        class: Ibexa\Migration\Metadata\Storage\MetadataStorage
+        parent: Ibexa\Migration\Metadata\Storage\MetadataStorage
+        public: true
+        arguments:
+            $gateway: '@test.migrations.Ibexa\Migration\Gateway\MigrationMetadata\DoctrineGateway'

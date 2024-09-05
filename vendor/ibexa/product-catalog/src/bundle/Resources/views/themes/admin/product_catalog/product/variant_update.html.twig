@@ -1,0 +1,40 @@
+{% extends "@ibexadesign/product_catalog/product/variant_form.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set variant_create_menu = knp_menu_get('ibexa_product_catalog.menu.product_variant_edit_context_menu', [], {
+        'submit_selector': '#product-variant-update-save',
+        'cancel_route': 'ibexa.product_catalog.product.view',
+        'cancel_route_params': {
+            'productCode': variant.code,
+        }
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'product_variant.edit.action_name'|trans|desc('Updating product variant'),
+        icon_name: 'file',
+        title: variant.getName(),
+        context_actions: knp_menu_render(variant_create_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block left_sidebar %}
+    {% set anchor_params = {
+        items: [
+            anchor_navigation_item_basic_information_label,
+            anchor_navigation_item_attributes_label
+        ]
+    } %}
+
+    {% include '@ibexadesign/ui/anchor_navigation_menu.html.twig' with anchor_params %}
+{% endblock %}
+
+{% block form_submit %}
+    <button
+        id="product-variant-update-save"
+        class="ibexa-pc-edit__submit-btn"
+        type="submit"
+        hidden
+    ></button>
+{% endblock %}

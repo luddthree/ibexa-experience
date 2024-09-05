@@ -1,0 +1,8 @@
+parameters:
+    ibexa.site_access.config.default.image_asset_view: {}
+    ibexa.site_access.config.default.content.dam: []
+    ibexa.site_access.config.default.image_asset_view_defaults:
+        full:
+            default:
+                template: '@@ibexadesign/ui/field_type/image_asset_view.html.twig'
+                match: []

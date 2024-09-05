@@ -1,0 +1,6 @@
+Ibexa\Migration\Generator\Reference\ReferenceDefinition:
+  attributes:
+    name:
+      groups: [ 'migration' ]
+    type:
+      groups: [ 'migration' ]

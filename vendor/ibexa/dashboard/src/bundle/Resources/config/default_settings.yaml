@@ -1,0 +1,22 @@
+parameters:
+    ibexa.site_access.config.default.dashboard.container_remote_id: dashboard_container
+    ibexa.site_access.config.default.dashboard.default_dashboard_remote_id: default_dashboard
+    ibexa.site_access.config.default.dashboard.users_container_remote_id: user_dashboards
+    ibexa.site_access.config.default.dashboard.predefined_container_remote_id: predefined_dashboards
+    ibexa.site_access.config.default.dashboard.section_identifier: dashboard
+    ibexa.site_access.config.default.dashboard.content_type_identifier: dashboard_landing_page
+    ibexa.site_access.config.default.dashboard.content_type_group_identifier: Dashboard
+    ibexa.site_access.config.default.dashboard.container_content_type_identifier: folder
+    ibexa.dashboard.ibexa_news.limit: 7
+    ibexa.dashboard.ibexa_news.url: 'https://www.ibexa.co/rss/feed/my_feed?tag=62'
+    ibexa.chart.color_palette:
+        - '#FCAE42'
+        - '#47BEDB'
+        - '#F18A6B'
+        - '#004D5D'
+        - '#DB0032'
+        - '#131C26'
+        - '#FF4713'
+        - '#AE1164'
+    ibexa.site_access.config.default.content_type_group.dashboard:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#dashboard-type'

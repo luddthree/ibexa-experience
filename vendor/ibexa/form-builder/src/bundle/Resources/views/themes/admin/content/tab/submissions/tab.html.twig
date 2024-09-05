@@ -1,0 +1,98 @@
+{% trans_default_domain 'ibexa_submissions' %}
+{% import _self as tab %}
+
+{% form_theme form_content_submission_remove '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% set current_language = app.request.get('languageCode', content.prioritizedFieldLanguageCode) ?: content.contentInfo.mainLanguageCode %}
+{% if languages|length > 1  %}
+    <form class="form-inline justify-content-end mb-4">
+        <select class="form-control ibexa-location-language-change">
+            {% for language in languages %}
+                <option value="{{ path('ibexa.content.translation.view', {
+                    'contentId': location.contentId,
+                    'locationId': location.id,
+                    'languageCode': language.languageCode,
+                    '_fragment': constant('Ibexa\\FormBuilder\\Tab\\LocationView\\SubmissionsTab::URI_FRAGMENT'),
+                }) }}"
+                    {% if current_language == language.languageCode %} selected="selected" {% endif %}
+                >{{ language.name }}</option>
+            {% endfor %}
+        </select>
+    </form>
+{% endif %}
+
+{{ form_start(form_content_submission_remove, {
+    'action': path('ibexa.submission.remove'),
+    'attr': { 'class': 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#delete-submissions-' ~ form_content_submission_remove.remove.vars.id }
+}) }}
+
+{% set currentPageHasResults = submissions_pager.currentPageResults.totalCount > 0 %}
+
+{% set header = {
+    headline: 'tab.submissions.submissions'
+        |trans({'%count%': submissions_pager.nbResults})
+        |desc('Submissions (%count%)'),
+    actions: tab.table_header_tools(form_content_submission_remove, content, current_language, currentPageHasResults),
+} %}
+
+{% include '@ibexadesign/ui/component/table/table_header.html.twig' with header only %}
+
+{{ include('@ibexadesign/content/tab/submissions/table.html.twig', {
+        'submissions_pager': submissions_pager,
+}) }}
+
+{{  include('@ibexadesign/content/tab/submissions/modal_submission_details.html.twig', {'content': content}) }}
+
+{{ form_end(form_content_submission_remove) }}
+
+{% if submissions_pager.haveToPaginate %}
+    {{  include('@ibexadesign/ui/pagination.html.twig', {
+            'pager': submissions_pager,
+            'paginaton_params': {
+                'routeName': submissions_pagination_params.route_name,
+                'routeParams': submissions_pagination_params.route_params|merge({
+                    '_fragment': constant('Ibexa\\FormBuilder\\Tab\\LocationView\\SubmissionsTab::URI_FRAGMENT'),
+                }),
+                'pageParameter': '[page][submission]'
+            }
+    }) }}
+{% endif %}
+
+{% macro table_header_tools(form_remove, content, current_language, currentPageHasResults) %}
+    <a
+        title="{{ 'tab.submissions.download'|trans|desc('Download submissions') }}"
+        href="{{ path('ibexa.submission.download', {'contentId': content.id, 'languageCode': current_language}) }}"
+        download
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text {% if not currentPageHasResults %}disabled{% endif %} ">
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('download') }}"></use>
+        </svg>
+    </a>
+
+    {% set modal_data_target = 'delete-submission-modal' %}
+    <button
+        id="delete-submissions-submission_remove_remove"
+        type="button"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+        disabled
+        data-bs-toggle="modal"
+        data-bs-target="#{{ modal_data_target }}"
+        title="{{ 'tab.submissions.action.delete'|trans|desc('Delete submission') }}">
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+        </svg>
+    </button>
+    {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+        'id': modal_data_target,
+        'message': 'tab.submissions.modal.message'|trans|desc('Do you want to delete the submission(s)?'),
+        'data_click': '#' ~ form_remove.remove.vars.id,
+    }%}
+{% endmacro %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-form-builder-submissions-tab-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-form-builder-submissions-tab-css', null, 'ibexa') }}
+{% endblock %}

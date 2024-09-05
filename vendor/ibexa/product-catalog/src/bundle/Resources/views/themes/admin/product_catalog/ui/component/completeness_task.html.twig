@@ -1,0 +1,110 @@
+{% import '@ibexadesign/ui/component/macros.html.twig' as html %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set progress_value = progress_value|round %}
+{% set subtasks_groups = task.getSubtaskGroups(product) %}
+
+<div class="
+    ibexa-collapse ibexa-pc-completeness-task
+    {{ progress_value == 0 ? ' ibexa-pc-completeness-task--not-started' }}
+    {{ progress_value == 100 ? ' ibexa-pc-completeness-task--completed' }}
+">
+    <div class="ibexa-pc-completeness-task__header">
+        <div class="ibexa-pc-completeness-task__header-top-row">
+            <div class="ibexa-pc-completeness-task__header-label">
+                <div class="ibexa-pc-completeness-task__header-title">{{ title|default('') }}</div>
+                <div class="ibexa-pc-completeness-task__header-progress-tasks-counter">
+                    {% block progress_tasks_counter %}
+                        {% if subtasks_groups %}
+                            {% set all_tasks_count = subtasks_groups|reduce((acc, subtask_group) => acc + subtask_group.tasks|length) %}
+                            {% set incomplete_tasks_count = subtasks_groups|reduce((acc, subtask_group) => acc + subtask_group.incompleteTasks|length) %}
+                            {% set compledted_tasks_count = all_tasks_count - incomplete_tasks_count %}
+
+                            ({{ compledted_tasks_count}}/{{ all_tasks_count }})
+                        {% endif %}
+                    {% endblock %}
+                </div>
+                <span class="ibexa-pc-completeness-task__header-status">
+                    {% if progress_value == 0 %}
+                        {{ 'product.view.collaspe.status.not_started'|trans|desc('Not started') }}
+                    {% endif %}
+
+                    {% if progress_value == 100 %}
+                        {{ 'product.view.collaspe.status.completed'|trans|desc('Completed 100%') }}
+                    {% endif %}
+                </span>
+            </div>
+            <div class="ibexa-pc-completeness-task__actions">
+                {% block edit_task_action %}
+                    {% if not task.getEntry(product).isComplete() %}
+                        {% set languageCode = language is not null ? language.languageCode : null %}
+                        <a
+                            href="{{ edit_task_link is defined ? edit_task_link : path('ibexa.product_catalog.product.edit', { productCode: product.code, languageCode: languageCode }) }}"
+                            class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+                                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                {% endblock %}
+
+                <button
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#{{ id }}"
+                    aria-expanded="true"
+                    class="btn ibexa-btn ibexa-btn--small ibexa-btn--no-text ibexa-collapse__toggle-btn ibexa-pc-completeness-task__toggle-btn"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--toggle-status-icon">
+                        <use xlink:href="{{ ibexa_icon_path('caret-down') }}"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="ibexa-pc-completeness-task__header-bottom-row">
+            {% include '@ibexadesign/product_catalog/ui/component/progress_bar.html.twig' with {
+                progress_value,
+                is_collapsed_task: true,
+            } only %}
+        </div>
+    </div>
+    <div class="ibexa-pc-completeness-task__body collapse show" id="{{ id }}">
+        <div class="ibexa-pc-completeness-task__body-progress-wrapper">
+            {% include '@ibexadesign/product_catalog/ui/component/progress_bar.html.twig' with {
+                progress_value,
+                progress_bar_label: progress_value_label,
+                is_task: true,
+            } only %}
+        </div>
+
+        <div class="ibexa-pc-completeness-task__body-tasks-wrapper">
+            {% block body_subtasks %}
+                {% for subtasks_group in subtasks_groups %}
+                    {% set subtasks_group_length = subtasks_group|length %}
+                    {% set subtasks_group_completeness = subtasks_group.getCompleteness() %}
+                    {% set subtask_group_label = subtasks_group.getName() %}
+
+                    {% if subtasks_groups|length > 1 %}
+                        {% include '@ibexadesign/product_catalog/ui/component/completeness_subtask_group.html.twig' with {
+                            subtasks_group,
+                            subtask_group_label,
+                            subtask_group_progress_value: subtasks_group_completeness.getValue(),
+                        }%}
+                    {% else %}
+                        {% for subtask in subtasks_group.getTasks() %}
+                            {% set completeness = subtask.getEntry(product).completeness %}
+
+                            {% include '@ibexadesign/product_catalog/ui/component/completeness_subtask.html.twig' with {
+                                subtask_label: subtask.getName(),
+                                subtask_progress_value: completeness.getValue(),
+                                edit_url: subtask.editUrl(product)
+                            }%}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{% extends "@IbexaCore/content_fields.html.twig" %}
+
+{% block ezform_field %}
+    {% set formValue = field.value.getForm() %}
+    {% if formValue %}
+        {% set form = formValue.createView() %}
+
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+        {% apply spaceless %}
+            {% if not ibexa_field_is_empty(content, field) %}
+                {{ form(form) }}
+            {% endif %}
+        {% endapply %}
+    {% endif %}
+{% endblock %}

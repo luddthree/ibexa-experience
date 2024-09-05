@@ -1,0 +1,89 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Form\Mapper\ValidatorConstraintMapperRegistry:
+        arguments:
+            $mappers: !tagged ibexa.form_builder.field.constraint.validator.mapper
+
+    Ibexa\FormBuilder\Form\Mapper\FieldValidator\BooleanFieldValidatorConstraintMapper:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\BooleanFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\Required
+            $typeIdentifier: 'required'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.min_length:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\IntegerFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\MinLength
+            $typeIdentifier: 'min_length'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.max_length:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\IntegerFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\MaxLength
+            $typeIdentifier: 'max_length'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.min_value:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\FloatFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\MinValue
+            $typeIdentifier: 'min_value'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.max_value:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\FloatFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\MaxValue
+            $typeIdentifier: 'max_value'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.upload_size:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\IntegerFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\UploadSize
+            $typeIdentifier: 'upload_size'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.extensions:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\Extensions
+            $typeIdentifier: 'extensions'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.min_choices:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\IntegerFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\MinChoices
+            $typeIdentifier: 'min_choices'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.max_choices:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\IntegerFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\MaxChoices
+            $typeIdentifier: 'max_choices'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }
+
+    ibexa.form_builder.validator_constraint_mapper.regex:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorConstraintMapper
+        arguments:
+            $constraintClass: Ibexa\FormBuilder\Form\Validator\Constraints\Regex
+            $typeIdentifier: 'regex'
+        tags:
+            - { name: ibexa.form_builder.field.constraint.validator.mapper }

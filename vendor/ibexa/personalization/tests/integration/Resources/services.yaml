@@ -1,0 +1,15 @@
+services:
+    ibexa.personalization.http_client:
+        class: GuzzleHttp\Client
+        arguments:
+            $config:
+                handler: '@ibexa.personalization.http_client_handler.test'
+
+    ibexa.personalization.http_client_handler.test:
+        class: GuzzleHttp\HandlerStack
+        factory: 'GuzzleHttp\HandlerStack::create'
+        arguments:
+            $handler: '@ibexa.personalization.http_client_handler_mock.test'
+
+    ibexa.personalization.http_client_handler_mock.test:
+        class: GuzzleHttp\Handler\MockHandler

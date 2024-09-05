@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Installer\ProductCatalogProvisioner:
+        tags:
+            -   name: ibexa.installer.provisioner.headless
+                priority: 60
+            -   name: ibexa.installer.provisioner.experience
+                priority: 60
+            -   name: ibexa.installer.provisioner.commerce
+                priority: 60

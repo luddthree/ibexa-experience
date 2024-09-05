@@ -1,0 +1,67 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Ibexa\Contracts\Seo\Renderer\Tag\TagRendererInterface:
+            tags:
+                - { name: ibexa.seo.tag_renderer }
+
+    Ibexa\Contracts\Seo\Renderer\TagRendererRegistryInterface: '@Ibexa\Seo\Renderer\TagRendererRegistry'
+
+    Ibexa\Seo\Renderer\TagRendererRegistry:
+        arguments:
+            $renderers: !tagged_iterator ibexa.seo.tag_renderer
+
+    Ibexa\Seo\Renderer\Tag\MetaTags\Title: ~
+
+    ibexa.seo.renderer.meta_tags.description:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'meta_tags'
+            $field: 'description'
+            $propertyName: 'name'
+
+    ibexa.seo.renderer.meta_tags.keywords:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'meta_tags'
+            $field: 'keywords'
+            $propertyName: 'name'
+
+    ibexa.seo.renderer.meta_tags.canonical:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'meta_tags'
+            $field: 'canonical'
+            $propertyName: 'name'
+
+    ibexa.seo.renderer.og.title:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'open_graph'
+            $field: 'og_title'
+            $propertyName: 'property'
+
+    ibexa.seo.renderer.og.description:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'open_graph'
+            $field: 'og_description'
+            $propertyName: 'property'
+
+    ibexa.seo.renderer.twitter.title:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'twitter'
+            $field: 'twitter_title'
+            $propertyName: 'name'
+
+    ibexa.seo.renderer.twitter.description:
+        class: Ibexa\Seo\Renderer\Tag\DynamicType
+        arguments:
+            $type: 'twitter'
+            $field: 'twitter_description'
+            $propertyName: 'name'

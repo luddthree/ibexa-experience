@@ -1,0 +1,91 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 2
+			path: src/bundle/DependencyInjection/IbexaTaxonomyExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Taxonomy\\\\Event\\\\BeforeCreateTaxonomyEntryEvent\\:\\:getTaxonomyEntry\\(\\) should return Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry but returns Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/BeforeCreateTaxonomyEntryEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Taxonomy\\\\Event\\\\BeforeUpdateTaxonomyEntryEvent\\:\\:getUpdatedTaxonomyEntry\\(\\) should return Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry but returns Ibexa\\\\Contracts\\\\Taxonomy\\\\Value\\\\TaxonomyEntry\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/BeforeUpdateTaxonomyEntryEvent.php
+
+		-
+			message: "#^Cannot access offset 'taxonomy_entry' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/TaxonomyEntry/Converter.php
+
+		-
+			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/TaxonomyEntry/Type.php
+
+		-
+			message: "#^Cannot access offset 'taxonomy' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 2
+			path: src/lib/FieldType/TaxonomyEntryAssignment/Storage.php
+
+		-
+			message: "#^Return type \\(Ibexa\\\\Contracts\\\\Core\\\\Search\\\\Field\\|null\\) of method Ibexa\\\\Taxonomy\\\\FieldType\\\\TaxonomyEntryAssignment\\\\Storage\\:\\:getIndexData\\(\\) should be compatible with return type \\(array\\<Ibexa\\\\Contracts\\\\Core\\\\Search\\\\Field\\>\\) of method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\FieldStorage\\:\\:getIndexData\\(\\)$#"
+			count: 1
+			path: src/lib/FieldType/TaxonomyEntryAssignment/Storage.php
+
+		-
+			message: "#^Offset 'value' does not exist on Symfony\\\\Component\\\\Form\\\\FormView\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Type/Extension/TaxonomyEntryContentEditTypeExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Taxonomy\\\\GraphQL\\\\Resolver\\\\TaxonomyEntryResolver\\:\\:resolveChildrenByParentId\\(\\) should return Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection but returns GraphQL\\\\Executor\\\\Promise\\\\Promise\\|Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/TaxonomyEntryResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\Taxonomy\\\\GraphQL\\\\Resolver\\\\TaxonomyEntryResolver\\:\\:resolveTaxonomyEntries\\(\\) should return Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection but returns GraphQL\\\\Executor\\\\Promise\\\\Promise\\|Overblog\\\\GraphQLBundle\\\\Relay\\\\Connection\\\\Output\\\\Connection\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/TaxonomyEntryResolver.php
+
+		-
+			message: "#^Parameter \\#2 \\$content of class Ibexa\\\\Migration\\\\Repository\\\\Migration constructor expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/lib/Installer/TaxonomyProvisioner.php
+
+		-
+			message: "#^Access to protected property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\LookupLimitationResult\\:\\:\\$hasAccess\\.$#"
+			count: 1
+			path: src/lib/Menu/ContentContextMenuBuilder.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 3
+			path: src/lib/Repository/Content/ContentSynchronizer.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 1
+			path: src/lib/Service/TaxonomyConfiguration.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Ibexa\\\\Taxonomy\\\\Persistence\\\\Entity\\\\TaxonomyEntry\\:\\:setName\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/TaxonomyService.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_column expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\> given\\.$#"
+			count: 1
+			path: src/lib/UI/Tab/AssignedContentTab.php
+
+		-
+			message: "#^Parameter \\#2 \\$values of function array_combine expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\> given\\.$#"
+			count: 1
+			path: src/lib/UI/Tab/AssignedContentTab.php
+
+		-
+			message: "#^Cannot call method fetchFirstColumn\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 1
+			path: tests/integration/PHPUnit/PHPUnitSearchExtension.php

@@ -1,0 +1,37 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Dashboard\Block\ReviewQueueBlock:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $supportStrategy: '@Ibexa\Workflow\SupportStrategy\MatcherSupportStrategy'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'dashboard-blocks', priority: 100 }
+
+    Ibexa\Workflow\Tab\MyDraftsUnderReviewTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractEventDispatchingTab
+        public: false
+        autowire: true
+        autoconfigure: false
+        arguments:
+            $supportStrategy: '@Ibexa\Workflow\SupportStrategy\MatcherSupportStrategy'
+        tags:
+            - { name: ibexa.admin_ui.tab, group: dashboard-my }
+
+    Ibexa\Workflow\Component\WorkflowTimelineComponent:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        public: false
+        autowire: true
+        autoconfigure: false
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-edit-form-before' }
+
+    Ibexa\Workflow\Component\WorkflowVersionLockComponent:
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-edit-form-before' }

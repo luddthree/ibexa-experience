@@ -1,0 +1,131 @@
+{% extends "@ibexadesign/corporate_account/layout.html.twig" %}
+
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% form_theme search_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block main_container_class %} ibexa-ca-individual-list{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'members'|trans|desc('Customers') },
+        { value: 'individual.list.breadcrumbs'|trans|desc('Clients') },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'individual.list.title'|trans|desc('Clients'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% set data = [] %}
+
+    <div class="ibexa-container">
+        {% do search_form.customer_group.setRendered() %}
+        {% do search_form.status.setRendered() %}
+
+        {% embed '@ibexadesign/ui/component/adaptive_filters/adaptive_filters.html.twig' with {
+            form: search_form,
+            is_inside_container: true,
+            no_labels: true,
+            no_collapsible_items: true,
+        } only %}
+            {% trans_default_domain 'ibexa_corporate_account' %}
+
+            {% block actions %}{% endblock %}
+            {% block static_left_input %}
+                {{ form_widget(form.query, {
+                    attr: {
+                        class: 'ibexa-ca-individual-list__individual-name',
+                        placeholder: 'individual.list.search.placeholder'|trans|desc('Search by name'),
+                    },
+                    has_search: true,
+                }) }}
+            {% endblock %}
+        {% endembed %}
+
+        {% set body_rows = [] %}
+        {% for row in individuals %}
+            {% set user = row.user %}
+
+            {% set col_name %}
+                {% include '@ibexadesign/ui/component/user/user.html.twig' with { 
+                    user: user, 
+                    user_path: path('ibexa.content.view', { 'contentId': user.id }) 
+                } only %}
+            {% endset %}
+
+            {% set col_status %}
+                {% if row.user.enabled %}
+                    <span class="badge ibexa-badge ibexa-badge--info ibexa-badge--small">
+                        {{ 'individual.list.table.status.active.label'|trans|desc('Active') }}
+                    </span>
+                {% else %}
+                    <span class="badge ibexa-badge ibexa-badge--secondary ibexa-badge--small">
+                        {{ 'individual.list.table.status.deactivated.label'|trans|desc('De-activated') }}
+                    </span>
+                {% endif %}
+            {% endset %}
+
+            {% set col_action_btns %}
+                <a
+                    href="{{ path('ibexa.user.update', {
+                        contentId: user.versionInfo.contentInfo.id,
+                        versionNo: user.versionInfo.versionNo,
+                        language: user.versionInfo.initialLanguageCode
+                    }) }}"
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                    title="{{ 'individual.list.edit.title'|trans|desc('Edit') }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                    </svg>
+                </a>
+            {% endset %}
+
+            {% set col_customer_grup %}
+                {% if row.hasCustomerGroup() %}
+                    {{ row.getCustomerGroup().getName() }}
+                {% else %}
+                    -
+                {% endif %}
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{ cols: [
+                { content: col_name },
+                { content: col_customer_grup },
+                { content: col_status },
+                { has_action_btns: true, content: col_action_btns },
+            ] }]) %}
+        {% endfor %}
+
+        {% set search_query = search_form.vars.value.getQuery() ?? null %}
+        {% set customer_group = search_form.vars.value.getCustomerGroup() ?? null %}
+        {% set status = search_form.vars.value.getStatus() ?? null %}
+        {% set has_filters = search_query or customer_group or status is not null %}
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: custom_results_headline ?? results_headline(pagination.getNbResults(), has_filters, search_query),
+            head_cols: [
+                { content: 'individual.list.table.name'|trans|desc('Name') },
+                { content: 'individual.list.table.customer_group'|trans|desc('Customer Group') },
+                { content: 'individual.list.table.sales_rep'|trans|desc('Status') },
+                { },
+            ],
+            body_rows,
+            empty_table_info_text: 'individual.list.table.empty'|trans|desc('Clients list is empty'),
+            empty_table_action_text: '',
+        } %}
+
+        {% if pagination.haveToPaginate %}
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                pager: pagination,
+                paginaton_params: pager_options,
+            } %}
+        {% endif %}
+    </div>
+{% endblock %}

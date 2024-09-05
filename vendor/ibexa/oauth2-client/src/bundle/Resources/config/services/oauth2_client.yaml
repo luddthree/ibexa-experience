@@ -1,0 +1,22 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\OAuth2Client\Config\OAuth2Configuration: ~
+
+  Ibexa\OAuth2Client\Config\OAuth2ConfigurationInterface:
+    alias: 'Ibexa\OAuth2Client\Config\OAuth2Configuration'
+
+  Ibexa\OAuth2Client\Client\ClientRegistry: ~
+
+  Ibexa\Contracts\OAuth2Client\Client\ClientRegistry:
+    alias: 'Ibexa\OAuth2Client\Client\ClientRegistry'
+
+  Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerMapperRegistry:
+    arguments:
+      $mappers: !tagged_iterator { tag: ibexa.oauth2_client.resource_owner_mapper, index_by: identifier }
+
+  Ibexa\Contracts\OAuth2Client\ResourceOwner\ResourceOwnerMapperRegistry:
+    alias: 'Ibexa\OAuth2Client\ResourceOwner\ResourceOwnerMapperRegistry'

@@ -1,0 +1,29 @@
+{% trans_default_domain 'ibexa_scenario' %}
+
+{% if standardFilterSet.excludeContextItems %}
+    <p>{{ 'ibexa_personalization.scenario.no_context_items'|trans|desc('No context items') }}</p>
+{% endif %}
+
+{% if standardFilterSet.excludeTopSellingResults %}
+    <p>{{ 'ibexa_personalization.scenario.no_top_selling_items'|trans|desc('No top-selling items') }}</p>
+{% endif %}
+
+{% if standardFilterSet.excludeCheaperItems %}
+    <p>{{ 'ibexa_personalization.scenario.item_price_should_equal_or_higher_than_the_price_of_the_context_item'|trans|desc('Item price should equal or higher than the price of the context item') }}</p>
+{% endif %}
+
+{% if standardFilterSet.minimalItemPrice > 0 %}
+    <p>{{ 'ibexa_personalization.scenario.minimum_price_of_the_recommended_product'|trans({ '%number%': standardFilterSet.minimalItemPrice })|desc('<strong>%number%</strong> Minimum price of the recommended product')|raw }}</p>
+{% endif %}
+
+{% if standardFilterSet.excludeItemsWithoutPrice %}
+    <p>{{ 'ibexa_personalization.scenario.do_not_recommend_if_price_unknown'|trans|desc('Do not recommend if price unknown') }}</p>
+{% endif %}
+
+{% if excludeAlreadyPurchased %}
+    <p>{{ 'ibexa_personalization.scenario.do_not_recommend_items_the_user_already_purchased'|trans|desc('Do not recommend items the user already purchased') }}</p>
+{% endif %}
+
+{% if standardFilterSet.excludeVariants %}
+    <p>{{ 'ibexa_personalization.scenario.commerce_settings.do_not_recommend_product_variants'|trans|desc('Do not recommend product variants (only base products will be recommended)') }}</p>
+{% endif %}

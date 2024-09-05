@@ -1,0 +1,67 @@
+-
+    type: content_type
+    mode: create
+    content_type_group: 'Content'
+    identifier: '__IDENTIFIER__'
+    name: '__NAME__'
+    description: '__DESCRIPTION__'
+    name_pattern: '<name>'
+    url_name_pattern: '__URL_ALIAS_SCHEMA__'
+    is_container: false
+    section: 'standard'
+    lang: eng-GB
+    attributes:
+        -
+            identifier: name
+            type: ezstring
+            name: Title
+            required: true
+        -
+            identifier: date
+            type: ezdate
+            name: Date
+            required: true
+            default-value: 1610551700
+        -
+            identifier: image
+            type: ezimage
+            name: 'Thumbnail Image'
+            description: 'Image size 920x690'
+            required: true
+            searchable: false
+            disable-translation: false
+        -
+            identifier: provider
+            type: ezselection
+            name: 'Video Provider'
+            description: 'Select an video provider'
+            required: true
+            searchable: false
+            field-settings:
+                options:
+                    - Youtube
+                    - 'Moving Image'
+        -
+            identifier: video-options
+            type: ezselection
+            name: 'Video Options'
+            description: 'Select one'
+            required: true
+            searchable: false
+            field-settings:
+                isMultiple: true
+                options:
+                    - auto-show
+                    - auto-play
+                    - auto-mute
+        -
+            identifier: size_calculator_link
+            type: ezstring
+            name:
+                eng-GB: 'Link'
+            required: false
+            searchable: true
+            info-collector: false
+            disable-translation: false
+            category: content
+            default-value: 'https://link.com/'

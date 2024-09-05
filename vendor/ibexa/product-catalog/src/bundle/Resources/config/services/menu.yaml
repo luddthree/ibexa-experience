@@ -1,0 +1,245 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.product_catalog.ui.menu.attribute_definition_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'attribute_definition_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.attribute_definition_create_context_menu
+
+    ibexa.product_catalog.ui.menu.attribute_definition_update_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'attribute_definition_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.attribute_definition_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.attribute_group_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'attribute_group_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.attribute_group_create_context_menu
+
+    ibexa.product_catalog.ui.menu.attribute_group_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'attribute_group_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.attribute_group_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.currency_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'currency_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.currency_create_context_menu
+
+    ibexa.product_catalog.ui.menu.currency_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'currency_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.currency_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.customer_group_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'customer_group_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.customer_group_create_context_menu
+
+    ibexa.product_catalog.ui.menu.customer_group_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'customer_group_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.customer_group_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.customer_group_view_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CustomerGroupViewContextMenuBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.customer_group_view_context_menu
+
+    ibexa.product_catalog.ui.menu.product_price_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_price_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_price_create_context_menu
+
+    ibexa.product_catalog.ui.menu.product_price_update_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_price_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_price_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.product_availability_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_availability_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_availability_create_context_menu
+
+    ibexa.product_catalog.ui.menu.product_availability_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_availability_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_availability_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.product_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_create_context_menu
+
+    ibexa.product_catalog.ui.menu.product_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.product_variant_generate_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_variant_generate'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_variant_generate_context_menu
+
+    ibexa.product_catalog.ui.menu.product_variant_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_variant_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_variant_create_context_menu
+
+    ibexa.product_catalog.ui.menu.product_variant_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'product_variant_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_variant_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.attribute_definition_view_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\AttributeDefinitionViewContextMenuBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.attribute_definition_view_context_menu
+
+    ibexa.product_catalog.ui.menu.product_view_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\ProductViewContextMenuBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_view_context_menu
+
+    ibexa.product_catalog.ui.menu.product_type_view_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\ProductTypeViewContextMenuBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.product_type_view_context_menu
+
+    ibexa.product_catalog.ui.menu.catalog_create_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CreateFormContextMenuBuilder
+        arguments:
+            $formName: 'catalog_create'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.catalog_create_context_menu
+
+    ibexa.product_catalog.ui.menu.catalog_edit_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\UpdateFormContextMenuBuilder
+        arguments:
+            $formName: 'catalog_update'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.catalog_edit_context_menu
+
+    ibexa.product_catalog.ui.menu.catalog_view_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CatalogViewContextMenuBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.catalog_view_context_menu
+
+    ibexa.product_catalog.ui.menu.catalog_copy_context_menu:
+        class: Ibexa\Bundle\ProductCatalog\Menu\CopyFormContextMenuBuilder
+        arguments:
+            $formName: 'catalog_copy'
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_product_catalog.menu.catalog_copy_context_menu

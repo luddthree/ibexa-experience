@@ -1,0 +1,81 @@
+types:
+    length:
+        meter: { symbol: m, is_base_unit: true }
+        centimeter: { symbol: cm }
+        millimeter: { symbol: mm }
+        foot: { symbol: ft }
+        inch: { symbol: in }
+        yard: { symbol: yd }
+    area:
+        acre: { symbol: ac }
+        hectare: { symbol: ha }
+        square foot: { symbol: sq ft }
+        square inch: { symbol: sq in }
+        square meter: { symbol: sq m, is_base_unit: true }
+        square mile: { symbol: sq mi }
+        square yard: { symbol: sq yd }
+    mass:
+        gram: { symbol: g, is_base_unit: true }
+        imperial ton: { symbol: UK t }
+        kilogram: { symbol: kg }
+        microgram: { symbol: μg }
+        milligram: { symbol: mg }
+        ounce: { symbol: oz. }
+        pound: { symbol: £ }
+        stone: { symbol: st. }
+        tonne: { symbol: t }
+        US ton: { symbol: US t }
+    pressure:
+        bar: { symbol: bar }
+        pascal: { symbol: Pa, is_base_unit: true }
+        pound per square inch: { symbol: psi }
+    speed:
+        foot per second: { symbol: ft/s }
+        kilometer per hour: { symbol: km/h }
+        knot: { symbol: kn }
+        meter per second: { symbol: m/s, is_base_unit: true }
+        miles per hour: { symbol: mph }
+    temperature:
+        celsius: { symbol: °C, is_base_unit: true }
+        fahrenheit: { symbol: °F }
+        kelvin: { symbol: K }
+    time:
+        day: { symbol: D }
+        hour: { symbol: H }
+        millisecond: { symbol: ms }
+        minute: { symbol: m }
+        month: { symbol: M }
+        second: { symbol: s, is_base_unit: true }
+        week: { symbol: W }
+    volume:
+        cubic meter: { symbol: m^3 }
+        fluid ounce: { symbol: fl. oz. }
+        liter: { symbol: l, is_base_unit: true }
+        milliliter: { symbol: ml }
+        US legal cup: { symbol: c (US) }
+        US liquid gallon: { symbol: gal }
+        US liquid pint: { symbol: pt }
+        US liquid quart: { symbol: qt }
+        US tablespoon: { symbol: tbsp }
+        US teaspoon: { symbol: tsp }
+    data transfer rate:
+        gibibit per second: { symbol: Gibit/s }
+        gigabyte per second: { symbol: GiB/s }
+        gigabit per second: { symbol: Gb/s }
+        mebibit per second: { symbol: Mibit/s }
+        megabit per second: { symbol: Mb/s }
+        megabyte per second: { symbol: MB/s }
+        terabit per second: { symbol: Tb/s }
+        terabyte per second: { symbol: TB/s }
+        byte per second: { symbol: B/s }
+        bit per second: { symbol: bit/s, is_base_unit: true }
+    energy:
+        British thermal unit: { symbol: Btu }
+        electronvolt: { symbol: eV }
+        gram calorie: { symbol: cal }
+        joule: { symbol: J, is_base_unit: true }
+        kilocalorie: { symbol: kcal }
+        kilojoule: { symbol: kJ }
+        kilowatt hour: { symbol: kWh }
+        US therm: { symbol: thm }
+        watt hour: { symbol: Wh }

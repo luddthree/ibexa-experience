@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Personalization\Service\Product\ProductService: ~
+
+    Ibexa\ProductCatalog\Personalization\Service\Product\ProductServiceInterface:
+        alias: Ibexa\ProductCatalog\Personalization\Service\Product\ProductService
+
+    Ibexa\ProductCatalog\Personalization\ProductVariant\Routing\UrlGenerator: ~
+
+    Ibexa\ProductCatalog\Personalization\ProductVariant\Routing\UrlGeneratorInterface:
+        alias: Ibexa\ProductCatalog\Personalization\ProductVariant\Routing\UrlGenerator

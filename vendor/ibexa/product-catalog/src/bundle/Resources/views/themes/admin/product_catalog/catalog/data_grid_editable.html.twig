@@ -1,0 +1,110 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+{% import "@ibexadesign/product_catalog/price_macros.html.twig" as price_macros %}
+{% import "@ibexadesign/product_catalog/catalog_macros.html.twig" as catalog_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+{% set head_cols = [
+    { content: 'catalog.list.column.name'|trans|desc('Name') },
+    { content: 'catalog.list.column.creator'|trans|desc('Creator') },
+    { content: 'catalog.list.column.created'|trans|desc('Created') },
+    { content: 'catalog.list.column.modified'|trans|desc('Modified') },
+    { content: 'catalog.list.column.status'|trans|desc('Status') },
+] %}
+
+{% if has_filters|default(false) %}
+    {% set empty_table_info_text = 'catalog.list.no_search_results.info_text'|trans|desc('Sorry, there are no product catalogs for your search') %}
+    {% set empty_table_action_text = 'catalog.list.no_search_results.action_text'|trans|desc('Try again with new search criteria.') %}
+{% else %}
+    {% set empty_table_info_text = 'catalog.list.no_catalogs.info_text'|trans|desc('Add your first product catalog') %}
+    {% set empty_table_action_text = 'catalog.list.no_catalogs.action_text'|trans|desc('Create product catalogs to effectively manage your products.') %}
+{% endif %}
+
+{% if can_edit %}
+    {% set head_cols = [{ has_checkbox: true }]|merge(head_cols) %}
+{% endif %}
+
+{% if can_edit or can_create %}
+    {% set head_cols = head_cols|merge([{}]) %}
+{% endif %}
+
+{% for catalog in catalogs %}
+    {% set view_url = path('ibexa.product_catalog.catalog.view', {
+        catalogId: catalog.id,
+    }) %}
+    {% set edit_url = path('ibexa.product_catalog.catalog.update', {
+        catalogId: catalog.id,
+    }) %}
+    {% set copy_url = path('ibexa.product_catalog.catalog.copy', {
+        catalogId: catalog.id,
+    }) %}
+    {% set checkbox_name = bulk_delete_form.catalogs.vars.full_name ~ "[]" %}
+
+    {% set creator_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: catalog.creator } only %}
+    {% endset %}
+
+    {% set cols_to_merge = [
+        { content: data_grid_macros.cell_name(catalog.name, view_url) },
+        { content: creator_name },
+        { content: catalog.created|ibexa_full_datetime },
+        { content: catalog.modified|ibexa_full_datetime },
+        { content: catalog_macros.status_node(catalog.status) },
+    ]%}
+    {% set col_action_btns %}
+        {{ can_edit ? data_grid_macros.cell_edit(edit_url) : '' }}
+        {{ can_create ? data_grid_macros.cell_copy(catalog.id, '#catalog_copy_catalog', '#copy-catalog-modal') : '' }}
+    {% endset %}
+
+    {% if can_edit %}
+        {% set cols_to_merge = [{
+            has_checkbox: true,
+            content: data_grid_macros.cell_checkbox(checkbox_name, catalog.id),
+        }]|merge(cols_to_merge) %}
+    {% endif %}
+
+    {% if can_edit or can_create %}
+        {% set cols_to_merge = cols_to_merge|merge([{
+            has_action_btns: true,
+            content: col_action_btns,
+        }]) %}
+    {% endif %}
+
+    {% set body_rows = body_rows|merge([{ cols: cols_to_merge }]) %}
+{% endfor %}
+
+{% set actions %}
+    {% if can_edit %}
+        {% set delete_modal_id = 'catalog-delete-modal' %}
+        {% set delete_modal_message = 'modal.bulk_delete.catalog.confirm_message'|trans|desc(
+            'Delete the selected catalogs permanently?'
+        ) %}
+
+        {{ data_grid_macros.header_delete_action(delete_modal_id, delete_modal_message) }}
+    {% endif %}
+{% endset %}
+
+{{ form_start(bulk_delete_form) }}
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline,
+        head_cols,
+        actions,
+        body_rows,
+        empty_table_info_text,
+        empty_table_action_text,
+    } %}
+{{ form_end(bulk_delete_form) }}
+
+{% if copy_form is defined %}
+    {# TODO: is this modal duplicated??? #}
+    {% include '@ibexadesign/product_catalog/ui/modal/copy_confirmation.html.twig' with {
+        id: 'copy-catalog-modal',
+        message: 'modal.copy.catalog.confirm_message'|trans|desc('You are duplicating this Catalog.'),
+        data_click: '#copy-catalog',
+    } %}
+
+    {{ form_start(copy_form) }}
+        <button id="copy-catalog" type="submit" hidden></button>
+    {{ form_end(copy_form) }}
+{% endif %}

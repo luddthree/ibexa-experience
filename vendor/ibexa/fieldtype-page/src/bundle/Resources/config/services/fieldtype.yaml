@@ -1,0 +1,72 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    ibexa.field_type.ezlandingpage: '@Ibexa\FieldTypePage\FieldType\LandingPage\Type'
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Type:
+        parent: Ibexa\Core\FieldType\FieldType
+        autowire: true
+        autoconfigure: false
+        public: true
+        tags:
+            - { name: ibexa.field_type, alias: ezlandingpage }
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Mapper\LandingPageFormMapper:
+        arguments:
+            $blockDefinitions: '@Ibexa\FieldTypePage\ApplicationConfig\Providers\BlockDefinitionsInterface'
+            $layoutDefinitions: '@Ibexa\FieldTypePage\ApplicationConfig\Providers\LayoutDefinitionsInterface'
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezlandingpage }
+
+    ibexa.field_type.indexable.ezlandingpage:
+        class: Ibexa\Core\FieldType\Unindexed
+        tags:
+            - { name: ibexa.field_type.indexable, alias: ezlandingpage }
+
+    Ibexa\FieldTypePage\FieldType\Page\Storage\Handler\PageHandler: ~
+    Ibexa\FieldTypePage\FieldType\Page\Storage\Handler\Cache\PageHandler:
+        parent: Ibexa\Core\Persistence\Cache\AbstractInMemoryPersistenceHandler
+        arguments:
+            $pageHandler: '@Ibexa\FieldTypePage\FieldType\Page\Storage\Handler\PageHandler'
+            $cacheIndicesValidator: '@?Ibexa\Core\Persistence\Cache\CacheIndicesValidatorInterface'
+
+    Ibexa\FieldTypePage\FieldType\Page\Storage\Handler\PageHandlerInterface: '@Ibexa\FieldTypePage\FieldType\Page\Storage\Handler\Cache\PageHandler'
+
+    Ibexa\FieldTypePage\FieldType\Page\Storage\PageStorage:
+        arguments:
+            $gateway: '@Ibexa\FieldTypePage\FieldType\Page\Storage\DoctrineGateway'
+            $contentHandler: '@Ibexa\Core\Persistence\Legacy\Content\Handler'
+        tags:
+            - {name: ibexa.field_type.storage.external.handler, alias: ezlandingpage}
+
+    Ibexa\FieldTypePage\FieldType\Page\Storage\DoctrineGateway:
+        arguments: ['@ibexa.api.storage_engine.legacy.connection']
+
+    Ibexa\FieldTypePage\FieldType\Page\Storage\Gateway: '@Ibexa\FieldTypePage\FieldType\Page\Storage\DoctrineGateway'
+
+    Ibexa\FieldTypePage\FieldType\Page\ParameterProvider:
+        arguments:
+            $locationService: '@ibexa.api.service.location'
+        tags:
+            - {name: ibexa.field_type.view.parameter.provider, alias: ezlandingpage}
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\LegacyConverter:
+        arguments:
+            $layoutDefinitionRegistry: '@Ibexa\FieldTypePage\Registry\LayoutDefinitionRegistry'
+            $converter: '@Ibexa\FieldTypePage\FieldType\LandingPage\Converter\PageConverter'
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: ezlandingpage }
+
+    #
+    # FormMappers
+    #
+
+    Ibexa\FieldTypePage\FieldType\Page\Mapper\PageFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezlandingpage }
+
+    Ibexa\FieldTypePage\Form\Type\PageFieldType: ~

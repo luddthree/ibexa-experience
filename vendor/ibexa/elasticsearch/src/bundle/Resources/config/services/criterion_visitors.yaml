@@ -1,0 +1,332 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.elasticsearch.query.content.criterion_visitor.dispatcher:
+        class: Ibexa\Elasticsearch\Query\CriterionVisitor\DispatcherVisitor
+        arguments:
+            $visitors: !tagged ibexa.search.elasticsearch.query.content.criterion.visitor
+
+    ibexa.elasticsearch.query.location.criterion_visitor.dispatcher:
+        class: Ibexa\Elasticsearch\Query\CriterionVisitor\DispatcherVisitor
+        arguments:
+            $visitors: !tagged ibexa.search.elasticsearch.query.location.criterion.visitor
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\CompositeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\ContentTypeGroupIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\ContentTypeIdentifierVisitor:
+        arguments:
+            $contentTypeHandler: '@Ibexa\Contracts\Core\Persistence\Content\Type\Handler'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\ContentIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\ContentTypeIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\CustomFieldInVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\CustomFieldRangeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\DateMetadataInVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\DateMetadataRangeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\FieldLikeVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldValueMapper: '@Ibexa\Core\Search\Common\FieldValueMapper\Aggregate'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\FieldInVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldValueMapper: '@Ibexa\Core\Search\Common\FieldValueMapper\Aggregate'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\FieldRangeVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldValueMapper: '@Ibexa\Core\Search\Common\FieldValueMapper\Aggregate'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\FieldRelationVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldValueMapper: '@Ibexa\Core\Search\Common\FieldValueMapper\Aggregate'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\FullTextVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\IsFieldEmptyVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldNameGenerator: '@Ibexa\Core\Search\Common\FieldNameGenerator'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\LanguageCodeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\LogicalAndVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\LogicalOrVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\MapLocationDistanceInVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldTypeIdentifier: 'ezgmaplocation'
+            $fieldName: 'value_location'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\MapLocationDistanceRangeVisitor:
+        arguments:
+            $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+            $fieldTypeIdentifier: 'ezgmaplocation'
+            $fieldName: 'value_location'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\LogicalNotVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\MatchNoneVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\ObjectStateIdentifierVisitor:
+        arguments:
+            $objectStateHandler: '@Ibexa\Contracts\Core\Persistence\Content\ObjectState\Handler'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\ObjectStateIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\MatchAllVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\EventSubscriber\RandomScoreQueryFilter:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\RandomScoreVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\RemoteIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\SectionIdentifierVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\SectionIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\UserEmailVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\UserIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\UserLoginVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\UserMetadataVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\IsContainerVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    ### Content specific
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\AncestorVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\LocationIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\LocationRemoteIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\ParentLocationIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\PinnedVisitor:
+        arguments:
+            $contentHandler: '@Ibexa\Contracts\Core\Persistence\Content\Handler'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\SubtreeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\VisibilityVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Content\ContentNameVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    ### Location specific
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\AncestorVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\DepthInVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\DepthRangeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\IsMainLocationVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\LocationIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\LocationRemoteIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\ParentLocationIdVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\PinnedVisitor:
+        arguments:
+            $contentHandler: '@Ibexa\Contracts\Core\Persistence\Content\Handler'
+            $locationHandler: '@Ibexa\Contracts\Core\Persistence\Content\Location\Handler'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\PriorityRangeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\SubtreeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Location\VisibilityVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Image\MimeTypeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Image\OrientationVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Image\FileSizeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Image\WidthVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+
+    Ibexa\Elasticsearch\Query\CriterionVisitor\Image\HeightVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+    ### Utils
+
+    Ibexa\Elasticsearch\ElasticSearch\QueryDSL\Utils\DateFormatter: ~

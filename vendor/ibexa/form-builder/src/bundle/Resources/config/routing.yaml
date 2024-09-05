@@ -1,0 +1,43 @@
+ibexa.form_builder.form.preview_form:
+    path: /form/preview
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\FormBuilder\Controller\FormBuilderController::formPreviewAction'
+    options:
+        expose: true
+
+ibexa.submission.remove:
+    path: /submission/remove
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\FormBuilder\Controller\FormSubmissionController::removeAction'
+
+ibexa.submission.download:
+    path: /submission/{contentId}/{languageCode}/download
+    methods: ['GET']
+    requirements:
+        contentId: \d+
+    defaults:
+        _controller: 'Ibexa\Bundle\FormBuilder\Controller\FormSubmissionController::downloadAction'
+
+ibexa.form_builder.form.preview_form_field:
+    path: /form/preview/{contentId}/{languageCode}
+    methods: [GET]
+    defaults:
+        _controller: 'Ibexa\Bundle\FormBuilder\Controller\FormBuilderController::formFieldPreviewAction'
+    options:
+        expose: true
+
+ibexa.form_builder.field.request_configuration_form:
+    path: /form/field/request-configuration-form/{languageCode}
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\FormBuilder\Controller\FieldController::requestFieldConfigurationAction'
+    options:
+        expose: true
+
+ibexa.form_builder.field.configure:
+    path: /form/field/configure/{fieldIdentifier}/{languageCode}
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\FormBuilder\Controller\FieldController::configureFieldAction'

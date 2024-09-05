@@ -1,0 +1,72 @@
+{% extends '@ibexadesign/personalization/base_welcome.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+{% form_theme form '@ibexadesign/personalization/welcome/form_fields.html.twig'  %}
+{% set perso_items = [
+    {
+        image_src: "/bundles/ibexapersonalization/img/welcome-personalization-man.svg",
+        image_alt: "welcome.image.man"|trans|desc("welcome working man"),
+        title: "welcome.title.target_and_personalize"|trans|desc("Target & personalize with user choices"),
+        text: "welcome.description.target_and_personalize"|trans|desc("Listen to your users and capture their preferences and specific interests to offer personalized content. Empower your editorial and marketing teams to leverage this information to better target what content will be most relevant to each user.")
+    },
+    {
+        image_src: "/bundles/ibexapersonalization/img/welcome-personalization-woman.svg",
+        image_alt: "welcome.image.woman"|trans|desc("welcome working woman"),
+        title: "welcome.title.leverage_personalization"|trans|desc("Leverage personalization data across your business"),
+        text: "welcome.description.leverage_personalization"|trans|desc("Unified digital experiences can't be supported by data silos. Enrich your customer data by integrating Ibexa Personalization capabilities with existing business systems to boost the power of your personalized customer experiences.")
+    }
+] %}
+
+{% block details %}
+    {% if acceptanceStatus.accepted %}
+        <h2 class="ibexa-perso-welcome__activation-status-title">
+            {{ "welcome.activation_status.title"|trans|desc("Activation status") }}
+        </h2>
+        {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+            type: 'success',
+            title: "welcome.activation_status.subtitle"|trans({ '%name%': acceptanceStatus.acceptor })|desc("Your request was sent by %name% and is being processed."),
+        } only %}
+        <div class="ibexa-perso-welcome__activation-status-question">
+            {{ "welcome.activation_status.question"
+                |trans|desc('Got a question? We\'d love to hear from you. Send us message to <a href="mailto:support@ibexa.co" target="_blank">support@ibexa.co</a> and we\'ll get in touch with you soon.')|raw }}</h5>
+        </div>
+    {% else %}
+        <h2 class="ibexa-perso-welcome__form-title">
+            {{ "welcome.form.title"|trans|desc("Request for account activation") }}
+        </h2>
+        <div class="ibexa-perso-welcome__form-subtitle">
+            {{ "welcome.form.subtitle"|trans|desc("Fill in the form to send your request to activate Ibexa Personalization services. To activate the services, you need to have an active Ibexa Subscription.") }}</h5>
+        </div>
+        {{ form(form, { attr: { class: 'ibexa-perso-welcome__form' } }) }}
+    {% endif %}
+    <div class="ibexa-perso-welcome__separator"></div>
+    <div class="ibexa-perso-welcome__find-out-more">
+        <h4 class="ibexa-perso-welcome__description-row-title">
+            {{ "welcome.title.please_visit"|trans|desc("To find out more, please visit") }}
+        </h4>
+        <span>
+            <a
+                class="ibexa-link ibexa-link--dark"
+                href="https://www.ibexa.co/products/personalization"
+                target="_blank"
+            >
+                {{ "welcome.link.product_description"|trans|desc("Product description") }}
+            </a>
+            |
+            <a
+                class="ibexa-link ibexa-link--dark"
+                href="https://doc.ibexa.co/projects/userguide/en/latest/personalization/personalization/"
+                target="_blank"
+            >
+                {{ "welcome.link.user_documentation"|trans|desc("User documentation") }}
+            </a>
+            |
+            <a
+                class="ibexa-link ibexa-link--dark"
+                href="https://doc.ibexa.co/en/latest/guide/personalization/personalization/"
+                target="_blank"
+            >
+                {{ "welcome.link.developer_documentation"|trans|desc("Developer documentation") }}
+            </a>
+        </span>
+    </div>
+{% endblock %}

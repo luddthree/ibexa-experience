@@ -1,0 +1,48 @@
+-
+    type: user
+    mode: update
+    match:
+        field: login
+        value: admin
+    metadata:
+        email: anonymous@link.invalid
+        password: __PASSWORD__
+        enabled: false
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: __FIRST_NAME__
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: __LAST_NAME__
+-
+    type: user
+    mode: update
+    match:
+        field: id
+        value: 10 #anonymous
+    metadata:
+        email: nospam_2@ibexa.co
+        password: __PASSWORD_2__
+        enabled: false
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: __FIRST_NAME_2__
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: __LAST_NAME_2__
+    actions:
+        -   action: assign_user_to_role
+            id: 2
+            limitation:
+                type: Section
+                values: [2]

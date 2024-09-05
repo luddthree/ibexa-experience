@@ -1,0 +1,10 @@
+{% extends '@ibexadesign/customer_portal/account/base.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{%- block content -%}
+    <h2 class="ibexa-ca-login__actions-headline">{{ 'account.reset_user_password.change_password'|trans|desc('Change password') }}</h2>
+    <p>
+        {{ 'account.reset_user_password.success'|trans({ '%login%': path('login') })
+        |desc('Your password has been changed. You can <a href="%login%">log in</a> to Customer Portal.')|raw }}
+    </p>
+{%- endblock content -%}

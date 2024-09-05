@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Gedmo\Tree\Entity\Repository;
+
+/**
+ * @template TEntityClass of object
+ * @extends \Gedmo\Tree\Entity\Repository\AbstractTreeRepository<TEntityClass>
+ *
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsFirstChild(TEntityClass $node)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsFirstChildOf(TEntityClass $node, TEntityClass $parent)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsLastChild(TEntityClass $node)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsLastChildOf(TEntityClass $node, TEntityClass $parent)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsNextSibling(TEntityClass $node)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsNextSiblingOf(TEntityClass $node, TEntityClass $sibling)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsPrevSibling(TEntityClass $node)
+ * @method \Gedmo\Tree\Entity\Repository\NestedTreeRepository persistAsPrevSiblingOf(TEntityClass $node, TEntityClass $sibling)
+ */
+class NestedTreeRepository extends \Gedmo\Tree\Entity\Repository\AbstractTreeRepository
+{
+}

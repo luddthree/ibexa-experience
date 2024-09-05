@@ -1,0 +1,28 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\VersionComparison\Service\VersionComparisonService: ~
+    Ibexa\Contracts\VersionComparison\Service\VersionComparisonServiceInterface: '@Ibexa\VersionComparison\Service\VersionComparisonService'
+
+    # Mock external dependencies
+    Ibexa\Bundle\VersionComparison\Controller\VersionComparisonController: ~
+    Ibexa\AdminUi\Util\FieldDefinitionGroupsUtil: ~
+    Symfony\Component\Form\FormFactoryInterface: ~
+    Ibexa\Core\Helper\FieldsGroups\FieldsGroupsList: ~
+    Twig\Loader\LoaderInterface: ~
+    Twig\Environment: ~
+    Ibexa\AdminUi\Component\TwigComponent:
+        $template: ''
+    ibexa.richtext.converter.output.xhtml5:
+        class: Ibexa\FieldTypeRichText\RichText\Converter\Aggregate
+
+    Ibexa\Core\Repository\EventSubscriber\NameSchemaSubscriber: ~
+
+    # Redefine richtext dependencies to exclude them from container
+    Ibexa\VersionComparison\Engine\FieldType\RichTextComparisonEngine: ~
+    Ibexa\VersionComparison\FieldType\RichText\Comparable:
+        arguments:
+            $converter: '@ibexa.richtext.converter.output.xhtml5'

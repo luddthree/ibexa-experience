@@ -1,0 +1,13 @@
+-
+    type: content
+    mode: update
+    match:
+        field: location_remote_id
+        value: 'f3e90596361e31d496d4026eb624c983'
+    lang: 'eng-GB'
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: Partners

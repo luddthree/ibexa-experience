@@ -1,0 +1,16 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+        bootstrap="tests/bootstrap.php"
+        failOnWarning="true"
+        colors="true">
+    <php>
+        <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\SiteFactory\Kernel" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=4&amp;max[direct]=0&amp;verbose=0"/>
+    </php>
+    <testsuites>
+        <testsuite name="integration">
+            <directory>tests/integration</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_content_fields' %}
+
+{% block ezimageasset_field %}
+    {% apply spaceless %}
+        {% if not ibexa_field_is_empty(content, field) and parameters.available %}
+            {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezimageasset')|trim}) %}
+
+            {% set transformation = null %}
+            {% if field.value.source is not null %}
+                {% set transformation = ibexa_dam_image_transformation(field.value.source, 'large') %}
+            {% endif %}
+
+            <div {{ block( 'field_attributes' ) }}>
+                    {{ render(controller(
+                        'Ibexa\\Bundle\\Connector\\Dam\\Controller\\AssetViewController::viewAction', {
+                            destinationContentId: field.value.destinationContentId,
+                            assetSource: field.value.source ?? null,
+                            viewType: 'preview_ezimageasset',
+                            no_layout: true,
+                            params: {
+                                parameters: parameters|default({})|merge({
+                                    alternativeText: field.value.alternativeText,
+                                    transformation: transformation
+                                })
+                            }
+                        }
+                    )) }}
+            </div>
+        {% else %}
+            <em>{{ 'ezimageasset.not_available'|trans|desc('Image asset is not available (related content has been deleted or you have insufficient permissions)') }}</em>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block field_attributes %}
+    {% apply spaceless %}
+        {% set attr = attr|default( {} ) %}
+        {% for attrname, attrvalue in attr %}{{ attrname }}="{{ attrvalue }}" {% endfor %}
+    {% endapply %}
+{% endblock %}

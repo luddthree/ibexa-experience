@@ -1,0 +1,13 @@
+<div
+    class="ibexa-popup-menu ibexa-popup-menu--hidden ibexa-pc-edit-catalog-tags-popup-menu"
+    data-tag-popup-template="{{ include('@ibexadesign/product_catalog/catalog/edit/tags_popup_menu_item.html.twig')|e('html_attr') }}"
+>
+    <ul class="ibexa-pc-edit-catalog-tags-popup-menu__list">
+        {% for item in items %}
+            {{ include('@ibexadesign/product_catalog/catalog/edit/tags_popup_menu_item.html.twig', {
+                label: item.label,
+                attr: item.attr,
+            }) }}
+        {% endfor %}
+    </ul>
+</div>

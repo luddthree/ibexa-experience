@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Form\Type\SiteType:
+        arguments:
+            $siteService: '@Ibexa\SiteFactory\Service\SiteService'
+
+    Ibexa\Bundle\SiteFactory\Form\Type\SiteAccessGroupChoiceType:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+
+    Ibexa\Bundle\SiteFactory\Form\Type\DesignChoiceType:
+        arguments:
+            $designRegistry: '@Ibexa\SiteFactory\DesignRegistry'
+
+    Ibexa\Bundle\SiteFactory\Form\Type\SiteParentLocationType: ~
+
+    Ibexa\Bundle\SiteFactory\Form\Type\PublicAccessUpdateType: ~

@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+<li
+    class="ibexa-pb-schedule-active-item {{ additional_classes }}"
+    data-item-id="{{ item_id }}"
+    data-location-id="{{ location_id }}"
+    data-airtime="{{ airtime }}"
+    draggable="true"
+>
+    <div
+        class="ibexa-pb-schedule-active-item__content"
+        draggable="true"
+    >
+        <div class="ibexa-pb-schedule-active-item__left-col">
+            <div class="ibexa-pb-schedule-active-item__drag-handler">
+                <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-pb-schedule-active-item__drag-icon">
+                    <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                </svg>
+            </div>
+            <div class="ibexa-pb-schedule-active-item__label">{{ content_name }}</div>
+            <div class="ibexa-pb-schedule-active-item__error">
+                {{ 'block.schedule.item_unavailable'|trans|desc('This Content item has been deleted and cannot be displayed') }}
+            </div>
+        </div>
+        <div class="ibexa-pb-schedule-active-item__right-col">
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-btn--change-airtime" title="{{ 'change.airtime'|trans|desc('Change airtime') }}">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('airtime') }}"></use>
+                </svg>
+            </button>
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-btn--trash" title="{{ 'delete'|trans|desc('Delete') }}">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+            </button>
+
+            {% include '@ibexadesign/ui/component/embedded_item_actions/embedded_item_actions.html.twig' %}
+        </div>
+    </div>
+</li>

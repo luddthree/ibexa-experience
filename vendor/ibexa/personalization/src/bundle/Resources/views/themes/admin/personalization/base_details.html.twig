@@ -1,0 +1,14 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% block body_class %}ibexa-perso-details{% endblock %}
+
+{% block content %}
+    <div class="ibexa-container">
+        {% block details %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}

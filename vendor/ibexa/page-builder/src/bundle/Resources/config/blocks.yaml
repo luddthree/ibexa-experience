@@ -1,0 +1,30 @@
+blocks:
+    embed:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/embed.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#embed'
+    gallery:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/gallery.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#gallery'
+    banner:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/banner.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#banner'
+    video:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/video.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#video'
+    contentlist:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/content_list.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#contentlist'
+    tag:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/code.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#tag'
+    collection:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/collection.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#collection'
+    rss:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#rss'
+    schedule:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/schedule.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#schedule'
+    richtext:
+        configuration_template: '@IbexaPageBuilder/page_builder/block/config/richtext.html.twig'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#paragraph'

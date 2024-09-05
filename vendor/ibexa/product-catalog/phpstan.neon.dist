@@ -1,0 +1,23 @@
+includes:
+    - vendor/ibexa/phpstan-money/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    stubFiles:
+        - stubs/Pagerfanta/AdapterInterface.stub
+    ignoreErrors:
+        -
+            message: "#^Cannot call method (fetchOne|fetchAllAssociative|fetchAssociative|fetchAllKeyValue|fetchFirstColumn)\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+            paths:
+                - src/*
+                - tests/*
+        -
+            message: "#^Cannot call method (log|debug|info|notice|warning|error|critical|alert|emergency)\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+    level: 8
+    paths:
+        - src
+        - tests
+    treatPhpDocTypesAsCertain: false

@@ -1,0 +1,14 @@
+--TEST--
+"ibexa_get_product" filter
+--TEMPLATE--
+{{ null|ibexa_get_product }}
+{{ (product|ibexa_get_product).code }}
+{{ (content|ibexa_get_product).code }}
+--DATA--
+return [
+    'product' => $this->getProduct('FOO'),
+    'content' => $this->getContentWithProduct($this->getProduct('FOO')),
+];
+--EXPECT--
+FOO
+FOO

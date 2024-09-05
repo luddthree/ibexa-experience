@@ -1,0 +1,79 @@
+{% trans_default_domain 'ibexa_notification_email' %}
+
+{% block subject %}
+    {{ 'notification_email.subject'|trans({
+        '%name%': ibexa_content_name(content)
+    })|desc('New %name% form submission') }}
+{% endblock %}
+
+{% block body %}
+<!doctype html>
+<html>
+    <head>
+        <title>{{ ibexa_content_name(content) }}</title>
+        <meta name="viewport" content="width=device-width" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <style type="text/css">
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th {
+                text-align: left;
+            }
+
+            th, td {
+                border: 1px solid #333;
+                padding: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                {{ 'notification_email.header'|trans({
+                    '%name%': ibexa_content_name(content)
+                })|desc('New %name% form submission') }}
+            </h1>
+            <p>
+                {{ 'notification_email.header.created_at'|trans({
+                    '%datetime%': data.created|date
+                })|desc('Send at %datetime% ') }}
+            </p>
+        </header>
+        <main>
+            <table>
+                <colgroup>
+                    <col width="30%" />
+                    <col />
+                </colgroup>
+
+                <thead>
+                    <tr>
+                        <th>{{ 'notification_email.data.header.field'|trans()|desc('Field') }}</th>
+                        <th>{{ 'notification_email.data.header.value'|trans()|desc('Value') }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for field_value in data.values %}
+                    <tr>
+                        <th>{{ field_value.name }}</th>
+                        <td>
+                            {% if field_value is not null %}
+                                {{ field_value.displayValue|raw }}
+                            {% else %}
+                                <em>{{ 'notification_email.data.empty'|trans()|desc('-')|trans }}</em>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </main>
+    </body>
+</html>
+{% endblock %}
+
+

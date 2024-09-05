@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% block ez_workflow_timeline_entry_transition %}
+    <div class="ibexa-workflow-chart__item">
+        <div
+            class="ibexa-workflow-chart__icon-wrapper"
+            {% if transition_definition_metadata.hasColor %}
+                style="background-color: {{ transition_definition_metadata.color }}"
+            {% endif %}
+        >
+            <svg class="ibexa-workflow-chart__icon ibexa-icon ibexa-icon--small-medium">
+                <use xlink:href="{{ transition_definition_metadata.icon }}"></use>
+            </svg>
+        </div>
+        <div class="ibexa-workflow-chart__event ibexa-workflow-event">
+            <div class="ibexa-workflow-event__name">{{ 'transition.list.entry.title'|trans({'%stageNames%': stage_names|join(', ')})|desc('Stage changed to %stageNames%') }}</div>
+            <div class="ibexa-workflow-event__author">
+                {% if transition_metadata.user %}
+                    {{ 'transition.list.entry.author'|trans({'%name%': ibexa_content_name(transition_metadata.user)})|desc('by %name%') }}
+                {% else %}
+                    {{ 'transition.list.entry.author.not_found'|trans|desc('Can\'t fetch author') }}
+                {% endif %}
+            </div>
+            <div class="ibexa-workflow-event__date">
+                {{ 'transition.list.entry.date'|trans({'%date%': transition_metadata.date|ibexa_full_datetime})|desc('on %date%') }}
+            </div>
+            <div class="ibexa-workflow-event__desc">{{ transition_metadata.message }}</div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block ez_workflow_timeline_entry_fallback %}
+    <div class="ibexa-workflow-chart__item">
+        <div class="ibexa-workflow-chart__event ibexa-workflow-event">
+            <div class="ibexa-workflow-event__date">
+                {{ 'transition.list.entry.date'|trans({'%date%': entry.date|ibexa_full_datetime})|desc('on %date%') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+
+{% for attribute_group in attribute_groups %}
+    {% set view_url = path('ibexa.product_catalog.attribute_group.view', {
+        attributeGroupIdentifier: attribute_group.identifier
+    }) %}
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: data_grid_macros.cell_name(attribute_group.name, view_url) },
+        { content: attribute_group.identifier },
+        { content: attribute_group.position },
+    ]}]) %}
+{% endfor %}
+
+{% set empty_table_info_text = 'attribute_group.no_search_results.info_text'|trans|desc('Sorry, there are no attribute groups for your search') %}
+{% set empty_table_action_text = 'attribute_group.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline,
+    head_cols: [
+        { content: 'attribute_group.list.column.name'|trans|desc('Name') },
+        { content: 'attribute_group.list.column.identifier'|trans|desc('Identifier') },
+        { content: 'attribute_group.list.column.position'|trans|desc('Position') },
+    ],
+    body_rows: body_rows,
+    empty_table_info_text,
+    empty_table_action_text,
+} %}

@@ -1,0 +1,59 @@
+{% trans_default_domain 'ibexa_submissions' %}
+
+{% set body_rows = [] %}
+{% for submission in submissions_pager.currentPageResults %}
+    {% set form_cols = [] %}
+    {% for field_value in submission.values|slice(0, 3) %}
+        {% set col_form_field_value %}
+            {% if field_value is not null %}
+                {{ field_value.displayValue|raw }}
+            {% endif %}
+        {% endset %}
+        {% set form_cols = form_cols|merge([{ content: col_form_field_value, raw: true }]) %}
+    {% endfor %}
+
+    {% set col_checkbox %}
+        {{ form_widget(form_content_submission_remove.submissions[submission.id]) }}
+    {% endset %}
+
+    {% set col_action_btns %}
+        <a
+            href="#"
+            data-bs-toggle="modal"
+            data-bs-target="#submission-details-modal"
+            data-submission-values="{{ include('@ibexadesign/content/tab/submissions/modal_submission_values.html.twig', {'values': submission.values})}}"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--content-submission-view mx-3"
+            title="{{ 'tab.versions.table.action.draft.edit'|trans|desc('View submission') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('view') }}"></use>
+            </svg>
+        </a>
+    {% endset %}
+
+    {% set body_row_cols =
+        [{ has_checkbox: true, content: col_checkbox, raw: true }]
+        |merge(form_cols)
+        |merge([
+            { content: submission.created|ibexa_full_datetime },
+            { has_action_btns: true, content: col_action_btns, raw: true },
+        ])
+    %}
+
+    {% set body_rows = body_rows|merge([{ cols: body_row_cols }]) %}
+{% endfor %}
+
+{% set head_cols = [{ has_checkbox: true }] %}
+{% for header in submissions_pager.currentPageResults.headers|slice(0, 3) %}
+    {% set head_cols = head_cols|merge([{ content: header }]) %}
+{% endfor %}
+{% set head_cols = head_cols|merge([
+    { content: 'tab.submissions.time'|trans|desc('Time') },
+    { },
+]) %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    head_cols,
+    body_rows,
+    empty_table_info_text: 'tab.submissions.no_submissions'|trans|desc('This form has no submissions.'),
+} only %}

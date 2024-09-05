@@ -1,0 +1,22 @@
+name: Browser tests
+
+on:
+  push:
+    branches:
+      - main
+      - '[0-9]+.[0-9]+'
+  pull_request: ~
+
+jobs:
+  corporate-account:
+    name: "Corporate Account browser tests - Experience"
+    uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
+    with:
+      project-edition: 'experience'
+      test-suite:  '--profile=browser --suite=corporate-account --tags=@IbexaExperience'
+      test-setup-phase-1: '--profile=setup --suite=corporate-account'
+    secrets:
+      SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+      SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+      TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

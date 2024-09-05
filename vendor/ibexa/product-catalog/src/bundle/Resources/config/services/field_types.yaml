@@ -1,0 +1,96 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\FieldType\CustomerGroup\Type:
+        tags:
+            -   name: ibexa.field_type
+                alias: !php/const Ibexa\ProductCatalog\FieldType\CustomerGroup\Type::FIELD_TYPE_IDENTIFIER
+
+    Ibexa\Bundle\ProductCatalog\FieldType\CustomerGroup\ViewParameterProvider:
+        lazy: true
+        tags:
+            -   name: ibexa.field_type.view.parameter.provider
+                alias: !php/const Ibexa\ProductCatalog\FieldType\CustomerGroup\Type::FIELD_TYPE_IDENTIFIER
+
+    Ibexa\Bundle\ProductCatalog\FieldType\CustomerGroup\FieldValueFormMapper:
+        tags:
+            -   name: ibexa.admin_ui.field_type.form.mapper.value
+                fieldType: !php/const Ibexa\ProductCatalog\FieldType\CustomerGroup\Type::FIELD_TYPE_IDENTIFIER
+
+    Ibexa\ProductCatalog\FieldType\CustomerGroup\Persistence\Converter:
+        tags:
+            -   name: ibexa.field_type.storage.legacy.converter
+                alias: !php/const Ibexa\ProductCatalog\FieldType\CustomerGroup\Type::FIELD_TYPE_IDENTIFIER
+
+    Ibexa\ProductCatalog\FieldType\CustomerGroup\Persistence\Gateway\Storage:
+        arguments:
+            $gateway: '@Ibexa\ProductCatalog\FieldType\CustomerGroup\Persistence\Gateway\StorageGateway'
+        tags:
+            -   name: ibexa.field_type.storage.external.handler
+                alias: !php/const Ibexa\ProductCatalog\FieldType\CustomerGroup\Type::FIELD_TYPE_IDENTIFIER
+
+    Ibexa\ProductCatalog\FieldType\CustomerGroup\Persistence\Gateway\StorageGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - 'ibexa.product_catalog.common.doctrine_gateway'
+
+    Ibexa\ProductCatalog\FieldType\ProductSpecification\Type:
+        arguments:
+            - '@Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\Handler'
+        tags:
+            - { name: ibexa.field_type, alias: ibexa_product_specification }
+
+    Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Converter:
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: ibexa_product_specification }
+
+    Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Gateway\Storage:
+        arguments:
+            $gateway: '@Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Gateway\StorageGateway'
+        tags:
+            - { name: ibexa.field_type.storage.external.handler, alias: ibexa_product_specification }
+
+    Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Gateway\StorageGateway:
+        # merge storage gateways
+        autoconfigure: false
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - ibexa.core.persistence.doctrine_gateway
+
+    Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Gateway\StorageGatewayInterface:
+        alias: Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Gateway\StorageGateway
+
+    Ibexa\Bundle\ProductCatalog\REST\ProductSpecificationFieldTypeProcessor:
+        arguments:
+            $normalizer: '@ibexa.rest.serializer'
+            $logger: '@logger'
+        tags:
+            - { name: ibexa.rest.field_type.processor, alias: ibexa_product_specification }
+            - { name: monolog.logger, channel: ibexa.rest }
+
+    Ibexa\ProductCatalog\FieldType\ProductSpecification\Persistence\Gateway\FieldConstraintsStorage:
+        tags:
+            - { name: ibexa.field_type.storage.external.constraints.handler, alias: ibexa_product_specification }
+
+    Ibexa\Bundle\ProductCatalog\FieldType\ProductSpecification\FieldValueFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ibexa_product_specification }
+
+    ibexa.product_catalog.field_type.product_specification.indexable:
+        class: Ibexa\Core\FieldType\Unindexed
+        tags:
+            - { name: ibexa.field_type.indexable, alias: ibexa_product_specification }
+            - { name: ibexa.field_type.indexable, alias: ibexa_customer_group }
+            - { name: ibexa.field_type.indexable, alias: ibexa_image_collection }
+
+    ibexa.product_catalog.form.type_extension.disable_translatable_option_for_ibexa_product_specification_field_type:
+        class: Ibexa\AdminUi\Form\Type\Extension\ModifyFieldDefinitionsCollectionTypeExtension
+        arguments:
+            $fieldTypeIdentifier: !php/const Ibexa\ProductCatalog\FieldType\ProductSpecification\Type::FIELD_TYPE_IDENTIFIER
+            $modifiedOptions:
+                disable_translatable_field: true

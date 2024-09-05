@@ -1,0 +1,3 @@
+form_themes:
+    - "@IbexaMeasurement/themes/admin/measurement/attribute/form_fields.html.twig"
+    - "@IbexaMeasurement/themes/admin/measurement/field_type/content_edit_form_fields.html.twig"

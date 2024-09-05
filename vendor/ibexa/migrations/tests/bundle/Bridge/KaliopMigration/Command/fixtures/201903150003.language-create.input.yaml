@@ -1,0 +1,15 @@
+-
+    mode: 'create'
+    type: 'language'
+    lang: 'de-AT'
+    name: 'German (AT)'
+-
+    mode: 'create'
+    type: 'language'
+    lang: 'en-GB'
+    name: 'English (GB)'
+-
+    mode: 'create'
+    type: 'language'
+    lang: 'nl-NL'
+    name: 'Dutch (NL)'

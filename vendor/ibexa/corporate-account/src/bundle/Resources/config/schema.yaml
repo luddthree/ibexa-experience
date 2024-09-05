@@ -1,0 +1,143 @@
+tables:
+    ibexa_corporate_member_assignment:
+        indexes:
+            ibexa_corporate_member_assignment_member_idx:
+                fields:
+                    - member_id
+            ibexa_corporate_member_assignment_company_idx:
+                fields:
+                    - company_id
+            ibexa_corporate_member_assignment_company_location_idx:
+                fields:
+                    - company_location_id
+            ibexa_corporate_member_assignment_member_role_assignment_idx:
+                fields:
+                    - member_role_assignment_id
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            member_id:
+                type: integer
+                nullable: false
+            member_role:
+                type: string
+                nullable: false
+                length: 128
+            member_role_assignment_id:
+                type: integer
+                nullable: false
+            company_id:
+                type: integer
+                nullable: false
+            company_location_id:
+                type: integer
+                nullable: false
+        uniqueConstraints:
+            ibexa_corporate_member_assignment_unique_idx:
+                fields:
+                    - member_id
+                    - company_id
+
+    ibexa_corporate_application_state:
+        indexes:
+            ibexa_corporate_application_state_state_idx:
+                fields:
+                    - state
+        uniqueConstraints:
+            ibexa_corporate_application_state_application_unique:
+                fields:
+                    - application_id
+            ibexa_corporate_application_state_company_unique:
+                fields:
+                    - company_id
+        id:
+            id:
+                type: integer
+                options:
+                    autoincrement: true
+        fields:
+            application_id:
+                type: integer
+            state:
+                type: string
+                length: 128
+            company_id:
+                type: integer
+                nullable: true
+        foreignKeys:
+            ibexa_corporate_application_state_application_fk:
+                fields: [application_id]
+                foreignTable: ezcontentobject
+                foreignFields: [id]
+                options:
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
+            ibexa_corporate_application_state_company_fk:
+                fields: [company_id]
+                foreignTable: ezcontentobject
+                foreignFields: [id]
+                options:
+                    onDelete: 'SET NULL'
+                    onUpdate: CASCADE
+
+    ibexa_corporate_company_history:
+        indexes:
+            ibexa_corporate_company_history_company_idx:
+                fields:
+                    - company_id
+            ibexa_corporate_company_history_application_idx:
+                fields:
+                    - application_id
+            ibexa_corporate_company_history_user_idx:
+                fields:
+                    - user_id
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            application_id:
+                type: integer
+            company_id:
+                type: integer
+                nullable: true
+            user_id:
+                type: integer
+                nullable: true
+            created:
+                type: datetime
+                options:
+                    default: CURRENT_TIMESTAMP
+            event_name:
+                type: string
+            event_data:
+                type: json
+                nullable: true
+        foreignKeys:
+            ibexa_corporate_company_history_application_fk:
+                fields: [application_id]
+                foreignTable: ezcontentobject
+                foreignFields: [id]
+                options:
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
+            ibexa_corporate_company_history_company_fk:
+                fields: [company_id]
+                foreignTable: ezcontentobject
+                foreignFields: [id]
+                options:
+                    onDelete: 'SET NULL'
+                    onUpdate: CASCADE
+            ibexa_corporate_company_history_user_fk:
+                fields: [user_id]
+                foreignTable: ezcontentobject
+                foreignFields: [id]
+                options:
+                    onDelete: 'SET NULL'
+                    onUpdate: CASCADE

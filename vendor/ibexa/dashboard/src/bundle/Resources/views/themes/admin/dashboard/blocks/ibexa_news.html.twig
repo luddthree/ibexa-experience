@@ -1,0 +1,25 @@
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% set default_block_name = 'block.ibexa_news.title'|trans|desc('Ibexa news') %}
+
+<div class="ibexa-db-news {{ block_class }}">
+    <h2 class="ibexa-db-news__header">{{ block_name|default(default_block_name) }}</h2>
+    {% for news_item in ibexa_news %}
+        <a
+            class="ibexa-db-news__card"
+            href="{{ news_item.link }}"
+            target="_blank"
+        >
+            <img class="ibexa-db-news__img" alt="" src="{{ news_item.imageUrl }}" draggable="false" />
+            <div class="ibexa-db-news__content">
+                <h4 class="ibexa-db-news__title">{{ news_item.title }}</h4>
+                <span class="ibexa-db-news__date">{{ news_item.publicationDate|ibexa_full_datetime }}</span>
+            </div>
+            <div class="ibexa-db-news__open-new-tab">
+                <svg class="ibexa-icon ibexa-icon--small ibexa-db-news__icon-back">
+                    <use xlink:href="{{ ibexa_icon_path('open-newtab') }}"></use>
+                </svg>
+            </div>
+        </a>
+    {% endfor %}
+</div>

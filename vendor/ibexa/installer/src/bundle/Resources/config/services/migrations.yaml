@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: false
+    public: false
+
+  Ibexa\Installer\Migration\CopyConfigurationToSettingsActionDenormalizer:
+    tags:
+      - { name: ibexa.migrations.serializer.normalizer }
+
+  Ibexa\Installer\Migration\CopyConfigurationToSettingsActionExecutor:
+    tags:
+      - { name: ibexa.migrations.executor.action.content_type, key: copy_configuration_to_settings }

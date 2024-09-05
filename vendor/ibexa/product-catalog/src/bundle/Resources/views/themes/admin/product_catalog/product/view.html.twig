@@ -1,0 +1,117 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-pc-view{% endblock %}
+
+{% set language = language|default(null) %}
+{% set completeness = completeness|default(null) %}
+
+{% block breadcrumbs %}
+    {% set items = [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { url: path('ibexa.product_catalog.product.list'), value: 'product.breadcrumb.list'|trans|desc('Products') },
+    ] %}
+
+    {% if product.isVariant() %}
+        {% set base_product = product.getBaseProduct() %}
+
+        {% set items = items|merge([
+            { url: path('ibexa.product_catalog.product.view', { productCode: base_product.getCode(), _fragment: 'ibexa-tab-product-variants' }), value: base_product.getName() },
+        ]) %}
+    {% endif %}
+
+    {% set items = items|merge([
+        { value: 'product.view.identifier'|trans({ '%product_name%': product.name })|desc('%product_name%') }
+    ]) %}
+
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: items } %}
+{% endblock %}
+
+{% block title %}
+    {{ 'product.view.title.identifier'|trans({ '%product_name%': product.name })|desc('Product "%product_name%"') }}
+{% endblock %}
+
+{% block context_menu %}
+    {% if is_editable %}
+        {% set context_menu = knp_menu_get('ibexa_product_catalog.menu.product_view_context_menu', [], {
+            'product': product,
+            'delete_form_selector': '#delete-product'
+        }) %}
+
+        {{ knp_menu_render(context_menu, {
+            'template': '@ibexadesign/ui/menu/context_menu.html.twig'
+        }) }}
+
+    {% include '@ibexadesign/product_catalog/ui/modal/delete_confirmation.html.twig' with {
+        id: 'delete-product-modal',
+        message: 'modal.delete.product.confirm_message'|trans|desc(
+            'Delete this product permanently?'
+        ),
+        data_click: '#delete-product',
+    } %}{% endif %}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: product.getName(),
+        tag: product.getCode(),
+        tag_extra_classes: 'ibexa-badge--info',
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+        {% set product_type = product.getProductType() %}
+
+        {% block bottom %}
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('file') }}"></use>
+                </svg>
+                {{ product_type.getName() }}
+            </span>
+
+            {% if completeness is not null %}
+                {% set completeness = completeness.value %}
+
+                <div class="ibexa-pc-view__header-progress-wrapper">
+                    {% set progress_value = completeness.getValue()|round %}
+
+                    {% include '@ibexadesign/product_catalog/ui/component/progress_bar.html.twig' with {
+                        is_main: true,
+                        progress_value: progress_value,
+                        progress_bar_label: 'product.view.progress_bar.label'|trans({ '%progress_value%': progress_value })|desc('%progress_value%% complete'),
+                    } %}
+                </div>
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+     {{ ibexa_render_component_group('product-block', {
+         'product': product,
+         'currency': app.request.query.get('currency'),
+         'completeness': completeness,
+         'language': language
+     }) }}
+
+    {% if is_editable and ibexa_permission_delete_product(product) and delete_form is defined %}
+        {{ form_start(delete_form) }}
+            <button id="delete-product" type="submit" hidden></button>
+        {{ form_end(delete_form) }}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/ibexaadminuiassets/vendors/taggify/src/js/taggify.js') }}"></script>
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-product-catalog-product-view-js', null, 'ibexa') }}
+{% endblock %}

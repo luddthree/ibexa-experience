@@ -1,0 +1,201 @@
+parameters:
+    ibexa.measurement.value.converter.formulas:
+        # length
+        - { source_unit: centimeter, target_unit: meter, formula: 'value * 0.01' }
+        - { source_unit: millimeter, target_unit: meter, formula: 'value * 0.001' }
+        - { source_unit: foot, target_unit: meter, formula: 'value / 3.2808399' }
+        - { source_unit: inch, target_unit: meter, formula: 'value / 39.3700787' }
+        - { source_unit: yard, target_unit: meter, formula: 'value / 1.0936' }
+
+        - { source_unit: meter, target_unit: centimeter, formula: 'value * 100.0' }
+        - { source_unit: meter, target_unit: millimeter, formula: 'value * 1000.0' }
+        - { source_unit: meter, target_unit: foot, formula: 'value * 3.2808399' }
+        - { source_unit: meter, target_unit: inch, formula: 'value * 39.3700787' }
+        - { source_unit: meter, target_unit: yard, formula: 'value * 1.0936' }
+
+        # area
+        - { source_unit: acre, target_unit: square meter, formula: 'value * 4046.86'}
+        - { source_unit: hectare, target_unit: square meter, formula: 'value * 10000'}
+        - { source_unit: square foot, target_unit: square meter, formula: 'value * 0.092903'}
+        - { source_unit: square inch, target_unit: square meter, formula: 'value * 0.00064516'}
+        - { source_unit: square mile, target_unit: square meter, formula: 'value * 2.59e+6'}
+        - { source_unit: square yard, target_unit: square meter, formula: 'value * 0.836127'}
+
+        - { source_unit: square meter, target_unit: acre, formula: 'value / 4046.86'}
+        - { source_unit: square meter, target_unit: hectare, formula: 'value / 10000'}
+        - { source_unit: square meter, target_unit: square foot, formula: 'value / 0.092903'}
+        - { source_unit: square meter, target_unit: square inch, formula: 'value / 0.00064516'}
+        - { source_unit: square meter, target_unit: square mile, formula: 'value / 2.59e+6'}
+        - { source_unit: square meter, target_unit: square yard, formula: 'value / 0.836127'}
+
+        # mass
+        - { source_unit: imperial ton, target_unit: gram, formula: 'value * 1.016e+6'}
+        - { source_unit: kilogram, target_unit: gram, formula: 'value * 1000'}
+        - { source_unit: microgram, target_unit: gram, formula: 'value * 1e-6'}
+        - { source_unit: milligram, target_unit: gram, formula: 'value * 0.001'}
+        - { source_unit: ounce, target_unit: gram, formula: 'value * 28.3495'}
+        - { source_unit: pound, target_unit: gram, formula: 'value * 453.592'}
+        - { source_unit: stone, target_unit: gram, formula: 'value * 6350.29'}
+        - { source_unit: tonne, target_unit: gram, formula: 'value * 1e+6'}
+        - { source_unit: US ton, target_unit: gram, formula: 'value * 907185'}
+
+        - { source_unit: gram, target_unit: imperial ton, formula: 'value / 1.016e+6'}
+        - { source_unit: gram, target_unit: kilogram, formula: 'value / 1000'}
+        - { source_unit: gram, target_unit: microgram, formula: 'value / 1e-6'}
+        - { source_unit: gram, target_unit: milligram, formula: 'value / 0.001'}
+        - { source_unit: gram, target_unit: ounce, formula: 'value / 28.3495'}
+        - { source_unit: gram, target_unit: pound, formula: 'value / 453.592'}
+        - { source_unit: gram, target_unit: stone, formula: 'value / 6350.29'}
+        - { source_unit: gram, target_unit: tonne, formula: 'value / 1e+6'}
+        - { source_unit: gram, target_unit: US ton, formula: 'value / 907185'}
+
+        # pressure
+        - { source_unit: bar, target_unit: pascal, formula: 'value * 100000'}
+        - { source_unit: pound per square inch, target_unit: pascal, formula: 'value * 6894.76'}
+
+        - { source_unit: pascal, target_unit: bar, formula: 'value / 100000'}
+        - { source_unit: pascal, target_unit: pound per square inch, formula: 'value / 6894.76'}
+
+        # speed
+        - { source_unit: foot per second, target_unit: meter per second, formula: 'value * 0.3048'}
+        - { source_unit: kilometer per hour, target_unit: meter per second, formula: 'value * 0.277778'}
+        - { source_unit: knot, target_unit: meter per second, formula: 'value * 0.514444855556'}
+        - { source_unit: miles per hour, target_unit: meter per second, formula: 'value * 0.44704'}
+
+        - { source_unit: meter per second, target_unit: foot per second, formula: 'value / 0.3048'}
+        - { source_unit: meter per second, target_unit: kilometer per hour, formula: 'value / 0.277778'}
+        - { source_unit: meter per second, target_unit: knot, formula: 'value / 0.514444855556'}
+        - { source_unit: meter per second, target_unit: miles per hour, formula: 'value / 0.44704'}
+
+        # temperature
+        - { source_unit: fahrenheit, target_unit: celsius, formula: 'value * 1.8 + 32' }
+        - { source_unit: kelvin, target_unit: celsius, formula: 'value - 273.15' }
+
+        - { source_unit: celsius, target_unit: fahrenheit, formula: '(value - 32) / 1.8' }
+        - { source_unit: celsius, target_unit: kelvin, formula: 'value + 273.15' }
+
+        # time
+        - { source_unit: day, target_unit: second, formula: 'value * 86400' }
+        - { source_unit: hour, target_unit: second, formula: 'value * 3600' }
+        - { source_unit: millisecond, target_unit: second, formula: 'value * 0.001' }
+        - { source_unit: minute, target_unit: second, formula: 'value * 60' }
+        - { source_unit: month, target_unit: second, formula: 'value * 2.628e+6' }
+        - { source_unit: week, target_unit: second, formula: 'value * 604800' }
+
+        - { source_unit: second, target_unit: day, formula: 'value / 86400' }
+        - { source_unit: second, target_unit: hour, formula: 'value / 3600' }
+        - { source_unit: second, target_unit: millisecond, formula: 'value / 0.001' }
+        - { source_unit: second, target_unit: minute, formula: 'value / 60' }
+        - { source_unit: second, target_unit: month, formula: 'value / 2.628e+6' }
+        - { source_unit: second, target_unit: week, formula: 'value / 604800' }
+
+        # volume
+        - { source_unit: cubic meter, target_unit: liter, formula: 'value * 1000' }
+        - { source_unit: fluid ounce, target_unit: liter, formula: 'value * 0.0295735' }
+        - { source_unit: milliliter, target_unit: liter, formula: 'value * 0.001' }
+        - { source_unit: US legal cup, target_unit: liter, formula: 'value * 0.24' }
+        - { source_unit: US liquid gallon, target_unit: liter, formula: 'value * 3.78541' }
+        - { source_unit: US liquid pint, target_unit: liter, formula: 'value * 0.473176' }
+        - { source_unit: US liquid quart, target_unit: liter, formula: 'value * 0.946353' }
+        - { source_unit: US tablespoon, target_unit: liter, formula: 'value * 0.0147868' }
+        - { source_unit: US teaspoon, target_unit: liter, formula: 'value * 0.00492892' }
+
+        - { source_unit: liter, target_unit: cubic meter, formula: 'value / 1000' }
+        - { source_unit: liter, target_unit: fluid ounce, formula: 'value / 0.0295735' }
+        - { source_unit: liter, target_unit: milliliter, formula: 'value / 0.001' }
+        - { source_unit: liter, target_unit: US legal cup, formula: 'value / 0.24' }
+        - { source_unit: liter, target_unit: US liquid gallon, formula: 'value / 3.78541' }
+        - { source_unit: liter, target_unit: US liquid pint, formula: 'value / 0.473176' }
+        - { source_unit: liter, target_unit: US liquid quart, formula: 'value / 0.946353' }
+        - { source_unit: liter, target_unit: US tablespoon, formula: 'value / 0.0147868' }
+        - { source_unit: liter, target_unit: US teaspoon, formula: 'value / 0.00492892' }
+
+        # data transfer rate
+        - { source_unit: gibibit per second, target_unit: bit per second, formula: 'value * 1.074e+9' }
+        - { source_unit: gigabyte per second, target_unit: bit per second, formula: 'value * 8e+9' }
+        - { source_unit: gigabit per second, target_unit: bit per second, formula: 'value * 1e+9' }
+        - { source_unit: mebibit per second, target_unit: bit per second, formula: 'value * 1.049e+6' }
+        - { source_unit: megabit per second, target_unit: bit per second, formula: 'value * 1e+6' }
+        - { source_unit: megabyte per second, target_unit: bit per second, formula: 'value * 8e+6' }
+        - { source_unit: terabit per second, target_unit: bit per second, formula: 'value * 1e+12' }
+        - { source_unit: terabyte per second, target_unit: bit per second, formula: 'value * 8e+12' }
+        - { source_unit: byte per second, target_unit: bit per second, formula: 'value * 8' }
+
+        - { source_unit: bit per second, target_unit: gibibit per second, formula: 'value / 1.074e+9' }
+        - { source_unit: bit per second, target_unit: gigabyte per second, formula: 'value / 8e+9' }
+        - { source_unit: bit per second, target_unit: gigabit per second, formula: 'value / 1e+9' }
+        - { source_unit: bit per second, target_unit: mebibit per second, formula: 'value / 1.049e+6' }
+        - { source_unit: bit per second, target_unit: megabit per second, formula: 'value / 1e+6' }
+        - { source_unit: bit per second, target_unit: megabyte per second, formula: 'value / 8e+6' }
+        - { source_unit: bit per second, target_unit: terabit per second, formula: 'value / 1e+12' }
+        - { source_unit: bit per second, target_unit: terabyte per second, formula: 'value / 8e+12' }
+        - { source_unit: bit per second, target_unit: byte per second, formula: 'value / 8' }
+
+        # energy
+        - { source_unit: British thermal unit, target_unit: joule, formula: 'value * 1055.06' }
+        - { source_unit: electronvolt, target_unit: joule, formula: 'value * 1.6022e-19' }
+        - { source_unit: gram calorie, target_unit: joule, formula: 'value * 4.184' }
+        - { source_unit: kilocalorie, target_unit: joule, formula: 'value * 4184' }
+        - { source_unit: kilojoule, target_unit: joule, formula: 'value * 1000' }
+        - { source_unit: kilowatt hour, target_unit: joule, formula: 'value * 3.6e+6' }
+        - { source_unit: US therm, target_unit: joule, formula: 'value * 1.055e+8' }
+        - { source_unit: watt hour, target_unit: joule, formula: 'value * 3600' }
+
+        - { source_unit: joule, target_unit: British thermal unit, formula: 'value / 1055.06' }
+        - { source_unit: joule, target_unit: electronvolt, formula: 'value / 1.6022e-19' }
+        - { source_unit: joule, target_unit: gram calorie, formula: 'value / 4.184' }
+        - { source_unit: joule, target_unit: kilocalorie, formula: 'value / 4184' }
+        - { source_unit: joule, target_unit: kilojoule, formula: 'value / 1000' }
+        - { source_unit: joule, target_unit: kilowatt hour, formula: 'value / 3.6e+6' }
+        - { source_unit: joule, target_unit: US therm, formula: 'value / 1.055e+8' }
+        - { source_unit: joule, target_unit: watt hour, formula: 'value / 3600' }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Measurement\UnitConverter\UnitConverterDispatcher:
+        arguments:
+            $converters: !tagged_iterator { tag: ibexa.measurement.value.converter }
+
+    Ibexa\Measurement\UnitConverter\UnitConverterDispatcherInterface:
+        alias: Ibexa\Measurement\UnitConverter\UnitConverterDispatcher
+
+    ibexa.measurement.unit_converter.formula_unit_converter.expression_engine:
+        class: Symfony\Component\ExpressionLanguage\ExpressionLanguage
+        arguments:
+            $cache: null
+
+    Ibexa\Measurement\UnitConverter\AbstractFormulaUnitConverter:
+        abstract: true
+        arguments:
+            $expressionLanguage: '@ibexa.measurement.unit_converter.formula_unit_converter.expression_engine'
+            $formulas: '%ibexa.measurement.value.converter.formulas%'
+
+    Ibexa\Measurement\UnitConverter\RangeValueFormulaUnitConverter:
+        parent: Ibexa\Measurement\UnitConverter\AbstractFormulaUnitConverter
+        tags:
+            - { name: ibexa.measurement.value.converter, priority: -100 }
+
+    ibexa.measurement.unit_converter.custom.range_value_formula:
+        class: Ibexa\Measurement\UnitConverter\RangeValueFormulaUnitConverter
+        arguments:
+            $expressionLanguage: '@ibexa.measurement.unit_converter.formula_unit_converter.expression_engine'
+            $formulas: '%ibexa.measurement.value.converter.custom.formulas%'
+        tags:
+            - { name: ibexa.measurement.value.converter, priority: -10 }
+
+    Ibexa\Measurement\UnitConverter\SimpleValueFormulaUnitConverter:
+        parent: Ibexa\Measurement\UnitConverter\AbstractFormulaUnitConverter
+        tags:
+            - { name: ibexa.measurement.value.converter, priority: -100 }
+
+    ibexa.measurement.unit_converter.custom.simple_value_formula:
+        class: Ibexa\Measurement\UnitConverter\SimpleValueFormulaUnitConverter
+        arguments:
+            $expressionLanguage: '@ibexa.measurement.unit_converter.formula_unit_converter.expression_engine'
+            $formulas: '%ibexa.measurement.value.converter.custom.formulas%'
+        tags:
+            - { name: ibexa.measurement.value.converter, priority: -10 }

@@ -1,0 +1,24 @@
+-
+    type: object_state
+    mode: create
+    metadata:
+        identifier: not_locked
+        mainTranslation: eng-US
+        objectStateGroup: 2
+        priority: 0
+        translations:
+            eng-US:
+                name: 'Not locked'
+                description: ''
+-
+    type: object_state
+    mode: create
+    metadata:
+        identifier: locked
+        mainTranslation: eng-US
+        objectStateGroup: 2
+        priority: 1
+        translations:
+            eng-US:
+                name: Locked
+                description: ''

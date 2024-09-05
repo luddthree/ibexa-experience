@@ -1,0 +1,24 @@
+{% embed '@ibexadesign/product_catalog/catalog/edit/list_filter_tags.html.twig' with {
+    is_empty_filter: criteria.vars.data|length == 0,
+} %}
+    {% block content %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% for taxonomy in criteria.vars.data %}
+            {{ include('@ibexadesign/ui/tag.html.twig', {
+                content: taxonomy.name,
+                is_loading_state: false,
+                is_deletable: not is_filter_preview,
+                tag_attributes: {
+                    'class': 'ibexa-pc-edit-catalog-list-filter-tag',
+                    'data-value': taxonomy.id,
+                    'data-category-name': taxonomy.name,
+                }
+            }) }}
+        {% endfor %}
+
+        {% include '@ibexadesign/product_catalog/catalog/edit/tags_popup_menu.html.twig' with {
+            items: []
+        } %}
+    {% endblock %}
+{% endembed %}

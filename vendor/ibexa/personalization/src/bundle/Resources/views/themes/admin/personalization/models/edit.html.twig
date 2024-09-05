@@ -1,0 +1,198 @@
+{% extends '@ibexadesign/ui/edit_base.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-perso-model-edit{% endblock %}
+
+{% if form %}
+    {% form_theme form '@ibexadesign/personalization/models/form_fields.html.twig' %}
+{% endif %}
+
+{% set anchor_params_items = [] %}
+
+{% if form.submodels is defined %}
+    {% set anchor_params_items = anchor_params_items|merge([
+        'model.edit.anchor_navigation.submodels'|trans|desc('Submodels'),
+    ]) %}
+{% endif %}
+
+{% set segments_enabled = form.segments is defined %}
+
+{% if segments_enabled %}
+    {% set anchor_params_items = anchor_params_items|merge([
+        'model.edit.anchor_navigation.segments'|trans|desc('Segments'),
+    ]) %}
+{% endif %}
+
+{% set anchor_params = {
+    items: anchor_params_items,
+} %}
+
+{% block main_container %}
+    {% if form %}
+        {{ form_start(form, {
+            attr: {
+                class: 'ibexa-perso-model-edit__form',
+                'data-customer-id': customer_id
+            }
+        }) }}
+    {% endif %}
+
+    {{ parent() }}
+
+    {% if form %}
+        {{ form_end(form) }}
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+    {% set url_create_sidebar_right = knp_menu_get('ibexa_personalization.menu.model_edit.sidebar_right', [], {}) %}
+
+    {% set title %}
+        {% if form %}
+            {{ ('models.name.' ~ model.referenceCode)|trans }}
+            {% if model.maximumRatingAge %}
+                ({{ model.maximumRatingAge|format_interval }})
+            {% endif %}
+        {% endif %}
+    {% endset %}
+
+    {% embed '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'model.edit.actino_name'|trans|desc('Editing'),
+        title,
+        icon_name: 'landingpage-preview',
+        context_actions: knp_menu_render(url_create_sidebar_right, { 'template': '@ibexadesign/ui/menu/context_menu.html.twig' }),
+        show_extra_bottom_content: form.timePeriod is defined,
+    } %}
+        {% block extra_bottom_content %}
+            {% if form.timePeriod is defined %}
+                {% set interval = model.maximumItemAge|default(model.maximumRatingAge) %}
+                <div
+                    class="ibexa-perso-model-time-period"
+                    data-time-period-text="{{ interval|format_interval }}"
+                >
+                    <h3 class="ibexa-perso-model-time-period__title">
+                        {{ form.timePeriod.vars.label }}
+                    </h3>
+                    <div class="ibexa-perso-model-time-period__fields-wrapper">
+                        {% for child in form.timePeriod %}
+                            {{ form_row(child, { row_attr: { class: 'ibexa-perso-model-time-period__field' } }) }}
+                        {% endfor %}
+                        {% if segments_enabled %}
+                            <button
+                                type="button"
+                                class="btn ibexa-btn ibexa-btn--info ibexa-btn--apply"
+                            >
+                                {{ 'model.edit.time_period.btn.apply'|trans|desc('Apply') }}
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+        {% block after_title %}
+            {% trans_default_domain 'ibexa_personalization' %}
+            
+            {% if form %}
+                {% if modelBuildStatus %}
+                    {% set modifier = states_colors_map[modelBuildStatus] %}
+
+                    <span class="ibexa-badge ibexa-badge--{{ modifier }}">{{ modelBuildStatus|trans }}</span>
+                {% endif %}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% if form %}
+        {% if form.editorContentList is defined %}
+            <div class="ibexa-edit-content__container">
+                <div class="ibexa-perso-editorial-models">
+                    <h2 class="ibexa-perso-editorial-models__title">
+                        {{ 'model.edit.editorial_list.title'|trans|desc('Editor content list') }}
+                    </h2>
+                    {{ form_widget(form.editorContentList) }}
+                </div>
+            </div>
+        {% endif %}
+
+        {% if form.submodels is defined %}
+            <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+                {% embed '@ibexadesign/ui/edit_section.html.twig' with {
+                    section_id: '#Submodels',
+                    is_active: true,
+                } %}
+                    {% from '@ibexadesign/personalization/models/macros.html.twig' import submodel_name %}
+                    {% block content %}
+                        <h2 class="ibexa-perso-model-edit__section-column-header">
+                            {{ 'model.details.submodels'|trans|desc('Submodels') }}
+                        </h2>
+                        <div class="ibexa-perso-model-edit__submodels">
+                            <label class="ibexa-label">{{ 'model.details.submodel_type'|trans|desc('Submodel type') }}</label>
+                            {% set source %}
+                                <select class="ibexa-input ibexa-input--select form-control ibexa-dropdown__source-input ibexa-perso-submodel-select d-none">
+                                {% for submodel in form.submodels.children %}
+                                    <option
+                                        data-type="{{ submodel.vars.value.type }}"
+                                        data-attribute-source="{{ submodel.vars.value.attributeSource }}"
+                                        data-source="{{ submodel.vars.value.source }}"
+                                        value="{{ submodel.vars.value.attributeKey }}"
+                                    >
+                                        {{ submodel_name(submodel.vars.value) }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                            {% endset %}
+
+                            {% set choices = form.submodels.children|map(
+                                submodel => { value: submodel.vars.value.attributeKey, label: submodel_name(submodel.vars.value) }
+                            ) %}
+
+                            {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                                source: source,
+                                choices: choices,
+                            } %}
+
+                            <div class="ibexa-perso-submodel-empty-tag-template" data-template="{{ include('@ibexadesign/personalization/models/parts/empty_tag_template.html.twig')|e('html_attr') }}"></div>
+                            {% for index, submodel in form.submodels.children %}
+                                {{ form_widget(submodel, {
+                                    attr: { class: (loop.first ? '' : 'd-none') }
+                                }) }}
+                            {% endfor %}
+                        </div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        {% endif %}
+
+        {% if form.segments is defined %}
+            <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+                {% embed '@ibexadesign/ui/edit_section.html.twig' with {
+                    section_id: '#Segments',
+                    is_active: true,
+                } %}
+                    {% block content %}
+                        <h2 class="ibexa-perso-model-edit__section-column-header">
+                            {{ 'model.details.segments'|trans|desc('Segments') }}
+                        </h2>
+                        <div class="ibexa-perso-model-edit__segments">
+                            <div class="form-group">
+                                {{ form_row(form.segments, { label_attr: { hidden: true } }) }}
+                            </div>
+                        </div>
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-model-edit-js', null, 'ibexa') }}
+{% endblock %}

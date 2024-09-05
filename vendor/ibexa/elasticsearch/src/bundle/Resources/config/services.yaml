@@ -1,0 +1,42 @@
+imports:
+    - { resource: services/parameters.yaml }
+    - { resource: services/client.yaml }
+    - { resource: services/commands.yaml }
+    - { resource: services/index.yaml }
+    - { resource: services/index_template.yaml }
+    - { resource: services/query.yaml }
+    - { resource: services/criterion_visitors.yaml }
+    - { resource: services/sort_clause_visitors.yaml }
+    - { resource: services/facet_builder_visitors.yaml }
+    - { resource: services/facet_result_extractors.yaml }
+    - { resource: services/aggregation_visitor.yaml }
+    - { resource: services/aggregation_result_extractors.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Elasticsearch\Indexer:
+        arguments:
+            $logger: '@logger'
+            $persistenceHandler: '@Ibexa\Contracts\Core\Persistence\Handler'
+            $connection: '@ibexa.persistence.connection'
+            $searchHandler: '@Ibexa\Elasticsearch\Handler'
+        lazy: true
+        tags:
+            - { name: ibexa.search.engine.indexer, alias: elasticsearch }
+
+    Ibexa\Elasticsearch\Handler:
+        arguments:
+            $contentQueryCoordinator: '@ibexa.elasticsearch.query.content.coordinator'
+            $locationQueryCoordinator: '@ibexa.elasticsearch.query.location.coordinator'
+        lazy: true
+        tags:
+            - { name: ibexa.search.engine, alias: elasticsearch }
+
+    Ibexa\Bundle\Elasticsearch\Event\Subscriber\LocationEventSubscriber:
+        arguments:
+            $searchHandler: '@ibexa.spi.search'
+            $persistenceHandler: '@ibexa.api.persistence_handler'

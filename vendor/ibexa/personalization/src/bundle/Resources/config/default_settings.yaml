@@ -1,0 +1,35 @@
+parameters:
+    ibexa.personalization.support_endpoint: 'https://support.ibexa.co'
+    ibexa.personalization.support.create_account.endpoint: '%ibexa.personalization.support_endpoint%'
+    ibexa.personalization.terms_and_conditions_endpoint: 'https://support.ibexa.co/personalisation/terms-and-conditions/v1'
+    ibexa.personalization.page_block.default_item_limit: 10
+    ibexa.personalization.authentication.token.ttl: 86400
+    ibexa.personalization.recommendation.consume_timeout: 20000
+
+    # Endpoints related to personalization server
+    ibexa.personalization.server.items.endpoint: 'https://items.perso.ibexa.co'
+    ibexa.personalization.server.admin.endpoint: 'https://admin.perso.ibexa.co'
+    ibexa.personalization.server.recommendation.endpoint: 'https://reco.perso.ibexa.co'
+    ibexa.personalization.server.event_tracking.endpoint: 'https://event.perso.ibexa.co'
+    ibexa.personalization.server.event_tracking.script_url: 'cdn.perso.ibexa.co/ibexa-tracker.js'
+    ibexa.personalization.server.user.endpoint: 'https://import.perso.ibexa.co'
+
+    ibexa.site_access.config.default.personalization.pagination.limit: 10
+    ibexa.site_access.config.default.personalization.recommendations.limit: 6
+    ibexa.site_access.config.default.personalization.recommendations.min_value: 1
+    ibexa.site_access.config.default.personalization.recommendations.max_value: 50
+    ibexa.site_access.config.default.personalization.recommendations.user_id: someuser
+    ibexa.site_access.config.default.personalization.output_type_attributes: []
+    ibexa.site_access.config.default.personalization.repository.content.use_remote_id: false
+    ibexa.site_access.config.default.personalization.export.document_root: '%kernel.project_dir%/public/var/export/'
+
+    # Personalization HTTP Client settings
+    ibexa.site_access.config.default.personalization.authentication.customer_id: '%env(int:PERSONALIZATION_CUSTOMER_ID)%'
+    ibexa.site_access.config.default.personalization.authentication.license_key: '%env(PERSONALIZATION_LICENSE_KEY)%'
+    ibexa.site_access.config.default.personalization.included_item_types: []
+    ibexa.site_access.config.default.personalization.host_uri: '%env(PERSONALIZATION_HOST_URI)%'
+
+    # Deprecated since ibexa/personalization:v4.5.0. These parameters will be removed in 5.X.
+    ibexa.site_access.config.default.personalization.export.authentication.method: 'basic'
+    ibexa.site_access.config.default.personalization.export.authentication.login: ~
+    ibexa.site_access.config.default.personalization.export.authentication.password: ~

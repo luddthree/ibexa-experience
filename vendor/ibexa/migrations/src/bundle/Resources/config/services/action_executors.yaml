@@ -1,0 +1,139 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Update\AssignGroupExecutor:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.content_type'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Update\UnassignGroupExecutor:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.content_type'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Update\RemoveDraftsExecutor:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.content_type'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Update\RemoveFieldByIdentifierExecutor:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.content_type'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Create\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.content_type'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Update\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.content_type'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Delete\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.content_type'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\Create\AssignObjectStateExecutor:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.content'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\AssignParentLocationExecutor:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.content'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\HideExecutor:
+        tags:
+            - name: 'ibexa.migrations.executor.action.content'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\RevealExecutor:
+        tags:
+            - name: 'ibexa.migrations.executor.action.content'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\Create\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.content'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\Delete\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.content'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\Update\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.content'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Content\Update\AssignSectionExecutor:
+        tags:
+            - name: 'ibexa.migrations.executor.action.content'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Role\AssignToUserGroup:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.role'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Role\AssignToUser:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.role'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Role\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.role'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\Section\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.section'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\User\AssignRole:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.user'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\User\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.user'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\UserGroup\AssignRole:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.user_group'
+    
+    Ibexa\Migration\StepExecutor\ActionExecutor\UserGroup\UnassignRole:
+        tags:
+            -   name: 'ibexa.migrations.executor.action.user_group'
+
+    Ibexa\Migration\StepExecutor\ActionExecutor\UserGroup\Executor:
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.user_group'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'
+
+    ibexa.migrations.executor.action.language:
+        class: Ibexa\Migration\StepExecutor\ActionExecutor\Executor
+        arguments:
+            - !tagged_locator
+                tag: 'ibexa.migrations.executor.action.language'
+                index_by: 'key'
+                default_index_method: 'getExecutorKey'

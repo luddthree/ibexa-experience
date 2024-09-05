@@ -1,0 +1,13 @@
+ibexa.connector.dam.generic_search:
+    path: /connector/asset/search
+    methods: ['GET']
+    controller: Ibexa\Bundle\Connector\Dam\Controller\AssetSearchController::fetchResultsAction
+
+ibexa.connector.dam.asset_view:
+    path: /view/asset/{destinationContentId}/{assetSource}/{transformation}
+    methods: ['GET']
+    controller: Ibexa\Bundle\Connector\Dam\Controller\AssetViewController::viewAction
+    defaults:
+        transformation: null
+    options:
+        expose: true

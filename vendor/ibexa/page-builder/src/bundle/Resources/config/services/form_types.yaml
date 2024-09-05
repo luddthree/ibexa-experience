@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\PageBuilder\Form\Type\:
+        resource: ../../../lib/Form/Type/*
+

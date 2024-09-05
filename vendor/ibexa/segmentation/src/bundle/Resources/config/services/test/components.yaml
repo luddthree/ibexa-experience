@@ -1,0 +1,9 @@
+services:
+    _defaults:
+      autoconfigure: true
+      autowire: true
+      public: false
+
+    Ibexa\Segmentation\Behat\Component\SegmentGroupCreatePopup: ~
+
+    Ibexa\Segmentation\Behat\Component\SegmentCreatePopup: ~

@@ -1,0 +1,205 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Ibexa\Migration\StepExecutor\StepExecutorInterface:
+            tags: [ 'ibexa.migrations.step_executor' ]
+        Ibexa\Migration\StepExecutor\UserContextAwareStepExecutorInterface:
+            calls:
+                - [ setPermissionResolver, ['@Ibexa\Contracts\Core\Repository\PermissionService'] ]
+
+        Ibexa\Migration\StepExecutor\ContentType\ContentTypeFinderInterface:
+            tags: [ 'ibexa.migrations.step_executor.content_type.finder' ]
+
+    Ibexa\Migration\StepExecutor\StepExecutorManagerInterface:
+        alias: Ibexa\Migration\StepExecutor\StepExecutorManager
+
+    Ibexa\Migration\StepExecutor\StepExecutorManager:
+        arguments:
+            $executors: !tagged_iterator 'ibexa.migrations.step_executor'
+
+    Ibexa\Migration\StepExecutor\ContentTypeCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Create\Executor'
+            $defaultUserLogin: '%ibexa.migrations.default.user_login%'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.content_type'
+
+    Ibexa\Migration\StepExecutor\ContentTypeDeleteStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Delete\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.content_type'
+
+    Ibexa\Migration\StepExecutor\ContentTypeGroupCreateStepExecutor:
+        arguments:
+            $defaultUserLogin: '%ibexa.migrations.default.user_login%'
+
+    Ibexa\Migration\StepExecutor\ContentTypeGroupUpdateStepExecutor:
+        arguments:
+            $defaultUserLogin: '%ibexa.migrations.default.user_login%'
+
+    Ibexa\Migration\StepExecutor\ContentTypeGroupDeleteStepExecutor:
+    Ibexa\Migration\StepExecutor\ContentCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Content\Create\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.content'
+
+    Ibexa\Migration\StepExecutor\ContentDeleteStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Content\Delete\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.content'
+
+    Ibexa\Migration\StepExecutor\ContentType\ContentTypeFinderRegistryInterface:
+        '@Ibexa\Migration\StepExecutor\ContentType\ContentTypeFinderRegistry'
+
+    Ibexa\Migration\StepExecutor\ContentType\ContentTypeFinderRegistry:
+        arguments:
+            $finders: !tagged_iterator 'ibexa.migrations.step_executor.content_type.finder'
+
+    Ibexa\Migration\StepExecutor\ContentType\IdentifierFinder:
+        tags:
+            - 'ibexa.migrations.step_executor.content_type.finder'
+
+    Ibexa\Migration\StepExecutor\ContentType\RemoteLocationIdFinder:
+        tags:
+            - 'ibexa.migrations.step_executor.content_type.finder'
+
+    Ibexa\Migration\StepExecutor\ContentTypeUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\ContentType\Update\Executor'
+            $defaultUserLogin: '%ibexa.migrations.default.user_login%'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.content_type'
+
+    Ibexa\Migration\StepExecutor\ContentUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Content\Update\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.content'
+
+    Ibexa\Migration\StepExecutor\LanguageCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@ibexa.migrations.executor.action.language'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.language'
+
+    Ibexa\Migration\StepExecutor\ReferenceLoadStepExecutor:
+    Ibexa\Migration\StepExecutor\ReferenceSaveStepExecutor:
+    Ibexa\Migration\StepExecutor\ReferenceSetStepExecutor:
+    Ibexa\Migration\StepExecutor\ReferenceListStepExecutor:
+
+    Ibexa\Migration\StepExecutor\LocationUpdateStepExecutor: ~
+
+    Ibexa\Migration\StepExecutor\LocationSwapStepExecutor:
+        tags:
+            - name: container.service_subscriber
+
+    Ibexa\Migration\StepExecutor\ObjectStateCreateStepExecutor:
+    Ibexa\Migration\StepExecutor\ObjectStateGroupCreateStepExecutor:
+    Ibexa\Migration\StepExecutor\RoleCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Role\Executor'
+        tags:
+            - name: container.service_subscriber
+              key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+              id: 'ibexa.migrations.reference_definition.resolver.role'
+
+    Ibexa\Migration\StepExecutor\RoleDeleteStepExecutor:
+    Ibexa\Migration\StepExecutor\RoleUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Role\Executor'
+        tags:
+            - name: container.service_subscriber
+              key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+              id: 'ibexa.migrations.reference_definition.resolver.role'
+
+    Ibexa\Migration\StepExecutor\SectionCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Section\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.section'
+
+    Ibexa\Migration\StepExecutor\SectionUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\Section\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.section'
+
+    Ibexa\Migration\StepExecutor\ServiceCallExecuteStepExecutor:
+    # Note: container added in extension
+    Ibexa\Migration\StepExecutor\SQLExecuteStepExecutor:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Migration\StepExecutor\RepeatableStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+
+    Ibexa\Migration\StepExecutor\SettingCreateStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+
+    Ibexa\Migration\StepExecutor\SettingDeleteStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+
+    Ibexa\Migration\StepExecutor\SettingUpdateStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+
+    Ibexa\Migration\StepExecutor\UserCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\User\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.user'
+
+    Ibexa\Migration\StepExecutor\UserGroupCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\UserGroup\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.user_group'
+
+    Ibexa\Migration\StepExecutor\UserGroupUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\UserGroup\Executor'
+        tags:
+            - name: container.service_subscriber
+              key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+              id: 'ibexa.migrations.reference_definition.resolver.user_group'
+
+    Ibexa\Migration\StepExecutor\UserGroupDeleteStepExecutor:
+    Ibexa\Migration\StepExecutor\UserUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Migration\StepExecutor\ActionExecutor\User\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.user'

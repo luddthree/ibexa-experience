@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\ActivityLog\Permission\ActivityLogOwnerLimitationType:
+        arguments: [ '@ibexa.api.persistence_handler' ]
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: !php/const Ibexa\ActivityLog\Permission\ActivityLogOwnerLimitation::IDENTIFIER }
+
+    Ibexa\ActivityLog\Permission\ActivityLogOwnerLimitationMapper:
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: !php/const Ibexa\ActivityLog\Permission\ActivityLogOwnerLimitation::IDENTIFIER }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: !php/const Ibexa\ActivityLog\Permission\ActivityLogOwnerLimitation::IDENTIFIER }

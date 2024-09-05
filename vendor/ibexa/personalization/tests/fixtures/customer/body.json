@@ -1,0 +1,10 @@
+{
+    "baseInformation": {
+        "id": "12345",
+        "version": "EXTENDED",
+        "website": "Test version",
+        "alphanumericItems": "NUMERIC",
+        "solutionType": "ebh",
+        "enabled": true
+    }
+}

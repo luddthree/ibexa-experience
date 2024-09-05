@@ -1,0 +1,14 @@
+{% extends '@ibexadesign/customer_portal/layout.html.twig' %}
+
+{% block user_menu_container %}{% endblock %}
+
+{% block content_column %}
+    <div class="ibexa-ca-registration">
+        <div class="ibexa-ca-banner">
+            <div class="ibexa-ca-banner__container">
+                {% block banner %}{% endblock %}
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

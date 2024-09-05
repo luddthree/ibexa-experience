@@ -1,0 +1,5 @@
+ibexa.calendar.view:
+    path: /calendar
+    methods: [GET]
+    defaults:
+        _controller: 'Ibexa\Bundle\Calendar\Controller\CalendarController::viewAction'

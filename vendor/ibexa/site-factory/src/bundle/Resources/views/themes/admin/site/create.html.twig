@@ -1,0 +1,80 @@
+{% extends '@ibexadesign/ui/edit_base.html.twig' %}
+
+{% trans_default_domain "ibexa_site_factory" %}
+{% form_theme form with '@ibexadesign/site/form_fields.html.twig' %}
+
+{% set anchor_params = {
+    items: [
+        'site.view.create.global_properties'|trans|desc('Global properties'),
+        'site.view.create.public_access'|trans|desc('Public access')
+    ]
+} %}
+
+{% block main_container_class %}{{ parent() }} ibexa-main-container--with-anchor-menu-items{% endblock %}
+
+{% block header %}
+    {% set site_create_context_menu = knp_menu_get('ezplatform.sitefactory.menu_configure.site.create_actions', [], {
+        'submit_selector': '#' ~ form.save.vars.id,
+        'submit_with_edit_selector': '#' ~ form.save_and_close.vars.id,
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'creating'|trans|desc('Creating'),
+        title: 'new_site_title'|trans|desc('Creating New Site'),
+        icon_name: 'sites',
+        show_autosave_status: false,
+        is_autosave_enabled: false,
+        context_actions: knp_menu_render(site_create_context_menu, { 'template': '@ibexadesign/ui/menu/context_menu.html.twig' })
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-edit-content__container">
+        {{ form_start(form, { attr: { 
+            class: 'ibexa-form', 
+            novalidate: true 
+        }}) }}
+            <div class="ibexa-anchor-navigation-sections ibexa-sf-sections">
+                <div
+                    data-id="#global-properties"
+                    class="ibexa-sf-sections__section ibexa-anchor-navigation-sections__section ibexa-anchor-navigation__section ibexa-anchor-navigation-sections__section--active row"
+                >
+                    <div class="ibexa-sf-sections__section-content-wrapper">
+                        <div class="ibexa-sf-sections__section-header">
+                            <h2 class="ibexa-sf-sections__section-header-title">{{ 'site.view.create.global_properties'|trans|desc('Global properties') }}</h2>
+                        </div>
+                        <div class="ibexa-sf-sections__section-body">
+                            {{ form_row(form.siteName, { attr: {'autofocus': 'autofocus'}}) }}
+                            {{ form_row(form.design) }}
+                            {{ form_row(form.parentLocationId) }}
+                            {{ form_row(form.copySiteSkeleton) }}
+                        </div>
+                    </div>
+                </div>
+                <div
+                    data-id="#public-access"
+                    class="ibexa-sf-sections__section ibexa-anchor-navigation-sections__section ibexa-anchor-navigation__section ibexa-anchor-navigation-sections__section--active row"
+                >
+                    <div class="ibexa-sf-sections__section-content-wrapper">
+                        <div class="ibexa-sf-sections__section-header">
+                            <h2 class="ibexa-sf-sections__section-header-title">{{ 'site.view.create.public_access'|trans|desc('Public access') }}</h2>
+                        </div>
+
+                        {% include '@ibexadesign/site/edit_public_access.html.twig' with { form } %}
+                    </div>
+                </div>
+            </div>
+
+            {{ form_widget(form.save, { 'attr': { 'hidden': 'hidden' } }) }}
+            {{ form_widget(form.save_and_close, { attr: { hidden: 'hidden' }}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-site-factory-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-site-factory-form-js', null, 'ibexa') }}
+{% endblock %}

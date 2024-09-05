@@ -1,0 +1,6 @@
+services:
+    Ibexa\FormBuilder\Tab\LocationView\SubmissionsTab:
+        autowire: true
+        autoconfigure: true
+        tags:
+            - { name: ibexa.admin_ui.tab, group: location-view }

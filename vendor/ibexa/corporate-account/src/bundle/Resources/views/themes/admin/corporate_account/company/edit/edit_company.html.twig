@@ -1,0 +1,39 @@
+{% extends '@ibexadesign/corporate_account/edit.html.twig' %}
+
+{% set close_href = close_href|default(path('ibexa.corporate_account.company.details', {
+    'companyId': company.getId(),
+    '_fragment': 'ibexa-tab-summary'
+})) %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-company-create-edit{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'company.edit.editing'|trans|desc('Editing'),
+        content_type_name: content_type.name,
+        title: company.name,
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set edit_menu = knp_menu_get('ibexa_corporate_account.menu.company_edit_context_menu', [], {
+        content,
+        content_type,
+        location,
+        parent_location,
+        language,
+        cancel_uri: close_href,
+    }) %}
+
+    {{ knp_menu_render(edit_menu, { template: '@ibexadesign/ui/menu/context_menu.html.twig', close_href: null }) }}
+{% endset %}
+
+{% block form_fields %}
+    {{- form_widget(form.publish, { attr: { hidden: true }}) -}}
+    {{- form_widget(form.publishAndEdit, { attr: { hidden: true }}) -}}
+    {{ parent() }}
+{% endblock %}

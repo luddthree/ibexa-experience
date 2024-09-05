@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Security\Limitation\PersonalizationAccessLimitationType:
+        tags:
+            - {name: ibexa.permissions.limitation_type, alias: PersonalizationAccess}
+
+    Ibexa\Personalization\Security\Limitation\Mapper\PersonalizationAccessLimitationMapper:
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: PersonalizationAccess }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: PersonalizationAccess }
+
+    Ibexa\Personalization\Security\Limitation\Loader\PersonalizationLimitationListLoader:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+
+    Ibexa\Personalization\Security\Limitation\Loader\PersonalizationLimitationListLoaderInterface:
+        '@Ibexa\Personalization\Security\Limitation\Loader\PersonalizationLimitationListLoader'

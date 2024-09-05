@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "CurrencyView": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "CurrencyQuery": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "_media-type"
+                    ]
+                },
+                "Result": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        },
+                        "count": {
+                            "type": "integer"
+                        },
+                        "CurrencyList": {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "Currency": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "_media-type": {
+                                                    "type": "string"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "code": {
+                                                    "type": "string"
+                                                },
+                                                "subunits": {
+                                                    "type": "integer"
+                                                },
+                                                "enabled": {
+                                                    "type": "boolean"
+                                                }
+                                            },
+                                            "required": [
+                                                "_media-type",
+                                                "id",
+                                                "code",
+                                                "subunits",
+                                                "enabled"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "Currency"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "_media-type",
+                        "count",
+                        "CurrencyList"
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "CurrencyQuery",
+                "Result"
+            ]
+        }
+    },
+    "required": [
+        "CurrencyView"
+    ]
+}

@@ -1,0 +1,58 @@
+tables:
+    # cannot create table during runtime due to transaction
+    ibexa_migrations:
+        id:
+            name:
+                type: string
+                length: 191
+                nullable: false
+        fields:
+            executed_at:
+                type: datetime
+                nullable: true
+            execution_time:
+                type: integer
+                nullable: true
+
+    # cannot create table during runtime due to transaction
+    ibexa_migrations_lock:
+        id:
+            key_id:
+                type: string
+                length: 64
+        fields:
+            key_token:
+                type: string
+                length: 44
+
+            key_expiration:
+                type: integer
+                options:
+                    unsigned: true
+
+    repeatable:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            name:
+                type: string
+                length: 64
+                index: ibex_repeatable_name_idx
+
+    test_table:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            test_value:
+                type: string
+                length: 64
+                index:
+                    name: ibex_test_table_test_value_idx

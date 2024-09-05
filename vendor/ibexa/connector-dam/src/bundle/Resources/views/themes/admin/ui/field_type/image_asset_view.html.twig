@@ -1,0 +1,49 @@
+{% trans_default_domain 'ibexa_fieldtypes_preview' %}
+
+<div class="ibexa-field-preview__image-wrapper">
+    {% block asset_preview %}
+        <div class="ibexa-field-preview__image">
+            <img src="{{ asset.assetUri.path }}">
+        </div>
+    {% endblock %}
+    <div class="ibexa-field-preview__image-meta">
+        <table class="ibexa-field-preview__meta">
+            <thead>
+                <tr class="ibexa-field-preview__meta-title-row">
+                    <th colspan="2">
+                        {{ 'ezimageasset.image_file_properties'|trans|desc('Image file properties') }}:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if parameters is defined and parameters.alternativeText is not null %}
+                {% set altText = parameters.alternativeText %}
+            {% elseif asset.assetMetadata.alternativeText is defined and asset.assetMetadata.alternativeText is not null %}
+                {% set altText = asset.assetMetadata.alternativeText %}
+            {% endif %}
+            <tr class="ibexa-field-preview__meta-value-row">
+                <td>{{ 'ezimageasset.alternative_text'|trans|desc('Alternative text') }}:</td>
+                <td>{{ altText|default('') }}</td>
+            </tr>
+            {% block asset_metadata %}
+                {% for name, value in asset.assetMetadata %}
+                    <tr class="ibexa-field-preview__meta-value-row">
+                        <td>{{ 'ezimageasset.dam_asset.' ~ name|trans }}:</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            {% endblock %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="ibexa-field-preview__actions-wrapper">
+    <a
+        class="ibexa-field-preview__action ibexa-field-preview__action--preview"
+        href="{{ asset.assetUri.path }}"
+        target="_blank">
+        <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--light">
+            <use xlink:href="{{ ibexa_icon_path('open-newtab') }}"></use>
+        </svg>
+    </a>
+</div>

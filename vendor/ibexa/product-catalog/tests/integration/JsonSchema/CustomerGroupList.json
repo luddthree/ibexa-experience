@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "CustomerGroupList": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "CustomerGroup": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "id": {
+                                    "type": "integer"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "identifier": {
+                                    "type": "string"
+                                },
+                                "description": {
+                                    "type": "string"
+                                },
+                                "Users": {
+                                    "type": "array",
+                                    "items": {}
+                                },
+                                "global_price_rate": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "id",
+                                "name",
+                                "identifier",
+                                "description",
+                                "Users",
+                                "global_price_rate"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "CustomerGroup"
+            ]
+        }
+    },
+    "required": [
+        "CustomerGroupList"
+    ]
+}

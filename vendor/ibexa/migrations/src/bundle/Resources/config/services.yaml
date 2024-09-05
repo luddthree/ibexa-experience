@@ -1,0 +1,14 @@
+imports:
+    - { resource: ../../Bridge/KaliopMigration/Resources/config/services.yaml }
+    - { resource: services/generator/criterion_generators.yaml }
+    - { resource: services/normalizers/criterion_normalizers.yaml }
+    - { resource: services/action_executors.yaml }
+    - { resource: services/commands.yaml }
+    - { resource: services/contracts.yaml }
+    - { resource: services/expression_language.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/normalizers.yaml }
+    - { resource: services/reference_resolver.yaml }
+    - { resource: services/services.yaml }
+    - { resource: services/step_executors.yaml }
+    - { resource: services/step_generators.yaml }

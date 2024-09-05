@@ -1,0 +1,12 @@
+--TEST--
+"ibexa_render_product_completeness" function
+--TEMPLATE--
+{{ ibexa_render_product_completeness(completeness, product) }}
+
+--DATA--
+return [
+    'completeness' => $this->getCompleteness(),
+    'product' => $this->getProduct('product'),
+]
+--EXPECT--
+attributes completeness availability completeness content completeness

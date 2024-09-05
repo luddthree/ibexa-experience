@@ -1,0 +1,130 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block _recommendation_call_user_id_row %}
+    {{ form_row(form) }}
+{% endblock %}
+
+{% block _recommendation_call_no_of_recommendations_row %}
+    {{ form_row(form, {
+        wrapper_attr: { class: 'ibexa-perso-scenario-preview__recommentations-no-wrapper' },
+    }) }}
+{% endblock %}
+
+{% block _recommendation_call_output_type_row %}
+    {{ form_row(form) }}
+{% endblock %}
+
+{% block _recommendation_call_category_path_filter_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        <div class="ibexa-perso-scenario-preview__category-path">
+            {{ include('@ibexadesign/personalization/parts/category_path_select.html.twig', {
+                is_single_select: true,
+            }) }}
+            {{ form_widget(form, { attr: { hidden: true, class: 'ibexa-input--category-path' } }) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _recommendation_call_context_items_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        <div
+            class="ibexa-perso-scenario-preview__context-items"
+            data-type="context_items"
+            data-input-template="{{ form_row(form.vars.prototype)|e('html_attr') }}"
+        >
+            <div class="ibexa-tag-view-select">
+                <div class="ibexa-tag-view-select__info">
+                    {{ 'scenarios.context_items.title'|trans|desc('Set up items') }}
+                </div>
+                {{ include('@ibexadesign/personalization/parts/search_input.html.twig', {
+                    class: 'ibexa-perso-scenario-preview__context-items-input',
+                }) }}
+                <div class="ibexa-perso-scenario-preview__tags"></div>
+                {{ form_widget(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _recommendation_call_context_items_entry_row %}
+    {% include '@ibexadesign/ui/tag.html.twig' with {
+        'content': form.vars.value|default('__name__'),
+        'is_loading_state': false,
+        'tag_attributes': {
+            'class': 'ibexa-perso-scenario-preview__tag',
+            'data-input-id': form.vars.id,
+        }
+    } %}
+
+    {{ form_widget(form, { attr: { class: 'ibexa-perso-scenario-preview__tag-input', hidden: true } } ) }}
+{% endblock %}
+
+{% block _recommendation_call_attributes_row %}
+    <div
+        class="form-group ibexa-perso-scenario-preview__attributes"
+        data-type="attributes"
+        data-input-template="{{ form_row(form.vars.prototype)|e('html_attr') }}"
+    >
+        {{ form_label(form) }}
+        <div class="ibexa-perso-scenario-preview__attributes-add-container">
+            <input name="attribute_value" class="form-control ibexa-input ibexa-input--text ibexa-perso-scenario-preview__input ibexa-perso-scenario-preview__input--add-tag" value="" />
+            <button type="button" class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-scenario-preview__add-tag-btn">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                </svg>
+            </button>
+        </div>
+        {{ form_widget(form, { attr: { class: 'ibexa-perso-scenario-preview__tags' } }) }}
+    </div>
+{% endblock %}
+
+{% block _recommendation_call_attributes_entry_row %}
+    {% include '@ibexadesign/ui/tag.html.twig' with {
+        'content': form.vars.value|default('__name__'),
+        'is_loading_state': false,
+        'tag_attributes': {
+            'class': 'ibexa-perso-scenario-preview__tag',
+            'data-input-id': form.vars.id,
+        }
+    } %}
+
+    {{ form_widget(form, { attr: { class: 'ibexa-perso-scenario-preview__tag-input', hidden: true } } ) }}
+{% endblock %}
+
+{% block _recommendation_call_custom_parameters_row %}
+    <div
+        class="form-group"
+        data-type="query_params"
+        data-input-template="{{ form_row(form.vars.prototype)|e('html_attr') }}"
+    >
+        {{ form_label(form) }}
+        <div class="ibexa-perso-scenario-preview__custom-parameters-add-container">
+            <input name="custom_parameters_value" class="form-control ibexa-input ibexa-input--text ibexa-perso-scenario-preview__input ibexa-perso-scenario-preview__input--add-tag" value="" />
+            <button type="button" class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-scenario-preview__add-tag-btn">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                </svg>
+            </button>
+        </div>
+        {{ form_widget(form, { attr: { class: 'ibexa-perso-scenario-preview__tags' } }) }}
+    </div>
+{% endblock %}
+
+{% block _recommendation_call_custom_parameters_entry_row %}
+    {% include '@ibexadesign/ui/tag.html.twig' with {
+        'content': form.vars.value|default('__name__'),
+        'is_loading_state': false,
+        'tag_attributes': {
+            'class': 'ibexa-perso-scenario-preview__tag',
+            'data-input-id': form.vars.id,
+        }
+    } %}
+
+    {{ form_widget(form, { attr: { class: 'ibexa-perso-scenario-preview__tag-input', hidden: true } } ) }}
+{% endblock %}
+
+{% block _recommendation_call__token_widget %}
+    {{ form_widget(form, { attr: { hidden: true } }) }}
+{% endblock %}

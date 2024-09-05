@@ -1,0 +1,62 @@
+{% extends '@ibexadesign/corporate_account/edit.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set internal_label = 'application.edit.section.internal.title'|trans|desc('Internal') %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-application-create-edit{% endblock %}
+
+{% block left_sidebar %}
+    {% block anchor_menu %}
+        {% include '@ibexadesign/ui/anchor_navigation_menu.html.twig' with {
+            items: [
+                internal_label,
+            ]
+        } %}
+    {% endblock %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'application.edit.editing'|trans|desc('Editing'),
+        content_type_name: content_type.name,
+        title: application.getName(),
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set edit_menu = knp_menu_get('ibexa_corporate_account.menu.application_edit_context_menu', [], {
+        content,
+        content_type,
+        location,
+        parent_location,
+        language,
+        cancel_uri: close_href,
+    }) %}
+
+    {{ knp_menu_render(edit_menu, { template: '@ibexadesign/ui/menu/context_menu.html.twig' }) }}
+{% endset %}
+
+{% block form %}
+    {{ form_start(form, {'attr': {'class': 'ibexa-form-validate ibexa-form'}}) }}
+        {% block form_fields %}
+            <div class="ibexa-anchor-navigation-sections">
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: internal_label,
+                } %}
+                    {% trans_default_domain 'ibexa_corporate_account' %}
+                    {% from '@ibexadesign/content/edit_macros.html.twig' import render_form_field %}
+
+                    {% block anchor_section_body %}
+                        {{ render_form_field(form.fieldsData.customer_group) }}
+                        {{ render_form_field(form.fieldsData.sales_rep) }}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        {% endblock %}
+        {{- form_widget(form.publish, { attr: { hidden: true }}) -}}
+        {{- form_widget(form.publishAndEdit, { attr: { hidden: true }}) -}}
+    {{ form_end(form) }}
+{% endblock %}

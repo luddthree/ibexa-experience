@@ -1,0 +1,20 @@
+{% extends '@ibexadesign/corporate_account/company/edit/edit_company.html.twig' %}
+
+{% set close_href = close_href|default(path('ibexa.corporate_account.company.details', {
+    'companyId': company.getId(),
+    '_fragment': 'ibexa-tab-company_profile'
+})) %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-company-contact-create-edit{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'company.edit_contact.editing'|trans|desc('Editing'),
+        content_type_name: content_type.name,
+        title: 'company.edit_contact.title'|trans({ '%company_name%': company.name })|desc('Editing %company_name% contact'),
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}

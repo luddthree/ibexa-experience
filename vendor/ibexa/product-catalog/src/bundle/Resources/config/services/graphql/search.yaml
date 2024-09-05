@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\ProductCatalog\GraphQL\Query\ProductQueryMapper: ~
+
+    Ibexa\ProductCatalog\GraphQL\Query\Filter\:
+        resource: './../../../../../lib/GraphQL/Query/Filter/*'
+        tags:
+            - { name: ibexa.product_catalog.graphql.filter }
+
+    Ibexa\ProductCatalog\GraphQL\Query\FilterRegistry:
+        arguments:
+            - !tagged_iterator ibexa.product_catalog.graphql.filter

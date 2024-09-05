@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\REST\CompanyCreateStructParamConverter:
+        tags:
+            - { name: request.param_converter, converter: ibexa_company_converter }
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\REST\CompanyUpdateStructParamConverter:
+        tags:
+            - { name: request.param_converter, converter: ibexa_company_converter }
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\REST\MemberCreateStructParamConverter:
+        tags:
+            - { name: request.param_converter, converter: ibexa_company_member_converter }
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\REST\MemberUpdateStructParamConverter:
+        tags:
+            - { name: request.param_converter, converter: ibexa_company_member_converter }

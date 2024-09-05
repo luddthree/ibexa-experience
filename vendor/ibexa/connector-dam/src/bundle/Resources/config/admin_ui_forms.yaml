@@ -1,0 +1,8 @@
+system:
+    admin_group:
+        admin_ui_forms:
+            content_edit_form_templates:
+                - { template: '@ibexadesign/ui/field_type/edit/ezdam.html.twig', priority: -10 }
+    default:
+        field_templates:
+            - { template: '@ibexadesign/ui/field_type/preview/ezdam.html.twig', priority: 40 }

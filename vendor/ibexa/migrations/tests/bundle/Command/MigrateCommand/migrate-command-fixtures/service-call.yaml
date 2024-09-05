@@ -1,0 +1,5 @@
+-
+    type: service_call
+    mode: execute
+    service: __foo_service__
+    method: __invoke

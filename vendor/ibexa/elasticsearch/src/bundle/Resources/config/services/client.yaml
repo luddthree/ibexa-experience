@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Elasticsearch\ElasticSearch\Client\ClientConfigurationProvider:
+        arguments:
+            $availableConfigurations: '%ibexa.elasticsearch.client_configuration_provider.available_configurations%'
+            $defaultConfigurationName: '%ibexa.elasticsearch.client_configuration_provider.default_configuration_name%'
+
+    Ibexa\Elasticsearch\ElasticSearch\Client\ClientConfigurationProviderInterface:
+        alias: Ibexa\Elasticsearch\ElasticSearch\Client\ClientConfigurationProvider
+
+    Ibexa\Elasticsearch\ElasticSearch\Client\ClientFactory: ~
+
+    Ibexa\Elasticsearch\ElasticSearch\Client\ClientFactoryInterface:
+        alias: Ibexa\Elasticsearch\ElasticSearch\Client\ClientFactory

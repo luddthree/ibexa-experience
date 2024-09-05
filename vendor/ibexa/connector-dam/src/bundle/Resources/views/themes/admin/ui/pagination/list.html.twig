@@ -1,0 +1,15 @@
+{% trans_default_domain 'ibexa_connector_dam_ui' %}
+
+<div class="pagination ibexa-pagination ibexa-pagination--hidden">
+    <ul
+        class="ibexa-pagination__navigation"
+        data-template="{{ include('@ibexadesign/ui/pagination/element.html.twig')|e('html_attr') }}"
+    >
+        <li class="page-item prev ibexa-pagination__button ibexa-pagination__button--back">
+            <span class="page-link" type="button"></span>
+        </li>
+        <li class="page-item next ibexa-pagination__button ibexa-pagination__button--next">
+            <span class="page-link" type="button"></span>
+        </li>
+    </ul>
+</div>

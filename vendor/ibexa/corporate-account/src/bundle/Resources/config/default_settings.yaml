@@ -1,0 +1,68 @@
+parameters:
+    ibexa.site_access.config.default.corporate_account.pagination.companies_limit: 10
+    ibexa.site_access.config.default.corporate_account.pagination.members_limit: 10
+    ibexa.site_access.config.default.corporate_account.pagination.individuals_limit: 10
+    ibexa.site_access.config.default.corporate_account.pagination.addresses_limit: 10
+    ibexa.site_access.config.default.corporate_account.pagination.applications_limit: 10
+    ibexa.site_access.config.default.corporate_accounts.roles:
+        admin: Company admin
+        buyer: Company buyer
+    ibexa.site_access.config.default.corporate_accounts.reasons:
+        reject: [Malicious intent / Spam]
+        on_hold: [Verification in progress]
+
+    ibexa.site_access.config.default.corporate_account.pagination.orders_limit: 25
+
+    ibexa.site_access.config.default.corporate_account.application.states: ['new', 'accept', 'on_hold', 'reject']
+    ibexa.site_access.config.default.corporate_account.application.default_state: 'new'
+
+    # Notifications
+    ibexa.site_access.config.corporate_group.notifications.error.timeout: 0
+    ibexa.site_access.config.corporate_group.notifications.warning.timeout: 0
+    ibexa.site_access.config.corporate_group.notifications.success.timeout: 5000
+    ibexa.site_access.config.corporate_group.notifications.info.timeout: 0
+
+    ibexa.site_access.config.default.user_content_type_identifier: ['user', 'member']
+    ibexa.site_access.config.admin_group.user_content_type_identifier: ['user', 'member']
+
+    ibexa.site_access.config.corporate_group.user_profile.content_types: []
+    ibexa.site_access.config.corporate_group.user_content_type_identifier: ['member']
+    ibexa.site_access.config.corporate_group.user_registration.user_type_identifier: 'member'
+    ibexa.site_access.config.corporate_group.user_registration.form.allowed_field_definitions_identifiers:
+        - first_name
+        - last_name
+        - phone_number
+        - user
+
+    # Content Tree Module
+    ibexa.site_access.config.corporate_group.content_tree_module.load_more_limit: 30
+    ibexa.site_access.config.corporate_group.content_tree_module.children_load_max_limit: 200
+    ibexa.site_access.config.corporate_group.content_tree_module.tree_max_depth: 10
+    ibexa.site_access.config.corporate_group.content_tree_module.allowed_content_types: []
+    ibexa.site_access.config.corporate_group.content_tree_module.ignored_content_types: []
+    ibexa.site_access.config.corporate_group.content_tree_module.tree_root_location_id: ~
+
+    ibexa.site_access.config.corporate_group.user_settings.templates.list: '@@ibexadesign/customer_portal/account/settings/list.html.twig'
+    ibexa.site_access.config.corporate_group.user_settings.templates.update: '@@ibexadesign/customer_portal/account/settings/update.html.twig'
+    ibexa.site_access.config.corporate_group.user_change_password.templates.form: '@@ibexadesign/customer_portal/account/change_password/index.html.twig'
+    ibexa.site_access.config.corporate_group.user_forgot_password.templates.form: '@@ibexadesign/customer_portal/account/forgot_password/index.html.twig'
+    ibexa.site_access.config.corporate_group.user_forgot_password_success.templates.form: '@@ibexadesign/customer_portal/account/forgot_password/confirmation_page.html.twig'
+    ibexa.site_access.config.corporate_group.user_forgot_password_login.templates.form: '@@ibexadesign/customer_portal/account/forgot_password/index_with_login.html.twig'
+    ibexa.site_access.config.corporate_group.user_forgot_password.templates.mail: '@@ibexadesign/customer_portal/account/forgot_password/mail.html.twig'
+    ibexa.site_access.config.corporate_group.user_reset_password.templates.form: '@@ibexadesign/customer_portal/account/reset_password/index.html.twig'
+    ibexa.site_access.config.corporate_group.user_reset_password.templates.invalid_link: '@@ibexadesign/customer_portal/account/reset_password/invalid_link_page.html.twig'
+    ibexa.site_access.config.corporate_group.user_reset_password.templates.success: '@@ibexadesign/customer_portal/account/reset_password/confirmation_page.html.twig'
+    ibexa.site_access.config.corporate_group.user_registration.templates.form: '@@ibexadesign/customer_portal/account/register/index.html.twig'
+    ibexa.site_access.config.corporate_group.user_registration.templates.confirmation: '@@ibexadesign/customer_portal/account/register/register_confirmation.html.twig'
+
+    ibexa.site_access.config.default.content_type.customer:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#customer'
+    ibexa.site_access.config.default.content_type.customer_portal:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#customer-portal'
+    ibexa.site_access.config.default.content_type.customer_portal_page:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#customer-portal-page'
+
+    ibexa.site_access.config.default.content_type_group.customer_portal:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#customer-type'
+    ibexa.site_access.config.default.content_type_group.corporate_account:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#customer-type'

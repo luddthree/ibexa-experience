@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Behat\Environment\ExperienceParameterProvider:
+        decorates: Ibexa\Behat\Browser\Environment\ParameterProvider

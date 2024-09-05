@@ -1,0 +1,28 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\ConfigResolver:
+        arguments:
+            $publicAccessService: '@Ibexa\SiteFactory\Service\PublicAccessService'
+            $siteAccessProvider: '@ibexa.siteaccess.provider'
+            $defaultNamespace: '%ibexa.config.default_scope%'
+        calls:
+            - [setSiteAccess, ['@Ibexa\Core\MVC\Symfony\SiteAccess']]
+        lazy: true
+        tags:
+            - { name: ibexa.site.config.resolver, priority: 90 }
+
+    Ibexa\SiteFactory\SiteAccessMatcher:
+        public: true
+        tags:
+            - { name: ibexa.site_access.matcher }
+
+    Ibexa\SiteFactory\SiteAccessProvider:
+        arguments:
+            $publicAccessService: '@Ibexa\SiteFactory\Service\PublicAccessService'
+        lazy: true
+        tags:
+            - { name: ibexa.site_access.provider, priority: 0 }

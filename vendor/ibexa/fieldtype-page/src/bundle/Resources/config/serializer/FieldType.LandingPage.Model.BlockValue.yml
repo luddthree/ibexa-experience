@@ -1,0 +1,57 @@
+Ibexa\Contracts\FieldTypePage\FieldType\LandingPage\Model\BlockValue:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        id:
+            type: string
+            skip_when_empty: false
+            expose: true
+        type:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        name:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        view:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        class:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        style:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        compiled:
+            type: string
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+        since:
+            type: DateTime<'U'>
+            expose: true
+            groups: [ comparable ]
+        till:
+            type: DateTime<'U'>
+            expose: true
+            groups: [ comparable ]
+        attributes:
+            type: array<Ibexa\Contracts\FieldTypePage\FieldType\LandingPage\Model\Attribute>
+            skip_when_empty: false
+            expose: true
+            groups: [ comparable ]
+    virtual_properties:
+        isVisible:
+            name: visible
+            serialized_name: visible
+            type: bool
+            groups: [ comparable ]

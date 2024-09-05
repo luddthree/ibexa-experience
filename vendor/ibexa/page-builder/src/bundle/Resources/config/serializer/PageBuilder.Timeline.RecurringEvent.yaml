@@ -1,0 +1,22 @@
+Ibexa\PageBuilder\PageBuilder\Timeline\RecurringEvent:
+    exclusion_policy: all
+    access_type: public_method
+    virtual_properties:
+        getStartDate:
+            serialized_name: start_date
+            type: DateTime<'U'>
+    properties:
+        rrule:
+            type: string
+            accessor:
+                getter: getRrule
+                setter: setRrule
+            skip_when_empty: false
+            expose: true
+        endDate:
+            type: DateTime<'U'>
+            accessor:
+                getter: getEndDate
+                setter: setEndDate
+            skip_when_empty: false
+            expose: true

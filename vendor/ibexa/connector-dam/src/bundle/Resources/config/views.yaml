@@ -1,0 +1,52 @@
+services:
+    Ibexa\Connector\Dam\View\AssetViewBuilder:
+        arguments:
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+            $transformationFactoryRegistry: '@Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry'
+            $viewConfigurator: '@Ibexa\Core\MVC\Symfony\View\Configurator\ViewProvider'
+            $viewParametersInjector: '@Ibexa\Core\MVC\Symfony\View\ParametersInjector\EventDispatcherInjector'
+        tags:
+            - { name: ibexa.view.builder }
+
+    Ibexa\Connector\Dam\View\AssetViewProvider:
+        arguments:
+            $matcherFactory: '@ibexa.view.connector.dam.asset.matcher_factory'
+        tags:
+            - { name: ibexa.view.provider, type: Ibexa\Connector\Dam\View\AssetView, priority: 10 }
+
+    ibexa.view.connector.dam.asset.matcher_factory:
+        class: Ibexa\Bundle\Core\Matcher\ServiceAwareMatcherFactory
+        arguments:
+            $viewMatcherRegistry: '@Ibexa\Bundle\Core\Matcher\ViewMatcherRegistry'
+            $repository: '@ibexa.api.repository'
+            $relativeNamespace: Ibexa\Connector\Dam\View\Matcher
+
+    ibexa.view.connector.dam.image_asset.matcher_factory.dynamically_configured:
+        class: Ibexa\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
+        decorates: ibexa.view.connector.dam.asset.matcher_factory
+        arguments:
+            $innerConfigurableMatcherFactory: '@.inner'
+            $configResolver: '@ibexa.config.resolver'
+            $parameterName: image_asset_view
+
+    ibexa.view.connector.dam.asset.default_configured:
+        class: Ibexa\Connector\Dam\View\AssetViewProvider
+        arguments:
+            $matcherFactory: '@ibexa.view.connector.dam.asset.default_matcher_factory'
+        tags:
+            - { name: ibexa.view.provider, type: Ibexa\Connector\Dam\View\AssetView, priority: -1 }
+
+    ibexa.view.connector.dam.asset.default_matcher_factory:
+        class: Ibexa\Bundle\Core\Matcher\ServiceAwareMatcherFactory
+        arguments:
+            $viewMatcherRegistry: '@Ibexa\Bundle\Core\Matcher\ViewMatcherRegistry'
+            $repository: '@ibexa.api.repository'
+            $relativeNamespace: Ibexa\Connector\Dam\View\Matcher
+
+    ibexa.view.connector.dam.image_asset.default_matcher_factory.dynamically_configured:
+        class: Ibexa\Core\MVC\Symfony\Matcher\DynamicallyConfiguredMatcherFactoryDecorator
+        decorates: ibexa.view.connector.dam.asset.default_matcher_factory
+        arguments:
+            $innerConfigurableMatcherFactory: '@.inner'
+            $configResolver: '@ibexa.config.resolver'
+            $parameterName: image_asset_view_defaults

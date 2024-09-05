@@ -1,0 +1,48 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Seo\FieldType\SeoType:
+        parent: Ibexa\Core\FieldType\FieldType
+        tags:
+            - { name: ibexa.field_type, alias: !php/const \Ibexa\Seo\FieldType\SeoType::IDENTIFIER }
+
+    Ibexa\Seo\FieldType\Mapper\SeoFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: !php/const \Ibexa\Seo\FieldType\SeoType::IDENTIFIER }
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: !php/const \Ibexa\Seo\FieldType\SeoType::IDENTIFIER }
+
+    Ibexa\Seo\FieldType\SeoValueConverter:
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: !php/const \Ibexa\Seo\FieldType\SeoType::IDENTIFIER }
+
+    Ibexa\Seo\Form\Type\FieldType\SeoFieldType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Seo\Form\Type\FieldType\SeoTypesFieldType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Seo\Form\Type\FieldType\SeoTypesValueFieldType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Seo\Form\Type\FieldType\SeoFieldsCollectionType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Seo\Form\Type\FieldType\SeoTypesCollectionType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Seo\Rest\FieldTypeProcessor\SeoFieldTypeProcessor:
+        tags:
+            - { name: ibexa.rest.field_type.processor, alias: !php/const \Ibexa\Seo\FieldType\SeoType::IDENTIFIER }
+
+    ibexa.field_type.indexable.ibexa_seo:
+        class: Ibexa\Core\FieldType\Unindexed
+        tags:
+            - { name: ibexa.field_type.indexable, alias: !php/const \Ibexa\Seo\FieldType\SeoType::IDENTIFIER }

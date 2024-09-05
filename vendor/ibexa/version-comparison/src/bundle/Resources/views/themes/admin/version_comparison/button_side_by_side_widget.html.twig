@@ -1,0 +1,19 @@
+{% trans_default_domain 'ibexa_fieldtypes_comparison_ui' %}
+
+{%- block button_widget -%}
+    {%- set attr = attr|merge({
+        class: (attr.class|default('') ~ ' btn ibexa-btn ibexa-btn--ghost ibexa-version-compare-menu__type-selector ibexa-version-compare-menu__type-selector--split')|trim
+    }) -%}
+    
+    <button
+        type="button"
+        {{ block('button_attributes') }}
+    >
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('version-compare-side-by-side') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'content.comparison.type_selector.split.label'|trans|desc('Split') }}
+        </span>
+    </button>
+{%- endblock -%}

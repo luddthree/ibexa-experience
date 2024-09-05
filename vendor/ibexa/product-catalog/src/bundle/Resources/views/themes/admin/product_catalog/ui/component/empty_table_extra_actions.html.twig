@@ -1,0 +1,12 @@
+<div class="ibexa-pc-empty-table-extra-actions">
+    {% block extra_action_link %}
+        <a href="{{ url }}" class="ibexa-pc-empty-table-extra-actions__link">
+            {% block extra_action_content %}
+                <svg class="ibexa-icon ibexa-icon--small-medium">
+                    <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+                </svg>
+                <span class="ibexa-pc-empty-table-extra-actions__label">{{ label }}</span>
+            {% endblock %}
+        </a>
+    {% endblock %}
+</div>

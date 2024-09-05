@@ -1,0 +1,67 @@
+setup:
+    suites:
+        workflow:
+            filters:
+              tags: '@IbexaHeadless'
+            paths:
+                - '%paths.base%/vendor/ibexa/workflow/features/setup/setup_headless.feature'
+            contexts:
+                - Ibexa\Behat\API\Context\ContentTypeContext
+                - Ibexa\Behat\API\Context\RoleContext
+                - Ibexa\Behat\API\Context\TestContext
+                - Ibexa\Behat\API\Context\UserContext
+                - Ibexa\Behat\Core\Context\ConfigurationContext
+
+browser:
+    suites:
+        workflow:
+            paths:
+              - '%paths.base%/vendor/ibexa/workflow/features/browser'
+            filters:
+              tags: '@IbexaHeadless'
+            contexts:
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentUpdateContext
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentViewContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NotificationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentActionsMenuContext
+              - Ibexa\AdminUi\Behat\BrowserContext\UserNotificationContext
+              - Ibexa\Behat\Browser\Context\AuthenticationContext
+              - Ibexa\Workflow\Behat\Context\WorkflowAdminContext
+              - Ibexa\Workflow\Behat\Context\WorkflowContext
+
+service:
+    suites:
+        workflow:
+            paths:
+              - '%paths.base%/vendor/ibexa/workflow/features/service'
+            contexts:
+              - Ibexa\Behat\API\Context\ContentContext
+              - Ibexa\Behat\API\Context\TestContext
+              - Ibexa\Behat\API\Context\TrashContext
+              - Ibexa\Behat\Core\Context\ConfigurationContext
+              - Ibexa\Workflow\Behat\Context\WorkflowServiceContext
+
+workflow:
+    suites:
+        workflow-full:
+            paths:
+              - '%paths.base%/vendor/ibexa/workflow/features/service'
+              - '%paths.base%/vendor/ibexa/workflow/features/browser'
+            filters:
+              tags: '@IbexaHeadless'
+            contexts:
+              - Ibexa\Behat\API\Context\ContentContext
+              - Ibexa\Behat\API\Context\TestContext
+              - Ibexa\Behat\API\Context\TrashContext
+              - Ibexa\Behat\Core\Context\ConfigurationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentActionsMenuContext
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentUpdateContext
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentViewContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NotificationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\UserNotificationContext
+              - Ibexa\Behat\Browser\Context\AuthenticationContext
+              - Ibexa\Workflow\Behat\Context\WorkflowAdminContext
+              - Ibexa\Workflow\Behat\Context\WorkflowContext
+              - Ibexa\Workflow\Behat\Context\WorkflowServiceContext

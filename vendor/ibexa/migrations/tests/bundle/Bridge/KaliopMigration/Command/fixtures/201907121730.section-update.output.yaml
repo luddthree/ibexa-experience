@@ -1,0 +1,18 @@
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: gb
+    metadata:
+        identifier: uk
+        name: UK
+-
+    type: section
+    mode: update
+    match:
+        field: id
+        value: 1
+    metadata:
+        identifier: pl
+        name: PL

@@ -1,0 +1,98 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{{ form_start(delete_address_form, {
+    action: delete_action|default(path('ibexa.corporate_account.customer_portal.address_book_items.delete')),
+    attr: { class: 'ibexa-ca-bulk-delete' },
+}) }}
+
+{% set table_actions %}
+    {% block table_actions %}{% endblock %}
+{% endset %}
+
+{% set body_rows = [] %}
+{% for key, form in delete_address_form.address_book_items %}
+    {% set row = address_list.getCurrentPageResults()[key] %}
+    {% set is_default = company.getDefaultAddressId() == row.id %}
+
+    {% set col_checkbox %}
+        <div class="form-check">
+            <input
+                    type="checkbox"
+                    name="{{ form.vars.full_name }}"
+                    value="{{ form.vars.value }}"
+                    class="form-check-input ibexa-input ibexa-input--checkbox ibexa-ca-bulk-delete__checkbox"
+            />
+        </div>
+    {% endset %}
+
+    {% set col_default %}
+        <input
+                class="ibexa-input ibexa-input--radio"
+                type="radio"
+                {{ is_default ? 'checked' }}
+                name="updateDefaultShippingAddress"
+                value="{{ row.id }}"
+        >
+    {% endset %}
+
+    {% set col_action_btns %}
+        {% set edit_url = path(edit_path_name, {
+            shippingAddressId: row.id,
+            companyId: company_id
+        }) %}
+        <a
+                href="{{ edit_url }}"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                title="{{ 'company.details.tab.address_book.shipping_address.table.action.edit'|trans|desc('Edit') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </a>
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { has_checkbox: true, content: col_checkbox },
+        { content: ibexa_field_value(row.getContent(), 'address') },
+        { content: ibexa_field_value(row.getContent(), 'email') },
+        { content: ibexa_field_value(row.getContent(), 'phone') },
+        { content: col_default },
+        { has_action_btns: true, content: col_action_btns },
+    ] }]) %}
+{% endfor %}
+
+{% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline: 'List',
+    head_cols: [
+        { has_checkbox: true },
+        { content: 'company.details.tab.address_book.shipping_address.table.header.address'|trans|desc('Address') },
+        { content: 'company.details.tab.address_book.shipping_address.table.header.email_address'|trans|desc('Email address') },
+        { content: 'company.details.tab.address_book.shipping_address.table.header.phone'|trans|desc('Phone') },
+        { content: 'company.details.tab.address_book.shipping_address.table.header.deafault'|trans|desc('Default') },
+        { },
+    ],
+    body_rows,
+    empty_table_info_text: 'address_book.list.no_addresses.info'|trans|desc('Add first address for this company'),
+    empty_table_action_text: 'address_book.list.no_addresses.action'|trans|desc('Easily add new billing addresses or switch the default one to streamline the shopping process.'),
+} %}
+    {% block header %}
+        {% embed '@ibexadesign/ui/component/table/table_header.html.twig' %}
+            {% block actions %}
+                {{ table_actions }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+
+{{ form_widget(delete_address_form._token) }}
+{{ form_end(delete_address_form, { render_rest: false }) }}
+{{ form(default_shipping_form, {
+    action: set_default_action|default(path('ibexa.corporate_account.customer_portal.update_default_shipping_address'))
+}) }}
+
+
+{% if address_list.haveToPaginate %}
+    {% include '@ibexadesign/ui/pagination.html.twig' with {
+        pager: address_list,
+    } %}
+{% endif %}

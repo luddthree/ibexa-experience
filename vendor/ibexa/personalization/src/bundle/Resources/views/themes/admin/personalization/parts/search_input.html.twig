@@ -1,0 +1,34 @@
+{% set search_input_popup_item_template %}
+    <li
+        class="ibexa-perso-search-input__popup-item"
+        data-item-id="{{ '{{ id }}' }}"
+        data-item-type-id="{{ '{{ type_id }}' }}"
+    >
+        {{ '{{ value }}' }}
+    </li>
+{% endset %}
+
+<div
+    class="{{ class|default('') }} ibexa-perso-search-input"
+    data-popup-item-template="{{ search_input_popup_item_template|e('html_attr') }}"
+>
+    {%- embed '@ibexadesign/ui/component/input_text.html.twig' -%}
+        {% block content %}
+            <input
+                type="text"
+                class="ibexa-perso-search-input__input ibexa-input ibexa-input--text form-control"
+                placeholder=" "
+            />
+        {% endblock %}
+        {% block extra_content %}
+            <ul class="ibexa-perso-search-input__popup"></ul>
+        {% endblock %}
+    {%- endembed -%}
+    <button
+        type="button"
+        class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--add-search-item"
+        disabled
+    >
+        {{ 'scenarios.add_item'|trans|desc('Add') }}
+    </button>
+</div>

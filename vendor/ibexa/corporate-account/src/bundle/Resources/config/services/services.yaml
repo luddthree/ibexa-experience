@@ -1,0 +1,105 @@
+imports:
+    - { resource: rest/* }
+
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Permission\MemberResolver: ~
+
+    Ibexa\Contracts\CorporateAccount\Permission\MemberResolver: '@Ibexa\CorporateAccount\Permission\MemberResolver'
+
+    Ibexa\CorporateAccount\Commerce\Address\DefaultAddressMapper: ~
+
+    Ibexa\Contracts\CorporateAccount\Commerce\Address\AddressMapper: '@Ibexa\CorporateAccount\Commerce\Address\DefaultAddressMapper'
+
+    Ibexa\CorporateAccount\UI\Config\CorporateAccountContentTypes:
+        decorates: Ibexa\AdminUi\UI\Config\Provider\ContentTypes
+        decoration_on_invalid: ignore
+
+    Ibexa\Bundle\CorporateAccount\Templating\InvoiceNumberExtension:
+        arguments:
+            - '@twig'
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\Bundle\CorporateAccount\Templating\MemberExtension:
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\CorporateAccount\Values\Mapper\DomainMapper: ~
+
+    Ibexa\CorporateAccount\Values\Mapper\DomainMapperInterface: '@Ibexa\CorporateAccount\Values\Mapper\DomainMapper'
+
+    Ibexa\CorporateAccount\Commerce\Orders\OrdersProviderInterface:
+        alias: Ibexa\CorporateAccount\Commerce\Orders\Null\NullOrdersProvider
+
+    Ibexa\CorporateAccount\Commerce\Orders\Null\NullOrdersProvider: ~
+
+    Ibexa\CorporateAccount\Commerce\Individuals\IndividualsLocationResolverInterface:
+        alias: Ibexa\CorporateAccount\Commerce\Individuals\IndividualsLocationResolver
+
+    Ibexa\CorporateAccount\Commerce\Individuals\IndividualsLocationResolver: ~
+
+    Ibexa\CorporateAccount\CompanyService: ~
+
+    Ibexa\CorporateAccount\MemberService: ~
+
+    Ibexa\CorporateAccount\ShippingAddressService: ~
+
+    Ibexa\CorporateAccount\ApplicationService: ~
+
+    Ibexa\CorporateAccount\CorporateAccountService: ~
+
+    Ibexa\CorporateAccount\Event\CompanyService:
+        arguments:
+            $innerService: '@Ibexa\CorporateAccount\CompanyService'
+
+    Ibexa\CorporateAccount\Event\MemberService:
+        arguments:
+            $innerService: '@Ibexa\CorporateAccount\MemberService'
+
+    Ibexa\CorporateAccount\Event\ShippingAddressService:
+        arguments:
+            $innerService: '@Ibexa\CorporateAccount\ShippingAddressService'
+
+    Ibexa\CorporateAccount\Event\ApplicationService:
+        arguments:
+            $innerService: '@Ibexa\CorporateAccount\ApplicationService'
+
+    Ibexa\Contracts\CorporateAccount\Service\MemberService: '@Ibexa\CorporateAccount\Event\MemberService'
+
+    Ibexa\Contracts\CorporateAccount\Service\CompanyService: '@Ibexa\CorporateAccount\Event\CompanyService'
+
+    Ibexa\Contracts\CorporateAccount\Service\ShippingAddressService: '@Ibexa\CorporateAccount\Event\ShippingAddressService'
+
+    Ibexa\Contracts\CorporateAccount\Service\ApplicationService: '@Ibexa\CorporateAccount\Event\ApplicationService'
+
+    Ibexa\Bundle\CorporateAccount\Security\MemberChecker:
+        decorates: Ibexa\Core\MVC\Symfony\Security\UserChecker
+        arguments:
+            $checker: '@.inner'
+
+    Ibexa\CorporateAccount\CustomerGroup\MemberCustomerGroupResolver:
+        tags:
+            - { name: ibexa.product_catalog.customer_group.resolver, priority: 20 }
+
+    Ibexa\Contracts\CorporateAccount\Service\CorporateAccountService:
+        alias: Ibexa\CorporateAccount\CorporateAccountService
+
+    Ibexa\CorporateAccount\PageBuilder\SiteAccess\NonCorporateSiteAccessResolver:
+        decorates: Ibexa\AdminUi\Siteaccess\NonAdminSiteaccessResolver
+        arguments:
+            $inner: '@.inner'
+
+    Ibexa\CorporateAccount\PageBuilder\SiteAccess\RootLocationProvider: ~
+
+    Ibexa\CorporateAccount\View\Matcher\IsSiteAccessRoot:
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\CorporateAccount\CustomerPortalService: ~
+
+    Ibexa\Contracts\CorporateAccount\Service\CustomerPortalService: '@Ibexa\CorporateAccount\CustomerPortalService'

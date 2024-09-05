@@ -1,0 +1,4 @@
+ibexa.product_catalog.product.list:
+    path: /product/list
+    controller: 'Ibexa\Bundle\ProductCatalog\Controller\Product\ListController::renderAction'
+    methods: [GET]

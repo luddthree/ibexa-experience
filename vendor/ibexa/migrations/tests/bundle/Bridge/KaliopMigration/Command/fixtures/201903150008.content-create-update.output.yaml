@@ -1,0 +1,1722 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: de-CH
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ch_folder
+        alwaysAvailable: null
+        section: ch
+    location:
+        locationRemoteId: siteaccess_ch_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: de-CH
+            value: 'Switzerland CH'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: de-CH
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ch
+        alwaysAvailable: null
+        section: null
+    location:
+        locationRemoteId: siteaccess_ch
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_ch_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: de-CH
+            value: 'Startpage CH'
+        -
+            fieldDefIdentifier: page
+            languageCode: de-CH
+            value: '{"layout":"frontpage","title":"Switzerland (CH)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: siteaccess_ch
+    metadata:
+        remoteId: null
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fr-CH
+            value: 'Startpage CH'
+        -
+            fieldDefIdentifier: page
+            languageCode: fr-CH
+            value: '{"layout":"frontpage","title":"Switzerland (CH)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: siteaccess_ch
+    metadata:
+        remoteId: null
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: it-CH
+            value: 'Startpage CH'
+        -
+            fieldDefIdentifier: page
+            languageCode: it-CH
+            value: '{"layout":"frontpage","title":"Switzerland (CH)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: en-LD
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ldi_folder
+        alwaysAvailable: null
+        section: ldi
+    location:
+        locationRemoteId: siteaccess_ldi_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-LD
+            value: 'Lidl Digital LDI'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: en-LD
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ldi
+        alwaysAvailable: null
+        section: null
+    location:
+        locationRemoteId: siteaccess_ldi
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_ldi_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-LD
+            value: 'Startpage LDI'
+        -
+            fieldDefIdentifier: page
+            languageCode: en-LD
+            value: '{"layout":"frontpage","title":"Lidl Digital (LDI)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: ro-RO
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ro_folder
+        alwaysAvailable: null
+        section: ro
+    location:
+        locationRemoteId: siteaccess_ro_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: ro-RO
+            value: 'Lidl Digital RO'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: ro-RO
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ro
+        alwaysAvailable: null
+        section: ro
+    location:
+        locationRemoteId: siteaccess_ro
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_ro_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: ro-RO
+            value: 'Romania (RO)'
+        -
+            fieldDefIdentifier: page
+            languageCode: ro-RO
+            value: '{"layout":"frontpage","title":"Romania (RO)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: fi-FI
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_fi_folder
+        alwaysAvailable: null
+        section: fi
+    location:
+        locationRemoteId: siteaccess_fi_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fi-FI
+            value: 'Lidl Digital FI'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: fi-FI
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_fi
+        alwaysAvailable: null
+        section: fi
+    location:
+        locationRemoteId: siteaccess_fi
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_fi_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fi-FI
+            value: 'Finland (FI)'
+        -
+            fieldDefIdentifier: page
+            languageCode: fi-FI
+            value: '{"layout":"frontpage","title":"Finnland (FI)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: de-AT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_at_folder
+        alwaysAvailable: null
+        section: at
+    location:
+        locationRemoteId: siteaccess_at_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: de-AT
+            value: 'Lidl Digital AT'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: de-AT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_at
+        alwaysAvailable: null
+        section: at
+    location:
+        locationRemoteId: siteaccess_at
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_at_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: de-AT
+            value: 'Austria (AT)'
+        -
+            fieldDefIdentifier: page
+            languageCode: de-AT
+            value: '{"layout":"frontpage","title":"Austria (AT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: en-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_gb_folder
+        alwaysAvailable: null
+        section: gb
+    location:
+        locationRemoteId: siteaccess_gb_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-GB
+            value: 'Lidl Digital GB'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: en-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_gb
+        alwaysAvailable: null
+        section: gb
+    location:
+        locationRemoteId: siteaccess_gb
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_gb_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-GB
+            value: 'United Kingdom (UK)'
+        -
+            fieldDefIdentifier: page
+            languageCode: en-GB
+            value: '{"layout":"frontpage","title":"United Kingdom (UK)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: nl-NL
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_nl_folder
+        alwaysAvailable: null
+        section: nl
+    location:
+        locationRemoteId: siteaccess_nl_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: nl-NL
+            value: 'Lidl Digital NL'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: nl-NL
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_nl
+        alwaysAvailable: null
+        section: nl
+    location:
+        locationRemoteId: siteaccess_nl
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_nl_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: nl-NL
+            value: 'Netherlands (NL)'
+        -
+            fieldDefIdentifier: page
+            languageCode: nl-NL
+            value: '{"layout":"frontpage","title":"Netherlands (NL)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: en-IE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ie_folder
+        alwaysAvailable: null
+        section: ie
+    location:
+        locationRemoteId: siteaccess_ie_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-IE
+            value: 'Lidl Digital IE'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: en-IE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ie
+        alwaysAvailable: null
+        section: ie
+    location:
+        locationRemoteId: siteaccess_ie
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_ie_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-IE
+            value: 'Ireland (IE)'
+        -
+            fieldDefIdentifier: page
+            languageCode: en-IE
+            value: '{"layout":"frontpage","title":"Ireland (IE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: pl-PL
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_pl_folder
+        alwaysAvailable: null
+        section: pl
+    location:
+        locationRemoteId: siteaccess_pl_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: pl-PL
+            value: 'Lidl Digital PL'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: pl-PL
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_pl
+        alwaysAvailable: null
+        section: pl
+    location:
+        locationRemoteId: siteaccess_pl
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_pl_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: pl-PL
+            value: 'Poland (PL)'
+        -
+            fieldDefIdentifier: page
+            languageCode: pl-PL
+            value: '{"layout":"frontpage","title":"Poland (PL)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: da-DK
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_dk_folder
+        alwaysAvailable: null
+        section: dk
+    location:
+        locationRemoteId: siteaccess_dk_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: da-DK
+            value: 'Lidl Digital DK'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: da-DK
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_dk
+        alwaysAvailable: null
+        section: dk
+    location:
+        locationRemoteId: siteaccess_dk
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_dk_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: da-DK
+            value: 'Denmark (DK)'
+        -
+            fieldDefIdentifier: page
+            languageCode: da-DK
+            value: '{"layout":"frontpage","title":"Denmark (DK)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: fr-BE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_be_folder
+        alwaysAvailable: null
+        section: be
+    location:
+        locationRemoteId: siteaccess_be_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fr-BE
+            value: 'Lidl Digital BE'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: fr-BE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_be
+        alwaysAvailable: null
+        section: be
+    location:
+        locationRemoteId: siteaccess_be
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_be_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fr-BE
+            value: 'Belguim (BE)'
+        -
+            fieldDefIdentifier: page
+            languageCode: fr-BE
+            value: '{"layout":"frontpage","title":"Belguim (BE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: siteaccess_be
+    metadata:
+        remoteId: null
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: nl-BE
+            value: 'Belguim (CH)'
+        -
+            fieldDefIdentifier: page
+            languageCode: nl-BE
+            value: '{"layout":"frontpage","title":"Belguim (BE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: cz-CZ
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_cz_folder
+        alwaysAvailable: null
+        section: cz
+    location:
+        locationRemoteId: siteaccess_cz_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: cz-CZ
+            value: 'Lidl Digital CZ'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: cz-CZ
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_cz
+        alwaysAvailable: null
+        section: cz
+    location:
+        locationRemoteId: siteaccess_cz
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_cz_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: cz-CZ
+            value: 'Czech (CZ)'
+        -
+            fieldDefIdentifier: page
+            languageCode: cz-CZ
+            value: '{"layout":"frontpage","title":"Czech (CZ)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: el-GR
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_gr_folder
+        alwaysAvailable: null
+        section: gr
+    location:
+        locationRemoteId: siteaccess_gr_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: el-GR
+            value: 'Lidl Digital GR'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: el-GR
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_gr
+        alwaysAvailable: null
+        section: gr
+    location:
+        locationRemoteId: siteaccess_gr
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_gr_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: el-GR
+            value: 'Greece (GR)'
+        -
+            fieldDefIdentifier: page
+            languageCode: el-GR
+            value: '{"layout":"frontpage","title":"Greece (GR)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: it-IT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_it_folder
+        alwaysAvailable: null
+        section: it
+    location:
+        locationRemoteId: siteaccess_it_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: it-IT
+            value: 'Lidl Digital IT'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: it-IT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_it
+        alwaysAvailable: null
+        section: it
+    location:
+        locationRemoteId: siteaccess_it
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_it_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: it-IT
+            value: 'Italy (IT)'
+        -
+            fieldDefIdentifier: page
+            languageCode: it-IT
+            value: '{"layout":"frontpage","title":"Italy (IT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: hu-HU
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_hu_folder
+        alwaysAvailable: null
+        section: hu
+    location:
+        locationRemoteId: siteaccess_hu_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: hu-HU
+            value: 'Lidl Digital HU'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: hu-HU
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_hu
+        alwaysAvailable: null
+        section: hu
+    location:
+        locationRemoteId: siteaccess_hu
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_hu_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: hu-HU
+            value: 'Hungary (HU)'
+        -
+            fieldDefIdentifier: page
+            languageCode: hu-HU
+            value: '{"layout":"frontpage","title":"Hungary (HU)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: pt-PT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_pt_folder
+        alwaysAvailable: null
+        section: pt
+    location:
+        locationRemoteId: siteaccess_pt_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: pt-PT
+            value: 'Lidl Digital PT'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: pt-PT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_pt
+        alwaysAvailable: null
+        section: pt
+    location:
+        locationRemoteId: siteaccess_pt
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_pt_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: pt-PT
+            value: 'Portugal (PT)'
+        -
+            fieldDefIdentifier: page
+            languageCode: pt-PT
+            value: '{"layout":"frontpage","title":"Portugal (PT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: sk-SK
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_sk_folder
+        alwaysAvailable: null
+        section: sk
+    location:
+        locationRemoteId: siteaccess_sk_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sk-SK
+            value: 'Lidl Digital SK'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: sk-SK
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_sk
+        alwaysAvailable: null
+        section: sk
+    location:
+        locationRemoteId: siteaccess_sk
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_sk_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sk-SK
+            value: 'Slovakia (SK)'
+        -
+            fieldDefIdentifier: page
+            languageCode: sk-SK
+            value: '{"layout":"frontpage","title":"Slovakia (SK)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: el-CY
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_cy_folder
+        alwaysAvailable: null
+        section: cy
+    location:
+        locationRemoteId: siteaccess_cy_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: el-CY
+            value: 'Lidl Digital CY'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: el-CY
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_cy
+        alwaysAvailable: null
+        section: cy
+    location:
+        locationRemoteId: siteaccess_cy
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_cy_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: el-CY
+            value: 'Cyprus (CY)'
+        -
+            fieldDefIdentifier: page
+            languageCode: el-CY
+            value: '{"layout":"frontpage","title":"Cyprus (CY)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: siteaccess_cy
+    metadata:
+        remoteId: null
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-CY
+            value: 'Cyprus (CY)'
+        -
+            fieldDefIdentifier: page
+            languageCode: en-CY
+            value: '{"layout":"frontpage","title":"Cyprus (CY)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: hr-HR
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_hr_folder
+        alwaysAvailable: null
+        section: hr
+    location:
+        locationRemoteId: siteaccess_hr_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: hr-HR
+            value: 'Lidl Digital HR'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: hr-HR
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_hr
+        alwaysAvailable: null
+        section: hr
+    location:
+        locationRemoteId: siteaccess_hr
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_hr_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: hr-HR
+            value: 'Croatia (HR)'
+        -
+            fieldDefIdentifier: page
+            languageCode: hr-HR
+            value: '{"layout":"frontpage","title":"Croatia (HR)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: bg-BG
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_bg_folder
+        alwaysAvailable: null
+        section: bg
+    location:
+        locationRemoteId: siteaccess_bg_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: bg-BG
+            value: 'Lidl Digital BG'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: bg-BG
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_bg
+        alwaysAvailable: null
+        section: bg
+    location:
+        locationRemoteId: siteaccess_bg
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_bg_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: bg-BG
+            value: 'Bulgaria (BG)'
+        -
+            fieldDefIdentifier: page
+            languageCode: bg-BG
+            value: '{"layout":"frontpage","title":"Bulgaria (BG)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: sv-SE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_se_folder
+        alwaysAvailable: null
+        section: se
+    location:
+        locationRemoteId: siteaccess_se_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sv-SE
+            value: 'Lidl Digital SE'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: sv-SE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_se
+        alwaysAvailable: null
+        section: se
+    location:
+        locationRemoteId: siteaccess_se
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_se_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sv-SE
+            value: 'Sweden (SE)'
+        -
+            fieldDefIdentifier: page
+            languageCode: sv-SE
+            value: '{"layout":"frontpage","title":"Sweden (SE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: en-MT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_mt_folder
+        alwaysAvailable: null
+        section: mt
+    location:
+        locationRemoteId: siteaccess_mt_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-MT
+            value: 'Lidl Digital MT'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: en-MT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_mt
+        alwaysAvailable: null
+        section: mt
+    location:
+        locationRemoteId: siteaccess_mt
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_mt_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-MT
+            value: 'Malta (MT)'
+        -
+            fieldDefIdentifier: page
+            languageCode: en-MT
+            value: '{"layout":"frontpage","title":"Malta (MT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: es-ES
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_es_folder
+        alwaysAvailable: null
+        section: es
+    location:
+        locationRemoteId: siteaccess_es_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: es-ES
+            value: 'Lidl Digital ES'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: es-ES
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_es
+        alwaysAvailable: null
+        section: es
+    location:
+        locationRemoteId: siteaccess_es
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_es_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: es-ES
+            value: 'Spain (ES)'
+        -
+            fieldDefIdentifier: page
+            languageCode: es-ES
+            value: '{"layout":"frontpage","title":"Spain (SP)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: sl-SI
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_si_folder
+        alwaysAvailable: null
+        section: si
+    location:
+        locationRemoteId: siteaccess_si_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sl-SI
+            value: 'Lidl Digital SI'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: sl-SI
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_si
+        alwaysAvailable: null
+        section: si
+    location:
+        locationRemoteId: siteaccess_si
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_si_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sl-SI
+            value: 'Slovenia (SI)'
+        -
+            fieldDefIdentifier: page
+            languageCode: sl-SI
+            value: '{"layout":"frontpage","title":"Slovenia (SI)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: de-LU
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_lu_folder
+        alwaysAvailable: null
+        section: lu
+    location:
+        locationRemoteId: siteaccess_lu_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: de-LU
+            value: 'Lidl Digital LU'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: de-LU
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_lu
+        alwaysAvailable: null
+        section: lu
+    location:
+        locationRemoteId: siteaccess_lu
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_lu_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: de-LU
+            value: 'Luxembourg (LU)'
+        -
+            fieldDefIdentifier: page
+            languageCode: de-LU
+            value: '{"layout":"frontpage","title":"Luxembourg (LU)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: siteaccess_lu
+    metadata:
+        remoteId: null
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fr-LU
+            value: 'Luxembourg (LU)'
+        -
+            fieldDefIdentifier: page
+            languageCode: fr-LU
+            value: '{"layout":"frontpage","title":"Luxembourg (LU)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: lt-LT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_lt_folder
+        alwaysAvailable: null
+        section: lt
+    location:
+        locationRemoteId: siteaccess_lt_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: lt-LT
+            value: 'Lidl Digital LT'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: lt-LT
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_lt
+        alwaysAvailable: null
+        section: lt
+    location:
+        locationRemoteId: siteaccess_lt
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_lt_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: lt-LT
+            value: 'Lithuania (LT)'
+        -
+            fieldDefIdentifier: page
+            languageCode: lt-LT
+            value: '{"layout":"frontpage","title":"Lithuania (LT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: sr-RS
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_rs_folder
+        alwaysAvailable: null
+        section: rs
+    location:
+        locationRemoteId: siteaccess_rs_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sr-RS
+            value: 'Lidl Digital RS'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: sr-RS
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_rs
+        alwaysAvailable: null
+        section: rs
+    location:
+        locationRemoteId: siteaccess_rs
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_rs_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: sr-RS
+            value: 'Serbia (RS)'
+        -
+            fieldDefIdentifier: page
+            languageCode: sr-RS
+            value: '{"layout":"frontpage","title":"Serbia (RS)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: et-EE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ee_folder
+        alwaysAvailable: null
+        section: ee
+    location:
+        locationRemoteId: siteaccess_ee_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: et-EE
+            value: 'Lidl Digital EE'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: et-EE
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_ee
+        alwaysAvailable: null
+        section: ee
+    location:
+        locationRemoteId: siteaccess_ee
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_ee_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: et-EE
+            value: 'Estonia (EE)'
+        -
+            fieldDefIdentifier: page
+            languageCode: et-EE
+            value: '{"layout":"frontpage","title":"Estonia (EE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: lv-LV
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_lv_folder
+        alwaysAvailable: null
+        section: lv
+    location:
+        locationRemoteId: siteaccess_lv_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: lv-LV
+            value: 'Lidl Digital LV'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: lv-LV
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_lv
+        alwaysAvailable: null
+        section: lv
+    location:
+        locationRemoteId: siteaccess_lv
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_lv_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: lv-LV
+            value: 'Latvia (LV)'
+        -
+            fieldDefIdentifier: page
+            languageCode: lv-LV
+            value: '{"layout":"frontpage","title":"Latvia (LV)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: en-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_nie_folder
+        alwaysAvailable: null
+        section: nie
+    location:
+        locationRemoteId: siteaccess_nie_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-GB
+            value: 'Lidl Digital NIE'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: en-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_nie
+        alwaysAvailable: null
+        section: nie
+    location:
+        locationRemoteId: siteaccess_nie
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_nie_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: en-GB
+            value: 'Northern Ireland (NIE)'
+        -
+            fieldDefIdentifier: page
+            languageCode: en-GB
+            value: '{"layout":"frontpage","title":"Norther Ireland (NIE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: fr-FR
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_fr_folder
+        alwaysAvailable: null
+        section: fr
+    location:
+        locationRemoteId: siteaccess_fr_folder
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationId: 1
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fr-FR
+            value: 'Foo Digital FR'
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: startpage
+        mainTranslation: fr-FR
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_fr
+        alwaysAvailable: null
+        section: fr
+    location:
+        locationRemoteId: siteaccess_fr
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_fr_folder
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: fr-FR
+            value: 'France (FR)'
+        -
+            fieldDefIdentifier: page
+            languageCode: fr-FR
+            value: '{"layout":"frontpage","title":"France (FR)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'

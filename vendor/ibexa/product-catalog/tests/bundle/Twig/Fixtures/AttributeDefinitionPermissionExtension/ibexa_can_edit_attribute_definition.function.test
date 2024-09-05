@@ -1,0 +1,16 @@
+--TEST--
+"ibexa_permission_edit_attribute_definition" function
+--TEMPLATE--
+{{ ibexa_permission_edit_attribute_definition() }}
+{{ ibexa_permission_edit_attribute_definition(access_denied) }}
+{{ ibexa_permission_edit_attribute_definition(attribute_definition) }}
+
+--DATA--
+return [
+    'access_denied' => $this->getAttributeDefinition('access_denied'),
+    'attribute_definition' => $this->getAttributeDefinition('attribute_definition'),
+]
+--EXPECT--
+1
+
+1

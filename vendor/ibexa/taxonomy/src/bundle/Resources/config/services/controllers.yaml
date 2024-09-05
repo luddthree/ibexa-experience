@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        
+    Ibexa\Bundle\Taxonomy\Controller\TreeController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Taxonomy\Controller\ContentViewController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        arguments:
+            $contentViewController: '@Ibexa\Bundle\AdminUi\Controller\ContentViewController'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Taxonomy\Controller\ContentEditController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Taxonomy\Controller\ContentProxyController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Taxonomy\Controller\ContentController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        tags:
+            - controller.service_arguments
+
+    #
+    # REST
+    #
+    Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryAssignmentController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments

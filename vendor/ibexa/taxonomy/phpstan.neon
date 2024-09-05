@@ -1,0 +1,16 @@
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-doctrine/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+    stubFiles:
+        - stubs/Gedmo/AbstractTreeRepository.stub
+        - stubs/Gedmo/NestedTreeRepository.stub
+    checkGenericClassInNonGenericObjectType: false
+    treatPhpDocTypesAsCertain: false

@@ -1,0 +1,8 @@
+Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\ItemAddedEvent:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        item:
+            type: Ibexa\FieldTypePage\ScheduleBlock\Item\Item
+            skip_when_empty: false
+            expose: true

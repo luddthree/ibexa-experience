@@ -1,0 +1,41 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\FormFieldRegistry:
+    arguments:
+      $formFields: !tagged_iterator ibexa.testing.browser.component.form_builder_form_field
+
+  _instanceof:
+    Ibexa\FormBuilder\Behat\Component\FormFields\FormFieldInterface:
+      tags: [ 'ibexa.testing.browser.component.form_builder_form_field' ]
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\ButtonField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\CaptchaField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\CheckboxesField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\CheckboxField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\DateField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\DropdownField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\EmailField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\FileField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\HiddenField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\MultipleLineField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\NumberField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\RadioField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\SingleLineField: ~
+
+  Ibexa\FormBuilder\Behat\Component\FormFields\URLField: ~

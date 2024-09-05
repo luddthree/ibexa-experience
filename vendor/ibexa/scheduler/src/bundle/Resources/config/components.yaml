@@ -1,0 +1,33 @@
+services:
+    ibexa.scheduler.component.calendar_future_publication_discard_modal:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@IbexaScheduler/calendar_modals/modal_discard_publish_later.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'calendar-widget-before' }
+
+    ibexa.scheduler.component.calendar_future_hide_discard_modal:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@IbexaScheduler/calendar_modals/modal_discard_future_hide.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'calendar-widget-before' }
+
+    ibexa.scheduler.component.calendar_future_publication_reschedule_modal:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@IbexaScheduler/calendar_modals/modal_reschedule_publish_later.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'calendar-widget-before' }
+
+    ibexa.scheduler.component.calendar_future_hide_reschedule_modal:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        arguments:
+            $template: '@@IbexaScheduler/calendar_modals/modal_reschedule_future_hide.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'calendar-widget-before' }
+
+    Ibexa\Scheduler\Component\DateBasedHideAlertComponent:
+        autowire: true
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'location-view-content-alerts' }

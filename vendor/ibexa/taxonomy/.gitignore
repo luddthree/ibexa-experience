@@ -1,0 +1,11 @@
+/vendor
+/.php_cs.cache
+/.php-cs-fixer.cache
+/.phpunit.result.cache
+/composer.lock
+/node_modules
+/package-lock.json
+/yarn.lock
+/test.db
+/test.db-journal
+/junit.xml

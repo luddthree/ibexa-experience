@@ -1,0 +1,7 @@
+{% if change_context_form is defined %}
+    {% form_theme change_context_form with ['@ibexadesign/site_context/form_theme.html.twig'] %}
+
+    {{ form_start(change_context_form, { attr: { class: 'ibexa-preview-context-switch-form' }}) }}
+    {{ form_widget(change_context_form.siteAccess) }}
+    {{ form_end(change_context_form) }}
+{% endif %}

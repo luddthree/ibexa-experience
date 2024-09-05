@@ -1,0 +1,18 @@
+{% trans_default_domain 'ibexa_segmentation' %}
+
+{{  include('@ibexadesign/segmentation/admin/tab/segments/table.html.twig', {
+    'pager': pager,
+}) }}
+
+{% if pager.haveToPaginate %}
+    {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': pager,
+            'paginaton_params': {
+                'routeName': route_params.name,
+                'routeParams': route_params.params|merge({
+                    '_fragment': constant('Ibexa\\Segmentation\\Tab\\UserViewTab::URI_FRAGMENT'),
+                }),
+                'pageParameter': '[page][segments]'
+            }
+    } %}
+{% endif %}

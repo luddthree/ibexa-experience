@@ -1,0 +1,17 @@
+ibexa.calendar.rest.event.list.group_by_day:
+    path: /calendar/event/grouped-by-day
+    methods: [GET]
+    defaults:
+        _controller: 'Ibexa\Bundle\Calendar\Controller\REST\EventController::listEventsByDayAction'
+
+ibexa.calendar.rest.event.list:
+    path: /calendar/event
+    methods: [GET]
+    defaults:
+        _controller: 'Ibexa\Bundle\Calendar\Controller\REST\EventController::listEventsAction'
+
+ibexa.calendar.rest.event.action:
+    path: /calendar/event/{eventType}
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\Calendar\Controller\REST\EventController::executeActionAction'

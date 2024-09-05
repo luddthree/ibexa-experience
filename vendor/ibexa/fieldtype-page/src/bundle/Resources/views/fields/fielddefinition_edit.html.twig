@@ -1,0 +1,149 @@
+{% trans_default_domain 'ibexa_page_fieldtype' %}
+
+{% block ezlandingpage_field_definition_edit %}
+    <div class="form-group">
+        <div class="ibexa-page-select-items">
+            <a
+                data-bs-toggle="collapse"
+                href=".ibexa-page-select-items__group-list--blocks"
+                class="ibexa-page-select-items__toggler"
+            >
+                {{ 'blocks.select_blocks'|trans|desc('Select blocks') }}
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('caret-next') }}"></use>
+                </svg>
+            </a>
+
+            <div class="ibexa-page-select-items__group-list ibexa-page-select-items__group-list--blocks collapse">
+                {% for name, choices in form.availableBlocks.vars.choices %}
+                    {% set allBlocksChecked = true %}
+
+                    {% for key, choice in choices %}
+                        {% set blockInputForm = form.availableBlocks[key] %}
+
+                        {% if (not blockInputForm.vars.checked) %}
+                            {% set allBlocksChecked = false %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="ibexa-page-select-items__group">
+                        <a
+                            data-bs-toggle="collapse"
+                            href=".ibexa-page-select-items__group-content--item-{{ loop.index }}"
+                            class="ibexa-page-select-items__toggler"
+                        >
+                            {{ name }}
+                            <svg class="ibexa-icon ibexa-icon--small">
+                                <use xlink:href="{{ ibexa_icon_path('caret-next') }}"></use>
+                            </svg>
+                        </a>
+                        <div class="ibexa-page-select-items__group-content ibexa-page-select-items__group-content--item-{{ loop.index }} collapse">
+                            <div class="ibexa-page-select-items__group-header">
+                                <div class="ibexa-page-select-items__group-action">
+                                    <input type="checkbox" class="ibexa-page-select-items__select-all-items ibexa-input ibexa-input--checkbox" {{ allBlocksChecked ? 'checked' : '' }}/>
+                                    <span class="ibexa-page-select-items__group-action-label">
+                                        {% if allBlocksChecked %}
+                                            {{ 'item.unselect_all'|trans|desc('Unselect all') }}
+                                        {% else %}
+                                            {{ 'item.select_all'|trans|desc('Select all') }}
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                <div class="ibexa-page-select-items__group-warning ibexa-page-select-items__group-warning--hidden">
+                                    <svg class="ibexa-icon ibexa-page-select-items__group-warning-icon">
+                                        <use xlink:href="{{ ibexa_icon_path('warning') }}"></use>
+                                    </svg>
+                                    <div class="ibexa-page-select-items__group-warning-content">
+                                        {{ 'blocks.select_blocks_warning'|trans|desc('Deselecting a block will hide any related block(s) included in the Landing page during next edit. The user will have to delete the block(s) in order to publish the page') }}
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="ibexa-page-select-items__items-list ibexa-page-select-items__items-list--blocks">
+                                {% for key, choice in choices %}
+                                    {% set blockInputForm = form.availableBlocks[key] %}
+                                    <li class="ibexa-page-select-items__item ibexa-page-select-items__item--blocks {{ blockInputForm.vars.checked ? 'ibexa-page-select-items__item--selected' : '' }}">
+                                        {% set blockInputForm = form.availableBlocks[key] %}
+
+                                        {{ form_widget(blockInputForm, { 'label': false }) }}
+                                        <svg class="ibexa-icon ibexa-icon--small">
+                                            <use xlink:href="{{ blockInputForm.vars.attr.thumbnail }}"></use>
+                                        </svg>
+                                        <div class="ibexa-page-select-items__item-label ibexa-page-select-items__item-label--blocks">{{ blockInputForm.vars.label }}</div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="ibexa-page-select-items">
+            <a
+                data-bs-toggle="collapse"
+                href=".ibexa-page-select-items__group-list--layouts"
+                class="ibexa-page-select-items__toggler"
+            >
+                {{ 'layouts.select_layouts'|trans|desc('Select layouts') }}
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('caret-next') }}"></use>
+                </svg>
+            </a>
+
+            <div class="ibexa-page-select-items__group-list ibexa-page-select-items__group-list--layouts collapse">
+                {% set allLayoutsChecked = true %}
+
+                {% for layoutChoice in form.availableLayouts %}
+                    {% if (not layoutChoice.vars.checked) %}
+                        {% set allLayoutsChecked = false %}
+                    {% endif %}
+                {% endfor %}
+
+                <div class="ibexa-page-select-items__group">
+                    <div class="ibexa-page-select-items__group-content">
+                        <div class="ibexa-page-select-items__group-header">
+                            <div class="ibexa-page-select-items__group-action ibexa-page-select-items__group-action--without-warning">
+                                <input type="checkbox" class="ibexa-page-select-items__select-all-items ibexa-input ibexa-input--checkbox" {{ allLayoutsChecked ? 'checked' : '' }}/>
+                                <span class="ibexa-page-select-items__group-action-label">
+                                    {% if allLayoutsChecked %}
+                                        {{ 'item.unselect_all'|trans|desc('Unselect all') }}
+                                    {% else %}
+                                        {{ 'item.select_all'|trans|desc('Select all') }}
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                        <ul class="ibexa-page-select-items__items-list ibexa-page-select-items__items-list--layouts">
+                            {% for layoutChoice in form.availableLayouts %}
+                                <li class="ibexa-page-select-items__item ibexa-page-select-items__item--layouts {{ layoutChoice.vars.checked ? 'ibexa-page-select-items__item--selected' : '' }}">
+                                    {{ form_widget(layoutChoice, { 'label': false }) }}
+                                    <img class="ibexa-page-select-items__item-thumbnail" src="{{ layoutChoice.vars.attr.thumbnail }}" />
+                                    <div class="ibexa-page-select-items__item-label ibexa-page-select-items__item-label--layouts">{{ layoutChoice.vars.label }}</div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ibexa-landingpage-settings{% if group_class is not empty %} {{ group_class }}{% endif %}">
+        <label class="ibexa-label required">{{ 'editor_mode.select_editor_launch_mode'|trans|desc('Select Editor launch mode') }}</label>
+        {% for mode in form.editorMode %}
+            <li class="ibexa-landingpage-settings__editor_mode">
+                <label for="{{ mode.vars.id }}" class="ibexa-landingpage-settings__editor_mode_label form-check-label required">
+                    {{ form_widget(mode, { label_attr: { hidden: true }, attr: { "class": "ibexa-input radio-inline ibexa-input--radio" } }) }}
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path(mode.vars.attr.thumbnail) }}"></use>
+                    </svg>
+                    {{ mode.vars.label }}
+                </label>
+            </li>
+        {% endfor %}
+    </div>
+
+    {{ encore_entry_link_tags('ibexa-page-fieldtype-css', null, 'ibexa') }}
+{% endblock %}

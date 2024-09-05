@@ -1,0 +1,21 @@
+{% block ez_limitation_workflowstage_value %}
+    {% apply spaceless %}
+        {% for value in values %}
+            <span class="badge ibexa-badge ibexa-badge--secondary"{% if value.stage.color is not null %} style="background-color: {{ value.stage.color }}"{% endif %}>{{ value.workflow.name }}: {{ value.stage.name }}</span>
+        {% endfor %}
+    {% endapply %}
+{% endblock %}
+
+{% block ez_limitation_workflowtransition_value %}
+    {% apply spaceless %}
+        {% for value in values %}
+            {{ value.workflow.name }}: {{ value.transition.name }}{% if not loop.last %},{% else %}{% endif %}
+        {% endfor %}
+    {% endapply %}
+{% endblock %}
+
+{% block ez_limitation_versionlock_value %}
+    {% apply spaceless %}
+        {{ values|join(', ') }}
+    {% endapply %}
+{% endblock %}

@@ -1,0 +1,61 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Converter\AbstractSerializerBasedConverter:
+        abstract: true
+        arguments:
+            $serializer: '@Ibexa\FieldTypePage\Serializer\NonSharedSerializer'
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Converter\PageConverter:
+        parent: Ibexa\FieldTypePage\FieldType\LandingPage\Converter\AbstractSerializerBasedConverter
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Converter\BlockValueConverter:
+        parent: Ibexa\FieldTypePage\FieldType\LandingPage\Converter\AbstractSerializerBasedConverter
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Converter\AttributeConverter:
+        parent: Ibexa\FieldTypePage\FieldType\LandingPage\Converter\AbstractSerializerBasedConverter
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FieldTypePage\Serializer\SerializerFactory:
+        arguments:
+            $serializationContextFactory: '@Ibexa\FieldTypePage\Serializer\SerializationContextFactory'
+            $deserializationContextFactory: '@Ibexa\FieldTypePage\Serializer\DeserializationContextFactory'
+            $handlers: !tagged ibexa.field_type.page.serializer.handler
+            $cacheDir: '%kernel.cache_dir%/page_fieldtype/'
+
+    Ibexa\FieldTypePage\Serializer\Serializer: '@Ibexa\FieldTypePage\Serializer\NonSharedSerializer'
+
+    Ibexa\FieldTypePage\Serializer\NonSharedSerializer: ~
+
+    Ibexa\FieldTypePage\Serializer\SerializationContextFactory:
+        arguments:
+            $innerSerializationContextFactory: ~
+
+    Ibexa\FieldTypePage\Serializer\DeserializationContextFactory:
+            arguments:
+                $innerDeserializationContextFactory: ~
+
+    Ibexa\FieldTypePage\Serializer\AttributeSerializationDispatcher: ~
+
+    #
+    # Handlers
+    #
+
+    Ibexa\FieldTypePage\Serializer\Handler\LocationHandler:
+        tags:
+            - { name: ibexa.field_type.page.serializer.handler }
+
+    Ibexa\FieldTypePage\Serializer\Handler\AttributeHandler:
+        tags:
+            - { name: ibexa.field_type.page.serializer.handler }

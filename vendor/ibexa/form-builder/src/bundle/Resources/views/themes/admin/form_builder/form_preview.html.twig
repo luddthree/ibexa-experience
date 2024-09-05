@@ -1,0 +1,20 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% form_theme form_preview '@ibexadesign/form_builder/form_fields.html.twig' %}
+
+{% block body_class %}ibexa-fb-preview-form{% endblock %}
+{% block side_column %}{% endblock %}
+{% block header_row %}{% endblock %}
+
+{% block content_column %}
+    {% block content %}
+        {% for field in form_preview %}
+            {{ form_widget(field) }}
+        {% endfor %}
+    {% endblock %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-form-builder-form-preview-css', null, 'ibexa') }}
+{% endblock %}

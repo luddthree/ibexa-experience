@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Mapper\MarkingMetadataValueMapper: ~
+    Ibexa\Workflow\Mapper\TransitionMetadataValueMapper: ~
+    Ibexa\Workflow\Mapper\WorkflowMetadataValueMapper: ~

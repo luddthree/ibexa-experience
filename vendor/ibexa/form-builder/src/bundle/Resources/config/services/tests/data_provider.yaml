@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Behat\DataProvider\FormDataProvider:
+        arguments:
+            $type: '@Ibexa\FormBuilder\FieldType\Type'

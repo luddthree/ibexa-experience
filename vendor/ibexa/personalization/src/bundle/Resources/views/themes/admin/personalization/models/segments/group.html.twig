@@ -1,0 +1,68 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div class="ibexa-perso-segments-group" data-group-id="{{ group_id }}">
+    <div class="ibexa-perso-segments-group__actions">
+        <button type="button" class="btn ibexa-btn ibexa-btn--ghost ibexa-perso-segments-group__remove-btn">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+            {{ 'models.segments.group.delete_btn.label'|trans|desc('Delete group') }}
+        </button>
+    </div>
+    <div class="ibexa-perso-segments-group__items-container">
+        <div class="ibexa-perso-segments-group__relationship">
+            <div class="ibexa-perso-segments-group__connector"></div>
+            {% set choices = [
+                { value: 'AND', label: 'models.segments.segments.relation.and'|trans|desc('and') },
+                { value: 'OR', label: 'models.segments.segments.relation.or'|trans|desc('or')}
+            ] %}
+            {% set first_choice = choices|first %}
+            {% set source %}
+                <select class="form-control ibexa-input" data-group-id="{{ group_id }}">
+                    {% for choice in choices %}
+                        <option value="{{ choice.value }}" {% if value == choice.value %} selected="selected" {% endif %}>
+                            {{ choice.label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% endset %}
+
+            {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                source,
+                choices,
+                value: first_choice.value,
+                is_small: true,
+            } %}
+        </div>
+        <div class="ibexa-perso-segments-group__items">
+            <div
+                class="ibexa-perso-segments-group__segments"
+                data-item-template="{{include('@ibexadesign/personalization/models/segments/item.html.twig', {
+                    group_item_id: '__group_item_id__', group_item_name: '__group_item_name__'
+                })|e('html_attr') }}"
+            >
+            </div>
+            <div 
+                class="ibexa-perso-segments-group-item-placeholder ibexa-perso-segments-group-item-placeholder--anchored"
+            >
+                <div class="ibexa-perso-segments-group-item-placeholder__item"></div>
+                <div class="ibexa-perso-segments-group-item-placeholder__item"></div>
+            </div>
+            <div
+                class="ibexa-perso-segments-drop-empty-group ibexa-perso-segments-drop-empty-group--hidden"
+            >
+                <img
+                    class="ibexa-perso-segments-drop-empty-group__image"
+                    src="{{ asset('bundles/ibexaadminui/img/empty-field-definition-group.svg') }}"
+                    alt="{{ 'models.segments.group.empty.image_alt'|trans|desc('Empty group, please drag some segments') }}"
+                >
+                <label class="ibexa-perso-segments-drop-empty-group__label">
+                    {{ 'models.segments.group.empty.label'|trans|desc('Your group is empty') }}
+                </label>
+                <h3 class="ibexa-perso-segments-drop-empty-group__title">
+                    {{ 'models.segments.group.empty.title'|trans|desc('Drag and drop segments') }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

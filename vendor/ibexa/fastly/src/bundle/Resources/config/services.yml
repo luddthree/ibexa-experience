@@ -1,0 +1,30 @@
+imports:
+    - { resource: services/image_optimizer.yaml }
+
+parameters:
+    ibexa.http_cache.proxy_client.fastly.options: []
+    ibexa.http_cache.fastly.http.servers: []
+    ibexa.http_cache.fastly.http.base_url: ~
+
+services:
+    Ibexa\Fastly\PurgeClient\FastlyPurgeClient:
+        class: Ibexa\Fastly\PurgeClient\FastlyPurgeClient
+        arguments:
+            - '@fos_http_cache.cache_manager'
+        tags:
+            - {name: ibexa.cache.http.purge_client, purge_type: fastly}
+
+    Ibexa\Fastly\ProxyClient\Fastly:
+        class: Ibexa\Fastly\ProxyClient\Fastly
+        arguments:
+            - '@ibexa.config.resolver'
+            - '@ibexa.http_cache.proxy_client.fastly.http_dispatcher'
+            - '%ibexa.http_cache.proxy_client.fastly.options%'
+
+    ibexa.http_cache.proxy_client.fastly.http_dispatcher:
+        class: FOS\HttpCache\ProxyClient\HttpDispatcher
+        lazy: true
+        factory: ['@Ibexa\HttpCache\ProxyClient\HttpDispatcherFactory', 'buildHttpDispatcher']
+        arguments:
+            $servers: '%ibexa.http_cache.fastly.http.servers%'
+            $baseUrl: '%ibexa.http_cache.fastly.http.base_url%'

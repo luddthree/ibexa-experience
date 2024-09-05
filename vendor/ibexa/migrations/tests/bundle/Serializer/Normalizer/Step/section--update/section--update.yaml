@@ -1,0 +1,13 @@
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: __IDENTIFIER__
+    metadata:
+        identifier: __NEW_IDENTIFIER__
+        name: __NAME__
+    references:
+        -
+            name: ref__section__1__section_id
+            type: section_id

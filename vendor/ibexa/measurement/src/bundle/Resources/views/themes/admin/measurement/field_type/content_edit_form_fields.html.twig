@@ -1,0 +1,38 @@
+{% trans_default_domain 'measurement_fieldtype' %}
+
+{% block ibexa_fieldtype_measurement_widget %}
+    {% set is_range = form.measurementRangeMinimumValue is defined and form.measurementRangeMaximumValue is defined %}
+    {% set is_single = form.value is defined %}
+    {% set readonly = attr.readonly|default(false) %}
+
+    <div class="ibexa-measurement-form-number {% if is_range %}ibexa-measurement-form-number--range{% endif %}">
+        <div class="ibexa-measurement-form-number__input-wrapper">
+            {% if is_single %}
+                {{- form_widget(form.value, { attr: { readonly: readonly }}) -}}
+                {{- form_errors(form.value) -}}
+            {% endif %}
+            {% if is_range %}
+                {{- form_widget(form.measurementRangeMinimumValue, {
+                    attr: { class: 'ibexa-measurement-form-number__input--first', readonly: readonly },
+                }) -}}
+                {{- form_errors(form.measurementRangeMinimumValue) -}}
+
+                <div class="ibexa-measurement-form-number__input-separator">-</div>
+
+                {{- form_widget(form.measurementRangeMaximumValue, {
+                    attr: { class: 'ibexa-measurement-form-number__input--second', readonly: readonly },
+                }) -}}
+                {{- form_errors(form.measurementRangeMaximumValue) -}}
+            {% endif %}
+        </div>
+        <div class="ibexa-measurement-form-number__unit-wrapper">
+            {{ form_widget(form.measurementUnit, { attr: { is_ghost: true, readonly: readonly }}) }}
+        </div>
+        <div class="ibexa-measurement-form-number__type-wrapper">
+            {{ form_widget(form.measurementType, { attr: { readonly: readonly }}) }}
+        </div>
+        <div class="ibexa-measurement-form-number__input-type-wrapper">
+            {{ form_widget(form.inputType, { attr: { readonly: readonly }}) }}
+        </div>
+    </div>
+{% endblock %}

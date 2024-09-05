@@ -1,0 +1,20 @@
+{% trans_default_domain 'ibexa_page_builder_infobar' %}
+
+<span class="ibexa-pb-content-action-info__missing-translation">
+    <svg class="ibexa-icon ibexa-icon--small">
+        <use xlink:href="{{ ibexa_icon_path('warning') }}" />
+    </svg>
+
+    {% block info %}{% endblock %}
+
+    {% if can_translate %}
+        <button class="btn ibexa-btn ibexa-btn--primary ibexa-btn" data-bs-toggle="modal" data-bs-target="#{{ modal_id }}">
+            {{ 'infobar.translation.add'|trans({}, 'ibexa_page_builder_infobar')|desc('Add translation') }}
+        </button>
+    {% endif %}
+</span>
+
+{% include '@IbexaPageBuilder/page_builder/parts/modal_add_translation.html.twig' with {
+    'id': modal_id,
+    'form': form,
+} only %}

@@ -1,0 +1,131 @@
+imports:
+    - { resource: services/form_attribute_mappers.yaml }
+    - { resource: services/renderers.yaml }
+    - { resource: services/blocks_management.yaml }
+    - { resource: services/blocks.yaml }
+    - { resource: services/fieldtype.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/relation.yaml }
+    - { resource: services/misc.yaml }
+    - { resource: services/serialization.yaml }
+    - { resource: services/fragment_renderer.yaml }
+    - { resource: services/migrations.yaml }
+    - { resource: services/schedule_block.yaml }
+    - { resource: services/form.yaml }
+    - { resource: services/value_converters.yaml }
+    - { resource: services/validators.yaml }
+    - { resource: services/rest_services.yaml }
+
+parameters:
+    ibexa.field_type.page.block.schedule.snapshots.amount: 5
+
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Converter\BlockDefinitionConverter: ~
+
+    Ibexa\FieldTypePage\FieldType\LandingPage\Converter\LayoutDefinitionConverter:
+        arguments:
+            - '@Ibexa\FieldTypePage\Registry\LayoutDefinitionRegistry'
+
+    Ibexa\FieldTypePage\Registry\LayoutDefinitionRegistry: ~
+
+    Ibexa\Bundle\FieldTypePage\Twig\LayoutExtension:
+        arguments:
+            - '@Ibexa\FieldTypePage\Registry\LayoutDefinitionRegistry'
+        public: false
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\FieldTypePage\ApplicationConfig\Providers\BlockDefinitionsInterface:
+        alias: Ibexa\FieldTypePage\ApplicationConfig\Providers\BlockDefinitions
+
+    Ibexa\FieldTypePage\ApplicationConfig\Providers\BlockDefinitions:
+        arguments:
+            $blockDefinitionConverter: '@Ibexa\FieldTypePage\FieldType\LandingPage\Converter\BlockDefinitionConverter'
+
+    Ibexa\FieldTypePage\ApplicationConfig\Providers\LayoutDefinitionsInterface:
+        alias: Ibexa\FieldTypePage\ApplicationConfig\Providers\LayoutDefinitions
+
+    Ibexa\FieldTypePage\ApplicationConfig\Providers\LayoutDefinitions:
+        arguments:
+            $layoutDefinitionConverter: '@Ibexa\FieldTypePage\FieldType\LandingPage\Converter\LayoutDefinitionConverter'
+
+    Ibexa\FieldTypePage\Calendar\BlockRevealEventType:
+        arguments:
+            $actions: !tagged ibexa.calendar.event.type.action.page_block_reveal
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type }
+
+    Ibexa\FieldTypePage\Calendar\BlockRevealEventSource:
+        arguments:
+            $entriesProvider: '@ibexa.page_field_type.calendar.entries_provider.block_reveal'
+            $eventType: '@Ibexa\FieldTypePage\Calendar\BlockRevealEventType'
+            $scheduledEntryIdProvider: '@Ibexa\FieldTypePage\Calendar\ScheduledEntryIdProvider'
+        tags:
+            - { name: ibexa.calendar.event.source }
+
+    ibexa.page_field_type.calendar.entries_provider.block_reveal:
+        class: Ibexa\FieldTypePage\Calendar\Provider\BlockVisibilityEntriesProvider
+        arguments:
+            - '@ibexa.page_field_type.persistence.gateway.handler.block_reveal'
+            - '@Ibexa\FieldTypePage\Calendar\BlockVisibilityEntryBuilder'
+
+    ibexa.page_field_type.persistence.gateway.handler.block_reveal:
+        class: Ibexa\FieldTypePage\Persistence\Gateway\BlockVisibilityEntriesHandler
+        arguments:
+            - '@ibexa.api.storage_engine.legacy.connection'
+            - '@Ibexa\FieldTypePage\Persistence\BlockEntriesMapper'
+            - 'bv.since'
+        lazy: true
+
+    Ibexa\FieldTypePage\Calendar\BlockHideEventType:
+        arguments:
+            $actions: !tagged ibexa.calendar.event.type.action.page_block_hide
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.calendar.event.type }
+
+    Ibexa\FieldTypePage\Calendar\BlockHideEventSource:
+        arguments:
+            $entriesProvider: '@ibexa.page_field_type.calendar.entries_provider.block_hide'
+            $eventType: '@Ibexa\FieldTypePage\Calendar\BlockHideEventType'
+            $scheduledEntryIdProvider: '@Ibexa\FieldTypePage\Calendar\ScheduledEntryIdProvider'
+        tags:
+            - { name: ibexa.calendar.event.source }
+
+    ibexa.page_field_type.calendar.entries_provider.block_hide:
+        class: Ibexa\FieldTypePage\Calendar\Provider\BlockVisibilityEntriesProvider
+        arguments:
+            - '@ibexa.page_field_type.persistence.gateway.handler.block_hide'
+            - '@Ibexa\FieldTypePage\Calendar\BlockVisibilityEntryBuilder'
+
+    ibexa.page_field_type.persistence.gateway.handler.block_hide:
+        class: Ibexa\FieldTypePage\Persistence\Gateway\BlockVisibilityEntriesHandler
+        arguments:
+            - '@ibexa.api.storage_engine.legacy.connection'
+            - '@Ibexa\FieldTypePage\Persistence\BlockEntriesMapper'
+            - 'bv.till'
+        lazy: true
+
+    Ibexa\FieldTypePage\Calendar\BlockVisibilityEntryBuilder:
+        arguments:
+            $languageService: '@ibexa.api.service.language'
+
+    Ibexa\FieldTypePage\Persistence\BlockEntriesMapper: ~
+
+    Ibexa\FieldTypePage\Calendar\ScheduledEntryIdProvider: ~
+
+    ##
+    ## Deprecated aliases since 1.1. Will be removed in 2.0.
+    ##
+
+    ibexa.field_type.ezlandingpage.json_converter: '@Ibexa\FieldTypePage\FieldType\LandingPage\Converter\PageConverter'
+    ibexa.landing_page.converter.block_definition: '@Ibexa\FieldTypePage\FieldType\LandingPage\Converter\BlockDefinitionConverter'
+    ibexa.landing_page.converter.layout_definition: '@Ibexa\FieldTypePage\FieldType\LandingPage\Converter\LayoutDefinitionConverter'
+    ibexa.landing_page.registry.layout_definition: '@Ibexa\FieldTypePage\Registry\LayoutDefinitionRegistry'
+    ibexa.landing_page.twig_extension: '@Ibexa\Bundle\FieldTypePage\Twig\LayoutExtension'

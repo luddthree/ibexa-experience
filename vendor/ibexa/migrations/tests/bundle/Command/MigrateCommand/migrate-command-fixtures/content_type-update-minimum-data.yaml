@@ -1,0 +1,13 @@
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: article
+    metadata:
+        remoteId: '__REMOTE_ID__'
+    fields:
+        -
+            identifier: title
+            type: ezstring
+            position: 5

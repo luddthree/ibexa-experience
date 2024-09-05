@@ -1,0 +1,122 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\:
+        resource: '../../../../lib/FieldType/Field/Mapper/*'
+        exclude: '../../../../lib/FieldType/Field/Mapper/GenericFieldMapper.php'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\SingleLineFieldMapper:
+        arguments:
+            $fieldIdentifier: 'single_line'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\SingleLineFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\MultiLineFieldMapper:
+        arguments:
+            $fieldIdentifier: 'multi_line'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\MultiLineFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\NumberFieldMapper:
+        arguments:
+            $fieldIdentifier: 'number'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\NumberFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\CheckboxFieldMapper:
+        arguments:
+            $fieldIdentifier: 'checkbox'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\CheckboxFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\CheckboxListFieldMapper:
+        arguments:
+            $fieldIdentifier: 'checkbox_list'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\CheckboxListFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\RadioFieldMapper:
+        arguments:
+            $fieldIdentifier: 'radio'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\RadioFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\DropdownFieldMapper:
+        arguments:
+            $fieldIdentifier: 'dropdown'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\DropdownFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\EmailFieldMapper:
+        arguments:
+            $fieldIdentifier: 'email'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\EmailFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\DateFieldMapper:
+        arguments:
+            $fieldIdentifier: 'date'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\DateFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\UrlFieldMapper:
+        arguments:
+            $fieldIdentifier: 'url'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\UrlFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\FileFieldMapper:
+        arguments:
+            $fieldIdentifier: 'file'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\FileFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\ButtonFieldMapper:
+        arguments:
+            $fieldIdentifier: 'button'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\ButtonFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\HiddenFieldMapper:
+        arguments:
+            $fieldIdentifier: 'hidden'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\HiddenFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\ParagraphDesignMapper:
+        arguments:
+            $fieldIdentifier: 'paragraph'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\ParagraphDesignType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\Mapper\CaptchaFieldMapper:
+        arguments:
+            $fieldIdentifier: 'captcha'
+            $formType: 'Ibexa\FormBuilder\Form\Type\Field\CaptchaFieldType'
+        tags:
+            - { name: ibexa.form_builder.field.mapper }
+
+    Ibexa\FormBuilder\FieldType\Field\FieldMapperRegistry:
+        arguments:
+            - !tagged ibexa.form_builder.field.mapper
+
+    Ibexa\FormBuilder\FieldType\FormFactory: ~

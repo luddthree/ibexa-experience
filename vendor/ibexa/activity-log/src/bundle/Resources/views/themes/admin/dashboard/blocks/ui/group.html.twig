@@ -1,0 +1,106 @@
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{% set has_group_many_logs = group.activityLogs|length > 1 %}
+
+{%- macro get_formatted_log_date(log_date) -%}
+    {% set seconds_diff_to_show_time_format = 3599 %}
+    {% set date_diff_in_seconds = "now"|date('U') - log_date|date('U') %}
+
+    {% if date_diff_in_seconds >= seconds_diff_to_show_time_format %}
+        {{ log_date|ibexa_full_time }}
+    {% else %}
+        {{ log_date|ibexa_datetime_diff }}
+    {% endif %}
+{%- endmacro -%}
+
+{% block main %}
+    <div class="ibexa-al-block__tile">
+        {%- block group_time -%}
+            <div class="ibexa-al-block__time">
+                {{- _self.get_formatted_log_date(group.getLoggedAt()) -}}
+            </div>
+        {%- endblock group_time -%}
+
+        {%- block group_content -%}
+            <div class="ibexa-al-block__content">
+                {%- block group_user -%}
+                    <div class="ibexa-al-block__avatar">
+                        {% include '@ibexadesign/ui/component/user_thumbnail/user_thumbnail.html.twig' with {
+                            user_content: group.user.content,
+                            attr_svg: { class: 'ibexa-al-block__thumbnail' }
+                        } %}
+                        <span class="ibexa-al-block__user-name">{{ group.user.name }}</span>
+                    </div>
+                {%- endblock group_user -%}
+
+                {%- block group_description -%}
+                    {% set first_log = group.activityLogs|first %}
+                    {% set short_name = first_log.getShortObjectClass() %}
+
+                    {% set activity_log_templates = [] %}
+
+                    {% if short_name is not null %}
+                        {% set activity_log_templates = activity_log_templates|merge([
+                            '@ibexadesign/dashboard/blocks/ui/' ~ short_name ~ '/' ~ first_log.getAction() ~ '.html.twig',
+                            '@ibexadesign/dashboard/blocks/ui/' ~ short_name ~ '.html.twig',
+                        ]) %}
+                    {% endif %}
+
+                    {% set activity_log_templates = activity_log_templates|merge([
+                        '@ibexadesign/dashboard/blocks/ui/default.html.twig',
+                    ]) %}
+
+                    {% include activity_log_templates with { log: group.activityLogs|first } only  %}
+                {%- endblock group_description -%}
+            </div>
+        {%- endblock group_content -%}
+
+        {%- block group_actions -%}
+            {% if has_group_many_logs %}
+                <div class="ibexa-al-block__show-more">
+                    <button
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#grouped-logs-{{ group.getId() }}"
+                        class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-al-block__show-more-btn collapsed"
+                    >
+                        <span class="ibexa-btn__label">
+                            {{ 'activity_log.block.show_more'|trans()|desc('Show more') }}
+                        </span>
+                        <svg class="ibexa-icon ibexa-icon--tiny-small">
+                            <use xlink:href="{{ ibexa_icon_path('caret-down') }}"></use>
+                        </svg>
+                    </button>
+                </div>
+            {% endif %}
+        {%- endblock group_actions -%}
+
+        {%- block group_logs -%}
+            {% if has_group_many_logs %}
+                <div class="ibexa-al-block__collapsible-list collapse" id="grouped-logs-{{ group.getId() }}">
+                    <ul class="ibexa-al-block-collapsible-list">
+                        {% for log in group.activityLogs[1:] %}
+                            {% set short_name = log.getShortObjectClass() %}
+                            {% set activity_log_templates = [] %}
+
+                            {% if short_name is not null %}
+                                {% set activity_log_templates = activity_log_templates|merge([
+                                    '@ibexadesign/dashboard/blocks/ui/' ~ short_name ~ '/' ~ log.getAction() ~ '.html.twig',
+                                    '@ibexadesign/dashboard/blocks/ui/' ~ short_name ~ '.html.twig',
+                                ]) %}
+                            {% endif %}
+
+                            {% set activity_log_templates = activity_log_templates|merge([
+                                '@ibexadesign/dashboard/blocks/ui/default.html.twig',
+                            ]) %}
+
+                            <li class="ibexa-al-block-collapsible-list__item">
+                                {% include activity_log_templates with { log } only  %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {%- endblock group_logs -%}
+    </div>
+{% endblock %}

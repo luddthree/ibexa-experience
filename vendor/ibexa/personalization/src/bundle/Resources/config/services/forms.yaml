@@ -1,0 +1,61 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+        
+    Ibexa\Personalization\Form\Type\TimePeriodChoiceType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\DateIntervalType:
+        arguments:
+            $granularityFactory: '@Ibexa\Personalization\Factory\DateTime\GranularityFactoryInterface'
+
+    Ibexa\Personalization\Form\Type\RecommendationCallType: ~
+
+    Ibexa\Personalization\Form\Type\ModelType: ~
+
+    Ibexa\Personalization\Form\Type\Model\SubmodelsType: ~
+
+    Ibexa\Personalization\Form\Mapper\SubmodelMapper: ~
+
+    Ibexa\Personalization\Form\Mapper\SubmodelMapperInterface: '@Ibexa\Personalization\Form\Mapper\SubmodelMapper'
+
+    Ibexa\Personalization\Form\Type\Scenario\ScenarioStrategyModelContextType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\Scenario\ScenarioUserProfileSettingsType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\Scenario\ScenarioCommerceSettingsType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\Scenario\ScenarioExcludedCategoriesType: ~
+
+    Ibexa\Personalization\Form\Type\Scenario\ScenarioBoostItemType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\AcceptanceType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\Model\TimePeriodType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\Model\EditorContentListType: ~
+
+    Ibexa\Personalization\Form\Type\MultiCustomerAccountsType: ~
+
+    Ibexa\Personalization\Form\Type\PopularityDurationType:
+        arguments:
+            $translator: '@translator'
+
+    Ibexa\Personalization\Form\Type\ContextItemsType: ~
+
+    Ibexa\Personalization\Form\Type\Model\SegmentGroupsType: ~

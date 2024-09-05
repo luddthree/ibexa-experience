@@ -1,0 +1,8 @@
+/vendor
+/.php_cs.cache
+/.phpunit.result.cache
+/composer.lock
+node_modules/
+yarn.lock
+yarn-error.log
+.DS_Store

@@ -1,0 +1,35 @@
+services:
+
+    _defaults:
+        autoconfigure: false
+        autowire: true
+        public: false
+        bind:
+            Symfony\Component\Serializer\SerializerInterface: '@ibexa.migrations.serializer'
+            string $defaultUserLogin: '%ibexa.migrations.default.user_login%'
+            string $migrationsSubdir: '%ibexa.migrations.default.migrations_files_subdir%'
+
+    Ibexa\Contracts\Migration\MigrationExecutor:
+        '@Ibexa\Migration\MigrationExecutor'
+
+    Ibexa\Contracts\Migration\MigrationService:
+        '@Ibexa\Migration\MigrationService'
+
+    Ibexa\Contracts\Migration\MigrationStorage:
+        '@Ibexa\Migration\Storage\FlysystemMigrationStorage'
+
+    Ibexa\Contracts\Migration\Metadata\Storage\MetadataStorage:
+        '@Ibexa\Migration\Metadata\Storage\MetadataStorage'
+
+    Ibexa\Migration\Storage\FlysystemMigrationStorage:
+        arguments:
+            $filesystem: '@ibexa.migrations.io.flysystem.default_filesystem'
+
+    Ibexa\Migration\MigrationExecutor: ~
+
+    Ibexa\Migration\Event\MigrationExecutor:
+        decorates: Ibexa\Migration\MigrationExecutor
+
+    Ibexa\Migration\MigrationService: ~
+
+    Ibexa\Migration\Metadata\Storage\MetadataStorage: ~

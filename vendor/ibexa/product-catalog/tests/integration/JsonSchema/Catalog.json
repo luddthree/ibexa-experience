@@ -1,0 +1,195 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "Catalog": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "User": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        },
+                        "_href": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "_media-type",
+                        "_href"
+                    ]
+                },
+                "created": {
+                    "type": "integer"
+                },
+                "modified": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "Criteria": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "ProductCodeCriterion": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_media-type": {
+                                            "type": "string"
+                                        },
+                                        "codes": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "_media-type",
+                                        "codes"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "ProductCodeCriterion"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "ProductAvailabilityCriterion": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_media-type": {
+                                            "type": "string"
+                                        },
+                                        "is_available": {
+                                            "type": "boolean"
+                                        }
+                                    },
+                                    "required": [
+                                        "_media-type",
+                                        "is_available"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "ProductAvailabilityCriterion"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "ProductCategoryCriterion": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_media-type": {
+                                            "type": "string"
+                                        },
+                                        "categories": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "integer"
+                                                },
+                                                {
+                                                    "type": "integer"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "_media-type",
+                                        "categories"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "ProductCategoryCriterion"
+                            ]
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "FloatAttributeRangeCriterion": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_media-type": {
+                                            "type": "string"
+                                        },
+                                        "identifier": {
+                                            "type": "string"
+                                        },
+                                        "min": {
+                                            "type": "number"
+                                        },
+                                        "max": {
+                                            "type": "number"
+                                        }
+                                    },
+                                    "required": [
+                                        "_media-type",
+                                        "identifier",
+                                        "min",
+                                        "max"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "FloatAttributeRangeCriterion"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "name",
+                "description",
+                "User",
+                "created",
+                "modified",
+                "status",
+                "Criteria"
+            ]
+        }
+    },
+    "required": [
+        "Catalog"
+    ]
+}

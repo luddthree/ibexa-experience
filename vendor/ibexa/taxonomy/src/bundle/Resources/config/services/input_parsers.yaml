@@ -1,0 +1,39 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryBulkRemove:
+        parent: Ibexa\Rest\Server\Common\Parser
+        autowire: true
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.TaxonomyEntryBulkRemove }
+
+    Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryBulkMove:
+        parent: Ibexa\Rest\Server\Common\Parser
+        autowire: true
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.TaxonomyEntryBulkMove }
+
+    Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryMove:
+        parent: Ibexa\Rest\Server\Common\Parser
+        autowire: true
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.TaxonomyEntryMove }
+
+    Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryAssignmentUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        autowire: true
+
+    Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryAssignToContent:
+        parent: Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryAssignmentUpdate
+        autowire: true
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.TaxonomyEntryAssignToContent }
+
+    Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryUnassignFromContent:
+        parent: Ibexa\Taxonomy\REST\Input\Parser\TaxonomyEntryAssignmentUpdate
+        autowire: true
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.TaxonomyEntryUnassignFromContent }

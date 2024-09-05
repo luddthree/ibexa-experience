@@ -1,0 +1,39 @@
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% form_theme members_search_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% embed '@ibexadesign/ui/component/adaptive_filters/adaptive_filters.html.twig' with {
+    form: members_search_form,
+    is_inside_tabs: true,
+    no_labels: true,
+    no_collapsible_items: true,
+} only %}
+    {% trans_default_domain 'ibexa_customer_portal' %}
+
+    {% block actions %}{% endblock %}
+    {% block static_left_input %}
+        {{ form_widget(form.query, {
+            attr: {
+                placeholder: 'members.active_users.list.search.placeholder'|trans|desc('Search by name'),
+            },
+            has_search: true,
+        }) }}
+    {% endblock %}
+{% endembed %}
+
+{% include '@ibexadesign/corporate_account/common/members_table.html.twig' with {
+    members,
+    company_id: null,
+    company,
+    edit_path_name: 'ibexa.corporate_account.customer_portal.edit_member',
+    activate_path: 'ibexa.corporate_account.customer_portal.activate_member',
+    deactivate_path: 'ibexa.corporate_account.customer_portal.deactivate_member',
+    can_assign_role_map,
+    can_edit_member_map,
+} only %}
+
+{% include '@ibexadesign/corporate_account/common/user_status_change_confirmation_modal.html.twig' %}
+{% include '@ibexadesign/corporate_account/common/user_role_change_modal.html.twig' with {
+    form: change_role_form,
+    form_action: path('ibexa.corporate_account.customer_portal.change_corporate_role'),
+} %}

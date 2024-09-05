@@ -1,0 +1,40 @@
+ibexa.rest.corporate_account.companies.create:
+    path: /corporate/companies
+    methods: [ POST ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\CompanyController::createCompanyAction'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.companies.list:
+    path: /corporate/companies
+    methods: [ GET ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\CompanyController::listCompaniesAction'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.companies.get:
+    path: /corporate/companies/{companyId}
+    methods: [ GET ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\CompanyController::getCompanyAction'
+    requirements:
+        companyId: '\d+'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.companies.delete:
+    path: /corporate/companies/{companyId}
+    methods: [ DELETE ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\CompanyController::deleteCompanyAction'
+    requirements:
+        companyId: '\d+'
+    options:
+        exposed: true
+
+ibexa.rest.corporate_account.companies.update:
+    path: /corporate/companies/{companyId}
+    methods: [ PATCH ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\CompanyController::updateCompanyAction'
+    requirements:
+        companyId: '\d+'
+    options:
+        exposed: true

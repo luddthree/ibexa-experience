@@ -1,0 +1,12 @@
+-
+    type: object_state
+    mode: create
+    metadata:
+        identifier: state_1
+        mainTranslation: eng-GB
+        objectStateGroup: 2
+        priority: null
+        translations:
+            eng-GB:
+                name: 'Object State 1 name'
+                description: 'Object State 1 description'

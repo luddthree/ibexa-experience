@@ -1,0 +1,42 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% if customer_switcher is defined %}
+    {% form_theme customer_switcher '@ibexadesign/ui/form_fields.html.twig' %}
+{% endif %}
+
+{% block body_class %}ibexa-personalization-list ibexa-has-full-width-footer{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: list_title,
+    } %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if customer_switcher is defined and customer_switcher.customer_id.vars.choices|length > 1 %}
+        <div class="ibexa-perso-mandator-selector">
+            {{ form_start(customer_switcher) }}
+            {{ form_label(customer_switcher.customer_id) }}
+            {{ form_widget(customer_switcher.customer_id, {
+                attr: { class: 'ibexa-perso-mandator-selector__select' },
+            }) }}
+            {{ form_end(customer_switcher) }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="container ibexa-container {% block content_class %}{% endblock %}">
+        {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: table_title|default(null),
+            actions: table_actions|default(null),
+        } only %}
+        {% block data_table %}{% endblock %}
+        {% block pagination %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}

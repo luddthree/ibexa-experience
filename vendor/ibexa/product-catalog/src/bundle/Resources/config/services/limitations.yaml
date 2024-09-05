@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Security\Limitation\ProductTypeLimitationType:
+        arguments: ['@ibexa.api.persistence_handler']
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: ProductType }
+
+    Ibexa\ProductCatalog\Security\Limitation\Mapper\ProductTypeLimitationMapper:
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: ProductType }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: ProductType }

@@ -1,0 +1,16 @@
+ibexa.rest.binary_content.get_image_variation:
+    path: /content/binary/images/{imageId}/variations/{variationIdentifier}
+    controller: Ibexa\Bundle\Connector\Dam\Controller\AssetVariationController::getImageVariation
+    methods: [GET]
+    requirements:
+        imageId: \d+-\d+(-\d+)?
+
+ibexa.connector.dam.asset:
+    path: /content/assets/images/{assetId}/{assetSource}
+    controller: Ibexa\Bundle\Connector\Dam\Controller\Rest\AssetController::getAsset
+    methods: [GET]
+
+ibexa.connector.dam.asset_variation:
+    path: /content/binary/images/{assetId}/{assetSource}/variations/{transformationName}
+    controller: Ibexa\Bundle\Connector\Dam\Controller\AssetVariationController::getExternalAssetVariation
+    methods: [GET]

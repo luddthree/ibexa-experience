@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Controller\:
+        resource: "../../Controller/*"
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Controller\SiteController:
+        arguments:
+            $siteService: '@Ibexa\SiteFactory\Service\SiteService'
+            $formFactory: '@Symfony\Component\Form\FormFactoryInterface'
+            $translator: '@Symfony\Contracts\Translation\TranslatorInterface'
+            $notificationHandler: '@Ibexa\Contracts\AdminUi\Notification\TranslatableNotificationHandlerInterface'
+            $submitHandler: '@Ibexa\AdminUi\Form\SubmitHandler'
+            $siteFactoryEnabled: '%ibexa.site_factory.enabled%'

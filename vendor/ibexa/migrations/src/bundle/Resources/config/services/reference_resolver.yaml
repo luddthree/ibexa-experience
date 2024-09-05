@@ -1,0 +1,98 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Ibexa\Migration\StepExecutor\ReferenceDefinition\Content\ContentResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.content_resolver' ]
+
+        Ibexa\Migration\StepExecutor\ReferenceDefinition\UserGroup\UserGroupResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.user_group_resolver' ]
+        
+        Ibexa\Migration\StepExecutor\ReferenceDefinition\Section\SectionResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.section_resolver' ]
+
+        Ibexa\Migration\StepExecutor\ReferenceDefinition\Language\LanguageResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.language_resolver' ]
+
+        Ibexa\Migration\StepExecutor\ReferenceDefinition\Role\RoleResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.role_resolver' ]
+
+        Ibexa\Migration\StepExecutor\ReferenceDefinition\User\UserResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.user_resolver' ]
+
+    ibexa.migrations.reference_definition.resolver.content:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.content_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Content\ContentLocationIdResolver: ~
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Content\ContentIdResolver: ~
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Content\ContentLocationPathResolver: ~
+
+    ibexa.migrations.reference_definition.resolver.content_type:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.content_type_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    ibexa.migrations.reference_definition.resolver.user:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.user_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    ibexa.migrations.reference_definition.resolver.user_group:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.user_group_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Language\LanguageIdResolver: ~
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Language\LanguageCodeResolver: ~
+
+    ibexa.migrations.reference_definition.resolver.language:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.language_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\UserGroup\UserGroupIdResolver: ~
+
+    ibexa.migrations.reference_definition.resolver.section:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.section_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Section\SectionIdResolver: ~
+
+    ibexa.migrations.reference_definition.resolver.role:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.role_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\Role\RoleIdResolver: ~
+
+    Ibexa\Migration\StepExecutor\ReferenceDefinition\User\UserIdResolver: ~

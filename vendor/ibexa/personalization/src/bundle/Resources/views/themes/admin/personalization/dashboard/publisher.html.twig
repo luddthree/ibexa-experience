@@ -1,0 +1,27 @@
+{% extends '@ibexadesign/personalization/dashboard/dashboard.html.twig' %}
+
+{% block summary %}
+    {% include '@ibexadesign/personalization/dashboard/summary.html.twig' with { 'summary': summary } %}
+{% endblock %}
+
+{% block charts %}
+    <section class="container ibexa-perso-charts" data-charts-data='{{ charts }}' data-customer-id="{{ customer_id }}">
+        {% include '@ibexadesign/personalization/dashboard/parts/recommendation_performance.html.twig' %}
+        <div class="row ibexa-perso-charts__body">
+            <div class="col-lg-6 col-md-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/conversion_rate.html.twig' %}
+            </div>
+            <div class="col-lg-6 col-md-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/recommendation_calls.html.twig' %}
+            </div>
+            <div class="col-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/collected_events.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block popularity %}
+    {% include '@ibexadesign/personalization/dashboard/parts/popularity.html.twig'
+        with { 'popularity_list': popularity_list, 'form': form } only %}
+{% endblock %}

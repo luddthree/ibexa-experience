@@ -1,0 +1,911 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% use '@ibexadesign/ui/form_fields/toggle_widget.html.twig' %}
+
+{% macro translate_label(form) %}
+    {{ form.vars.label|trans({}, form.vars.translation_domain) }}
+{% endmacro %}
+
+{% block form_row -%}
+    {%- set row_attr = row_attr|merge({
+        class: (row_attr.class|default('')
+            ~ " ibexa-pc-edit__form-field"
+            ~ (form.vars.required ? ' ibexa-pc-edit__form-field-required')
+        )|trim
+    }) -%}
+
+    {{ parent() }}
+{%- endblock %}
+
+{% block form_label_errors %}{% endblock %}
+
+{% block _ezplatform_content_forms_contenttype_update_attributesDefinitions_row %}
+    {% for child in form.children %}
+        {{ form_widget(child) }}
+    {% endfor %}
+{% endblock %}
+
+{% block _ezplatform_content_forms_contenttype_update_attributesDefinitions_entry_entry_widget %}
+    {% set attribute_definition = form.vars.attribute_definition %}
+
+    {% set icon_cell %}
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('go-right') }}"></use>
+        </svg>
+    {% endset %}
+
+    {% set name_cell %}
+        {% set attribute_definition_name = attribute_definition.name|default('') %}
+        {% set attribute_definition_identifier = attribute_definition.identifier|default('') %}
+        {% set attribute_definition_identifier_label = 'attributes.assigned.identifier.label'|trans({'%identifier%': attribute_definition_identifier })|desc('Id: %identifier%') %}
+
+        <div class="ibexa-pc-assigned-attribute__item-label" title="{{ attribute_definition_name }}">
+            {{- attribute_definition_name -}}
+        </div>
+        <div class="ibexa-pc-assigned-attribute__item-identifier" title="{{ attribute_definition_identifier_label }}">
+            {{- attribute_definition_identifier_label -}}
+        </div>
+        <div class="ibexa-pc-assigned-attribute__item-widget">
+            {{ form_widget(form.children.attributeDefinition, {
+                attr: { class: 'ibexa-pc-assigned-attribute__item-input' },
+            }) }}
+        </div>
+    {% endset %}
+
+    {% set type_cell = attribute_definition.type.name|default('') %}
+
+    {% set required_cell %}
+        {{ form_widget(form.children.required, {
+            attr: { class: 'ibexa-pc-assigned-attribute__item-input' }
+        }) }}
+    {% endset %}
+
+    {% set discriminator_cell %}
+        {{ form_widget(form.children.discriminator, {
+            attr: { class: 'ibexa-pc-assigned-attribute__item-input' }
+        }) }}
+    {% endset %}
+
+    {% set action_cell %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text ibexa-pc-assigned-attribute--remove-btn">
+            <svg class="ibexa-icon ibexa-icon--tiny-small">
+                <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+            </svg>
+        </button>
+    {% endset %}
+
+    {%- include '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+        body_row_cols: [
+            {
+                content: icon_cell,
+                class: 'ibexa-pc-assigned-attribute__item ibexa-pc-assigned-attribute__item--icon'
+            },
+            {
+                content: name_cell,
+                class: 'ibexa-pc-assigned-attribute__item ibexa-pc-assigned-attribute__item--name'
+            },
+            {
+                content: type_cell,
+                class: 'ibexa-pc-assigned-attribute__item ibexa-pc-assigned-attribute__item--type'
+            },
+            {
+                content: required_cell,
+                class: 'ibexa-pc-assigned-attribute__item ibexa-pc-assigned-attribute__item--required-bool'
+            },
+            {
+                content: discriminator_cell,
+                class: 'ibexa-pc-assigned-attribute__item ibexa-pc-assigned-attribute__item--discriminator'
+            },
+            {
+                content: action_cell,
+                class: 'ibexa-pc-assigned-attribute__item ibexa-pc-assigned-attribute__item--action'
+            },
+        ],
+        class: 'ibexa-pc-assigned-attribute',
+        attr: {
+            'data-type': 'added-attribute',
+            'data-attribute-id': form.children.attributeDefinition.vars.value,
+            'data-attribute-position': form.vars.name
+        },
+    } -%}
+{% endblock %}
+
+{% block _ezplatform_content_forms_contenttype_update_attributesDefinitions_entry_entry_required_widget %}
+    {%- set attr = attr|merge({ class: 'ibexa-input ibexa-input--checkbox ' ~ attr.class|default('') }) -%}
+    {{ block('toggle_widget') }}
+{% endblock %}
+
+{% block _ezplatform_content_forms_contenttype_update_attributesDefinitions_entry_entry_discriminator_widget %}
+    {%- set attr = attr|merge({ class: 'ibexa-input ibexa-input--checkbox ' ~ attr.class|default('') }) -%}
+    {{ block('toggle_widget') }}
+{% endblock %}
+
+{%- block _product_prices_price_row -%}
+    <div class="ibexa-pc-product-price-edit-form__group ibexa-pc-product-price">
+        {{ form_row(form.children.base_price, {
+            attr: { class: 'ibexa-pc-product-price-edit-form__base-price-input' }
+        }) }}
+    </div>
+{%- endblock -%}
+
+{%- block _product_prices_customer_group_prices_row -%}
+    <div class="ibexa-pc-product-price-edit-form__group ibexa-pc-product-custom-price">
+        {%- set body_rows = [] -%}
+        {%- set customer_group_prices_action -%}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-pc-product-price-edit-form__update-base-prices-button"
+                disabled
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                    <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{- 'product_price.update_base_price'|trans|desc('Update base price') -}}</span>
+            </button>
+        {%- endset -%}
+        {% set empty_table_info_text = 'product_price.no_customer_group.info_text'|trans|desc('Add custom prices') %}
+        {% set empty_table_action_text = 'product_price.no_customer_group.action_text'|trans|desc('To add custom prices, you need to have at least one customer group.') %}
+        {% set empty_table_extra_actions %}
+            {% include '@ibexadesign/ui/component/table/empty_table_extra_actions.html.twig' with {
+                url: path('ibexa.product_catalog.customer_group.list'),
+                label: 'product_price.no_customer_group.link_label'|trans|desc('Go to customer groups')
+            } %}
+        {% endset %}
+
+        {% for child in form.children %}
+            {%- set currency_sub_units = child.vars.currency.getSubUnits() -%}
+            {%- set custom_price_rule = child.vars.custom_price_rule %}
+            {%- set is_custom_price_rule = custom_price_rule is not null -%}
+            {%- set customer_group = child.vars.customer_group -%}
+
+            {%- set update_base_price_checkbox -%}
+                <input
+                    value={{ customer_group.id }}
+                    type="checkbox"
+                    class="ibexa-input ibexa-input--checkbox ibexa-pc-product-custom-price__mark-row-checkbox"
+                />
+            {%- endset -%}
+
+            {%- set base_price -%}
+                {{ form_widget(child.base_price, {
+                    attr: { class: 'ibexa-pc-product-custom-price__customer-base-price-input' }
+                }) }}
+            {%- endset -%}
+
+            {%- set custom_price -%}
+                {{ form_widget(child.custom_price, {
+                    attr: { class: 'ibexa-pc-product-custom-price__custom-price-input' }
+                }) }}
+            {%- endset -%}
+
+            {%- set global_price_rule -%}
+                <span>{{- customer_group.getGlobalPriceRate() -}}%</span>
+                <input
+                    type="hidden"
+                    class="ibexa-pc-product-custom-price__global-price-rule-input"
+                    value="{{ customer_group.getGlobalPriceRate() }}"
+                />
+            {%- endset -%}
+
+            {%- set custom_price_rule -%}
+                <div class="ibexa-pc-edit-form-number">
+                    <div class="ibexa-pc-edit-form-number__input-wrapper">
+                        {{ form_widget(child.custom_price_rule, {
+                            attr: { class: 'ibexa-pc-product-custom-price__custom-price-rule-input' }
+                        }) }}
+                    </div>
+                    <div class="ibexa-pc-edit-form-number__type-wrapper">
+                        %
+                    </div>
+                </div>
+            {%- endset -%}
+
+            {%- set body_rows = body_rows|merge([{ cols: [
+                {
+                    has_checkbox: true,
+                    content: update_base_price_checkbox
+                },
+                {
+                    class: 'ibexa-pc-product-custom-price__name-cell',
+                    content: customer_group.getName(),
+                },
+                {
+                    class: 'ibexa-pc-product-custom-price__base-price-cell',
+                    content: base_price,
+                },
+                {
+                    class: 'ibexa-pc-product-custom-price__global-price-rule-cell'
+                        ~ (is_custom_price_rule ? ' ibexa-pc-product-custom-price__global-price-rule-cell--unused'),
+                    content: global_price_rule,
+                },
+                {
+                    class: 'ibexa-pc-product-custom-price__custom-price-rull-cell',
+                    content: custom_price_rule,
+                },
+                {
+                    class: 'ibexa-pc-product-custom-price__custome-price-cell',
+                    content: custom_price,
+                },
+            ]}]) -%}
+        {% endfor %}
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            class: 'ibexa-pc-product-custom-price__list',
+            headline: 'product_price.custom_price'|trans|desc('Custom price'),
+            head_cols: [
+                { has_checkbox: true },
+                { content: 'product_price.customer_group'|trans|desc('Customer group') },
+                { content: 'product_price.base_price'|trans|desc('Base price') },
+                { content: 'product_price.global_price_rule'|trans|desc('Global price rule') },
+                { content: 'product_price.custom_price_rule'|trans|desc('Custom price rule') },
+                { content: 'product_price.final_price'|trans|desc('Custom price') }
+            ],
+            body_rows: body_rows,
+            actions: customer_group_prices_action,
+            empty_table_info_text,
+            empty_table_action_text,
+            empty_table_extra_actions,
+        } %}
+    </div>
+{%- endblock -%}
+
+{%- block product_price_base_price_widget -%}
+    {%- set attr = { step: 'any' }|merge(attr) -%}
+    {%- set currency_code = form.vars.currency -%}
+
+    <div class="ibexa-pc-edit-form-number">
+        <div class="ibexa-pc-edit-form-number__input-wrapper">
+            {{- block('number_widget') -}}
+        </div>
+        <div class="ibexa-pc-edit-form-number__type-wrapper">
+            {{- currency_code|currency_symbol -}}
+        </div>
+    </div>
+{%- endblock -%}
+
+{% block _product_availability_create_available_widget %}
+    {%- set label_on = 'product_availability.toggle.label.yes'|trans|desc('Yes') -%}
+    {%- set label_off = 'product_availability.toggle.label.no'|trans|desc('No') -%}
+
+    {{ block('form_label') }}
+    {{ block('toggle_widget') }}
+{%- endblock -%}
+
+{%- block _product_availability_update_available_widget -%}
+    {%- set label_on = 'product_availability.toggle.label.yes'|trans|desc('Yes') -%}
+    {%- set label_off = 'product_availability.toggle.label.no'|trans|desc('No') -%}
+
+    {{ block('form_label') }}
+    {{ block('toggle_widget') }}
+{%- endblock -%}
+
+{%- block _product_availability_create_stock_widget -%}
+    {% set infinite_widget = form.parent.children.infinite %}
+
+    {{ form_widget(form, {
+        attr: { disabled: infinite_widget.vars.checked }
+    }) }}
+{%- endblock -%}
+
+{%- block _product_availability_update_stock_widget -%}
+    {% set infinite_widget = form.parent.children.infinite %}
+
+    {{ form_widget(form, {
+        attr: { disabled: infinite_widget.vars.checked }
+    }) }}
+{%- endblock -%}
+
+{%- block selection_attribute_options_choice_collection_widget -%}
+    <div class="ibexa-pc-attribute-selection-options">
+        <div class="ibexa-pc-attribute-selection-options__toolbar">
+            <div class="ibexa-pc-attribute-selection-options__toolbar-title">
+                {{ 'attribute.selection_options.title'|trans|desc('List of options') }}
+            </div>
+            <div class="ibexa-pc-attribute-selection-options__toolbar-actions">
+                <button
+                    type="button"
+                    class="ibexa-pc-attribute-selection-options__add-option-btn btn ibexa-btn ibexa-btn--small ibexa-btn--secondary"
+                    {% if translation_mode %}disabled{% endif %}
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                        <use xlink:href="{{- ibexa_icon_path('create') -}}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{- 'attribute.selection_options.add'|trans|desc('Add') -}}</span>
+                </button>
+                <button
+                    type="button"
+                    class="ibexa-pc-attribute-selection-options__remove-options-btn btn ibexa-btn ibexa-btn--small ibexa-btn--ghost"
+                    disabled
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                        <use xlink:href="{{- ibexa_icon_path('trash') -}}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{- 'attribute.selection_options.delete'|trans|desc('Delete') -}}</span>
+                </button>
+            </div>
+        </div>
+
+        {% set next_option_id = 0 %}
+        {% if form.children|length %}
+            {% set next_option_id = (max(form.children|keys)) + 1 %}
+        {% endif %}
+
+        <div
+            class="ibexa-pc-attribute-selection-options__list"
+            data-next-option-id={{ next_option_id }}
+            data-option-template={{ form_row(form.vars.prototype)|e('html_attr') }}
+        >
+            <div class="ibexa-pc-attribute-selection-options__list-labels">
+                <div class="ibexa-pc-attribute-selection-options__list-label">
+                    {{- 'attribute.selection_options.list__label.label'|trans|desc('Label') -}}
+                </div>
+                <div class="ibexa-pc-attribute-selection-options__list-label">
+                    {{- 'attribute.selection_options.list__label.value'|trans|desc('Value') -}}
+                </div>
+            </div>
+
+            {% for child in form.children %}
+                {{ form_row(child) }}
+            {% endfor %}
+        </div>
+    </div>
+{%- endblock -%}
+
+{%- block selection_attribute_options_choice_row -%}
+    <div class="ibexa-pc-attribute-selection-options__option">
+        <div class="ibexa-pc-attribute-selection-options__option-checkbox-container">
+            <input
+                type="checkbox"
+                class="ibexa-input ibexa-input--checkbox ibexa-pc-attribute-selection-options__remove-option-checkbox"
+                {% if translation_mode %}disabled{% endif %}
+            />
+        </div>
+        <div class="ibexa-pc-attribute-selection-options__option-label-input-container">
+            {{ form_row(form.label, {
+                label: false,
+                attr: { class: 'ibexa-input--small ibexa-pc-attribute-selection-options__option-label-input' }
+            }) }}
+        </div>
+        <div class="ibexa-pc-attribute-selection-options__option-value-input-container">
+            {{ form_row(form.value, {
+                label: false,
+                attr: { class: 'ibexa-input--small ibexa-pc-attribute-selection-options__option-value-input' }
+            }) }}
+        </div>
+        <div class="ibexa-pc-attribute-selection-options__option-actions-container">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text ibexa-pc-attribute-selection-options__remove-option-btn"
+                {% if translation_mode %}disabled{% endif %}
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                    <use xlink:href="{{- ibexa_icon_path('trash') -}}"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+{%- endblock -%}
+
+{%- block _attribute_definition_search_query_widget -%}
+    {% set has_search = true %}
+
+    {{ block('form_widget_simple') }}
+{%- endblock -%}
+
+{%- block _attribute_group_search_query_widget -%}
+    {% set has_search = true %}
+
+    {{ block('form_widget_simple') }}
+{%- endblock -%}
+
+{%- block _product_type_search_query_widget -%}
+    {% set has_search = true %}
+
+    {{ block('form_widget_simple') }}
+{%- endblock -%}
+
+{%- block _product_search_query_widget -%}
+    {% set has_search = true %}
+
+    {{ block('form_widget_simple') }}
+{%- endblock -%}
+
+{%- block edit_global_price_rate_widget -%}
+    <div class="ibexa-pc-edit-form-number">
+        <div class="ibexa-pc-edit-form-number__input-wrapper">
+            {{- block('number_widget') -}}
+        </div>
+        <div class="ibexa-pc-edit-form-number__type-wrapper">
+            %
+        </div>
+    </div>
+{%- endblock -%}
+
+{%- block _customer_group_create_global_price_rate_widget -%}
+    {{ block('edit_global_price_rate_widget') }}
+{%- endblock -%}
+
+{%- block _customer_group_update_global_price_rate_widget -%}
+    {{ block('edit_global_price_rate_widget') }}
+{%- endblock -%}
+
+{%- block product_sort_choice_row -%}
+    {{ form_widget(form, {
+        attr: {
+            dropdown_hidden: true,
+            class: "ibexa-pc-search__sort-order-select"
+        }
+    }) }}
+{%- endblock -%}
+
+{%- block _catalog_create_name_row %}
+    {{ form_row(form, {
+        attr: { 'data-autogenerate-identifier-target-selector': '.ibexa-pc-edit-catalog-identifier' }
+    }) }}
+{%- endblock -%}
+
+{%- block _catalog_create_identifier_row %}
+    {{ form_row(form, {
+        attr: { class: 'ibexa-pc-edit-catalog-identifier' },
+    }) }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_type_row -%}
+    {{- block('catalog_selection_panel') -}}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_code_row -%}
+    {{- block('catalog_taggify_panel') -}}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_availability_row -%}
+    {{ block('catalog_checkbox_panel') }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_base_price_row -%}
+    {{ block('catalog_price_panel') }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_created_row -%}
+    {{ block('catalog_daterange_panel') }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_attribute_selection_row -%}
+    {{ block('catalog_selection_panel') }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_attribute_checkbox_row -%}
+    {{ block('catalog_checkbox_panel') }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_attribute_integer_row -%}
+    {%- set number_type = 'integer' -%}
+
+    {{ block('catalog_number_range_panel') }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_attribute_float_row -%}
+    {%- set number_type = 'float' -%}
+
+    {{ block('catalog_number_range_panel') }}
+{%- endblock -%}
+
+{%- block catalog_taggify_panel -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-taggify-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'taggify',
+            'data-filter-label': _self.translate_label(form),
+        },
+    }%}
+        {% block content %}
+            {{ form_widget(form) }}
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block catalog_checkbox_panel -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-radio-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'radio',
+            'data-filter-label': _self.translate_label(form),
+        },
+    }%}
+        {% block content_actions %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            <button
+                type="button"
+                class="ibexa-pc-edit-config-radio-filter__action-clear-checked ibexa-pc-config-panel__content-actions-btn"
+            >
+                {{ 'catalog.edit.config_filter.clear_all'|trans|desc('Clear all') }}
+            </button>
+        {% endblock %}
+        {% block content %}
+            <ul class="ibexa-pc-edit-config-radio-filter__list">
+                {{ form_widget(form, { attr: {
+                    class: "ibexa-pc-edit-config-radio-filter__source-input ibexa-pc-edit-config-radio-filter__list",
+                } }) }}
+            </ul>
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block catalog_selection_panel -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-choice-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'choice',
+            'data-filter-label': _self.translate_label(form),
+        },
+    }%}
+        {% block content_actions %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            <div class="ibexa-pc-edit-config-choice-filter__search-wrapper">
+                {%- embed '@ibexadesign/ui/component/input_text.html.twig' with {
+                    has_search: true,
+                    search_button_type: 'button'
+                } -%}
+                    {% block content %}
+                        {% trans_default_domain 'ibexa_product_catalog' %}
+
+                        <input
+                            type="text"
+                            placeholder="{{ 'catalog.edit.choice_filter.search_placeholder'|trans|desc('Search...') }}"
+                            class="form-control ibexa-input ibexa-input--small ibexa-input--text ibexa-pc-search__form-input ibexa-pc-edit-config-choice-filter__search-input"
+                        />
+                    {% endblock %}
+                {% endembed %}
+            </div>
+            <div class="ibexa-pc-edit-config-choice-filter__toggle-selection-wrapper">
+                <button
+                    type="button"
+                    class="ibexa-pc-edit-config-choice-filter__action-toggle-selection ibexa-pc-config-panel__content-actions-btn"
+                >
+                    {% if form.vars.value|length %}
+                        {{ 'catalog.edit.config_filter.clear_all_count'|trans({ '%count%': value|length })|desc('Clear all (%count%)') }}
+                    {% else %}
+                        {{ 'catalog.edit.config_filter.select_all'|trans|desc('Select All') }}
+                    {% endif %}
+                </button>
+            </div>
+        {% endblock %}
+
+        {% block content %}
+            <div class="ibexa-pc-edit-config-choice-filter__source">
+                <div class="ibexa-pc-edit-config-choice-filter__source-input ibexa-pc-edit-config-choice-filter__list">
+                    {% for children in form.children %}
+                        <div class="ibexa-pc-edit-config-choice-filter__list-item">
+                            {{ form_widget(children) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block catalog_price_panel -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-price-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'price',
+            'data-filter-label': _self.translate_label(form),
+        },
+    }%}
+        {% block content_actions %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            <button
+                type="button"
+                class="ibexa-pc-edit-config-price-filter__action-clear-price ibexa-pc-config-panel__content-actions-btn"
+            >
+                {{ 'catalog.edit.config_filter.clear_all'|trans|desc('Clear all') }}
+            </button>
+        {% endblock %}
+        {% block content %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            <div class="ibexa-pc-edit-config-price-filter__field ibexa-pc-edit-config-price-filter__field--currency">
+                {{ form_row(form.currency) }}
+                <div class="ibexa-pc-edit-config-price-filter__empty-error ibexa-form-error" hidden>
+                    <em class="ibexa-field-edit__error ibexa-form-error__row">
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                            <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                        </svg>
+                        {{ 'error.required.field'|trans({ '%fieldName%': form.currency.vars.name|humanize })|desc('%fieldName% Field is required') }}
+                    </em>
+                </div>
+            </div>
+
+            <div class="ibexa-pc-edit-config-price-filter__widget">
+                <div class="ibexa-pc-edit-config-price-filter__field ibexa-pc-edit-config-price-filter__field--min">
+                    {{ form_row(form.min_price) }}
+                    <div class="ibexa-pc-edit-config-price-filter__empty-error ibexa-form-error" hidden>
+                        <em class="ibexa-field-edit__error ibexa-form-error__row">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                                <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                            </svg>
+                            {{ 'error.required.field'|trans({ '%fieldName%': form.min_price.vars.name|humanize })|desc('%fieldName% Field is required') }}
+                        </em>
+                    </div>
+                </div>
+                <div class="ibexa-pc-edit-config-price-filter__separator">
+                    <div class="ibexa-pc-edit-config-price-filter__separator-content">
+                        -
+                    </div>
+                </div>
+                <div class="ibexa-pc-edit-config-price-filter__field ibexa-pc-edit-config-price-filter__field--max">
+                    {{ form_row(form.max_price) }}
+                    <div class="ibexa-pc-edit-config-price-filter__empty-error ibexa-form-error" hidden>
+                        <em class="ibexa-field-edit__error ibexa-form-error__row">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                                <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                            </svg>
+                            {{ 'error.required.field'|trans({ '%fieldName%': form.max_price.vars.name|humanize })|desc('%fieldName% Field is required') }}
+                        </em>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block catalog_daterange_panel -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-daterange-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'dateRange',
+            'data-filter-label': _self.translate_label(form),
+        },
+    }%}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block content %}
+            <div class="ibexa-pc-edit-config-daterange-filter__field ibexa-pc-edit-config-daterange-filter__field--min">
+                {{ form_label(form.min, 'daterange.min.label'|trans|desc('From'))}}
+                {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with {
+                    is_small: true,
+                } %}
+                {{
+                    form_widget(
+                        form.min,
+                        {
+                            'attr': {
+                                'hidden': true,
+                                'class': 'ibexa-picker__form-input',
+                            }
+                        }
+                    )
+                }}
+            </div>
+            <div class="ibexa-pc-edit-config-daterange-filter__field ibexa-pc-edit-config-daterange-filter__field--max">
+                {{ form_label(form.max, 'daterange.max.label'|trans|desc('To'))}}
+                {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with {
+                    is_small: true,
+                    input_attr: {
+                        'data-flatpickr-config': { enableTime: false }|json_encode()
+                    }
+                } %}
+                {{
+                    form_widget(
+                        form.max,
+                        {
+                            'attr': {
+                                'hidden': true,
+                                'class': 'ibexa-picker__form-input',
+                            }
+                        }
+                    )
+                }}
+            </div>
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block catalog_number_range_panel -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-number-range-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'numberRange',
+            'data-filter-label': _self.translate_label(form)|trim,
+            'data-number-type': number_type
+        },
+    }%}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block content %}
+            <div class="ibexa-pc-edit-config-number-range-filter__widget">
+                <div class="ibexa-pc-edit-config-number-range-filter__field ibexa-pc-edit-config-number-range-filter__field--min">
+                    {{ form_label(form.min, 'number_range.min.label'|trans|desc('From'))}}
+                    {{ form_widget(form.min) }}
+                    <div class="ibexa-pc-edit-config-number-range-filter__empty-error ibexa-form-error" hidden>
+                        <em class="ibexa-field-edit__error ibexa-form-error__row">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                                <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                            </svg>
+                            {{ 'error.required.field'|trans({ '%fieldName%': form.min.vars.name|humanize })|desc('%fieldName% Field is required') }}
+                        </em>
+                    </div>
+                    <div class="ibexa-pc-edit-config-number-range-filter__not-integer-error ibexa-form-error" hidden>
+                        <em class="ibexa-field-edit__error ibexa-form-error__row">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                                <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                            </svg>
+                            {{ 'error.required.field.integer'|trans|desc('Value must be integer') }}
+                        </em>
+                    </div>
+                </div>
+                <div class="ibexa-pc-edit-config-number-range-filter__separator">
+                    <div class="ibexa-pc-edit-config-number-range-filter__separator-content">
+                        -
+                    </div>
+                </div>
+                <div class="ibexa-pc-edit-config-number-range-filter__field ibexa-pc-edit-config-number-range-filter__field--max">
+                    {{ form_label(form.max, 'number_range.max.label'|trans|desc('To'))}}
+                    {{ form_widget(form.max) }}
+                    <div class="ibexa-pc-edit-config-number-range-filter__empty-error ibexa-form-error" hidden>
+                        <em class="ibexa-field-edit__error ibexa-form-error__row">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                                <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                            </svg>
+                            {{ 'error.required.field'|trans({ '%fieldName%': form.max.vars.name|humanize })|desc('%fieldName% Field is required') }}
+                        </em>
+                    </div>
+                    <div class="ibexa-pc-edit-config-number-range-filter__not-integer-error ibexa-form-error" hidden>
+                        <em class="ibexa-field-edit__error ibexa-form-error__row">
+                            <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                                <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                            </svg>
+                            {{ 'error.required.field.integer'|trans|desc('Value must be integer') }}
+                        </em>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_attribute_color_row -%}
+    {{- block('catalog_taggify_panel') -}}
+{%- endblock -%}
+
+{%- block catalog_filter_attribute_collection_row -%}
+    {{ form_widget(form) }}
+{%- endblock -%}
+
+{%- block attribute_filter_row -%}
+    {{ form_widget(form) }}
+{%- endblock -%}
+
+{%- block catalog_criteria_product_category_row -%}
+    {% embed '@ibexadesign/product_catalog/ui/component/config_panel.html.twig' with {
+        title: _self.translate_label(form),
+        attr: {
+            class: 'ibexa-pc-edit-config-taxonomy-filter ibexa-pc-edit-config-filter',
+            'data-filter-name': form.vars.name,
+            'data-filter-type': 'taxonomy',
+            'data-filter-label': _self.translate_label(form),
+        },
+    }%}
+        {% block content %}
+            {{ form_widget(form, {
+                attr: {
+                    hidden: true,
+                    class: 'ibexa-pc-taxonomy__source-input'
+                },
+            }) }}
+            <div id="ibexa-pc-edit-config-taxonomy-root"></div>
+        {% endblock %}
+    {% endembed %}
+{%- endblock -%}
+
+{%- block tagify_widget -%}
+    <div class="ibexa-pc-taggify">
+        <div class="ibexa-pc-taggify__widget taggify form-control"></div>
+        <div class="ibexa-pc-taggify__source-input-wrapper">
+            {{ form_widget(form, {
+                attr: {
+                    hidden: true,
+                    class: 'ibexa-pc-taggify__source-input'
+                },
+            }) }}
+        </div>
+    </div>
+{%- endblock -%}
+
+{%- block _asset_bulk_delete_assets_row -%}
+    <div
+        class="ibexa-pc-product-assets-delete__items"
+        data-hidden-input-template={{ form_row(form.vars.prototype, {
+            attr: {
+                class: 'ibexa-pc-product-assets-delete__item'
+            }
+        })|e('html_attr') }}
+    >
+    </div>
+{%- endblock -%}
+
+{%- block filter_choice_widget -%}
+    {% set first_choices_group = form.vars.choices|first %}
+    {% set first_choice = first_choices_group.choices|first %}
+    {% set value = first_choice.value|default('') %}
+
+    {% set add_filter_label %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--tertiary ibexa-pc-edit-catalog-filters__available-popup-trigger">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">
+                {{ 'catalog.edit.add_filter'|trans|desc('Add filter') }}
+            </span>
+        </button>
+    {% endset %}
+
+    {% set source %}
+        {% with { attr: { class: 'ibexa-input' } } %}
+            {{- block('choice_widget_collapsed') -}}
+        {% endwith %}
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+        source,
+        value,
+        choices: form.vars.choices,
+        selected_item_label: add_filter_label,
+        items_class: 'ibexa-pc-edit-catalog-filters__dropdown-items',
+    } %}
+{%- endblock -%}
+
+{%- block _language_widget -%}
+    {% set selected_language = app.request.query.get('language') %}
+
+    <select
+        name="{{ form.vars.name }}"
+        class="ibexa-input ibexa-input--select form-control ibexa-dropdown__source-input"
+    >
+        {% for choice in form.vars.choices %}
+            <option value="{{ choice.value }}" {% if choice is selectedchoice(selected_language) %}selected="selected"{% endif %}>{{ choice.label }}</option>
+        {% endfor %}
+    </select>
+{%- endblock -%}
+
+{%- block color_attribute_value_widget -%}
+    {%- set attr = attr|merge({class: (attr.class|default('') ~ ' ibexa-input')|trim}) -%}
+
+    {{ form_widget(form, { attr }) }}
+{%- endblock -%}
+
+{%- block _ezplatform_content_forms_contenttype_update_virtual_row -%}
+    {{ form_row(form, { row_attr: { class: "ibexa-pc-edit__form-field--hidden" }}) }}
+{%- endblock -%}
+
+{%- block vat_category_choice_widget -%}
+    {%- set attr = attr|merge({
+        is_small: true,
+        placeholder: 'product_type.edit.vat_category.not_applicable'|trans|desc('Not applicable')
+    }) -%}
+
+    {{ form_row(form, { attr }) }}
+{%- endblock -%}
+
+{% block switcher_widget %}
+    {{ block('form_label') }}
+    {{ block('toggle_widget') }}
+{% endblock %}

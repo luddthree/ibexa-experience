@@ -1,0 +1,38 @@
+<div class="ibexa-db-zones">
+    <div class="ibexa-db-zones__row">
+        <div class="ibexa-db-zones__zone ibexa-db-zones__zone--small" data-ibexa-zone-id="{{ zones[0].id }}">
+            {% if zones[0].blocks %}
+                {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
+                {% for block in zones[0].blocks %}
+                    <div class="ibexa-db-zones__block" data-ez-block-id="{{ block.id }}">
+                        {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
+                            'locationId': locationId,
+                            'contentId': contentInfo.id,
+                            'blockId': block.id,
+                            'versionNo': versionInfo.versionNo,
+                            'languageCode': field.languageCode
+                        })) }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="ibexa-db-zones__zone ibexa-db-zones__zone--big" data-ibexa-zone-id="{{ zones[1].id }}">
+            {% if zones[1].blocks %}
+                {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
+                {% for block in zones[1].blocks %}
+                    <div class="ibexa-db-zones__block" data-ez-block-id="{{ block.id }}">
+                        {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
+                            'locationId': locationId,
+                            'contentId': contentInfo.id,
+                            'blockId': block.id,
+                            'versionNo': versionInfo.versionNo,
+                            'languageCode': field.languageCode
+                        })) }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>

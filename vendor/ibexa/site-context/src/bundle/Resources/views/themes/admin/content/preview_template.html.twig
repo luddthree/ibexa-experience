@@ -1,0 +1,17 @@
+{% set main_class = main_class|default('ibexa-location-preview') %}
+
+<div class="{{ main_class }}">
+    <div
+        class="{{ main_class }}__iframe-wrapper"
+        {% if preview_url is defined %}data-preview-url="{{ preview_url }}"{% endif %}
+    >
+        <iframe
+            class="{{ main_class }}__iframe"
+        >
+        </iframe>
+    </div>
+    <div class="{{ main_class }}__loader-wrapper">
+        <div class="{{ main_class }}__loader">
+        </div>
+    </div>
+</div>

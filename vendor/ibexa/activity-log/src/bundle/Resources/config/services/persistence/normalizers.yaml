@@ -1,0 +1,7 @@
+services:
+    _defaults:
+        autowire: true
+
+    Ibexa\ActivityLog\Persistence\Serializer\ContextNormalizer:
+        tags:
+            - { name: ibexa.activity_log.persistence.serializer.normalizer, priority: -100 }

@@ -1,0 +1,42 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_calendar' %}
+
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.calendar'|trans|desc('Calendar') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'calendar.view.title'|trans|desc('Calendar'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-calendar">
+        <div class="ibexa-calendar__sidebar-wrapper"></div>
+        <div class="ibexa-calendar__content-wrapper">
+            {{ ibexa_render_component_group('calendar-widget-before') }}
+            <div class="ibexa-calendar-container"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-calendar-module-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block react_modules %}
+    <script>
+        window.ibexa.addConfig('calendar.config', JSON.parse('{{ config|json_encode|raw }}'));
+    </script>
+    {{ encore_entry_script_tags('ibexa-calendar-module-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-calendar-common-js', null, 'ibexa') }}
+{% endblock %}

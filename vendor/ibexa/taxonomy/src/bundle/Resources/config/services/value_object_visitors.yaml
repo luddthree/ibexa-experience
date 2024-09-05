@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\REST\Output\ValueObjectVisitor\EntryAssignmentCollection:
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryAssignmentCollection }
+
+    Ibexa\Taxonomy\REST\Output\ValueObjectVisitor\TaxonomyEntryAssignment:
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Taxonomy\Value\TaxonomyEntryAssignment }
+
+    Ibexa\Taxonomy\REST\Output\ValueObjectVisitor\RestTaxonomyEntry:
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Taxonomy\REST\Values\RestTaxonomyEntry }

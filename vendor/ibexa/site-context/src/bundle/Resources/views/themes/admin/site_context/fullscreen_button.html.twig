@@ -1,0 +1,17 @@
+{% trans_default_domain 'ibexa_site_context' %}
+
+{% set is_disabled = ibexa_site_context_get_current() == null or ibexa_is_focus_mode_off() %}
+
+<div class="ibexa-additional-actions">
+    <div class="ibexa-additional-actions__item">
+        <a
+            href="{{ path('ibexa.site_context.toggle_fullscreen', { locationId: location.id }) }}"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small {% if is_disabled %}disabled{% endif %}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('full-view') }}"></use>
+            </svg>
+            {{ 'full_preview.additional_actions.full_view'|trans|desc('Full view') }}
+        </a>
+    </div>
+</div>

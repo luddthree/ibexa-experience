@@ -1,0 +1,16 @@
+includes:
+    - phpstan-baseline.neon
+    - phpstan-baseline.neon.php
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+
+parameters:
+    level: max
+    ignoreErrors:
+        -
+            message: "#^Cannot call method (fetchOne|fetchAll|fetchAllAssociative|fetchAssociative|fetchAllKeyValue)\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+            paths:
+                - src/*
+    paths:
+        - src
+        - tests

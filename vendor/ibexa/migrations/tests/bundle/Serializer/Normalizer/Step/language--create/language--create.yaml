@@ -1,0 +1,11 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: eng-GB
+        name: 'English (United Kingdom)'
+        enabled: true
+    references:
+        -
+            name: ref__2__language_id
+            type: language_id

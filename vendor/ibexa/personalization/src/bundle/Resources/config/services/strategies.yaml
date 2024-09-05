@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Ibexa\Personalization\Strategy\Storage\GroupItemStrategyInterface:
+            tags:
+                - { name: ibexa.personalization.group_item.strategy }
+
+    Ibexa\Personalization\Strategy\Storage\GroupByItemTypeAndLanguageStrategy: ~
+
+    Ibexa\Personalization\Strategy\Storage\GroupItemStrategyDispatcher:
+        arguments:
+            $groupItemStrategies: !tagged_iterator
+                tag: ibexa.personalization.group_item.strategy
+                default_index_method: getIndex
+                index_by: key
+
+    Ibexa\Personalization\Strategy\Storage\GroupItemStrategyDispatcherInterface:
+        '@Ibexa\Personalization\Strategy\Storage\GroupItemStrategyDispatcher'

@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\ProductAvailabilityService: ~
+
+    Ibexa\Contracts\ProductCatalog\ProductAvailabilityServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductAvailabilityService
+
+    Ibexa\ProductCatalog\Local\Repository\ProductAvailabilityContextResolver: ~
+
+    Ibexa\Contracts\ProductCatalog\ProductAvailabilityContextResolverInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductAvailabilityContextResolver
+
+    Ibexa\ProductCatalog\Local\Repository\ProductAvailabilityStrategy: ~
+
+    Ibexa\Contracts\ProductCatalog\ProductAvailabilityStrategyInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductAvailabilityStrategy
+
+    Ibexa\ProductCatalog\Availability\ProductAvailabilityStrategyDispatcher:
+        arguments:
+            $strategies: !tagged_iterator { tag: ibexa.product_catalog.availability.strategy }

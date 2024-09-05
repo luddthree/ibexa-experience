@@ -1,0 +1,8 @@
+{
+  "ActivityLogGroupListInput": {
+    "sortClauses": [
+      {"type":  "logged_at", "direction": "DESC"},
+      {"type":  "logged_at", "direction": "DESC"}
+    ]
+  }
+}

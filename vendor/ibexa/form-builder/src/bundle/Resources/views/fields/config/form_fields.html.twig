@@ -1,0 +1,290 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% trans_default_domain 'ezplatform_form_builder_fields' %}
+
+{% block form_label_errors %}{% endblock form_label_errors %}
+
+{%- block form_errors -%}
+    {%- set form_errors_attr = form_errors_attr|default({}) -%}
+    {%- set form_errors_attr = form_errors_attr|merge({class: (form_errors_attr.class|default('') ~ ' ibexa-fb-field-config__error')|trim}) -%}
+    {{ parent() }}
+{%- endblock -%}
+
+{%- block configuration_widget -%}
+    <div class="ibexa-fb-form-field-config-fieldset__identifier-input">
+        {{ form_widget(form.identifier) }}
+    </div>
+    <div class="ibexa-fb-form-field-config-fieldset__value-input ibexa-field-edit">
+        {{ form_widget(form.value) }}
+    </div>
+{%- endblock -%}
+
+{%- block field_attribute_configuration_widget -%}
+    {{ block('configuration_widget') }}
+{%- endblock -%}
+
+{%- block field_validator_configuration_widget -%}
+    {{ block('configuration_widget') }}
+{%- endblock -%}
+
+{%- block field_attribute_configuration_row -%}
+    {% set row_attr = { class: 'ibexa-fb-form-field-config-fieldset__attribute' } %}
+
+    {{ block('form_row') }}
+{%- endblock -%}
+
+{%- block field_validator_configuration_row -%}
+    {% set row_attr = { class: 'ibexa-fb-form-field-config-fieldset__validator' } %}
+
+    {{ block('form_row') }}
+{%- endblock -%}
+
+{%- block validator_integer_widget -%}
+    {{ form_widget(form, { attr:
+        { class: 'ibexa-fb-form-field-config-fieldset__validator-input ibexa-fb-form-field-config-fieldset__validator-input--number' }
+    }) }}
+{%- endblock -%}
+
+{%- block validator_number_widget -%}
+    {{ form_widget(form, { attr:
+        { class: 'ibexa-fb-form-field-config-fieldset__validator-input ibexa-fb-form-field-config-fieldset__validator-input--number' }
+    }) }}
+{%- endblock -%}
+
+{%- block ezboolean -%}
+    {% if value is defined %}
+        {% set attr = attr|merge({'value': value}) %}
+    {% endif %}
+    {% if checked %}
+        {% set attr = attr|merge({'checked': checked}) %}
+    {% endif %}
+    {% if disabled %}
+        {% set attr = attr|merge({'disabled': disabled}) %}
+    {% endif %}
+    <div class="ibexa-field-edit ibexa-field-edit--ezboolean ibexa-fb-field-config__field ibexa-fb-field-config__field--boolean">
+        {{ block('toggle_widget') }}
+    </div>
+{%- endblock -%}
+
+{%- block _field_configuration_validators_required_value_widget -%}
+    {{ block('ezboolean') }}
+{%- endblock -%}
+
+{%- block field_configuration_attribute_checkbox_widget -%}
+    {{ block('ezboolean') }}
+{%- endblock -%}
+
+{%- block _field_configuration_validators_regex_row -%}
+    <fieldset
+        class="ibexa-fb-form-field-config-fieldset__validator ibexa-fb-form-field-config-fieldset__validator--regex form-group"
+        data-field-value="{{form.vars.value.value}}"
+    >
+        {{ form_label(form) }}
+
+       <div class="ibexa-fb-form-field-config-fieldset__validator-dropdown">
+            {{ form_widget(form.value.select, { 'attr':
+                {
+                    'class': 'form-control ibexa-fb-form-field-config-fieldset__validator-input ibexa-fb-form-field-config-fieldset__validator-input--dropdown',
+                    'hidden': true,
+                }
+            }) }}
+            {{ form_widget(form.identifier) }}
+        </div>
+
+        <div class="ibexa-fb-form-field-config-fieldset__validator-config" hidden>
+            {{ form_row(form.value.pattern, { 'attr':
+                { 'class': 'form-control ibexa-fb-form-field-config-fieldset__validator-input ibexa-fb-form-field-config-fieldset__validator-input--config' }
+            }) }}
+        </div>
+    </fieldset>
+{%- endblock -%}
+
+{%- block _field_configuration_attributes_action_value_url_row -%}
+    {{ form_row(form, {
+        'label_attr': {
+            'class': 'ibexa-label form-label required'
+        }
+    }) }}
+{%- endblock -%}
+
+{%- block _field_configuration_attributes_action_value_message_row -%}
+    {{ form_row(form, {
+        'label_attr': {
+            'class': 'ibexa-label form-label required'
+        }
+    }) }}
+{%- endblock -%}
+
+{%- block _field_configuration_attributes_options_row -%}
+    <fieldset class="ibexa-fb-form-field-config-fieldset__attribute ibexa-fb-form-field-config-fieldset__attribute--options form-group">
+        {{ form_label(form) }}
+        {{ form_widget(form.identifier) }}
+        {{ form_widget(form.value, { 'attr': { 'class': 'ibexa-fb-form-field-config-fieldset__attribute-input' } }) }}
+
+        <div class="ibexa-fb-form-field-config-options">
+            <div class="ibexa-fb-form-field-config-options__header">
+                <div class="ibexa-fb-form-field-config-options__headline">{{ 'option.headline'|trans({}, 'ibexa_form_builder')|desc('Add option values') }}</div>
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--small ibexa-fb-form-field-config-options__add-btn"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{ 'option.add'|trans({}, 'ibexa_form_builder')|desc('Add') }}</span>
+                </button>
+            </div>
+            <div
+                class="ibexa-fb-form-field-config-options__body"
+                data-placeholder="{{ include('@IbexaFormBuilder/fields/config/elements/option.placeholder.template.html.twig', {})|e('html_attr') }}"
+                data-template="{{ include('@IbexaFormBuilder/fields/config/elements/option.template.html.twig', {})|e('html_attr') }}"
+            >
+                {{ include('@IbexaFormBuilder/fields/config/elements/option.template.html.twig') }}
+            </div>
+        </div>
+    </fieldset>
+{%- endblock -%}
+
+{%- block _field_configuration_attributes_action_row -%}
+    <fieldset class="ibexa-fb-form-field-config-fieldset__attribute ibexa-fb-form-field-config-fieldset__attribute--action form-group" data-field-value="{{form.vars.value.value}}">
+        {{ form_label(form) }}
+
+        <div class="ibexa-fb-form-field-config-fieldset__attribute-dropdown">
+            {{ form_widget(form.value.action, { 'attr':
+                {
+                    'class': 'form-control ibexa-fb-form-field-config-fieldset__attribute-input',
+                    'hidden': true,
+                }
+            }) }}
+
+            {{ form_widget(form.identifier) }}
+        </div>
+
+        {% for option in form.value.action.vars.choices %}
+            {% if option.value != ''  %}
+                <div
+                    data-config="{{ option.value }}"
+                    class="ibexa-fb-form-field-config-fieldset__attribute-config"
+                    {% if option.value != form.value.action.vars.value %}hidden{% endif %}
+                >
+                    {{ form_row(form.value[option.value]) }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </fieldset>
+{%- endblock -%}
+
+{%- block _field_configuration_attributes_action_value_location_id_row -%}
+    {% set selected_item_class = 'ibexa-fb-form-field-config-selected-item' %}
+    {% set name = '' %}
+    {% set type = '' %}
+    {% set created_date = '' %}
+    {% set action %}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--small ibexa-btn--no-text ibexa-fb-form-field-config-selected-item__action ibexa-fb-form-field-config-selected-item__action--remove"
+            title="{{ 'remove.item'|trans({}, 'ibexa_form_builder')|desc('Remove item') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    {% endset %}
+
+    {% if location %}
+        {% set name = location.contentInfo.name %}
+        {% set created_date = location.contentInfo.publishedDate|ibexa_short_datetime %}
+    {% else %}
+        {% set selected_item_class = selected_item_class ~ ' ibexa-fb-form-field-config-selected-item--hidden' %}
+    {% endif %}
+
+    {% if content_type %}
+        {% set type = content_type.names[content_type.mainLanguageCode] %}
+    {% endif %}
+
+    <label class="ibexa-label form-label required ibexa-label form-label">{{ 'select.content.item.info'|trans({}, 'ibexa_form_builder')|desc('Select a Content item') }}</label>
+
+    <div class="ibexa-fb-form-field-config-content-item">
+        <div class="ibexa-fb-form-field-config-content-item__headline">{{ 'select.content.item.headline'|trans({}, 'ibexa_form_builder')|desc('Set up a Relation with one Item') }}</div>
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            is_scrollable: false,
+            class: selected_item_class,
+            head_cols: [
+                { content: 'select.content.item.name'|trans({}, 'ibexa_form_builder')|desc('Name') },
+                { content: 'select.content.item.type'|trans({}, 'ibexa_form_builder')|desc('Type') },
+                { content: 'select.content.item.created_date'|trans({}, 'ibexa_form_builder')|desc('Created') },
+                { },
+            ],
+            body_rows: [{ cols: [
+                {
+                    class: 'ibexa-fb-form-field-config-selected-item__name',
+                    content: name,
+                },
+                {
+                    class: 'ibexa-fb-form-field-config-selected-item__type',
+                    content: type,
+                },
+                {
+                    class: 'ibexa-fb-form-field-config-selected-item__created-date',
+                    content: created_date,
+                },
+                {
+                    class: 'ibexa-fb-form-field-config-selected-item__row-action',
+                    content: action
+                },
+            ] }],
+        } %}
+
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary ibexa-fb-field-config__btn--open-udw"
+            data-udw-config="{{ ibexa_udw_config('single', {}) }}"
+            {% if location %}hidden{% endif %}
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">{{ 'select.content'|trans({}, 'ibexa_form_builder')|desc('Select content') }}</span>
+        </button>
+    </div>
+
+    {{ form_widget(form, { 'attr': {
+        'hidden': true,
+        'class': 'ibexa-fb-form-field-config-fieldset__attribute-input ibexa-fb-form-field-config-fieldset__attribute-input--location-id'
+    } }) }}
+
+    <div class="ibexa-form-error">
+        {{ form_errors(form) }}
+    </div>
+{%- endblock -%}
+
+{% block field_configuration_attribute_location_widget %}
+    {% set items = [] %}
+
+    {% if form.vars.value is not empty and form.vars.value_as_location is not empty %}
+        {% set locations = ibexa_path_to_locations(form.vars.value_as_location.pathString) %}
+        {% set location = locations|last %}
+        {% set items = [{
+            id: form.vars.value,
+            name: ibexa_content_name(location.contentInfo)
+        }] %}
+    {% endif %}
+
+    <div class="ibexa-fb-form-field-config-location">
+        {{ include('@ibexadesign/ui/component/tag_view_select/tag_view_select.html.twig', {
+            form,
+            items,
+            attr: {
+                'id': 'parent-location-select-content',
+                'class': 'ibexa-fb-form-field-config-location__btn-select-path',
+                'data-input-selector': '#' ~ form.vars.id,
+                'data-udw-config': ibexa_udw_config('single_container', {}),
+                'data-starting-location-id': ibexa_admin_ui_config.universalDiscoveryWidget.startingLocationId,
+            },
+            is_single_select: true,
+            can_be_empty: false,
+        }) }}
+    </div>
+    {{ form_errors(form) }}
+{% endblock %}

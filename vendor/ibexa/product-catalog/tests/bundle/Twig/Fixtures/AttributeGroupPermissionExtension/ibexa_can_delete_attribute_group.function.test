@@ -1,0 +1,16 @@
+--TEST--
+"ibexa_permission_delete_attribute_group" function
+--TEMPLATE--
+{{ ibexa_permission_delete_attribute_group() }}
+{{ ibexa_permission_delete_attribute_group(access_denied) }}
+{{ ibexa_permission_delete_attribute_group(attribute_group) }}
+
+--DATA--
+return [
+    'access_denied' => $this->getAttributeGroup('access_denied'),
+    'attribute_group' => $this->getAttributeGroup('attribute_group'),
+]
+--EXPECT--
+1
+
+1

@@ -1,0 +1,34 @@
+{% extends '@ibexadesign/ui/edit_base.html.twig' %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block main_container_class %}
+    {{ parent() }} ibexa-pc-edit
+
+    {%- set has_anchor_menu_items = anchor_params.items|default([])|length > 1 or ignored_content_fields|default([]) is not empty -%}
+    {%- set has_anchor_close_btn = anchor_params.close_href|default(null) is not empty -%}
+
+    {{- has_anchor_menu_items ? ' ibexa-main-container--with-anchor-menu-items ' : ' ibexa-main-container--without-anchor-menu-items ' -}}
+    {{- not has_anchor_close_btn ? ' ibexa-main-container--without-anchor-close-btn ' -}}
+    {{ ' ' ~ extra_main_class|default('') -}}
+{% endblock %}
+
+
+{% block content %}
+    <div class="ibexa-edit-content__container">
+        {% block form %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-product-catalog-edit-js', null, 'ibexa') }}
+{% endblock %}

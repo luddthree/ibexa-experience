@@ -1,0 +1,20 @@
+includes:
+    - ignore-by-php-version.neon.php
+    - phpstan-baseline.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+
+parameters:
+    level: 8
+    ignoreErrors:
+        -
+            message: "#^Cannot call method (fetch[\\w]*)\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+            paths:
+                - src/*
+        -
+            message: "#^Cannot call method (warning|info|debug|error|critical)\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+            paths:
+                - src/*
+    paths:
+        - src
+        - tests

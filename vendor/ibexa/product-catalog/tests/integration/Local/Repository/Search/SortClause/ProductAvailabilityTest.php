@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\Tests\Integration\ProductCatalog\Local\Repository\Search\SortClause;
+
+use Ibexa\Contracts\ProductCatalog\Values\Product\ProductQuery;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability;
+use Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductCode;
+
+final class ProductAvailabilityTest extends AbstractSortClauseTestCase
+{
+    public function dataProviderForTestSortClause(): iterable
+    {
+        yield ProductQuery::SORT_ASC => [
+            new ProductAvailability(ProductQuery::SORT_ASC),
+            [
+                '0001',
+                '0003',
+                'ATTRIBUTE_SEARCH_CHECK_0001',
+                'ATTRIBUTE_SEARCH_CHECK_0002',
+                'ATTRIBUTE_SEARCH_CHECK_0003',
+                'ATTRIBUTE_SEARCH_CHECK_0004',
+                'JEANS_A',
+                'JEANS_B',
+                'SHIRTA',
+                'SHIRTB',
+                'TROUSERS_0001',
+                'WARRANTY_0001',
+                '0002',
+            ],
+            new ProductCode(),
+        ];
+
+        yield ProductQuery::SORT_DESC => [
+            new ProductAvailability(ProductQuery::SORT_DESC),
+            [
+                '0002',
+                '0001',
+                '0003',
+                'ATTRIBUTE_SEARCH_CHECK_0001',
+                'ATTRIBUTE_SEARCH_CHECK_0002',
+                'ATTRIBUTE_SEARCH_CHECK_0003',
+                'ATTRIBUTE_SEARCH_CHECK_0004',
+                'JEANS_A',
+                'JEANS_B',
+                'SHIRTA',
+                'SHIRTB',
+                'TROUSERS_0001',
+                'WARRANTY_0001',
+            ],
+            new ProductCode(),
+        ];
+    }
+}

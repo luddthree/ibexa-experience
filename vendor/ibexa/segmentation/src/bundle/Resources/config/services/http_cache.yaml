@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\ContextProvider\SegmentationContextProvider:
+        tags: ['fos_http_cache.user_context_provider']

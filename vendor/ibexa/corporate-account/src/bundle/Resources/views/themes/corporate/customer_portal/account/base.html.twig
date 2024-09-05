@@ -1,0 +1,58 @@
+{%- trans_default_domain 'ibexa_customer_portal' -%}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block page_head %}
+            <meta charset="UTF-8" />
+            <title>
+                {% block page_title %}
+                    {{ 'account.login.page_title'|trans|desc('Customer Portal') }}
+                {% endblock %}
+            </title>
+            {{ encore_entry_link_tags('ibexa-customer-portal-login-css', null, 'ibexa') }}
+            <link rel="icon" type="image/x-icon" href="{{ asset('bundles/ibexaadminui/img/favicon.ico') }}" />
+
+            <script src="{{ asset('bundles/ibexaadminuiassets/vendors/@popperjs/core/dist/umd/popper.min.js') }}"></script>
+            <script src="{{ asset('bundles/ibexaadminuiassets/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    </head>
+    <body class="{% block body_class %}ibexa-ca-login-view{% endblock %}">
+        <div class="container-fluid ibexa-main-container">
+            <div class="row ibexa-ca-login">
+                <div class="container ibexa-ca-login__content-wrapper">
+                    <div class="row ibexa-ca-login__content-row">
+                        <div class="col-4 ibexa-ca-login__info-col">
+                            <h1 class="ibexa-ca-login__info-headline">
+                                {% block headline_content %}
+                                    {{ 'account.login.headline'|trans|desc('Welcome to Customer Portal') }}
+                                {% endblock %}
+                            </h1>
+                            {% if block('subheadline_content') is defined %}
+                                <h1 class="ibexa-ca-login__info-subheadline">
+                                    {{ block('subheadline_content') }}
+                                </h1>
+                            {% endif %}
+                            {% if block('headline_content') is defined %}
+                                <div class="ibexa-ca-login__headline-bar"></div>
+                            {% endif %}
+                        </div>
+                        <div class="col-4 ibexa-ca-login__actions-col-wrapper">
+                            <div class="ibexa-ca-login__actions-col">
+                                {%- block content -%}{%- endblock content -%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if app.request.locale == 'ach-UG' %}
+            <script type="text/javascript">
+                var _jipt = [];
+                _jipt.push(['project', 'ibexa-dxp']);
+            </script>
+            <script type="text/javascript" src="//cdn.crowdin.com/jipt/jipt.js"></script>
+        {% endif %}
+    </body>
+</html>

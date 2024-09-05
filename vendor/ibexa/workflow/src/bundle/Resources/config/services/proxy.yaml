@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Proxy\ProxyCacheWarmer:
+        arguments:
+            - '@Ibexa\Core\Repository\ProxyFactory\ProxyGeneratorInterface'
+        tags:
+            - { name: kernel.cache_warmer }

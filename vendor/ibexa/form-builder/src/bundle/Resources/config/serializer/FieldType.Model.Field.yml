@@ -1,0 +1,24 @@
+Ibexa\Contracts\FormBuilder\FieldType\Model\Field:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        id:
+            type: string
+            skip_when_empty: false
+            expose: true
+        identifier:
+            type: string
+            skip_when_empty: false
+            expose: true
+        name:
+            type: string
+            skip_when_empty: false
+            expose: true
+        attributes:
+            type: array<Ibexa\Contracts\FormBuilder\FieldType\Model\Attribute>
+            skip_when_empty: false
+            expose: true
+        validators:
+            type: array<Ibexa\Contracts\FormBuilder\FieldType\Model\Validator>
+            skip_when_empty: false
+            expose: true

@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Behat\Component\FormBuilderEditor: ~
+
+    Ibexa\FormBuilder\Behat\Component\FormPreview: ~
+
+    Ibexa\FormBuilder\Behat\Component\FormPreviewPanel: ~
+
+    Ibexa\FormBuilder\Behat\Component\FormSubmissionModal: ~
+
+    Ibexa\FormBuilder\Behat\Component\FormSubmissionsTab: ~

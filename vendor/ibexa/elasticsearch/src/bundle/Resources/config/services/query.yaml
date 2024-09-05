@@ -1,0 +1,52 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Elasticsearch\ElasticSearch\Index\IndexResolver:
+        arguments:
+            $prefixMap: '%ibexa.elasticsearch.index_prefix%'
+
+    Ibexa\Elasticsearch\ElasticSearch\Index\IndexResolverInterface:
+        alias: Ibexa\Elasticsearch\ElasticSearch\Index\IndexResolver
+
+    Ibexa\Elasticsearch\ElasticSearch\Index\FieldTypeResolver:
+        arguments:
+            $contentTypeHandler: '@Ibexa\Contracts\Core\Persistence\Content\Type\Handler'
+            $indexableRegistry: '@Ibexa\Core\Search\Common\FieldRegistry'
+            $mappings: '%ibexa.elasticsearch.default_mappings%'
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\ContentResultsExtractor:
+        arguments:
+            $contentHandler: '@Ibexa\Contracts\Core\Persistence\Content\Handler'
+            $aggregationResultExtractor: '@ibexa.elasticsearch.query.content.aggregation_result_extractor.dispatcher'
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\LocationResultsExtractor:
+        arguments:
+            $locationHandler: '@Ibexa\Contracts\Core\Persistence\Content\Location\Handler'
+            $aggregationResultExtractor: '@ibexa.elasticsearch.query.location.aggregation_result_extractor.dispatcher'
+
+    Ibexa\Elasticsearch\Query\EventSubscriber\LanguageQueryFilter:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    ibexa.elasticsearch.query.content.coordinator:
+        class: Ibexa\Elasticsearch\Query\Coordinator
+        arguments:
+            $criterionVisitor: '@ibexa.elasticsearch.query.content.criterion_visitor.dispatcher'
+            $sortClauseVisitor: '@ibexa.elasticsearch.query.content.sort_clause_visitor.dispatcher'
+            $facetBuilderVisitor: '@ibexa.elasticsearch.query.content.facet_builder_visitor.dispatcher'
+            $aggregationVisitor: '@ibexa.elasticsearch.query.content.aggregation_visitor.dispatcher'
+            $resultExtractor: '@Ibexa\Elasticsearch\Query\ResultExtractor\ContentResultsExtractor'
+            $documentClass: 'Ibexa\Contracts\Elasticsearch\Mapping\ContentDocument'
+
+    ibexa.elasticsearch.query.location.coordinator:
+        class: Ibexa\Elasticsearch\Query\Coordinator
+        arguments:
+            $criterionVisitor: '@ibexa.elasticsearch.query.location.criterion_visitor.dispatcher'
+            $sortClauseVisitor: '@ibexa.elasticsearch.query.location.sort_clause_visitor.dispatcher'
+            $facetBuilderVisitor: '@ibexa.elasticsearch.query.location.facet_builder_visitor.dispatcher'
+            $aggregationVisitor: '@ibexa.elasticsearch.query.location.aggregation_visitor.dispatcher'
+            $resultExtractor: '@Ibexa\Elasticsearch\Query\ResultExtractor\LocationResultsExtractor'
+            $documentClass: 'Ibexa\Contracts\Elasticsearch\Mapping\LocationDocument'

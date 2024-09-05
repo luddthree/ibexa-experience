@@ -1,0 +1,96 @@
+{
+    "name": "ibexa/connect",
+    "license": "proprietary",
+    "type": "ibexa-bundle",
+    "keywords": [
+        "ibexa-dxp"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ibexa/core": "~4.6",
+        "symfony/asset": "^5.4",
+        "symfony/config": "^5.4",
+        "symfony/dependency-injection": "^5.4",
+        "symfony/event-dispatcher": "^5.4",
+        "symfony/form": "^5.4",
+        "symfony/http-client": "^5.4",
+        "symfony/http-foundation": "^5.4",
+        "symfony/http-kernel": "^5.4",
+        "symfony/yaml": "^5.4"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "dama/doctrine-test-bundle": "^6",
+        "ibexa/admin-ui": "~4.6",
+        "ibexa/calendar": "~4.6",
+        "ibexa/code-style": "^1.0",
+        "ibexa/content-forms": "~4.6",
+        "ibexa/design-engine": "~4.6",
+        "ibexa/doctrine-schema": "~4.6",
+        "ibexa/fieldtype-page": "~4.6",
+        "ibexa/fieldtype-richtext": "~4.6",
+        "ibexa/form-builder": "~4.6",
+        "ibexa/http-cache": "~4.6",
+        "ibexa/icons": "~4.6",
+        "ibexa/notifications": "~4.6",
+        "ibexa/page-builder": "~4.6",
+        "ibexa/product-catalog": "~4.6",
+        "ibexa/rest": "~4.6",
+        "ibexa/search": "~4.6",
+        "ibexa/test-core": "0.1",
+        "ibexa/test-rest": "0.1",
+        "ibexa/user": "~4.6",
+        "justinrainbow/json-schema": "^5.2",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.3",
+        "phpstan/phpstan": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.2",
+        "phpstan/phpstan-webmozart-assert": "^1.2",
+        "phpunit/phpunit": "^9.5",
+        "symfony/proxy-manager-bridge": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Bundle\\Connect\\": "src/bundle/",
+            "Ibexa\\Contracts\\Connect\\": "src/contracts/",
+            "Ibexa\\Connect\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Bundle\\Connect\\": "tests/bundle/",
+            "Ibexa\\Tests\\Integration\\Connect\\": "tests/integration/",
+            "Ibexa\\Tests\\Connect\\": "tests/lib/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run",
+        "test": "phpunit -c phpunit.xml.dist",
+        "integration": "phpunit -c phpunit-integration.xml",
+        "phpstan": "phpstan analyse -c phpstan.neon"
+    },
+    "scripts-descriptions": {
+        "fix-cs": "Automatically fixes code style in all files",
+        "check-cs": "Run code style checker for all files",
+        "test": "Run automatic tests",
+        "phpstan": "Run static code analysis"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    }
+}

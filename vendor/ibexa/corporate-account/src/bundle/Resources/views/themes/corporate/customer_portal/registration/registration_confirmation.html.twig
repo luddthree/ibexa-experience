@@ -1,0 +1,27 @@
+{% extends '@ibexadesign/customer_portal/registration/registration_layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block content %}
+    <div class="ibexa-ca-registration-confirmation">
+        <div class="ibexa-ca-registration-confirmation__wrapper">
+            <img
+                class="ibexa-ca-registration-confirmation__fancy-image"
+                src="{{ asset('bundles/ibexacorporateaccount/img/registration-success-image.svg') }}"
+                alt="{{ 'registration_confirmation.image.alt.success'|trans|desc('Registration successful') }}"
+            />
+            <div class="ibexa-ca-registration-confirmation__info">
+                <h1 class="ibexa-ca-registration-confirmation__info-title">
+                    {{ 'registration_confirmation.info.title'|trans|desc('Thanks for registration!') }}
+                </h1>
+                <div class="ibexa-ca-registration-confirmation__approval-info">
+                    {{ 'registration_confirmation.info.appoval_info.will_be_reviewed'|trans|desc('Your application has been submitted and will be reviewed for approval.') }}<br>
+                    {{ 'registration_confirmation.info.appoval_info.notified'|trans|desc('You will be notified when the application is approved.') }}
+                </div>
+                <div class="ibexa-ca-registration-confirmation__after-info">
+                    {{ 'registration_confirmation.info.after_info'|trans|desc('Once your application has been approved, you will be able to customize your account.') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

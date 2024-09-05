@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\Exporter\Exporter:
+        tags:
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    Ibexa\Personalization\Exporter\ExporterInterface:
+        '@Ibexa\Personalization\Exporter\Exporter'

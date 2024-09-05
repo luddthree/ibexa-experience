@@ -1,0 +1,41 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Segmentation\REST\Output\ValueObjectVisitor\UserSegmentsListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Segmentation\REST\Value\UserSegmentsList }
+
+    Ibexa\Bundle\Segmentation\REST\Output\ValueObjectVisitor\UserSegmentVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Segmentation\REST\Value\UserSegment }
+
+    Ibexa\Bundle\Segmentation\REST\Output\ValueObjectVisitor\SegmentVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Segmentation\REST\Value\Segment }
+
+    Ibexa\Bundle\Segmentation\REST\Output\ValueObjectVisitor\SegmentListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Segmentation\REST\Value\SegmentList }
+
+    Ibexa\Bundle\Segmentation\REST\Output\ValueObjectVisitor\SegmentGroupVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Segmentation\REST\Value\SegmentGroup }
+
+    Ibexa\Bundle\Segmentation\REST\Output\ValueObjectVisitor\SegmentGroupListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Segmentation\REST\Value\SegmentGroupList }
+
+    Ibexa\Bundle\Segmentation\REST\Input\Parser\UserSegmentAssignInput:
+        parent: Ibexa\Rest\Server\Common\Parser
+        autowire: true
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.UserSegmentAssignInput }

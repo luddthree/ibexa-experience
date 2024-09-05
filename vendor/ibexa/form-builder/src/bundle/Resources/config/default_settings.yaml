@@ -1,0 +1,7 @@
+parameters:
+    ibexa.site_access.config.default.form_builder.forms_location_id: 55
+    ibexa.site_access.config.default.form_builder.upload_location_id: 54
+    ibexa.site_access.config.default.form_builder.captcha.use_ajax: false
+
+    # Pagination limits
+    ibexa.site_access.config.default.form_builder.pagination.submission_limit: 20

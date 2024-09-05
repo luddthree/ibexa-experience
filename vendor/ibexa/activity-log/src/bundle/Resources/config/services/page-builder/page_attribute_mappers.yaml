@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.activity_log.page_builder.attribute_form_type_mapper.object_class:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\Bundle\ActivityLog\Form\Type\ObjectClassChoiceType
+            $mergeOptions: true
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: Ibexa\Bundle\ActivityLog\Form\Type\ObjectClassChoiceType }

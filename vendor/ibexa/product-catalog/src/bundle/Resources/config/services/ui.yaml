@@ -1,0 +1,80 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\UI\AssignAttributeDefinitionToolbar\ToolbarFactoryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\UI\AssignAttributeDefinitionToolbar\ToolbarFactory
+
+    Ibexa\Bundle\ProductCatalog\UI\AssignAttributeDefinitionToolbar\ToolbarFactory: ~
+
+    Ibexa\Bundle\ProductCatalog\UI\AssetGroup\AssetGroupCollectionFactoryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\UI\AssetGroup\AssetGroupCollectionFactory
+
+    Ibexa\Bundle\ProductCatalog\UI\AssetGroup\AssetGroupCollectionFactory: ~
+
+    Ibexa\Bundle\ProductCatalog\UI\Config\ProductTypes:
+        decorates: Ibexa\AdminUi\UI\Config\Provider\ContentTypes
+        decoration_on_invalid: ignore
+
+    Ibexa\Bundle\ProductCatalog\UI\Config\DiscriminatorAttributeTypesMap:
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'discriminatorAttributeTypesMap' }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\CompletenessFactory: ~
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\CompletenessFactoryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\UI\Completeness\CompletenessFactory
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Completeness: ~
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\CompletenessInterface:
+        alias: Ibexa\Bundle\ProductCatalog\UI\Completeness\Completeness
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\TaskRegistry:
+        arguments:
+            - !tagged_iterator ibexa.product_catalog.completeness.task
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask:
+        abstract: true
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\ContentTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -10 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AttributesTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -20 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AssetsTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -30 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AvailabilityTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -40 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\VariantsTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -50 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\PricesTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -60 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\TranslationsTask:
+        parent: Ibexa\Bundle\ProductCatalog\UI\Completeness\Task\AbstractTask
+        tags:
+            - { name: ibexa.product_catalog.completeness.task, priority: -70 }
+
+    Ibexa\Bundle\ProductCatalog\UI\Language\PreviewLanguageResolverInterface:
+        alias: Ibexa\Bundle\ProductCatalog\UI\Language\PreviewLanguageResolver
+
+    Ibexa\Bundle\ProductCatalog\UI\Language\PreviewLanguageResolver: ~

@@ -1,0 +1,13 @@
+{
+  "ActivityLogGroupListInput": {
+    "criteria": [
+      {
+        "type": "not",
+        "criterion": {
+          "type": "action",
+          "value": "bar_action"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.corporate_account.menu.application_edit_context_menu:
+        class: Ibexa\Bundle\CorporateAccount\Menu\CorporateContentEditRightSidebarBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_corporate_account.menu.application_edit_context_menu
+
+    ibexa.corporate_account.menu.company_create_context_menu:
+        class: Ibexa\Bundle\CorporateAccount\Menu\CorporateContentCreateRightSidebarBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_corporate_account.menu.company_create_context_menu
+
+    ibexa.corporate_account.menu.company_edit_context_menu:
+        class: Ibexa\Bundle\CorporateAccount\Menu\CorporateContentEditRightSidebarBuilder
+        public: true
+        tags:
+            -   name: knp_menu.menu_builder
+                method: build
+                alias: ibexa_corporate_account.menu.company_edit_context_menu

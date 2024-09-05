@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\Event\Subscriber\TargetingBlockRenderSubscriber:
+        arguments:
+            $tagHandler: '@Ibexa\HttpCache\Handler\TagHandler'
+
+    Ibexa\Segmentation\Event\Subscriber\ConfigureMainMenuListener: ~
+
+    Ibexa\Segmentation\Event\Subscriber\SegmentPreviewSubscriber: ~
+
+    Ibexa\Segmentation\Event\Subscriber\PersonalizationUserSegmentsSubscriber: ~

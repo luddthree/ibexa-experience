@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\ProxyDomainMapper:
+        arguments:
+            $repository: '@Ibexa\Contracts\Core\Repository\Repository'
+            $proxyGenerator: '@Ibexa\Core\Repository\ProxyFactory\ProxyGeneratorInterface'
+
+    Ibexa\Bundle\ProductCatalog\CacheWarmer\ProxyCacheWarmer:
+        arguments:
+            $proxyGenerator: '@Ibexa\Core\Repository\ProxyFactory\ProxyGeneratorInterface'
+        tags:
+            - { name: kernel.cache_warmer }
+
+    Ibexa\ProductCatalog\Values\ProxyFactory\CustomerGroupProxyFactory: ~
+
+    Ibexa\ProductCatalog\Values\ProxyFactory\CustomerGroupProxyFactoryInterface: '@Ibexa\ProductCatalog\Values\ProxyFactory\CustomerGroupProxyFactory'

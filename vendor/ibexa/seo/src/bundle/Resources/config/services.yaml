@@ -1,0 +1,31 @@
+imports:
+    - { resource: services/field_type.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/migrations.yaml }
+    - { resource: services/twig.yaml }
+    - { resource: services/tags.yaml }
+    - { resource: services/ui.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\Seo\ConfigResolver\SeoTypesInterface: '@Ibexa\Seo\ConfigResolver\SeoTypes'
+
+    Ibexa\Seo\ConfigResolver\SeoTypes: ~
+
+    Ibexa\Contracts\Seo\Resolver\SeoTypesResolverInterface: '@Ibexa\Seo\Resolver\SeoTypesResolver'
+
+    Ibexa\Seo\Resolver\SeoTypesResolver:
+        arguments:
+            $types: '%ibexa.seo.types%'
+
+    Ibexa\Contracts\Seo\Resolver\FieldReferenceResolverInterface: '@Ibexa\Seo\Resolver\FieldReferenceResolver'
+
+    Ibexa\Seo\Resolver\FieldReferenceResolver: ~
+
+    Ibexa\Seo\Content\SeoFieldResolverInterface: '@Ibexa\Seo\Content\SeoFieldResolver'
+
+    Ibexa\Seo\Content\SeoFieldResolver: ~

@@ -1,0 +1,10 @@
+-
+    type: section
+    mode: create
+    metadata:
+        identifier: section_1
+        name: 'Section 1 name'
+    references:
+        -
+            name: ref__section__1__section_id
+            type: section_id

@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\Component\InfobarComponent:
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'infobar-options-before' }

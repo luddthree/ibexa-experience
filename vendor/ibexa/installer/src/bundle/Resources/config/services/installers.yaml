@@ -1,0 +1,33 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Installer\Installer\AbstractProductInstaller:
+        abstract: true
+        parent: Ibexa\Bundle\RepositoryInstaller\Installer\CoreInstaller
+        arguments:
+            $db: '@ibexa.persistence.connection'
+            $schemaBuilder: '@Ibexa\Contracts\DoctrineSchema\Builder\SchemaBuilderInterface'
+
+    Ibexa\Installer\Installer\HeadlessInstaller:
+        parent: Ibexa\Installer\Installer\AbstractProductInstaller
+        arguments:
+            $provisioners: !tagged_iterator ibexa.installer.provisioner.headless
+        tags:
+            - { name: ibexa.installer, type: ibexa-headless }
+
+    Ibexa\Installer\Installer\ExperienceInstaller:
+        parent: Ibexa\Installer\Installer\AbstractProductInstaller
+        arguments:
+            $provisioners: !tagged_iterator ibexa.installer.provisioner.experience
+        tags:
+            - { name: ibexa.installer, type: ibexa-experience }
+
+    Ibexa\Installer\Installer\CommerceInstaller:
+        parent: Ibexa\Installer\Installer\AbstractProductInstaller
+        arguments:
+            $provisioners: !tagged_iterator ibexa.installer.provisioner.commerce
+        tags:
+            - { name: ibexa.installer, type: ibexa-commerce }

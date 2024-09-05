@@ -1,0 +1,91 @@
+#
+# Taxonomy Entry
+#
+ibexa.taxonomy.rest.entries.remove:
+    path: /taxonomy/{taxonomyName}/entries
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryController::bulkRemoveAction
+    methods: [DELETE]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entries.move:
+    path: /taxonomy/{taxonomyName}/entries/move
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryController::bulkMoveAction
+    methods: [POST]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entry.load_by_id:
+    path: /taxonomy/{taxonomyName}/entry/{id}
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryController::loadByIdAction
+    methods: [GET]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+        id: "\\d+"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entry.load_by_identifier:
+    path: /taxonomy/{taxonomyName}/entry/identifier/{identifier}
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryController::loadByIdentifierAction
+    methods: [GET]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+        identifier: "^[A-Za-z0-9_/-]+$"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entry.load_by_content_id:
+    path: /taxonomy/{taxonomyName}/entry/content-id/{contentId}
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryController::loadByContentIdAction
+    methods: [GET]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+        contentId: "\\d+"
+    options:
+        expose: true
+
+#
+# Taxonomy Entry Assignment
+#
+ibexa.taxonomy.rest.entry_assignments.assign_to_content:
+    path: /taxonomy/{taxonomyName}/entry-assignments/assign-to-content
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryAssignmentController::assignToContentAction
+    methods: [POST]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entry_assignments.load:
+    path: /taxonomy/{taxonomyName}/entry-assignments/content-id/{contentId}
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryAssignmentController::loadAssignmentsAction
+    methods: [GET]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+        contentId: "\\d+"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entry_assignments.unassign_from_content:
+    path: /taxonomy/{taxonomyName}/entry-assignments/unassign-from-content
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryAssignmentController::unassignFromContentAction
+    methods: [POST]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+    options:
+        expose: true
+
+ibexa.taxonomy.rest.entry_assignment.load_by_id:
+    path: /taxonomy/{taxonomyName}/entry-assignment/{id}
+    controller: Ibexa\Bundle\Taxonomy\Controller\REST\TaxonomyEntryAssignmentController::loadAssignmentByIdAction
+    methods: [GET]
+    requirements:
+        taxonomyName: "^[A-Za-z0-9_/-]+$"
+        id: "\\d+"
+    options:
+        expose: true

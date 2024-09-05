@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ImagePicker\Installer\ImagePickerProvisioner:
+        tags:
+            -   name: ibexa.installer.provisioner.headless
+                priority: 70
+            -   name: ibexa.installer.provisioner.experience
+                priority: 70
+            -   name: ibexa.installer.provisioner.commerce
+                priority: 70

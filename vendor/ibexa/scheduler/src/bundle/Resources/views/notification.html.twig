@@ -1,0 +1,35 @@
+{% extends '@ibexadesign/account/notifications/list_item.html.twig' %}
+
+{% trans_default_domain 'ibexa_scheduler' %}
+
+{% set wrapper_additional_classes = 'dbp-notification' %}
+
+{% block icon %}
+    <span class="type__icon">
+        <svg class="ibexa-icon ibexa-icon--publish_later">
+            <use xlink:href="{{ ibexa_icon_path('publish-later' ~ is_canceled ? '-cancel' : '') }}"></use>
+        </svg>
+    </span>
+{% endblock %}
+
+{% block notification_type %}
+    <span class="type__text">
+        {% if is_published %}
+            {{ 'content.scheduled.published'|trans|desc('Published scheduled content') }}
+        {% endif %}
+        {% if is_canceled %}
+            {{ 'content.scheduled.canceled'|trans|desc('Canceled scheduled publication') }}
+        {% endif %}
+        {% if is_hidden %}
+            {{ 'content.scheduled.hidden'|trans|desc('Hidden scheduled content') }}
+        {% endif %}
+    </span>
+{% endblock %}
+
+{% block message %}
+    <td class="ibexa-notifications-modal__description">
+        <p class="description__title">{{ 'content.scheduled.title'|trans|desc('Title:') }} <span class="description__title__item" title="{{ notification.data.contentName }}">{{ notification.data.contentName }}</span></p>
+        <p class="description__text{% if notification.data.message|length > 50 %} description__text--ellipsis{% endif %}">{{ notification.data.message }}</p>
+        <span class="description__read-more">{{ 'content.publish_later.read_more'|trans|desc('Read more') }}</span>
+    </td>
+{% endblock %}

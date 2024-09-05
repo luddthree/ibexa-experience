@@ -1,0 +1,54 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\ImageEditor\FieldType\Mapper\FormMapper:
+        decorates: Ibexa\ContentForms\FieldType\Mapper\ImageFormMapper
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezimage }
+
+    Ibexa\ImageEditor\Form\Extension\UploadedBase64File:
+        arguments:
+            $fileTransformer: '@Ibexa\ImageEditor\File\Base64ToUploadedFileTransformer'
+            $optimizer: '@Ibexa\ImageEditor\Optimizer\SpatieChainOptimizer'
+        tags:
+            - { name: form.type_extension }
+
+    Ibexa\ImageEditor\File\Base64ToUploadedFileTransformer:
+        arguments:
+            $fileInfo: '@ibexa.core.io.mimeTypeDetector'
+
+    Ibexa\Bundle\ImageEditor\Controller\ImageAssetController:
+        arguments:
+            $repository: '@ibexa.api.repository'
+            $contentService: '@ibexa.api.service.content'
+            $locationService: '@ibexa.api.service.location'
+            $formFactory: '@form.factory'
+            $submitHandler: '@Ibexa\AdminUi\Form\SubmitHandler'
+            $csrfTokenManager: '@security.csrf.token_manager'
+            $assetMapper: '@Ibexa\Core\FieldType\ImageAsset\AssetMapper'
+        tags:
+          - { name: controller.service_arguments }
+
+    Ibexa\Bundle\ImageEditor\Controller\Base64Controller:
+        arguments:
+            $contentService: '@ibexa.api.service.content'
+            $assetMapper: '@Ibexa\Core\FieldType\ImageAsset\AssetMapper'
+        tags:
+            - { name: controller.service_arguments }
+
+    Ibexa\ImageEditor\UI\Config\ImageEditorConfigProvider:
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'imageEditor' }
+
+    Ibexa\Bundle\ImageEditor\Event\Base64ResponseSubscriber:
+        arguments:
+            $ioService: '@ibexa.field_type.ezimage.io_service.published'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\ImageEditor\Optimizer\SpatieChainOptimizer:
+        arguments:
+            $configResolver: '@ibexa.config.resolver'

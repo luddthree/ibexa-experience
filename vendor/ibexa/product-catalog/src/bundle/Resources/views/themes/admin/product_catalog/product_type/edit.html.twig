@@ -1,0 +1,272 @@
+{% extends '@ibexadesign/content_type/edit.html.twig' %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set content_type_edit_sidebar_right = knp_menu_get('ezplatform_admin_ui.menu.content_type_edit.sidebar_right', [], {
+        'form_view': form,
+        'content_type': content_type
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: action_name|trans,
+        icon_name: 'file',
+        title: content_type.getName(),
+        show_autosave_status: false,
+        context_actions: knp_menu_render(content_type_edit_sidebar_right, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block left_sidebar %}
+    {% set items = [
+        'product_type.edit.section.global_properties'|trans|desc('Global properties'),
+        'product_type.edit.section.content_field_definitions'|trans|desc('Field definitions'),
+        'product_type.edit.section.attributes'|trans|desc('Attributes'),
+    ] %}
+
+    {% if form.regions is defined %}
+        {% set items = items|merge([
+            'product_type.edit.section.vat_rates'|trans|desc('VAT Rates'),
+        ]) %}
+    {% endif %}
+
+    {% set anchor_params = {
+        items,
+    } %}
+
+    {% include '@ibexadesign/ui/anchor_navigation_menu.html.twig' with anchor_params %}
+{% endblock %}
+
+{% block form_sections %}
+    {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+    <div class="ibexa-edit-content__container">
+        {% embed "@ibexadesign/content_type/edit_section.html.twig" with {
+            section_id: '#Global-properties',
+            is_active: true,
+            one_column_layout: true,
+        } %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block title %}
+                {{ 'product_type.edit.section.global_properties'|trans|desc('Global properties') }}
+            {% endblock %}
+
+            {% block left_column %}
+                {{ form_row(form.name, {
+                    row_attr: { class: 'ibexa-form-field' },
+                    attr: { 'data-autogenerate-identifier-target-selector': '.ibexa-pc-edit-product-type-identifier' },
+                }) }}
+                {{ form_row(form.identifier, {
+                    row_attr: { class: 'ibexa-form-field' },
+                    attr: { 'class': 'ibexa-pc-edit-product-type-identifier' },
+                }) }}
+                {{ form_row(form.description, { row_attr: { class: 'ibexa-form-field' } }) }}
+                {{ form_row(form.nameSchema, {
+                    row_attr: { class: 'ibexa-form-field' },
+                    label: 'product_type.name_schema'|trans|desc('Product name pattern'),
+                }) }}
+                {{ form_row(form.urlAliasSchema, { row_attr: { class: 'ibexa-form-field ibexa-form-field--no-bottom-margin' } }) }}
+                {{ form_row(form.virtual) }}
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+        {% embed "@ibexadesign/content_type/edit_section.html.twig" with {
+            section_id: '#Field-definitions',
+            left_column_class: 'ibexa-content-type-edit__section-column--field-definitions',
+            right_column_class: 'ibexa-content-type-edit__section-column--available-fields'
+        } %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block title %}
+                {{ 'product_type.edit.section.content_field_definitions'|trans|desc('Field definitions') }}
+            {% endblock %}
+
+            {% block left_column %}
+                {{ include('@ibexadesign/content_type/field_definitions.html.twig', {
+                    grouped_field_defintions: form.fieldDefinitionsData,
+                    is_draggable
+                }) }}
+            {% endblock %}
+
+            {% block right_column %}
+                {{ include('@ibexadesign/content_type/available_field_types.html.twig', { is_draggable }) }}
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+        {% embed "@ibexadesign/content_type/edit_section.html.twig" with {
+            section_id: '#Attributes',
+            is_active: true,
+            left_column_class: 'ibexa-content-type-edit__section-column--assigned-attributes',
+            right_column_class: 'ibexa-content-type-edit__section-column--available-attributes'
+        } %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block title %}
+                {{ 'product_type.edit.attributes'|trans|desc('Attributes') }}
+            {% endblock %}
+
+            {% block left_column %}
+                {% set group_prototype = form.children.attributesDefinitions.vars.prototype %}
+                {% set attributes_definitions_prototype = group_prototype.vars.prototype %}
+                {% set added_groups = form.children.attributesDefinitions.children %}
+
+                <div
+                    class="ibexa-pc-attributes-drop-zone"
+                    data-placeholder="{{ include('@ibexadesign/product_catalog/product_type/drop_zone_placeholder.html.twig')|e('html_attr') }}"
+                    data-attribute-template="{{ form_widget(attributes_definitions_prototype)|e('html_attr') }}"
+                >
+                    {% for attributes_group in attributes_definitions_toolbar %}
+                        {% set attributes_in_group = added_groups[attributes_group.identifier]|default([]) %}
+                        {% set group_extra_class = attributes_in_group|length ? '' : 'ibexa-collapse--hidden' %}
+
+                        {%- embed "@ibexadesign/ui/component/collapse.html.twig" with {
+                            'class': 'ibexa-pc-added-attributes-group ibexa-collapse ibexa-collapse--heavy ' ~ group_extra_class,
+                            'body_id': attributes_group.identifier ~ '_attributes_collapse',
+                            'header_label': attributes_group.name,
+                            'is_expanded': true,
+                            'is_draggable': false,
+                            'extra_actions': [{
+                                'icon_name': 'discard',
+                                'icon_size': 'tiny-small',
+                                'button_class': 'ibexa-collapse__extra-action-button--remove-attributes-group'
+                            }],
+                            'data_attr': {
+                                'data-group-id': attributes_group.identifier,
+                                'data-next-attribute-index': attributes_in_group|length
+                            }
+                        } -%}
+                            {% trans_default_domain 'ibexa_product_catalog' %}
+
+                            {% block body_content_wrapper %}
+                                <div class="ibexa-collapse__body-content ibexa-pc-added-attributes-group__drop-zone">
+                                    {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+                                        class: 'ibexa-pc-added-attributes-group__list',
+                                        show_head_cols_if_empty: true,
+                                        head_cols: [
+                                            {
+                                                content: '',
+                                                class: 'ibexa-pc-added-attributes-group__list-head-cell ibexa-pc-added-attributes-group__list-head-cell--icon'
+                                            },
+                                            {
+                                                content: 'product_type.edit.list_header.name'|trans|desc('Name'),
+                                                class: 'ibexa-pc-added-attributes-group__list-head-cell ibexa-pc-added-attributes-group__list-head-cell--name'
+                                            },
+                                            {
+                                                content: 'product_type.edit.list_header.type'|trans|desc('Type'),
+                                                class: 'ibexa-pc-added-attributes-group__list-head-cell ibexa-pc-added-attributes-group__list-head-cell--type'
+                                            },
+                                            {
+                                                content: 'product_type.edit.list_header.required_field'|trans|desc('Required field'),
+                                                class: 'ibexa-pc-added-attributes-group__list-head-cell ibexa-pc-added-attributes-group__list-head-cell--required-bool'
+                                            },
+                                            {
+                                                content: 'product_type.edit.list_header.used_product_variants'|trans|desc('Used for product variants'),
+                                                class: 'ibexa-pc-added-attributes-group__list-head-cell ibexa-pc-added-attributes-group__list-head-cell--discriminator'
+                                            },
+                                            {
+                                                content: '',
+                                                class: 'ibexa-pc-added-attributes-group__list-head-cell ibexa-pc-added-attributes-group__list-head-cell--action'
+                                            },
+                                        ]
+                                    } %}
+                                        {% block tbody %}
+                                            {% for added_attribute in attributes_in_group %}
+                                                {{ form_widget(added_attribute) }}
+                                            {% endfor %}
+                                        {% endblock %}
+                                    {% endembed %}
+                                </div>
+                            {% endblock %}
+                        {%- endembed -%}
+                    {% endfor %}
+
+                    {%- include "@ibexadesign/product_catalog/product_type/empty_attributs_drop_zone.html.twig" with {
+                        is_hidden: added_groups|length
+                    } -%}
+                </div>
+            {% endblock %}
+
+            {% block right_column %}
+                {{ include('@ibexadesign/product_catalog/product_type/available_attributes.html.twig') }}
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+    {% if form.regions is defined %}
+        <div class="ibexa-edit-content__container">
+            {% set body_rows = [] %}
+
+            {% for region in form.regions %}
+                {% set region_name = region.vars.name %}
+
+                {% set body_rows = body_rows|merge([{
+                    cols: [
+                        { content: region_name, class: 'ibexa-table__cell--region-name' },
+                        { content: form_widget(form.regions[region_name]), raw: true },
+                    ]
+                }]) %}
+            {% endfor %}
+
+            {% embed "@ibexadesign/content_type/edit_section.html.twig" with {
+                section_id: '#VAT-Rates',
+                is_active: true,
+                one_column_layout: true,
+                left_column_class: 'ibexa-content-type-edit__section-column--assigned-vat-rates',
+                notice_message: 'product_type.edit.assigned_vat_rates.notice'|trans|desc('If VAT rates require configuration, contact your administrator.'),
+            } %}
+                {% trans_default_domain 'ibexa_product_catalog' %}
+
+                {% block title %}
+                    {{ 'product_type.edit.section.vat_rates'|trans|desc('VAT Rates') }}
+                {% endblock %}
+
+                {% block left_column %}
+                    <div class="ibexa-pc-assigned-vat-rates">
+                        {% embed '@ibexadesign/ui/component/input_text.html.twig' with { has_search: true, search_button_type: 'button' } %}
+                            {% trans_default_domain 'ibexa_product_catalog' %}
+                            {% block content %}
+                                <input
+                                    type="text"
+                                    class="ibexa-input ibexa-input--text ibexa-pc-assigned-vat-rates__filter form-control"
+                                    placeholder={{ 'product_type.edit.assigned_vat_rates.filter.placeholder'|trans|desc('Search...') }}
+                                />
+                            {% endblock %}
+                        {% endembed %}
+                        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                            class: 'ibexa-pc-assigned-vat-rates__list',
+                            show_head_cols_if_empty: true,
+                            head_cols: [
+                                {
+                                    content: 'product_type.edit.assigned_vat_rates.region'|trans|desc('Region'),
+                                    class: 'ibexa-pc-assigned-vat-rates__list-head-cell ibexa-pc-assigned-vat-rates__list-head-cell--region'
+                                },
+                                {
+                                    content: 'product_type.edit.assigned_vat_rates.vat_rate'|trans|desc('VAT Rate'),
+                                    class: 'ibexa-pc-assigned-vat-rates__list-head-cell ibexa-pc-assigned-vat-rates__list-head-cell--vat-rate'
+                                },
+                            ],
+                            body_rows: body_rows
+                        } %}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-product-catalog-product-type-edit-js', null, 'ibexa') }}
+{% endblock %}

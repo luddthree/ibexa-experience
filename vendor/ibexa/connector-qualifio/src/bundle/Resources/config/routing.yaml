@@ -1,0 +1,3 @@
+ibexa.qualifio.index:
+    path: /engage
+    controller: Ibexa\Bundle\ConnectorQualifio\Controller\QualifioController::promoteQualifio

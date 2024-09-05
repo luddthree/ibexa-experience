@@ -1,0 +1,78 @@
+ibexa_activity_log_object_class:
+    -
+        id: 1
+        object_class: stdClass
+    -
+        id: 2
+        object_class: otherClass
+
+ibexa_activity_log_action:
+    -
+        id: 1
+        action: foo_action
+    -
+        id: 2
+        action: bar_action
+
+ibexa_activity_log_group:
+    -
+        id: 1
+        logged_at: '2023-10-03 12:50:00'
+        user_id: 0
+    -
+        id: 2
+        logged_at: '2023-10-03 12:50:01'
+        user_id: 42
+    -
+        id: 3
+        logged_at: '2023-10-03 12:50:02'
+        user_id: 14
+    -
+        id: 4
+        logged_at: '2023-10-03 12:50:03'
+        user_id: 0
+    -
+        id: 5
+        logged_at: '2023-10-03 12:50:04'
+        user_id: 0
+
+ibexa_activity_log:
+    -
+        id: 1
+        group_id: 1
+        object_class_id: 1
+        action_id: 1
+        object_id: foo
+        object_name: foo_name
+        data: '{"foo":"bar"}'
+    -
+        id: 2
+        group_id: 2
+        object_class_id: 1
+        action_id: 2
+        object_id: bar
+        object_name: bar_name
+        data: '{}'
+    -
+        id: 3
+        group_id: 3
+        object_class_id: 1
+        action_id: 2
+        object_id: bar
+        object_name: bar_old_name
+        data: '{}'
+    -
+        id: 4
+        group_id: 4
+        object_class_id: 2
+        action_id: 1
+        object_id: foo
+        object_name: foo_old_name
+        data: '{}'
+    -
+        id: 5
+        group_id: 5
+        object_class_id: 1
+        action_id: 1
+        object_id: foo
+        data: '{}'

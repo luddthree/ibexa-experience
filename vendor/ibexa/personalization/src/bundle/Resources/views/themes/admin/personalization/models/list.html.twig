@@ -1,0 +1,152 @@
+{% extends '@ibexadesign/personalization/base_list.html.twig' %}
+
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.personalization'|trans|desc('Personalization'), url: path('ibexa.personalization.dashboard', { 'customerId': customer_id }) },
+        { value: 'breadcrumb.models'|trans|desc('Models') }
+    ]} %}
+{% endblock %}
+
+{% set list_title = 'models'|trans|desc('Models') %}
+
+{% set table_title = 'models.table_title'|trans({ '%number_of_models%': models|length })|desc('List (%number_of_models%)') %}
+
+{% set model_build_states = constant('Ibexa\\Personalization\\Value\\ModelBuild\\State::BUILD_STATES') %}
+
+{% block content_class %}ibexa-perso-models-list{% endblock %}
+
+{% block data_table %}
+    {% set body_rows = [] %}
+    {% for model in models %}
+        {% set visible_items_limit = 2 %}
+        {% set model_details_url = path('ibexa.personalization.model.details',
+            { 'referenceCode': model.referenceCode, 'customerId': customer_id })
+        %}
+
+        {% set col_model_name %}
+            <a
+                class="ibexa-perso-models-list__name-link"
+                href="{{ model_details_url }}"
+            >
+                {{ ('models.name.' ~ model.referenceCode)|trans }}
+                {% if model.maximumRatingAge %}
+                    ({{ model.maximumRatingAge|format_interval }})
+                {% endif %}
+            </a>
+            <svg
+                class="ibexa-icon ibexa-icon--secondary ibexa-icon--small"
+                title="{{ ('models.description.' ~ model.referenceCode)|trans }}"
+            >
+                <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+            </svg>
+        {% endset %}
+
+        {% set col_no_of_items %}
+            {% if model.metadata.recommendations|length > 0 %}
+                {% set no_of_items = model.metadata.recommendations|map(
+                        recommendation => recommendation.itemTypeName is not empty
+                            ? { typeName: recommendation.itemTypeName, amount: recommendation.amount }
+                            : { typeName: "[ID: %d]"|format(recommendation.itemType), amount: recommendation.amount }
+                    )|map(item => "#{item.typeName}: #{item.amount}")
+                %}
+                {% include '@ibexadesign/personalization/parts/list_more_items.html.twig' with {
+                    items: no_of_items,
+                    li_class: 'ibexa-perso-models-list__td-list',
+                } only %}
+            {% endif %}
+        {% endset %}
+
+        {% set col_in_scenario %}
+            {% include '@ibexadesign/personalization/parts/list_more_items.html.twig' with {
+                items: model.scenarios,
+                li_class: 'ibexa-perso-models-list__td-list',
+            } only %}
+        {% endset %}
+
+        {% set col_submodel %}
+            {% set submodel_summaries_attr_key = model.submodelSummaries|map(
+                    submodel_summary => submodel_summary.attributeKey
+            ) %}
+            {% include '@ibexadesign/personalization/parts/list_more_items.html.twig' with {
+                items: submodel_summaries_attr_key,
+                li_class: 'ibexa-perso-models-list__td-list',
+            } only %}
+        {% endset %}
+
+        {% set col_last_built %}
+            {{ model.metaData.buildFinish|ibexa_short_date }}
+        {% endset %}
+
+        {% set col_status %}
+            {% if model.buildReportList is empty %}
+                {% if model.size > 0 %}
+                    <span class="ibexa-badge ibexa-badge--success">{{ 'models.list.active'|trans|desc('Active') }}</span>
+                {% else %}
+                    <span class="ibexa-badge ibexa-badge--complementary">{{ 'models.list.not_active'|trans|desc('Not Active') }}</span>
+                {% endif %}
+            {% else %}
+                {% set state = model_build_states[model.buildReportList.lastBuildReport.getState] %}
+                {% set modifier = states_colors_map[state] %}
+
+                <span class="ibexa-badge ibexa-badge--{{ modifier }}">{{ state|trans }}</span>
+            {% endif %}
+        {% endset %}
+
+        {% set col_action_btns %}
+            {% if can_edit %}
+                {% if model.submodelsSupported or model.relevantEventHistorySupported or model.editorBased %}
+                    <a
+                        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                        href="{{ url('ibexa.personalization.model.edit', {
+                                "referenceCode": model.referenceCode,
+                                'customerId': customer_id
+                            }) }}"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--secondary ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                        </svg>
+                    </a>
+                {% endif %}
+            {% endif %}
+        {% endset %}
+
+        {% set body_rows = body_rows|merge([{ cols: [
+            {
+                content: col_model_name,
+                class: 'ibexa-table__cell--model-name',
+            },
+            { content: model.referenceCode },
+            { content: col_no_of_items },
+            {
+                content: col_in_scenario,
+                class: 'ibexa-table__cell--model-scenario',
+            },
+            { content: col_submodel },
+            { content: col_last_built },
+            { content: col_status },
+            { has_action_btns: true, content: col_action_btns },
+        ] }]) %}
+    {% endfor %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        head_cols: [
+            { content: 'models.list.name'|trans|desc('Model name') },
+            { content: 'models.list.id'|trans|desc('Identifier') },
+            { content: 'models.list.no_of_items'|trans|desc('No. of items') },
+            { content: 'models.list.in_scenario'|trans|desc('In scenario') },
+            { content: 'models.list.submodel'|trans|desc('Submodel') },
+            { content: 'models.list.last_built'|trans|desc('Last built') },
+            { content: 'models.list.status'|trans|desc('Status') },
+            { },
+        ],
+        body_rows,
+        empty_table_info_text: 'models.no_models_found'|trans|desc('No models found'),
+    } only %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-models-list-js', null, 'ibexa') }}
+{% endblock %}

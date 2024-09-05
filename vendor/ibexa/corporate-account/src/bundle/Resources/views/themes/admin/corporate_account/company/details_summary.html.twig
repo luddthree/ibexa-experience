@@ -1,0 +1,125 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set billing_location = billing_address ? billing_address : '-' %}
+
+{% set company_content = company.getContent() %}
+
+{% set sales_rep_name %}
+    {% if sales_rep is not empty %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: sales_rep } only %}
+    {% else %}
+        '-'
+    {% endif %}
+{% endset %}
+
+{% set basic_information_items = [
+    {
+        label: 'company.details.tab.summary.basic_information.location'|trans|desc('Location'),
+        content: billing_address ? billing_address.fields.locality ~ ' (' ~ billing_address.country|country_name ~')' : '-',
+    },
+    {
+        label: 'company.details.tab.summary.basic_information.sales_rep'|trans|desc('Sales Representative'),
+        content: sales_rep_name,
+    },
+    {
+        label: 'company.details.tab.summary.basic_information.vat'|trans|desc('Tax ID'),
+        content: ibexa_field_value(company_content, 'vat'),
+    },
+    {
+        label: 'company.details.tab.summary.basic_information.website'|trans|desc('Website'),
+        content: ibexa_field_value(company_content, 'website'),
+    },
+] %}
+
+{% set currency = sales_this_year.currency %}
+
+{% set commerce_stats = {
+    group: ibexa_field_value(company_content, 'customer_group').getCustomerGroup().name,
+    sales_this_year: sales_this_year.getSumMoney() is null ? 0 : sales_this_year.getSumMoney()|ibexa_format_price,
+    sales_last_year: sales_last_year.getSumMoney() is null ? 0 : sales_last_year.getSumMoney()|ibexa_format_price,
+} %}
+
+{% if contact %}
+    {% set contact_user = contact.getUser() %}
+
+    {% set contact_user_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: contact_user } only %}
+    {% endset %}
+{% endif %}
+
+<div class="ibexa-ca-company-tab-summary">
+    <div class="ibexa-ca-company-tab-summary__basic-wrapper">
+        <div class="ibexa-ca-company-tab-summary__basic-information-wrapper">
+            {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                headline: 'company.details.tab.summary.basic_information.headline'|trans|desc('Basic information'),
+                items: basic_information_items,
+            } only %}
+        </div>
+        <div class="ibexa-ca-company-tab-summary-contact-person">
+            <div class="ibexa-ca-company-tab-summary-contact-person__icon-wrapper">
+                <svg class="ibexa-icon ibexa-icon--medium">
+                    <use xlink:href="{{ ibexa_icon_path('telephone') }}"></use>
+                </svg>
+            </div>
+            <div class="ibexa-ca-company-tab-summary-contact-person__content">
+                <div class="ibexa-ca-company-tab-summary-contact-person__header-wrapper">
+                    <h4 class="ibexa-ca-company-tab-summary-contact-person__header">
+                        {{ 'company.details.tab.summary.contact_person.header'|trans|desc('Contact person') }}
+                    </h4>
+                    {{ contact ? contact_user_name : '-' }}
+                </div>
+                {% if contact %}
+                    <div class="ibexa-ca-company-tab-summary-contact-person__data">
+                        <label class="ibexa-label ibexa-ca-company-tab-summary-contact-person__data-label">
+                            {{ 'company.details.tab.summary.contact_person.label.phone'|trans|desc('Phone') }}
+                        </label>
+                        {{ ibexa_field_value(contact_user, 'phone_number') }}
+                        <label class="ibexa-label ibexa-ca-company-tab-summary-contact-person__data-label">
+                            {{ 'company.details.tab.summary.contact_person.label.email'|trans|desc('Email') }}
+                        </label>
+                        {{ contact_user.email }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="ibexa-ca-company-tab-summary__stats-wrapper">
+        {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: 'company.details.tab.summary.commerce_stat.header'|trans|desc('Commerce'),
+        } only %}
+        <div class="ibexa-ca-company-tab-summary__stats">
+            <div class="ibexa-ca-company-tab-summary__stat">
+                <label class="ibexa-label ibexa-ca-company-tab-summary__stat-label">
+                    {{ 'company.details.tab.summary.commerce_stat.label.group'|trans|desc('Group') }}
+                </label>
+                <h3 class="ibexa-ca-company-tab-summary__stat-data">
+                    {{ commerce_stats.group }}
+                </h3>
+            </div>
+            <div class="ibexa-ca-company-tab-summary__stat">
+                <label class="ibexa-label ibexa-ca-company-tab-summary__stat-label">
+                    {{ 'company.details.tab.summary.commerce_stat.label.sales_this_year'|trans|desc('Sales this year') }}
+                </label>
+                <h3 class="ibexa-ca-company-tab-summary__stat-data">
+                    {{ commerce_stats.sales_this_year }}
+                </h3>
+            </div>
+            <div class="ibexa-ca-company-tab-summary__stat">
+                <label class="ibexa-label ibexa-ca-company-tab-summary__stat-label">
+                    {{ 'company.details.tab.summary.commerce_stat.label.sales_last_year'|trans|desc('Sales last year') }}
+                </label>
+                <h3 class="ibexa-ca-company-tab-summary__stat-data">
+                    {{ commerce_stats.sales_last_year }}
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="ibexa-ca-company-tab-summary__orders-wrapper">
+        {% include '@ibexadesign/corporate_account/common/orders_table.html.twig' with {
+            orders: last_orders,
+            headline: 'company.details.tab.summary.orders.table.headline'|trans|desc('Last orders'),
+            empty_table_text: currency == '' ? 'orders.table.empty_no_currency.info'|trans|desc('Cannot display orders') : 'orders.table.empty.info'|trans|desc('No orders'),
+            empty_table_action_text: currency == '' ? 'orders.table.empty.action'|trans|desc('Check currencies configuration for SiteAccess') : ''
+        } %}
+    </div>
+</div>

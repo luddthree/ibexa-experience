@@ -1,0 +1,11 @@
+<div class="row block-banner {{ block_class }}">
+    <a href="{{ url }}" title="{{ url }}" target="_blank">
+        {{ ibexa_http_cache_tag_relation_ids(content.id) }}
+        {{ ibexa_render_field(content,'image', {
+            'parameters': {
+                'class': 'img-responsive banner-full'
+            }
+        })}}
+    </a>
+    <style type="text/css">{{ block_style|raw }}</style>
+</div>

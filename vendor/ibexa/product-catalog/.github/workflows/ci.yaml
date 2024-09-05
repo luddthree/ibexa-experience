@@ -1,0 +1,329 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - main
+            - '[0-9]+.[0-9]+'
+    pull_request: ~
+
+jobs:
+    cs-fix:
+        name: Run code style check
+        runs-on: "ubuntu-20.04"
+        strategy:
+            matrix:
+                php:
+                    - '8.0'
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: 'pdo_sqlite, gd'
+                    tools: cs2pr
+
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            -   uses: ./.github/actions/composer-install
+
+            -   name: Run code style check
+                run: composer run-script check-cs -- --format=checkstyle | cs2pr
+
+    tests:
+        name: Tests
+        runs-on: "ubuntu-20.04"
+        timeout-minutes: 5
+
+        strategy:
+            fail-fast: false
+            matrix:
+                extensions: ['pdo_sqlite, gd']
+                php:
+                    - '7.4'
+                include:
+                    -   php: '8.1'
+                        extensions: 'pdo_sqlite, gd'
+                    -   php: '8.0'
+                        extensions: 'pdo_sqlite, gd'
+                    -   php: '7.4'
+                        extensions: 'pdo_sqlite, gd, :bcmath'
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: ${{ matrix.extensions }}
+                    tools: cs2pr
+
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            -   uses: ./.github/actions/composer-install
+            -   name: Setup problem matchers for PHPUnit
+                run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Run PHPStan analysis
+                run: composer run-script phpstan
+
+            -   name: Run test
+                run: composer run-script --timeout=600 test -- --log-junit=junit.xml
+                env:
+                    SEARCH_ENGINE: legacy
+
+    integration-tests-postgres:
+        name: PostgreSQL integration tests
+        needs: tests
+        services:
+            postgres:
+                image: postgres:10
+                ports:
+                    - 5432
+                env:
+                    POSTGRES_PASSWORD: postgres
+                    POSTGRES_DB: testdb
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
+                    --tmpfs /var/lib/postgresql/data
+        runs-on: "ubuntu-20.04"
+        timeout-minutes: 20
+
+        strategy:
+            matrix:
+                php:
+                    - '7.4'
+                    - '8.0'
+                    - '8.1'
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: pdo_pgsql, gd
+                    tools: cs2pr
+
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            -   uses: ./.github/actions/composer-install
+
+            -   name: Setup problem matchers for PHPUnit
+                run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Run integration test suite on Postgres
+                run: composer run-script --timeout=600 test -- --testsuite integration
+                env:
+                    SEARCH_ENGINE: legacy
+                    DATABASE_URL: "pgsql://postgres:postgres@localhost:${{ job.services.postgres.ports[5432] }}/testdb?server_version=10"
+
+    integration-tests-mysql:
+        name: MySQL integration tests
+        needs: tests
+
+        services:
+            mysql:
+                image: ghcr.io/ibexa/core/mysql
+                ports:
+                    - 3306/tcp
+                env:
+                    MYSQL_RANDOM_ROOT_PASSWORD: true
+                    MYSQL_USER: mysql
+                    MYSQL_PASSWORD: mysql
+                    MYSQL_DATABASE: testdb
+                options: >-
+                    --health-cmd="mysqladmin ping"
+                    --health-interval=10s
+                    --health-timeout=5s
+                    --health-retries=5
+                    --tmpfs=/var/lib/mysql
+        runs-on: "ubuntu-20.04"
+        timeout-minutes: 20
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - '7.4'
+                    - '8.0'
+                    # - '8.1'
+
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: pdo_mysql, gd
+                    tools: cs2pr
+
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            -   uses: ./.github/actions/composer-install
+
+            -   name: Setup problem matchers for PHPUnit
+                run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Run integration test suite vs MySQL
+                run: composer run-script --timeout=600 test -- --testsuite integration
+                env:
+                    SEARCH_ENGINE: legacy
+                    DATABASE_URL: "mysql://mysql:mysql@127.0.0.1:${{ job.services.mysql.ports[3306] }}/testdb"
+
+    elastic-integration-tests:
+        needs: tests
+        services:
+            elasticsearch:
+                image: elasticsearch:7.12.1
+                ports:
+                    - 9200/tcp
+                env:
+                    'discovery.type': single-node
+                options: >-
+                    --health-cmd "curl http://localhost:9200/_cluster/health"
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 10
+        runs-on: "ubuntu-20.04"
+        timeout-minutes: 10
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - '7.4'
+                    - '8.0'
+                    - '8.1'
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: pdo_sqlite, gd
+                    tools: cs2pr
+
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            -   uses: ./.github/actions/composer-install
+
+            -   name: Setup problem matchers for PHPUnit
+                run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Setup ES index
+                run: |
+                    curl -X PUT -H "Content-Type: application/json" -d @.github/workflows/es-index-template.json "http://localhost:${{ job.services.elasticsearch.ports[9200] }}/_template/repository"
+
+            -   name: Run integration test suite on ES
+                run: composer run-script --timeout=600 test -- --testsuite integration --exclude-group elasticsearch-incomplete
+                env:
+                    SEARCH_ENGINE: elasticsearch
+                    ELASTICSEARCH_DSN: http://localhost:${{ job.services.elasticsearch.ports[9200] }}
+
+    solr-integration-tests:
+        needs: tests
+        runs-on: "ubuntu-20.04"
+        timeout-minutes: 5
+        permissions:
+            packages: read
+            contents: read
+
+        services:
+            solr:
+                image: ghcr.io/ibexa/core/solr
+                ports:
+                    - 8983
+                options: >-
+                    --health-cmd "solr status"
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 10
+
+        strategy:
+            fail-fast: false
+            matrix:
+                php:
+                    - '7.4'
+                    - '8.0'
+                    - '8.1'
+        steps:
+            -   uses: actions/checkout@v2
+
+            -   name: Setup PHP Action
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    coverage: none
+                    extensions: pdo_sqlite, gd
+                    tools: cs2pr
+
+            -   name: Add composer keys for private packagist
+                run: |
+                    composer config http-basic.updates.ibexa.co $SATIS_NETWORK_KEY $SATIS_NETWORK_TOKEN
+                    composer config github-oauth.github.com $TRAVIS_GITHUB_TOKEN
+                env:
+                    SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+                    SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+                    TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+
+            -   uses: ./.github/actions/composer-install
+
+            -   name: Setup problem matchers for PHPUnit
+                run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+            -   name: Run integration test suite on Solr
+                run: composer run-script --timeout=600 test -- --testsuite integration --exclude-group solr-incomplete
+                env:
+                    SEARCH_ENGINE: solr
+                    SOLR_DSN: http://localhost:${{ job.services.solr.ports[8983] }}/solr
+                    SOLR_CORE: collection1

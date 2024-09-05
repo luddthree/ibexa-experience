@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    #
+    # Tabs
+    #
+
+    Ibexa\Segmentation\Tab\UserViewTab:
+        tags:
+            - { name: ibexa.admin_ui.tab, group: location-view }

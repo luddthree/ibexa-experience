@@ -1,0 +1,65 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div
+    class="ibexa-perso-segments-group-item"
+    data-group-item-id={{ group_item_id }}
+>
+    <div class="ibexa-perso-segments-group-item__content">
+        <div class="ibexa-perso-segments-group-item__icon">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+            </svg>
+        </div>
+        <div
+            class="ibexa-perso-segments-group-item__name"
+            title={{ group_item_name }}
+        >
+            {{ group_item_name }}
+        </div>
+        <span class="ibexa-perso-segments-group-item__status"></span>
+        <button type="button" class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-segments-group-item__remove-btn">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    </div>
+    <div class="ibexa-perso-segments-sub-group">
+        <div class="ibexa-perso-segments-sub-group__relationship">
+            <div class="ibexa-perso-segments-sub-group__connector"></div>
+            {% set choices = [
+                { value: 'AND', label: 'models.segments.segments.relation.and'|trans|desc('and') },
+                { value: 'OR', label: 'models.segments.segments.relation.or'|trans|desc('or')}
+            ] %}
+            {% set first_choice = choices|first %}
+            {% set source %}
+                <select class="form-control ibexa-input" data-group-item-id={{ group_item_id }}>
+                    {% for choice in choices %}
+                        <option value="{{ choice.value }}" {% if value == choice.value %} selected="selected" {% endif %}>
+                            {{ choice.label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            {% endset %}
+
+            {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                source,
+                choices,
+                value: first_choice.value,
+                is_small: true,
+            } %}
+        </div>
+        <div class="ibexa-perso-segments-sub-group__items">
+            <div
+                class="ibexa-perso-segments-sub-group__segments"
+                data-sub-item-template="{{ include('@ibexadesign/personalization/models/segments/sub_item.html.twig', {
+                    group_sub_item_id: '__group_sub_item_id__', group_sub_item_name: '__group_sub_item_name__'
+                })|e('html_attr') }}"
+            >
+            </div>
+            <div class="ibexa-perso-segments-sub-group-item-placeholder ibexa-perso-segments-sub-group-item-placeholder--anchored">
+                <div class="ibexa-perso-segments-sub-group-item-placeholder__item"></div>
+                <div class="ibexa-perso-segments-sub-group-item-placeholder__item"></div>
+            </div>
+        </div>
+    </div>
+</div>

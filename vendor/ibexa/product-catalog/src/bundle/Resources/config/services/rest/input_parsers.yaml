@@ -1,0 +1,331 @@
+services:
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeGroupCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeGroupCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeGroupListGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeGroupListGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeGroupGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeGroupGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeGroupUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeGroupUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeListGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeListGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\AttributeUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CatalogCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $criterionProcessor: '@Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CriterionProcessor'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CatalogCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CatalogUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $criterionProcessor: '@Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CriterionProcessor'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CatalogUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CatalogCopy:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CatalogCopy }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CurrencyCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CurrencyCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CurrencyUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CurrencyUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CustomerGroupCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $languageHandler: '@Ibexa\Contracts\Core\Persistence\Content\Language\Handler'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CustomerGroupCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CustomerGroupUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $languageHandler: '@Ibexa\Contracts\Core\Persistence\Content\Language\Handler'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CustomerGroupUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductListGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductListGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            - '@Ibexa\Rest\Server\Input\Parser\ContentCreate'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            - '@Ibexa\Rest\Server\Input\Parser\VersionUpdate'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductVariantCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductVariantCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductVariantGenerate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductVariantGenerate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductVariantUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductVariantUpdate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductTypeListGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductTypeListGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductTypeGet:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductTypeGet }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductTypeCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            - '@Ibexa\Rest\Server\Input\Parser\ContentTypeCreate'
+            - '@Ibexa\ProductCatalog\Local\Repository\AttributeDefinitionService'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductTypeCreate }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\ProductTypeUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            - '@Ibexa\Rest\Server\Input\Parser\ContentTypeUpdate'
+            - '@Ibexa\ProductCatalog\Local\Repository\AttributeDefinitionService'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductTypeUpdate }
+
+    #Querying
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $criterionProcessor: '@Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CriterionProcessor'
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\ProductQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.ProductQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\ProductVariantQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.ProductVariantQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\ProductTypeQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.ProductTypeQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AttributeQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.AttributeQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AttributeGroupQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.AttributeGroupQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\CatalogQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.CatalogQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\CustomerGroupQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.CustomerGroupQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\RegionQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.RegionQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\CurrencyQuery:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractQuery
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.CurrencyQuery }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput:
+        parent: Ibexa\Rest\Server\Common\Parser
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\ProductViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\ProductVariantViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductVariantViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\ProductTypeViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ProductTypeViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AttributeViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AttributeGroupViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.AttributeGroupViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\CatalogViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CatalogViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\CustomerGroupViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CustomerGroupViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\RegionViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.RegionViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\CurrencyViewInput:
+        parent: Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\AbstractViewInput
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CurrencyViewInput }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\ProductAvailabilityTermAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.ProductAvailabilityTerm }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\ProductPriceRangeAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.ProductPriceRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\ProductStockRangeAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.ProductStockRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\ProductTypeTermAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.ProductTypeTerm }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeBooleanTermAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeBooleanTerm }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeColorTermAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeColorTerm }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeFloatStatsAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeFloatStats }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeFloatRangeAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeFloatRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeIntegerStatsAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeIntegerStats }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeIntegerRangeAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeIntegerRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Aggregation\AttributeSelectionTermAggregationParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.aggregation.AttributeSelectionTerm }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\BasePriceCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $currencyService: '@Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.PriceCreateStruct }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CustomPriceCreate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $currencyService: '@Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface'
+            $customerGroupService: '@Ibexa\Contracts\ProductCatalog\CustomerGroupServiceInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CustomPriceCreateStruct }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\BasePriceUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $currencyService: '@Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.PriceUpdateStruct }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\CustomPriceUpdate:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $currencyService: '@Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.CustomPriceUpdateStruct }

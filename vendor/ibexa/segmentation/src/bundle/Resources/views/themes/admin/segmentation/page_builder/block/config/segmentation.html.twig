@@ -1,0 +1,33 @@
+{% trans_default_domain 'ibexa_page_builder' %}
+
+<div class="form-group ibexa-segmentation">
+    {% set actions %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--info ibexa-btn--small ibexa-btn--add">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">
+                {{ 'block.segmentation.add'|trans|desc('Add') }}
+            </span>
+        </button>
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        actions,
+    } %}
+    <div class="ibexa-segmentation__labels">
+        <label  class="ibexa-label form-label required ibexa-segmentation__label--segment">
+            {{ 'block.segmentation.label.segment'|trans|desc('Segment') }}
+        </label>
+        <label  class="ibexa-label form-label required ibexa-segmentation__label--content">
+            {{ 'block.segmentation.label.content'|trans|desc('Content') }}
+        </label>
+    </div>
+    <ol
+        class="ibexa-segmentation__items"
+        data-template="{{ include('@ibexadesign/segmentation/page_builder/block/config/segmentation_item.html.twig', {
+        })|e('html_attr') }}"
+        data-placeholder="{{ include('@ibexadesign/segmentation/page_builder/block/config/segmentation_placeholder.html.twig', {
+        })|e('html_attr') }}">
+    </ol>
+</div>

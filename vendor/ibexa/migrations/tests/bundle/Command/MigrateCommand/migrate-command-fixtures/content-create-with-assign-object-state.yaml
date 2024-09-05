@@ -1,0 +1,50 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2003-08-12T13:37:37+00:00'
+        publicationDate: '2003-08-12T13:37:37+00:00'
+        remoteId: fooBar
+        alwaysAvailable: true
+        section:
+            identifier: media
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: null
+        locationRemoteId: foo_location
+        hidden: false
+        sortField: !php/const Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_NAME
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Media
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__media
+            type: content_id
+        -
+            name: ref_location__folder__media
+            type: location_id
+        -
+            name: ref_path__folder__media
+            type: path
+    actions:
+        - { action: assign_object_state, identifier: locked, groupIdentifier: ez_lock }

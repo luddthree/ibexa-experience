@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\OutputType\OutputTypeResolver:
+        arguments:
+            $serializer: '@ibexa.personalization.serializer'
+
+    Ibexa\Personalization\OutputType\OutputTypeResolverInterface: '@Ibexa\Personalization\OutputType\OutputTypeResolver'

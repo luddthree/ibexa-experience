@@ -1,0 +1,24 @@
+setup:
+  suites:
+    dashboard:
+      filters:
+        tags: '@IbexaExperience'
+      paths:
+        - '%paths.base%/vendor/ibexa/dashboard/features/setup/setup.feature'
+        - '%paths.base%/vendor/ibexa/workflow/features/setup/setup_experience.feature'
+      contexts:
+        - Ibexa\Behat\API\Context\ContentTypeContext
+        - Ibexa\Behat\API\Context\LanguageContext
+        - Ibexa\Behat\API\Context\RoleContext
+        - Ibexa\Behat\API\Context\TestContext
+        - Ibexa\Behat\API\Context\UserContext
+        - Ibexa\Behat\Core\Context\ConfigurationContext
+
+browser:
+  suites:
+    dashboard:
+      paths:
+        - '%paths.base%/vendor/ibexa/dashboard/features/browser'
+      filters:
+        tags: "~@broken"
+      contexts: ~

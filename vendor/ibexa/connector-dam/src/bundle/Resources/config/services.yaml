@@ -1,0 +1,128 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Connector\Dam\AssetService:
+        arguments:
+            $handlerRegistry: '@Ibexa\Connector\Dam\Handler\DefaultHandlerRegistry'
+            $assetVariationGeneratorRegistry: '@Ibexa\Connector\Dam\Variation\DefaultAssetVariationGeneratorRegistry'
+
+    Ibexa\Bundle\Connector\Dam\Controller\AssetSearchController:
+        arguments:
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+            $serializer: '@serializer'
+            $factoryRegistry: '@Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry'
+        tags:
+            - { name: controller.service_arguments }
+
+    Ibexa\Bundle\Connector\Dam\Controller\AssetVariationController:
+        decorates: Ibexa\Rest\Server\Controller\BinaryContent
+        arguments:
+            $innerController: '@Ibexa\Bundle\Connector\Dam\Controller\AssetVariationController.inner'
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+            $contentService: '@ibexa.api.service.content'
+            $transformationFactoryRegistry: '@Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry'
+            $assetVariationGeneratorRegistry: '@Ibexa\Connector\Dam\Variation\DefaultAssetVariationGeneratorRegistry'
+        tags:
+            - { name: controller.service_arguments }
+
+    Ibexa\Bundle\Connector\Dam\Controller\AssetViewController:
+        tags:
+            - { name: controller.service_arguments }
+
+    Ibexa\Bundle\Connector\Dam\Controller\Rest\AssetController:
+        arguments:
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+        tags:
+            - { name: controller.service_arguments }
+
+    Ibexa\Connector\Dam\Search\DefaultQueryFactoryRegistry:
+        arguments:
+            $factories: !tagged_iterator { tag: ibexa.connector.dam.query.factory, index_by: source }
+
+    Ibexa\Connector\Dam\Search\GenericQueryFactory:
+        tags:
+            - { name: ibexa.connector.dam.query.factory, source: generic }
+
+    Ibexa\Bundle\Connector\Dam\ParamConverter\QueryParamConverter:
+        public: true
+        arguments:
+            $queryFactoryRegistry: '@Ibexa\Connector\Dam\Search\DefaultQueryFactoryRegistry'
+            $assetSourceParamConverter: '@Ibexa\Bundle\Connector\Dam\ParamConverter\AssetSourceParamConverter'
+        tags:
+            - { name: request.param_converter }
+
+    Ibexa\Bundle\Connector\Dam\ParamConverter\AssetSourceParamConverter:
+        public: true
+        tags:
+            - { name: request.param_converter }
+
+    Ibexa\Connector\Dam\Handler\DefaultHandlerRegistry:
+        arguments:
+            $handlers: !tagged_iterator { tag: ibexa.platform.connector.dam.handler, index_by: source }
+
+    ibexa.connector.dam.tab_search:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $template: '@@ibexadesign/ui/modal/search.html.twig'
+            $groupIdentifier: 'connector-dam-search'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-edit-form-after' }
+            - { name: ibexa.admin_ui.component, group: 'content-create-form-after' }
+            - { name: ibexa.admin_ui.component, group: 'product-edit-form-after' }
+            - { name: ibexa.admin_ui.component, group: 'product-create-form-after' }
+
+    Ibexa\Connector\Dam\Form\Search\GenericSearchType:
+        tags:
+            - { name: form.type, alias: Ibexa\Connector\Dam\Form\Search\GenericSearchType }
+
+    Ibexa\Connector\Dam\Serializer\Normalizer\AssetSearchResultNormalizer:
+        arguments:
+            $normalizer: '@serializer.normalizer.object'
+        tags:
+            - { name: serializer.normalizer }
+
+    Ibexa\Connector\Dam\Twig\Extension\AssetExtension:
+        arguments:
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\Connector\Dam\Twig\Extension\TransformationExtension:
+        arguments:
+            $transformationFactoryRegistry: '@Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry'
+        tags:
+            - { name: twig.extension }
+
+    Ibexa\Connector\Dam\Rest\FieldTypeProcessor\ImageAssetFieldTypeProcessor:
+        decorates: Ibexa\Rest\FieldTypeProcessor\ImageAssetFieldTypeProcessor
+        arguments:
+            $innerProcessor: '@Ibexa\Connector\Dam\Rest\FieldTypeProcessor\ImageAssetFieldTypeProcessor.inner'
+            $router: '@router'
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+            $transformationFactoryRegistry: '@Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry'
+
+    Ibexa\Connector\Dam\Rest\ValueObjectVisitor\ImageAssetVariation:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Connector\Dam\Variation\AssetVariation }
+
+    Ibexa\Connector\Dam\Event\PublishAssetEventDispatcher:
+        arguments:
+            $eventDispatcher: '@event_dispatcher'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Connector\Dam\Rest\ValueObjectVisitor\Asset:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Connector\Dam\Rest\Value\Asset }
+
+    Ibexa\Connector\Dam\Event\AddSearchFormEventSubscriber:
+        arguments:
+            $searchFormType: 'Symfony\Component\Form\Extension\Core\Type\SearchType'
+            $formFactory: '@form.factory'
+        tags:
+            - { name: kernel.event_subscriber }

@@ -1,0 +1,21 @@
+parameters:
+    ibexa.taxonomy.cdp.export.content.taxonomy_entry_assignment.value_wrap_pattern: '[[%s]]'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Taxonomy\CDP\Export\Content\FieldValueProcessor\FieldType\TaxonomyEntryFieldValueProcessor:
+        arguments:
+            $fieldType: '@Ibexa\Taxonomy\FieldType\TaxonomyEntry\Type'
+        tags:
+            - { name: 'ibexa.cdp.export.content.field_value_processor', priority: -100 }
+
+    Ibexa\Taxonomy\CDP\Export\Content\FieldValueProcessor\FieldType\TaxonomyEntryAssignmentFieldValueProcessor:
+        arguments:
+            $fieldType: '@Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Type'
+            $wrapPattern: '%ibexa.taxonomy.cdp.export.content.taxonomy_entry_assignment.value_wrap_pattern%'
+        tags:
+            - { name: 'ibexa.cdp.export.content.field_value_processor', priority: -100 }

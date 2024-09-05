@@ -1,0 +1,7 @@
+/vendor
+/.php_cs.cache
+/.phpunit.result.cache
+/composer.lock
+/node_modules
+/package-lock.json
+/yarn.lock

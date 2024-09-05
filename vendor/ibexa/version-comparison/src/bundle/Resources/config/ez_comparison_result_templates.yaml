@@ -1,0 +1,4 @@
+system:
+  default:
+    field_comparison_templates:
+      - { template: '@ibexadesign/version_comparison/comparison_result_blocks.html.twig', priority: 10 }

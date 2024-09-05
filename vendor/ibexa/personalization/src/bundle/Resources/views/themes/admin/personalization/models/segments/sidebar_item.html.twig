@@ -1,0 +1,20 @@
+<div
+    class="ibexa-perso-segments-sidebar-item"
+    data-value="{{ value.id|default('{{ value }}') }}"
+    data-group-name="{{ value.group.name|default('{{ value }}') }}"
+    data-group-id="{{ value.group.id|default('{{ value }}') }}"
+    data-segment-id="{{ value.id|default('{{ value }}') }}"
+    data-segment-name="{{ value.name|default('{{ value }}') }}"
+>
+    <div
+        draggable="true"
+        class="ibexa-perso-segments-sidebar-item__content"
+    >
+        <div class="ibexa-perso-segments-sidebar-item__drag">
+            <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-perso-segments-sidebar-item__drag-icon">
+                <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+            </svg>
+        </div>
+        <div class="ibexa-perso-segments-sidebar-item__label">{{ value.name|default('{{ value }}') }}</div>
+    </div>
+</div>

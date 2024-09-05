@@ -1,0 +1,20 @@
+-
+    type: user
+    mode: create
+    first_name: '__FIRST_NAME__'
+    last_name: '__LAST_NAME__'
+    username: '__USERNAME__'
+    email: 'editor@emailbox.com'
+    password: __PASSWORD__
+    groups: ['9b47a45624b023b1a76c73b74d704acf']
+    roles: [1, 2, 3]
+-
+    type: user
+    mode: create
+    first_name: '__FIRST_NAME_2__'
+    last_name: '__LAST_NAME_2__'
+    username: '__USERNAME_2__'
+    email: 'editor2@emailbox.com'
+    password: __PASSWORD_2__
+    groups: [42]
+    roles: [foo, bar]

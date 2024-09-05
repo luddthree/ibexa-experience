@@ -1,0 +1,60 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% set default_block_name = 'block.product_lowest_stock.title'|trans|desc('Products with the lowest stock') %}
+
+<div id="ibexa-page-block-{{ block_id }}" class="block-tag {{ block_class }}">
+    <div class="ibexa-pc-product-lowest-stock">
+        <h2 class="ibexa-pc-product-lowest-stock__header">{{ block_name|default(default_block_name) }}</h2>
+        <section class="ibexa-pc-product-lowest-stock__table container ibexa-container">
+            <div class="ibexa-pc-product-lowest-stock__table-container">
+                {% set body_rows = [] %}
+                {% for product in products|default([]) %}
+                    {% set product_code = product.getCode() %}
+                    {% set is_pim_local = ibexa_is_pim_local() %}
+                    {% set has_variant = 'block.product_lowest_stock.no'|trans|desc('No') %}
+                    {% set variants_count = product.getVariantsList().getTotalCount() %}
+                    {% if variants_count > 0 %}
+                        {% set has_variant = 'block.product_lowest_stock.yes'|trans|desc('Yes') ~ ' (' ~ variants_count ~ ')' %}
+                    {% endif %}
+
+                    {% if is_pim_local %}
+                        {% set category = product.getContent()|ibexa_taxonomy_entries_for_content|map(entry => "#{entry.name}")|join(', ') %}
+                        {% set thumbnail = data_grid_macros.cell_image(product, ['ibexa-pc-product-lowest-stock__img-wrapper']) %}
+                    {% endif %}
+
+                    {% set anchor_name %}
+                        <a href="{{ path('ibexa.product_catalog.product.view', { productCode: product_code }) }}">
+                            {{ product.getName() }}
+                        </a>
+                    {% endset %}
+
+                    {% set body_rows = body_rows|merge([{ cols: [
+                        { content: anchor_name, raw: true  },
+                        { content: thumbnail|default('') },
+                        { content: product_code },
+                        { content: category|default('') },
+                        { content: product.getProductType().getName() },
+                        { content: has_variant },
+                        { content: product.getAvailability().getStock() },
+                    ] }]) %}
+                {% endfor %}
+
+                {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                    head_cols: [
+                        { content: 'block.product_lowest_stock.column.name'|trans|desc('Name') },
+                        { content: 'block.product_lowest_stock.column.thumbnail'|trans|desc('Image') },
+                        { content: 'block.product_lowest_stock.column.code'|trans|desc('Code') },
+                        { content: 'block.product_lowest_stock.column.category'|trans|desc('Category') },
+                        { content: 'block.product_lowest_stock.column.type'|trans|desc('Type') },
+                        { content: 'block.product_lowest_stock.column.variant'|trans|desc('Variant') },
+                        { content: 'block.product_lowest_stock.column.stock'|trans|desc('Stock') },
+                    ],
+                    body_rows,
+                    empty_table_info_text: 'block.product_lowest_stock.empty'|trans|desc('No results found'),
+                } only %}
+            </div>
+        </section>
+    </div>
+</div>

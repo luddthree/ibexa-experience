@@ -1,0 +1,33 @@
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set catalog_copy_menu = knp_menu_get('ibexa_product_catalog.menu.catalog_copy_context_menu', [], {
+        submit_selector: '#catalog-copy-save',
+        cancel_route: 'ibexa.product_catalog.catalog.list'
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'catalog.copy.action_name'|trans|desc('Copying Catalog'),
+        title: form.vars.value.catalog.getName(),
+        icon_name: 'copy',
+        show_autosave_status: false,
+        context_actions: knp_menu_render(catalog_copy_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block form %}
+    {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+    {{ form_start(form, {
+        attr: { class: 'ibexa-pc-edit__form' }
+    }) }}
+        <button
+            id="catalog-copy-save"
+            class="ibexa-pc-copy__submit-btn"
+            type="submit"
+            hidden
+        ></button>
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends base_template %}
+
+{% block content %}
+    <div data-area="static" style="min-height:300px;">
+        {# this is for the empty preview only #}
+        {% include layout_definition.template with {'zones': page.zones} %}
+    </div>
+    {{ encore_entry_link_tags('ibexa-page-builder-layout-css', null, 'ibexa') }}
+{% endblock %}

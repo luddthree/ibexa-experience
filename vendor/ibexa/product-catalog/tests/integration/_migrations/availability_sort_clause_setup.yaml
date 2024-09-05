@@ -1,0 +1,139 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'A'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'A'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'A'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'A'
+
+-   type: product_availability
+    mode: create
+    product_code: 'A'
+    is_available: true
+    is_infinite: true
+    stock: null
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'B'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'B'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'B'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'B'
+
+-   type: product_availability
+    mode: create
+    product_code: 'B'
+    is_available: true
+    is_infinite: false
+    stock: 10
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'C'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'C'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'C'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'C'
+
+-   type: product_availability
+    mode: create
+    product_code: 'C'
+    is_available: true
+    is_infinite: false
+    stock: 100
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'D'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 'D'
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'D'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'D'
+
+-   type: product_availability
+    mode: create
+    product_code: 'D'
+    is_available: false
+    is_infinite: false
+    stock: 1000

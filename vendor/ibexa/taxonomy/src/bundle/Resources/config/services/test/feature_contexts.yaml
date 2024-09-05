@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Behat\Context\Browser\TaxonomyContext: ~
+
+    Ibexa\Taxonomy\Behat\Context\Service\TaxonomyContext: ~

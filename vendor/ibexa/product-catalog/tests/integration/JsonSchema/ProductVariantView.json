@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "ProductVariantView": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "ProductVariantQuery": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "_media-type"
+                    ]
+                },
+                "Result": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        },
+                        "count": {
+                            "type": "integer"
+                        },
+                        "ProductVariantList": {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "ProductVariant": {
+                                    "type": "array",
+                                    "items": {}
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "ProductVariant"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "_media-type",
+                        "count",
+                        "ProductVariantList"
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "ProductVariantQuery",
+                "Result"
+            ]
+        }
+    },
+    "required": [
+        "ProductVariantView"
+    ]
+}

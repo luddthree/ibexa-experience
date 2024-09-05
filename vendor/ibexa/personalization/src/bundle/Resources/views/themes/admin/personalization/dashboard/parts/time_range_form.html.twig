@@ -1,0 +1,51 @@
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+<div class="ibexa-time-range {{ class|default('') }}">
+    <div class="ibexa-time-range__column {% if is_right|default(false) %}ibexa-time-range__column--right{% endif %}">
+        {% if show_label|default(false) %}
+            <label class="ibexa-label">
+                {{ 'ibexa_personalization.dashboard.time_period'|trans|desc('Select time range') }}
+            </label>
+        {% endif %}
+
+        {{ form_widget(time_range_type_select) }}
+
+        {% if period_inputs is defined %}
+            {{ form_widget(period_inputs.date_interval, {
+                'attr': { 'hidden': 'hidden', 'class': 'ibexa-time-range__date-interval' }
+            }) }}
+            {{ form_widget(period_inputs.end_date, {
+                'attr': { 'hidden': 'hidden', 'class': 'ibexa-time-range__end-date' }
+            }) }}
+        {% endif %}
+
+        {% if no_custom_range is not defined or no_custom_range == false %}
+            <div class="ibexa-time-range__custom-date">
+                {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with {
+                    wrapper_attr: {
+                        class: 'ibexa-time-range__custom-range-container '
+                            ~ (time_range_type_select.vars.value is null or time_range_type_select.vars.value.period != 'custom_range' ? 'd-none' : ''),
+                    },
+                    input_attr: {
+                        class: "ibexa-time-range__period-select",
+                        placeholder: 'search.date.range'|trans(domain='search')|desc('From date - to date'),
+                        'data-start': values.period.fromDate|date("Y-m-d")|default(''),
+                        'data-end': values.period.toDate|date("Y-m-d")|default(''),
+
+                    }
+                } %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="ibexa-time-range__column">
+        {% if download_link is defined %}
+            <a class="btn ibexa-btn ibexa-btn--ghost {{ download_class|default('') }}" href="{{ download_link }}" target="_blank">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('download') }}"></use>
+                </svg>
+                {{ 'dashboard.download_report'|trans|desc('Download full report') }}
+            </a>
+        {% endif %}
+    </div>
+</div>

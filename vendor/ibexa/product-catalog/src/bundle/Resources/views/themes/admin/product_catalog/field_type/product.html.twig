@@ -1,0 +1,7 @@
+{% block ibexa_product_specification_field %}
+    {% apply spaceless %}
+        <a href="{{ path('ibexa.product_catalog.product.view', { productCode: field.value.getCode() }) }}">
+            {{ field.value }}
+        </a>
+    {% endapply %}
+{% endblock %}

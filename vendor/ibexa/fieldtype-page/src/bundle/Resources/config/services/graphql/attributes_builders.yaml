@@ -1,0 +1,84 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilderRegistry: ~
+
+    Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\Embed:
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: embed }
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: embedvideo }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\RichText:
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: richtext }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\LocationList:
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: locationlist }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ContentTypeList:
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: contenttypelist }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\Multiple:
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: multiple }
+
+    ibexa.graphql.field_type.page.attribute_builder.string:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: String
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: string }
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: text }
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: select }
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: radio }
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: url }
+
+    ibexa.graphql.field_type.page.attribute_builder.integer:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: Int
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: integer }
+
+    #
+    # SchedulerBlock
+    #
+    ibexa.graphql.field_type.page.attribute_builder.scheduler.events:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: '[SchedulerBlockEvent]'
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: schedule_events }
+
+    ibexa.graphql.field_type.page.attribute_builder.scheduler.snapshots:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: '[SchedulerBlockSnapshot]'
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: schedule_snapshots }
+
+    ibexa.graphql.field_type.page.attribute_builder.scheduler.initial_items:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: '[SchedulerBlockItem]'
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: schedule_initial_items }
+
+    ibexa.graphql.field_type.page.attribute_builder.scheduler.initial_loaded_snapshot:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: 'SchedulerBlockSnapshot'
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: schedule_loaded_snapshot }
+
+    ibexa.graphql.field_type.page.attribute_builder.scheduler.slots:
+        class: Ibexa\FieldTypePage\GraphQL\Schema\BlockAttributeBuilder\ResolveWithValue
+        arguments:
+            $type: '[SchedulerBlockSlot]'
+        tags:
+            - { name: ibexa.graphql.field_type.page.block_attribute_builder, type: schedule_slots }

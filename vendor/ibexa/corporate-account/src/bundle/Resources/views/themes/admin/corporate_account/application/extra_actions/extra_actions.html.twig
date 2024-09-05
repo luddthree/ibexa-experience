@@ -1,0 +1,7 @@
+{% extends '@ibexadesign/ui/component/extra_actions/extra_actions.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set attr = attr|default({})|merge({
+    class: ('ibexa-ca-application-workflow-extra-actions ' ~ attr.class|default(''))|trim,
+}) %}

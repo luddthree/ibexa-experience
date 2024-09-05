@@ -1,0 +1,18 @@
+{
+    "name": "ibexa-fieldtype-address",
+    "version": "1.0.0",
+    "description": "Ibexa Address Field Type",
+    "repository": "https://github.com/ibexa/fieldtype-address.git",
+    "private": true,
+    "prettier": "eslint-config-ibexa/prettier",
+    "dependencies": {},
+    "devDependencies": {
+        "eslint-config-ibexa": "https://github.com/ibexa/eslint-config-ibexa.git#~v1.1.1"
+    },
+    "scripts": {
+        "test": "yarn prettier-test && yarn eslint-test",
+        "fix": "yarn prettier-test --write && yarn eslint-test --fix",
+        "eslint-test": "eslint \"./src/bundle/Resources/**/*.js\"",
+        "prettier-test": "yarn prettier \"./src/bundle/Resources/**/*.{js,scss}\" --check"
+    }
+}

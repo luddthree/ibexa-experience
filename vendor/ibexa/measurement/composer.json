@@ -1,0 +1,107 @@
+{
+    "name": "ibexa/measurement",
+    "license": "proprietary",
+    "type": "ibexa-bundle",
+    "keywords": [
+        "ibexa-dxp"
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*",
+        "ibexa/admin-ui": "~4.6.0",
+        "ibexa/content-forms": "~4.6.0",
+        "ibexa/core": "~4.6.0",
+        "ibexa/product-catalog": "~4.6",
+        "symfony/config": "^5.3",
+        "symfony/dependency-injection": "^5.3",
+        "symfony/event-dispatcher": "^5.3",
+        "symfony/expression-language": "^5.4",
+        "symfony/form": "^5.4",
+        "symfony/http-foundation": "^5.3",
+        "symfony/http-kernel": "^5.3",
+        "symfony/yaml": "^5.3",
+        "webmozart/assert": "^1.11"
+    },
+    "require-dev": {
+        "behat/behat": "^3.10",
+        "dama/doctrine-test-bundle": "^6.0",
+        "friends-of-behat/mink-extension": "^2.6",
+        "ibexa/calendar": "~4.6",
+        "ibexa/cdp": "~4.6",
+        "ibexa/code-style": "^1.0",
+        "ibexa/commerce-price-engine": "~4.6",
+        "ibexa/commerce-shop": "~4.6",
+        "ibexa/core-persistence": "~4.6",
+        "ibexa/cron": "~4.6",
+        "ibexa/design-engine": "~4.6",
+        "ibexa/doctrine-schema": "~4.6",
+        "ibexa/elasticsearch": "~4.6",
+        "ibexa/fieldtype-matrix": "~4.6",
+        "ibexa/fieldtype-page": "~4.6",
+        "ibexa/fieldtype-richtext": "~4.6",
+        "ibexa/graphql": "~4.6",
+        "ibexa/http-cache": "~4.6",
+        "ibexa/icons": "~4.6",
+        "ibexa/installer": "~4.6",
+        "ibexa/migrations": "~4.6",
+        "ibexa/notifications": "~4.6",
+        "ibexa/page-builder": "~4.6",
+        "ibexa/personalization": "~4.6",
+        "ibexa/rest": "~4.6.0",
+        "ibexa/search": "~4.6.0",
+        "ibexa/segmentation": "~4.6",
+        "ibexa/solr": "~4.6",
+        "ibexa/taxonomy": "~4.6",
+        "ibexa/test-core": "~0.1",
+        "ibexa/test-rest": "~0.1",
+        "ibexa/user": "~4.6.0",
+        "phpstan/phpstan": "^1.4",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.1",
+        "phpstan/phpstan-webmozart-assert": "^1.2",
+        "phpunit/phpunit": "^9",
+        "symfony/browser-kit": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Bundle\\Measurement\\": "src/bundle/",
+            "Ibexa\\Contracts\\Measurement\\": "src/contracts/",
+            "Ibexa\\Measurement\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Bundle\\Measurement\\": "tests/bundle/",
+            "Ibexa\\Tests\\Integration\\Measurement\\": "tests/integration/",
+            "Ibexa\\Tests\\Measurement\\": "tests/lib/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix -v --config=.php-cs-fixer.php --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run",
+        "test": "phpunit -c phpunit.xml.dist",
+        "integration": "phpunit -c phpunit.integration.xml.dist",
+        "phpstan": "phpstan analyse -c phpstan.neon"
+    },
+    "scripts-descriptions": {
+        "fix-cs": "Automatically fixes code style in all files",
+        "check-cs": "Run code style checker for all files",
+        "test": "Run automatic tests",
+        "phpstan": "Run static code analysis"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    }
+}

@@ -1,0 +1,9 @@
+<div class="ibexa-pb-alerts-tray">
+    {% if location.hidden or location.invisible %}
+        {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+            type: 'warning',
+            title: 'content.hidden.message'|trans()|desc('The content item or its location is hidden. It will no longer be publicly available.'),
+            icon_path: ibexa_icon_path('hide'),
+        } only %}
+    {% endif %}
+</div>

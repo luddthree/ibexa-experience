@@ -1,0 +1,12 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+<div class="ibexa-workflow-chart">
+    <div class="ibexa-workflow-chart__headline">{{ 'content_edit.component.events'|trans|desc('Event(s)') }}</div>
+    <div class="ibexa-workflow-chart__items-wrapper">
+        <div class="ibexa-workflow-chart__items">
+            {% for entry in timeline.entries %}
+                {{ ibexa_render_workflow_timeline_entry(workflow_metadata, entry, []) }}
+            {% endfor %}
+        </div>
+    </div>
+</div>

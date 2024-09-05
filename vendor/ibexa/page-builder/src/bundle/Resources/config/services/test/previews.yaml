@@ -1,0 +1,39 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Behat\Page\LandingPagePreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\BlockPreviewRegistry:
+        arguments:
+            $blockPreviews: !tagged_iterator ibexa.testing.component.page_builder_block_preview
+
+    _instanceof:
+        Ibexa\PageBuilder\Behat\Component\BlockPreview\BlockPreviewInterface:
+            tags: ['ibexa.testing.component.page_builder_block_preview']
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\BannerPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\CodePreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\CollectionPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\ContentListPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\ContentSchedulerPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\EmbedPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\FormBlockPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\GalleryPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\RSSPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\TextPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\VideoPreview: ~
+
+    Ibexa\PageBuilder\Behat\Component\BlockPreview\TargetingPreview: ~

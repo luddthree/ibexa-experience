@@ -1,0 +1,30 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set confirm_button_rendered %}
+    {%- block confirm_button -%}{%- endblock %}
+{% endset %}
+
+{% set cancel_button_rendered %}
+    {%- block cancel_button -%}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary"
+            data-bs-dismiss="modal"
+        >
+            {{ 'modal.cancel'|trans|desc('Discard') }}
+        </button>
+    {% endblock %}
+{% endset %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    no_header: true,
+    id,
+} %}
+    {% block body_content %}
+        {{ message }}
+    {% endblock %}
+    {% block footer_content %}
+        {{ confirm_button_rendered }}
+        {{ cancel_button_rendered }}
+    {% endblock %}
+{% endembed %}

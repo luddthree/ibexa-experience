@@ -1,0 +1,17 @@
+-
+    type: user
+    mode: update
+    match:
+        id: 14
+    password: '__PASSWORD__'
+-
+    type: user
+    mode: update
+    match:
+        id: 14
+    first_name: '__FIRST_NAME_2__'
+    last_name: '__LAST_NAME_2__'
+    username: '__USERNAME_2__'
+    email: 'editor2@emailbox.com'
+    password: '__PASSWORD__'
+    enabled: false

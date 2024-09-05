@@ -1,0 +1,43 @@
+parameters:
+    ibexa.dashboard.block.news.cache.tag_prefix: 'ibx-db'
+    ibexa.dashboard.ibexa_news.cache.ttl: 86400 # 24 hours
+    ibexa.dashboard.block.news.cache.key_patterns:
+        rss: 'r-%%s-%%d'
+
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\Bundle\Dashboard\EventSubscriber\PageBuilder\IbexaNewsBlockSubscriber:
+        arguments:
+            $url: '%ibexa.dashboard.ibexa_news.url%'
+
+    Ibexa\Dashboard\News\FeedInterface:
+        alias: Ibexa\Dashboard\News\CachedFeed
+
+    Ibexa\Dashboard\News\Feed:
+        tags:
+            - { name: monolog.logger, channel: ibexa.dashboard }
+
+    Ibexa\Dashboard\News\CachedFeed:
+        decorates: Ibexa\Dashboard\News\Feed
+        arguments:
+            $feed: '@Ibexa\Dashboard\News\CachedFeed.inner'
+            $cachePool: '@ibexa.cache_pool'
+            $cacheIdentifierGenerator: '@ibexa.dashboard.block.news.cache_identifier_generator'
+            $ttl: '%ibexa.dashboard.ibexa_news.cache.ttl%'
+
+    ibexa.dashboard.block.news.cache_identifier_generator:
+        class: Ibexa\Core\Persistence\Cache\Identifier\CacheIdentifierGenerator
+        arguments:
+            $prefix: '%ibexa.core.persistence.cache.tag_prefix%'
+            $tagPatterns: []
+            $keyPatterns: '%ibexa.dashboard.block.news.cache.key_patterns%'
+
+
+    Ibexa\Dashboard\News\NewsMapperInterface:
+        alias: Ibexa\Dashboard\News\IbexaNewsMapper
+
+    Ibexa\Dashboard\News\IbexaNewsMapper: ~

@@ -1,0 +1,135 @@
+{% extends "@ibexadesign/content/location_view.html.twig" %}
+
+{% trans_default_domain 'ibexa_site_context' %}
+
+{% if form_content_create is defined %}
+    {% form_theme form_content_create '@ibexadesign/ui/form_fields.html.twig' %}
+{% endif %}
+
+{% if form_content_edit is defined and form_user_edit is not defined %}
+    {% form_theme form_content_edit '@ibexadesign/ui/form_fields.html.twig' %}
+{% endif %}
+
+{% if form_user_edit is defined %}
+    {% form_theme form_user_edit '@ibexadesign/ui/form_fields.html.twig' %}
+{% endif %}
+
+{% block body_class %}ibexa-content-view ibexa-content-view--full-preview ibexa-theme {% if ibexa_is_focus_mode_on() %}ibexa-theme--dark{% endif %}{% endblock %}
+
+{% block content_tree %}
+    {% set container_width_cookie = 'ibexa-tb_ibexa-content-tree_%d_container-width'|format(ibexa_admin_ui_config.user.user.id) %}
+    {% set content_tree_width = app.request.cookies.get(container_width_cookie) %}
+    {% set content_tree_width_style = 'width: %dpx;'|format(content_tree_width) %}
+
+    {{ ibexa_render_component_group('content-tree-before') }}
+    <div class="ibexa-content-tree-container"
+        data-tree-root-location-id="{{ content_tree_module_root|default(ibexa_admin_ui_config['contentTree']['treeRootLocationId']) }}"
+        data-current-location-path="{{ location_path|default('') }}"
+        style="{{ content_tree_width_style }}"
+    >
+        <div class="ibexa-content-tree-container__root"></div>
+    </div>
+    {{ ibexa_render_component_group('content-tree-after') }}
+{% endblock %}
+
+{% block content_header %}
+    <div class="ibexa-page-header-wrapper">
+        <div class="ibexa-header-wrapper">
+            {{ block('header') }}
+        </div>
+        <div class="ibexa-content-menu-wrapper">
+            {{ block('context_menu') }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block context_menu %}
+    {% set content_type = content.getContentType() %}
+    {% set content_sidebar_right = knp_menu_get(
+           'ibexa_site_context.menu.fullscreen.sidebar_right',
+            [],
+            {
+                'location': location,
+                'content': content,
+                'content_type': content_type
+            }
+    ) %}
+
+    <div class="ibexa-top-menu">
+        {{ knp_menu_render(content_sidebar_right, {
+            'template': '@ibexadesign/ui/menu/context_menu.html.twig',
+            'primary_item_class': 'ibexa-btn--ghost ibexa-btn--small',
+            'secondary_item_class': 'ibexa-btn--ghost ibexa-btn--small',
+            'selector_btn_classes': 'btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text'
+        }) }}
+
+        <div class="ibexa-additional-actions">
+            <div class="ibexa-additional-actions__item">
+                <a
+                    href="{{ path('ibexa.site_context.toggle_fullscreen', { locationId: location.id }) }}"
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('un-full-view') }}"></use>
+                    </svg>
+                    {{ 'full_preview.additional_actions.exit'|trans|desc('Exit full view') }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="ibexa-extra-actions-container">
+        {% include '@ibexadesign/content/widget/content_create.html.twig' with {'form': form_content_create, content } only %}
+        {% if form_content_edit is defined and form_user_edit is not defined %}
+            {% include '@ibexadesign/content/widget/content_edit.html.twig' with {'form': form_content_edit} only %}
+        {% endif %}
+        {% if form_user_edit is defined %}
+            {% include '@ibexadesign/content/widget/user_edit.html.twig' with {'form': form_user_edit} only %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block header %}
+    {% set content_type = content.getContentType() %}
+
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: ibexa_content_name(content),
+    } %}
+        {% block tag %}
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-icon--{{ content_type.identifier }}">
+                    <use xlink:href="{{ ibexa_content_type_icon(content_type.identifier) }}"></use>
+                </svg>
+                {{ content_type.name }}
+            </span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {% set version_no = content.versionInfo.versionNo %}
+    {% set language = app.request.get('languageCode') ?: content.prioritizedFieldLanguageCode %}
+
+    {{ include("@ibexadesign/content/preview_template.html.twig", {
+        main_class: 'ibexa-sc-location-full-preview',
+        preview_url: url('ibexa.version.preview', {
+            'contentId': content.id,
+            'versionNo': version_no,
+            'language': language,
+            'siteAccessName': siteaccess,
+        }),
+    }) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-admin-ui-location-view-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block react_modules %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-mfu-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-content-tree-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-site-context-location-view-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

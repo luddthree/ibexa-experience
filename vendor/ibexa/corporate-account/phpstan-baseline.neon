@@ -1,0 +1,292 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/ApplicationEditController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/CompanyCreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$addresses of method Ibexa\\\\CorporateAccount\\\\Form\\\\ShippingAddressFormFactory\\:\\:getDeleteShippingAddressForm\\(\\) expects array\\<Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress\\>\\|null, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CompanyDetailsController.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:loadUserGroup\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CompanyDetailsController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/CompanyEditController.php
+
+		-
+			message: "#^Parameter \\#1 \\$addresses of method Ibexa\\\\CorporateAccount\\\\Form\\\\ShippingAddressFormFactory\\:\\:getDeleteShippingAddressForm\\(\\) expects array\\<Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress\\>\\|null, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/AddressBookController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/ApplicationController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 2
+			path: src/bundle/Controller/CorporatePortal/BillingAddressController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/InvitationController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 2
+			path: src/bundle/Controller/CorporatePortal/MembersController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/MembersController.php
+
+		-
+			message: "#^Cannot access property \\$destinationContentId on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/MembersController.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:loadUserGroup\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/MembersController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 2
+			path: src/bundle/Controller/CorporatePortal/MyProfileController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/ShippingAddressController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 2
+			path: src/bundle/Controller/CorporatePortal/ShippingAddressController.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContentInfo\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CorporatePortal/ShippingAddressController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/InvitationController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/MemberCreateController.php
+
+		-
+			message: "#^Cannot access property \\$destinationContentId on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/MemberCreateController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/MemberEditController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getClickedButton\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/MemberEditController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/ShippingAddressCreateController.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContentInfo\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/ShippingAddressCreateController.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/Controller/ShippingAddressEditController.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/Commerce/PopulateCommerceUserWithCompanyAddresses.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:getFieldValue\\(\\)\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/Commerce/PopulateCommerceUserWithCompanyAddresses.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:loadUserGroup\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/EventSubscriber/CorporatePortal/MembersViewSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Application\\\\BeforeCreateApplicationEvent\\:\\:getApplication\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Application but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Application\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Application/BeforeCreateApplicationEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Application\\\\BeforeUpdateApplicationEvent\\:\\:getUpdatedApplication\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Application but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Application\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Application/BeforeUpdateApplicationEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Company\\\\BeforeCreateCompanyAddressBookFolderEvent\\:\\:getContent\\(\\) should return Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Company/BeforeCreateCompanyAddressBookFolderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Company\\\\BeforeCreateCompanyEvent\\:\\:getCompany\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Company but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Company\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Company/BeforeCreateCompanyEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Company\\\\BeforeCreateCompanyMembersUserGroupEvent\\:\\:getContent\\(\\) should return Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Company/BeforeCreateCompanyMembersUserGroupEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Company\\\\BeforeUpdateCompanyEvent\\:\\:getUpdatedCompany\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Company but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Company\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Company/BeforeUpdateCompanyEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Member\\\\BeforeCreateMemberEvent\\:\\:getMember\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Member but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Member\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Member/BeforeCreateMemberEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\Member\\\\BeforeUpdateMemberEvent\\:\\:getUpdatedMember\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Member but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Member\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/Member/BeforeUpdateMemberEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\ShippingAddress\\\\BeforeCreateShippingAddressEvent\\:\\:getShippingAddress\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/ShippingAddress/BeforeCreateShippingAddressEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\ShippingAddress\\\\BeforeCreateShippingAddressFromCompanyBillingAddressEvent\\:\\:getShippingAddress\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/ShippingAddress/BeforeCreateShippingAddressFromCompanyBillingAddressEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\CorporateAccount\\\\Event\\\\ShippingAddress\\\\BeforeUpdateShippingAddressEvent\\:\\:getUpdatedShippingAddress\\(\\) should return Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress but returns Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\ShippingAddress\\|null\\.$#"
+			count: 1
+			path: src/contracts/Event/ShippingAddress/BeforeUpdateShippingAddressEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\CorporateAccount\\\\Cdp\\\\Export\\\\User\\\\CompanyInfoUserItemProcessor\\:\\:doProcess\\(\\) should return array\\<string, bool\\|float\\|int\\|string\\|null\\> but returns array\\<string, array\\<int, array\\<string, int\\|string\\|null\\>\\>\\|bool\\|float\\|int\\|string\\|null\\>\\.$#"
+			count: 1
+			path: src/lib/Cdp/Export/User/CompanyInfoUserItemProcessor.php
+
+		-
+			message: "#^Method Ibexa\\\\CorporateAccount\\\\Commerce\\\\Individuals\\\\IndividualsLocationResolver\\:\\:resolveLocation\\(\\) should return Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 1
+			path: src/lib/Commerce/Individuals/IndividualsLocationResolver.php
+
+		-
+			message: "#^Parameter \\#1 \\$parentLocationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:newLocationCreateStruct\\(\\) expects int, int\\|null given\\.$#"
+			count: 2
+			path: src/lib/CompanyService.php
+
+		-
+			message: "#^Access to protected property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\UserGroupRoleAssignment\\|Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\UserRoleAssignment\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/lib/Event/Listener/RoleSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$pathString on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/InvitationsFormProcessor.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:loadUserGroup\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/InvitationsFormProcessor.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ShippingAddressFormProcessor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$modificationDate \\(DateTime\\) does not accept DateTime\\|null\\.$#"
+			count: 1
+			path: src/lib/Migrations/StepExecutor/Company/CreateCompanyStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$remoteId \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Migrations/StepExecutor/Company/CreateCompanyStepExecutor.php
+
+		-
+			message: "#^Parameter \\#1 \\$iterator of function iterator_to_array expects Traversable, iterable\\<Ibexa\\\\Core\\\\MVC\\\\Symfony\\\\SiteAccess\\> given\\.$#"
+			count: 2
+			path: src/lib/PageBuilder/SiteAccess/NonCorporateSiteAccessResolver.php
+
+		-
+			message: "#^PHPDoc tag @implements contains generic type Pagerfanta\\\\Adapter\\\\AdapterInterface\\<Ibexa\\\\Contracts\\\\CorporateAccount\\\\Values\\\\Member\\> but interface Pagerfanta\\\\Adapter\\\\AdapterInterface is not generic\\.$#"
+			count: 1
+			path: src/lib/Pagerfanta/Adapter/MemberListAdapter.php
+
+		-
+			message: "#^PHPDoc tag @implements contains generic type Pagerfanta\\\\Adapter\\\\AdapterInterface\\<Ibexa\\\\Bundle\\\\Commerce\\\\Checkout\\\\Entity\\\\Basket\\> but interface Pagerfanta\\\\Adapter\\\\AdapterInterface is not generic\\.$#"
+			count: 1
+			path: src/lib/Pagerfanta/Adapter/OrderListAdapter.php
+
+		-
+			message: "#^PHPDoc tag @implements contains generic type Pagerfanta\\\\Adapter\\\\AdapterInterface\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\> but interface Pagerfanta\\\\Adapter\\\\AdapterInterface is not generic\\.$#"
+			count: 1
+			path: src/lib/Pagerfanta/Adapter/ShippingAddressListAdapter.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContent\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/ShippingAddressService.php
+
+		-
+			message: "#^Parameter \\#1 \\$parentLocationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:newLocationCreateStruct\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/ShippingAddressService.php
+
+		-
+			message: "#^Cannot access property \\$email on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: tests/integration/Form/ActionDispatcher/ShippingAddressDispatcherTest.php
+
+		-
+			message: "#^Cannot access property \\$fields on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: tests/integration/Form/ActionDispatcher/ShippingAddressDispatcherTest.php
+
+		-
+			message: "#^Cannot access property \\$name on Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\|null\\.$#"
+			count: 1
+			path: tests/integration/Form/ActionDispatcher/ShippingAddressDispatcherTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$parentLocation of method Ibexa\\\\CorporateAccount\\\\Form\\\\ShippingAddressFormFactory\\:\\:getCreateForm\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null given\\.$#"
+			count: 1
+			path: tests/integration/Form/ActionDispatcher/ShippingAddressDispatcherTest.php
+

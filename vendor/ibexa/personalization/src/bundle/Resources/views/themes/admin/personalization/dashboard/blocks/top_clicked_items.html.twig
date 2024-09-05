@@ -1,0 +1,10 @@
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% set default_block_name = 'dashboard.top_clicked_items'|trans|desc('Top 10 clicked items') %}
+
+<div class="ibexa-db-top-clicks {{ block_class }}">
+    <h2 class="ibexa-db-top-clicks__header">{{ block_name|default(default_block_name) }}</h2>
+    {{ form_start(form) }}
+        {% include '@ibexadesign/personalization/dashboard/parts/popularity.html.twig' with { popularity_list, form } only %}
+    {{ form_end(form) }}
+</div>

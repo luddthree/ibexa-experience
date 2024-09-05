@@ -1,0 +1,812 @@
+tables:
+    ibexa_attribute_definition:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            identifier:
+                type: string
+                nullable: false
+                length: 64
+                index:
+                    name: attribute_definition_identifier_idx
+                    unique: true
+            type:
+                type: string
+                nullable: false
+                length: 32
+            attribute_group_id:
+                type: integer
+                nullable: false
+                index: ibexa_attribute_definition_attribute_group_idx
+                foreignKey:
+                    name: ibexa_attribute_definition_attribute_group_fk
+                    table: ibexa_attribute_group
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            position:
+                type: integer
+                nullable: false
+                options:
+                    default: 0
+            options:
+                type: json
+                nullable: true
+
+    ibexa_attribute_definition_ml:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            attribute_definition_id:
+                type: integer
+                nullable: false
+                index: ibexa_attribute_definition_ml_attribute_definition_idx
+                foreignKey:
+                    name: ibexa_attribute_definition_ml_attribute_definition_fk
+                    table: ibexa_attribute_definition
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            language_id:
+                type: bigint
+                nullable: false
+                index: ibexa_attribute_definition_ml_language_idx
+                foreignKey:
+                    name: ibexa_attribute_definition_ml_language_fk
+                    table: ezcontent_language
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            name:
+                type: string
+                nullable: false
+                length: 190
+            name_normalized:
+                type: string
+                nullable: false
+                length: 190
+                index: ibexa_attribute_definition_ml_name_idx
+            description:
+                type: string
+                nullable: false
+                length: 10000
+        uniqueConstraints:
+            ibexa_attribute_definition_ml_uidx:
+                fields:
+                    - attribute_definition_id
+                    - language_id
+
+    ibexa_attribute_group:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            identifier:
+                type: string
+                nullable: false
+                length: 64
+                index:
+                    name: ibexa_attribute_group_identifier_uidx
+                    unique: true
+            position:
+                type: integer
+                nullable: false
+                options:
+                    default: 0
+
+    ibexa_attribute_group_ml:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            attribute_group_id:
+                type: integer
+                nullable: false
+                index: ibexa_attribute_group_ml_attribute_group_idx
+                foreignKey:
+                    name: ibexa_attribute_group_ml_attribute_group_fk
+                    table: ibexa_attribute_group
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            language_id:
+                type: bigint
+                nullable: false
+                index: ibexa_attribute_group_ml_language_idx
+                foreignKey:
+                    name: ibexa_attribute_group_ml_language_fk
+                    table: ezcontent_language
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            name:
+                type: string
+                nullable: false
+                length: 190
+            name_normalized:
+                type: string
+                nullable: false
+                length: 190
+                index: ibexa_attribute_group_ml_name_idx
+        uniqueConstraints:
+            attribute_group_ml_idx:
+                fields:
+                    - attribute_group_id
+                    - language_id
+
+    ibexa_attribute_definition_assignment:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            field_definition_id:
+                type: integer
+                nullable: false
+                index: ibexa_attribute_definition_assignment_field_definition_idx
+            status:
+                type: integer
+                nullable: false
+            attribute_definition_id:
+                type: integer
+                nullable: false
+                index: ibexa_attribute_definition_assignment_attribute_definition_idx
+                foreignKey:
+                    name: ibexa_attribute_definition_assignment_attribute_definition_fk
+                    table: ibexa_attribute_definition
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: CASCADE
+            required:
+                type: boolean
+                options:
+                    default: false
+            discriminator:
+                type: boolean
+                options:
+                    default: false
+        uniqueConstraints:
+            ibexa_attribute_definition_assignment_main_uidx:
+                fields:
+                    - field_definition_id
+                    - status
+                    - attribute_definition_id
+
+    ibexa_customer_group:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            identifier:
+                type: string
+                nullable: false
+                length: 64
+                index:
+                    name: ibexa_customer_group_identifier_idx
+                    unique: true
+            global_price_rate:
+                type: decimal
+                nullable: false
+                options:
+                    precision: 5
+                    scale: 2
+                    default: 0
+
+    ibexa_customer_group_ml:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            customer_group_id:
+                type: integer
+                nullable: false
+            language_id:
+                type: bigint
+                nullable: false
+            name:
+                type: string
+                nullable: false
+                length: 190
+            name_normalized:
+                type: string
+                nullable: false
+                length: 190
+            description:
+                type: string
+                nullable: false
+                length: 10000
+        indexes:
+            ibexa_customer_group_idx:
+                fields:
+                    - customer_group_id
+            ibexa_language_idx:
+                fields:
+                    - language_id
+        uniqueConstraints:
+            ibexa_customer_group_ml_customer_group_language_uidx:
+                fields:
+                    - customer_group_id
+                    - language_id
+        foreignKeys:
+            ibexa_customer_group__ml_fk:
+                fields:
+                    - customer_group_id
+                foreignTable: ibexa_customer_group
+                foreignFields:
+                    - id
+                options:
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
+
+    ibexa_content_customer_group:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            field_id:
+                type: integer
+                nullable: false
+            field_version_no:
+                type: integer
+                nullable: false
+            content_id:
+                type: integer
+                nullable: false
+            customer_group_id:
+                type: integer
+                nullable: false
+        uniqueConstraints:
+            ibexa_content_customer_group_attribute_uidx:
+                fields:
+                    - field_id
+                    - field_version_no
+        foreignKeys:
+            ibexa_content_customer_group_customer_group_fk:
+                foreignTable: ibexa_customer_group
+                fields:
+                    - customer_group_id
+                foreignFields:
+                    - id
+                options:
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
+            ibexa_content_customer_group_attribute_fk:
+                foreignTable: ezcontentobject_attribute
+                fields:
+                    - field_id
+                    - field_version_no
+                foreignFields:
+                    - id
+                    - version
+                options:
+                    onDelete: CASCADE
+                    onUpdate: CASCADE
+        indexes:
+            ibexa_content_customer_group_customer_group_idx:
+                fields:
+                    - customer_group_id
+
+    ibexa_product:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            code:
+                type: string
+                nullable: false
+                length: 64
+                index:
+                    name: ibexa_product_code_uidx
+                    unique: true
+            is_published:
+                type: boolean
+                nullable: false
+                options:
+                    default: false
+            ### Indicates a Product Variant
+            base_product_id:
+                type: integer
+                nullable: true
+                index: ibexa_product_base_product_idx
+                foreignKey:
+                    name: ibexa_product_base_product_fk
+                    table: ibexa_product
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: CASCADE
+
+    # ibexa_content_product
+    ibexa_product_specification:
+        indexes:
+            ibexa_product_specification_cv:
+                fields:
+                    - content_id
+                    - version_no
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            content_id:
+                type: integer
+                nullable: true
+            version_no:
+                type: integer
+                nullable: true
+            field_id:
+                type: integer
+                nullable: true
+                index: ibexa_product_specification_fid
+            code:
+                type: string
+                nullable: false
+                length: 64
+                index: ibexa_product_specification_pc
+            product_id:
+                type: integer
+                nullable: false
+                index: ibexa_product_idx
+                foreignKey:
+                    name: ibexa_product_fkey
+                    table: ibexa_product
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: CASCADE
+            # Reference to ibexa_product_specification.field_id
+            base_product_id:
+                type: integer
+                nullable: true
+                index: ibexa_product_specification_base_pid
+                options:
+                    default: null
+        uniqueConstraints:
+            ibexa_product_specification_field_version_uidx:
+                fields:
+                    - field_id
+                    - version_no
+        foreignKeys:
+            ibexa_product_specification_field_version_fk:
+                foreignTable: ezcontentobject_attribute
+                foreignFields:
+                    - id
+                    - version
+                fields:
+                    - field_id
+                    - version_no
+                options:
+                    onDelete: RESTRICT
+                    onUpdate: CASCADE
+
+    ibexa_product_specification_asset:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            product_specification_id:
+                type: integer
+                nullable: false
+                index: ibexa_product_specification_asset_pid
+            uri:
+                type: string
+                nullable: false
+            tags:
+                type: json
+                nullable: true
+
+    ibexa_product_specification_attribute:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            product_specification_id:
+                type: integer
+                nullable: false
+                index: ibexa_product_specification_attribute_sid_idx
+                foreignKey:
+                    name: ibexa_product_specification_attribute_sid_fk
+                    table: ibexa_product_specification
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            attribute_definition_id:
+                type: integer
+                nullable: false
+                index: ibexa_product_specification_attribute_aid_idx
+                foreignKey:
+                    name: ibexa_product_specification_attribute_aid
+                    table: ibexa_attribute_definition
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: CASCADE
+            discriminator:
+                type: string
+                length: 190
+                nullable: false
+
+    ibexa_product_specification_attribute_boolean:
+        id:
+            id:
+                type: integer
+                nullable: false
+                foreignKey:
+                    name: ibexa_product_specification_attribute_boolean_fk
+                    table: ibexa_product_specification_attribute
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+        fields:
+            value:
+                type: boolean
+                nullable: true
+                index: ibexa_product_specification_attribute_boolean_value_idx
+
+
+    ibexa_product_specification_attribute_simple_custom:
+        id:
+            id:
+                type: integer
+                nullable: false
+                foreignKey:
+                    name: ibexa_product_specification_attribute_simple_custom_fk
+                    table: ibexa_product_specification_attribute
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+        fields:
+            value:
+                type: json
+                nullable: true
+
+    ibexa_product_specification_attribute_integer:
+        id:
+            id:
+                type: integer
+                nullable: false
+                foreignKey:
+                    name: ibexa_product_specification_attribute_integer_fk
+                    table: ibexa_product_specification_attribute
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+        fields:
+            value:
+                type: integer
+                nullable: true
+                index: ibexa_product_specification_attribute_integer_value_idx
+
+    ibexa_product_specification_attribute_float:
+        id:
+            id:
+                type: integer
+                nullable: false
+                foreignKey:
+                    name: ibexa_product_specification_attribute_float_fk
+                    table: ibexa_product_specification_attribute
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+        fields:
+            value:
+                type: float
+                nullable: true
+                index: ibexa_product_specification_attribute_float_value_idx
+
+    ibexa_product_specification_attribute_selection:
+        id:
+            id:
+                type: integer
+                nullable: false
+                foreignKey:
+                    name: ibexa_product_specification_attribute_selection_fk
+                    table: ibexa_product_specification_attribute
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+        fields:
+            value:
+                type: string
+                length: 190
+                nullable: true
+                index: ibexa_product_specification_attribute_selection_value_idx
+
+    ibexa_currency:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            code:
+                type: string
+                length: 3
+                nullable: false
+                index:
+                    name: ibexa_currency_code_idx
+                    unique: true
+            subunits:
+                type: smallint
+                nullable: false
+            enabled:
+                type: boolean
+                options:
+                    default: true
+
+    ibexa_product_specification_price:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            product_code:
+                type: string
+                nullable: false
+                length: 64
+                index: ibexa_product_specification_price_product_code_idx
+            discriminator:
+                type: string
+                nullable: false
+                length: 20
+                options:
+                    default: main
+            amount:
+                type: decimal
+                nullable: false
+                options:
+                    scale: 4
+                    precision: 19
+            currency_id:
+                type: integer
+                nullable: false
+                index: ibexa_product_specification_price_currency_idx
+                foreignKey:
+                    name: ibexa_product_specification_price_currency_fk
+                    table: ibexa_currency
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            custom_price_amount:
+                type: decimal
+                nullable: true
+                options:
+                    scale: 4
+                    precision: 19
+            custom_price_rule:
+                type: decimal
+                nullable: true
+                options:
+                    scale: 2
+                    precision: 6
+
+    ibexa_product_specification_price_customer_group:
+        id:
+            id:
+                type: integer
+                nullable: false
+        fields:
+            customer_group_id:
+                type: integer
+                nullable: false
+                index: ibexa_product_specification_price_customer_group_idx
+                foreignKey:
+                    name: ibexa_product_specification_price_customer_group_fk
+                    table: ibexa_customer_group
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+
+    ibexa_product_type_specification_region_vat_category:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            field_definition_id:
+                type: integer
+                nullable: false
+            status:
+                type: integer
+                nullable: false
+            region:
+                type: string
+                nullable: false
+                length: 190
+            vat_category:
+                type: string
+                nullable: false
+                length: 190
+        uniqueConstraints:
+            ibexa_product_type_region_vat_category_product_region_fk:
+                fields:
+                    - field_definition_id
+                    - status
+                    - region
+
+    ibexa_product_specification_availability:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            product_code:
+                type: string
+                nullable: false
+                length: 64
+                index:
+                    name: ibexa_product_specification_availability_product_code_uidx
+                    unique: true
+            availability:
+                type: boolean
+                nullable: false
+                index: ibexa_product_specification_availability_idx
+                options:
+                    default: '0'
+            is_infinite:
+                type: boolean
+                nullable: false
+                options:
+                    default: '0'
+            stock:
+                type: integer
+                nullable: true
+                options:
+                    unsigned: true
+
+    ibexa_catalog:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            identifier:
+                type: string
+                nullable: false
+                length: 64
+                index:
+                    name: ibexa_catalog_identifier_idx
+                    unique: true
+            creator_id:
+                type: integer
+                nullable: false
+                index: ibexa_catalog_creator_idx
+            created:
+                type: integer
+                nullable: false
+            modified:
+                type: integer
+                nullable: false
+            status:
+                type: string
+                nullable: false
+                options:
+                    default: draft
+            query_string:
+                type: text
+                nullable: false
+                options:
+                    default: ''
+
+    ibexa_catalog_ml:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            catalog_id:
+                type: integer
+                nullable: false
+                index: ibexa_catalog_catalog_idx
+                foreignKey:
+                    name: ibexa_catalog_ml_fk
+                    table: ibexa_catalog
+                    field: id
+                    options:
+                        onDelete: CASCADE
+                        onUpdate: CASCADE
+            language_id:
+                type: bigint
+                nullable: false
+                index: ibexa_catalog_language_idx
+            name:
+                type: string
+                nullable: false
+                length: 190
+            name_normalized:
+                type: string
+                nullable: false
+                length: 190
+            description:
+                type: string
+                nullable: false
+                length: 10000
+        uniqueConstraints:
+            ibexa_catalog_ml_catalog_language_uidx:
+                fields:
+                    - catalog_id
+                    - language_id
+
+    ibexa_product_type_settings:
+        id:
+            id:
+                type: integer
+                options:
+                    autoincrement: true
+        fields:
+            field_definition_id:
+                type: integer
+            status:
+                type: integer
+            is_virtual:
+                type: boolean
+        uniqueConstraints:
+            ibexa_product_type_setting_field_definition_uidx:
+                fields:
+                    - field_definition_id
+                    - status
+        indexes:
+            ibexa_product_type_setting_field_definition_idx:
+                fields:
+                    - field_definition_id

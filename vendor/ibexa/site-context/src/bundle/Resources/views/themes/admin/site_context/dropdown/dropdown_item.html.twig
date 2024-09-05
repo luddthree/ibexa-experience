@@ -1,0 +1,38 @@
+{% trans_default_domain 'ibexa_site_context' %}
+
+{% set item_label = translation_domain is same as(false) ? choice.label : choice.label|trans({}, translation_domain) %}
+{% set preferred_choice = preferred_choice|default(false) %}
+{% set is_selected = custom_form ? choice.value == value : choice is selectedchoice(value) %}
+
+<li
+    data-value="{{ choice.value }}"
+    data-filter-value="{{ item_label }}"
+    class="ibexa-dropdown__item ibexa-grid-view-item ibexa-grid-view-item--vertical
+        {% if is_selected %}ibexa-dropdown__item--selected ibexa-grid-view-item--selected{% endif %}"
+>
+    <div class="ibexa-grid-view-item__radio ibexa-grid-view-item__radio--checked">
+        <input type="checkbox" class="ibexa-input ibexa-input--radio" checked />
+    </div>
+    <div class="ibexa-grid-view-item__radio ibexa-grid-view-item__radio--hovered">
+        <input type="checkbox" class="ibexa-input ibexa-input--radio ibexa-input--hovered" />
+    </div>
+    <div class="ibexa-grid-view-item__image-wrapper">
+        {% if choice.thumbnail is defined and choice.thumbnail is not null %}
+            <img src="{{ choice.thumbnail }}" />
+        {% else %}
+            <img src="/bundles/ibexasitefactory/img/template-placeholder.png" />
+        {% endif %}
+    </div>
+    <div class="ibexa-grid-view-item__footer">
+        <div class="ibexa-grid-view-item__title ibexa-dropdown__item-label">
+            {{ item_label }}
+        </div>
+        <div class="ibexa-grid-view-item__details-wrapper">
+            {% if choice.value is empty %}
+                <p>{{ 'site_context.dropdown.placeholder.description'|trans|desc('Shows all content you have access to. Some preview options are limited.') }}</p>
+            {% elseif choice.language is defined %}
+                {{ choice.language.name }}
+            {% endif %}
+        </div>
+    </div>
+</li>

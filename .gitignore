@@ -1,0 +1,52 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/*.sql
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/public/assets/ibexa/build/
+/public/assets/translations
+/public/var/site/storage/
+/var/
+/vendor/
+/assets/tailwind/node_modules
+/.vscode/
+###< symfony/framework-bundle ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
+
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/webpack-encore-bundle ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< symfony/webpack-encore-bundle ###
+
+
+###
+/.github
+/migrations
+/tests
+/.env.test
+/.ezlaunchpad.yml
+/.nvmrc
+/COPYRIGHT
+/LICENSE-bul
+/phpunit.xml.dist
+/symfony.lock
+/yarn.lock
+.DS_Store
+auth.json

@@ -1,0 +1,36 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Config\OutputType\OutputTypeAttributesResolver: ~
+
+    Ibexa\Personalization\Config\OutputType\OutputTypeAttributesResolverInterface:
+        '@Ibexa\Personalization\Config\OutputType\OutputTypeAttributesResolver'
+
+    Ibexa\Personalization\Config\ExportCredentialsResolver: ~
+
+    Ibexa\Personalization\Config\PersonalizationClientCredentialsResolver: ~
+
+    Ibexa\Personalization\Config\ItemType\IncludedItemTypeResolver:
+        tags:
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    Ibexa\Personalization\Config\ItemType\IncludedItemTypeResolverInterface:
+        '@Ibexa\Personalization\Config\ItemType\IncludedItemTypeResolver'
+
+    Ibexa\Personalization\Config\Repository\RepositoryConfigResolver: ~
+
+    Ibexa\Personalization\Config\Repository\RepositoryConfigResolverInterface:
+        '@Ibexa\Personalization\Config\Repository\RepositoryConfigResolver'
+
+    Ibexa\Personalization\Config\Authentication\ParametersResolver: ~
+
+    Ibexa\Personalization\Config\Authentication\ParametersResolverInterface:
+        alias: Ibexa\Personalization\Config\Authentication\ParametersResolver
+
+    Ibexa\Personalization\Config\Host\HostResolver: ~
+
+    Ibexa\Personalization\Config\Host\HostResolverInterface:
+        alias: Ibexa\Personalization\Config\Host\HostResolver

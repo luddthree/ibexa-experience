@@ -1,0 +1,63 @@
+#
+# Segment Groups
+#
+ibexa.segmentation.group.list:
+    path: /segmentation/group/list
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::groupListAction'
+
+ibexa.segmentation.group.view:
+    path: /segmentation/group/view/{segmentGroupId}
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::groupViewAction'
+    requirements:
+        segmentGroupId: \d+
+
+ibexa.segmentation.group.create:
+    path: /segmentation/group/create
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::groupCreateAction'
+
+ibexa.segmentation.group.update:
+    path: /segmentation/group/update/{segmentGroupId}
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::groupUpdateAction'
+    requirements:
+        segmentGroupId: \d+
+
+ibexa.segmentation.group.delete:
+    path: /segmentation/group/delete
+    methods: [ 'POST' ]
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::groupDeleteAction'
+
+ibexa.segmentation.group.bulk_delete:
+    path: /segmentation/group/bulk_delete
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::segmentGroupBulkDeleteAction'
+
+#
+# Segments
+#
+ibexa.segmentation.segment.create:
+    path: /segmentation/segment/create
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::segmentCreateAction'
+
+ibexa.segmentation.segment.update:
+    path: /segmentation/segment/update/{segmentId}
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::segmentUpdateAction'
+    requirements:
+        segmentId: \d+
+
+ibexa.segmentation.segment.bulk_delete:
+    path: /segmentation/segment/bulk_delete
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Segmentation\Controller\SegmentController::segmentBulkDeleteAction'

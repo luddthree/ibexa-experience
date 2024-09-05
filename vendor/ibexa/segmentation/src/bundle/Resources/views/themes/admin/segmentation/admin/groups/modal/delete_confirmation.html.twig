@@ -1,0 +1,27 @@
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    class: 'ibexa-modal--send-to-trash',
+    no_header: true,
+    id: 'delete-segment-group-modal',
+} %}
+    {% trans_default_domain 'ibexa_segmentation' %}
+    {% form_theme form '@ibexadesign/ui/form_fields.html.twig'  %}
+
+    {% block body_content %}
+        {{ 'segment_group.modal.message'|trans|desc('Do you want to delete the Segment Group?') }}
+    {% endblock %}
+    {% block footer_content %}
+        {{ form_start(form, {
+            'action': path('ibexa.segmentation.group.delete'),
+        }) }}
+            {{ form_widget(form.delete, {
+                'attr': {
+                    'class': 'btn ibexa-btn ibexa-btn--primary',
+                    'disabled': not can_delete
+                }
+            }) }}
+            <button type="button" class="btn ibexa-btn ibexa-btn--secondary" data-bs-dismiss="modal">
+                {{ 'form.cancel'|trans|desc('Cancel') }}
+            </button>
+        {{ form_end(form) }}
+    {% endblock %}
+{% endembed %}

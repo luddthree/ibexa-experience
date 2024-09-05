@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Ibexa\FieldTypePage\FieldType\Page\Block\Relation\Extractor\BlockAttributeRelationExtractorInterface:
+            tags: [ibexa.field_type.page.relation.attribute.type.extractor]
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Relation\RelationCollector: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Relation\BlockAttributeTypeRelationCollector: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Relation\BlockAttributeTypeRelationExtractorRegistry:
+        arguments:
+            $extractors: !tagged ibexa.field_type.page.relation.attribute.type.extractor
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Relation\Extractor\:
+        resource: '../../../lib/FieldType/Page/Block/Relation/Extractor/*'
+        autoconfigure: true
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Relation\Extractor\EmbedBlockAttributeRelationExtractor:
+        arguments:
+            $attributeIdentifiers:
+                - 'embed'
+                - 'embedvideo'

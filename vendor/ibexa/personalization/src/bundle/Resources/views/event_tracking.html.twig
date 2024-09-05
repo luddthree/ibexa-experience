@@ -1,0 +1,21 @@
+<script>
+    {% autoescape 'js' %}
+
+    (function () {
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const recommendationItems = document.querySelectorAll('a[data-recommendation-ping-api]');
+            const personalizationClient = new PersonalizationClient();
+
+            recommendationItems.forEach(item => {
+                item.addEventListener('click', event => {
+                    const url = event.currentTarget.dataset.recommendationPingApi;
+
+                    if (url && top === self) {
+                        personalizationClient.ping(url);
+                    }
+                });
+            });
+        });
+    })();
+    {% endautoescape %}
+</script>

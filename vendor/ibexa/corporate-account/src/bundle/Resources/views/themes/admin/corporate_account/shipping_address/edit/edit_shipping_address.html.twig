@@ -1,0 +1,51 @@
+{% extends '@ibexadesign/corporate_account/edit.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-shipping-address-create-edit{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'shipping_address.edit.editing'|trans|desc('Editing'),
+        content_type_name: content_type.name,
+        title: shipping_address.getName(),
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set menu_items %}
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <button
+                type="button"
+                data-click="#shipping_address_edit_publish"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--trigger"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'shipping_address.edit.save_btn.label'|trans|desc('Save and close') }}
+                </span>
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <a
+                href="{{ close_href }}"
+                class="btn ibexa-btn ibexa-btn--secondary"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'shipping_address.edit.cancel_btn.label'|trans|desc('Discard') }}
+                </span>
+            </a>
+        </li>
+    {% endset %}
+
+    {{ include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', {
+        menu_items,
+    }) }}
+{% endset %}
+
+{% block form_fields %}
+    {{- form_widget(form.publish, { attr: { hidden: true }}) -}}
+    {{- form_widget(form.publishAndEdit, { attr: { hidden: true }}) -}}
+    {{ parent() }}
+{% endblock %}

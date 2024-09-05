@@ -1,0 +1,10 @@
+-
+    type: content
+    mode: delete
+    match:
+        parent_location_id: 43
+-
+    type: content
+    mode: delete
+    match:
+        location_id: 42

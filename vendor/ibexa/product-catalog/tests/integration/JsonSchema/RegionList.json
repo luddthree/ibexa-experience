@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "RegionList": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "Region": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "identifier": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "identifier"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "Region"
+            ]
+        }
+    },
+    "required": [
+        "RegionList"
+    ]
+}

@@ -1,0 +1,44 @@
+{% trans_default_domain 'ibexa_connector_qualifio' %}
+
+{% set item_label = translation_domain is same as(false) ? choice.label : choice.label|trans({}, translation_domain) %}
+{% set preferred_choice = preferred_choice|default(false) %}
+
+{% if choice.choices is defined %}
+    <li class="ibexa-dropdown__item-group">
+        <label class="ibexa-dropdown__item-group-label">{{ item_label }}</label>
+        <ul class="ibexa-dropdown__item-group-list">
+            {% for child in choice.choices %}
+                {% include '@ibexadesign/qualifio/dropdown/dropdown_item.html.twig' with { choice: child, preferred_choice, custom_form } %}
+            {% endfor %}
+        </ul>
+    </li>
+{% else %}
+    {% set attributes = choice.attr ?? {} %}
+    {% set is_selected = custom_form ? choice.value == value : choice is selectedchoice(value) %}
+    {% set campaign_type = attributes['data-campaign-type']|default('') %}
+    {% set start_date = attributes['data-start-date']|default('') %}
+    {% set end_date = attributes['data-end-date']|default('') %}
+
+    <li
+        data-value="{{ choice.value }}"
+        data-filter-value="{{ item_label }}"
+        class="ibexa-dropdown__item
+            {% if preferred_choice %}ibexa-dropdown__item--preferred-choice{% endif %}
+            {% if is_selected %}ibexa-dropdown__item--selected{% endif %}"
+    >
+        <div class="ibexa-dropdown__item-label-wrapper">
+            <span class="ibexa-dropdown__item-label">{{ item_label }}</span>
+            <div class="ibexa-dropdown__item-date-wrapper">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('date') }}"></use>
+                </svg>
+                <span class="ibexa-dropdown__item-date">{{ date(start_date)|ibexa_short_date }} - {{ date(end_date)|ibexa_short_date }}</span>
+            </div>
+        </div>
+        <div class="ibexa-dropdown__item-check">
+            <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-dropdown__item-check-icon">
+                <use xlink:href="{{ ibexa_icon_path('checkmark') }}"></use>
+            </svg>
+        </div>
+    </li>
+{% endif %}

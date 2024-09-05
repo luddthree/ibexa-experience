@@ -1,0 +1,4 @@
+ibexa.connect.rest.templates.list:
+    path: /connect/scenario_block/templates
+    controller: Ibexa\Bundle\Connect\Controller\REST\TemplateController::listView
+    methods: [GET]

@@ -1,0 +1,22 @@
+-
+    type: object_state
+    mode: create
+    metadata:
+        identifier: state_1
+        mainTranslation: eng-GB
+        objectStateGroup: 2
+        translations:
+            eng-GB:
+                name: 'Object State 1 name'
+                description: 'Object State 1 description'
+-
+    type: object_state
+    mode: create
+    metadata:
+        identifier: state_2
+        mainTranslation: eng-GB
+        objectStateGroup: ez_lock
+        translations:
+            eng-GB:
+                name: 'Object State 2 name'
+                description: 'Object State 2 description'

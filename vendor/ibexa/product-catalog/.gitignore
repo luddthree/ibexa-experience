@@ -1,0 +1,10 @@
+/vendor
+/.php-cs-fixer.cache
+/.phpunit.result.cache
+/composer.lock
+/test.db
+/test.db-journal
+node_modules/
+yarn.lock
+/config/graphql
+

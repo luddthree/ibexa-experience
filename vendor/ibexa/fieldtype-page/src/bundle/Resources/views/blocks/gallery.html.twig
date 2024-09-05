@@ -1,0 +1,17 @@
+<div class="block-gallery {{ block_class }}">
+    <h4>{{ ibexa_content_name(location.contentinfo) }}</h4>
+    <div id="gallery-{{ folder }}">
+        {% for content in contentArray %}
+            <div>
+                {{ ibexa_http_cache_tag_relation_ids(content.id) }}
+                {{ ibexa_render_field(content, 'image', {
+                    'parameters': {
+                        'width': '100%',
+                        'alias': 'gallery'
+                    }
+                }) }}
+            </div>
+        {% endfor %}
+    </div>
+    <style type="text/css">{{ block_style|raw }}</style>
+</div>

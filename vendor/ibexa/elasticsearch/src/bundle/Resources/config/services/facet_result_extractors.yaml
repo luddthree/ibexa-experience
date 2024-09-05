@@ -1,0 +1,30 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\Elasticsearch\Query\FacetResultExtractor:
+        alias: Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\DispatcherResultExtractor
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\FilteredFacetResultExtractorDecorator:
+        decorates: Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\DispatcherResultExtractor
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\GlobalFacetResultExtractorDecorator:
+        decorates: Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\DispatcherResultExtractor
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\DispatcherResultExtractor:
+        arguments:
+            $extractors: !tagged_iterator ibexa.search.elasticsearch.query.facet_result.extractor
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\ContentTypeResultExtractor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.facet_result.extractor }
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\SectionResultExtractor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.facet_result.extractor }
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\FacetResultExtractor\UserResultExtractor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.facet_result.extractor }

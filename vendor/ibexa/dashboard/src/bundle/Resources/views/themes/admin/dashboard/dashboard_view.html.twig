@@ -1,0 +1,128 @@
+{% extends "@ibexadesign/dashboard/dashboard_layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{%- block dashboard_main_class -%}ibexa-db-view{%- endblock -%}
+
+{% block actions %}
+    {% set action_btns = {
+        edit: {
+            label: 'dashboard.customize'|trans|desc('Customize dashboard'),
+            action_attr: { class: 'ibexa-db-header__customize-dashboard' },
+        },
+        set: null,
+    } %}
+    {% set popup_items = [] %}
+    {% set dashboard_name = location.content.name %}
+
+    {% if edit_active_dashboard %}
+        {% set action_btns = action_btns|merge({
+            edit: {
+                label: 'dashboard.edit'|trans({ '%locationContentName%': dashboard_name })|desc('Edit %locationContentName%'),
+                action_attr: { class: 'ibexa-db-header__edit-dashboard' },
+            },
+            set: {
+                label: 'dashboard.switch_to_default'|trans|desc('Switch to default dashboard'),
+                action_attr: { class: 'ibexa-db-header__set-active-dashboard' },
+            }
+        }) %}
+    {% endif %}
+
+    {% if not edit_active_dashboard and form_content_edit is defined and change_active_dashboard is defined %}
+        {% set action_btns = action_btns|merge({
+            edit: null,
+            set: {
+                label: '',
+                action_attr: { class: 'ibexa-db-header__set-active-dashboard' },
+            }
+        }) %}
+    {% endif %}
+
+    {% for key in action_btns|keys %}
+        {% set item = action_btns[key] %}
+        {% if item is not null %}
+            {% set popup_items = popup_items|merge([item]) %}
+        {% endif %}
+    {% endfor %}
+   
+    <div class="ibexa-db-header__actions">
+        <button class="btn ibexa-btn ibexa-btn--secondary-dark ibexa-btn--no-text ibexa-db-header__more">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('options') }}"></use>
+            </svg>
+        </button>
+
+        {{ include('@ibexadesign/ui/component/multilevel_popup_menu/multilevel_popup_menu.html.twig', {
+            groups: [
+                {
+                    id: 'default',
+                    items: popup_items,
+                },
+            ],
+            attr: {
+                'data-trigger-element-selector': '.ibexa-db-header__more',
+                'data-initial-branch-placement': 'bottom-end',
+            },
+            branch_attr: {
+                'class': 'ibexa-db-actions-popup-menu',
+            }
+        }) }}
+
+        {% if form_content_edit is defined %}
+            {{ form_start(form_content_edit, { 'action': path('ibexa.content.edit') }) }}
+            {{ form_row(form_content_edit.language, { attr: { hidden: 'hidden' } }) }}
+            {{ form_row(form_content_edit.create, { attr: { hidden: 'hidden' } }) }}
+            {{ form_end(form_content_edit) }}
+        {% endif %}
+
+        {% if change_active_dashboard is defined %}
+            {{ form(change_active_dashboard, {
+                attr: { hidden: 'hidden' },
+                'action': path('ibexa.dashboard.change_active', {
+                    'locationId': location.id
+                }),
+            }) }}
+        {% endif %}
+    </div>
+{% endblock %}
+{% block content_class %}ibexa-db-blocks--view{% endblock %}
+{% block content_body %}
+    {% trans_default_domain 'ibexa_dashboard' %}
+
+    {% if form_dashboard_customize is defined %}
+        {% set is_dashboard_banner_hidden = ibexa_get_user_preference_value('hide_dashboard_banner', 'false') %}
+ 
+        <section class="ibexa-db-banner{% if is_dashboard_banner_hidden == 'true' %} ibexa-db-banner--hidden{% endif %}">
+            <div class="ibexa-db-banner__card">
+                <div class="ibexa-db-banner__content">
+                    <h2 class="ibexa-db-banner__subtitle">{{ 'dashboard.enhance_dashboard_experience'|trans|desc('Enhance your dashboard experience') }}</h2>
+                    <span class="ibexa-db-banner__desc">
+                        {{ 'dashboard.builder.functionality'|trans|desc('Access the dashboard\'s customization tool, that allows you to personalize it to create a more intuitive user experience.') }}
+                    </span>
+                    <div class="ibexa-db-banner__customize-dashboard">
+                        {{ form_start(form_dashboard_customize, {
+                            'action': path('ibexa.dashboard.customize_dashboard'),
+                        }) }}
+                        {{ form_row(form_dashboard_customize.customize, { attr: { class: 'ibexa-db-banner__customize-dashboard-btn btn ibexa-btn ibexa-btn--primary' } }) }}
+                        {{ form_end(form_dashboard_customize) }}
+                    </div>
+                </div>
+                <div class="ibexa-db-banner__graph-img-wrapper">
+                    <img class="ibexa-db-banner__graph-img" src="{{ asset('bundles/ibexadashboard/img/banner-dashboard-personalize.png') }}" alt="">
+                </div>
+            </div>
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-db-banner__close-btn">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+        </section>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-dashboard-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-dashboard-view-js', null, 'ibexa') }}
+{% endblock %}

@@ -1,0 +1,6 @@
+ibexa.rest.corporate_account.root:
+    path: /corporate
+    methods: [ GET ]
+    controller: 'Ibexa\Bundle\CorporateAccount\Controller\REST\RootController::getRootAction'
+    options:
+        exposed: true

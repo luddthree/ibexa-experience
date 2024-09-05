@@ -1,0 +1,34 @@
+{% embed '@ibexadesign/product_catalog/catalog/edit/list_filter_tags.html.twig' with {
+    is_empty_filter: criteria.vars.value == null,
+} %}
+    {% block content %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% set popup_menu_items = [] %}
+
+        {% for choice in criteria.vars.choices %}
+            {% if choice is selectedchoice(criteria.vars.value) %}
+                {{ include('@ibexadesign/ui/tag.html.twig', {
+                    content: choice.label,
+                    is_loading_state: false,
+                    is_deletable: not is_filter_preview,
+                    tag_attributes: {
+                        'class': 'ibexa-pc-edit-catalog-list-filter-tag',
+                        'data-value': choice.value|e('html_attr'),
+                    }
+                }) }}
+            {% endif %}
+
+            {% set popup_menu_items = popup_menu_items|merge([{
+                label: choice.label,
+                attr: {
+                    'data-value': choice.value|e('html_attr')
+                }
+            }]) %}
+        {% endfor %}
+
+        {% include '@ibexadesign/product_catalog/catalog/edit/tags_popup_menu.html.twig' with {
+            items: popup_menu_items,
+        } %}
+    {% endblock %}
+{% endembed %}

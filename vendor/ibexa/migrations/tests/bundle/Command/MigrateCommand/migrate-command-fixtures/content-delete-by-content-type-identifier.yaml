@@ -1,0 +1,6 @@
+-
+    type: content
+    mode: delete
+    match:
+        field: content_type_identifier
+        value: user

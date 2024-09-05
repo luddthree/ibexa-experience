@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Elasticsearch\ElasticSearch\IndexTemplate\IndexTemplateRegistry:
+        arguments:
+            $templates: '%ibexa.elasticsearch.index_templates%'
+
+    Ibexa\Elasticsearch\ElasticSearch\IndexTemplate\IndexTemplateRegistryInterface:
+        alias: Ibexa\Elasticsearch\ElasticSearch\IndexTemplate\IndexTemplateRegistry
+

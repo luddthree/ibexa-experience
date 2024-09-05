@@ -1,0 +1,44 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FieldTypePage\ScheduleBlock\ScheduleService: ~
+
+    Ibexa\FieldTypePage\ScheduleBlock\ScheduleSnapshotService: ~
+
+    Ibexa\FieldTypePage\ScheduleBlock\Scheduler: ~
+
+    Ibexa\FieldTypePage\ScheduleBlock\EventListFilter: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ScheduleBlockListener:
+        arguments:
+            $serializer: '@Ibexa\FieldTypePage\Serializer\Serializer'
+            $snapshotsAmount: '%ibexa.field_type.page.block.schedule.snapshots.amount%'
+
+    Ibexa\FieldTypePage\Registry\ScheduleBlockEventProcessorRegistry:
+        arguments:
+            $processors: !tagged ibexa.field_type.page.schedule_block.event.processor
+
+    Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\Processor\EventProcessorDispatcher: ~
+
+    #
+    # Event Processors
+    #
+
+    Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\Processor\ItemAddedEventProcessor:
+        tags:
+            - { name: ibexa.field_type.page.schedule_block.event.processor }
+
+    Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\Processor\ItemRemovedEventProcessor:
+        tags:
+            - { name: ibexa.field_type.page.schedule_block.event.processor }
+
+    Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\Processor\ItemsReorderedEventProcessor:
+        tags:
+            - { name: ibexa.field_type.page.schedule_block.event.processor }
+
+    Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\Processor\LimitChangedEventProcessor:
+        tags:
+            - { name: ibexa.field_type.page.schedule_block.event.processor }

@@ -1,0 +1,15 @@
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% embed '@ibexadesign/corporate_account/common/invitations_table.html.twig' with {
+    invitations,
+    company_id: company.id,
+    invitation_resend_form,
+    invitation_reinvite_form
+} only %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block invitations_forms %}
+        {{ form(invitation_resend_form, {action: path('ibexa.corporate_account.customer_portal.company.resend')}) }}
+        {{ form(invitation_reinvite_form, {action: path('ibexa.corporate_account.customer_portal.company.reinvite')}) }}
+    {% endblock %}
+{% endembed %}

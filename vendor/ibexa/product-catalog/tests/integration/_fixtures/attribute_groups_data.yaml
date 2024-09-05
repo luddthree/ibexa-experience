@@ -1,0 +1,23 @@
+ibexa_attribute_group:
+    - { id: 1, identifier: dimensions, position: 0 }
+    - { id: 2, identifier: dress_size, position: 1 }
+    - { id: 3, identifier: shoes_size, position: 2 }
+    - { id: 4, identifier: fabric, position: 1 }
+    - { id: 5, identifier: fastener, position: 1 }
+    - { id: 6, identifier: empty, position: 1 }
+    - { id: 7, identifier: foo_group, position: 1 }
+
+ibexa_attribute_group_ml:
+    - { id: 1, attribute_group_id: 1, language_id: 2, name: 'Dimensions', name_normalized: 'dimensions' }
+    - { id: 2, attribute_group_id: 1, language_id: 4, name: 'Wymiary', name_normalized: 'wymiary' }
+    - { id: 3, attribute_group_id: 2, language_id: 2, name: 'Size (dress)', name_normalized: 'size (dress)' }
+    - { id: 4, attribute_group_id: 2, language_id: 4, name: 'Rozmiar (sukienka)', name_normalized: 'rozmiar (sukienka)' }
+    - { id: 5, attribute_group_id: 3, language_id: 2, name: 'Size (shoes)', name_normalized: 'size (shoes)' }
+    - { id: 6, attribute_group_id: 3, language_id: 4, name: 'Rozmiar (obuwie)', name_normalized: 'rozmiar (obuwie)' }
+    - { id: 7, attribute_group_id: 4, language_id: 2, name: 'Fabric', name_normalized: 'fabric' }
+    - { id: 8, attribute_group_id: 4, language_id: 4, name: 'Tkanina', name_normalized: 'tkanina' }
+    - { id: 9, attribute_group_id: 5, language_id: 2, name: 'Fastener', name_normalized: 'fastener' }
+    - { id: 10, attribute_group_id: 5, language_id: 4, name: 'Zapiecie', name_normalized: 'zapiecie' }
+    - { id: 11, attribute_group_id: 6, language_id: 2, name: 'Empty', name_normalized: 'empty' }
+    - { id: 12, attribute_group_id: 7, language_id: 2, name: 'Foo group', name_normalized: 'foo group' }
+    - { id: 13, attribute_group_id: 7, language_id: 4, name: 'Foo group', name_normalized: 'foo group' }

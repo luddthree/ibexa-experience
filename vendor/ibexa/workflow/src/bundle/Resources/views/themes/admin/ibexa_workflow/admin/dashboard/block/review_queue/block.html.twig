@@ -1,0 +1,14 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% set default_block_name = 'dashboard.block.review_queue.title'|trans|desc('Review queue') %}
+
+<div class="card border-light ibexa-card ibexa-card--no-padding">
+    <div class="ibexa-card__title">{{ review_queue_title|default(default_block_name) }}</div>
+    <div class="ibexa-card__body">
+        <div class="tab-content ibexa-tab-content ibexa-tab-content__single-tab">
+            <div class="tab-pane ibexa-tab-content__pane active">
+                {% include '@ibexadesign/ibexa_workflow/admin/dashboard/table_workflow.html.twig' with {'ui_component': 'review_queue'} %}
+            </div>
+        </div>
+    </div>
+</div>

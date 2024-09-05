@@ -1,0 +1,3 @@
+framework:
+    router:
+        resource: '@IbexaTaxonomyBundle/Resources/config/routing.yaml'

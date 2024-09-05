@@ -1,0 +1,111 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% import "@ibexadesign/ui/dashboard/macros.html.twig" as macros %}
+
+{% set company_content = company.getContent() %}
+{% set basic_information_items = [
+    {
+        label: 'company.details.tab.company_profile.basic_information.name'|trans|desc('Company name'),
+        content: ibexa_field_value(company_content, 'name'),
+    },
+    {
+        label: 'company.details.tab.company_profile.basic_information.vat'|trans|desc('Tax ID'),
+        content: ibexa_field_value(company_content, 'vat'),
+    },
+    {
+        label: 'company.details.tab.company_profile.basic_information.website'|trans|desc('Website'),
+        content: ibexa_field_value(company_content, 'website'),
+    },
+    {
+        label: 'company.details.tab.company_profile.basic_information.customer_group'|trans|desc('Customer Group'),
+        content: ibexa_field_value(company_content, 'customer_group').getCustomerGroup().name
+    },
+    {
+        label: 'company.details.tab.company_profile.basic_information.sales_rep'|trans|desc('Sales Representative'),
+        content: sales_rep ? sales_rep.getName() : '-',
+    },
+] %}
+
+{% if contact %}
+    {% set contact_user_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: contact.getUser() } only %}
+    {% endset %}
+    {% set contact_information_items = [
+        {
+            label: 'company.details.tab.company_profile.contact.name'|trans|desc('Name'),
+            content: contact_user_name,
+        },
+        {
+            label: 'company.details.tab.company_profile.contact.phone'|trans|desc('Phone'),
+            content: ibexa_field_value(contact.getUser(), 'phone_number'),
+        },
+        {
+            label: 'company.details.tab.company_profile.contact.email'|trans|desc('Email'),
+            content: contact.getUser().email,
+        },
+    ] %}
+{% else %}
+    {% set contact_information_items = [
+        {
+            label: 'company.details.tab.company_profile.contact.name'|trans|desc('Name'),
+            content: '-',
+        },
+    ] %}
+{% endif %}
+
+<div class="ibexa-ca-company-tab-company-profile__top-wrapper">
+    {% set basic_information_headline_items %}
+        <a
+            href="{{ path('ibexa.corporate_account.company.basic_information.edit', {
+                companyId: company.id,
+            }) }}"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+            title="{{ 'company.details.tab.company_profile.basic_information.action.edit'|trans|desc('Edit') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </a>
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+        headline: 'company.details.tab.company_profile.basic_information.headline'|trans|desc('Basic information'),
+        headline_items: basic_information_headline_items,
+        items: basic_information_items,
+        view_mode: 'vertical',
+        is_inline_headline: true,
+    } only %}
+</div>
+
+<div class="ibexa-ca-company-tab-company-profile__bottom-wrapper">
+    <div class="ibexa-ca-company-tab-company-profile__billing-address-wrapper">
+        {% include '@ibexadesign/corporate_account/common/billing_address_details.html.twig' with {
+            billing_address,
+            edit_path: 'ibexa.corporate_account.company.billing_address.edit',
+            company_id: company.id,
+        } only %}
+    </div>
+
+    <div class="ibexa-ca-company-tab-company-profile__contact-person-wrapper">
+        {% set contact_information_headline_items %}
+            <a
+                href="{{ path('ibexa.corporate_account.company.contact.edit', {
+                    companyId: company.id,
+                }) }}"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text"
+                title="{{ 'company.details.tab.company_profile.contact.action.edit'|trans|desc('Edit') }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                    <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                </svg>
+            </a>
+        {% endset %}
+
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            headline: 'company.details.tab.company_profile.contact.headline'|trans|desc('Contact person'),
+            headline_items: contact_information_headline_items,
+            items: contact_information_items,
+            view_mode: 'vertical',
+        } only %}
+    </div>
+</div>

@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Block\Context\BlockContextFactory: ~
+
+    ibexa.page_builder.ui.config.provider.block_edit_form_templates:
+        class: Ibexa\AdminUi\UI\Config\Provider\ScopeParameterBasedValue
+        lazy: true
+        arguments:
+            $parameterName: page_builder_forms.block_edit_form_templates
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'blockEditFormTemplates' }
+
+    #
+    # Mappers
+    #
+
+    Ibexa\PageBuilder\Block\Mapper\BlockConfigurationMapper: ~
+    Ibexa\PageBuilder\Block\Mapper\BlockValueMapper: ~
+

@@ -1,0 +1,5 @@
+{% block ez_limitation_segmentgroup_value %}
+    {% apply spaceless %}
+        {{ values|map(segment_group => segment_group.name)|join(', ') }}
+    {% endapply %}
+{% endblock %}

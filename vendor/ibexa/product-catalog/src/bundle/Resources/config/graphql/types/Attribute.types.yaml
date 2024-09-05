@@ -1,0 +1,100 @@
+ProductAttributesInterface:
+    type: interface
+    config:
+        resolveType: '@=query("AttributesType", value)'
+        fields:
+            _all:
+                type: '[AttributeInterface]'
+                description: "All the product attributes"
+                resolve: '@=value'
+
+AttributeInterface:
+    type: interface
+    config:
+        resolveType: '@=query("AttributeType", value)'
+        fields:
+            identifier:
+                type: String
+            name:
+                type: String
+                resolve: '@=value.getAttributeDefinition().getName()'
+
+CheckboxAttribute:
+    inherits:
+        - AttributeInterface
+    type: object
+    config:
+        interfaces:
+            - AttributeInterface
+        fields:
+            identifier:
+                type: String
+            value:
+                type: Boolean
+
+ColorAttribute:
+    inherits:
+        - AttributeInterface
+    type: object
+    config:
+        interfaces:
+            - AttributeInterface
+        fields:
+            identifier:
+                type: String
+            value:
+                type: String
+
+FloatAttribute:
+    inherits:
+        - AttributeInterface
+    type: object
+    config:
+        interfaces:
+            - AttributeInterface
+        fields:
+            identifier:
+                type: String
+            value:
+                type: Float
+
+IntegerAttribute:
+    inherits:
+        - AttributeInterface
+    type: object
+    config:
+        interfaces:
+            - AttributeInterface
+        fields:
+            identifier:
+                type: String
+            value:
+                type: Int
+
+SelectionAttribute:
+    inherits:
+        - AttributeInterface
+    type: object
+    config:
+        interfaces:
+            - AttributeInterface
+        fields:
+            identifier:
+                type: String
+            value:
+                type: String
+            label:
+                type: String
+                resolve: '@=query("SelectionAttributeLabel", value)'
+
+UntypedAttribute:
+    inherits:
+        - AttributeInterface
+    type: object
+    config:
+        interfaces:
+            - AttributeInterface
+        fields:
+            reason:
+                type: String
+                resolve: "This attribute type isn't yet part of the schema."

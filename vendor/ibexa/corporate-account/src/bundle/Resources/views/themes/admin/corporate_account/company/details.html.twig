@@ -1,0 +1,112 @@
+{% extends "@ibexadesign/corporate_account/layout.html.twig" %}
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% import "@ibexadesign/ui/dashboard/macros.html.twig" as macros %}
+{% form_theme members_search_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block main_container_class %} ibexa-ca-company-details{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'members'|trans|desc('Customers') },
+        { value: 'company.list.breadcrumbs'|trans|desc('Companies'), url: path('ibexa.corporate_account.company.list') },
+        { value: company.name, url: path('ibexa.corporate_account.company.details', {
+            companyId: company.getId(),
+        }) },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    <ul class="ibexa-context-menu">
+        <li class="ibexa-context-menu__item">
+            <a
+                type="button"
+                class="btn ibexa-btn ibexa-btn--primary"
+                href="{{ path('ibexa.corporate_account.company.edit', { companyId: company.getId() }) }}"
+            >
+                {{ 'company.list.table.action.edit.label'|trans|desc('Edit') }}
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block header %}
+    {% set tag_extra_classes = '' %}
+    {% set tag = 'company.list.table.status.deactivated.label'|trans|desc('De-activated') %}
+
+    {% if ibexa_field_value(company.getContent(), 'active').bool %}
+        {% set tag = 'company.list.table.status.active.label'|trans|desc('Active') %}
+        {% set tag_extra_classes = 'ibexa-badge--success' %}
+    {% endif %}
+
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: company.name,
+        tag,
+        tag_extra_classes,
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form_edit, {
+        'action': path('ibexa.content.edit'),
+        'attr': { 'class': 'ibexa-edit-content-form'}
+    }) }}
+    {{ form_widget(form_edit.language, {'attr': {'hidden': 'hidden', 'class': 'language-input'}}) }}
+    {{ form_end(form_edit) }}
+
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        tabs: [
+            { id: 'summary', label: 'company.details.tab.summary.label'|trans|desc('Summary'), active: true },
+            { id: 'company_profile', label: 'company.details.tab.company_profile.label'|trans|desc('Company profile') },
+            { id: 'members', label: 'company.details.tab.members.label'|trans|desc('Members') },
+            { id: 'invitations', label: 'company.details.tab.invitations.label'|trans|desc('Invitations') },
+            { id: 'address_book', label: 'company.details.tab.address_book.label'|trans|desc('Address book') },
+        ],
+        hide_toggler: true,
+        include_tab_more: true,
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                id: 'summary',
+                tab_pane_class: 'ibexa-ca-company-tab-summary',
+                active: true,
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/corporate_account/company/details_summary.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                id: 'company_profile',
+                tab_pane_class: 'ibexa-ca-company-tab-company-profile',
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/corporate_account/company/details_company_profile.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                id: 'members',
+                tab_pane_class: 'ibexa-ca-company-tab-members',
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/corporate_account/company/details_members.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                id: 'invitations',
+                tab_pane_class: 'ibexa-ca-company-tab-invitations',
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/corporate_account/company/details_invitations.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                id: 'address_book',
+                tab_pane_class: 'ibexa-ca-company-tab-address-book',
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/corporate_account/company/details_address_book.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

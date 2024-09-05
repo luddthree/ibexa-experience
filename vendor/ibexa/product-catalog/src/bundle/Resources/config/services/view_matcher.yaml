@@ -1,0 +1,45 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\AttributeValue:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductBased\AttributeValue
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsAvailable:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductBased\IsAvailable
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsBaseProduct:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductBased\IsBaseProduct
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\IsProduct:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductBased\IsProduct
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductCode:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductBased\ProductCode
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductBased\ProductType:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductBased\ProductType
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\ProductTypeBased\IsProduct:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\ProductTypeBased\IsProduct
+        tags:
+            - { name: ibexa.view.matcher }
+
+    Ibexa\Contracts\ProductCatalog\ViewMatcher\LocationBased\RootLocation:
+        class: Ibexa\Bundle\ProductCatalog\View\Matcher\LocationBased\RootLocation
+        tags:
+            - { name: ibexa.view.matcher }

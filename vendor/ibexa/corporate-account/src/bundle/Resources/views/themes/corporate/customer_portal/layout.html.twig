@@ -1,0 +1,78 @@
+{% extends page_layout is defined ? page_layout : '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block body_class %}ibexa-ca-customer-portal{% endblock %}
+{% block title %}
+    {{ 'website.title'|trans|desc('Customer Portal') }}
+{% endblock %}
+
+{% block header_row %}
+    <div class="ibexa-ca-main-header">
+        <div class="ibexa-ca-main-header__brand-column">
+            <h2 class="ibexa-ca-main-header__brand">
+                {{ 'website.brand'|trans|desc('Customer Portal') }}
+            </h2>
+        </div>
+        <div class="ibexa-ca-main-header__search-column">
+        </div>
+        {% block user_menu_container %}
+            <div class="ibexa-ca-main-header__user-menu-column">
+                <button class="ibexa-ca-main-header__username-btn">
+                    {{ ibexa_admin_ui_config.user.user.name }}
+                </button>
+                {{ include('@ibexadesign/ui/component/popup_menu/popup_menu.html.twig', {
+                    class: 'ibexa-ca-main-header__user-popup-menu',
+                    items: [
+                        {
+                            label: 'website.header.user_menu.logout'|trans|desc('Logout'),
+                            action_attr: { href: path('logout') },
+                        }
+                    ],
+                }) }}
+            </div>
+        {% endblock %}
+    </div>
+{% endblock %}
+
+{% block main_container %}
+    <main class="ibexa-main-container {% block main_container_class %}{% endblock %}">
+        {% block side_column %}
+        {% endblock %}
+
+        {% block content_column %}
+            <div class="ibexa-main-container__content-column">
+                <div class="container">
+                    {% block content_header %}
+                        <div class="ibexa-page-header-wrapper">
+                            <div class="ibexa-breadcrums-wrapper">
+                                {% block breadcrumbs %}{% endblock %}
+                            </div>
+                            <div class="ibexa-content-menu-wrapper">
+                                {% block context_menu %}{% endblock %}
+                            </div>
+                            <div class="ibexa-header-wrapper">
+                                {% block header %}{% endblock %}
+                            </div>
+                        </div>
+                    {% endblock %}
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </main>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-corporate-account-common-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-customer-portal-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-customer-portal-css', null, 'ibexa') }}
+{% endblock %}

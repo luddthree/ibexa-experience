@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Dashboard\Form\Type\DashboardChoiceType: ~
+
+    Ibexa\Bundle\Dashboard\Form\Type\DashboardCustomizeType: ~
+
+    Ibexa\Bundle\Dashboard\Form\Type\AvailableDashboardType: ~
+
+    Ibexa\Bundle\Dashboard\Form\Type\DashboardChangeActiveType: ~
+
+    Ibexa\Bundle\Dashboard\Form\Processor\DashboardPublishFormProcessor:
+
+    Ibexa\Bundle\Dashboard\Form\TypeExtension\ContentCreateExtension:
+        tags:
+            - { name: form.type_extension, extended_type: Ibexa\AdminUi\Form\Type\Content\Draft\ContentCreateType }

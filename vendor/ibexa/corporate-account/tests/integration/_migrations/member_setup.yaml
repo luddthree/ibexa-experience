@@ -1,0 +1,138 @@
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: member
+        contentTypeGroups:
+            - corporate_account
+        mainTranslation: eng-GB
+        nameSchema: '<first_name> <last_name>'
+        container: false
+        remoteId: null
+        translations:
+            eng-GB:
+                name: Member
+    fields:
+        -   identifier: first_name
+            type: ezstring
+            position: 2
+            translations:
+                eng-GB:
+                    name: 'First name'
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: null
+                    minStringLength: null
+        -   identifier: last_name
+            type: ezstring
+            position: 3
+            translations:
+                eng-GB:
+                    name: 'Last name'
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: null
+                    minStringLength: null
+        -   identifier: phone_number
+            type: ezstring
+            position: 4
+            translations:
+                eng-GB:
+                    name: 'Phone'
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: null
+                    minStringLength: null
+        -   identifier: user
+            type: ezuser
+            position: 6
+            translations:
+                eng-GB:
+                    name: 'User'
+                    description: ''
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: 'internal'
+            defaultValue: ''
+            fieldSettings: { }
+
+-   type: role
+    mode: create
+    metadata:
+        identifier: 'Company admin'
+    policies:
+        -
+            module: user
+            function: invite
+            limitations:
+                -
+                    identifier: UserPermissions
+                    values: { roles: {  }, user_groups: {  } }
+        -
+            module: content
+            function: '*'
+        -
+            module: role
+            function: assign
+
+    references:
+        -
+            name: ref__role__company_admin__role_id
+            type: role_id
+
+-   type: role
+    mode: create
+    metadata:
+        identifier: 'Company buyer'
+    references:
+        -
+            name: ref__role__company_buyer__role_id
+            type: role_id
+
+-   type: role
+    mode: update
+    match:
+        field: identifier
+        value: 'Company admin'
+    policies:
+        -
+            module: user
+            function: invite
+            limitations:
+                -   identifier: UserPermissions
+                    values:
+                        roles:
+                            - 'reference:ref__role__company_admin__role_id'
+                            - 'reference:ref__role__company_buyer__role_id'
+                        user_groups: {}
+        -
+            module: content
+            function: '*'
+        -
+            module: role
+            function: assign

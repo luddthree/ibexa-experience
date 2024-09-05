@@ -1,0 +1,7 @@
+when@test:
+    services:
+        _defaults:
+            autowire: true
+            autoconfigure: true
+
+        Ibexa\Tests\Integration\ConnectorQualifio\MockHttpClientCallback: ~

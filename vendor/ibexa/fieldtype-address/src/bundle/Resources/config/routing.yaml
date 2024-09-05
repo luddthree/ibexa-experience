@@ -1,0 +1,15 @@
+ibexa.address.country.form.create:
+    methods: ['GET']
+    path: /address/form/{contentTypeIdentifier}/{fieldIdentifier}/{languageCode}/create/{parentLocationId}/name/{formName}/country/{country}
+    defaults:
+        _controller: 'Ibexa\Bundle\FieldTypeAddress\Controller\AddressController::countryCreateFormAction'
+    options:
+        expose: true
+
+ibexa.address.country.form.update:
+    methods: ['GET']
+    path: /address/form/{contentTypeIdentifier}/{fieldIdentifier}/{languageCode}/update/{contentId}/name/{formName}/country/{country}
+    defaults:
+        _controller: 'Ibexa\Bundle\FieldTypeAddress\Controller\AddressController::countryUpdateFormAction'
+    options:
+        expose: true

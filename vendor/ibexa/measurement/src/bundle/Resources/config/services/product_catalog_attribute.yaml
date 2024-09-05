@@ -1,0 +1,210 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Type\AttributeDefinitionMeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Type\SimpleAttributeDefinitionMeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Type\RangeAttributeDefinitionMeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\ProductCatalog\Form\Type\SingleAttributeMeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\ProductCatalog\Form\Type\RangeAttributeMeasurementType:
+        tags:
+            - { name: form.type }
+
+    ibexa.product_catalog.attribute_type.measurement:
+        class: Ibexa\ProductCatalog\Local\Repository\Attribute\AttributeType
+        arguments:
+            $identifier: 'measurement'
+        tags:
+            -   name: ibexa.product_catalog.attribute_type
+                alias: measurement
+
+    ibexa.measurement.product_catalog.attribute_type.measurement_range:
+        class: Ibexa\Measurement\ProductCatalog\AttributeType
+        arguments:
+            $identifier: measurement_range
+        tags:
+            - name: ibexa.product_catalog.attribute_type
+              alias: measurement_range
+
+    ibexa.measurement.product_catalog.attribute_type.measurement_single:
+        class: Ibexa\Measurement\ProductCatalog\AttributeType
+        arguments:
+            $identifier: measurement_single
+        tags:
+            - name: ibexa.product_catalog.attribute_type
+              alias: measurement_single
+
+    Ibexa\Measurement\REST\Attribute\AvailableUnitPostProcessor:
+        tags:
+            - { name: ibexa.product_catalog.rest.output.attribute.post_processor }
+            - { name: monolog.logger, channel: ibexa.rest }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\AttributeUnitConstraintValidator: ~
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\OptionsBagConstraintValidator: ~
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\MeasurementOptionsValidator:
+        tags:
+            - { name: ibexa.product_catalog.attribute.validator.options, type: measurement }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\MeasurementRangeOptionsValidator:
+        tags:
+            - { name: ibexa.product_catalog.attribute.validator.options, type: measurement_range }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\MeasurementSimpleOptionsValidator:
+        tags:
+            - { name: ibexa.product_catalog.attribute.validator.options, type: measurement_single }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\MeasurementFormMapper:
+        arguments:
+            $formType: 'Ibexa\Measurement\ProductCatalog\Form\Attribute\Type\AttributeDefinitionMeasurementType'
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: measurement
+
+    ibexa.measurement.product_catalog.form.attribute.mapper.simple_measurement_form_mapper:
+        class: Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\MeasurementFormMapper
+        arguments:
+            $formType: 'Ibexa\Measurement\ProductCatalog\Form\Attribute\Type\SimpleAttributeDefinitionMeasurementType'
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: measurement_single
+
+    ibexa.measurement.product_catalog.form.attribute.mapper.range_measurement_form_mapper:
+        class: Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\MeasurementFormMapper
+        arguments:
+            $formType: 'Ibexa\Measurement\ProductCatalog\Form\Attribute\Type\RangeAttributeDefinitionMeasurementType'
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: measurement_range
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\MeasurementValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: measurement
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\SingleMeasurementValueFormMapper:
+        tags:
+            - name: ibexa.product_catalog.attribute.form_mapper.value
+              type: measurement_single
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\RangeMeasurementValueFormMapper:
+        tags:
+            - name: ibexa.product_catalog.attribute.form_mapper.value
+              type: measurement_range
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Formatter\MeasurementValueFormatter:
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: measurement
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Formatter\MeasurementSingleValueFormatter:
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: measurement_single
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Formatter\MeasurementRangeValueFormatter:
+        tags:
+            -   name: ibexa.product_catalog.attribute.formatter.value
+                type: measurement_range
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Criterion\RangeMeasurementAttributeMaximumVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        autowire: true
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Criterion\RangeMeasurementAttributeMinimumVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        autowire: true
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Criterion\SimpleMeasurementAttributeVisitor:
+        parent: Ibexa\ProductCatalog\Local\Repository\Search\Legacy\Criterion\AbstractAttributeVisitor
+        autowire: true
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - { name: ibexa.search.legacy.gateway.criterion_handler.content }
+            - { name: ibexa.search.legacy.gateway.criterion_handler.location }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\IndexDataProvider:
+        tags:
+            -   name: ibexa.product_catalog.attribute.index_data_provider
+                type: measurement
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\RangeMeasurementIndexDataProvider:
+        tags:
+            -   name: ibexa.product_catalog.attribute.index_data_provider
+                type: measurement_range
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\SimpleMeasurementIndexDataProvider:
+        tags:
+            -   name: ibexa.product_catalog.attribute.index_data_provider
+                type: measurement_single
+
+    Ibexa\Measurement\ProductCatalog\Local\Attribute\RangeMeasurementStorageDefinition:
+        tags:
+            - { name: ibexa.product_catalog.attribute.storage_definition, type: measurement_range }
+
+    Ibexa\Measurement\ProductCatalog\Local\Attribute\RangeMeasurementStorageConverter:
+        tags:
+            - { name: ibexa.product_catalog.attribute.storage_converter, type: measurement_range }
+
+    Ibexa\Measurement\ProductCatalog\Local\Attribute\SingleMeasurementStorageDefinition:
+        tags:
+            - { name: ibexa.product_catalog.attribute.storage_definition, type: measurement_single }
+
+    Ibexa\Measurement\ProductCatalog\Local\Attribute\SingleMeasurementStorageConverter:
+        tags:
+            - { name: ibexa.product_catalog.attribute.storage_converter, type: measurement_single }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Mapper\MeasurementVariantFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: measurement
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: measurement_single
+
+    Ibexa\Measurement\ProductCatalog\AttributeConverter\MeasurementSimple:
+        tags:
+            - { name: ibexa.product_catalog.personalization.attribute_converter }
+
+    Ibexa\Bundle\Measurement\Serializer\MeasurementDiscriminatorMapping:
+        tags:
+            - ibexa.product_catalog.rest.attribute_discriminator_mapping
+
+    Ibexa\Bundle\Measurement\Serializer\RangeValueNormalizer:
+        autoconfigure: false
+        tags:
+            - ibexa.rest.serializer.normalizer
+
+    Ibexa\Bundle\Measurement\Serializer\SimpleValueNormalizer:
+        autoconfigure: false
+        tags:
+            - ibexa.rest.serializer.normalizer
+
+    Ibexa\Measurement\ProductCatalog\AttributeConverter\MeasurementRange:
+        tags:
+            - { name: ibexa.product_catalog.personalization.attribute_converter }

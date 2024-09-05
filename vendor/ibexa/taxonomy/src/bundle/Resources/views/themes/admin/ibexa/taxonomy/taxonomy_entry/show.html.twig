@@ -1,0 +1,111 @@
+{% extends '@ibexadesign/content/location_view.html.twig' %}
+
+{% trans_default_domain 'ibexa_taxonomy_content_view' %}
+
+{% block content_tree %}
+    {% set container_width_cookie = 'ibexa-tb_ibexa-taxonomy-tree_%d_container-width'|format(ibexa_admin_ui_config.user.user.id) %}
+    {% set taxonomy_tree_width = app.request.cookies.get(container_width_cookie) %}
+    {% set taxonomy_tree_width_style = 'width: %dpx;'|format(taxonomy_tree_width) %}
+    {% set current_path = taxonomy_path|map((el) => el.id)|join('/') %}
+
+    <div class="ibexa-taxonomy-tree-container"
+        data-taxonomy="{{ taxonomy_entry.taxonomy }}"
+        data-module-name="{{ taxonomy_entry.taxonomy|ibexa_taxonomy_name }}"
+        data-current-path="{{ current_path }}"
+        data-assign-content-udw-config="{{ ibexa_udw_config('multiple', {}) }}"
+        style="{{ taxonomy_tree_width_style }}"
+    >
+        <div class="ibexa-taxonomy-tree-container__root" data-root-selection-disabled="1"></div>
+    </div>
+{% endblock %}
+
+{% block context_menu %}
+    {% set taxonomy_content_view_actions = knp_menu_get('ibexa.menu.taxonomy.content_view.actions', [], {'location': location, 'content': content, 'content_type': content_type, 'taxonomy_entry': taxonomy_entry}) %}
+    {{ knp_menu_render(taxonomy_content_view_actions, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'}) }}
+
+    <div class="ibexa-extra-actions-container">
+        {% include '@ibexadesign/ibexa/taxonomy/widget/create_widget.html.twig' with {'form': form_taxonomy_entry_create, content, taxonomy_entry } only %}
+        {% include '@ibexadesign/content/widget/content_edit.html.twig' with {'form': form_content_edit} only %}
+    </div>
+
+    {% include '@ibexadesign/ibexa/taxonomy/taxonomy_entry/modal/delete.html.twig' with {
+        'form': form_taxonomy_entry_delete,
+        'taxonomy': taxonomy_entry.taxonomy
+    } only %}
+
+    {{ form(form_location_copy, {'action': path('ibexa.location.copy')}) }}
+    {{ form(form_taxonomy_entry_move, {
+        'action': path('ibexa.taxonomy.entry.move', {'taxonomyName': taxonomy_entry.taxonomy}),
+        'attr': {
+            'hidden': true,
+            'data-current-parent': taxonomy_entry.parent.id ?? '',
+            'data-current-id': taxonomy_entry.id ?? '',
+        }
+    }) }}
+    {{ form(form_location_copy_subtree, {'action': path('ibexa.location.copy_subtree')}) }}
+    {{ form(form_content_visibility_update, {'action': path('ibexa.content.update_visibility')}) }}
+
+    {% set select_parent = 'taxonomy.select_new_parent'|trans|desc('Select new parent') %}
+
+    {{ include('@ibexadesign/ibexa/taxonomy/taxonomy_entry/tag_tree_modal.html.twig', {
+        id: 'move-taxonomy-entry-modal',
+        title: select_parent,
+        content: '',
+        confirm_button: select_parent
+    }) }}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% set items = [] %}
+    {% for entry_in_path in taxonomy_path %}
+        {% if not loop.last %}
+            {% set items = items|merge([{
+                'value': entry_in_path.parent is not null ? entry_in_path.name : taxonomy_label,
+                'url': path('ibexa.content.view', {
+                    'contentId': entry_in_path.content.id,
+                    'locationId': entry_in_path.content.versionInfo.contentInfo.mainLocationId
+                })
+            }]) %}
+        {% endif %}
+    {% endfor %}
+
+    {% set items = items|merge([{ 'value': ibexa_content_name(content) }]) %}
+
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: items } %}
+{% endblock %}
+
+{% block header %}
+    {% set hide_bookmarks = true %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="align-items-stretch ibexa-main-row">
+        <div class="ibexa-content-container">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {{ ibexa_render_component_group('location-view-tab-groups', {
+                        'content': content,
+                        'location': location,
+                        'contentType': content_type,
+                        'draft_pagination_params': draft_pagination_params,
+                        'reverse_relation_pagination_params': reverse_relation_pagination_params,
+                        'custom_urls_pagination_params': custom_urls_pagination_params,
+                        'system_urls_pagination_params': system_urls_pagination_params,
+                        'roles_pagination_params': roles_pagination_params,
+                        'policies_pagination_params': policies_pagination_params,
+                        'is_location_visible': not location.invisible,
+                        'hide_toggler': true,
+                        'show_sorting': false
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-taxonomy-location-view-js', null, 'ibexa') }}
+{% endblock %}

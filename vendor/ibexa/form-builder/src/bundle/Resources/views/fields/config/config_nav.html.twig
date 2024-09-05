@@ -1,0 +1,28 @@
+{% trans_default_domain 'ibexa_form_builder_field_config' %}
+
+{% set tabs = [
+    {
+        id: 'basic',
+        label: 'tab.label.basic'|trans|desc('Basic'),
+    },
+] %}
+
+{% if form.validators is not empty %}
+    {% set tabs = tabs|merge([
+        {
+            id: 'validators',
+            label: 'tab.label.validation'|trans|desc('Validation'),
+        },
+    ]) %}
+{% endif %}
+
+{% include '@ibexadesign/ui/component/tab/tabs_header.html.twig' with {
+    tabs,
+    active_tab: tabs[0],
+    hide_toggler: true,
+    include_tab_more: false,
+    attr: { class },
+    tabs_attr: {
+        class: 'ibexa-tabs--switcher',
+    }
+} %}

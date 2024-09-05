@@ -1,0 +1,11 @@
+-
+    type: content_type
+    mode: update
+    match:
+        field: content_type_identifier
+        value: article
+    actions:
+        - { action: assign_content_type_group, value: 'Media' }
+        - { action: unassign_content_type_group, value: 'Content' }
+        - { action: remove_field_by_identifier, value: 'short_title' }
+        - { action: remove_drafts, value: null }

@@ -1,0 +1,12 @@
+- mode: 'create'
+  type: 'content'
+  content_type: 'landing_page'
+  identifier: 'siteaccess_cy_extras'
+  remote_id: 'siteaccess_cy_extras'
+  location_remote_id: 'siteaccess_cy_extras'
+  parent_location: 'siteaccess_cy'
+  lang: 'el-CY'
+  object_states:
+      - live
+  attributes:
+      name: 'Extras'

@@ -1,0 +1,81 @@
+{% extends "@ibexadesign/product_catalog/list.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set pager = products %}
+{% set header_title = 'product.list.title'|trans|desc('Products') %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { value: 'product.breadcrumb.list'|trans|desc('Products') }
+    ]} %}
+{% endblock %}
+
+{% block content_tree %}
+    {% if category_path is defined %}
+        {% set container_width_cookie = 'ibexa-tb_ibexa-category-filter-tree_%d_container-width'
+            |format(ibexa_admin_ui_config.user.user.id) %}
+        {% set taxonomy_tree_width = app.request.cookies.get(container_width_cookie) %}
+        {% set taxonomy_tree_width_style = 'width: %dpx;'|format(taxonomy_tree_width) %}
+        {% set current_path = category_path|map((el) => el.id)|join('/') %}
+
+         <div class="ibexa-taxonomy-tree-container"
+            data-taxonomy="{{ category_taxonomy }}"
+            data-module-name="{{ category_taxonomy|ibexa_taxonomy_name }}"
+            data-current-path="{{ current_path }}"
+            data-category-with-form-data-url-template="{{ category_with_form_data_url_template }}"
+            data-active-item-id="{{ category_entry ? category_entry.id }}"
+            style="{{ taxonomy_tree_width_style }}"
+        >
+            <div class="ibexa-taxonomy-tree-container__root"></div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if is_editable %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                <button
+                    data-actions="pre-create-product"
+                    class="btn ibexa-btn ibexa-btn--primary ibexa-btn--extra-actions ibexa-btn--create"
+                    {{ no_product_types ? 'disabled' }}
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{ 'list.action.create'|trans|desc('Create') }}</span>
+                </button>
+            </li>
+        </ul>
+
+        {% include '@ibexadesign/product_catalog/product/extra_actions.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'product.list.title'|trans|desc('Products')
+    } %}
+{% endblock %}
+
+{% block data_grid %}
+    {% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+    {% set search_query = search_form.vars.value.getQuery() ?? null %}
+    {% set default_headline = results_headline(products|length, search_query) %}
+    {% set headline = custom_results_headline ?? default_headline %}
+
+    {% if is_editable %}
+        {% include '@ibexadesign/product_catalog/product/data_grid_editable.html.twig' %}
+    {% else %}
+        {% include '@ibexadesign/product_catalog/product/data_grid.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-catalog-filter-js', null, 'ibexa') }}
+{% endblock %}

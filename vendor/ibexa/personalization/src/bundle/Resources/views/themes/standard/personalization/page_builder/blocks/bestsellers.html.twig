@@ -1,0 +1,23 @@
+{% trans_default_domain 'ibexa_page_builder' %}
+
+{% block block_identifier %}
+    {{ 'personalization.page_builder.block.bestsellers'|trans|desc('Bestsellers') }}
+{% endblock %}
+
+{% block block_content %}
+    {% if block_name is defined %}
+        <div class="row block-header">
+            <span class="block-header__name">{{ block_name }}</span>
+        </div>
+    {% endif %}
+
+    <div class="ibexa-bestsellers-block {{ block_class }}">
+        {{ render(controller('ibexa_personalization::showRecommendationsAction', {
+            'scenario': scenario,
+            'outputType': product_types,
+            'limit': limit,
+            'template': '@ibexadesign/personalization/page_builder/blocks/pim_block_preview.html.twig',
+            'attributes': ['name'],
+        })) }}
+    </div>
+{% endblock %}

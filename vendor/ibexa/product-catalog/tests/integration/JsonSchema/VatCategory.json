@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "VatCategory": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                },
+                "vatValue": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "region",
+                "vatValue"
+            ]
+        }
+    },
+    "required": [
+        "VatCategory"
+    ]
+}

@@ -1,0 +1,6 @@
+parameters:
+    ibexa.site_access.config.default.segmentation.segment_groups.list: []
+
+    # Pagination limits
+    ibexa.site_access.config.default.segmentation.pagination.segment_groups_limit: 10
+    ibexa.site_access.config.default.segmentation.pagination.user_view_segments_limit: 10

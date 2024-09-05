@@ -1,0 +1,32 @@
+-
+    type: content
+    mode: update
+    match:
+        field: location_id
+        value: 2
+    metadata:
+        remoteId: old_home_to_be_remove
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: old_home_to_be_remove
+    metadata:
+        remoteId: null
+        alwaysAvailable: null
+        mainLanguageCode: null
+        modificationDate: null
+        publishedData: null
+        ownerId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '-'

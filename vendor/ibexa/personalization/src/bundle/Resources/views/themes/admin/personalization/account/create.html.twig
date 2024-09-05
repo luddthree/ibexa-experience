@@ -1,0 +1,15 @@
+{% extends '@ibexadesign/personalization/account/base_account_layout.html.twig' %}
+
+{% trans_default_domain "ibexa_personalization" %}
+
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% set step_name = 'create' %}
+{% set steps = steps ?? [] %}
+
+{% block content %}
+    <h2>{{ 'account.set_up.service'|trans|desc('Set up service account') }}</h2>
+    <div>
+        {{ form(form) }}
+    </div>
+{% endblock %}

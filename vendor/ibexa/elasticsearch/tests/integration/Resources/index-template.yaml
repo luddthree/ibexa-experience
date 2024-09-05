@@ -1,0 +1,97 @@
+# Index schema for kernel integration tests
+index_patterns:
+    - location_*
+    - content_*
+settings:
+    analysis:
+        normalizer:
+            lowercase_normalizer:
+                type: custom
+                char_filter: []
+                filter:
+                    - lowercase
+    refresh_interval: "-1"
+mappings:
+    properties:
+        custom_field:
+            type: keyword
+            normalizer: lowercase_normalizer
+        custom_geolocation_field:
+            type: geo_point
+        user_first_name_value_s:
+            type: keyword
+            normalizer: lowercase_normalizer
+            copy_to: custom_field
+        user_last_name_value_s:
+            type: keyword
+            normalizer: lowercase_normalizer
+            copy_to: custom_field
+        testtype_maplocation_value_location_gl:
+            type: geo_point
+            copy_to: custom_geolocation_field
+        section_identifier_id:
+            type: keyword
+            copy_to: content_section_identifier_id
+    dynamic_templates:
+        -   ez_int:
+                match: "*_i"
+                mapping:
+                    type: integer
+        -   ez_mint:
+                match: "*_mi"
+                mapping:
+                    type: integer
+        -   ez_id:
+                match: "*_id"
+                mapping:
+                    type: keyword
+        -   ez_mid:
+                match: "*_mid"
+                mapping:
+                    type: keyword
+        -   ez_string:
+                match: "*_s"
+                mapping:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+        -   ez_mstring:
+                match: "*_ms"
+                mapping:
+                    type: keyword
+                    normalizer: lowercase_normalizer
+        -   ez_long:
+                match: "*_l"
+                mapping:
+                    type: long
+        -   ez_mlong:
+                match: "*_ml"
+                mapping:
+                    type: long
+        -   ez_text:
+                match: "*_t"
+                mapping:
+                    type: text
+        -   ez_boolean:
+                match: "*_b"
+                mapping:
+                    type: boolean
+        -   ez_mboolean:
+                match: "*_mb"
+                mapping:
+                    type: boolean
+        -   ez_float:
+                match: "*_f"
+                mapping:
+                    type: float
+        -   ez_double:
+                match: "*_d"
+                mapping:
+                    type: double
+        -   ez_date:
+                match: "*_dt"
+                mapping:
+                    type: date
+        -   ez_geolocation:
+                match: "*_gl"
+                mapping:
+                    type: geo_point

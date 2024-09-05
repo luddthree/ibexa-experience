@@ -1,0 +1,12 @@
+{% extends "@ibexadesign/product_catalog/ui/modal/confirmation.html.twig" %}
+
+{%- block confirm_button -%}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+
+    <button
+        type="submit"
+        class="btn ibexa-btn ibexa-btn--primary"
+    >
+        {{ 'modal.delete'|trans|desc('Delete') }}
+    </button>
+{%- endblock %}

@@ -1,0 +1,34 @@
+{
+    "items": [
+        {
+            "itemType": "1",
+            "externalId": "1",
+            "attributes": [
+                {
+                    "name": "foo",
+                    "value": "value"
+                }
+            ]
+        },
+        {
+            "itemType": "2",
+            "externalId": "40",
+            "attributes": [
+                {
+                    "name": "bar",
+                    "value": "value"
+                }
+            ]
+        },
+        {
+            "itemType": "3",
+            "externalId": "89",
+            "attributes": [
+                {
+                    "name": "baz",
+                    "value": "value"
+                }
+            ]
+        }
+    ]
+}

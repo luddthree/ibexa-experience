@@ -1,0 +1,104 @@
+{% extends '@ibexadesign/site/base_list.html.twig' %}
+
+{% set view_type = 'grid' %}
+
+{%- block data_grid -%}
+    {% embed '@ibexadesign/ui/component/table/table_header.html.twig' %}
+        {% block headline %}
+            {% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+            {% set search_query = form.vars.value.getSearchQuery() %}
+
+            {{ custom_results_headline ?? results_headline(pager.getNbResults(), false, search_query) }}
+        {% endblock %}
+
+        {% block actions %}
+            {% include '@ibexadesign/site/data_grid_actions.html.twig' %}
+        {% endblock %}
+    {% endembed %}
+
+    <div class="ibexa-grid-view">
+        {% for site in pager.currentPageResults %}
+            {% set is_site_factory_page = site.id is defined %}
+            {% set root_location = is_site_factory_page ? locations[site.id] : site.treeRootLocation %}
+
+            {%- if is_site_factory_page and site.template is not null -%}
+                {%- set grid_item_params = {
+                    image_url: site.template.thumbnail,
+                } -%}
+            {%- else -%}
+                {%- set grid_item_params = {
+                    icon_path: ibexa_icon_path('landing_page'),
+                } -%}
+            {%- endif -%}
+
+            {%- embed '@ibexadesign/ui/component/grid_view/grid_view_item.html.twig' with grid_item_params|merge({
+                item_attr: {
+                    class: 'ibexa-sf-grid-view-site-item'
+                },
+            }) -%}
+                {%- block item_footer -%}
+                    <div class="ibexa-sf-grid-view-site-item__info">
+                        <div class="ibexa-sf-grid-view-site-item__status-container">
+                            {% include '@ibexadesign/common/status.html.twig' with {
+                                'status': site.status,
+                            } %}
+                        </div>
+                        <div class="ibexa-sf-grid-view-site-item__title-container">
+                            <div class="ibexa-sf-grid-view-site-item__title ibexa-grid-view-item__title">
+                                {{ site.name }}
+                            </div>
+                            <div class="ibexa-sf-grid-view-site-item__sub-title">
+                                {% if is_site_factory_page %}
+                                    {% set publicAccesses = site.publicAccesses|map((publicAccess) => ({
+                                        language: publicAccess.config.values['ibexa.site_access.config.languages'][0],
+                                        identifier: publicAccess.identifier
+                                    })) %}
+                                {% else %}
+                                    {% set publicAccesses = site.languages|map((language) => ({
+                                        language: language,
+                                        identifier: site.name
+                                    })) %}
+                                {% endif %}
+
+                                {% include '@ibexadesign/site/language_list.html.twig' with {
+                                    'publicAccesses': publicAccesses,
+                                    'location': is_site_factory_page ? locations[site.id] : root_location
+                                } %}
+                            </div>
+                        </div>
+                        <div class="ibexa-sf-grid-view-site-item__actions-container">
+                            {% if is_site_factory_page or location is not null %}
+                                {% if is_site_factory_page %}
+                                    {{ include('@ibexadesign/site/site_actions.html.twig', {
+                                        'modal_delete_target': modal_delete_target,
+                                        'has_templates': has_templates,
+                                        'site': site,
+                                        'root_location': root_location,
+                                        'labels': true,
+                                        'type': 'grid'
+                                    }) }}
+                                {% else %}
+                                    {{ include('@ibexadesign/site/site_actions.html.twig', {
+                                        'location': location,
+                                        'labels': true,
+                                        'type': 'grid'
+                                    }) }}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {%- endblock -%}
+            {%- endembed -%}
+        {% endfor %}
+    </div>
+
+    {% if pager.haveToPaginate %}
+        {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': pager,
+            'paginaton_params' : {
+                'pageParameter': '[site_list][page]'
+            }
+        } %}
+    {% endif %}
+{%- endblock -%}

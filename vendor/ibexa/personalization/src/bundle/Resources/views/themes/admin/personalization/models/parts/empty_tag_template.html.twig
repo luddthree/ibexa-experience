@@ -1,0 +1,18 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<li
+    class="ibexa-perso-submodel-sidebar-item"
+    data-value="{{ name|default('{{ name }}') }}"
+>
+    <div
+        draggable="true"
+        class="ibexa-perso-submodel-sidebar-item__content"
+    >
+        <div class="ibexa-perso-submodel-sidebar-item__drag">
+            <svg class="ibexa-icon ibexa-perso-submodel-sidebar-item__drag-icon ibexa-icon--tiny-small">
+                <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+            </svg>
+        </div>
+        <div class="ibexa-perso-submodel-sidebar-item__label">{{ name|default('{{ name }}') }}</div>
+    </div>
+</li>

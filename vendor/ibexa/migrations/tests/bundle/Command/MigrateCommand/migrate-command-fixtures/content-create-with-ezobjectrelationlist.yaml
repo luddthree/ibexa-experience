@@ -1,0 +1,110 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: foo
+        mainTranslation: eng-GB
+        creatorId: 14
+        creationDate: '2012-07-24T14:35:34+00:00'
+        remoteId: foobar
+        urlAliasSchema: ''
+        nameSchema: '<short_title|title>'
+        container: true
+        defaultAlwaysAvailable: false
+        defaultSortField: 1
+        defaultSortOrder: 1
+        contentTypeGroups:
+            - 1
+        translations:
+            eng-GB:
+                name: Article
+                description: ''
+    fields:
+        -
+            identifier: title
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Title
+                    description: ''
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: 'New article'
+            fieldSettings: {  }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -
+            identifier: location
+            type: ezgmaplocation
+            position: 11
+            translations:
+                eng-GB:
+                    name: Location
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings: {  }
+            validatorConfiguration: {  }
+        -
+            identifier: foo_field
+            type: ezobjectrelationlist
+            position: 5
+            translations:
+                eng-GB:
+                    name: Foo Field
+                    description: ''
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: content
+            defaultValue: null
+            fieldSettings:
+                selectionMethod: 0
+                selectionDefaultLocation: 43
+                selectionContentTypes:
+                    - user
+                    - landing_page
+            validatorConfiguration:
+                RelationListValueValidator:
+                    selectionLimit: 0
+
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: foo
+        remoteId: foo_remote_id
+        mainTranslation: eng-GB
+    location:
+        parentLocationId: 1
+        locationRemoteId: foo_landing_page_location
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: Home
+        -
+            fieldDefIdentifier: foo_field
+            languageCode: eng-GB
+            value:
+                destinationContentIds:
+                    - 14 # Administrator User ID
+                locationRemoteIds:
+                    - 2cf8343bee7b482bab82b269d8fecd76 # Anonymous User location remote ID
+                locationIds:
+                    - 2 # Home location ID

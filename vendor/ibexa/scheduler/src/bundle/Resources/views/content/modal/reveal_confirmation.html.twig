@@ -1,0 +1,21 @@
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    class: 'ibexa-modal--content-reveal-confirmation',
+    no_header: true,
+    id: 'review-content-modal',
+} %}
+    {% trans_default_domain 'ibexa_scheduler' %}
+
+    {% block body_content %}
+        {{ 'content.reveal.modal.warning_cancel_schedule'|trans()|desc(
+            'Are you sure you want to cancel the scheduled hiding of the selected content?'
+        ) }}
+    {% endblock %}
+    {% block footer_content %}
+        <button class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm">
+            {{ 'content.reveal.modal.confirm'|trans()|desc('Cancel scheduled hiding') }}
+        </button>
+        <button class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--cancel" data-bs-dismiss="modal">
+            {{ 'content.reveal.modal.cancel'|trans()|desc('Cancel') }}
+        </button>
+    {% endblock %}
+{% endembed %}

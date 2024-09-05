@@ -1,0 +1,11 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% import _self as tab %}
+
+{% block content %}
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        headline: 'completeness.header'|trans|desc('Completeness'),
+    } %}
+
+    {{ ibexa_render_product_completeness(completeness, product, { 'language': language }) }}
+{% endblock %}

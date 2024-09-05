@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "Attribute": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": ["string", "null"]
+                },
+                "type": {
+                    "type": "string"
+                },
+                "type_identifier": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": ["string", "integer", "object", "array", "boolean", "null"]
+                },
+                "group": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "options": {
+                    "type": ["array", "object"]
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "name",
+                "description",
+                "type",
+                "type_identifier",
+                "group",
+                "position",
+                "options"
+            ]
+        }
+    },
+    "required": [
+        "Attribute"
+    ]
+}

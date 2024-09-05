@@ -1,0 +1,235 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_segmentation' %}
+
+{% form_theme form_segment_bulk_delete '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block body_class %}ibexa-segmentation-group-view ibexa-has-full-width-footer{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans|desc('Admin') },
+        { url: path('ibexa.segmentation.group.list'), value: 'segment_groups.list.title'|trans|desc('Segment Groups') },
+        { value: segment_group.name }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: segment_group.name,
+    } %}
+        {% block bottom %}
+            {% trans_default_domain 'ibexa_segmentation' %}
+
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('folder') }}"></use>
+                </svg>
+                {{ 'segment_group.subtitle'|trans|desc('Segment Groups') }}
+            </span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block context_menu %}
+    <ul class="ibexa-context-menu">
+        {% if can_create_segment and not is_segment_group_protected %}
+            <li class="ibexa-context-menu__item">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#create-segment-modal"
+                >
+                    <span class="ibexa-btn__label">
+                        {{ 'segment_groups.list.create'|trans|desc('Create') }}
+                    </span>
+                </button>
+            </li>
+        {% endif %}
+
+        {% if can_update and not is_segment_group_protected %}
+            <li class="ibexa-context-menu__item">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--secondary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#update-segment-group-modal"
+                >
+                    <span class="ibexa-btn__label">
+                        {{ 'segment_group.segment.edit'|trans|desc('Edit') }}
+                    </span>
+                </button>
+            </li>
+        {% endif %}
+
+        {% if can_delete and not is_segment_group_protected %}
+            <li class="ibexa-context-menu__item">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--secondary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#delete-segment-group-modal"
+                >
+                    <span class="ibexa-btn__label">
+                        {{ 'segment_group.action.delete'|trans|desc('Delete') }}
+                    </span>
+                </button>
+                {% include '@ibexadesign/segmentation/admin/groups/modal/delete_confirmation.html.twig' with {'form': form_segment_group_delete} %}
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        hide_toggler: true,
+        tabs: [
+            {
+                id: 'segments',
+                active: true,
+                label: 'segment_group.tab.header.segments'|trans|desc('Segments under this group')
+            },
+            {
+                id: 'details',
+                label: 'segment_group.tab.header.details'|trans|desc('Details')
+            },
+        ]
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'segments', active: true } %}
+                {% block content %}
+                    {% trans_default_domain 'ibexa_segmentation' %}
+
+                    {% set body_rows = [] %}
+                    {% set actions %}
+                        {% if can_delete_segment and not is_segment_group_protected %}
+                            <button
+                                id="bulk-delete-segment"
+                                type="button"
+                                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+                                disabled
+                                data-bs-toggle="modal"
+                                data-bs-target="#bulk-delete-segment-modal"
+                            >
+                                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                                </svg>
+                                <span class="ibexa-btn__label">
+                                    {{ 'segment_group.view.segments.action.delete'|trans|desc('Delete') }}
+                                </span>
+                            </button>
+
+                            {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+                                'id': 'bulk-delete-segment-modal',
+                                'message': 'segment_group.view.segment_bulk_delete.modal.message'|trans|desc('Do you want to delete the Segments?'),
+                                'data_click': '#segment_bulk_delete_delete',
+                            }%}
+                        {% endif %}
+                    {% endset %}
+
+                    {% for segment in segments %}
+                        {% set col_checkbox %}
+                            {% if can_delete_segment and not is_segment_group_protected %}
+                                {{ form_widget(form_segment_bulk_delete.segments[segment.id]) }}
+                            {% else %}
+                                {% do form_segment_bulk_delete.segments[segment.id].setRendered() %}
+                            {% endif %}
+                        {% endset %}
+
+                        {% set col_action_btns %}
+                            {% if can_update_segment and not is_segment_group_protected %}
+                                <a
+                                    href="#"
+                                    data-bs-toggle="modal" data-bs-target="#update-segment-{{ segment.id }}-modal"
+                                    title="{{ 'section.edit'|trans|desc('Edit') }}"
+                                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                                >
+                                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                                    </svg>
+                                </a>
+                            {% endif %}
+                        {% endset %}
+
+                        {% set body_rows = body_rows|merge([{ cols: [
+                            {
+                                raw: true,
+                                has_checkbox: true,
+                                content: col_checkbox,
+                            },
+                            { content: segment.name },
+                            { content: segment.identifier },
+                            {
+                                raw: true,
+                                has_action_btns: true,
+                                content: col_action_btns,
+                            },
+                        ] }]) %}
+                    {% endfor %}
+
+                    {{ form_start(form_segment_bulk_delete, {
+                        'action': path('ibexa.segmentation.segment.bulk_delete'),
+                        'attr': { 'class': 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#bulk-delete-segment' }
+                    }) }}
+                        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                            headline: 'segment_group.list.number_of_results'|trans({ '%number_of_results%': segments|length })|desc('List (%number_of_results%)'),
+                            head_cols: [
+                                { has_checkbox: not is_segment_group_protected },
+                                { content: 'segment_group.segment.name'|trans|desc('Segment name') },
+                                { content: 'segment_group.segment.identifier'|trans|desc('Segment identifier') },
+                            ],
+                            actions,
+                            body_rows,
+                            empty_table_info_text: 'segment_groups.segment_list.empty'|trans|desc('There are no Segments in this group.'),
+                        } %}
+                        {{ form_widget(form_segment_bulk_delete.delete, {'attr': {'hidden': 'hidden'}}) }}
+                    {{ form_end(form_segment_bulk_delete) }}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'details' } %}
+                {% block content %}
+                    {% trans_default_domain 'ibexa_segmentation' %}
+
+                    {% set segment_group_items = [
+                        {
+                            label: 'segment_group.name'|trans|desc('Name'),
+                            content: segment_group.name,
+                        },
+                        {
+                            label: 'segment_group.identifier'|trans|desc('Identifier'),
+                            content: segment_group.identifier,
+                        },
+                    ] %}
+
+                    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+                        headline: 'segment_group.tab.header.details'|trans|desc('Details'),
+                        items: segment_group_items,
+                    } only %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+    {% include '@ibexadesign/segmentation/admin/groups/modal/create_segment.html.twig' with {
+        'form': form_segment_create
+    }%}
+    {% include '@ibexadesign/segmentation/admin/groups/modal/update_segment_group.html.twig' with {
+        'form': form_segment_group_update,
+        'segment_group': segment_group
+    }%}
+
+    {% for segment_id, form_segment_update in segment_update_forms %}
+        {% include '@ibexadesign/segmentation/admin/groups/modal/update_segment.html.twig' with {
+            'form': form_segment_update,
+            'segment_group': segment_group,
+            'segment_id': segment_id
+        }%}
+    {% endfor %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-segmentation-common-js', null, 'ibexa') }}
+{% endblock %}

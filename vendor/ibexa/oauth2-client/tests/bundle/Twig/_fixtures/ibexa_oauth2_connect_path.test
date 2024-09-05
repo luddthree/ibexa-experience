@@ -1,0 +1,12 @@
+--TEST--
+"ibexa_oauth2_connect_path" function
+--TEMPLATE--
+{{ ibexa_oauth2_connect_path('google') }}
+{{ ibexa_oauth2_connect_path('google', {}, true) }}
+{{ ibexa_oauth2_connect_path('google', {'foo': 'foo'}, true) }}
+--DATA--
+return [];
+--EXPECT--
+{"$name":"ibexa.oauth2.connect","$parameters":{"identifier":"google"},"$referenceType":1}
+{"$name":"ibexa.oauth2.connect","$parameters":{"identifier":"google"},"$referenceType":2}
+{"$name":"ibexa.oauth2.connect","$parameters":{"foo":"foo","identifier":"google"},"$referenceType":2}

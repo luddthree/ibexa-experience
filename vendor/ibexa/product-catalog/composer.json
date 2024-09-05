@@ -1,0 +1,113 @@
+{
+    "name": "ibexa/product-catalog",
+    "description": "Product Catalog for Ibexa DXP",
+    "license": "proprietary",
+    "type": "ibexa-bundle",
+    "keywords": [
+        "ibexa-dxp"
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "doctrine/dbal": "^2.13",
+        "ibexa/admin-ui": "~4.6",
+        "ibexa/content-forms": "~4.6",
+        "ibexa/core": "~4.6",
+        "ibexa/core-persistence": "~4.6",
+        "ibexa/doctrine-schema": "~4.6",
+        "ibexa/graphql": "~4.6",
+        "ibexa/installer": "~4.6",
+        "ibexa/migrations": "~4.6",
+        "ibexa/personalization": "~4.6",
+        "ibexa/rest": "~4.6",
+        "ibexa/taxonomy": "~4.6",
+        "friendsofsymfony/http-cache": "^2.9",
+        "jms/translation-bundle": "^1.6",
+        "moneyphp/money": "^3.0 || ^4.0",
+        "symfony/cache": "^5.3",
+        "symfony/config": "^5.3",
+        "symfony/dependency-injection": "^5.3",
+        "symfony/event-dispatcher": "^5.3",
+        "symfony/http-foundation": "^5.3",
+        "symfony/http-kernel": "^5.3",
+        "symfony/workflow": "^5.4",
+        "symfony/yaml": "^5.3"
+    },
+    "require-dev": {
+        "ibexa/behat": "~4.6",
+        "dama/doctrine-test-bundle": "^6.7.5",
+        "friends-of-behat/mink-extension": "^2.5",
+        "ibexa/code-style": "~1.2.0",
+        "ibexa/commerce-checkout": "~4.6",
+        "ibexa/commerce-shop": "~4.6",
+        "ibexa/commerce-price-engine": "~4.6",
+        "ibexa/commerce-transaction": "~4.6",
+        "ibexa/dashboard": "~4.6",
+        "ibexa/elasticsearch": "~4.6",
+        "ibexa/fieldtype-matrix": "~4.6",
+        "ibexa/fieldtype-page": "~4.6",
+        "ibexa/fieldtype-richtext": "~4.6",
+        "ibexa/notifications": "~4.6",
+        "ibexa/phpstan-money": "^1.0",
+        "ibexa/solr": "~4.6",
+        "ibexa/test-core": "~0.1",
+        "ibexa/test-rest": "~0.1",
+        "justinrainbow/json-schema": "^5.2",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.2",
+        "phpstan/phpstan": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
+        "phpstan/phpstan-webmozart-assert": "^1.0",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "^5.4",
+        "symfony/phpunit-bridge": "^5.3",
+        "symfony/proxy-manager-bridge": "^5.3"
+    },
+    "conflict": {
+        "sebastian/type": "2.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Bundle\\ProductCatalog\\": "src/bundle/",
+            "Ibexa\\Contracts\\ProductCatalog\\": "src/contracts/",
+            "Ibexa\\ProductCatalog\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Bundle\\ProductCatalog\\": "tests/bundle/",
+            "Ibexa\\Tests\\Integration\\ProductCatalog\\": "tests/integration/",
+            "Ibexa\\Tests\\ProductCatalog\\": "tests/lib/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "check-cs": "@fix-cs --dry-run",
+        "test": "phpunit -c phpunit.xml.dist",
+        "phpstan": "phpstan analyse"
+    },
+    "scripts-descriptions": {
+        "fix-cs": "Fix Coding standard issues in current checkout.",
+        "check-cs": "Run code style checker for all files",
+        "test": "Run automatic tests",
+        "phpstan": "Run static code analysis"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    }
+}

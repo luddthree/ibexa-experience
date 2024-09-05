@@ -1,0 +1,13 @@
+{% set col_content_type_icon %}
+    <svg class="ibexa-icon ibexa-icon--small">
+        <use xlink:href="{{ ibexa_content_type_icon(content_type_identifier) }}"></use>
+    </svg>
+{% endset %}
+
+{% include '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+    body_row_cols: [
+        { has_icon: true, content: col_content_type_icon, raw: true },
+        { content: content_name },
+        { content: event_name },
+    ],
+} only %}

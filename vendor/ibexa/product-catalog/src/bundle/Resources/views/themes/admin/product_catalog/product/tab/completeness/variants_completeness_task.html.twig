@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block variants_completeness_task %}
+    {% set entry = task.getEntry(product) %}
+    {% if entry is not null %}
+        {% set completeness = entry.completeness %}
+        {% set progress_value = completeness.getValue() %}
+        {% set progress_value_label = completeness.getValueAsFloat()|format_percent_number %}
+        {% set title = 'product.view.completeness.variants.title'|trans|desc('Variants') %}
+        {% set subtask_progress_value = completeness.getValue() %}
+        {% set subtask_progress_value_label = subtask_progress_value == 100
+            ?  '(1/1)'
+            :  '(0/1)'
+        %}
+        {% set edit_path_name = 'ibexa.product_catalog.product.variant_generator' %}
+
+        {% embed '@ibexadesign/product_catalog/ui/component/completeness_task.html.twig' with {
+            title,
+            progress_value,
+            progress_value_label,
+            id: 'ibexa-variants-completeness-task',
+            edit_task_link: path(edit_path_name, { productCode: product.code, }),
+        }%}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block progress_tasks_counter %}
+                {{ subtask_progress_value_label }}
+            {% endblock %}
+
+            {% block body_subtasks %}
+                {% set subtask_label = 'product.view.completeness.variants.subtask_title'|trans|desc('At least one variant defined') %}
+
+                {% include '@ibexadesign/product_catalog/ui/component/completeness_subtask.html.twig' with {
+                    subtask_label,
+                    subtask_progress_value,
+                }%}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+{% endblock %}

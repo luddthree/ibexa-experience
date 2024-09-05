@@ -1,0 +1,64 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\LogicalAndCriterionConverter:
+        tags:
+            -   name: ibexa.product_catalog.search.criterion_converter
+                criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\LogicalAnd'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\LogicalNotCriterionConverter:
+        tags:
+            -   name: ibexa.product_catalog.search.criterion_converter
+                criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\LogicalNot'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\LogicalOrCriterionConverter:
+        tags:
+            -   name: ibexa.product_catalog.search.criterion_converter
+                criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\LogicalOr'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\MatchAllCriterionConverter:
+        tags:
+            -   name: ibexa.product_catalog.search.criterion_converter
+                criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\MatchAll'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\MatchNoneCriterionConverter:
+        tags:
+            -   name: ibexa.product_catalog.search.criterion_converter
+                criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\MatchNone'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\ProductTypeCriterionConverter:
+        tags:
+            - name: ibexa.product_catalog.search.criterion_converter
+              criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductType'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\ProductCreatedAtCriterionConverter:
+        tags:
+            - name: ibexa.product_catalog.search.criterion_converter
+              criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CreatedAt'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\ProductCategoryCriterionConverter:
+        tags:
+            - name: ibexa.product_catalog.search.criterion_converter
+              criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCategory'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverter\ProductCategorySubtreeCriterionConverter:
+        tags:
+            - name: ibexa.product_catalog.search.criterion_converter
+              criterion: 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ProductCategorySubtree'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\CriterionConverterRegistry:
+        arguments:
+            $converters: !tagged_iterator { tag: ibexa.product_catalog.search.criterion_converter, index_by: 'criterion' }
+
+    Ibexa\ProductCatalog\Search\Common\EventSubscriber\ProductEventSubscriber:
+        arguments:
+            $searchHandler: '@ibexa.spi.search'
+            $persistenceHandler: '@ibexa.api.persistence_handler'
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\OperatorConverter: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Search\Common\OperatorConverterInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Search\Common\OperatorConverter

@@ -1,0 +1,1741 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 2
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Cannot call method fetchColumn\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Command\\\\MigrateFlexWorkflowCommand\\:\\:configure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Command\\\\MigrateFlexWorkflowCommand\\:\\:getFlexWorkflowContentItems\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Command\\\\MigrateFlexWorkflowCommand\\:\\:getFlexWorkflowMessages\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Command\\\\MigrateFlexWorkflowCommand\\:\\:removeFlexWorkflowNotifications\\(\\) should return int but returns Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Parameter \\#3 \\$message of method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:insertMarking\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Parameter \\#4 \\$condition of method Doctrine\\\\DBAL\\\\Query\\\\QueryBuilder\\:\\:innerJoin\\(\\) expects string\\|null, Doctrine\\\\DBAL\\\\Query\\\\Expression\\\\CompositeExpression given\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Parameter \\#4 \\$condition of method Doctrine\\\\DBAL\\\\Query\\\\QueryBuilder\\:\\:leftJoin\\(\\) expects string\\|null, Doctrine\\\\DBAL\\\\Query\\\\Expression\\\\CompositeExpression given\\.$#"
+			count: 2
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Parameter \\#5 \\$comment of method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:insertTransitionMetadata\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Variable \\$errors in PHPDoc tag @var does not match assigned variable \\$totalCount\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Variable \\$message on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/bundle/Command/MigrateFlexWorkflowCommand.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Bundle\\\\Workflow\\\\Controller\\\\SuggestReviewerController\\:\\:\\$usersQueryType\\.$#"
+			count: 2
+			path: src/bundle/Controller/SuggestReviewerController.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$versionInfo\\.$#"
+			count: 1
+			path: src/bundle/Controller/SuggestReviewerController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Controller\\\\SuggestReviewerController\\:\\:addPermissonInfo\\(\\) has parameter \\$targets with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/SuggestReviewerController.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:newLocationCreateStruct\\(\\) invoked with 2 parameters, 1 required\\.$#"
+			count: 1
+			path: src/bundle/Controller/SuggestReviewerController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Controller\\\\WorkflowController\\:\\:getWorkflowDefinition\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/WorkflowController.php
+
+		-
+			message: "#^Parameter \\#1 \\$currentPage of method Pagerfanta\\\\Pagerfanta\\<mixed\\>\\:\\:setCurrentPage\\(\\) expects int, int\\|string given\\.$#"
+			count: 2
+			path: src/bundle/Controller/WorkflowController.php
+
+		-
+			message: "#^Parameter \\#2 \\$default of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\<string\\>\\:\\:get\\(\\) expects string\\|null, array given\\.$#"
+			count: 1
+			path: src/bundle/Controller/WorkflowController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\DependencyInjection\\\\Compiler\\\\SearchPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/SearchPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\WorkflowParser\\:\\:addSemanticConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/WorkflowParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\WorkflowParser\\:\\:mapConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/WorkflowParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\WorkflowParser\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/WorkflowParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\DependencyInjection\\\\IbexaWorkflowExtension\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaWorkflowExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\DependencyInjection\\\\IbexaWorkflowExtension\\:\\:prependBazingaJsTranslationConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaWorkflowExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\IbexaWorkflowBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaWorkflowBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\IbexaWorkflowBundle\\:\\:getConfigParsers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/IbexaWorkflowBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\IbexaWorkflowBundle\\:\\:registerCommands\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaWorkflowBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Workflow\\\\Templating\\\\Twig\\\\WorkflowTimelineEntryRenderingExtension\\:\\:renderEntry\\(\\) has parameter \\$params with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Templating/Twig/WorkflowTimelineEntryRenderingExtension.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\AbstractConditionalWorkflowActionListener\\:\\:getActionMetadata\\(\\)\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractConditionalWorkflowActionListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\AbstractConditionalWorkflowActionListener\\:\\:onWorkflowEvent\\(\\)\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractConditionalWorkflowActionListener.php
+
+		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractConditionalWorkflowActionListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\AbstractConditionalWorkflowActionListener\\:\\:setResult\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractConditionalWorkflowActionListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\AbstractStageWorkflowActionListener\\:\\:getActionMetadata\\(\\) has parameter \\$markingPlaces with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractStageWorkflowActionListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\AbstractStageWorkflowActionListener\\:\\:getActionMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractStageWorkflowActionListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\AbstractTransitionWorkflowActionListener\\:\\:getActionMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/AbstractTransitionWorkflowActionListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\WorkflowActionListenerInterface\\:\\:setResult\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/contracts/Event/Action/WorkflowActionListenerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\TimelineEntryRenderEvent\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/TimelineEntryRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\TimelineEntryRenderEvent\\:\\:getParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/TimelineEntryRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\TimelineEntryRenderEvent\\:\\:setParameters\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/TimelineEntryRenderEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\TimelineEntryRenderEvent\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Event/TimelineEntryRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactoryInterface\\:\\:createWorkflowDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactoryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactoryInterface\\:\\:createWorkflowMatcherDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactoryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactoryInterface\\:\\:createWorkflowStageDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactoryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactoryInterface\\:\\:createWorkflowTransitionDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactoryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactoryInterface\\:\\:createWorkflowTransitionNotificationDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactoryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowRegistryInterface\\:\\:getSupportedWorkflow\\(\\) has parameter \\$subject with no type specified\\.$#"
+			count: 1
+			path: src/contracts/Registry/WorkflowRegistryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowRegistryInterface\\:\\:getSupportedWorkflows\\(\\) has parameter \\$subject with no type specified\\.$#"
+			count: 1
+			path: src/contracts/Registry/WorkflowRegistryInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Workflow\\\\SupportStrategy\\\\Matcher\\\\MatcherInterface\\:\\:match\\(\\) has parameter \\$conditions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/SupportStrategy/Matcher/MatcherInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\Table\\\\ReviewQueue\\:\\:getTableRow\\(\\) has parameter \\$elementData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Table/ReviewQueue.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\Table\\\\ReviewQueue\\:\\:hasElement\\(\\) has parameter \\$elementData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Table/ReviewQueue.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\Table\\\\ReviewQueue\\:\\:hasElementOnCurrentPage\\(\\) has parameter \\$elementData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Table/ReviewQueue.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\Table\\\\ReviewQueue\\:\\:openWorkflowChart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Table/ReviewQueue.php
+
+		-
+			message: "#^Parameter \\#1 \\$locator of method Ibexa\\\\AdminUi\\\\Behat\\\\Component\\\\Table\\\\TableBuilder\\:\\:withParentLocator\\(\\) expects Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\CSSLocator, Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\LocatorInterface given\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Table/ReviewQueue.php
+
+		-
+			message: "#^Variable \\$tablePosition might not be defined\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Table/WorkflowListTable.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\WorkflowEventHistory\\:\\:getEntries\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/WorkflowEventHistory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\WorkflowEventHistoryPopup\\:\\:close\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/WorkflowEventHistoryPopup.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\WorkflowEventHistoryPopup\\:\\:getEntries\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/WorkflowEventHistoryPopup.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Behat\\\\Component\\\\WorkflowEventHistoryPopup\\:\\:\\$workflowEventHistory has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/WorkflowEventHistoryPopup.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowAdminContext\\:\\:goToWorkflowDetails\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowAdminContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowAdminContext\\:\\:thereIsAWorkflow\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowAdminContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowAdminContext\\:\\:thereIsAWorkflowDiagram\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowAdminContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowAdminContext\\:\\:thereIsItemInStage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowAdminContext.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowAdminContext\\:\\:\\$table \\(Ibexa\\\\AdminUi\\\\Behat\\\\Component\\\\Table\\\\Table\\) does not accept Ibexa\\\\AdminUi\\\\Behat\\\\Component\\\\Table\\\\TableInterface\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowAdminContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:dashboardReviewQueueContainsDraft\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:draftsUnderReviewTabContainsDraft\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:startReviewingDraftInStage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:transitionToStageWithMessage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:veifyIfReviewerIsNotSelectable\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:verifyWorkflowHistoryContains\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:verifyWorkflowHistoryInPopup\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowContext\\:\\:\\$workflowEventHistory is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowContext.php
+
+		-
+			message: "#^Call to method setPreviewedPage\\(\\) on an unknown class Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Call to method toggleFieldsForm\\(\\) on an unknown class Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\.$#"
+			count: 2
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Call to method verifyIsLoaded\\(\\) on an unknown class Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Call to method verifyPreviewData\\(\\) on an unknown class Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowExperienceContext\\:\\:workflowHistoryForPageContains\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Parameter \\$pageBuilderEditor of method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowExperienceContext\\:\\:__construct\\(\\) has invalid type Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowExperienceContext\\:\\:\\$pageBuilderEditor has unknown class Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor as its type\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowExperienceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowServiceContext\\:\\:assertThatContentItemsAreNotInTrash\\(\\) has parameter \\$workflowsMetadata with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowServiceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowServiceContext\\:\\:iTransitionThrough\\(\\) has parameter \\$locationURL with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowServiceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowServiceContext\\:\\:iTransitionThrough\\(\\) has parameter \\$transitionName with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowServiceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Context\\\\WorkflowServiceContext\\:\\:workflowDataOriginatedByUserDoesNotContainTrashedItems\\(\\) has parameter \\$username with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/WorkflowServiceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Facade\\\\WorkflowFacade\\:\\:transition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Facade/WorkflowFacade.php
+
+		-
+			message: "#^Variable \\$workflowName might not be defined\\.$#"
+			count: 2
+			path: src/lib/Behat/Facade/WorkflowFacade.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Page\\\\DashboardPage\\:\\:openWorkflowChart\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/DashboardPage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Page\\\\WorkflowAdminPage\\:\\:isElementInTable\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/WorkflowAdminPage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Page\\\\WorkflowAdminPage\\:\\:switchTab\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/WorkflowAdminPage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Behat\\\\Page\\\\WorkflowAdminPage\\:\\:verifyDiagramExists\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/WorkflowAdminPage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Builder\\\\StagesMapBuilder\\:\\:buildStagesMapByWorkflow\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Builder/StagesMapBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Component\\\\WorkflowTimelineComponent\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/WorkflowTimelineComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Component\\\\WorkflowTimelineComponent\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/WorkflowTimelineComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Component\\\\WorkflowVersionLockComponent\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/WorkflowVersionLockComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Component\\\\WorkflowVersionLockComponent\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/WorkflowVersionLockComponent.php
+
+		-
+			message: "#^Parameter \\#4 \\$targets of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:canUser\\(\\) expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>, array\\<int, Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\IgnoreVersionLockLimitation\\> given\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ListFilter/EditableWorkflowsListFilter.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Dashboard\\\\Block\\\\ListFilter\\\\IgnoreContentOnInitialStageListFilter\\:\\:\\$workflowDefinitionMetadataRegistry is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ListFilter/IgnoreContentOnInitialStageListFilter.php
+
+		-
+			message: "#^Cannot access property \\$query on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ReviewQueueBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Dashboard\\\\Block\\\\ReviewQueueBlock\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ReviewQueueBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Dashboard\\\\Block\\\\ReviewQueueBlock\\:\\:buildWorkflowMetadataVersionDetails\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ReviewQueueBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Dashboard\\\\Block\\\\ReviewQueueBlock\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ReviewQueueBlock.php
+
+		-
+			message: "#^Parameter \\#1 \\$workflowMetadataList of method Ibexa\\\\Workflow\\\\Builder\\\\CreatorsMapBuilder\\:\\:buildCreatorsMapForWorkflowMetadataList\\(\\) expects array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\>, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ReviewQueueBlock.php
+
+		-
+			message: "#^Parameter \\#1 \\$workflowsMetadata of method Ibexa\\\\Workflow\\\\Builder\\\\StagesMapBuilder\\:\\:buildStagesMapByWorkflow\\(\\) expects array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\>, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/lib/Dashboard/Block/ReviewQueueBlock.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Event\\\\Action\\\\NotifyReviewerActionListener\\:\\:\\$permissionResolver \\(Ibexa\\\\Core\\\\Repository\\\\Permission\\\\PermissionResolver\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\.$#"
+			count: 1
+			path: src/lib/Event/Action/NotifyReviewerActionListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Workflow\\\\Factory\\\\Registry\\\\WorkflowDefinitionMetadataRegistryFactory\\:\\:getWorkflowMetadata\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:createWorkflowMenuItems\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:createWorkflowMenuItems\\(\\) has parameter \\$transitions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:createWorkflowMenuItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:filterWorkflows\\(\\) has parameter \\$workflows with no type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:filterWorkflows\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:getWorkflows\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:hasEnabledTransitions\\(\\) has parameter \\$subject with no type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:hasEnabledTransitions\\(\\) has parameter \\$workflows with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\AbstractMenuSubscriber\\:\\:\\$workflowDefinitionMetadataRegistry \\(Ibexa\\\\Workflow\\\\Factory\\\\Registry\\\\WorkflowDefinitionMetadataRegistryFactory\\) does not accept Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowDefinitionMetadataRegistryInterface\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AbstractMenuSubscriber.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:\\$contentDraft\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:\\$fieldsData\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:\\$mainLanguageCode\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:getLocationStructs\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:isNew\\(\\)\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\FormProcessor\\:\\:saveDraft\\(\\) has parameter \\$fieldIdentifiersToValidate with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$event with type Ibexa\\\\Contracts\\\\AdminUi\\\\Event\\\\FormActionEvent is incompatible with native type Ibexa\\\\ContentForms\\\\Event\\\\FormActionEvent\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentCreateStruct of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:createContent\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Parameter \\#2 \\$contentUpdateStruct of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:updateContent\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentUpdateStruct, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/FormProcessor.php
+
+		-
+			message: "#^Access to constant ITEM__PUBLISH on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarCreateModeActionsBuilder\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Access to constant ITEM__PUBLISH on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarEditModeActionsBuilder\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Access to constant MENU_DATE_BASED_PUBLISHER on an unknown class Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Access to constant MENU_DATE_BASED_PUBLISHER_DISCARD on an unknown class Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Access to constant PAGE_BUILDER_INFOBAR_CREATE_MODE_ACTIONS on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Event\\\\PageBuilderConfigureMenuEventName\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Access to constant PAGE_BUILDER_INFOBAR_EDIT_MODE_ACTIONS on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Event\\\\PageBuilderConfigureMenuEventName\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\PageBuilderMenuSubcriber\\:\\:getSubscribedEvents\\(\\) should return array\\<string, array\\<int\\|string, array\\<int\\|string, int\\|string\\>\\|int\\|string\\>\\|string\\> but returns array\\<int\\|string, array\\<int, array\\<int, int\\|string\\>\\>\\>\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderMenuSubcriber.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:sudo\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/StageChangeSubscriber.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Workflow\\\\Factory\\\\Registry\\\\WorkflowDefinitionMetadataRegistryFactory\\:\\:getWorkflowMetadata\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Workflow\\\\Registry\\:\\:getSupportedWorkflows\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\UiComponentsSubscriber\\:\\:createStagePropertiesArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\UiComponentsSubscriber\\:\\:createVersionRemoveForm\\(\\) is unused\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$stage of method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\UiComponentsSubscriber\\:\\:createStagePropertiesArray\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\UiComponentsSubscriber\\:\\:\\$workflowMetadataRegistry \\(Ibexa\\\\Workflow\\\\Factory\\\\Registry\\\\WorkflowDefinitionMetadataRegistryFactory\\) does not accept Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowDefinitionMetadataRegistryInterface\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\UiComponentsSubscriber\\:\\:\\$workflowRegistry \\(Symfony\\\\Component\\\\Workflow\\\\Registry\\) does not accept Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowRegistryInterface\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Call to method getScheduledEntry\\(\\) on an unknown class Ibexa\\\\Scheduler\\\\Event\\\\ScheduledPublish\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Class Ibexa\\\\Scheduler\\\\Event\\\\ScheduledPublish not found\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\VersionLockSubscriber\\:\\:hasNonInitialWorkflowPlace\\(\\) has parameter \\$workflows with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\VersionLockSubscriber\\:\\:onDeleteContent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\VersionLockSubscriber\\:\\:onDeleteUser\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\VersionLockSubscriber\\:\\:onDeleteVersion\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\VersionLockSubscriber\\:\\:onScheduledPublish\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Parameter \\#4 \\$targets of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:canUser\\(\\) expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>, array\\<int, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\> given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Parameter \\$event of method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\VersionLockSubscriber\\:\\:onScheduledPublish\\(\\) has invalid type Ibexa\\\\Scheduler\\\\Event\\\\ScheduledPublish\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/VersionLockSubscriber.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:getLocationStructs\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/WorkflowGuardSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Exception\\\\ValueMapperNotFoundException\\:\\:__construct\\(\\) has parameter \\$code with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/ValueMapperNotFoundException.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Exception\\\\ValueMapperNotFoundException\\:\\:__construct\\(\\) has parameter \\$matcherType with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/ValueMapperNotFoundException.php
+
+		-
+			message: "#^Variable \\$workflows on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/lib/Factory/Registry/WorkflowRegistryFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactory\\:\\:createWorkflowDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactory\\:\\:createWorkflowMatcherDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactory\\:\\:createWorkflowStageDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactory\\:\\:createWorkflowTransitionDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactory\\:\\:createWorkflowTransitionNotificationDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Factory\\\\WorkflowDefinitionMetadata\\\\WorkflowDefinitionMetadataFactory\\:\\:createWorkflowTransitionReviewersDefinitionMetadata\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/WorkflowDefinitionMetadata/WorkflowDefinitionMetadataFactory.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:isClicked\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Form/ContentEditTypeExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Form\\\\ContentEditTypeExtension\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/ContentEditTypeExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Form\\\\ContentEditTypeExtension\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/ContentEditTypeExtension.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:isClicked\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Form/Type/EditorialWorkflowType.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Form\\\\Type\\\\EditorialWorkflowType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/EditorialWorkflowType.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Form\\\\Type\\\\WorkflowStageChoiceType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/WorkflowStageChoiceType.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Form\\\\Type\\\\WorkflowTransitionChoiceType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/WorkflowTransitionChoiceType.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$message\\.$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$name\\.$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$reviewerId\\.$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$workflowId\\.$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadata\\)\\: Unexpected token \"\\\\n     \\*\", expected variable at offset 95$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\MarkingMetadata\\:\\:\\$context \\(array\\) does not accept Ibexa\\\\Workflow\\\\Value\\\\WorkflowMarkingContext\\.$#"
+			count: 1
+			path: src/lib/Mapper/MarkingMetadataValueMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\Matcher\\\\ContentStatusMatcherMapper\\:\\:mapMatcherValue\\(\\) has parameter \\$matcherValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/Matcher/ContentStatusMatcherMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\Matcher\\\\ContentStatusMatcherMapper\\:\\:mapMatcherValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/Matcher/ContentStatusMatcherMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\Matcher\\\\ContentTypeMatcherMapper\\:\\:mapMatcherValue\\(\\) has parameter \\$matcherValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/Matcher/ContentTypeMatcherMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\Matcher\\\\ContentTypeMatcherMapper\\:\\:mapMatcherValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/Matcher/ContentTypeMatcherMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\Matcher\\\\MatcherValueMapperInterface\\:\\:mapMatcherValue\\(\\) has parameter \\$matcherValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/Matcher/MatcherValueMapperInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\Matcher\\\\MatcherValueMapperInterface\\:\\:mapMatcherValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/Matcher/MatcherValueMapperInterface.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$date\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$id\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$message\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$name\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$userId\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Mapper\\\\TransitionMetadataValueMapper\\:\\:fromPersistenceValue\\(\\) should return Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\TransitionMetadata but returns Ibexa\\\\Workflow\\\\Value\\\\TransitionMetadata\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Workflow\\\\Value\\\\TransitionMetadata\\)\\: Unexpected token \"\\\\n     \\*\", expected variable at offset 86$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\TransitionMetadata\\:\\:\\$date \\(DateTimeInterface\\) does not accept DateTimeImmutable\\|false\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\TransitionMetadata\\:\\:\\$user \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\User\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\User\\|null\\.$#"
+			count: 1
+			path: src/lib/Mapper/TransitionMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$contentId\\.$#"
+			count: 1
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$id\\.$#"
+			count: 2
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$initialOwnerId\\.$#"
+			count: 1
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$name\\.$#"
+			count: 2
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\:\\:\\$versionNo\\.$#"
+			count: 2
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Workflow\\\\Registry\\:\\:getWorkflow\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^PHPDoc tag @return with type Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionCollection\\|ProxyManager\\\\Proxy\\\\VirtualProxyInterface is not subtype of native type ProxyManager\\\\Proxy\\\\VirtualProxyInterface\\.$#"
+			count: 2
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$transitions of class Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionCollection constructor expects array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransition\\>, array\\<Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\TransitionMetadata\\> given\\.$#"
+			count: 1
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Mapper\\\\WorkflowMetadataValueMapper\\:\\:\\$workflowRegistry \\(Symfony\\\\Component\\\\Workflow\\\\Registry\\) does not accept Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowRegistryInterface\\.$#"
+			count: 1
+			path: src/lib/Mapper/WorkflowMetadataValueMapper.php
+
+		-
+			message: "#^Cannot access property \\$message on Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadata\\|false\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Cannot access property \\$reviewerId on Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadata\\|false\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Cannot access property \\$workflowId on Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadata\\|false\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\MarkingStore\\\\WorkflowMarkingStore\\:\\:mapWorkflowMarkingContext\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\MarkingStore\\\\WorkflowMarkingStore\\:\\:setMarking\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\MarkingStore\\\\WorkflowMarkingStore\\:\\:setMarking\\(\\) has parameter \\$subject with no type specified\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadataSetStruct\\:\\:\\$places \\(array\\<string\\>\\) does not accept array\\<int, int\\|string\\>\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\WorkflowMarkingContext\\:\\:\\$reviewerId \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:sudo\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Notification/Renderer.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Twig_Error_Loader\\|Twig_Error_Runtime\\|Twig_Error_Syntax is not subtype of Throwable$#"
+			count: 1
+			path: src/lib/Notification/Renderer.php
+
+		-
+			message: "#^Variable \\$workflowMetadata in PHPDoc tag @var does not match assigned variable \\$contentInfo\\.$#"
+			count: 1
+			path: src/lib/Notification/Renderer.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Workflow\\\\Pagerfanta\\\\Adapter\\\\WorkflowMetadataAdapter\\:\\:\\$query\\.$#"
+			count: 3
+			path: src/lib/Pagerfanta/Adapter/WorkflowMetadataAdapter.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Workflow\\\\Pagerfanta\\\\Adapter\\\\WorkflowMetadataAdapter\\:\\:\\$workflowService\\.$#"
+			count: 3
+			path: src/lib/Pagerfanta/Adapter/WorkflowMetadataAdapter.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:findContentWithOrphanedWorkflowMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:findWorkflowMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getAllWorkflowMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getAllWorkflowMetadataOriginatedByUser\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getMarkingByWorkflowId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getOrphanedWorkflowIdsByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getVersionLock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getWorkflowById\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getWorkflowForContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getWorkflowMetadataByContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getWorkflowMetadataByStage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:loadAllTransitionMetadataByWorkflowId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:setMarking\\(\\) has parameter \\$result with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/AbstractGateway.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 2
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Cannot call method fetchAll\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 8
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Cannot call method fetchAssociative\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Cannot call method fetchFirstColumn\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 2
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Cannot call method fetchOne\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 3
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:findContentWithOrphanedWorkflowMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:findWorkflowMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getAllWorkflowMetadata\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getAllWorkflowMetadataOriginatedByUser\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getMarkingByWorkflowId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getOrphanedWorkflowIdsByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getTransitionsForWorkflow\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getVersionLock\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getWorkflowById\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getWorkflowForContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getWorkflowMetadataByContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:getWorkflowMetadataByStage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:insertMarking\\(\\) has parameter \\$result with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:loadAllTransitionMetadataByWorkflowId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\DoctrineGateway\\:\\:setMarking\\(\\) has parameter \\$result with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Parameter \\#4 \\$condition of method Doctrine\\\\DBAL\\\\Query\\\\QueryBuilder\\:\\:leftJoin\\(\\) expects string\\|null, Doctrine\\\\DBAL\\\\Query\\\\Expression\\\\CompositeExpression given\\.$#"
+			count: 3
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between null and array will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Persistence\\\\Handler\\\\WorkflowHandler\\:\\:mapToWorkflowMetadata\\(\\) has parameter \\$rawWorkflowMetadata with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler/WorkflowHandler.php
+
+		-
+			message: "#^Parameter \\#3 \\$workflowName of method Ibexa\\\\Workflow\\\\Persistence\\\\Gateway\\\\AbstractGateway\\:\\:getWorkflowForContent\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler/WorkflowHandler.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadata\\:\\:\\$reviewerId \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler/WorkflowHandler.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\WorkflowMetadataCreateStruct\\:\\:\\$startDate \\(int\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler/WorkflowHandler.php
+
+		-
+			message: "#^Parameter \\#2 \\$listener of method Symfony\\\\Component\\\\EventDispatcher\\\\EventDispatcherInterface\\:\\:addListener\\(\\) expects callable\\(\\)\\: mixed, array\\{Ibexa\\\\Contracts\\\\Workflow\\\\Event\\\\Action\\\\WorkflowActionListenerInterface, 'onConditionalWorkfl…'\\|'onWorkflowEvent'\\} given\\.$#"
+			count: 2
+			path: src/lib/Provider/WorkflowConfigurationProvider.php
+
+		-
+			message: "#^Parameter \\#3 \\$transitionsMetadata of class Symfony\\\\Component\\\\Workflow\\\\Metadata\\\\InMemoryMetadataStore constructor expects SplObjectStorage\\<Symfony\\\\Component\\\\Workflow\\\\Transition, array\\>\\|null, SplObjectStorage\\<object, mixed\\> given\\.$#"
+			count: 1
+			path: src/lib/Provider/WorkflowConfigurationProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Proxy\\\\ProxyCacheWarmer\\:\\:warmUp\\(\\) has parameter \\$cacheDir with no type specified\\.$#"
+			count: 1
+			path: src/lib/Proxy/ProxyCacheWarmer.php
+
+		-
+			message: "#^Return type \\(void\\) of method Ibexa\\\\Workflow\\\\Proxy\\\\ProxyCacheWarmer\\:\\:warmUp\\(\\) should be compatible with return type \\(array\\<string\\>\\) of method Symfony\\\\Component\\\\HttpKernel\\\\CacheWarmer\\\\WarmableInterface\\:\\:warmUp\\(\\)$#"
+			count: 2
+			path: src/lib/Proxy/ProxyCacheWarmer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\QueryType\\\\UsersQueryType\\:\\:doGetQuery\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/QueryType/UsersQueryType.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Registry\\\\MatcherValueMapperRegistry\\:\\:__construct\\(\\) has parameter \\$matcherMappers with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Registry/MatcherValueMapperRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Registry\\\\MatcherValueMapperRegistry\\:\\:\\$matcherMappers type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Registry/MatcherValueMapperRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Registry\\\\WorkflowRegistry\\:\\:__construct\\(\\) has parameter \\$workflows with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Registry/WorkflowRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Registry\\\\WorkflowRegistry\\:\\:getSupportedWorkflow\\(\\) has parameter \\$subject with no type specified\\.$#"
+			count: 1
+			path: src/lib/Registry/WorkflowRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Registry\\\\WorkflowRegistry\\:\\:getSupportedWorkflows\\(\\) has parameter \\$subject with no type specified\\.$#"
+			count: 1
+			path: src/lib/Registry/WorkflowRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Registry\\\\WorkflowRegistry\\:\\:getSupportedWorkflows\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Registry/WorkflowRegistry.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Symfony\\\\Component\\\\Workflow\\\\Workflow\\[\\]\\)\\: Unexpected token \"\\\\n     \", expected variable at offset 164$#"
+			count: 1
+			path: src/lib/Registry/WorkflowRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRenderer\\:\\:findTemplateWithBlock\\(\\) should return Twig\\\\TemplateWrapper\\|null but returns Twig\\\\Template\\|Twig\\\\TemplateWrapper\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRenderer\\:\\:getValueBlockParameters\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRenderer\\:\\:getValueBlockParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRenderer\\:\\:getValueFallbackBlockParameters\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRenderer\\:\\:getValueFallbackBlockParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRenderer\\:\\:renderMatcherValue\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^PHPDoc tag @return with type string\\|Twig\\\\TemplateWrapper\\|null is not subtype of native type Twig\\\\TemplateWrapper\\|null\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Twig_Error_Loader\\|Twig_Error_Runtime\\|Twig_Error_Syntax is not subtype of Throwable$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Variable \\$value in PHPDoc tag @var does not match assigned variable \\$limitations\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Variable \\$value in PHPDoc tag @var does not match assigned variable \\$matcherValues\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\MatcherBlockRendererInterface\\:\\:renderMatcherValue\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/MatcherBlockRendererInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\WorkflowTimelineEntryRenderer\\:\\:findTemplateWithBlock\\(\\) should return Twig\\\\TemplateWrapper\\|null but returns Twig\\\\Template\\|Twig\\\\TemplateWrapper\\.$#"
+			count: 1
+			path: src/lib/Renderer/WorkflowTimelineEntryRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\WorkflowTimelineEntryRenderer\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/WorkflowTimelineEntryRenderer.php
+
+		-
+			message: "#^PHPDoc tag @return with type string\\|Twig\\\\TemplateWrapper\\|null is not subtype of native type Twig\\\\TemplateWrapper\\|null\\.$#"
+			count: 1
+			path: src/lib/Renderer/WorkflowTimelineEntryRenderer.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Twig_Error_Loader\\|Twig_Error_Runtime\\|Twig_Error_Syntax is not subtype of Throwable$#"
+			count: 1
+			path: src/lib/Renderer/WorkflowTimelineEntryRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Renderer\\\\WorkflowTimelineEntryRendererInterface\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Renderer/WorkflowTimelineEntryRendererInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Handler\\\\ContentIsInTrash\\:\\:handle\\(\\) has parameter \\$languageSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsInTrash.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Handler\\\\ContentIsOnInitialStage\\:\\:handle\\(\\) has parameter \\$languageSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsOnInitialStage.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function reset expects array\\|object, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsOnInitialStage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Handler\\\\ContentIsOnLastStage\\:\\:handle\\(\\) has parameter \\$languageSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsOnLastStage.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function reset expects array\\|object, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsOnLastStage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Handler\\\\ContentIsOnSpecificStage\\:\\:handle\\(\\) has parameter \\$languageSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsOnSpecificStage.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function reset expects array\\|object, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/ContentIsOnSpecificStage.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Handler\\\\OriginatedByUserId\\:\\:handle\\(\\) has parameter \\$languageSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/OriginatedByUserId.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function reset expects array\\|object, array\\<bool\\|float\\|int\\|string\\>\\|bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Search/Criterion/Handler/OriginatedByUserId.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\Mapper\\\\WorkflowStageLimitationMapper\\:\\:filterLimitationValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/Mapper/WorkflowStageLimitationMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\Mapper\\\\WorkflowStageLimitationMapper\\:\\:mapLimitationForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/Mapper/WorkflowStageLimitationMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\Mapper\\\\WorkflowTransitionLimitationMapper\\:\\:filterLimitationValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/Mapper/WorkflowTransitionLimitationMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\Mapper\\\\WorkflowTransitionLimitationMapper\\:\\:mapLimitationForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/Mapper/WorkflowTransitionLimitationMapper.php
+
+		-
+			message: "#^Instanceof between Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject and Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\IgnoreVersionLockLimitation will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/VersionLockLimitationType.php
+
+		-
+			message: "#^Return type \\(void\\) of method Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\VersionLockLimitationType\\:\\:getCriterion\\(\\) should be compatible with return type \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\CriterionInterface\\) of method Ibexa\\\\Contracts\\\\Core\\\\Limitation\\\\Type\\:\\:getCriterion\\(\\)$#"
+			count: 1
+			path: src/lib/Security/Limitation/VersionLockLimitationType.php
+
+		-
+			message: "#^Return type \\(void\\) of method Ibexa\\\\Workflow\\\\Security\\\\Limitation\\\\VersionLockLimitationType\\:\\:valueSchema\\(\\) should be compatible with return type \\(array\\|int\\) of method Ibexa\\\\Contracts\\\\Core\\\\Limitation\\\\Type\\:\\:valueSchema\\(\\)$#"
+			count: 1
+			path: src/lib/Security/Limitation/VersionLockLimitationType.php
+
+		-
+			message: "#^Variable \\$workflow might not be defined\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/WorkflowStageLimitationType.php
+
+		-
+			message: "#^Variable \\$workflow might not be defined\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/WorkflowTransitionLimitationType.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Workflow\\\\Registry\\:\\:getSupportedWorkflow\\(\\)\\.$#"
+			count: 2
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Workflow\\\\Registry\\:\\:getSupportedWorkflows\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Cannot call method warning\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Instantiated class Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Content not found\\.$#"
+			count: 2
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:buildOngoingWorkflowMetadata\\(\\) has invalid return type EzSystems\\\\EzPlatformWorkflow\\\\Value\\\\WorkflowMetadata\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:buildOngoingWorkflowMetadata\\(\\) should return array\\<EzSystems\\\\EzPlatformWorkflow\\\\Value\\\\WorkflowMetadata\\> but returns array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:loadAllWorkflowMetadata\\(\\) should return array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\> but returns array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:loadOngoingWorkflowMetadata\\(\\) should return array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\> but returns array\\<EzSystems\\\\EzPlatformWorkflow\\\\Value\\\\WorkflowMetadata\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:loadOngoingWorkflowMetadataOriginatedByUser\\(\\) should return array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\> but returns array\\<EzSystems\\\\EzPlatformWorkflow\\\\Value\\\\WorkflowMetadata\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:loadWorkflowMetadataByStage\\(\\) should return array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\> but returns array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:loadWorkflowMetadataForContent\\(\\) should return Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:loadWorkflowMetadataOriginatedByUser\\(\\) should return array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\> but returns array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:start\\(\\) should return Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Parameter \\#1 \\$criteria of class Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\LogicalAnd constructor expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\>, array\\<int, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Content\\|null\\> given\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Parameter \\#1 \\$filter of method Ibexa\\\\Contracts\\\\Workflow\\\\Persistence\\\\Handler\\\\HandlerInterface\\:\\:countWorkflowMetadata\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Parameter \\#1 \\$filter of method Ibexa\\\\Contracts\\\\Workflow\\\\Persistence\\\\Handler\\\\HandlerInterface\\:\\:findWorkflowMetadata\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\LogicalOperator\\:\\:\\$criteria \\(array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\>\\) does not accept array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\|Ibexa\\\\Workflow\\\\Search\\\\Criterion\\\\Content\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Service\\\\WorkflowService\\:\\:\\$workflowRegistry \\(Symfony\\\\Component\\\\Workflow\\\\Registry\\) does not accept Ibexa\\\\Contracts\\\\Workflow\\\\Registry\\\\WorkflowRegistryInterface\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\WorkflowMetadataCreateStruct\\:\\:\\$stages \\(array\\<string\\>\\) does not accept array\\<int, int\\|string\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadataList\\:\\:\\$items \\(array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\>\\) does not accept array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\.$#"
+			count: 1
+			path: src/lib/Service/WorkflowService.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\SupportStrategy\\\\Matcher\\\\ContentStatusMatcher\\:\\:match\\(\\) has parameter \\$conditions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/SupportStrategy/Matcher/ContentStatusMatcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\SupportStrategy\\\\Matcher\\\\ContentTypeMatcher\\:\\:match\\(\\) has parameter \\$conditions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/SupportStrategy/Matcher/ContentTypeMatcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\SupportStrategy\\\\Matcher\\\\MatcherRegistry\\:\\:__construct\\(\\) has parameter \\$matchers with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/SupportStrategy/Matcher/MatcherRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\SupportStrategy\\\\Matcher\\\\MatcherRegistry\\:\\:\\$matchers type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/SupportStrategy/Matcher/MatcherRegistry.php
+
+		-
+			message: "#^Cannot access property \\$query on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: src/lib/Tab/MyDraftsUnderReviewTab.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Tab\\\\MyDraftsUnderReviewTab\\:\\:buildWorkflowMetadataVersionDetails\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Tab/MyDraftsUnderReviewTab.php
+
+		-
+			message: "#^Offset 'my_drafts_under…' on string on left side of \\?\\? does not exist\\.$#"
+			count: 1
+			path: src/lib/Tab/MyDraftsUnderReviewTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$workflowMetadataList of method Ibexa\\\\Workflow\\\\Builder\\\\CreatorsMapBuilder\\:\\:buildCreatorsMapForWorkflowMetadataList\\(\\) expects array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\>, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/lib/Tab/MyDraftsUnderReviewTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$workflowsMetadata of method Ibexa\\\\Workflow\\\\Builder\\\\StagesMapBuilder\\:\\:buildStagesMapByWorkflow\\(\\) expects array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadata\\>, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/lib/Tab/MyDraftsUnderReviewTab.php
+
+		-
+			message: "#^Parameter \\#2 \\$default of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\<string\\>\\:\\:get\\(\\) expects string\\|null, array given\\.$#"
+			count: 1
+			path: src/lib/Tab/MyDraftsUnderReviewTab.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\MarkingMetadata\\:\\:\\$context type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/MarkingMetadata.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\Persistence\\\\MarkingMetadata\\:\\:\\$result type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Persistence/MarkingMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowActionResult\\:\\:__construct\\(\\) has parameter \\$results with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowActionResult.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowActionResult\\:\\:get\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowActionResult.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowActionResult\\:\\:get\\(\\) has parameter \\$default with no type specified\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowActionResult.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowActionResult\\:\\:getResults\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowActionResult.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowActionResult\\:\\:set\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowActionResult.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\WorkflowActionResult\\:\\:\\$results type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowActionResult.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowDefinitionMetadata\\:\\:__construct\\(\\) has parameter \\$matchersMetadata with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowDefinitionMetadata\\:\\:__construct\\(\\) has parameter \\$stagesMetadata with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowDefinitionMetadata\\:\\:__construct\\(\\) has parameter \\$transitionsMetadata with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowDefinitionMetadata.php
+
+		-
+			message: "#^Class Ibexa\\\\Workflow\\\\Value\\\\WorkflowMarkingCollection implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/WorkflowMarkingCollection.php
+
+		-
+			message: "#^Class Ibexa\\\\Workflow\\\\Value\\\\WorkflowMarkingCollection implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/WorkflowMarkingCollection.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowMatcherDefinitionMetadata\\:\\:__construct\\(\\) has parameter \\$configuration with no type specified\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowMatcherDefinitionMetadata.php
+
+		-
+			message: "#^Class Ibexa\\\\Workflow\\\\Value\\\\WorkflowMetadataList implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/WorkflowMetadataList.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\WorkflowStageDefinitionMetadata\\:\\:\\$color \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Value/WorkflowStageDefinitionMetadata.php
+
+		-
+			message: "#^Class Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionCollection implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionCollection.php
+
+		-
+			message: "#^Class Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionCollection implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionCollection.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:__construct\\(\\) has parameter \\$userGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:__construct\\(\\) has parameter \\$users with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:getUserGroups\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:getUsers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:setUserGroups\\(\\) has parameter \\$userGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:setUsers\\(\\) has parameter \\$users with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:\\$userGroups type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php
+
+		-
+			message: "#^Property Ibexa\\\\Workflow\\\\Value\\\\WorkflowTransitionNotificationDefinitionMetadata\\:\\:\\$users type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/WorkflowTransitionNotificationDefinitionMetadata.php

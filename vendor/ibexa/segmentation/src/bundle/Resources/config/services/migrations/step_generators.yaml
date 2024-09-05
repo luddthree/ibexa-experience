@@ -1,0 +1,66 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Psr\Log\LoggerAwareInterface:
+            calls:
+                - [ setLogger, [ '@?logger' ] ]
+
+    Ibexa\Segmentation\Generator\Reference\SegmentGenerator: ~
+
+    Ibexa\Segmentation\Generator\Segment\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Segmentation\Generator\Reference\SegmentGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.segment', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Segmentation\Generator\Segment\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.segment', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Segmentation\Generator\Segment\StepBuilder\Delete:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.segment', key: !php/const \Ibexa\Migration\Generator\Mode::DELETE }
+
+    Ibexa\Segmentation\Generator\Segment\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.segment', index_by: 'key' }
+            - 'segment'
+
+    ibexa.migrations.generator.segment:
+        class: Ibexa\Segmentation\Generator\Segment\SegmentMigrationGenerator
+        arguments:
+            $stepFactory: '@Ibexa\Segmentation\Generator\Segment\StepBuilder\Factory'
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+
+    Ibexa\Segmentation\Generator\Reference\SegmentGroupGenerator: ~
+
+    Ibexa\Segmentation\Generator\SegmentGroup\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Segmentation\Generator\Reference\SegmentGroupGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.segment_group', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Segmentation\Generator\SegmentGroup\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.segment_group', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Segmentation\Generator\SegmentGroup\StepBuilder\Delete:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.segment_group', key: !php/const \Ibexa\Migration\Generator\Mode::DELETE }
+
+    Ibexa\Segmentation\Generator\SegmentGroup\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.segment_group', index_by: 'key' }
+            - 'segment_group'
+
+    ibexa.migrations.generator.segment_group:
+        class: Ibexa\Segmentation\Generator\SegmentGroup\SegmentGroupMigrationGenerator
+        arguments:
+            $stepFactory: '@Ibexa\Segmentation\Generator\SegmentGroup\StepBuilder\Factory'
+        tags:
+            - { name: 'ibexa.migrations.generator' }

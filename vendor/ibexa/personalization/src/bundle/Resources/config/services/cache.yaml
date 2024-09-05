@@ -1,0 +1,39 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Cache\AbstractCacheServiceDecorator:
+        abstract: true
+        parent: Ibexa\Core\Persistence\Cache\AbstractHandler
+
+    Ibexa\Personalization\Cache\CachedRecommendationPerformanceService:
+        parent: Ibexa\Personalization\Cache\AbstractCacheServiceDecorator
+        decorates: Ibexa\Personalization\Service\Performance\RecommendationPerformanceService
+        arguments:
+            $innerRecommendationPerformanceService: '@.inner'
+
+    Ibexa\Personalization\Cache\CachedCustomerInformationService:
+        parent: Ibexa\Personalization\Cache\AbstractCacheServiceDecorator
+        decorates: Ibexa\Personalization\Service\Customer\CustomerInformationService
+        arguments:
+            $innerCustomerInformationService: '@.inner'
+
+    Ibexa\Personalization\Cache\CachedScenarioService:
+        parent: Ibexa\Personalization\Cache\AbstractCacheServiceDecorator
+        decorates: Ibexa\Personalization\Service\Scenario\ScenarioService
+        arguments:
+            $innerScenarioService: '@.inner'
+
+    Ibexa\Personalization\Cache\CachedModelService:
+        parent: Ibexa\Personalization\Cache\AbstractCacheServiceDecorator
+        decorates: Ibexa\Personalization\Service\Model\ModelService
+        arguments:
+            $innerModelService: '@.inner'
+
+    Ibexa\Personalization\Cache\CachedSettingService:
+        parent: Ibexa\Personalization\Cache\AbstractCacheServiceDecorator
+        decorates: Ibexa\Personalization\Service\Setting\SettingService
+        arguments:
+            $innerService: '@.inner'

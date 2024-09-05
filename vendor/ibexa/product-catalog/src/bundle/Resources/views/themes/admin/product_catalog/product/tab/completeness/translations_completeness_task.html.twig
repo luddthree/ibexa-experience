@@ -1,0 +1,31 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block translations_completeness_task %}
+    {% set entry = task.getEntry(product) %}
+    {% set completeness = entry.completeness %}
+    {% set progress_value = completeness.getValue() %}
+    {% set progress_value_label = completeness.getValueAsFloat()|format_percent_number %}
+    {% set title = 'product.view.completeness.translations.title'|trans|desc('Translations') %}
+
+    {% embed '@ibexadesign/product_catalog/ui/component/completeness_task.html.twig' with {
+        title,
+        progress_value,
+        progress_value_label,
+        id: 'ibexa-transaltions-completeness-task',
+    }%}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block edit_task_action %}
+            {% if not entry.isComplete() %}
+                <button
+                    data-tab-id="ibexa-tab-label-product-translations"
+                    class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--trigger-tab-open"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                    </svg>
+                </button>
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

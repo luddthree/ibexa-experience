@@ -1,0 +1,28 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set is_subtask_not_started = subtask_progress_value == 0 %}
+{% set is_subtask_completed = subtask_progress_value == 100 %}
+{% set subtask_status_label = is_subtask_completed
+    ? 'product.view.completeness.subtask.compledted_title'|trans|desc('Completed')
+    : 'product.view.completeness.subtask.not_started_title'|trans|desc('Not started')
+%}
+
+<div class="
+    ibexa-pc-completeness-subtask
+    {{ is_grouped|default(false) ? ' ibexa-pc-completeness-subtask--grouped' }}
+    {{ is_subtask_not_started ? ' ibexa-pc-completeness-subtask--not-started' }}
+    {{ is_subtask_completed ? ' ibexa-pc-completeness-subtask--completed' }}
+    {{ edit_url|default(null) ? ' ibexa-pc-completeness-subtask--with-edit-link' }}
+">
+    <div class="ibexa-pc-completeness-subtask__left-col">
+        <div class="ibexa-pc-completeness-subtask__icon-wrapper"></div>
+        <div class="ibexa-pc-completeness-subtask__name">{{ subtask_label|default('') }}</div>
+        <div class="ibexa-pc-completeness-subtask__status">{{ subtask_status_label }}</div>
+    </div>
+
+    {% if edit_url|default(null) %}
+        <div class="ibexa-pc-completeness-subtask__right-col">
+            <a class="ibexa-pc-completeness-subtask__edit-link" href="{{ edit_url }}">{{ 'product.view.completeness.subtask.edit'|trans|desc('Edit') }}</a>
+        </div>
+    {% endif %}
+</div>

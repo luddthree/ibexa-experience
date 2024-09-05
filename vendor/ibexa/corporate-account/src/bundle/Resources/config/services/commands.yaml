@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Symfony\Component\Console\Command\Command:
+            tags:
+                - { name: console.command }
+
+    Ibexa\Bundle\CorporateAccount\Command\MigrateCustomersCommand:
+        arguments:
+            $cache: '@ibexa.cache_pool'

@@ -1,0 +1,109 @@
+services:
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CriterionProcessor: ~
+
+    _instanceof:
+        Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductCriterionInterface:
+            tags:
+                - 'ibexa.product_catalog.rest.product.criterion'
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductCriteriaRegistry:
+        arguments:
+            - !tagged_iterator ibexa.product_catalog.rest.product.criterion
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CatalogIdentifier:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.CatalogIdentifier }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CatalogName:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.CatalogName }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CatalogStatus:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.CatalogStatus }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CreatedAt:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.CreatedAt }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\CreatedAtRange:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.CreatedAtRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductCategory:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.ProductCategory }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ColorAttribute:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.ColorAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\FloatAttribute:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.FloatAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\FloatAttributeRange:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.FloatAttributeRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\IntegerAttribute:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.IntegerAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\IntegerAttributeRange:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.IntegerAttributeRange }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\SelectionAttribute:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.SelectionAttribute }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductCode:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.ProductCode }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductName:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.ProductName }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductType:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.ProductType }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductAvailability:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.ProductAvailability }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\AttributeName:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.AttributeName }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\AttributeGroupIdentifier:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.AttributeGroupIdentifier }
+
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\IsVirtual:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $validator: '@validator'
+            $parserTools: '@Ibexa\Rest\Input\ParserTools'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.criterion.IsVirtual }

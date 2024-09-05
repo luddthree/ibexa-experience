@@ -1,0 +1,187 @@
+{% extends "@ibexadesign/corporate_account/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% form_theme search_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block main_container_class %} ibexa-ca-application-list{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'application.list.breadcrumbs.members'|trans|desc('Customers') },
+        { value: 'application.list.breadcrumbs.applications'|trans|desc('Applications'), url: path('ibexa.corporate_account.application.list') },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'application.list.title'|trans|desc('Applications'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form_edit, {
+        action: path('ibexa.content.edit'),
+        attr: { class: 'ibexa-edit-content-form'}
+    }) }}
+        {{ form_widget(form_edit.language, { attr: {
+            hidden: 'hidden',
+            class: 'language-input',
+        }}) }}
+    {{ form_end(form_edit) }}
+
+    <div class="ibexa-container">
+        {% embed '@ibexadesign/ui/component/adaptive_filters/adaptive_filters.html.twig' with {
+            form: search_form,
+            is_inside_container: true,
+            collapsible_items: [
+                form_row(search_form.state, {
+                    attr: {
+                        dropdown_class: 'ibexa-ca-application-list__status',
+                    }
+                })
+            ]
+        } only %}
+            {% trans_default_domain 'ibexa_corporate_account' %}
+
+            {% block static_left_input %}
+                {{ form_widget(form.query, {
+                    attr: {
+                        class: 'ibexa-ca-application-list__application-name',
+                        placeholder: 'comapany.list.search.placeholder'|trans|desc('Search by name'),
+                    },
+                    has_search: true,
+                }) }}
+            {% endblock %}
+        {% endembed %}
+
+        {% set body_rows = [] %}
+        {% for row in applications %}
+            {% set content = row.getContent() %}
+
+            {% set col_checkbox %}
+                <div class="form-check">
+                    {{ form_widget(delete_applications_form.applications[row.id], { attr: {
+                        class: 'ibexa-input ibexa-input--checkbox form-check-input',
+                    }}) }}
+                </div>
+            {% endset %}
+
+            {% set col_name %}
+                <a
+                    href="{{ path('ibexa.corporate_account.application.details', {
+                        'applicationId': row.getId()
+                    }) }}"
+                >
+                    {{ row.getName() }}
+                </a>
+            {% endset %}
+
+            {% set col_sales_rep %}
+                {% set sales_rep_id = content.getField('sales_rep').value.destinationContentId|default(null) %}
+
+                {{ sales_rep_id is not empty ? sales_reps[sales_rep_id].name : '-' }}
+            {% endset %}
+
+            {% set col_status %}
+                {% if application_states[row.getId] is defined %}
+                    {% set application_state = application_states[row.getId()] %}
+                    {% set status_badge_map = {
+                        new: 'info',
+                        accept: 'success',
+                        on_hold: 'secondary',
+                        reject: 'danger',
+                    }|merge(custom_status_badge_map|default({})) %}
+                    {% set badge = status_badge_map[application_state.state]|default('info') %}
+
+                    <span class="badge ibexa-badge ibexa-badge--{{ badge }} ibexa-badge--small">
+                        {{ ('application.state.' ~ application_state.state)|trans([], 'ibexa_corporate_account_applications') }}
+                    </span>
+                {% endif %}
+            {% endset %}
+
+            {% set col_action_btns %}
+                <a
+                    class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text"
+                    title="{{ 'application.list.table.action.assign.label'|trans|desc('Assign') }}"
+                    href="{{ path('ibexa.corporate_account.application.edit.internal', { applicationId: row.getId() }) }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('user-add') }}"></use>
+                    </svg>
+                </a>
+                <a
+                    class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text"
+                    title="{{ 'application.list.table.action.edit.label'|trans|desc('Edit') }}"
+                    href="{{ path('ibexa.corporate_account.application.edit', { applicationId: row.getId() }) }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                    </svg>
+                </a>
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{ cols: [
+                { has_checkbox: true, content: col_checkbox },
+                { content: col_name },
+                { content: content.contentInfo.publishedDate|ibexa_full_datetime },
+                { content: content.getField("user").value },
+                { content: col_sales_rep },
+                { content: col_status },
+                { has_action_btns: true, content: col_action_btns },
+            ] }]) %}
+        {% endfor %}
+
+        {% set list_actions %}
+            {% set modal_data_target = 'delete-applications-modal' %}
+            <button
+                id="delete-applications"
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+                disabled
+                data-bs-toggle="modal"
+                data-bs-target="#{{ modal_data_target }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">
+                    {{ 'application.list.table.actions.delete.btn.label'|trans|desc('Delete') }}
+                </span>
+            </button>
+            {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+                id: modal_data_target,
+                message: 'application.list.table.actions.delete.modal.message'|trans|desc('Do you want to delete the selected application(s)?'),
+                data_click: '#applications_delete_delete',
+            } %}
+        {% endset %}
+
+        {{ form_start(delete_applications_form, {
+            action: path('ibexa.corporate_account.application.delete.bulk'),
+            attr: { class: 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#delete-applications' },
+        }) }}
+        {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: 'application.list.table.headline'|trans({ '%count%': applications.getNbResults })|desc('List (%count%)'),
+            head_cols: [
+                { has_checkbox: true },
+                { content: 'application.list.table.header.name'|trans|desc('Name') },
+                { content: 'application.list.table.header.submitted_time'|trans|desc('Submitted Time') },
+                { content: 'application.list.table.header.contact_email'|trans|desc('Contact Email') },
+                { content: 'application.list.table.header.sales_rep'|trans|desc('Sales Representative') },
+                { content: 'application.list.table.header.status'|trans|desc('Status') },
+                { },
+            ],
+            body_rows,
+            actions: list_actions,
+            empty_table_info_text: 'application.list.table.empty.info'|trans|desc('There are no applications yet.'),
+        } %}
+        {% endembed %}
+        {{ form_end(delete_applications_form) }}
+
+        {% if applications.haveToPaginate %}
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                pager: applications,
+            } %}
+        {% endif %}
+    </div>
+{% endblock %}

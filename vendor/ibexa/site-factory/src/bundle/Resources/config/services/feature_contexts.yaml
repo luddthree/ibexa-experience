@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\SiteFactory\Behat\Context\SiteFactoryContext:
+    arguments:
+      - '@Ibexa\SiteFactory\ServiceEvent\SiteService'
+      - '@Ibexa\SiteFactory\Provider\SiteFactoryConfigurationProvider'
+
+  Ibexa\SiteFactory\Behat\Context\SiteFactoryFrontendContext: ~

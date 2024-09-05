@@ -1,0 +1,150 @@
+{% extends '@ibexadesign/site/base_list.html.twig' %}
+
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% form_theme form_sites_delete '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% set view_type = 'list' %}
+
+{% trans_default_domain "ibexa_site_factory" %}
+
+{%- block data_grid -%}
+    {% set body_rows = [] %}
+    {% set show_table_notice = false %}
+
+    {% for site in pager.currentPageResults %}
+        {% set is_site_factory_page = site.id is defined %}
+        {% set root_location = is_site_factory_page ? locations[site.id] : site.treeRootLocation %}
+
+        {% if not show_table_notice and site.status %}
+            {% set show_table_notice = true %}
+        {% endif %}
+
+        {% set col_checkbox %}
+            {% if is_site_factory_page %}
+                {{ form_widget(
+                    form_sites_delete.sites[site.id],
+                    { disabled: site.status }
+                ) }}
+            {% else %}
+                <span title="{{ 'site.locked'|trans|desc('Edit the site in config files') }}">
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('lock') }}"></use>
+                    </svg>
+                </span>
+            {% endif %}
+        {% endset %}
+
+        {% set col_name %}
+            {% set status = is_site_factory_page ? site.status : constant('Ibexa\\Contracts\\SiteFactory\\Values\\Site\\Site::STATUS_ONLINE') %}
+            {% set view_path = is_site_factory_page ? path('ibexa.site_factory.view', {siteId: site.id}) : false %}
+
+            {% include '@ibexadesign/site/site_info.html.twig' with {
+                'name': site.name,
+                'root_location': root_location,
+                'status': status,
+                'view_path': view_path,
+            } %}
+        {% endset %}
+
+        {% set col_main_languages %}
+            {% if is_site_factory_page %}
+                {% set publicAccesses = site.publicAccesses|map((publicAccess) => ({
+                    language: publicAccess.config.values['ibexa.site_access.config.languages'][0],
+                    identifier: publicAccess.identifier
+                })) %}
+            {% else %}
+                {% set publicAccesses = site.languages|map((language) => ({
+                    language: language,
+                    identifier: site.name
+                })) %}
+            {% endif %}
+
+            {% if publicAccesses is defined %}
+                {% include '@ibexadesign/site/language_list.html.twig' with {
+                    'publicAccesses': publicAccesses,
+                    'location': is_site_factory_page ? locations[site.id] : root_location
+                } %}
+            {% endif %}
+        {% endset %}
+
+        {% set col_domains %}
+            {% if is_site_factory_page %}
+                {% include '@ibexadesign/site/domain_list.html.twig' with {
+                    'publicAccesses': site.publicAccesses,
+                } %}
+            {% endif %}
+        {% endset %}
+
+        {% set col_action_btns %}
+            {% if is_site_factory_page %}
+                {{ include('@ibexadesign/site/site_actions.html.twig', {
+                    'modal_delete_target': modal_delete_target,
+                    'has_templates': has_templates,
+                    'site': site,
+                    'can_delete': false,
+                    'labels': false,
+                    'root_location': root_location,
+                }) }}
+            {% else %}
+                {{ include('@ibexadesign/site/site_actions.html.twig', {
+                    'location': location,
+                    'labels': false,
+                }) }}
+            {% endif %}
+        {% endset %}
+
+        {% set body_rows = body_rows|merge([{ cols: [
+            { has_checkbox: true, content: col_checkbox, raw: true },
+            { content: col_name, raw: true },
+            { content: is_site_factory_page ? site.created|ibexa_short_datetime : '' },
+            { content: col_main_languages, raw: true },
+            { content: col_domains, raw: true },
+            { has_action_btns: true, content: col_action_btns, raw: true },
+        ] }]) %}
+    {% endfor %}
+
+    {% set search_query = form.vars.value.getSearchQuery() %}
+
+    {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline: custom_results_headline ?? results_headline(pager.getNbResults(), false, search_query),
+        head_cols: [
+            { has_checkbox: true },
+            { content: 'site.label.name'|trans|desc('Site name') },
+            { content: 'site.label.created'|trans|desc('Created date') },
+            { content: 'site.label.main_languages'|trans|desc('Main languages') },
+            { content: 'site.label.domains'|trans|desc('Domains') },
+            { content: 'site.label.actions'|trans|desc('Actions') },
+        ],
+        body_rows,
+        empty_table_info_text: 'site.list.no_sites'|trans|desc('-'),
+        show_notice: show_table_notice,
+        notice_message: 'site.list.cannot_delete_notice'|trans|desc('You cannot delete active sites.'),
+    } %}
+        {% block header %}
+            {% embed '@ibexadesign/ui/component/table/table_header.html.twig' %}
+                {% block actions %}
+                    {% include '@ibexadesign/site/data_grid_actions.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+
+        {% block between_header_and_table %}
+            {{ form_start(form_sites_delete, {
+                'action': path('ibexa.site_factory.bulk_delete'),
+                'attr': { 'class': 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#delete-sites' }
+            }) }}
+        {% endblock %}
+    {% endembed %}
+
+    {{ form_end(form_sites_delete) }}
+
+    {% if pager.haveToPaginate %}
+        {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': pager,
+            'paginaton_params' : {
+                'pageParameter': '[site_list][page]'
+            }
+        } %}
+    {% endif %}
+{%- endblock -%}

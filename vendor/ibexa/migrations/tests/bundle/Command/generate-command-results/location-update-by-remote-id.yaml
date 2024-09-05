@@ -1,0 +1,22 @@
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: f3e90596361e31d496d4026eb624c983
+    metadata:
+        remoteId: f3e90596361e31d496d4026eb624c983
+        priority: 0
+        sortField: 8
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 3f6d92f8044aed134f32153517850f5a
+    metadata:
+        remoteId: 3f6d92f8044aed134f32153517850f5a
+        priority: 0
+        sortField: 1
+        sortOrder: 1

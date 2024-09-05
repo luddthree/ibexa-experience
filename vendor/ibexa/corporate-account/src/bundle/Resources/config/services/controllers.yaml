@@ -1,0 +1,79 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\Controller\:
+        resource: '../../Controller/'
+        exclude: ['../../Controller/CorporatePortal/']
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CompanyCreateController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\CompanyDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\CompanyEditController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\CompanyDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressCreateController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ShippingAddressDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressEditController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ShippingAddressDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressDeleteController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ShippingAddressDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ShippingAddressSetAsDefaultController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ShippingAddressDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\MemberCreateController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\MemberDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\MemberEditController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\MemberDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\InvitationController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\InvitationDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ApplicationEditController:
+        arguments:
+            $actionDispatcher: '@Ibexa\CorporateAccount\Form\ActionDispatcher\ApplicationDispatcher'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ApplicationWorkflowController:
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\CorporateAccount\Controller\ApplicationDeleteController:
+        tags:
+            - controller.service_arguments

@@ -1,0 +1,34 @@
+parameters:
+    env(SEARCH_ENGINE): 'legacy'
+
+ibexa:
+    system:
+        admin:
+            languages: [ eng-GB ]
+        site:
+            languages: [ eng-GB, ger-DE ]
+        site_pl:
+            languages: [ pol-PL ]
+        computer_shop:
+            languages: [ eng-GB, pol-PL ]
+        blog:
+            languages: [ eng-GB ]
+    siteaccess:
+        default_siteaccess: site
+        list:
+            - admin
+            - site
+            - site_pl
+            - computer_shop
+            - blog
+        groups:
+            site_group: [ site, site_pl ]
+            admin_group: [ admin ]
+        match: ~
+
+    repositories:
+        default:
+            storage: ~
+            search:
+                engine: '%env(SEARCH_ENGINE)%'
+                connection: default

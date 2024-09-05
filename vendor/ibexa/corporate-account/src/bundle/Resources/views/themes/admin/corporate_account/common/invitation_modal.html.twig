@@ -1,0 +1,42 @@
+{% extends '@ibexadesign/user/invitation/modal.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% block top_input_content %}
+    {{ parent() }}
+
+    {% form_theme form '@ibexadesign/corporate_account/common/invitation_form_fields.html.twig' %}
+
+    {% if form.siteAccess is defined %}
+        {{ form_row(form.siteAccess) }}
+    {% endif %}
+{% endblock %}
+
+{% block entries %}
+    {% form_theme form '@ibexadesign/corporate_account/common/invitation_form_fields.html.twig' %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% for invitation_form_entry in form.invitations %}
+        {{ form_widget(invitation_form_entry) }}
+    {% endfor %}
+{% endblock %}
+
+{% block entry_prototype %}
+    {% form_theme form '@ibexadesign/corporate_account/common/invitation_form_fields.html.twig' %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {{ form_widget(form.children.invitations.vars.prototype) }}
+{% endblock %}
+
+{% block entries_labels %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    <label class="ibexa-label ibexa-user-invitation-modal__label">
+        {{ 'invite_members.modal.email_address'|trans|desc('Email address') }}
+    </label>
+    <label class="ibexa-label ibexa-user-invitation-modal__label">
+        {{ 'invite_members.modal.role'|trans|desc('Role') }}
+    </label>
+{% endblock %}
+
+{% set info = 'invite_members.modal.info'|trans|desc('Enter your team members email addresses, and select the role they should be assigned.') %}

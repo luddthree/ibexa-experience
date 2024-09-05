@@ -1,0 +1,302 @@
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Anonymous
+    metadata:
+        identifier: Anonymous
+    policies:
+        mode: replace
+        list:
+            -
+                module: content
+                function: read
+                limitations:
+                    - { identifier: Section, values: [standard] }
+            -
+                module: content
+                function: pdf
+                limitations:
+                    - { identifier: Section, values: [standard] }
+            -
+                module: rss
+                function: feed
+            -
+                module: user
+                function: login
+                limitations:
+                    - { identifier: SiteAccess, values: ['ku6"H'] }
+            -
+                module: user
+                function: login
+                limitations:
+                    - { identifier: SiteAccess, values: [eng] }
+            -
+                module: user
+                function: login
+                limitations:
+                    - { identifier: SiteAccess, values: [ger] }
+            -
+                module: user
+                function: login
+                limitations:
+                    - { identifier: SiteAccess, values: [eng] }
+            -
+                module: content
+                function: read
+                limitations:
+                    - { identifier: Class, values: [image, banner] }
+                    - { identifier: Section, values: [media] }
+    references:
+        -
+            name: ref__role__1__role_id
+            type: role_id
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Administrator
+    metadata:
+        identifier: Administrator
+    policies:
+        mode: replace
+        list:
+            -
+                module: '*'
+                function: '*'
+    references:
+        -
+            name: ref__role__2__role_id
+            type: role_id
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Editor
+    metadata:
+        identifier: Editor
+    policies:
+        mode: replace
+        list:
+            -
+                module: user
+                function: login
+            -
+                module: ezoe
+                function: '*'
+            -
+                module: ezoe
+                function: '*'
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [folder, link, file, product, feedback_form, landing_page, article, blog, poll, wiki_page, gallery, forum, forums, event_calendar, banner, image] }
+                    - { identifier: ParentClass, values: [folder] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [blog_post] }
+                    - { identifier: ParentClass, values: [blog] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [forum_topic] }
+                    - { identifier: ParentClass, values: [forum] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [event] }
+                    - { identifier: ParentClass, values: [event_calendar] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [image] }
+                    - { identifier: ParentClass, values: [gallery] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [folder, link, feedback_form, landing_page, wiki_page, gallery, event_calendar, forums] }
+                    - { identifier: ParentClass, values: [landing_page] }
+            -
+                module: websitetoolbar
+                function: use
+                limitations:
+                    - { identifier: Class, values: [folder, link, article, blog, blog_post, product, feedback_form, landing_page, wiki_page, poll, file, image, gallery, forum, event, event_calendar, forums] }
+            -
+                module: content
+                function: edit
+            -
+                module: content
+                function: read
+                limitations:
+                    - { identifier: Section, values: [standard, '', media] }
+            -
+                module: notification
+                function: use
+            -
+                module: content
+                function: manage_locations
+            -
+                module: ezodf
+                function: '*'
+            -
+                module: ezflow
+                function: '*'
+            -
+                module: ezajax
+                function: '*'
+            -
+                module: content
+                function: diff
+            -
+                module: content
+                function: versionread
+            -
+                module: content
+                function: versionremove
+            -
+                module: content
+                function: remove
+            -
+                module: content
+                function: translate
+            -
+                module: rss
+                function: feed
+            -
+                module: content
+                function: bookmark
+            -
+                module: content
+                function: pendinglist
+            -
+                module: content
+                function: dashboard
+            -
+                module: content
+                function: view_embed
+            -
+                module: content
+                function: publish
+    references:
+        -
+            name: ref__role__3__role_id
+            type: role_id
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Partner
+    metadata:
+        identifier: Partner
+    policies:
+        mode: replace
+        list:
+            -
+                module: content
+                function: read
+                limitations:
+                    - { identifier: Section, values: [''] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [forum_topic] }
+                    - { identifier: Section, values: [''] }
+                    - { identifier: ParentClass, values: [forum] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [forum_reply] }
+                    - { identifier: Section, values: [''] }
+                    - { identifier: ParentClass, values: [forum_topic] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [comment] }
+                    - { identifier: Section, values: [''] }
+                    - { identifier: ParentClass, values: [article] }
+            -
+                module: content
+                function: edit
+                limitations:
+                    - { identifier: Class, values: [comment, forum_topic, forum_reply] }
+                    - { identifier: Section, values: [''] }
+                    - { identifier: Owner, values: ['1'] }
+            -
+                module: user
+                function: selfedit
+            -
+                module: notification
+                function: use
+    references:
+        -
+            name: ref__role__4__role_id
+            type: role_id
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Member
+    metadata:
+        identifier: Member
+    policies:
+        mode: replace
+        list:
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [forum_topic] }
+                    - { identifier: Section, values: [standard] }
+                    - { identifier: ParentClass, values: [forum] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [forum_reply] }
+                    - { identifier: Section, values: [standard] }
+                    - { identifier: ParentClass, values: [forum_topic] }
+            -
+                module: content
+                function: create
+                limitations:
+                    - { identifier: Class, values: [comment] }
+                    - { identifier: Section, values: [standard] }
+                    - { identifier: ParentClass, values: [article, blog_post] }
+            -
+                module: content
+                function: edit
+                limitations:
+                    - { identifier: Class, values: [comment, forum_topic, forum_reply] }
+                    - { identifier: Section, values: [standard] }
+                    - { identifier: Owner, values: ['1'] }
+            -
+                module: user
+                function: selfedit
+            -
+                module: notification
+                function: use
+            -
+                module: user
+                function: password
+            -
+                module: ezjscore
+                function: call
+    references:
+        -
+            name: ref__role__5__role_id
+            type: role_id

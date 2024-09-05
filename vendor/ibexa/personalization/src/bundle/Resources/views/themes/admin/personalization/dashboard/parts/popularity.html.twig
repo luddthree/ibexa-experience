@@ -1,0 +1,22 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<section class="container ibexa-container ibexa-popularity">
+    <div class="ibexa-table-header">
+        <div class="ibexa-table-header__headline">
+            {{ 'dashboard.top_clicked_items'|trans|desc('Top 10 clicked items') }}
+        </div>
+        <div class="ibexa-table-header__actions">
+            {% include '@ibexadesign/personalization/dashboard/parts/time_range_form.html.twig' with {
+                values: form.vars.value.popularity,
+                time_range_type_select: form.children.popularity.children.duration,
+                class: 'ibexa-popularity__inputs-container',
+                no_custom_range: true,
+                show_label: false,
+                is_right: true,
+            } %}
+        </div>
+    </div>
+    <div class="ibexa-popularity__table-container">
+        {% include '@ibexadesign/personalization/dashboard/parts/popularity_table.html.twig' %}
+    </div>
+</section>

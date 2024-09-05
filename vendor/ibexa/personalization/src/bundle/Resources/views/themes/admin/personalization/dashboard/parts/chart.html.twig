@@ -1,0 +1,47 @@
+{% extends '@ibexadesign/ui/chart.html.twig' %}
+
+{% set time_range = 'ibexa_personalization.date_time_range.last_24h'|trans|desc('Last 24h') %}
+{% set charts_inputs = form.children.chart.children %}
+{% set charts_period_name_value = charts_inputs.select.children.period.vars.value %}
+{% set charts_period_value = charts_inputs.period.vars.value %}
+
+{% if charts_period_name_value == 'custom_range' %}
+    {% set time_range_dates = charts_period_value.endDate|default('now'|date('U'))|ibexa_personalization_transform_interval_to_date_range(charts_period_value.dateInterval) %}
+    {% set time_range = 'dashboard.charts.date_time_range'|trans({
+        '%start_date%': time_range_dates.start_date|ibexa_short_date,
+        '%end_date%': time_range_dates.end_date|ibexa_short_date
+    })|desc('%start_date% to %end_date%') %}
+{% else %}
+    {% for choice in charts_inputs.select.children.period.vars.choices %}
+        {% if choice is selectedchoice(charts_period_name_value) %}
+            {% set time_range = choice.label %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block time_range %}
+    {{ time_range }}
+{% endblock %}
+
+{% block chart_footer %}
+    <ul
+        class="ibexa-perso-dashboard-chart-legend"
+        data-item-template={{ include('@ibexadesign/personalization/dashboard/parts/chart/legend_item_template.html.twig', {
+            'checked_color' : '{{ checked_color }}',
+            'label': '{{ label }}',
+            'label_value': '{{ label_value }}',
+            'dataset_index': '{{ dataset_index }}'
+        })|e('html_attr') }}
+    ></ul>
+    <div
+        class="ibexa-perso-dashboard-chart-summary"
+        data-item-template={{ include('@ibexadesign/personalization/dashboard/parts/chart/summary_item_template.html.twig', {
+            'value' : '{{ value }}',
+            'label': '{{ label }}'
+        })|e('html_attr') }}
+    ></div>
+{% endblock %}

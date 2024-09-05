@@ -1,0 +1,24 @@
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - phpstan-baseline.neon
+
+parameters:
+    level: 8
+    treatPhpDocTypesAsCertain: false
+    checkMissingCallableSignature: true
+
+    ## Contravariance in method signatures is sometimes desired in strategies that make type assumptions
+    reportMaybesInMethodSignatures: false
+
+    ignoreErrors:
+        -
+            message: "#^Cannot call method (log|debug|info|notice|warning|error|critical|alert|emergency)\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+        -
+            message: "#^Cannot call method (fetchOne|fetchAllAssociative|fetchAssociative|fetchAllKeyValue|fetchFirstColumn)\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+
+    paths:
+        - src
+        - tests

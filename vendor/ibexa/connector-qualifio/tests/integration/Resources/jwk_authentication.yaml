@@ -1,0 +1,5 @@
+lexik_jwt_authentication:
+    secret_key: foo # required for token creation
+    public_key: foo # required for token verification
+    pass_phrase: foo # required for token creation
+    token_ttl: 3600 # in seconds, default is 3600

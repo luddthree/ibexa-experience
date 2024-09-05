@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "ActivityLogGroupList": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "_media-type": {
+          "type": "string"
+        },
+        "_href": {
+          "type": "string"
+        },
+        "ActivityLogGroups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "_media-type",
+              "user_id",
+              "logged_at",
+              "ActivityLogEntries"
+            ],
+            "properties": {
+              "_media-type": {
+                "type": "string"
+              },
+              "user_id": {
+                "type": "integer"
+              },
+              "logged_at": {
+                "type": "integer"
+              },
+              "ActivityLogEntries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "_media-type": {
+                      "type": "string"
+                    },
+                    "object_id": {
+                      "type": "string"
+                    },
+                    "object_class": {
+                      "type": "string"
+                    },
+                    "action": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "_media-type",
+                    "object_id",
+                    "object_class",
+                    "action",
+                    "data"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "_media-type",
+        "_href",
+        "ActivityLogGroups"
+      ]
+    }
+  },
+  "required": [
+    "ActivityLogGroupList"
+  ]
+}

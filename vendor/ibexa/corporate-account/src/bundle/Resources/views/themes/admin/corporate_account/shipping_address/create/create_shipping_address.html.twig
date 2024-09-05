@@ -1,0 +1,51 @@
+{% extends '@ibexadesign/corporate_account/create.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-shipping-address-create-edit{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'shipping_address.create.action_name'|trans|desc('Creating'),
+        content_type_name: content_type.name,
+        title: 'shipping_address.create.title'|trans({ '%contentType%': content_type.name })|desc('New %contentType%'),
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set menu_items %}
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <button
+                type="button"
+                data-click="#ezplatform_content_forms_content_edit_publish"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--trigger"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'shipping_address.create.save_btn.label'|trans|desc('Save') }}
+                </span>
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <a
+                href="{{ close_href }}"
+                class="btn ibexa-btn ibexa-btn--secondary"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'shipping_address.create.cancel_btn.label'|trans|desc('Cancel') }}
+                </span>
+            </a>
+        </li>
+    {% endset %}
+
+    {{ include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', {
+        menu_items,
+    }) }}
+{% endset %}
+
+{% block form_fields %}
+    {{- form_widget(form.publish, { attr: { hidden: true }}) -}}
+    {{- form_widget(form.publishAndEdit, { attr: { hidden: true }}) -}}
+    {{ parent() }}
+{% endblock %}

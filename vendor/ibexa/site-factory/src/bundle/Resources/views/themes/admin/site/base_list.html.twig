@@ -1,0 +1,107 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain "ibexa_site_factory" %}
+
+{% set modal_delete_target = 'delete-site-modal' %}
+{% set search_list_class = 'ibexa-sf-list__site-search' %}
+
+{% if not pager.haveToPaginate %}
+    {% set search_list_class = search_list_class ~ ' ibexa-list-search--empty-pagination' %}
+{% endif %}
+
+{% block main_container_class %}{{ parent() }} ibexa-sf-list{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'site.list'|trans|desc('Sites')
+    } %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'site.breadcrumb.list'|trans|desc('Sites') },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if site_factory_enabled and can_create %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                {% if has_templates %}
+                    <a class="btn ibexa-btn ibexa-btn--primary" href="{{ path('ibexa.site_factory.create') }}">
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                        </svg>
+                        <span class="ibexa-btn__label">{{ 'site.list.create'|trans|desc('Create') }}</span>
+                    </a>
+                {% else %}
+                    <button class="btn ibexa-btn ibexa-btn--primary" disabled>
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                        </svg>
+                        <span class="ibexa-btn__label">{{ 'site.list.create'|trans|desc('Create') }}</span>
+                    </button>
+                {% endif %}
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-container">
+        {% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+        {% embed '@ibexadesign/ui/component/adaptive_filters/adaptive_filters.html.twig' with {
+            form,
+            is_inside_container: true,
+            no_labels: true,
+            no_collapsible_items: true,
+        } only %}
+            {% trans_default_domain "ibexa_site_factory" %}
+
+            {% block actions %}{% endblock %}
+            {% block static_left_input %}
+                {{ form_widget(form.searchQuery, {
+                    attr: {
+                        class: 'ibexa-input ibexa-input--text',
+                        placeholder: 'search_form.search'|trans|desc('Search...'),
+                    },
+                    has_search: true,
+                }) }}
+            {% endblock %}
+        {% endembed %}
+
+        {% if site_factory_enabled and not has_templates %}
+            <div class="ibexa-sf-list__alert-wrapper">
+                {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                    type: 'warning',
+                    title: 'header.create.unavailable'|trans()|desc('There is a design configuration error and you will not be able to create a new site. Please update the configuration.'),
+                } only %}
+            </div>
+        {% endif %}
+
+        {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+            'id': modal_delete_target,
+            'message': 'site.modal.delete.message'|trans|desc('Are you sure you want to delete this site and all the related elements?'),
+            'data_click': '#site_delete_delete',
+        }%}
+
+        {{ form_start(form_site_delete, {
+            action: path('ibexa.site_factory.delete'),
+            attr: { 'hidden': true }
+        }) }}
+            {{ form_widget(form_site_delete.delete, {'attr': {'class': 'ibexa-btn ibexa-btn--primary' }}) }}
+        {{ form_end(form_site_delete) }}
+
+        {% block data_grid %}{% endblock %}
+    </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-site-factory-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-site-factory-list-js', null, 'ibexa') }}
+{% endblock %}

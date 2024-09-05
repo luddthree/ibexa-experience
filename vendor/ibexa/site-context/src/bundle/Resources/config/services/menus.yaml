@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteContext\Menu\ConfigureRightMenuSidebarListener:
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.content_sidebar_right, method: onAdminUiMenuConfigure }
+
+    Ibexa\SiteContext\Menu\FullscreenSidebarBuilder:
+        public: true
+        lazy: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ibexa_site_context.menu.fullscreen.sidebar_right }

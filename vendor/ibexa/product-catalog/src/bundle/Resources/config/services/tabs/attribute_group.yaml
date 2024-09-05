@@ -1,0 +1,30 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.product_catalog.ui.tabs.attribute_group:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $twig: '@twig'
+            $eventDispatcher: '@event_dispatcher'
+            $template: '@@ibexadesign/product_catalog/ui/tab/attribute_group.html.twig'
+            $groupIdentifier: 'attribute-group'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'attribute-group-block' }
+
+    Ibexa\ProductCatalog\Tab\AttributeGroup\TranslationsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'attribute-group' }
+
+    Ibexa\ProductCatalog\Tab\AttributeGroup\DetailsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'attribute-group' }
+
+    Ibexa\ProductCatalog\Tab\AttributeGroup\AttributesTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'attribute-group' }

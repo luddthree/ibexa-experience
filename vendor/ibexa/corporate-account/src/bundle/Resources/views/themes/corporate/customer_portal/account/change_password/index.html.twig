@@ -1,0 +1,61 @@
+{% extends '@ibexadesign/ui/edit_base.html.twig' %}
+
+{% form_theme form_change_user_password '@ibexadesign/customer_portal/account/change_password/form_fields.html.twig'  %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% set anchor_params = {
+    close_href: path('ibexa.corporate_account.customer_portal.my_profile'),
+} %}
+
+{% block header %}
+    {% set menu_items %}
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <button
+                type="button"
+                data-click="#user_password_change_change"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--trigger"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'account.change_password.save_btn.label'|trans|desc('Save') }}
+                </span>
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <a
+                href="{{ path('ibexa.corporate_account.customer_portal.my_profile') }}"
+                class="btn ibexa-btn ibexa-btn--secondary"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'account.change_password.cancel_btn.label'|trans|desc('Cancel') }}
+                </span>
+            </a>
+        </li>
+    {% endset %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'account.change_password.action'|trans|desc('Change'),
+        title: 'account.change_password.title'|trans|desc('Change my password'),
+        context_actions: include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', { menu_items }),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-edit-content__container">
+        {{ form_start(form_change_user_password, { attr: { class: 'ibexa-form-validate' }}) }}
+            <section>
+                <div class="card ibexa-card ibexa-card--light">
+                    <div class="card-body">
+                        {{ form_row(form_change_user_password.oldPassword) }}
+                        {{ form_row(form_change_user_password.newPassword) }}
+                    </div>
+                </div>
+            </section>
+            {{ form_widget(form_change_user_password.change, { attr: { hidden: 'hidden' }}) }}
+        {{ form_end(form_change_user_password) }}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-change-user-password-js', null, 'ibexa') }}
+{% endblock %}

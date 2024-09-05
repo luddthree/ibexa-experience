@@ -1,0 +1,161 @@
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Editor
+    metadata:
+        name: null
+    policies:
+        -
+            module: user
+            function: login
+            limitations:
+                -
+                    identifier: SiteAccess
+                    values: [__default_site_access__]
+        -
+            module: user
+            function: password
+        -
+            module: content
+            function: read
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: section
+            function: view
+        -
+            module: content
+            function: reverserelatedlist
+        -
+            module: content
+            function: view_embed
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: content
+            function: versionread
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: content
+            function: versionremove
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: content
+            function: diff
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: content
+            function: translations
+        -
+            module: content
+            function: reversereltedlist
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [folder, article, user_group, user, image, file, landing_page]
+                -
+                    identifier: Language
+                    values: [nl-BE, fr-BE]
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+                -
+                    identifier: Class
+                    values: [folder, article, user_group, user, image, file, landing_page]
+                -
+                    identifier: Language
+                    values: [nl-BE, fr-BE]
+        -
+            module: content
+            function: publish
+            limitations:
+                -
+                    identifier: Language
+                    values: [nl-BE, fr-BE]
+        -
+            module: content
+            function: edit
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+                -
+                    identifier: Class
+                    values: [folder, article, user_group, user, image, file, landing_page]
+                -
+                    identifier: Language
+                    values: [nl-BE, fr-BE]
+        -
+            module: content
+            function: hide
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+                -
+                    identifier: Language
+                    values: [nl-BE, fr-BE]
+        -
+            module: content
+            function: translate
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+                -
+                    identifier: Language
+                    values: [nl-BE, fr-BE]
+        -
+            module: content
+            function: manage_locations
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: state
+            function: assign
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+        -
+            module: content
+            function: remove
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard]
+                -
+                    identifier: Class
+                    values: [folder, article, user_group, user, image, file, landing_page]
+        -
+            module: content
+            function: restore
+            limitations: {  }
+        -
+            module: content
+            function: urltranslator
+            limitations: {  }

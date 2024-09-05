@@ -1,0 +1,40 @@
+name: Browser tests
+
+on:
+    push:
+        branches:
+            - main
+            - '[0-9]+.[0-9]+'
+    pull_request: ~
+
+jobs:
+    page-builder:
+        name: "Page Builder UI Tests"
+        uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
+        with:
+            php-image: ghcr.io/ibexa/docker/php:8.3-node18
+            project-edition: 'experience'
+            test-suite:  '--profile=browser --suite=page-builder-full'
+            test-setup-phase-1: '--profile=setup --suite=personas --tags=@setup --mode=standard'
+            test-setup-phase-2: '--profile=setup --suite=page-builder --tags=@setup --mode=standard'       
+            setup: "doc/docker/base-dev.yml:doc/docker/multihost.yml:doc/docker/selenium.yml"           
+        secrets:
+            SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+            SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+            TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    site-factory:
+        name: "SiteFactory Frontend tests"
+        uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
+        with:
+            php-image: ghcr.io/ibexa/docker/php:8.3-node18
+            project-edition: 'experience'
+            test-suite:  '--mode=standard --profile=siteFactory --suite=verify'
+            test-setup-phase-1: '--mode=standard --profile=siteFactory --suite=setup'
+            test-setup-phase-2: '--mode=standard --profile=siteFactory --suite=create'
+            setup: "doc/docker/base-dev.yml:doc/docker/multihost.yml"
+        secrets:
+            SATIS_NETWORK_KEY: ${{ secrets.SATIS_NETWORK_KEY }}
+            SATIS_NETWORK_TOKEN: ${{ secrets.SATIS_NETWORK_TOKEN }}
+            TRAVIS_GITHUB_TOKEN: ${{ secrets.TRAVIS_GITHUB_TOKEN }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

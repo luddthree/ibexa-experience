@@ -1,0 +1,32 @@
+services:
+    _defaults:
+        autoconfigure: false
+        autowire: true
+        public: false
+
+    ibexa.personalization.serializer.class_metadata_factory.loader:
+        class: Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader
+        arguments:
+            $reader: '@annotations.reader'
+
+    ibexa.personalization.serializer.class_metadata_factory:
+        class: Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory
+        arguments:
+            $loader: '@ibexa.personalization.serializer.class_metadata_factory.loader'
+
+    ibexa.personalization.normalizer.object_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
+        arguments:
+            $classMetadataFactory: '@ibexa.personalization.serializer.class_metadata_factory'
+
+    ibexa.personalization.encoder.json_encoder:
+        class: Symfony\Component\Serializer\Encoder\JsonEncoder
+        tags: [ 'ibexa.personalization.serializer.encoder' ]
+
+    ibexa.personalization.serializer:
+        class: Symfony\Component\Serializer\Serializer
+        arguments:
+            $normalizers:
+                - '@ibexa.personalization.normalizer.object_normalizer'
+            $encoders:
+                - '@ibexa.personalization.encoder.json_encoder'

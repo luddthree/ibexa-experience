@@ -1,0 +1,29 @@
+{% extends page_builder_config.info_bar.base_template is defined
+    ? page_builder_config.info_bar.base_template
+    : '@IbexaPageBuilder/page_builder/infobar/base.html.twig'
+%}
+
+{% trans_default_domain 'ibexa_page_builder_infobar_edit' %}
+
+{% set mode = constant('Ibexa\\PageBuilder\\PageBuilder\\PageBuilderMode::MODE_EDIT') %}
+
+{% block menu %}
+    {% set page_edit_actions = page_edit_actions is defined
+        ? page_edit_actions
+        : knp_menu_get('ezplatform_page_builder.edit.actions', [], {
+            'content': content,
+            'location': location,
+            'language': language,
+            'parent_location': parent_location,
+        })
+    %}
+    {{ knp_menu_render(page_edit_actions, {
+        'template': '@ibexadesign/ui/menu/context_menu.html.twig',
+        'primary_item_class': 'ibexa-btn--filled-info',
+    }) }}
+{% endblock %}
+
+{% block tools %}
+    {% set tools_menu = knp_menu_get('ezplatform_page_builder.edit.tools', [], {'content': content, 'location': location}) %}
+    {{ knp_menu_render(tools_menu, {'template': '@IbexaPageBuilder/page_builder/infobar/tools/menu.html.twig'}) }}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block assets_completeness_task %}
+    {% set entry = task.getEntry(product) %}
+    {% if entry is not null %}
+        {% set completeness = entry.completeness %}
+        {% set progress_value = completeness.getValue() %}
+        {% set progress_value_label = completeness.getValueAsFloat()|format_percent_number %}
+        {% set title = 'product.view.completeness.assets.title'|trans|desc('Assets') %}
+        {% set subtask_progress_value = completeness.getValue() %}
+        {% set subtask_progress_value_label = subtask_progress_value == 100
+            ?  '(1/1)'
+            :  '(0/1)'
+        %}
+        {% embed '@ibexadesign/product_catalog/ui/component/completeness_task.html.twig' with {
+            title,
+            progress_value,
+            progress_value_label,
+            id: 'ibexa-assets-completeness-task',
+        }%}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block edit_task_action %}
+                {% if not entry.isComplete() %}
+                    <button
+                        data-tab-id="ibexa-tab-label-product-assets"
+                        class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--trigger-tab-open"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+                            <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                        </svg>
+                    </button>
+                {% endif %}
+            {% endblock %}
+
+            {% block progress_tasks_counter %}
+                {{ subtask_progress_value_label }}
+            {% endblock %}
+
+            {% block body_subtasks %}
+                {% set subtask_label = 'product.view.completeness.assets.subtask_title'|trans|desc('At least one asset added') %}
+
+                {% include '@ibexadesign/product_catalog/ui/component/completeness_subtask.html.twig' with {
+                    subtask_label,
+                    subtask_progress_value,
+                }%}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+parameters:
+    ibexa.site_access.config.corporate_group.content_view_defaults:
+        full:
+            customer_portal_page:
+                template: '@@ibexadesign/customer_portal/full/landing_page.html.twig'
+                match:
+                    Identifier\ContentType: [ customer_portal_page ]
+            customer_portal_main_page:
+                controller: '\Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\CustomerPortalEntryController::redirectToMainPageAction'
+                match:
+                    Identifier\ContentType: [ customer_portal ]
+            customer_portal:
+                controller: '\Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\CustomerPortalEntryController::redirectToPortalAction'
+                match:
+                    '@Ibexa\CorporateAccount\View\Matcher\IsSiteAccessRoot': ~
+                    IsPreview: false
+            non_portal_page:
+                template: '@@ibexadesign/customer_portal/layout_with_menu.html.twig'
+                match: [ ]
+        embed:
+            non_portal_page:
+                template: '%ibexa.default_view_templates.content.embed%'
+                match: [ ]

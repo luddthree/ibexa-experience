@@ -1,0 +1,14 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'modal.transition.list.title'|trans|desc('Event timeline'),
+    class: css_class,
+    attr: {
+        'data-workflow-popup': identifier,
+    },
+    attr_content: {
+        class: 'text-left',
+    }
+} %}
+    {% block body_content %}{% endblock %}
+{% endembed %}

@@ -1,0 +1,3 @@
+parameters:
+    ibexa.site_access.config.default.oauth2.enabled: false
+    ibexa.site_access.config.default.oauth2.clients: []

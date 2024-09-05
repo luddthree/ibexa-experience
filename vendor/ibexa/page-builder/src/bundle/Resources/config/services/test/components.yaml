@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Behat\Component\PageBuilderActionBar: ~
+
+    Ibexa\PageBuilder\Behat\Component\PageBuilderCreatorPopup: ~
+
+    Ibexa\PageBuilder\Behat\Component\PageBuilderVersionPopup: ~
+
+    Ibexa\PageBuilder\Behat\Component\PageBuilderIntroductionPopup: ~
+
+    Ibexa\PageBuilder\Behat\Component\Timeline: ~
+
+    Ibexa\PageBuilder\Behat\Component\Visibility: ~

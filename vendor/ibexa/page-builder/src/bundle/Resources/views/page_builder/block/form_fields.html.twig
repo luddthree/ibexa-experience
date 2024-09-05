@@ -1,0 +1,272 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_block_form_fields' %}
+
+{% block attribute_row %}
+    {{ form_widget(form) }}
+    {{ form_help(form) }}
+{% endblock %}
+
+{% block attribute_widget %}
+    {% set has_distraction_free_mode = form.value.vars.has_distraction_free_mode|default(false) %}
+
+    {{ form_row(form.id, {'label': false, 'attr': {'hidden': true}}) }}
+    {{ form_row(form.name, {'label': false, 'attr': {'hidden': true}}) }}
+
+    <div class="ibexa-field-edit
+        {{ has_distraction_free_mode ? 'ibexa-field-edit--has-distraction-free-mode' }}
+        {{ form.value.vars.required ? 'ibexa-field-edit--required' }}
+        {{ form.value.vars.errors|length > 0 ? 'is-invalid' }}
+    ">
+        <div class="ibexa-field-edit__label-wrapper">
+            {{ form_label(form.value, form.vars.label, {'label_attr': label_attr})}}
+        </div>
+
+        {% if has_distraction_free_mode %}
+            {{- block('distraction_free_mode') -}}
+        {% endif %}
+
+        <div class="ibexa-field-edit__data ibexa-field-edit__data">
+            <div class="ibexa-data-source ibexa-data-source">
+                {{ form_widget(form.value, { 'attr': { 'class': 'ibexa-data-source__input ibexa-data-source__input' }}) }}
+            </div>
+            <div class="ibexa-form-help">
+                {{ form_help(form.value) }}
+            </div>
+            <div class="ibexa-form-error">
+                {{ form_errors(form.value) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nested_attribute_value_widget %}
+    <div class="ibexa-field-edit {{ form.value.vars.required ? 'ibexa-field-edit--required' : '' }} {{ form.value.vars.errors|length > 0 ? 'is-invalid' : '' }}">
+        <div class="ibexa-field-edit__label-wrapper ibexa-form-error">
+            {{ form_errors(form.value)}}
+        </div>
+        <div class="ibexa-field-edit__data">
+            <div class="ibexa-data-source">
+                {{ form_widget(form.value, { 'attr': { 'class': 'ibexa-data-source__input' }}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block form_label_errors %}{% endblock form_label_errors %}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        {%- for error in errors -%}
+            <em class="ibexa-pb-block-config__error ibexa-form-error__row">
+                <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                    <use xlink:href="{{ ibexa_icon_path('notice') }}"></use>
+                </svg>
+                {{ error.message }}
+            </em>
+        {%- endfor -%}
+    {%- endif -%}
+{%- endblock -%}
+
+{% block block_configuration_attribute_text_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block block_configuration_attribute_string_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block block_configuration_attribute_integer_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block block_configuration_attribute_url_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block block_configuration_attribute_select_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block block_configuration_attribute_multiple_widget %}
+    <div class="ibexa-pb-block-checkbox-field">
+        {% for choice in form.children %}
+            {% set checked = choice.vars.value in form.vars.value %}
+            <div class="ibexa-pb-block-checkbox-field__item">
+                {{ form_widget(choice) }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block block_configuration_attribute_radio_widget %}
+    <div class="ibexa-pb-block-radio-field">
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block block_configuration_attribute_embed_widget %}
+    {% set attr = attr|merge({'hidden': true}) %}
+    {{ form_widget(form, {'attr': attr})}}
+
+    <div class="ibexa-pb-block-embed-field">
+        {% include '@IbexaPageBuilder/page_builder/block/config/embed_button.html.twig' with {
+            udw_config_name: 'single',
+            data_open_udw: 'data-open-udw-embed'
+        } %}
+        {% include '@IbexaPageBuilder/page_builder/block/config/embed_preview.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block block_configuration_attribute_embed_video_widget %}
+    {% set attr = attr|merge({'hidden': true}) %}
+    {{ form_widget(form, {'attr': attr})}}
+
+    <div class="ibexa-pb-block-embed-field ibexa-pb-block-embed-field--video">
+        {% include '@IbexaPageBuilder/page_builder/block/config/embed_button.html.twig' with {
+            udw_config_name: 'embed_video',
+            data_open_udw: 'data-open-udw-video'
+        } %}
+        {% include '@IbexaPageBuilder/page_builder/block/config/video_preview.html.twig' with {
+            main_classes: 'ibexa-pb-embed-meta--video'
+        } %}
+    </div>
+{% endblock %}
+
+{% block block_configuration_attribute_content_type_list_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block block_configuration_attribute_location_list_widget %}
+    {% set attr = attr|merge({'hidden': true, 'data-match': match|json_encode}) %}
+    {{ form_widget(form, {'attr': attr})}}
+
+    {% include '@IbexaPageBuilder/page_builder/block/config/collection_preview.html.twig' %}
+{% endblock %}
+
+{%- block block_configuration_attribute_richtext_widget -%}
+    {{ form_widget(form, {
+        'udw_context': {
+            'language': form.vars.language_code
+        }
+    })}}
+{%- endblock -%}
+
+{% block _block_configuration_since_row %}
+    <fieldset class="form-group">
+        {{ form_label(form) }}
+        {% with {'attr': {'class': 'ibexa-pb-reveal-hide-date-time__reveal'}} %}{{ block('form_widget_compound') }}{% endwith %}
+    </fieldset>
+{% endblock %}
+
+{% block _block_configuration_since_type_entry_widget %}
+    {%- set attr = attr|merge({class: 'ibexa-input--info ' ~ attr.class|default('') }) -%}
+
+    {{ block('radio_widget') }}
+{% endblock %}
+
+{% block _block_configuration_till_type_entry_widget %}
+    {%- set attr = attr|merge({class: 'ibexa-input--info ' ~ attr.class|default('') }) -%}
+
+    {{ block('radio_widget') }}
+{% endblock %}
+
+{% block _block_configuration_till_row %}
+    <fieldset class="form-group">
+        {{ form_label(form) }}
+        {% with {'attr': {'class': 'ibexa-pb-reveal-hide-date-time__hide'}} %}{{ block('form_widget_compound') }}{% endwith %}
+    </fieldset>
+{% endblock %}
+
+{% block _block_configuration_since_type_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _block_configuration_since_custom_date_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _block_configuration_till_type_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _block_configuration_till_custom_date_row %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block nested_attribute_entry_row %}
+    <div class="ibexa-collapse ibexa-collapse--heavy ibexa-collapse--attributes-group">
+        {{ form_label(form) }}
+        <div class="ibexa-collapse__body collapse show {{ form.vars.id }}">
+            <div class="ibexa-collapse__body-content">
+                {{ form_widget(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block nested_attribute_entry_label %}
+    <div class="ibexa-collapse__header">
+        {% if allow_delete %}
+            <input type="checkbox" class="ibexa-input ibexa-input--checkbox">
+        {% endif %}
+        <button type="button" data-bs-toggle="collapse" data-bs-target=".{{ form.vars.id }}" class="btn ibexa-btn ibexa-block-attributes-group-wrapper__group-name">
+            {{ form.parent.parent.parent.vars.label }}
+        </button>
+        {% if allow_delete %}
+            <button type="button" class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--remove-group">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+            </button>
+        {% endif %}
+        <button type="button" data-bs-toggle="collapse" data-bs-target=".{{ form.vars.id }}" class="btn ibexa-btn ibexa-btn--no-text ibexa-collapse__toggle-btn">
+            <svg class="ibexa-icon ibexa-icon--tiny-small ibexa-icon--toggle-status-icon">
+                <use xlink:href="{{ ibexa_icon_path('caret-down') }}"></use>
+            </svg>
+        </button>
+    </div>
+{% endblock %}
+
+{% block block_configuration_attribute_nested_attribute_label %}{% endblock %}
+
+{% block nested_attribute_collection_row %}
+    {% if allow_add %}
+        {{ form_label(form) }}
+    {% endif %}
+
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block nested_attribute_collection_widget %}
+    <div class="ibexa-block-attributes-group-wrapper{% if not allow_add %} ibexa-block-attributes-group-wrapper--single{% endif %}">
+        <div class="ibexa-block-attributes-group-wrapper__header">
+            {% if allow_add %}
+                <button type="button" class="btn ibexa-btn ibexa-btn--small ibexa-btn--secondary ibexa-btn--add-new-group">
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'add.field.group'|trans|desc('Add') }}
+                    </span>
+                </button>
+            {% endif %}
+            {% if allow_delete %}
+                <button type="button" class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--remove-groups" disabled>
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'delete.field.group'|trans|desc('Delete') }}
+                    </span>
+                </button>
+            {% endif %}
+        </div>
+
+        {{ form_widget(form, { 'attr': {
+            'class': 'ibexa-block-attributes-group-wrapper__container',
+            'data-next-group-index': form.children|length ? (form.children|last).vars.name + 1 : 0,
+        }}) }}
+    </div>
+{% endblock %}

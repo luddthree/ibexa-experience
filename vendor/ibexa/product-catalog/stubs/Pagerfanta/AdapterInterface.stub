@@ -1,0 +1,23 @@
+<?php
+declare(strict_types=1);
+
+namespace Pagerfanta\Adapter;
+
+/**
+ * @template T
+ */
+interface AdapterInterface
+{
+    /**
+     * @return int
+     */
+    public function getNbResults();
+
+    /**
+     * @param int $offset
+     * @param int $length
+     *
+     * @return iterable<array-key, T>
+     */
+    public function getSlice($offset, $length);
+}

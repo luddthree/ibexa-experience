@@ -1,0 +1,6 @@
+{% block block_configuration_attribute_targeted_content_map_widget %}
+    {% set attr = attr|merge({'hidden': true}) %}
+    {{ form_widget(form, {'attr': attr})}}
+
+    {% include '@ibexadesign/segmentation/page_builder/block/config/segmentation.html.twig' %}
+{% endblock %}

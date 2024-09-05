@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\Response\ItemListResponse:
+        tags:
+            - { name: ibexa.personalization.rest.response_type, type: http }
+
+    Ibexa\Personalization\Response\ResponseInterface:
+        '@Ibexa\Personalization\Response\ItemListResponse'

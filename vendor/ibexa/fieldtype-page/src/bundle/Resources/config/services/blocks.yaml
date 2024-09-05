@@ -1,0 +1,70 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    _instanceof:
+        Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Strategy\BlockDefinitionFactoryStrategyInterface:
+            tags: [ ibexa.field_type.page.block.factory.strategy ]
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Cache\BlockDefinitionFactoryCacheHandler:
+        parent: Ibexa\Core\Persistence\Cache\AbstractInMemoryPersistenceHandler
+        arguments:
+            $blockDefinitionFactory: '@Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionFactory'
+            $cacheIndicesValidator: '@?Ibexa\Core\Persistence\Cache\CacheIndicesValidatorInterface'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\CachedBlockDefinitionFactory:
+        arguments:
+            $cacheHandler: '@Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Cache\BlockDefinitionFactoryCacheHandler'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionFactoryInterface: '@Ibexa\FieldTypePage\FieldType\Page\Block\Definition\CachedBlockDefinitionFactory'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockDefinitionFactory:
+        arguments:
+            $eventDispatcher: '@event_dispatcher'
+            $blockFactoryStrategies: !tagged ibexa.field_type.page.block.factory.strategy
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeFactory:
+        autowire: true
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeFactoryInterface: '@Ibexa\FieldTypePage\FieldType\Page\Block\Definition\BlockAttributeFactory'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Strategy\BlockDefinitionFactoryStrategy:
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Strategy\ReactBlockDefinitionFactoryStrategy:
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\:
+        resource: '../../../lib/FieldType/Page/Block/Event/Listener/*'
+        autoconfigure: true
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Attribute\Validator\ConstraintClassRegistry:
+        calls:
+            - ['setConstraintClass', ['required', 'Symfony\Component\Validator\Constraints\Required']]
+            - ['setConstraintClass', ['regexp', 'Symfony\Component\Validator\Constraints\Regex']]
+            - ['setConstraintClass', ['not_blank', 'Symfony\Component\Validator\Constraints\NotBlank']]
+            - ['setConstraintClass', ['greater_than', 'Symfony\Component\Validator\Constraints\GreaterThan']]
+            - ['setConstraintClass', ['greater_than_or_equal', 'Symfony\Component\Validator\Constraints\GreaterThanOrEqual']]
+            - ['setConstraintClass', ['less_than', 'Symfony\Component\Validator\Constraints\LessThan']]
+            - ['setConstraintClass', ['less_than_or_equal', 'Symfony\Component\Validator\Constraints\LessThanOrEqual']]
+            - ['setConstraintClass', ['range', 'Symfony\Component\Validator\Constraints\Range']]
+            - ['setConstraintClass', ['negative', 'Symfony\Component\Validator\Constraints\Negative']]
+            - ['setConstraintClass', ['negative_or_zero', 'Symfony\Component\Validator\Constraints\NegativeOrZero']]
+            - ['setConstraintClass', ['positive', 'Symfony\Component\Validator\Constraints\Positive']]
+            - ['setConstraintClass', ['positive_or_zero', 'Symfony\Component\Validator\Constraints\PositiveOrZero']]
+            - ['setConstraintClass', ['type', 'Symfony\Component\Validator\Constraints\Type']]
+            - ['setConstraintClass', ['content_type', 'Ibexa\FieldTypePage\Validator\Constraints\ContentType']]
+            - ['setConstraintClass', ['content_container', 'Ibexa\FieldTypePage\Validator\Constraints\ContentContainerType']]
+            - ['setConstraintClass', ['not_blank_richtext', 'Ibexa\FieldTypePage\Validator\Constraints\NotBlankRichText']]
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Definition\Attribute\Validator\ConstraintFactory: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ContentListBlockListener:
+        arguments:
+            $tagHandler: '@Ibexa\HttpCache\Handler\TagHandler'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\GalleryBlockListener:
+        arguments:
+            $tagHandler: '@Ibexa\HttpCache\Handler\TagHandler'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Event\Listener\ReactBlockListener: ~

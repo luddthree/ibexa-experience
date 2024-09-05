@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$string of function strtolower expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderVersionPopup.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Serializer\\\\SerializerFactory\\:\\:resolveMetadataDirs\\(\\) should return array\\<string\\> but returns array\\<array\\|string\\>\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Serializer/SerializerFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function usort expects TArray of array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\>, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\> given\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php

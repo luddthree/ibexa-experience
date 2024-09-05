@@ -1,0 +1,53 @@
+{% trans_default_domain 'ibexa_scheduler' %}
+
+<div class="ibexa-extra-actions-container">
+    {% set is_scheduled = form_date_based_hide.timestamp.vars.data is not null %}
+    <div
+        class="ibexa-extra-actions ibexa-extra-actions--schedule-hide ibexa-extra-actions--hidden ibexa-pb-schedule-hide {% if is_scheduled == false %}ibexa-pb-schedule-hide--hidden-calendar{% endif %}"
+        data-actions="schedule-hide"
+    >
+        <div class="ibexa-extra-actions__header">
+            <h2>{{ 'schedule_hide.title'|trans|desc('Schedule hiding') }}</h2>
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-btn--close">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="ibexa-extra-actions__content">
+            {{ form_start(form_date_based_hide, {'action': path('ibexa.scheduler.content.schedule.hide')}) }}
+                <label class="ibexa-label">{{ 'schedule_hide.date_and_time'|trans|desc('Date and time') }}</label>
+                <div class="form-check">
+                    <input type="radio" id="hide-now" name="hide" class="ibexa-input ibexa-input--radio form-check-input" value="now"{% if is_scheduled == false %} checked="checked"{% endif %}>
+                    <label class="ibexa-label ibexa-label--checkbox-radio form-check-label" for="hide-now">Hide now</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="hide-later" name="hide" class="ibexa-input ibexa-input--radio form-check-input" value="later"{% if is_scheduled == true %} checked="checked"{% endif %}>
+                    <label class="ibexa-label ibexa-label--checkbox-radio form-check-label" for="hide-later">Hide later</label>
+                </div>
+                <div class="ibexa-picker">
+                    {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with { is_datetime_popup_inline: true } %}
+                    {{
+                        form_widget(
+                            form_date_based_hide.timestamp,
+                            {
+                                'attr': {
+                                    'class': 'ibexa-picker__form-input form-control',
+                                    'data-seconds': 1, '
+                                    id': 'block_configuration_since_custom_date'
+                                }
+                            }
+                        )
+                    }}
+                </div>
+                <div class="ibexa-extra-actions__btns">
+                    <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--wide ibexa-btn--hide-confirm">Confirm</button>
+                </div>
+
+                {{ form_widget(form_date_based_hide.location) }}
+                {{ form_widget(form_date_based_hide.versionInfo) }}
+
+            {{ form_end(form_date_based_hide) }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+parameters:
+    env(SEARCH_ENGINE): 'legacy'
+
+ibexa:
+    system:
+        admin:
+            languages: [ eng-GB ]
+        site:
+            languages: [ eng-GB, pol-PL ]
+        site_pl:
+            languages: [ pol-PL, eng-GB ]
+        site_de_only:
+            languages: [ ger-DE ]
+        site_access_root_configuration:
+            languages: [ eng-GB ]
+            content:
+                tree_root:
+                    location_id: 62
+        default:
+            page_builder:
+                siteaccess_list: [ site, site_pl, site_access_root_configuration, site_de_only ]
+    siteaccess:
+        default_siteaccess: site
+        list:
+            - site
+            - admin
+            - site_pl
+            - site_access_root_configuration
+            - site_de_only
+        groups:
+            site_group: [ site, site_pl ]
+            admin_group: [ admin ]
+        match: ~
+
+    repositories:
+        default:
+            storage: ~
+            search:
+                engine: '%env(SEARCH_ENGINE)%'
+                connection: default

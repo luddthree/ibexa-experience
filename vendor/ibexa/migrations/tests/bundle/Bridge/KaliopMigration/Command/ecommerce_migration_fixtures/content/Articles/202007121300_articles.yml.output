@@ -1,0 +1,114 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: article
+        mainTranslation: eng-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: null
+        alwaysAvailable: false
+        section: 1
+    location:
+        locationRemoteId: null
+        hidden: false
+        sortField: path
+        sortOrder: ASC
+        priority: 1
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: 'Terms & Conditions'
+        -
+            fieldDefIdentifier: identifier
+            languageCode: eng-GB
+            value: termsAndConditionsIdentifier
+        -
+            fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value: |-
+                <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                    xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                    version="5.0-variant ezpublish-1.0">
+                        <para>Terms &amp; Conditions</para>
+                </section>
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: article
+        mainTranslation: eng-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: null
+        alwaysAvailable: false
+        section: 1
+    location:
+        locationRemoteId: null
+        hidden: false
+        sortField: path
+        sortOrder: ASC
+        priority: 1
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: 'Data & privacy regulations'
+        -
+            fieldDefIdentifier: identifier
+            languageCode: eng-GB
+            value: data_protection
+        -
+            fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value: |-
+                <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                    xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                    version="5.0-variant ezpublish-1.0">
+                        <para>Data &amp; privacy regulations</para>
+                </section>
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: article
+        mainTranslation: eng-GB
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: null
+        alwaysAvailable: false
+        section: 1
+    location:
+        locationRemoteId: null
+        hidden: false
+        sortField: path
+        sortOrder: ASC
+        priority: 1
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: 'Cancellation policies'
+        -
+            fieldDefIdentifier: identifier
+            languageCode: eng-GB
+            value: cancellation_policy
+        -
+            fieldDefIdentifier: intro
+            languageCode: eng-GB
+            value: |-
+                <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                    xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                    version="5.0-variant ezpublish-1.0">
+                        <para>Cancellation policies</para>
+                </section>

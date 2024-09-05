@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.landing_page.layout_definition.test_two_zones:
+        class: 'Ibexa\FieldTypePage\FieldType\LandingPage\Definition\LayoutDefinition'
+        arguments:
+            $id: 'test-two-zone'
+            $name: 'test-two-zone'
+            $description: 'Two zones, one below another'
+            $thumbnail: '/bundles/ibexapagebuilder/img/test/two-zones.svg'
+            $template: '@@IbexaPageBuilder\test\twozone.html.twig'
+            $zones:
+                first:
+                    name: 'First name'
+                second:
+                    name: 'Second name'
+            $visible: true
+        tags:
+            - ibexa.field_type.page.layout

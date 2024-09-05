@@ -1,0 +1,49 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\ProductCatalog\Behat\Page\AttributesPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\AttributePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\AttributeEditPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\AttributeGroupsPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\AttributeGroupPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CatalogsPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CatalogPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CreateCatalogPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CustomerGroupsPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CustomerGroupPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductTypesPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductTypePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductTypeUpdatePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductsPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CurrenciesPage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\CurrencyUpdatePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductPriceUpdatePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductAvailabilityUpdatePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductVariantUpdatePage: ~
+
+  Ibexa\ProductCatalog\Behat\Page\ProductCreatePage:
+      arguments:
+          $fieldTypeComponents: !tagged_iterator ibexa.testing.browser.component.field_type

@@ -1,0 +1,134 @@
+ibexa.personalization.dashboard:
+    path: personalization/{customerId}/dashboard
+    controller: 'Ibexa\Bundle\Personalization\Controller\DashboardController::dashboardAction'
+    methods: [GET, POST]
+    options:
+        expose: true
+
+ibexa.personalization.models:
+    path: personalization/{customerId}/models
+    methods: [GET]
+    controller: 'Ibexa\Bundle\Personalization\Controller\ModelController::listAction'
+
+ibexa.personalization.model.details:
+    path: personalization/{customerId}/model/{referenceCode}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\Personalization\Controller\ModelController::detailsAction'
+
+ibexa.personalization.model.edit:
+    path: personalization/{customerId}/model/{referenceCode}/edit
+    methods: [GET, POST]
+    controller: 'Ibexa\Bundle\Personalization\Controller\ModelController::editAction'
+
+ibexa.personalization.model.attribute:
+    path: personalization/{customerId}/model/attribute/{attributeType}/{attributeKey}/{attributeSource}/{source}
+    methods: [GET]
+    controller: 'Ibexa\Bundle\Personalization\Controller\ModelController::attributeAction'
+    defaults:
+        attributeSource: null
+        source: null
+    options:
+        expose: true
+
+ibexa.personalization.scenarios:
+    path: personalization/{customerId}/scenarios
+    controller: 'Ibexa\Bundle\Personalization\Controller\ScenarioController::scenariosAction'
+    methods: GET
+
+ibexa.personalization.scenario.create:
+    path: personalization/{customerId}/scenario/create
+    controller: 'Ibexa\Bundle\Personalization\Controller\ScenarioController::createAction'
+    methods: [GET, POST]
+
+ibexa.personalization.scenario.details:
+    path: personalization/{customerId}/scenario/details/{name}
+    controller: 'Ibexa\Bundle\Personalization\Controller\ScenarioController::detailsAction'
+    methods: [GET]
+
+ibexa.personalization.scenario.preview:
+    path: personalization/{customerId}/scenario/preview/{name}
+    controller: 'Ibexa\Bundle\Personalization\Controller\ScenarioController::previewAction'
+    methods: [GET]
+
+ibexa.personalization.scenario.edit:
+    path: personalization/{customerId}/scenario/edit/{name}
+    controller: 'Ibexa\Bundle\Personalization\Controller\ScenarioController::editAction'
+    methods: [GET, POST]
+
+ibexa.personalization.scenario.delete:
+    path: personalization/{customerId}/scenario/delete
+    controller: 'Ibexa\Bundle\Personalization\Controller\ScenarioController::deleteAction'
+    methods: [POST]
+
+ibexa.personalization.import:
+    path: personalization/{customerId}/import
+    defaults:
+    controller: 'Ibexa\Bundle\Personalization\Controller\ImportController::importAction'
+
+ibexa.personalization.chart.data:
+    path: personalization/{customerId}/chart/data
+    controller: 'Ibexa\Bundle\Personalization\Controller\ChartController::getDataAction'
+    methods: GET
+    options:
+        expose: true
+
+ibexa.personalization.report.revenue:
+    path: personalization/report/revenue
+    controller: 'Ibexa\Bundle\Personalization\Controller\ReportController::revenueReportAction'
+    methods: GET
+    options:
+        expose: true
+
+ibexa.personalization.report.recommendation_detailed:
+    path: personalization/{customerId}/report/recommendation-detailed
+    controller: 'Ibexa\Bundle\Personalization\Controller\ReportController::recommendationDetailedReportAction'
+    methods: GET
+    options:
+        expose: true
+        
+ibexa.personalization.recommendation.preview:
+    path: personalization/{customerId}/recommendation/preview/{name}
+    controller: 'Ibexa\Bundle\Personalization\Controller\RecommendationPreviewController::previewAction'
+    methods: POST
+    options:
+        expose: true
+
+ibexa.personalization.output_type.attributes.item_type_id:
+    path: personalization/{customerId}/output-type/attributes/item-type-id/{itemTypeId}
+    controller: 'Ibexa\Bundle\Personalization\Controller\OutputTypeController::getOutputTypeAttributesByItemTypeIdAction'
+    methods: GET
+    requirements:
+        itemTypeId: '\d+'
+    options:
+        expose: true
+
+ibexa.personalization.output_type.attributes.scenario:
+    path: personalization/{customerId}/output-type/attributes/scenario/{scenarioName}
+    controller: 'Ibexa\Bundle\Personalization\Controller\OutputTypeController::getOutputTypeAttributesByScenarioAction'
+    methods: GET
+    requirements:
+        scenarioName: '[a-zA-Z0-9\_\-\/]+'
+    options:
+        expose: true
+
+ibexa.personalization.welcome:
+    path: personalization/welcome
+    controller: 'Ibexa\Bundle\Personalization\Controller\WelcomeController::welcomeAction'
+    methods: [GET, POST]
+
+ibexa.personalization.search.attributes:
+    path: personalization/{customerId}/search/attributes/
+    controller: 'Ibexa\Bundle\Personalization\Controller\SearchController::searchAttributesAction'
+    methods: [GET]
+    options:
+        expose: true
+
+ibexa.personalization.account.create:
+    path: personalization/account/create
+    controller: 'Ibexa\Bundle\Personalization\Controller\AccountController::createAction'
+    methods: [GET, POST]
+
+ibexa.personalization.account.details:
+    path: personalization/account/details
+    controller: 'Ibexa\Bundle\Personalization\Controller\AccountController::detailsAction'
+    methods: [GET]

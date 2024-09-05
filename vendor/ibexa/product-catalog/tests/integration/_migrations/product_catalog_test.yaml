@@ -1,0 +1,639 @@
+# Example data used in integration tests
+-   type: language
+    mode: create
+    metadata:
+        languageCode: pol-PL
+        name: 'Polish'
+        enabled: true
+-   type: language
+    mode: create
+    metadata:
+        languageCode: fre-FR
+        name: 'French'
+        enabled: true
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: blouse
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:48+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Blouse
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: foo, required: true, discriminator: false }
+                        - { attributeDefinition: bar, required: false, discriminator: false }
+                        - { attributeDefinition: baz, required: true, discriminator: false }
+                        - { attributeDefinition: foobar, required: false, discriminator: false }
+            validatorConfiguration: { }
+    references:
+        -   name: ref__blouse__content_type_id
+            type: content_type_id
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: dress
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:48+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Dress
+            ger-DE:
+                name: 'Dress (DE)'
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+                ger-DE:
+                    name: 'Name (DE)'
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: foo, required: true, discriminator: false }
+                        - { attributeDefinition: bar, required: false, discriminator: false }
+                        - { attributeDefinition: baz, required: true, discriminator: false }
+                regions:
+                    - { region_identifier: __REGION_1__, vat_category_identifier: fii }
+                    - { region_identifier: __REGION_2__, vat_category_identifier: fii }
+            validatorConfiguration: { }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: jeans
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:35:56+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Jeans
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            validatorConfiguration: { }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: shirt
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:56+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Shirt
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Title
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            validatorConfiguration: { }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: socks
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:36:56+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Socks
+                description: ''
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: true
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+                    description: ''
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings: { }
+            validatorConfiguration: { }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: sweater
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:35:43+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Sweater
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+                    description: ''
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings: { }
+            validatorConfiguration: { }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: skirt
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:48+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Skirt
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: product_specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: foo, required: true, discriminator: false }
+                        - { attributeDefinition: bar, required: false, discriminator: false }
+                        - { attributeDefinition: baz, required: true, discriminator: false }
+            validatorConfiguration: { }
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: empty
+        mainTranslation: eng-GB
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Empty
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: attribute_search_check
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:48+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Dress
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: foo_boolean, required: false, discriminator: false }
+                        - { attributeDefinition: foo_color, required: false, discriminator: false }
+                        - { attributeDefinition: foo_integer, required: false, discriminator: false }
+                        - { attributeDefinition: foo_float, required: false, discriminator: false }
+                        - { attributeDefinition: foo_selection, required: false, discriminator: false }
+                regions:
+                    - { region_identifier: __REGION_1__, vat_category_identifier: fii }
+                    - { region_identifier: __REGION_2__, vat_category_identifier: fii }
+            validatorConfiguration: { }
+        -   identifier: product_category
+            type: ibexa_taxonomy_entry_assignment
+            position: 2
+            translations:
+                eng-GB:
+                    name: Product category
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: false
+            category: ''
+            defaultValue:
+                taxonomy_entries_identifiers: [product_root]
+                taxonomy: product_categories
+            fieldSettings:
+                taxonomy: product_categories
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: trousers
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:26:48+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Trousers
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: foo, required: true, discriminator: false }
+                        - { attributeDefinition: bar, required: false, discriminator: true }
+                        - { attributeDefinition: baz, required: true, discriminator: true }
+            validatorConfiguration: { }
+        -   identifier: matrix
+            type: ezmatrix
+            position: 0
+            translations:
+                eng-GB:
+                    name: Title
+            required: false
+            searchable: false
+            infoCollector: true
+            translatable: false
+            category: ''
+            defaultValue: null
+            validatorConfiguration: { }
+            fieldSettings:
+                minimum_rows: 1
+                columns:
+                    -   identifier: 'column_1'
+                        name: 'Column1'
+                    -   identifier: 'column_2'
+                        name: 'Column2'
+
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: warranty
+        mainTranslation: eng-GB
+        creationDate: '2023-05-29T12:15:00+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Warranty
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                is_virtual: true
+            validatorConfiguration: { }

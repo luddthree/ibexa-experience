@@ -1,0 +1,99 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+{% import "@ibexadesign/product_catalog/product_macros.html.twig" as product_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<div class="ibexa-pc-edit-catalog-products">
+    <div class="ibexa-pc-edit-catalog-products__header">
+        <h2 class="ibexa-pc-edit-catalog-products__title">{{ 'catalog.edit.products.title'|trans|desc('Products') }}</h2>
+        <span>{{ 'catalog.edit.products.subtitle'|trans|desc('Current product list based on the applied filters') }}</span>
+    </div>
+    <div class="ibexa-pc-edit-catalog-products__list-filters">
+        {% for criteria in form.criteria %}
+            {% include '@ibexadesign/product_catalog/catalog/edit/list_filter.html.twig' with { criteria } %}
+        {% endfor %}
+    </div>
+    <div class="ibexa-pc-edit-catalog-products__search">
+        {% embed '@ibexadesign/ui/component/input_text.html.twig' with { has_search: true, search_button_type: 'button' } %}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block content %}
+                <input
+                    type="text"
+                    class="ibexa-input ibexa-input--text ibexa-input--small form-control"
+                    placeholder="{{ 'product.list.search.placeholder'|trans|desc('Search by name, code...') }}"
+                />
+            {% endblock %}
+        {% endembed %}
+    </div>
+    <div class="ibexa-pc-edit-catalog-products__preview-wrapper">
+        <div
+            class="ibexa-pc-edit-catalog-products__list"
+            data-table-spinner-row-template={{ include('@ibexadesign/product_catalog/catalog/edit/table_spinner_row.html.twig')|e('html_attr') }}
+            data-empty-table-body-row-template={{ include('@ibexadesign/ui/component/table/empty_table_body_row.html.twig', {
+                empty_table_info_text: 'product.list.empty_table_info_text'|trans|desc('Sorry, there are no products for this filter setup'),
+                empty_table_action_text: 'product.list.empty_table_action_text'|trans|desc('Try again with new criteria'),
+            })|e('html_attr') }}
+            data-row-template="{{ include('@ibexadesign/ui/component/table/table_body_row.html.twig', {
+                body_row_cols: [
+                    { content: data_grid_macros.cell_name('{{ PRODUCT_NAME }}', '{{ PRODUCT_URL }}') },
+                    {
+                        content: data_grid_macros.cell_image({
+                            thumbnail: {
+                                resource: '{{ PRODUCT_IMG }}',
+                                mimeType: 'image/svg+xml',
+                            },
+                            name: '{{ PRODUCT_NAME }}',
+                        }, ['ibexa-pc-data-grid__image-wrapper--product'])
+                    },
+                    { content: '{{ PRODUCT_CODE }}' },
+                    { content: '{{ PRODUCT_TYPE }}' },
+                    { content: '{{ PRODUCT_CREATED_DATE }}' },
+                    { content: '<div>' ~ product_macros.availability_badge(false) ~ product_macros.availability_badge(true) ~ '</div>', raw: true },
+                ],
+            })|e('html_attr') }}"
+        >
+            {% set body_rows = [] %}
+            {% if products is defined %}
+                {% for product in products %}
+                    {% set view_url = path('ibexa.product_catalog.product.view', {
+                        productCode: product.code,
+                    }) %}
+                    {% set is_product_available = product.hasAvailability() and product.getAvailability().isAvailable() %}
+                    {% set product_availability %}
+                        {{ product_macros.availability_badge(is_product_available) }}
+                    {% endset %}
+                    {% set body_rows = body_rows|merge([{ cols: [
+                        { content: data_grid_macros.cell_name(product.name, view_url) },
+                        { content: data_grid_macros.cell_image(product, ['ibexa-pc-data-grid__image-wrapper--product']) },
+                        { content: product.code },
+                        { content: product.productType.name },
+                        { content: product.createdAt | ibexa_full_datetime },
+                        { content: product_availability },
+                    ]}]) %}
+                {% endfor %}
+            {% endif %}
+            {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                class: 'ibexa-table ibexa-pc-edit-catalog-products__list-table',
+                head_cols: [
+                    { content: 'product.list.column.name'|trans|desc('Name') },
+                    { content: 'product.list.column.thumbnail'|trans|desc('Image') },
+                    { content: 'product.list.column.code'|trans|desc('Code') },
+                    { content: 'product.list.column.type'|trans|desc('Type') },
+                    { content: 'product.list.column.created'|trans|desc('Created') },
+                    { content: 'product.list.column.available'|trans|desc('Availability') },
+                ],
+                show_head_cols_if_empty: true,
+                body_rows: body_rows,
+            } %}
+        </div>
+        <div
+            class="ibexa-pc-edit-catalog-products__pagination"
+            data-current-count={{ products is defined ? products.currentPageResults|length : 0 }}
+            data-pages-count="{{ products is defined ? (products|length / products.maxPerPage)|round(0, 'ceil') : 0 }}"
+            data-total-count="{{ products is defined ? products|length : 0 }}"
+        >
+            {% include '@ibexadesign/product_catalog/catalog/edit/preview_pagination.html.twig' %}
+        </div>
+    </div>
+</div>

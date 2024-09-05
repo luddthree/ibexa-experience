@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Tests\Integration\Connect\TestFieldSubmissionConverter:
+        arguments:
+            $typeIdentifier: 'single_line'
+        tags:
+            - name: ibexa.form_builder.field.submission.converter
+              priority: 999
+
+    test.mock.ibexa.connect.http_client:
+        class: Symfony\Component\HttpClient\MockHttpClient
+        decorates: ibexa.connect.http_client
+        decoration_priority: 10 # higher priority than TraceableHttpClient

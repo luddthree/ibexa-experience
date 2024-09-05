@@ -1,0 +1,41 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "ProductSortClauseList": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "ProductSortClause": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "name"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "ProductSortClause"
+            ]
+        }
+    },
+    "required": [
+        "ProductSortClauseList"
+    ]
+}

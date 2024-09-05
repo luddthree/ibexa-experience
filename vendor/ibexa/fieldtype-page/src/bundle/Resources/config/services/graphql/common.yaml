@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypePage\GraphQL\Schema\DomainIterator:
+        arguments:
+            $nameValidator: '@Ibexa\GraphQL\Schema\Domain\NameValidator'
+        tags:
+            - { name: ibexa.graphql.domain_schema.iterator }
+
+    Ibexa\FieldTypePage\GraphQL\PageFieldDefinitionMapper:
+        decorates: Ibexa\Contracts\GraphQL\Schema\Domain\Content\Mapper\FieldDefinition\FieldDefinitionMapper
+        arguments:
+            $innerMapper: '@Ibexa\FieldTypePage\GraphQL\PageFieldDefinitionMapper.inner'

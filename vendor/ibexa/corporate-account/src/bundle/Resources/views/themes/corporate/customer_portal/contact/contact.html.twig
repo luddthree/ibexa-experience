@@ -1,0 +1,52 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'contact.breadcrumb'|trans|desc('Contact') },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'contact.title'|trans|desc('Contact'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-container">
+        <div class="ibexa-ca-contact">
+            <div class="ibexa-ca-contact__billing-address-wrapper">
+                {% include '@ibexadesign/corporate_account/common/billing_address_details.html.twig' with {
+                    billing_address,
+                    edit_path: 'ibexa.corporate_account.customer_portal.edit_billing_address',
+                    company_id: null,
+                } only %}
+            </div>
+            <div class="ibexa-ca-contact__user-profile-wrapper ">
+                {% if contact is not null %}
+                    {% include '@ibexadesign/common/user_profile.html.twig' with {
+                        user: contact.getUser(),
+                        role_label: 'contact.profile.role'|trans|desc('Contact person'),
+                        view_mode: 'vertical',
+                    } %}
+                {% else %}
+                    <div class="ibexa-ca-user-profile {{ view_mode|default('') == 'vertical' ? 'ibexa-ca-user-profile--vertical' }}">
+                        <div class="ibexa-ca-user-profile__info">
+                            <div class="ibexa-ca-user-profile__name-group">
+                                <div class="ibexa-ca-user-profile__name">
+                                    {{ 'contact.no_contact_set'|trans|desc('No member is set as a contact') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-corporate-account-css', null, 'ibexa') }}
+{% endblock %}

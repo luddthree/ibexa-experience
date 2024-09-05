@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "VatCategoryList": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "VatCategory": {
+                    "type": "array",
+                    "items": [
+                        {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "identifier": {
+                                    "type": "string"
+                                },
+                                "region": {
+                                    "type": "string"
+                                },
+                                "vatValue": {
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "identifier",
+                                "region",
+                                "vatValue"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "VatCategory"
+            ]
+        }
+    },
+    "required": [
+        "VatCategoryList"
+    ]
+}

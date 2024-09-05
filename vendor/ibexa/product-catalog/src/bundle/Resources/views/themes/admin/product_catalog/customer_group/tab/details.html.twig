@@ -1,0 +1,28 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+{% import "@ibexadesign/product_catalog/price_macros.html.twig" as price_macros %}
+
+<section>
+    {% set customer_group_items = [
+        {
+            label: 'customer_group.details.column.name'|trans|desc('Name'),
+            content: customer_group.name,
+        },
+        {
+            label: 'customer_group.list.details.identifier'|trans|desc('Identifier'),
+            content: customer_group.identifier,
+        },
+        {
+            label: 'customer_group.list.details.description'|trans|desc('Description'),
+            content: customer_group.description,
+        },
+        {
+            label: 'customer_group.list.details.global_price_rate'|trans|desc('Global price rate'),
+            content: price_macros.format_rate(customer_group.getGlobalPriceRate()),
+        },
+    ] %}
+
+    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+        headline: 'customer_group.details.header'|trans|desc('Customer group information'),
+        items: customer_group_items,
+    } only %}
+</section>

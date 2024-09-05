@@ -1,0 +1,7 @@
+<div class="block-pim">
+    {% if recommendations is defined and recommendations|length > 0 %}
+        {% for recommendation in recommendations %}
+            <p>{{ recommendation.name }}</p>
+        {% endfor %}
+    {% endif %}
+</div>

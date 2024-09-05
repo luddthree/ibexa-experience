@@ -1,0 +1,83 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% set reco_delta_class = '' %}
+
+{% if summary.clickedRecoDelta > 0 %}
+    {% set reco_delta_class = 'ibexa-perso-summary__reco-delta-value--up' %}
+{% elseif summary.clickedRecoDelta < 0 %}
+    {% set reco_delta_class = 'ibexa-perso-summary__reco-delta-value--down' %}
+{% endif %}
+
+<section class="container ibexa-perso-summary">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="ibexa-perso-summary__item">
+                <h3 class="ibexa-perso-summary__item-name">{{ 'dashboard.summary.recommendation_calls'|trans|desc('Recommendation calls') }}</h3>
+                <div class="ibexa-perso-summary__item-value">{{ summary.totalRecoCalls ? summary.totalRecoCalls|ibexa_personalization_short_number :  '-' }}</div>
+                <div class="ibexa-perso-summary__item-period">{{ 'dashboard.summary.last_30_days'|trans|desc('Last 30 days') }}</div>
+                <div class="ibexa-perso-summary__icon-circle ibexa-perso-summary__icon-circle--recommendation-calls">
+                    <svg class="ibexa-icon ibexa-icon--medium">
+                        <use xlink:href="{{ ibexa_icon_path('recommendation-calls') }}"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="ibexa-perso-summary__item">
+                <h3 class="ibexa-perso-summary__item-name">{{ 'dashboard.summary.clicked_recommendations'|trans|desc('Clicked recommendations') }}</h3>
+                <div class="ibexa-perso-summary__item-value">{{ summary.currentClickedRecoPercent is null ? '-' : summary.currentClickedRecoPercent ~ '%' }}</div>
+                <div class="ibexa-perso-summary__item-period">
+                    {% if summary.clickedRecoDelta %}
+                        <div class="ibexa-perso-summary__reco-delta-value d-inline-block {{ reco_delta_class }}">
+                            <svg class="ibexa-icon">
+                                <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+                            </svg>
+                            {{ summary.clickedRecoDelta }}%
+                        </div>
+                    {% endif %}
+
+                    <div class="d-inline-block">
+                        {% if summary.previousClickedRecoPercent is null %}
+                            {% set clicked_recommendation_percent = '-' %}
+                        {% else %}
+                            {% set clicked_recommendation_percent = summary.previousClickedRecoPercent ~ '%' %}
+                        {% endif %}
+
+                        {{ 'dashboard.summary.previous_month'|trans({ '%value%': clicked_recommendation_percent })|desc('Previous month %value%') }}
+                    </div>
+                </div>
+                <div class="ibexa-perso-summary__icon-circle ibexa-perso-summary__icon-circle--clicked-recommendations">
+                    <svg class="ibexa-icon ibexa-icon--medium">
+                        <use xlink:href="{{ ibexa_icon_path('clicked-recommendations') }}"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="ibexa-perso-summary__item">
+                <h3 class="ibexa-perso-summary__item-name">{{ 'dashboard.summary.imported_items'|trans|desc('Imported items') }}</h3>
+                <div class="ibexa-perso-summary__item-value">{{ summary.totalImportedItems ? summary.totalImportedItems|ibexa_personalization_short_number : '-' }}</div>
+                <div class="ibexa-perso-summary__item-period">
+                    {{ summary.lastProductFeed is defined ? 'dashboard.summary.last_update'|trans({ '%date%': summary.lastProductFeed|ibexa_short_date })|desc('Last update %date%') : '' }}
+                </div>
+                <div class="ibexa-perso-summary__icon-circle ibexa-perso-summary__icon-circle--imported-items">
+                    <svg class="ibexa-icon ibexa-icon--medium">
+                        <use xlink:href="{{ ibexa_icon_path('imported-items') }}"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="ibexa-perso-summary__item">
+                <h3 class="ibexa-perso-summary__item-name">{{ 'dashboard.summary.events_collected'|trans|desc('Events collected') }}</h3>
+                <div class="ibexa-perso-summary__item-value">{{ summary.eventsCollected ? summary.eventsCollected|ibexa_personalization_short_number : '-' }}</div>
+                <div class="ibexa-perso-summary__item-period">{{ 'dashboard.summary.last_30_days'|trans|desc('Last 30 days') }}</div>
+                <div class="ibexa-perso-summary__icon-circle ibexa-perso-summary__icon-circle--events-collected">
+                    <svg class="ibexa-icon ibexa-icon--medium">
+                        <use xlink:href="{{ ibexa_icon_path('events-collected') }}"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

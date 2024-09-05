@@ -1,0 +1,11 @@
+ibexa.scheduler.content.schedule.hide:
+    path: /content/schedule-hide
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Scheduler\Controller\DateBasedContentController::scheduleHideAction'
+
+ibexa.scheduler.content.schedule.hide.cancel:
+    path: /content/schedule-hide/cancel
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\Scheduler\Controller\DateBasedContentController::scheduleHideCancelAction'

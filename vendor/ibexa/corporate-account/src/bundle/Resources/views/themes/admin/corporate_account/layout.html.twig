@@ -1,0 +1,13 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-corporate-account-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-corporate-account-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-corporate-account-common-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

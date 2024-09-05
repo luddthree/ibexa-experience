@@ -1,0 +1,72 @@
+-
+    type: role
+    mode: create
+    metadata:
+        identifier: foo
+    policies:
+        -
+            module: user
+            function: login
+        -
+            module: user
+            function: password
+        -
+            module: content
+            function: 'read'
+        -
+            module: section
+            function: 'view'
+        -
+            module: content
+            function: 'reverserelatedlist'
+        -
+            module: content
+            function: 'view_embed'
+        -
+            module: content
+            function: 'versionread'
+        -
+            module: content
+            function: 'versionremove'
+        -
+            module: content
+            function: 'diff'
+        -
+            module: content
+            function: 'reversereltedlist'
+        -
+            module: content
+            function: 'create'
+        -
+            module: content
+            function: 'create'
+        -
+            module: content
+            function: 'publish'
+        -
+            module: content
+            function: 'edit'
+        -
+            module: content
+            function: 'hide'
+        -
+            module: content
+            function: 'translate'
+        -
+            module: content
+            function: 'manage_locations'
+        -
+            module: state
+            function: 'assign'
+        -
+            module: content
+            function: remove
+        # user can restore content from trash if deleted
+        -
+            module: content
+            function: restore
+            limitations: {  }
+        -
+            module: content
+            function: urltranslator
+            limitations: {  }

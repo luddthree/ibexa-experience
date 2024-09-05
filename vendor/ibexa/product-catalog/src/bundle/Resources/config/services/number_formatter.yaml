@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\NumberFormatter\LocaleProvider\LocaleResolver: ~
+
+    Ibexa\ProductCatalog\NumberFormatter\LocaleProvider\LocaleResolverInterface:
+        alias: Ibexa\ProductCatalog\NumberFormatter\LocaleProvider\LocaleResolver
+
+    Ibexa\ProductCatalog\NumberFormatter\NumberFormatterFactory:
+        arguments:
+            $style: !php/const NumberFormatter::DECIMAL
+            $attributes:
+                !php/const NumberFormatter::MAX_FRACTION_DIGITS: 16
+
+    ibexa.product_catalog.number_formatter.currency.factory:
+        parent: Ibexa\ProductCatalog\NumberFormatter\NumberFormatterFactory
+        arguments:
+            $style: !php/const NumberFormatter::CURRENCY
+
+    Ibexa\ProductCatalog\NumberFormatter\NumberFormatterFactoryInterface:
+        alias: Ibexa\ProductCatalog\NumberFormatter\NumberFormatterFactory

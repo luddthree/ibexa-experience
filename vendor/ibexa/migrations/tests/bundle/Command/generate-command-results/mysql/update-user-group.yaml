@@ -1,0 +1,162 @@
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        mainLanguage: eng-US
+        modificationDate: '2002-10-06T15:19:56+00:00'
+        ownerId: 14
+        parentGroupId: 0
+        remoteId: f5c88a2209584891056f987fd965b0ba
+        sectionId: 2
+    match:
+        field: id
+        value: 4
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Users
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'Main group'
+    references:
+        -
+            name: ref__user_group__user_group__users
+            type: user_group_id
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        mainLanguage: eng-US
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: 5f7f0bdb3381d6a461d8c29ff53d908f
+        sectionId: 2
+    match:
+        field: id
+        value: 11
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Members
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: ref__user_group__user_group__members
+            type: user_group_id
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        mainLanguage: eng-US
+        modificationDate: '2002-10-06T16:12:55+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: 9b47a45624b023b1a76c73b74d704acf
+        sectionId: 2
+    match:
+        field: id
+        value: 12
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Administrator users'
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: 'ref__user_group__user_group__administrator users'
+            type: user_group_id
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        mainLanguage: eng-US
+        modificationDate: '2002-10-06T16:13:14+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: 3c160cca19fb135f83bd02d911f04db2
+        sectionId: 2
+    match:
+        field: id
+        value: 13
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Editors
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: ref__user_group__user_group__editors
+            type: user_group_id
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        mainLanguage: eng-US
+        modificationDate: '2003-12-23T11:52:10+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: 15b256dbea2ae72418ff5facc999e8f9
+        sectionId: 2
+    match:
+        field: id
+        value: 42
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Anonymous users'
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'User group for the anonymous user'
+    references:
+        -
+            name: 'ref__user_group__user_group__anonymous users'
+            type: user_group_id
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        mainLanguage: eng-US
+        modificationDate: '2012-07-24T14:35:41+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: 14e4411b264a6194a33847843919451a
+        sectionId: 2
+    match:
+        field: id
+        value: 59
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Partners
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: ref__user_group__user_group__partners
+            type: user_group_id

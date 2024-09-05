@@ -1,0 +1,19 @@
+-
+    type: user_group
+    mode: create
+    metadata:
+        alwaysAvailable: null
+        contentTypeIdentifier: null
+        mainLanguage: eng-GB
+        modificationDate: null
+        ownerId: null
+        parentGroupId: 42
+        remoteId: __remote_id__
+        sectionId: null
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: __user_group_name__
+    roles:
+        - Anonymous

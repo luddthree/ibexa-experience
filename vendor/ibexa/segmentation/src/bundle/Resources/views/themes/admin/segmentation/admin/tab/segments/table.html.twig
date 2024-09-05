@@ -1,0 +1,23 @@
+{% trans_default_domain 'ibexa_segmentation' %}
+
+{% set body_rows = [] %}
+{% for segment in pager.currentPageResults %}
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: segment.name },
+        { content: segment.identifier },
+        { content: segment.group.name },
+    ] }]) %}
+{% endfor %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline: 'tab.segments'|trans|desc('Segments'),
+    head_cols: [
+        { content: 'tab.segments.table.name'|trans|desc('Name') },
+        { content: 'tab.segments.table.identifier'|trans|desc('Identifier') },
+        { content: 'tab.segments.table.group'|trans|desc('Group') },
+    ],
+    body_rows,
+    empty_table_info_text: pager.currentPageResults is empty
+        ? 'tab.segments.no_segments'|trans|desc('User is not assigned to any segments.')
+        : 'tab.segments.table.no_segments'|trans|desc('User is not assigned to any segments or you don\'t have read permissions to view them.')
+} only %}

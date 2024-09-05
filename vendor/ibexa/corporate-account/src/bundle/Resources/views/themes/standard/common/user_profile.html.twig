@@ -1,0 +1,36 @@
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+<div class="ibexa-ca-user-profile {{ view_mode|default('') == 'vertical' ? 'ibexa-ca-user-profile--vertical' }}">
+    <div class="ibexa-ca-user-profile__info">
+        <div class="ibexa-ca-user-profile__name-group">
+            <div class="ibexa-ca-user-profile__name">
+                {{ user.getName() }}
+            </div>
+            <div class="ibexa-ca-dashboard__role">
+                {{ role_label }}
+            </div>
+        </div>
+        <div class="ibexa-ca-user-profile__phone-group">
+            <label class="label ibexa-label ibexa-ca-user-profile__phone-label">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('telephone') }}"></use>
+                </svg>
+                {{ 'user_profile.phone.label'|trans|desc('Phone') }}
+            </label>
+            <div class="ibexa-ca-user-profile__phone-number">
+                {{ phone_number|default(user.getFieldValue('phone_number')) }}
+            </div>
+        </div>
+        <div class="ibexa-ca-user-profile__email-group">
+            <label class="label ibexa-label ibexa-ca-user-profile__email-label">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('mail') }}"></use>
+                </svg>
+                {{ 'user_profile.email.label'|trans|desc('Email') }}
+            </label>
+            <span class="ibexa-ca-user-profile__email">
+                {{ user.email }}
+            </span>
+        </div>
+    </div>
+</div>

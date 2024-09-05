@@ -1,0 +1,22 @@
+{% trans_default_domain 'ibexa_submissions' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'submissions.details.header'|trans|desc('View submission'),
+    class: 'ibexa-submission-modal',
+    size: 'large',
+    id: 'submission-details-modal',
+} %}
+    {% block body_content %}
+        <table class="table ibexa-table--list">
+            <thead>
+            <tr>
+                <th class="ibexa-table__cell ibexa-table__cell--header" colspan="2">
+                    {{ ibexa_content_name(content.versionInfo.contentInfo) }}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    {% endblock %}
+{% endembed %}

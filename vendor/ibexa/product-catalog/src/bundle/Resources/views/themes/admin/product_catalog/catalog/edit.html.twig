@@ -1,0 +1,77 @@
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set catalog_edit_menu = knp_menu_get('ibexa_product_catalog.menu.catalog_edit_context_menu', [], {
+        'submit_selector': '#catalog-edit-save',
+        'cancel_route': 'ibexa.product_catalog.catalog.list'
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'catalog.edit.action_name'|trans|desc('Editing Catalog'),
+        title: catalog.getName(),
+        icon_name: 'catalog',
+        context_actions: knp_menu_render(catalog_edit_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% set anchor_params = {
+    items: [
+        'catalog.edit.global_properties'|trans|desc('Global properties'),
+        'catalog.edit.filters'|trans|desc('Filters'),
+        'catalog.edit.products'|trans|desc('Products'),
+    ]
+} %}
+
+{% block content %}
+    {% block form %}
+        {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+        {{ form_start(form, { attr: {
+            class: 'ibexa-pc-edit__form',
+        } }) }}
+            <div class="ibexa-anchor-navigation-sections">
+                <div class="ibexa-edit-content__container">
+                    <div
+                        data-id="#{{ 'catalog.edit.global_properties'|trans|desc('Global properties')|lower|slug }}"
+                        class="ibexa-anchor-navigation-sections__section ibexa-anchor-navigation__section ibexa-pc-edit-section ibexa-pc-edit-section--fields"
+                    >
+                        {{ form_row(form.name, { row_attr: { class: 'ibexa-form-field' } }) }}
+                        {{ form_row(form.identifier, { row_attr: { class: 'ibexa-form-field' } }) }}
+                        {{ form_row(form.description, { row_attr: { class: 'ibexa-form-field' } }) }}
+                    </div>
+                </div>
+
+                <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+                    <div
+                        data-id="#{{ 'catalog.edit.filters'|trans|desc('Filters')|lower|slug }}"
+                        class="ibexa-anchor-navigation-sections__section ibexa-anchor-navigation__section ibexa-pc-edit-section ibexa-pc-edit-section--filters"
+                    >
+                        {% include '@ibexadesign/product_catalog/catalog/edit/filters_section.html.twig' %}
+                    </div>
+
+                    <div
+                        data-id="#{{ 'catalog.edit.products'|trans|desc('Products')|lower|slug }}"
+                        class="ibexa-anchor-navigation-sections__section ibexa-anchor-navigation__section ibexa-pc-edit-section ibexa-pc-edit-section--products"
+                    >
+                        {% include '@ibexadesign/product_catalog/catalog/edit/products_section.html.twig' %}
+                    </div>
+                </div>
+            </div>
+            <button
+                id="catalog-edit-save"
+                class="ibexa-pc-edit__submit-btn"
+                type="submit"
+                hidden
+            ></button>
+        {{ form_end(form) }}
+    {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/ibexaadminuiassets/vendors/taggify/src/js/taggify.js') }}"></script>
+    {{ encore_entry_script_tags('ibexa-product-catalog-catalog-edit-js', null, 'ibexa') }}
+{% endblock %}

@@ -1,0 +1,55 @@
+-
+    type: location
+    mode: update
+    match:
+        field: location_id
+        value: 444
+    metadata:
+        remoteId: siteaccess_remote
+        priority: null
+        sortField: null
+        sortOrder: null
+-
+    type: location
+    mode: update
+    match:
+        field: location_id
+        value: 444
+    metadata:
+        remoteId: siteaccess_remote
+        priority: null
+        sortField: null
+        sortOrder: null
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: remote_id
+    metadata:
+        remoteId: siteaccess_remote
+        priority: null
+        sortField: null
+        sortOrder: null
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: siteaccess_remote
+    metadata:
+        remoteId: siteaccess_remote
+        priority: null
+        sortField: null
+        sortOrder: null
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: siteaccess_remote
+    metadata:
+        remoteId: siteaccess_remote_2
+        priority: null
+        sortField: null
+        sortOrder: null

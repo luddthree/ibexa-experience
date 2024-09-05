@@ -1,0 +1,17 @@
+{% extends '@ibexadesign/customer_portal/orders/base.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'past_orders.breadcrumb'|trans|desc('Past orders') },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'past_orders.title'|trans|desc('Past orders'),
+    } %}
+{% endblock %}

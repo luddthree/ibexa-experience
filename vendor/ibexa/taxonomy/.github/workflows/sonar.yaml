@@ -1,0 +1,29 @@
+name: SonarCloud CI Analysis
+on:
+    workflow_run:
+        workflows:
+            - "CI"
+        types:
+            - completed
+jobs:
+    sonarcloud:
+        name: SonarCloud
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+                  ref: ${{ github.event.workflow_run.head_branch }}
+
+            - name: SonarCloud Scan
+              uses: matrix-org/sonarcloud-workflow-action@v1
+              with:
+                  is_pr: ${{ github.event.workflow_run.event == 'pull_request' }}
+                  owner: ${{ github.event.workflow_run.head_repository.owner.login }}
+                  branch: ${{ github.event.workflow_run.head_branch }}
+                  revision: ${{ github.event.workflow_run.head_sha }}
+                  token: ${{ secrets.SONAR_TOKEN }}
+                  coverage_run_id: ${{ github.event.workflow_run.id }}
+                  coverage_workflow_name: ci.yml
+                  coverage_artifact_name: code-coverage-report
+                  coverage_extract_path: coverage

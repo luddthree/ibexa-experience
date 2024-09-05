@@ -1,0 +1,22 @@
+<div class="ibexa-seo-twitter-link-preview">
+    <div class="ibexa-seo-twitter-link-preview__image-wrapper">
+        {% set first_filled_image = ibexa_content_field_identifier_first_filled_image(content) %}
+        {% if first_filled_image is not empty %}
+            {% set img = ibexa_field_value(content, first_filled_image) %}
+
+            <img
+                class="ibexa-seo-twitter-link-preview__image"
+                src="{{ img.uri }}"
+                alt="{{ img.alternativeText }}"
+            />
+        {% endif %}
+    </div>
+    <div class="ibexa-seo-twitter-link-preview__info-wrapper">
+        <div class="ibexa-seo-twitter-link-preview__title">
+            {{ type.fields[0].value.resolved }}
+        </div>
+        <div class="ibexa-seo-twitter-link-preview__description">
+            {{ type.fields[1].value.resolved }}
+        </div>
+    </div>
+</div>

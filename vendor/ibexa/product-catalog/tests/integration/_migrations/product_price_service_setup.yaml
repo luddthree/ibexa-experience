@@ -1,0 +1,69 @@
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: price_integration_test
+        mainTranslation: eng-GB
+        creationDate: '2021-07-14T14:35:43+02:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: 'Price integration test'
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+                    description: ''
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings: { }
+            validatorConfiguration: { }
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: price_integration_test
+        mainTranslation: eng-GB
+        remoteId: 'PRICE_INTEGRATION_TEST'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'PRICE_INTEGRATION_TEST'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'PRICE_INTEGRATION_TEST'

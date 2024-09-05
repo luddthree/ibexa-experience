@@ -1,0 +1,21 @@
+imports:
+    - { resource: services/controllers.yaml }
+    - { resource: services/mappers.yaml }
+    - { resource: services/menu.yaml }
+    - { resource: services/param_converters.yaml }
+    - { resource: services/persistence.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/installer.yaml }
+    - { resource: services/design.yaml }
+    - { resource: services/service.yaml }
+    - { resource: services/event.yaml }
+    - { resource: services/cache.yaml }
+    - { resource: services/form_mappers.yaml }
+    - { resource: services/subscribers.yaml }
+    - { resource: services/validators.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false

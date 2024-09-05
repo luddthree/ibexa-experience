@@ -1,0 +1,53 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\CustomerCenterViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\ContactViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\AddressBookViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\CompanyEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\ShippingAddressEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\ShippingAddressCreateViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\MemberCreateViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\MemberEditViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\MembersViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\ChangePasswordSuccessViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\CorporatePortal\CorporateAccountApplicationCreateViewSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\CorporateAccount\Security\RedirectToCustomerPortalListener:
+        tags:
+            - { name: kernel.event_subscriber }

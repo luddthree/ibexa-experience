@@ -1,0 +1,18 @@
+system:
+    admin_group:
+        calendar:
+            event_types:
+                future_publication:
+                    color: '#00A42B'
+                    actions:
+                        reschedule:
+                            icon: '/bundles/ibexaicons/img/all-icons.svg#schedule'
+                        unschedule:
+                            icon: '/bundles/ibexaicons/img/all-icons.svg#publish-later-cancel'
+                future_hide:
+                    color: '#FCAE42'
+                    actions:
+                        reschedule:
+                            icon: '/bundles/ibexaicons/img/all-icons.svg#schedule'
+                        unschedule:
+                            icon: '/bundles/ibexaicons/img/all-icons.svg#publish-later-cancel'

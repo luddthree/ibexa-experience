@@ -1,0 +1,6 @@
+ibexa_elasticsearch:
+    connections:
+        default:
+            hosts:
+                - '%env(ELASTICSEARCH_DSN)%'
+    default_connection: 'default'

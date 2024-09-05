@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Elasticsearch\RangeMeasurementAttributeMaximumVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Elasticsearch\RangeMeasurementAttributeMinimumVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Elasticsearch\SimpleMeasurementAttributeVisitor:
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.criterion.visitor }
+            - { name: ibexa.search.elasticsearch.query.content.criterion.visitor }

@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ActivityLog\Form\Type\ActionChoiceType: ~
+
+    Ibexa\Bundle\ActivityLog\Form\Type\ActivityLogSearchType: ~
+
+    Ibexa\Bundle\ActivityLog\Form\Type\ActivityLogUserChoiceType: ~
+
+    Ibexa\Bundle\ActivityLog\Form\Type\ObjectClassChoiceType: ~

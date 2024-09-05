@@ -1,0 +1,63 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+<div
+    id="add-translation-modal"
+    class="modal fade ibexa-modal ibexa-translation ibexa-pc-translation"
+    tabindex="-1"
+    role="dialog"
+>
+    <div class="modal-dialog" role="document">
+        {% set action = action is defined ? action : path('ibexa.product_catalog.catalog.translation.create', {
+            catalogId: catalog.id,
+        }) %}
+
+        {{ form_start(form, {'action': action}) }}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ 'tab.translations.add.title'|trans|desc('Create a new translation') }}</h5>
+                    <button
+                        type="button"
+                        class="close"
+                        data-bs-dismiss="modal"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small-medium" aria-hidden="true">
+                            <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_row(form.base_language, {
+                        row_attr: { class: 'ibexa-pc-translation__form-field' },
+                        attr: { class: 'ibexa-translation__language-wrapper ibexa-translation__language-wrapper--base-language' }
+                    }) }}
+                    <div class="ibexa-translation__arrow">
+                        <svg class="ibexa-icon ibexa-icon--medium">
+                            <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+                        </svg>
+                    </div>
+                    {{ form_row(form.language, {
+                        row_attr: { class: 'ibexa-pc-translation__form-field' },
+                        attr: { class: 'ibexa-translation__language-wrapper ibexa-translation__language-wrapper--language' }
+                    }) }}
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="submit"
+                        class="btn ibexa-btn ibexa-btn--primary ibexa-btn--create-translation"
+                    >
+                        {{ 'catalog_translation_add_form.add'|trans|desc('Create') }}
+                    </button>
+                    <button
+                        type="button"
+                        class="btn ibexa-btn ibexa-btn--secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        {{ 'tab.translations.add.cancel'|trans|desc('Cancel') }}
+                    </button>
+                </div>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</div>

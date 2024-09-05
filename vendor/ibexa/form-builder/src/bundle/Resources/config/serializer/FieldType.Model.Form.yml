@@ -1,0 +1,23 @@
+Ibexa\Contracts\FormBuilder\FieldType\Model\Form:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        contentId:
+            type: integer
+            expose: true
+            skip_when_empty: false
+        contentFieldId:
+            type: integer
+            expose: true
+            skip_when_empty: false
+        languageCode:
+            type: string
+            expose: true
+            skip_when_empty: false
+        fields:
+            type: array<Ibexa\Contracts\FormBuilder\FieldType\Model\Field>
+            accessor:
+                getter: getFields
+                setter: setFields
+            skip_when_empty: false
+            expose: true

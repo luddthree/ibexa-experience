@@ -1,0 +1,91 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { url: path('ibexa.product_catalog.attribute_group.list'), value: 'attribute_group.breadcrumb.list'|trans|desc('Attribute groups') },
+        { value: 'attribute_group.breadcrumb.view'|trans({ '%name%': attribute_group.name })|desc('%name%') },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'attribute_group.view.title'|trans({ '%name%': attribute_group.name })|desc('%name%')
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block bottom %}
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('folder') }}"></use>
+                </svg>
+                {{ 'attribute_group.view.attributes_group'|trans|desc('Attribute group') }}
+            </span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if is_editable %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                <a
+                    href="{{ path('ibexa.product_catalog.attribute_group.update', { attributeGroupIdentifier: attribute_group.identifier }) }}"
+                    class="btn ibexa-btn ibexa-btn--primary ibexa-btn--extra-actions ibexa-btn--update"
+                >
+                    {{ 'attribute_group.view.edit'|trans|desc('Edit') }}
+                </a>
+            </li>
+            <li class="ibexa-context-menu__item">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--extra-actions ibexa-btn--delete"
+                    data-bs-toggle="modal"
+                    data-bs-target="#delete-attribute-group-modal"
+                    {{ attribute_group is ibexa_attribute_group_used ? 'disabled="disabled"' }}
+                >
+                    {{ 'attribute_group.view.delete'|trans|desc('Delete') }}
+                </button>
+            </li>
+        </ul>
+
+        {% include '@ibexadesign/product_catalog/ui/modal/delete_confirmation.html.twig' with {
+            id: 'delete-attribute-group-modal',
+            message: 'modal.delete.attribute_group.confirm_message'|trans|desc(
+                'Delete the attribute group?'
+            ),
+            data_click: '#delete-attribute-group',
+        } %}
+
+        {{ form_start(group_delete_form) }}
+            <button
+                id="delete-attribute-group"
+                type="submit"
+                hidden
+            ></button>
+        {{ form_end(group_delete_form) }}
+
+        {% include '@ibexadesign/product_catalog/attribute_definition/extra_actions.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {{ ibexa_render_component_group('attribute-group-block', {
+        is_editable,
+        attribute_group,
+        request: app.request,
+    }) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-product-catalog-attribute-group-view-js', null, 'ibexa') }}
+{% endblock %}

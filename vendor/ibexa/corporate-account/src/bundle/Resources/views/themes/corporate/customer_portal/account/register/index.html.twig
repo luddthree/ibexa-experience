@@ -1,0 +1,42 @@
+{% extends '@ibexadesign/customer_portal/account/base.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig'  %}
+
+{% block headline_content %}
+    {{ 'account.register.headline'|trans|desc('You have been invited to create an account.') }}
+{% endblock %}
+
+{% block subheadline_content %}
+    {{ 'account.register.sub_headline'|trans|desc('Register here to access the Customer Portal') }}
+{% endblock %}
+
+{%- block content -%}
+    <h1 class="ibexa-ca-login__action-name">
+        {{ 'account.register.actions.action_name'|trans|desc('Create account') }}
+    </h1>
+
+    <h2 class="ibexa-ca-login__actions-headline">
+        {{ 'account.register.actions.headline'|trans|desc('Your profile') }}
+    </h2>
+
+    {% block login_form %}
+        {{ form_start(form) }}
+
+        {% for key, field in form.children.fieldsData.children %}
+            {% if key == 'user' %}
+                {% for user_account_field in field.children.value.children %}
+                    {{ form_row(user_account_field) }}
+                {% endfor %}
+            {% else %}
+                {{ form_widget(field) }}
+            {% endif %}
+        {% endfor %}
+        {{ form_widget(form.children.register, {
+            attr: { class: 'btn ibexa-btn ibexa-btn--primary ibexa-ca-login__btn ibexa-ca-login__btn--register' }
+        }) }}
+        {{ form_widget(form) }}
+
+        {{ form_end(form) }}
+    {% endblock %}
+{%- endblock content -%}

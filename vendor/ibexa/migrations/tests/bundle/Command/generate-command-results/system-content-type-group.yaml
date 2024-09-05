@@ -1,0 +1,12 @@
+-
+    type: content_type_group
+    mode: create
+    metadata:
+        identifier: System
+        creationDate: '2021-10-20T11:28:25+00:00'
+        creatorId: 14
+        isSystem: true
+    references:
+        -
+            name: ref__System__content_type_group_id
+            type: content_type_group_id

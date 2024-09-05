@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\Installer\CorporateAccountProvisioner:
+        tags:
+            -   name: ibexa.installer.provisioner.commerce
+                priority: 50
+            -   name: ibexa.installer.provisioner.experience
+                priority: 50
+
+    Ibexa\Bundle\CorporateAccount\Installer\CorporateAccountCommerceProvisioner:
+        arguments:
+            $commerceSiteConfig: '@?Ibexa\Bundle\Commerce\Eshop\Api\Configuration\CommerceSiteConfig'
+        tags:
+            -   name: ibexa.installer.provisioner.commerce
+                priority: 40

@@ -1,0 +1,96 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\AdminUi\FieldType\FieldTypeDefinitionFormMapperDispatcherInterface: '@Ibexa\AdminUi\FieldType\FieldTypeDefinitionFormMapperDispatcher'
+
+    Ibexa\AdminUi\FieldType\FieldTypeDefinitionFormMapperDispatcher: ~
+
+    Ibexa\AdminUi\FieldType\Mapper\AbstractRelationFormMapper:
+        abstract: true
+        arguments:
+            $contentTypeService: '@ibexa.api.service.content_type'
+
+    Ibexa\AdminUi\FieldType\Mapper\AuthorFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezauthor }
+
+    Ibexa\AdminUi\FieldType\Mapper\BinaryFileFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezbinaryfile }
+
+    Ibexa\AdminUi\FieldType\Mapper\CheckboxFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezboolean }
+
+    Ibexa\AdminUi\FieldType\Mapper\SelectionFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezselection }
+
+    Ibexa\AdminUi\FieldType\Mapper\CountryFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezcountry }
+
+    Ibexa\AdminUi\FieldType\Mapper\DateFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezdate }
+
+    Ibexa\AdminUi\FieldType\Mapper\DateTimeFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezdatetime }
+
+    Ibexa\AdminUi\FieldType\Mapper\FloatFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezfloat }
+
+    Ibexa\AdminUi\FieldType\Mapper\ImageFormMapper:
+        arguments:
+            $allowedMimeTypes: '%ibexa.field_type.ezimage.mime_types%'
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezimage }
+
+    Ibexa\AdminUi\FieldType\Mapper\IntegerFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezinteger }
+
+    Ibexa\AdminUi\FieldType\Mapper\ISBNFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezisbn }
+
+    Ibexa\AdminUi\FieldType\Mapper\MediaFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezmedia }
+
+    Ibexa\AdminUi\FieldType\Mapper\RelationFormMapper:
+        parent: Ibexa\AdminUi\FieldType\Mapper\AbstractRelationFormMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezobjectrelation }
+
+    Ibexa\AdminUi\FieldType\Mapper\RelationListFormMapper:
+        parent: Ibexa\AdminUi\FieldType\Mapper\AbstractRelationFormMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezobjectrelationlist }
+
+    Ibexa\AdminUi\FieldType\Mapper\TextLineFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezstring }
+
+    Ibexa\AdminUi\FieldType\Mapper\TextBlockFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: eztext }
+
+    Ibexa\AdminUi\FieldType\Mapper\TimeFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: eztime }
+
+    Ibexa\AdminUi\FieldType\Mapper\UserAccountFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: ezuser }

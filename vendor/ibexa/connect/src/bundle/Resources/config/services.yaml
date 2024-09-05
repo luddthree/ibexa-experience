@@ -1,0 +1,46 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.connect.http_client:
+        class: Symfony\Contracts\HttpClient\HttpClientInterface
+        factory: [Symfony\Component\HttpClient\ScopingHttpClient, 'forBaseUri']
+        arguments:
+            $client: '@http_client'
+            $baseUri: 'https://hook.ibexa.integromat.celonis.com/'
+        tags:
+            - http_client.client
+
+    Ibexa\Bundle\Connect\MessageHandler\WebhookRequestHandler:
+        arguments:
+            $httpClient: '@ibexa.connect.http_client'
+        tags:
+            - name: messenger.message_handler
+              method: handle
+              handles: Ibexa\Bundle\Connect\Message\WebhookRequest
+
+    Ibexa\Bundle\Connect\Controller\REST\TemplateController:
+        parent: Ibexa\Rest\Server\Controller
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Connect\REST\Output\TemplateListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Connect\REST\Value\TemplateList }
+
+    Ibexa\Bundle\Connect\REST\Output\TemplateVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Connect\REST\Value\Template }
+
+    Ibexa\Bundle\Connect\REST\Output\Template\ParameterVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Bundle\Connect\REST\Value\Template\Parameter }
+
+    Ibexa\Connect\PageBuilder\TemplateRegistry:
+        arguments:
+            $templates: !tagged_iterator ibexa.connect.template

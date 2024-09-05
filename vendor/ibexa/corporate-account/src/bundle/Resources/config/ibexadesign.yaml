@@ -1,0 +1,19 @@
+ibexa_design_engine:
+    design_list:
+        corporate: [corporate, admin, standard]
+
+ibexa:
+    system:
+        corporate_group:
+            design: corporate
+            page_layout: '@ibexadesign/ui/layout.html.twig'
+            admin_ui_forms:
+                content_edit_form_templates:
+                    - { template: '@ibexadesign/content/form_fields.html.twig', priority: 0 }
+                    - { template: '@ibexadesign/ibexa_workflow/admin/content_edit/form_fields.html.twig', priority: 0 }
+            user:
+                login_template: '@ibexadesign/customer_portal/account/login/index.html.twig'
+
+        default:
+            limitation_value_templates:
+                - { template: '@ibexadesign/corporate_account/limitation/limitation_values.html.twig', priority: 10 }

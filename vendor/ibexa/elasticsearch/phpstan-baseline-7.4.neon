@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Elasticsearch\\\\Query\\\\ResultExtractor\\\\AggregationResultExtractor\\\\TermAggregationKeyMapper\\\\BooleanAggregationKeyMapper\\:\\:map\\(\\) should return array but returns array\\<bool\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationKeyMapper/BooleanAggregationKeyMapper.php
+
+		-
+			message: "#^Anonymous function should return array\\<string\\> but returns array\\<string\\>\\|false\\.$#"
+			count: 1
+			path: tests/lib/Query/ResultExtractor/AggregationResultExtractor/TermAggregationResultExtractorTest.php

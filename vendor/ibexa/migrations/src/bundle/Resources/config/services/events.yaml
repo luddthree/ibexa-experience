@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Bundle\Migration\Event\ObjectRelationListFieldTypeSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    Ibexa\Bundle\Migration\Event\ObjectRelationFieldTypeSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }

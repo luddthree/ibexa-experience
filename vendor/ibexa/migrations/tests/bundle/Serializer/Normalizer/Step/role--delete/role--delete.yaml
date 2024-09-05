@@ -1,0 +1,12 @@
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: __role_identifier__
+-
+    type: role
+    mode: delete
+    match:
+        field: id
+        value: __id__

@@ -1,0 +1,61 @@
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    class: 'ibexa-modal--scheduling ibexa-scheduling-modal',
+    size: 'extra-large',
+    has_static_backdrop: true,
+    id,
+} %}
+    {% trans_default_domain 'ibexa_scheduler' %}
+
+    {% block body_content %}
+        {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: '',
+            head_cols: [
+                { content: 'dashboard.scheduling.modal.date_and_time'|trans|desc('Date and time') },
+                { content: 'dashboard.scheduling.modal.name'|trans|desc('Name') },
+                { content: 'dashboard.scheduling.modal.version'|trans|desc('Version') },
+                { content: 'dashboard.scheduling.modal.translations'|trans|desc('Translations') },
+                { content: 'dashboard.scheduling.modal.content_type'|trans|desc('Content type') },
+                { content: 'dashboard.scheduling.modal.creation_date'|trans|desc('Creation date') },
+                { content: 'dashboard.scheduling.modal.creator'|trans|desc('Creator') },
+            ],
+            class: 'ibexa-scheduling-modal__table',
+            table_body_class: 'ibexa-scheduling-modal__table-body',
+            attr: {
+                'data-table-row-template': include('@IbexaScheduler/dashboard/tab/modal/scheduling_table_row.html.twig', {
+                    'date_and_time': '{{ date_and_time }}',
+                    'name': '{{ name }}',
+                    'version': '{{ version }}',
+                    'translations': '{{ translations }}',
+                    'content_type': '{{ content_type }}',
+                    'creation_date': '{{ creation_date }}',
+                    'creator': '{{ creator }}'
+                }),
+            },
+        } %}
+            {% block tbody %}{% endblock %}
+        {% endembed %}
+        <div class="ibexa-scheduling-modal__publication-date">
+            <span class="ibexa-scheduling-modal__input-label">
+                {{ 'modal.scheduling.date_picker.label'|trans|desc('Set publication date') }}:
+            </span>
+            {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with { is_small: true } %}
+        </div>
+    {% endblock %}
+    {% block footer_content %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm ibexa-scheduling-modal__btn" disabled>
+            <svg class="ibexa-icon ibexa-icon--small ibexa-spin ibexa-scheduling-modal__btn-spinner">
+                <use xlink:href="{{ ibexa_icon_path('spinner') }}"></use>
+            </svg>
+            {{ 'modal.scheduling.button.confirm.label'|trans|desc('Confirm date change') }}
+        </button>
+        <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--discard ibexa-scheduling-modal__btn">
+            <svg class="ibexa-icon ibexa-icon--small ibexa-spin ibexa-scheduling-modal__btn-spinner">
+                <use xlink:href="{{ ibexa_icon_path('spinner') }}"></use>
+            </svg>
+            {{ 'modal.scheduling.button.discard.label'|trans|desc('Cancel publication') }}
+        </button>
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--cancel ibexa-scheduling-modal__btn" data-bs-dismiss="modal">
+            {{ 'modal.scheduling.button.cancel.label'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+{% endembed %}

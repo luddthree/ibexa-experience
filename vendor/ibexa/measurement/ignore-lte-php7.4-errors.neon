@@ -1,0 +1,16 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\CDP\\\\Export\\\\Content\\\\FieldValueProcessor\\\\FieldType\\\\AbstractMeasurementFieldValueProcessor\\:\\:appendKeys\\(\\) should return array\\<string, bool\\|float\\|int\\|string\\|null\\> but returns array\\<string, bool\\|float\\|int\\|string\\|null\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/CDP/Export/Content/FieldValueProcessor/FieldType/AbstractMeasurementFieldValueProcessor.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\ConfigResolver\\\\MeasurementTypes\\:\\:getTypes\\(\\) should return array\\<string, string\\> but returns array\\<string, string\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/ConfigResolver/MeasurementTypes.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\ConfigResolver\\\\MeasurementTypes\\:\\:getUnitsByTypes\\(\\) should return array\\<string, array\\<string\\>\\> but returns array\\<string, array\\<string, string\\>\\|false\\>\\.$#"
+			count: 1
+			path: src/lib/ConfigResolver/MeasurementTypes.php

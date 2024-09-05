@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\GraphQL\Schema\Domain\Worker\BaseWorker:
+        abstract: true
+        calls:
+            - [ setNameHelper, ['@Ibexa\Taxonomy\GraphQL\Schema\NameHelperInterface'] ]
+
+    Ibexa\Taxonomy\GraphQL\Schema\Domain\Worker\AddTaxonomyToDomain:
+        parent: Ibexa\Taxonomy\GraphQL\Schema\Domain\Worker\BaseWorker
+        tags:
+              - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\Taxonomy\GraphQL\Schema\Domain\Worker\DefineTaxonomyType:
+        parent: Ibexa\Taxonomy\GraphQL\Schema\Domain\Worker\BaseWorker
+        tags:
+            - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\Taxonomy\GraphQL\Schema\Domain\Iterator\TaxonomyIterator:
+        tags:
+            - { name: ibexa.graphql.domain_schema.iterator }
+
+    Ibexa\Taxonomy\GraphQL\Schema\NameHelper:
+        parent: Ibexa\GraphQL\Schema\Domain\BaseNameHelper
+
+    Ibexa\Taxonomy\GraphQL\Schema\NameHelperInterface: '@Ibexa\Taxonomy\GraphQL\Schema\NameHelper'

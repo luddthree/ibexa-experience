@@ -1,0 +1,19 @@
+services:
+    Ibexa\Bundle\AdminUi\View\Template\EzPagerfantaTemplate:
+        class: Ibexa\Bundle\AdminUi\View\Template\EzPagerfantaTemplate
+        arguments:
+            - '@translator'
+
+    Ibexa\Bundle\AdminUi\View\EzPagerfantaView:
+        public: false
+        arguments:
+            - '@Ibexa\Bundle\AdminUi\View\Template\EzPagerfantaTemplate'
+        tags:
+            - { name: 'pagerfanta.view', alias: 'ibexa' }
+
+    Ibexa\AdminUi\Pagination\Mapper\AbstractPagerContentToDataMapper:
+        abstract: true
+        autowire: true
+        public: false
+        arguments:
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'

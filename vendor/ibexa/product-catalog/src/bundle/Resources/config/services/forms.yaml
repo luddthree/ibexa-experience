@@ -1,0 +1,208 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\CustomerGroupCreateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\CustomerGroupUpdateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductPrice\Create\BaseDataToStructTransformer:
+        autoconfigure: false
+        tags:
+            -   name: ibexa.product_catalog.price.data_to_struct_transformer
+                priority: -10
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductPrice\Create\CustomerGroupDataToStructTransformer:
+        autoconfigure: false
+        tags:
+            -   name: ibexa.product_catalog.price.data_to_struct_transformer
+                priority: -10
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductPrice\ProductPriceMapper:
+        arguments:
+            $dataConverters: !tagged_iterator 'ibexa.product_catalog.price.data_to_struct_transformer'
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductPrice\Delete\BaseDataToStructTransformer:
+        autoconfigure: false
+        tags:
+            -   name: ibexa.product_catalog.price.data_to_struct_transformer
+                priority: -8
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductPrice\Update\BaseDataToStructTransformer:
+        autoconfigure: false
+        tags:
+            -   name: ibexa.product_catalog.price.data_to_struct_transformer
+                priority: -10
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductAvailabilityCreateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\ProductAvailabilityUpdateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\AttributeDefinitionCreateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\AttributeDefinitionUpdateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\ActionDispatcher\ProductActionDispatcher:
+        calls:
+            - setEventDispatcher: ['@event_dispatcher']
+
+    Ibexa\Bundle\ProductCatalog\Form\FormMapper\AttributeGroupMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\FormMapper\AttributeDefinitionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\FormMapper\CustomerGroupMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\FormMapper\CatalogMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\VariantFormMapperRegistryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\Form\Attribute\VariantFormMapperRegistry
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\VariantFormMapperRegistry:
+        arguments:
+            $mappers: !tagged_iterator { tag: ibexa.product_catalog.attribute.form_mapper.variant, index_by: type }
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\CheckboxVariantFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: checkbox
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\ColorVariantFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: color
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\FloatVariantFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: float
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\IntegerVariantFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: integer
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\SelectionVariantFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.variant
+                type: selection
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\OptionsFormMapperRegistryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\Form\Attribute\OptionsFormMapperRegistry
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\OptionsFormMapperRegistry:
+        arguments:
+            $mappers: !tagged_iterator { tag: ibexa.product_catalog.attribute.form_mapper.options, index_by: type }
+
+    ibexa.product_catalog.attribute.float.form_mapper.options:
+        class: Ibexa\Bundle\ProductCatalog\Form\Attribute\NumericOptionsFormMapper
+        arguments:
+            $formType: 'Ibexa\Bundle\ProductCatalog\Form\Type\FloatAttributeOptionsType'
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: float
+
+    ibexa.product_catalog.attribute.integer.form_mapper.options:
+        class: Ibexa\Bundle\ProductCatalog\Form\Attribute\NumericOptionsFormMapper
+        arguments:
+            $formType: 'Ibexa\Bundle\ProductCatalog\Form\Type\IntegerAttributeOptionsType'
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: integer
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\SelectionOptionsFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.options
+                type: selection
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\ValueFormMapperRegistryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\Form\Attribute\ValueFormMapperRegistry
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\ValueFormMapperRegistry:
+        arguments:
+            $mappers: !tagged_iterator { tag: ibexa.product_catalog.attribute.form_mapper.value, index_by: type }
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\ColorValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: color
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\CheckboxValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: checkbox
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\FloatValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: float
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\IntegerValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: integer
+
+    Ibexa\Bundle\ProductCatalog\Form\Attribute\SelectionValueFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.attribute.form_mapper.value
+                type: selection
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\Catalog\CatalogCreateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\Catalog\CatalogUpdateMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\DataMapper\Catalog\CatalogCopyMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\FilterFormMapperRegistryInterface:
+        alias: Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\FilterFormMapperRegistry
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\FilterFormMapperRegistry:
+        arguments:
+            $mappers: !tagged_iterator { tag: ibexa.product_catalog.catalog_filter.form_mapper, index_by: type }
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\ProductCodeFilterFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\ProductTypeFilterFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\ProductAvailabilityFilterFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\ProductBasePriceFilterFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\ProductCategoryFormMapper:
+        arguments:
+            $productTaxonomyName: 'product_categories'
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\ProductCreatedFilterFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\Attributes\CheckboxFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\Attributes\FloatFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\Attributes\IntegerFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\Attributes\SelectionFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper
+
+    Ibexa\Bundle\ProductCatalog\Form\CatalogFilter\Attributes\ColorFormMapper:
+        tags:
+            -   name: ibexa.product_catalog.catalog_filter.form_mapper

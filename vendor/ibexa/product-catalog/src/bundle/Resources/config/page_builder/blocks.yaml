@@ -1,0 +1,110 @@
+blocks:
+    catalog:
+        name: Catalog
+        category: PIM
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#catalog'
+        configuration_template: '@ibexadesign/product_catalog/page_builder/block/config/catalog.html.twig'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/product_catalog/page_builder/blocks/catalog.html.twig'
+        attributes:
+            default_catalog:
+                name: Default catalog
+                type: catalog_list
+                validators:
+                    not_blank:
+                        message: Default catalog cannot be empty
+            catalog_map:
+                name: Set up customer group and catalog
+                type: targeted_catalog_customer_group_map_attribute
+            limit:
+                name: Display limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of Items must be set
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Number of Items must be an integer
+                value: '%ibexa.product_catalog.page_block.default.item.limit%'
+    product_collection:
+        name: Product collection
+        category: PIM
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#collection'
+        configuration_template: '@ibexadesign/product_catalog/page_builder/block/config/product_collection.html.twig'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/product_catalog/page_builder/blocks/product_collection.html.twig'
+        attributes:
+            products:
+                name: Product list
+                type: product_list
+                validators:
+                    not_blank:
+                        message: Product list cannot be empty
+
+    products_with_lowest_stock:
+        name: Products with lowest stock
+        category: Dashboard
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#product-low'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/product_catalog/dashboard/blocks/products_with_lowest_stock.html.twig'
+        attributes:
+            limit:
+                name: Number of visible products
+                type: integer
+                value: 10
+                options:
+                    help: Min. 1, max. 10
+                validators:
+                    not_blank:
+                        message: Number of products limit cannot be empty
+                    regexp:
+                        options:
+                            pattern: '/^[0-9]+$/'
+                        message: Number of products limit must be a positive integer
+            stock:
+                name: Stock threshold
+                type: integer
+                value: 10
+                options:
+                    help: Set the maximum stock value that signifies low stock. Items below this level show up in the table as low stock.
+                validators:
+                    not_blank:
+                        message: Stock cannot be empty
+                    regexp:
+                        options:
+                            pattern: '/^[0-9]+$/'
+                        message: Stock must be a positive integer
+
+    products_by_categories:
+        name: Products by category
+        category: Dashboard
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#product-category'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/product_catalog/dashboard/blocks/product_by_category.html.twig'
+        attributes:
+            limit:
+                name: Number of categories
+                type: integer
+                value: 10
+                options:
+                    help: Min. 1, max. 20
+                validators:
+                    not_blank:
+                        message: Number of categories cannot be empty
+                    regexp:
+                        options:
+                            pattern: '/^[0-9]+$/'
+                        message: Number of categories must be an integer
+                    less_than:
+                        options:
+                            value: 21
+                        message: The limit should be a maximum of 20.

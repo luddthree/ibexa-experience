@@ -1,0 +1,1806 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 3
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Cannot call method getBlockById\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\BlockController\\:\\:getAttributesPerCategory\\(\\) should return array\\<string, array\\<Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeDefinition\\>\\> but returns array\\<string, array\\<int, string\\>\\>\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Parameter \\#2 \\$type of class Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\BlockValue constructor expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PageController\\:\\:\\$siteaccessService\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Anonymous function has invalid return type Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\Response\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Anonymous function never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Anonymous function should return \\(Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\Response&Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse\\)\\|null but returns Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Call to method getLanguage\\(\\) on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\ContentEditData\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Call to method getLocation\\(\\) on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\ContentEditData\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Call to method getVersionInfo\\(\\) on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\ContentEditData\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Cannot access property \\$contentId on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Cannot access property \\$defaultValue on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 2
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Cannot access property \\$fieldSettings on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 2
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Cannot access property \\$initialLanguageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Class Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\Response not found\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PageController\\:\\:createDraftAction\\(\\) has invalid return type Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\Response\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PageController\\:\\:createDraftAction\\(\\) should return Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\Response but returns Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse\\.$#"
+			count: 2
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PageController\\:\\:previewAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PageController\\:\\:resolveReferenceDate\\(\\) should return DateTimeImmutable but returns DateTimeImmutable\\|false\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$siteaccessName$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^PHPDoc tag @return with type Symfony\\\\Component\\\\HttpFoundation\\\\Response is not subtype of native type Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\Response\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldDefIdentifier of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\:\\:getField\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldDefIdentifier of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\:\\:getFieldValue\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldDefinitionIdentifier of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentType\\:\\:getFieldDefinition\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Parameter \\#1 \\$location of method Ibexa\\\\AdminUi\\\\Siteaccess\\\\SiteaccessResolverInterface\\:\\:getSiteAccessesListForLocation\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null given\\.$#"
+			count: 2
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Parameter \\$data of anonymous function has invalid type Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\ContentEditData\\.$#"
+			count: 1
+			path: src/bundle/Controller/PageController.php
+
+		-
+			message: "#^Argument of an invalid type bool\\|float\\|int\\|string supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/bundle/Controller/PreviewController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PreviewController\\:\\:dispatchBlockPreviewResponseEvent\\(\\) has parameter \\$pagePreviewParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/PreviewController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PreviewController\\:\\:dispatchPageContextEvent\\(\\) has parameter \\$pagePreviewParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/PreviewController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PreviewController\\:\\:handleProxyAction\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/PreviewController.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\FieldTypePage\\\\Registry\\\\LayoutDefinitionRegistry\\:\\:getLayoutDefinitionById\\(\\) expects int, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/PreviewController.php
+
+		-
+			message: "#^Parameter \\#2 \\$default of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\<bool\\|float\\|int\\|string\\>\\:\\:get\\(\\) expects bool\\|float\\|int\\|string\\|null, array given\\.$#"
+			count: 1
+			path: src/bundle/Controller/PreviewController.php
+
+		-
+			message: "#^Cannot access offset 'intentParameters' on bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/TimelineController.php
+
+		-
+			message: "#^Parameter \\#1 \\$intent of method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Context\\\\ContextFactory\\:\\:build\\(\\) expects string, bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/TimelineController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilder\\:\\:addSemanticConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilder\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilderForms\\:\\:addSemanticConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilderForms.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilderForms\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilderForms.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilderForms\\:\\:postMap\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilderForms.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilderForms\\:\\:processContentEditFormTemplates\\(\\) has parameter \\$formTemplates with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilderForms.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\PageBuilderForms\\:\\:processContentEditFormTemplates\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/PageBuilderForms.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\DependencyInjection\\\\IbexaPageBuilderExtension\\:\\:load\\(\\) has parameter \\$configs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaPageBuilderExtension.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 5
+			path: src/bundle/DependencyInjection/IbexaPageBuilderExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\IbexaPageBuilderBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaPageBuilderBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\Create\\\\InfobarToolsBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/Create/InfobarToolsBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\Edit\\\\InfobarToolsBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/Edit/InfobarToolsBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarCreateModeActionsBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\AdminUi\\\\Menu\\\\MenuItemFactory\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 53$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 256$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 193$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Symfony\\\\Component\\\\EventDispatcher\\\\EventDispatcherInterface\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 127$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Symfony\\\\Contracts\\\\Translation\\\\TranslatorInterface\\)\\: Unexpected token \"\\\\n     \", expected variable at offset 321$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarCreateModeActionsBuilder\\:\\:\\$translator is never read, only written\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarCreateModeActionsBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarEditModeActionsBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\AdminUi\\\\Menu\\\\MenuItemFactory\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 53$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 256$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 193$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Symfony\\\\Component\\\\EventDispatcher\\\\EventDispatcherInterface\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 127$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Symfony\\\\Contracts\\\\Translation\\\\TranslatorInterface\\)\\: Unexpected token \"\\\\n     \", expected variable at offset 321$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarEditModeActionsBuilder\\:\\:\\$locationService is never read, only written\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\InfobarEditModeActionsBuilder\\:\\:\\$translator is never read, only written\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/InfobarEditModeActionsBuilder.php
+
+		-
+			message: "#^Array has 2 duplicate keys with value 'page_builder__infobar__preview__tools__add_translation' \\(self\\:\\:ITEM__ADD_TRANSLATION, self\\:\\:ITEM__ADD_TRANSLATION\\)\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/Preview/InfobarToolsBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\Preview\\\\InfobarToolsBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/Preview/InfobarToolsBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Builder\\\\Translate\\\\InfobarToolsBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Builder/Translate/InfobarToolsBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\Event\\\\Subscriber\\\\AddSwitchLayoutToolEventSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Menu/Event/Subscriber/AddSwitchLayoutToolEventSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Menu\\\\EventListener\\\\ConfigureMainMenuListener\\:\\:onMenuConfigure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Menu/EventListener/ConfigureMainMenuListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\PageBuilder\\\\Templating\\\\Twig\\\\CrossOriginExtension\\:\\:renderSnippet\\(\\) has parameter \\$hosts with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Templating/Twig/CrossOriginExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessServiceInterface\\:\\:filterAvailableSiteaccesses\\(\\) has parameter \\$siteaccesses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Siteaccess/SiteaccessServiceInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessServiceInterface\\:\\:filterAvailableSiteaccesses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Siteaccess/SiteaccessServiceInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessServiceInterface\\:\\:getLanguages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Siteaccess/SiteaccessServiceInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BannerPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BannerPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BannerPreview\\:\\:\\$expectedLink has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BannerPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BlockPreview\\:\\:getSupportedLayouts\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BlockPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BlockPreviewInterface\\:\\:getSupportedLayouts\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BlockPreviewInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BlockPreviewInterface\\:\\:setExpectedData\\(\\) has parameter \\$previewData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BlockPreviewInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BlockPreviewRegistry\\:\\:__construct\\(\\) has parameter \\$blockPreviews with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BlockPreviewRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BlockPreviewRegistry\\:\\:\\$blockPreviews \\(array\\<Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\BlockPreviewInterface\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/BlockPreviewRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\CodePreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/CodePreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\CodePreview\\:\\:\\$expectedCodeContent has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/CodePreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\CollectionPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/CollectionPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\CollectionPreview\\:\\:\\$expectedItems has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/CollectionPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\ContentListPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/ContentListPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\ContentListPreview\\:\\:\\$expectedHeader has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/ContentListPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\ContentListPreview\\:\\:\\$expectedItems has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/ContentListPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\ContentSchedulerPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/ContentSchedulerPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\ContentSchedulerPreview\\:\\:\\$expectedItems has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/ContentSchedulerPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\EmbedPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/EmbedPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\EmbedPreview\\:\\:\\$expectedHeader has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/EmbedPreview.php
+
+		-
+			message: "#^Call to method verifyPreviewData\\(\\) on an unknown class Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/FormBlockPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\FormBlockPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/FormBlockPreview.php
+
+		-
+			message: "#^Parameter \\$formPreview of method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\FormBlockPreview\\:\\:__construct\\(\\) has invalid type Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/FormBlockPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\FormBlockPreview\\:\\:\\$formPreview has unknown class Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview as its type\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/FormBlockPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\GalleryPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/GalleryPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\GalleryPreview\\:\\:\\$expectedHeader has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/GalleryPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\RSSPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/RSSPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\RSSPreview\\:\\:\\$expectedItemCount has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/RSSPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\TextPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/TextPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\TextPreview\\:\\:\\$expectedEmbedInlineLink has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/TextPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\TextPreview\\:\\:\\$expectedEmbedLink has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/TextPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\TextPreview\\:\\:\\$expectedHeaderContent has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/TextPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\TextPreview\\:\\:\\$expectedUnorderedListElements type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/TextPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\VideoPreview\\:\\:setExpectedData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/VideoPreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\BlockPreview\\\\VideoPreview\\:\\:\\$expectedHeader has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/BlockPreview/VideoPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\BannerBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/BannerBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\BlockRegistry\\:\\:__construct\\(\\) has parameter \\$blocks with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/BlockRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\BlockRegistry\\:\\:\\$blocks \\(array\\<Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/BlockRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\CodeBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/CodeBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\CollectionBlock\\:\\:addContentItems\\(\\) has parameter \\$paths with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/CollectionBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\CollectionBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/CollectionBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\CollectionBlock\\:\\:getDisplayedItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/CollectionBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\ContentListBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/ContentListBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\ContentListBlock\\:\\:selectContentType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/ContentListBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\ContentSchedulerBlock\\:\\:addContentItems\\(\\) has parameter \\$paths with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/ContentSchedulerBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\ContentSchedulerBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/ContentSchedulerBlock.php
+
+		-
+			message: "#^Parameter \\#1 \\$locator of method Ibexa\\\\AdminUi\\\\Behat\\\\Component\\\\DateAndTimePopup\\:\\:setParentLocator\\(\\) expects Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\VisibleCSSLocator, Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\LocatorInterface given\\.$#"
+			count: 2
+			path: src/lib/Behat/Component/Blocks/ContentSchedulerBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\EmbedBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/EmbedBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\FormBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/FormBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\GalleryBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/GalleryBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlock\\:\\:setDefaultTestingConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlock\\:\\:setHideDate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlock\\:\\:setLayout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlock\\:\\:setRevealDate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlock.php
+
+		-
+			message: "#^Parameter \\#1 \\$locator of method Ibexa\\\\AdminUi\\\\Behat\\\\Component\\\\DateAndTimePopup\\:\\:setParentLocator\\(\\) expects Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\VisibleCSSLocator, Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\LocatorInterface given\\.$#"
+			count: 2
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlockInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:setDefaultTestingConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlockInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:setHideDate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlockInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:setLayout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlockInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:setRevealDate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/PageBuilderBlockInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\RSSBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/RSSBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\TextBlock\\:\\:addUnorderedList\\(\\) has parameter \\$listElements with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/TextBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\TextBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/TextBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\VideoBlock\\:\\:getDefaultPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Blocks/VideoBlock.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\PageBuilderActionBar\\:\\:toggleFieldsForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderActionBar.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\PageBuilderActionBar\\:\\:toggleTimeline\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderActionBar.php
+
+		-
+			message: "#^Parameter \\#1 \\$baseElement of static method Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\CSSLocatorBuilder\\:\\:base\\(\\) expects Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\CSSLocator, Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\LocatorInterface given\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderActionBar.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\PageBuilderActionBar\\:\\:\\$timeline is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderActionBar.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\PageBuilderCreatorPopup\\:\\:\\$context\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderCreatorPopup.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\PageBuilderCreatorPopup\\:\\:\\$fields\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderCreatorPopup.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\PageBuilderVersionPopup\\:\\:getLabels\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/PageBuilderVersionPopup.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Timeline\\:\\:goTo\\(\\) has parameter \\$position with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Timeline.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:addContentItemInSegmentSetup\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:addContentItems\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:changeAirtime\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:deleteItem\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:moveItemToAnother\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:selectSegment\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\PageBuilder\\\\Behat\\\\Component\\\\Blocks\\\\PageBuilderBlockInterface\\:\\:setDefaultContentItem\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:changeItemAirtime\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:changeItemAirtime\\(\\) has parameter \\$itemName with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:deleteItemFromBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:deleteItemFromBlock\\(\\) has parameter \\$itemName with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:fillBlockFieldValue\\(\\) has parameter \\$fieldName with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:fillBlockFieldValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:getExpectedBlockPreviewData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iAddItemsToBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iAmNotAbleToEdit\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iGoToEvent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iOpenTimeline\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iSeeTheBlockAndItsPreview\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iSeeVersionsData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iSetHideDate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iSetRevealDate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iShouldBeViewingItemInPageEditor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iSubmitBlockForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:iSubmitBlockFormWithNameLengthAssertion\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:openLandingPageInPageBuilder\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:openVersionsTable\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:previewVersion\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:previewVersion\\(\\) has parameter \\$versionNumber with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:previewingContentInTheFuture\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:reorderItemsInBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:sentToTrashFromPageBuilder\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Context\\\\PageBuilderContext\\:\\:setBlockLayout\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:addBlock\\(\\) invoked with 2 parameters, 1 required\\.$#"
+			count: 2
+			path: src/lib/Behat/Context/PageBuilderContext.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getPage\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/LandingPageDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\DataProvider\\\\LandingPageDataProvider\\:\\:createPageWithCodeBlock\\(\\) has parameter \\$blockContent with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/LandingPageDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\DataProvider\\\\LandingPageDataProvider\\:\\:generateData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/LandingPageDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\DataProvider\\\\LandingPageDataProvider\\:\\:parseFromString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/LandingPageDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Environment\\\\ExperienceParameterProvider\\:\\:setParameter\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Environment/ExperienceParameterProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\LandingPagePreview\\:\\:setExpectedPreviewData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/LandingPagePreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\LandingPagePreview\\:\\:setExpectedPreviewData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/LandingPagePreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\LandingPagePreview\\:\\:verifyPreviewData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/LandingPagePreview.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\LandingPagePreview\\:\\:\\$expectedPageTitle has no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/LandingPagePreview.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:addBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:openBlockSettings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:setExpectedLocationPath\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:setPreviewedPage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:verifyPreviewForBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:verifyPreviewForBlock\\(\\) has parameter \\$previewData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Behat\\\\Page\\\\PageBuilderEditor\\:\\:verifyPreviewingInTheFuture\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/PageBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\BlockContextFactory\\:\\:build\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/Context/BlockContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\BlockContextFactory\\:\\:createContentCreateBlockContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/Context/BlockContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\BlockContextFactory\\:\\:createContentEditBlockContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/Context/BlockContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\BlockContextFactory\\:\\:createContentTranslateBlockContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/Context/BlockContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\BlockContextFactory\\:\\:createContentViewBlockContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/Context/BlockContextFactory.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, array\\<string\\> given\\.$#"
+			count: 3
+			path: src/lib/Block/Context/BlockContextFactory.php
+
+		-
+			message: "#^Parameter \\#2 \\$type of class Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\BlockValue constructor expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/Block/Mapper/BlockConfigurationMapper.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 2
+			path: src/lib/Block/ScheduleBlock/ConfigurationDataGenerator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Block\\\\ScheduleBlock\\\\ConfigurationDataGenerator\\:\\:generate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/ScheduleBlock/ConfigurationDataGenerator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\Attribute\\\\Attribute\\:\\:setValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Data/Attribute/Attribute.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\Block\\\\BlockConfiguration\\:\\:setType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Data/Block/BlockConfiguration.php
+
+		-
+			message: "#^Constructor of class Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration has an unused parameter \\$contentInfo\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:setBlockId\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:setContentInfo\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:setLocation\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:setPage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:setVersionInfo\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:\\$blockId \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:\\$location \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:\\$page \\(Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\) does not accept Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\|null\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Data\\\\RequestBlockConfiguration\\:\\:\\$versionInfo \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\) does not accept Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Data/RequestBlockConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockConfigurationViewEvents\\:\\:getBlockConfigurationViewEventName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/BlockConfigurationViewEvents.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewPageContextEvent\\:\\:__construct\\(\\) has parameter \\$pagePreviewParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewPageContextEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewPageContextEvent\\:\\:getPagePreviewParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewPageContextEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewPageContextEvent\\:\\:setPagePreviewParameters\\(\\) has parameter \\$pagePreviewParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewPageContextEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewPageContextEvent\\:\\:\\$pagePreviewParameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewPageContextEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:__construct\\(\\) has parameter \\$pagePreviewParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:__construct\\(\\) has parameter \\$responseData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:getPagePreviewParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:getResponseData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:setPagePreviewParameters\\(\\) has parameter \\$pagePreviewParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:setResponseData\\(\\) has parameter \\$responseData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:\\$pagePreviewParameters type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Event\\\\BlockPreviewResponseEvent\\:\\:\\$responseData type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockPreviewResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\BlockConfigurationTemplateSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockConfigurationTemplateSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\BlockConfigurationTemplateSubscriber\\:\\:onPreContentView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockConfigurationTemplateSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockConfigurationTemplateSubscriber.php
+
+		-
+			message: "#^Cannot access offset 'intentParameters' on bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockContextSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$intent of method Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\BlockContextFactory\\:\\:build\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockContextSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$default of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\<bool\\|float\\|int\\|string\\>\\:\\:get\\(\\) expects bool\\|float\\|int\\|string\\|null, array given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockContextSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\BlockPreviewSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockPreviewSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$dateTime of method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\BlockValue\\:\\:isVisible\\(\\) expects DateTimeInterface\\|null, DateTime\\|false\\|null given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/BlockPreviewSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\ContentProxyCreateNoDraftSubscriber\\:\\:createNoDraft\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/ContentProxyCreateNoDraftSubscriber.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\FieldTypePage\\\\Event\\\\Subscriber\\\\BlockResponseSubscriber\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 79$#"
+			count: 1
+			path: src/lib/Event/Subscriber/ContextAwareBlockResponseSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\ExceptionSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/ExceptionSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\ExceptionSubscriber\\:\\:onKernelException\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/ExceptionSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\InjectCrossOriginHelperSubscriber\\:\\:__construct\\(\\) has parameter \\$siteaccessGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/InjectCrossOriginHelperSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\InjectCrossOriginHelperSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/InjectCrossOriginHelperSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\InjectCrossOriginHelperSubscriber\\:\\:onResponse\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/InjectCrossOriginHelperSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/InjectCrossOriginHelperSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|false given\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/InjectCrossOriginHelperSubscriber.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\InjectCrossOriginHelperSubscriber\\:\\:\\$siteaccessGroups type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/InjectCrossOriginHelperSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\ScheduleBlockSubscriber\\:\\:getSubscribedEvents\\(\\) should return array\\<string, array\\<int\\|string, array\\<int\\|string, int\\|string\\>\\|int\\|string\\>\\|string\\> but returns array\\<int\\|string, array\\<int, int\\|string\\>\\|string\\>\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/ScheduleBlockSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$date of method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Scheduler\\:\\:scheduleToDate\\(\\) expects DateTimeInterface\\|null, DateTimeImmutable\\|false given\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/ScheduleBlockSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$dateTime of method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\ScheduleSnapshotService\\:\\:restoreFromSnapshot\\(\\) expects DateTimeInterface, DateTimeImmutable\\|false given\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/ScheduleBlockSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\SetPreAuthCookieSubscriber\\:\\:__construct\\(\\) has parameter \\$routesMap with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/SetPreAuthCookieSubscriber.php
+
+		-
+			message: "#^Parameter \\#9 \\$sameSite of class Symfony\\\\Component\\\\HttpFoundation\\\\Cookie constructor expects ''\\|'lax'\\|'none'\\|'strict'\\|null, 'None' given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/SetPreAuthCookieSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Event\\\\Subscriber\\\\TimelineEventsSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TimelineEventsSubscriber.php
+
+		-
+			message: "#^Class Ibexa\\\\PageBuilder\\\\Form\\\\Transformer\\\\PageHashTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			count: 1
+			path: src/lib/Form/Transformer/PageHashTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Attribute\\\\AttributeType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Attribute/AttributeType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Attribute\\\\AttributeType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Attribute/AttributeType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Attribute\\\\AttributeType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Attribute/AttributeType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\AttributesType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/AttributesType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\AttributesType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/AttributesType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\AttributesType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/AttributesType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\BlockConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/BlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\BlockConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/BlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\BlockConfigurationType\\:\\:buildView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/BlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\BlockConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/BlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\BlockConfigurationType\\:\\:getViewChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/BlockConfigurationType.php
+
+		-
+			message: "#^Offset 'name' does not exist on string\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/BlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\RequestBlockConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/RequestBlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\RequestBlockConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/RequestBlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Block\\\\RequestBlockConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Block/RequestBlockConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Page\\\\PageType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Page/PageType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\Page\\\\PageType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Page/PageType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\RevealDateTimeType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RevealDateTimeType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\RevealDateTimeType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RevealDateTimeType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\TillDateTimeType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/TillDateTimeType.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Type\\\\TillDateTimeType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/TillDateTimeType.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Form\\\\Validator\\\\ContainsScss\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/ContainsScss.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Validator\\\\Constraint\\:\\:\\$message\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/ContainsScssValidator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Form\\\\Validator\\\\ContainsScssValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/ContainsScssValidator.php
+
+		-
+			message: "#^Cannot access property \\$attributes on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:render\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Parameter \\#1 \\$controllerReference of method Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:doesReferenceBlockRender\\(\\) expects Symfony\\\\Component\\\\HttpKernel\\\\Controller\\\\ControllerReference, string\\|Symfony\\\\Component\\\\HttpKernel\\\\Controller\\\\ControllerReference given\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:\\$authenticator \\(Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\) does not accept Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\|null\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:\\$jwtTokenManager \\(Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\) does not accept Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\|null\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:\\$signer \\(Symfony\\\\Component\\\\HttpKernel\\\\UriSigner\\) does not accept Symfony\\\\Component\\\\HttpKernel\\\\UriSigner\\|null\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:\\$signer is never read, only written\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:\\$surrogate \\(Symfony\\\\Component\\\\HttpKernel\\\\HttpCache\\\\SurrogateInterface\\) does not accept Symfony\\\\Component\\\\HttpKernel\\\\HttpCache\\\\SurrogateInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\HTTP\\\\Kernel\\\\Fragment\\\\DecoratedFragmentRenderer\\:\\:\\$tokenStorage \\(Symfony\\\\Component\\\\Security\\\\Core\\\\Authentication\\\\Token\\\\Storage\\\\TokenStorageInterface\\) does not accept Symfony\\\\Component\\\\Security\\\\Core\\\\Authentication\\\\Token\\\\Storage\\\\TokenStorageInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
+			count: 1
+			path: src/lib/HTTP/Kernel/Fragment/DecoratedFragmentRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\ConfigurationResolver\\:\\:__construct\\(\\) has parameter \\$siteaccessGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/ConfigurationResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\ConfigurationResolver\\:\\:getSiteaccessList\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/ConfigurationResolver.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\PageBuilder\\\\ConfigurationResolver\\:\\:\\$siteaccessGroups type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/ConfigurationResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\PermissionAwareConfigurationResolver\\:\\:getSiteaccessList\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/PermissionAwareConfigurationResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Context\\\\ContextFactory\\:\\:build\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Context/ContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Context\\\\ContextFactory\\:\\:createContentCreateContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Context/ContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Context\\\\ContextFactory\\:\\:createContentEditContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Context/ContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Context\\\\ContextFactory\\:\\:createContentTranslateContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Context/ContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Context\\\\ContextFactory\\:\\:createContentViewContext\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Context/ContextFactory.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, array\\<string\\> given\\.$#"
+			count: 3
+			path: src/lib/PageBuilder/Timeline/Context/ContextFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Serializer\\\\Driver\\\\ConfigurationSpoofingYamlDriver\\:\\:loadMetadataFromFile\\(\\) has parameter \\$class with generic class ReflectionClass but does not specify its types\\: T$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Serializer/Driver/ConfigurationSpoofingYamlDriver.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\PageBuilder\\\\Timeline\\\\Serializer\\\\Driver\\\\DriverFactory\\:\\:createDriver\\(\\) has parameter \\$metadataDirs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Serializer/Driver/DriverFactory.php
+
+		-
+			message: "#^Cannot call method createDeserializationContext\\(\\) on JMS\\\\Serializer\\\\ContextFactory\\\\DeserializationContextFactoryInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Serializer/SerializerFactory.php
+
+		-
+			message: "#^Cannot call method createSerializationContext\\(\\) on JMS\\\\Serializer\\\\ContextFactory\\\\SerializationContextFactoryInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/PageBuilder/Timeline/Serializer/SerializerFactory.php
+
+		-
+			message: "#^Cannot cast Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string to int\\.$#"
+			count: 1
+			path: src/lib/Persistence/Legacy/MigrateRichTextNamespaces/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Cannot access offset string on array\\|true\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Cannot call method getUsername\\(\\) on Symfony\\\\Component\\\\Security\\\\Core\\\\User\\\\UserInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\:\\:__construct\\(\\) has parameter \\$siteAccessGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\:\\:onAuthenticationFailure\\(\\) should return Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null but return statement is missing\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\:\\:onAuthenticationSuccess\\(\\) has parameter \\$providerKey with no type specified\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\:\\:start\\(\\) should return Symfony\\\\Component\\\\HttpFoundation\\\\Response but return statement is missing\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Parameter \\#1 \\$token of method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:decodeFromString\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthenticator\\:\\:\\$siteAccessGroups type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthenticator.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthorizedRouter\\:\\:__construct\\(\\) has parameter \\$routesMap with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthorizedRouter\\:\\:generate\\(\\) has parameter \\$parameters with no type specified\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthorizedRouter\\:\\:generate\\(\\) has parameter \\$referenceType with no type specified\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthorizedRouter\\:\\:getRouteDebugMessage\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Parameter \\#1 \\$user of method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:create\\(\\) expects Symfony\\\\Component\\\\Security\\\\Core\\\\User\\\\UserInterface, Symfony\\\\Component\\\\Security\\\\Core\\\\User\\\\UserInterface\\|null given\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthorizedRouter\\:\\:\\$jwtTokenManager \\(Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\) does not accept Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\|null\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenAuthorizedRouter\\:\\:\\$routesMap type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenAuthorizedRouter.php
+
+		-
+			message: "#^Cannot call method getClientIp\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Cannot cast Ramsey\\\\Uuid\\\\UuidInterface to string\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:createPayload\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:decode\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:decode\\(\\) should return array\\|false but returns array\\|bool\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:decodeFromString\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenManager\\:\\:setUserIdentityField\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenManager.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenRevoker\\:\\:getKey\\(\\) has parameter \\$token with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenRevoker.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenRevoker\\:\\:getTokenId\\(\\) has parameter \\$token with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenRevoker.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenRevoker\\:\\:isValid\\(\\) has parameter \\$token with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenRevoker.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenRevoker\\:\\:revoke\\(\\) has parameter \\$token with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenRevoker.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenRevokerInterface\\:\\:isValid\\(\\) has parameter \\$token with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenRevokerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Security\\\\EditorialMode\\\\TokenRevokerInterface\\:\\:revoke\\(\\) has parameter \\$token with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/EditorialMode/TokenRevokerInterface.php
+
+		-
+			message: "#^Cannot access property \\$matcher on Ibexa\\\\Core\\\\MVC\\\\Symfony\\\\SiteAccess\\|null\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/ReverseMatcher.php
+
+		-
+			message: "#^Cannot call method getHost\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/Siteaccess/ReverseMatcher.php
+
+		-
+			message: "#^Cannot call method getPort\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/Siteaccess/ReverseMatcher.php
+
+		-
+			message: "#^Cannot call method getScheme\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/Siteaccess/ReverseMatcher.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\ReverseMatcher\\:\\:getSiteAccessDomains\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/ReverseMatcher.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\ReverseMatcher\\:\\:getUrlParts\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/ReverseMatcher.php
+
+		-
+			message: "#^Cannot access property \\$languageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\|null\\.$#"
+			count: 2
+			path: src/lib/Siteaccess/Selector/LanguageStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\Selector\\\\LanguageStrategy\\:\\:getLanguages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/Selector/LanguageStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\Selector\\\\SiteAccessSelector\\:\\:__construct\\(\\) has parameter \\$strategies with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/Selector/SiteAccessSelector.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:filterAvailableSiteaccesses\\(\\) has parameter \\$siteaccesses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:filterAvailableSiteaccesses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:findSiteAccessWithLanguage\\(\\) has parameter \\$siteaccesses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:getLanguages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:resolveSiteAccessBasedOnLanguage\\(\\) has parameter \\$siteaccesses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:resolveSiteAccessForLocation\\(\\) should return array\\{string, string\\} but returns array\\{mixed, array\\}\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService\\:\\:\\$pageBuilderPermissionAwareConfigurationResolver \\(Ibexa\\\\PageBuilder\\\\PageBuilder\\\\PermissionAwareConfigurationResolver\\) does not accept Ibexa\\\\Contracts\\\\PageBuilder\\\\PageBuilder\\\\ConfigurationResolverInterface\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/SiteaccessService.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\View\\\\BlockConfigurationUpdatedView\\:\\:getBlockType\\(\\) should return Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinition but returns Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\BlockType\\.$#"
+			count: 1
+			path: src/lib/View/BlockConfigurationUpdatedView.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\View\\\\BlockConfigurationUpdatedView\\:\\:\\$blockType \\(Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\BlockType\\) does not accept Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinition\\.$#"
+			count: 1
+			path: src/lib/View/BlockConfigurationUpdatedView.php
+
+		-
+			message: "#^Property Ibexa\\\\PageBuilder\\\\View\\\\BlockConfigurationUpdatedView\\:\\:\\$blockType has unknown class Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\BlockType as its type\\.$#"
+			count: 1
+			path: src/lib/View/BlockConfigurationUpdatedView.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\View\\\\BlockConfigurationView\\:\\:setParameter\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/View/BlockConfigurationView.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\View\\\\BlockConfigurationView\\:\\:setParameter\\(\\) has parameter \\$parameter with no type specified\\.$#"
+			count: 1
+			path: src/lib/View/BlockConfigurationView.php
+
+		-
+			message: "#^Method Ibexa\\\\PageBuilder\\\\View\\\\BlockConfigurationView\\:\\:setParameter\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/View/BlockConfigurationView.php
+
+		-
+			message: "#^Cannot call method executeOne\\(\\) on object\\|null\\.$#"
+			count: 1
+			path: tests/integration/IbexaKernelTestCase.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\DependencyInjection\\\\Extension\\\\ExtensionInterface\\:\\:addConfigParser\\(\\)\\.$#"
+			count: 1
+			path: tests/integration/IbexaTestKernel.php
+
+		-
+			message: "#^Parameter \\#1 \\$parentLocationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:newLocationCreateStruct\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: tests/integration/SiteAccess/SiteAccessSelectorTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$location of class Ibexa\\\\Contracts\\\\PageBuilder\\\\Siteaccess\\\\Selector\\\\Context constructor expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|false\\|null given\\.$#"
+			count: 1
+			path: tests/integration/SiteAccess/SiteAccessSelectorTest.php
+
+		-
+			message: "#^Class Ibexa\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessService constructor invoked with 6 parameters, 5 required\\.$#"
+			count: 1
+			path: tests/lib/Siteaccess/SiteaccessServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessServiceTest\\:\\:providerForResolveSiteAccessForLocation\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Siteaccess/SiteaccessServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessServiceTest\\:\\:testResolveSiteAccessForLocationWithEmptyLocation\\(\\) has parameter \\$configuredSiteAccesses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Siteaccess/SiteaccessServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\PageBuilder\\\\Siteaccess\\\\SiteaccessServiceTest\\:\\:testResolveSiteAccessForLocationWithRequestSiteAccess\\(\\) has parameter \\$configuredSiteAccesses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Siteaccess/SiteaccessServiceTest.php

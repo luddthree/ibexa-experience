@@ -1,0 +1,96 @@
+{
+    "name": "ibexa/personalization",
+    "description": "Ibexa DXP Personalization",
+    "license": "proprietary",
+    "keywords": [
+        "ibexa"
+    ],
+    "replace": {
+        "ezsystems/ezplatform-personalization": "*"
+    },
+    "type": "ibexa-bundle",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://updates.ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0",
+        "ibexa/admin-ui": "~4.6.0",
+        "ibexa/content-forms": "~4.6.0",
+        "ibexa/core": "~4.6.0",
+        "ibexa/design-engine": "~4.6.0",
+        "ibexa/doctrine-schema": "~4.6.0",
+        "ibexa/fieldtype-richtext": "~4.6.0",
+        "ibexa/http-cache": "~4.6.0",
+        "ibexa/installer": "~4.6",
+        "ibexa/rest": "~4.6.0",
+        "ibexa/search": "~4.6",
+        "ibexa/user": "~4.6.0",
+        "ramsey/uuid": "^3.9",
+        "symfony/framework-bundle": "^5.0",
+        "symfony/proxy-manager-bridge": "^5.0",
+        "symfony/twig-bundle": "^5.0",
+        "symfony/webpack-encore-bundle": "^1.8",
+        "webmozart/assert": "^1.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.7",
+        "dama/doctrine-test-bundle": "^6.7.5",
+        "dg/bypass-finals": "^1.1",
+        "ibexa/code-style": "^1.0",
+        "ibexa/calendar": "~4.6.0",
+        "ibexa/fieldtype-page": "~4.6.0",
+        "ibexa/icons": "~4.6.0",
+        "ibexa/migrations": "~4.6.0",
+        "ibexa/page-builder": "~4.6.0",
+        "ibexa/segmentation": "~4.6.0",
+        "ibexa/test-core": "~4.6",
+        "friends-of-behat/mink-extension": "^2.4",
+        "friendsofsymfony/jsrouting-bundle": "^2.7",
+        "phpstan/phpstan": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
+        "phpstan/phpstan-webmozart-assert": "^1.0",
+        "phpunit/phpunit": "^8.5",
+        "symfony/webpack-encore-bundle": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Personalization\\": "src/lib/",
+            "Ibexa\\Bundle\\Personalization\\": "src/bundle/",
+            "Ibexa\\Contracts\\Personalization\\": "src/contracts/",
+            "Ibexa\\Platform\\Bundle\\Personalization\\": "src/bundle/",
+            "Ibexa\\Platform\\Contracts\\Personalization\\": "src/contracts/",
+            "Ibexa\\Platform\\Personalization\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Integration\\Personalization\\": "tests/integration/",
+            "Ibexa\\Tests\\Personalization\\": "tests/lib/",
+            "Ibexa\\Tests\\Bundle\\Personalization\\": "tests/bundle/",
+            "Ibexa\\Platform\\Tests\\Bundle\\Personalization\\": "tests/bundle/",
+            "Ibexa\\Platform\\Tests\\Personalization\\": "tests/lib/"
+        }
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "phpstan": "phpstan analyse -c phpstan.neon",
+        "check-cs": "php-cs-fixer fix --diff --config=.php-cs-fixer.php --dry-run -v --show-progress=dots",
+        "test": "phpunit -vc phpunit.xml",
+        "test-integration": "phpunit -vc phpunit-integration.xml"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    }
+}

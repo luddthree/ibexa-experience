@@ -1,0 +1,66 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Argument of an invalid type array\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$keys of function array_combine expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 2
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Parameter \\#1 \\$fp of function fclose expects resource, resource\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Parameter \\#1 \\$fp of function fputcsv expects resource, resource\\|false given\\.$#"
+			count: 2
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/CaptchaCompilerPass.php
+
+		-
+			message: "#^Parameter \\#1 \\$arr1 of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/FormBlockRelationCompilerPass.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/FormFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Tab\\\\LocationView\\\\SubmissionsTab\\:\\:getSubmissionChoices\\(\\) should return array but returns array\\<int, false\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of function array_filter expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\> given\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/MaxChoicesValidator.php
+
+		-
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/MinChoicesValidator.php

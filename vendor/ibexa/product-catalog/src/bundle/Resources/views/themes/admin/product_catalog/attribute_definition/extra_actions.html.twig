@@ -1,0 +1,26 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<div class="ibexa-extra-actions-container">
+    <div
+        class="ibexa-extra-actions ibexa-extra-actions--attributes-definition ibexa-extra-actions--hidden"
+        data-actions="pre-create-attribute-definition"
+    >
+        <div class="ibexa-extra-actions__header">
+            <h2>{{ 'attribute_definition.pre_create.add_attribute_definition'|trans|desc('Add attribute definition') }}</h2>
+        </div>
+
+        <div class="ibexa-extra-actions__content ibexa-extra-actions__content--create">
+            {% form_theme pre_create_form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+            {{ form_start(pre_create_form, { attr: { class: 'ibexa-extra-actions__pre-form' } }) }}
+                {{ form_row(pre_create_form.language, { row_attr: { class: 'ibexa-form-field' } }) }}
+                {{ form_row(pre_create_form.attributeType, { row_attr: { class: 'ibexa-form-field' } }) }}
+
+                <div class="ibexa-extra-actions__btns ibexa-extra-actions__pre-form-btns">
+                    <button class="btn ibexa-btn ibexa-btn--primary" type="submit">{{ 'attribute_definition.pre_create.create'|trans|desc('Create') }}</button>
+                    <button class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--close" type="button">{{ 'attribute_definition.pre_create.discard'|trans|desc('Discard') }}</button>
+                </div>
+            {{ form_end(pre_create_form) }}
+        </div>
+    </div>
+</div>

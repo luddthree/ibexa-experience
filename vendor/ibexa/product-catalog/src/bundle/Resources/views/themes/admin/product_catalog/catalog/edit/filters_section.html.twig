@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<div class="ibexa-pc-edit-catalog-filters">
+    <h2 class="ibexa-pc-edit-catalog-filters__title">{{ 'catalog.edit.filters'|trans|desc('Filters') }}</h2>
+    <div class="ibexa-pc-edit-catalog-filters__configured">
+        <div class="ibexa-pc-edit-catalog-filters__configured-header">
+            <div class="ibexa-pc-edit-catalog-filters__configured-header-title">
+                {{ 'catalog.edit.filters.list.header'|trans|desc('Set up filters for catalog') }}
+                <span
+                    class="ibexa-pc-edit-catalog-filters__configured-header-title-tooltip"
+                    title="{{ 'catalog.edit.filters.list.header_tooltip'|trans|desc('Use filters to create a catalog with a specific set of products (by default all products are selected)') }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+                    </svg>
+                </span>
+            </div>
+            <div class="ibexa-pc-edit-catalog-filters__configured-header-actions">
+                {{ form_widget(form.filters) }}
+                <div class="ibexa-pc-edit-catalog-filters__configured-header-actions-separator"></div>
+                <button
+                    type="button"
+                    class="ibexa-pc-edit-catalog-filters__configured-header-toggler"
+                >
+                    {{ 'catalog.edit.filters.toggler.hide'|trans|desc('Hide') }}
+                </button>
+            </div>
+        </div>
+        <div
+            class="ibexa-pc-edit-catalog-filters__configured-list"
+            data-filter-preview-template="{{ include('@ibexadesign/product_catalog/catalog/edit/filter_preview.html.twig')|e('html_attr') }}"
+        >
+        </div>
+    </div>
+    <div class="ibexa-pc-edit-catalog-filters__config-panels">
+        {% for criteria in form.criteria %}
+            {{ form_row(criteria) }}
+        {% endfor %}
+    </div>
+</div>

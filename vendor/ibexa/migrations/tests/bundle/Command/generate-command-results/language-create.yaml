@@ -1,0 +1,42 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: eng-US
+        name: 'English (American)'
+        enabled: true
+    references:
+        -
+            name: ref_id__2__language
+            type: language_id
+        -
+            name: ref_code__2__language
+            type: language_code
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: ger-DE
+        name: German
+        enabled: true
+    references:
+        -
+            name: ref_id__4__language
+            type: language_id
+        -
+            name: ref_code__4__language
+            type: language_code
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: eng-GB
+        name: 'English (United Kingdom)'
+        enabled: true
+    references:
+        -
+            name: ref_id__8__language
+            type: language_id
+        -
+            name: ref_code__8__language
+            type: language_code

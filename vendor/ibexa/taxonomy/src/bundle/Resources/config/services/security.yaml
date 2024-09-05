@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Security\Limitation\TaxonomyLimitationType:
+        arguments: ['@ibexa.api.persistence_handler']
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: Taxonomy }
+
+    Ibexa\Taxonomy\Security\Limitation\Mapper\TaxonomyLimitationMapper:
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: Taxonomy }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: Taxonomy }

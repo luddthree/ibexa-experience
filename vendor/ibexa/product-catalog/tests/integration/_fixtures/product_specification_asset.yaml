@@ -1,0 +1,4 @@
+ibexa_product_specification_asset:
+    - { product_specification_id: 242, uri: "ezcontent://1", tags: "{}" }
+    - { product_specification_id: 242, uri: "ezcontent://2", tags: '{"float":{"value":10}}' }
+    - { product_specification_id: 242, uri: "ezcontent://3", tags: '{"float":{"value":20}}' }

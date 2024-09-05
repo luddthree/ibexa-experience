@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Menu\ContentContextMenuBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ibexa.menu.taxonomy.content_view.actions }
+
+    Ibexa\Taxonomy\Menu\Voter\TaxonomyVoter:
+        tags:
+            - { name: knp_menu.voter }

@@ -1,0 +1,19 @@
+{
+    "revenueDetails": {
+        "CURRENCY": null,
+        "ITEMS_PURCHASED": "null",
+        "REVENUE": "null"
+    },
+    "recoCallDetails": {
+        "ALL_CALLS": {
+            "PERCENTAGE": "100.0",
+            "CALLS": "0"
+        }
+    },
+    "conversionDetails": {
+        "ALL_SCENARIOS": "NaN"
+    },
+    "eventsDetails": {
+        "TOTAL_EVENTS": "0"
+    }
+}

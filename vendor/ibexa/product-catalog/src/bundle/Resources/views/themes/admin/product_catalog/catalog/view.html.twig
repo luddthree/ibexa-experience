@@ -1,0 +1,119 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+{% import "@ibexadesign/product_catalog/catalog_macros.html.twig" as catalog_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { url: path('ibexa.product_catalog.catalog.list'), value: 'catalog.breadcrumb.list'|trans|desc('Catalogs') },
+        { value: catalog.name },
+    ]} %}
+{% endblock %}
+
+{% block title %}
+    {{ 'catalog.view.title'|trans({ '%catalog%': catalog.name })|desc('Catalog "%catalog%"')}}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: catalog.name,
+        tag: catalog.status|ibexa_render_catalog_status,
+        tag_extra_classes: catalog_macros.status_class(catalog.status),
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block bottom %}
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('catalog') }}"></use>
+                </svg>
+                {{ 'catalog.view.catalog'|trans|desc('Catalog') }}
+            </span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block context_menu %}
+    {% set context_menu = knp_menu_get(
+        'ibexa_product_catalog.menu.catalog_view_context_menu',
+        [],
+        {
+            'catalog': catalog,
+            'delete_form_selector': '#delete-catalog',
+            'copy_form_selector': '#copy-catalog',
+            'transition_form_selector': '#transition-catalog',
+        }
+    ) %}
+
+    {{ knp_menu_render(context_menu, {
+        'template': '@ibexadesign/ui/menu/context_menu.html.twig'
+    }) }}
+
+    {% include '@ibexadesign/product_catalog/ui/modal/delete_confirmation.html.twig' with {
+        id: 'delete-catalog-modal',
+        message: 'modal.delete.catalog.confirm_message'|trans|desc(
+            'Delete the catalog?'
+        ),
+        data_click: '#delete-catalog',
+    } %}
+
+    {% include '@ibexadesign/product_catalog/ui/modal/copy_confirmation.html.twig' with {
+        id: 'copy-catalog-modal',
+        message: 'modal.copy.catalog.confirm_message'|trans|desc('You are duplicating this Catalog.'),
+        data_click: '#copy-catalog',
+    } %}
+
+    {% embed '@ibexadesign/product_catalog/ui/modal/confirmation.html.twig' with {
+        id: 'transition-catalog-modal',
+        message: 'modal.transition.catalog.confirm_message'|trans|desc('Are you sure you want to make a transition?'),
+        attr: {
+            class: 'ibexa-modal--transition-confirmation',
+        },
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% block confirm_button %}
+            <button class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm" data-bs-dismiss="modal">
+                {{ 'modal.transition.catalog.change_button.label'|trans|desc('Change') }}
+            </button>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {{ ibexa_render_component_group('catalog-block', {
+        catalog,
+        is_editable: is_editable|default(false)
+    }) }}
+
+    {% if delete_form is defined %}
+        {{ form_start(delete_form) }}
+            <button id="delete-catalog" type="submit" hidden></button>
+        {{ form_end(delete_form) }}
+    {% endif %}
+
+    {% if copy_form is defined %}
+        {{ form_start(copy_form) }}
+            <button id="copy-catalog" type="submit" hidden></button>
+        {{ form_end(copy_form) }}
+    {% endif %}
+
+    {% if transition_form is defined %}
+        {{ form_start(transition_form, { attr: { hidden: true, class: 'ibexa-pc-transition-form' } }) }}
+            {{ form_row(transition_form.transition, { attr: { class: 'ibexa-pc-transition-form__select' } }) }}
+            {{ form_row(transition_form.submit) }}
+        {{ form_end(transition_form) }}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-product-catalog-catalog-view-js', null, 'ibexa') }}
+{% endblock %}

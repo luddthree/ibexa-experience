@@ -1,0 +1,46 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+{% set body_rows = [] %}
+{% for public_access in publicAccesses %}
+    {% set uri = public_access.matcherConfiguration.host %}
+    {% if public_access.matcherConfiguration.path is not null %}
+        {% set uri = uri ~ '/' ~ public_access.matcherConfiguration.path %}
+    {% endif %}
+
+    {% set col_uri %}
+        <a href="//{{ uri }}">
+            {{ uri }}
+        </a>
+    {% endset %}
+
+    {% set col_languages %}
+        {{ public_access.config.values['ibexa.site_access.config.languages']
+            |map((language_code) => ibexa_admin_ui_config.languages.mappings[language_code].name)
+            |join(', ')
+        }}
+    {% endset %}
+
+    {% set col_status %}
+        {% include '@ibexadesign/common/status.html.twig' with {
+            'status': public_access.status,
+        } %}
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: col_uri, raw: true },
+        { content: col_languages, raw: true },
+        { content: col_status, raw: true },
+        { content: public_access.identifier },
+    ] }]) %}
+{% endfor %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline: 'site.view.public_access.list.title'|trans|desc('List'),
+    head_cols: [
+        { content: 'site.view.public_access.list.name'|trans|desc('Access') },
+        { content: 'site.view.public_access.list.languages'|trans|desc('Language(s)') },
+        { content: 'site.view.public_access.list.status'|trans|desc('Status') },
+        { content: 'site.view.public_access.list.identifier'|trans|desc('Identifier') },
+    ],
+    body_rows,
+} only %}

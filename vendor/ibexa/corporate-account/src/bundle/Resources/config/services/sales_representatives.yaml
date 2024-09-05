@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Contracts\CorporateAccount\SalesRepresentatives\SalesRepresentativesFilterBuilderInterface:
+        alias: Ibexa\CorporateAccount\SalesRepresentatives\ParentGroupFilterBuilder
+
+    Ibexa\Contracts\CorporateAccount\Service\SalesRepresentativesService:
+        alias: Ibexa\CorporateAccount\SalesRepresentativesService
+
+    Ibexa\CorporateAccount\SalesRepresentativesService: ~
+
+    Ibexa\CorporateAccount\SalesRepresentatives\ParentGroupFilterBuilder: ~

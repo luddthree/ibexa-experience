@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteContext\UserSettings\LocationPreview:
+        tags:
+            -   name: ibexa.user.setting.value
+                identifier: location_preview
+                group: browsing
+                priority: 0
+            -   name: ibexa.user.setting.mapper.form
+                identifier: location_preview
+

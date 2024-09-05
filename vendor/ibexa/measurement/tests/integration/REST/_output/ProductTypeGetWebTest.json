@@ -1,0 +1,106 @@
+{
+    "ProductType": {
+        "_media-type": "application\/vnd.ibexa.api.ProductType+json",
+        "identifier": "attribute_measurement_check",
+        "name": "Dress",
+        "AttributeAssignmentList": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.AttributeAssignment+json",
+                "is_required": false,
+                "is_discriminator": false,
+                "Attribute": {
+                    "_media-type": "application\/vnd.ibexa.api.Attribute+json",
+                    "identifier": "measurement_single_identifier",
+                    "name": "",
+                    "description": null,
+                    "type": "Measurement (single)",
+                    "type_identifier": "measurement_single",
+                    "group": "",
+                    "position": 0,
+                    "options": {
+                        "type": "length",
+                        "unit": "centimeter",
+                        "sign": "none"
+                    },
+                    "value": null,
+                    "extra_options": {
+                        "available_units": [
+                            {
+                                "label": "Centimeter",
+                                "value": "centimeter"
+                            },
+                            {
+                                "label": "Foot",
+                                "value": "foot"
+                            },
+                            {
+                                "label": "Inch",
+                                "value": "inch"
+                            },
+                            {
+                                "label": "Meter",
+                                "value": "meter"
+                            },
+                            {
+                                "label": "Millimeter",
+                                "value": "millimeter"
+                            },
+                            {
+                                "label": "Yard",
+                                "value": "yard"
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.AttributeAssignment+json",
+                "is_required": false,
+                "is_discriminator": false,
+                "Attribute": {
+                    "_media-type": "application\/vnd.ibexa.api.Attribute+json",
+                    "identifier": "measurement_range_identifier",
+                    "name": "",
+                    "description": null,
+                    "type": "Measurement (range)",
+                    "type_identifier": "measurement_range",
+                    "group": "",
+                    "position": 0,
+                    "options": {
+                        "type": "length",
+                        "unit": "centimeter"
+                    },
+                    "value": null,
+                    "extra_options": {
+                        "available_units": [
+                            {
+                                "label": "Centimeter",
+                                "value": "centimeter"
+                            },
+                            {
+                                "label": "Foot",
+                                "value": "foot"
+                            },
+                            {
+                                "label": "Inch",
+                                "value": "inch"
+                            },
+                            {
+                                "label": "Meter",
+                                "value": "meter"
+                            },
+                            {
+                                "label": "Millimeter",
+                                "value": "millimeter"
+                            },
+                            {
+                                "label": "Yard",
+                                "value": "yard"
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

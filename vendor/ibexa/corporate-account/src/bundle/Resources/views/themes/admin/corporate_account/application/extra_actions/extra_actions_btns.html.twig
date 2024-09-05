@@ -1,0 +1,15 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% block component %}
+    <div class="ibexa-ca-application-workflow-extra-actions__btns">
+        {% block extra_btns %}{% endblock %}
+        {% block cancel_btn %}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--close ibexa-ca-application-workflow-extra-actions__btn"
+            >
+                {{ 'application.workflow.extra_actions.cancel_btn.label'|trans|desc('Cancel') }}
+            </button>
+        {% endblock %}
+    </div>
+{% endblock %}

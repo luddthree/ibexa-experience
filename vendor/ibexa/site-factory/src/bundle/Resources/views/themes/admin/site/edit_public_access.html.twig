@@ -1,0 +1,41 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+<div class="ibexa-sf-sections__section-body ibexa-sf-public-access">
+    <div class="ibexa-sf-public-access__list-actions">
+        <div class="ibexa-sf-public-access__list-actions-title">{{ 'site.view.add_domains'|trans|desc('Add domains') }}</div>
+        <div class="ibexa-sf-public-access__list-actions-btns">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--small ibexa-btn--create-public-access"
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                    <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{ 'site.view.add_new_domain'|trans|desc('Add') }}</span>
+            </button>
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--delete-public-access"
+                title="{{ 'site.view.delete'|trans|desc('Delete') }}"
+                disabled
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{ 'site.view.delete'|trans|desc('Delete') }}</span>
+            </button>
+        </div>
+    </div>
+    <div 
+        class="ibexa-sf-public-access__list"
+        data-prototype="{{ form_row(form.publicAccesses.vars.prototype)|e('html_attr') }}"
+        data-widget-counter="{{ form.publicAccesses|length }}"
+    >
+        {% for publicAccess in form.publicAccesses %}
+            {{ form_row(publicAccess) }}
+        {% endfor %}
+    </div>
+    <div class="ibexa-form-error ibexa-sf-public-access__error-wrapper">
+        <em class="ibexa-field-edit__error ibexa-sf-public-access__error"></em>
+    </div>
+</div>

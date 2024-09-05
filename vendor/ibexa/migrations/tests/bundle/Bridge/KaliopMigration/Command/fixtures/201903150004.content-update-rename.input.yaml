@@ -1,0 +1,13 @@
+-
+    type: content
+    mode: update
+    match: # The locations to update
+        location_id: 2
+    new_remote_id: 'old_home_to_be_remove'
+-
+    type: content
+    mode: update
+    remote_id: 'old_home_to_be_remove'
+    lang: 'eng-GB'
+    attributes:
+        name: '-'

@@ -1,0 +1,12 @@
+-
+    type: role
+    mode: delete
+    match:
+        field: id
+        value: 3
+-
+    type: role
+    mode: delete
+    match:
+        field: identifier
+        value: Editor

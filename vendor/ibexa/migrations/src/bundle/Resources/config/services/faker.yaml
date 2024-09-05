@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    ibexa.migrations.template.faker:
+        class: Closure
+        factory: [ Closure, fromCallable ]
+        arguments:
+            - 'Faker\Factory::create'
+        tags:
+            -   name: 'ibexa.migrations.template.expression_language.function'
+                function: faker

@@ -1,0 +1,26 @@
+<div class="ibexa-dynamic-targeting-block {{ block_class }}">
+    {% set content = block_context.content|default(null) %}
+    {% set recommendationItems = ibexa_personalization_dynamic_targeting_block_recommendations(
+        content,
+        default_scenario,
+        default_output,
+        scenario_map,
+        ['name', 'title', 'image'],
+        limit
+    ) %}
+
+    {% if recommendationItems|length > 0 %}
+        <div class="ibexa-recommendation ibexa-recommendation--horizontal">
+            {% for recommendation in recommendationItems %}
+                <div class="block">
+                    <a href="#">
+                        <div class="ibexa-recommendation__thumbnail"></div>
+                        <div class="ibexa-recommendation__data-placeholder"></div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+    {% endif %}
+</div>

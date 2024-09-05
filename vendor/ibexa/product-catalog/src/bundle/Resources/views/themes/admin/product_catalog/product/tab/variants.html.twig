@@ -1,0 +1,225 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+{% import _self as tab %}
+
+<section class="ibexa-pc-product-variants">
+    {% set head_cols = [
+        {
+            has_checkbox: true,
+            class: 'ibexa-table__header-cell--no-min-width'
+        },
+        {
+            content: 'tab.variants.name'|trans|desc('Name'),
+            wrapper_attr: {
+                title: 'tab.variants.name'|trans|desc('Name')
+            }
+        },
+        {
+            content: 'tab.variants.code'|trans|desc('Product code'),
+            wrapper_attr: {
+                title: 'tab.variants.code'|trans|desc('Product code')
+            }
+        },
+        {
+            content: 'tab.variants.base_price'|trans|desc('Base price'),
+            wrapper_attr: {
+                title: 'tab.variants.base_price'|trans|desc('Base price')
+            }
+        },
+        {
+            content: 'tab.variants.available'|trans|desc('Available'),
+            wrapper_attr: {
+                title: 'tab.variants.available'|trans|desc('Available')
+            }
+        },
+        {
+            content: 'tab.variants.stock'|trans|desc('Stock'),
+            wrapper_attr: {
+                title: 'tab.variants.stock'|trans|desc('Stock')
+            }
+        },
+    ] %}
+
+    {% for discriminator in discriminators %}
+        {% set head_cols = head_cols|merge([{
+            content: discriminator.getName(),
+            wrapper_attr: {
+                title: discriminator.getName()
+            }
+        }]) %}
+    {% endfor %}
+
+    {% set head_cols = head_cols|merge([{
+        content: '',
+        class: 'ibexa-table__header-cell--no-min-width'
+    }]) %}
+
+    {% set body_rows = [] %}
+    {% for variant in variants %}
+        {% set edit_url = path('ibexa.product_catalog.product.variant.edit', {
+            productCode: variant.code,
+        }) %}
+        {% set price = variant.getPrice() %}
+        {% set availability_content = '' %}
+        {% set stock_content = '' %}
+
+        {% if variant.hasAvailability() %}
+            {% set availability = variant.getAvailability() %}
+            {% set badge_name = 'tab.variants.not_available'|trans|desc('Not Available') %}
+            {% set badge_class = 'ibexa-badge ibexa-badge--danger' %}
+
+            {% if availability.isAvailable() %}
+                {% set badge_name = 'tab.variants.available'|trans|desc('Available') %}
+                {% set badge_class = 'ibexa-badge ibexa-badge--success' %}
+            {% endif %}
+
+            {% set availability_content %}
+                <div class="{{ badge_class }}">
+                    {{ badge_name }}
+                </div>
+            {% endset %}
+
+            {% set stock_content %}
+                {{ availability.isInfinite()
+                    ? 'tab.variants.unlimited'|trans|desc('Unlimited')
+                    : availability.getStock()
+                }}
+            {% endset %}
+        {% endif %}
+
+        {% set cols = [
+            {
+                raw: true,
+                has_checkbox: true,
+                content: tab.table_checkbox(delete_variant_form, variant.code)
+            },
+            { content: tab.table_name(variant) },
+            { content: variant.code },
+            { content: price != null ? price.getMoney()|ibexa_format_price : '' },
+            { content: availability_content },
+            { content: stock_content },
+        ] %}
+
+        {% for discriminator in discriminators %}
+            {% set cols = cols|merge([{
+                content: variant.getAttribute(discriminator.identifier)|ibexa_format_product_attribute
+            }]) %}
+        {% endfor %}
+
+        {% set cols = cols|merge([{
+            has_action_btns: true,
+            content: data_grid_macros.cell_edit(edit_url)
+        }]) %}
+
+        {% set body_rows = body_rows|merge([{
+            cols: cols
+        }]) %}
+    {% endfor %}
+
+    {% include '@ibexadesign/product_catalog/product/modal/generate_variants.html.twig' with {
+        'form': create_variant_form
+    } only %}
+
+    {% set empty_table_extra_actions %}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--prevented"
+            data-bs-toggle="modal"
+            data-bs-target="#generate-variants-modal"
+        >
+            <span class="ibexa-btn__label">
+                {{ 'tab.variants.empty.generate_variants'|trans|desc('Generate variants') }}
+            </span>
+        </button>
+    {% endset %}
+
+    {{ form_start(delete_variant_form, {
+        'attr': { 'class': 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#delete-variants' }
+    }) }}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        class: 'ibexa-table--has-bulk-checkbox ibexa-pc-product-variants__list',
+        headline: 'tab.variants.variants'|trans|desc('Variants'),
+        head_cols: head_cols,
+        actions: tab.table_header_tools(product, delete_variant_form, not variants|length),
+        body_rows,
+        empty_table_info_text: 'tab.variants.empty.info'|trans|desc('There are no variants yet'),
+        empty_table_action_text: 'tab.variants.empty.action'|trans|desc('Generate variants or add manually'),
+        empty_table_extra_actions,
+        empty_image: asset('bundles/ibexaproductcatalog/img/ibexa-empty-table-variants.svg'),
+    } %}
+
+    {% if variants.haveToPaginate() %}
+        {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': variants,
+            'paginaton_params': {
+                'routeName': 'ibexa.product_catalog.product.view',
+                'routeParams': {
+                    'productCode': product.code,
+                    '_fragment': constant('Ibexa\\ProductCatalog\\Tab\\Product\\VariantsTab::URI_FRAGMENT'),
+                },
+                'pageParameter': '[page][variants]'
+            }
+        } %}
+    {% endif %}
+
+    <button id="{{ delete_variant_form.vars.id }}-submit" type="submit" hidden></button>
+
+    {{ form_end(delete_variant_form) }}
+</section>
+
+{% macro table_checkbox(delete_variant_form, code) %}
+    <div class="form-check">
+        <input type="checkbox"
+               name="{{ delete_variant_form.products.vars.full_name }}[]"
+               class="ibexa-input ibexa-input--checkbox form-check-input"
+               value="{{ code }}" />
+    </div>
+{% endmacro %}
+
+{% macro table_name(variant) %}
+    {% set href = path('ibexa.product_catalog.product.view', {
+        productCode: variant.code
+    }) %}
+
+    <a class="ibexa-table__cell-content ibexa-table__cell-content--name" href="{{ href }}" title="{{ variant.name }}">{{ variant.name }}</a>
+{% endmacro %}
+
+{% macro table_header_tools(product, delete_variant_form, deletion_disabled = false) %}
+    {% set modal_data_target = 'delete-variants-modal' %}
+    {% set create_href = path('ibexa.product_catalog.product.variant.create', {
+        'productCode': product.code
+    }) %}
+
+    <a href="{{ create_href }}" class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small">
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'tab.variants.action.add'|trans|desc('Add') }}
+        </span>
+    </a>
+
+    <button
+        type="button"
+        id="delete-variants"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+        data-bs-toggle="modal"
+        data-bs-target="#{{ modal_data_target }}"
+        {{ deletion_disabled ? 'disabled' }}
+    >
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'tab.variants.action.delete'|trans|desc('Delete') }}
+        </span>
+    </button>
+
+    {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+        id: modal_data_target,
+        message: 'tab.variants.modal.message'|trans|desc('Delete the variants permanently?'),
+        data_click: '#' ~ delete_variant_form.vars.id  ~ '-submit',
+    }%}
+{% endmacro %}

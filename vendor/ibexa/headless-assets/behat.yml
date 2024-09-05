@@ -1,0 +1,7 @@
+browser:
+  suites:
+    headless-assets:
+      paths:
+        - '%paths.base%/features/browser'
+      contexts:
+        - Ibexa\Behat\API\Context\TestContext

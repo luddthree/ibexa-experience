@@ -1,0 +1,25 @@
+-
+    type: service
+    mode: call
+    service: __foo_service__
+    method: someMethod
+    arguments:
+        foo: __foo__
+        bar: __bar__
+-
+    type: service
+    mode: call
+    service: __foo_service__
+    method: someMethod
+    arguments:
+        foo: __foo__
+        bar: __bar__
+
+-
+    type: service
+    mode: call
+    service: __foo_service__
+    method: someMethod
+    arguments:
+        foo: __foo__
+        bar: __bar__

@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    (function(global, doc) {
+        'use strict';
+
+        const acceptableSources = JSON.parse('{{ hosts|json_encode|raw }}');
+        const eventId = 'ibexa-cross-origin-event';
+
+        global.addEventListener('message', function (event) {
+            const isKnownSource = acceptableSources.some(function (source) {
+                return source === event.origin;
+            });
+            const response = {
+                href: global.location.href,
+                id: eventId,
+            };
+
+            if (!isKnownSource || event.data.id !== eventId) {
+                return;
+            }
+
+            event.source.postMessage(response, event.origin);
+        }, false);
+    })(window, window.document);
+</script>

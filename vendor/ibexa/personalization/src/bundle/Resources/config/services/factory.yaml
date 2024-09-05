@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Factory\:
+        resource: '../../../lib/Factory/*'
+
+    Ibexa\Personalization\Factory\PersonalizationSecurityContextFactory: ~
+
+    Ibexa\Personalization\Factory\SecurityContextFactory:
+        '@Ibexa\Personalization\Factory\PersonalizationSecurityContextFactory'
+
+    Ibexa\Personalization\Factory\DateTime\GranularityFactory: ~
+
+    Ibexa\Personalization\Factory\DateTime\GranularityFactoryInterface:
+        '@Ibexa\Personalization\Factory\DateTime\GranularityFactory'
+
+    Ibexa\Personalization\Factory\Form\PersonalizationFormFactory: ~
+
+    Ibexa\Personalization\Factory\Form\PersonalizationFormFactoryInterface:
+        '@Ibexa\Personalization\Factory\Form\PersonalizationFormFactory'
+
+    Ibexa\Personalization\Factory\Search\AttributeCriteriaFactory: ~
+
+    Ibexa\Personalization\Factory\Search\AttributeCriteriaFactoryInterface:
+        '@Ibexa\Personalization\Factory\Search\AttributeCriteriaFactory'
+
+    Ibexa\Personalization\Factory\TokenFactory: ~
+
+    Ibexa\Personalization\Factory\TokenFactoryInterface:
+        '@Ibexa\Personalization\Factory\TokenFactory'
+
+    Ibexa\Personalization\Factory\Export\ParametersFactory:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+            $credentialsResolver: '@Ibexa\Personalization\Config\PersonalizationClientCredentialsResolver'
+            $itemsEndpoint: '%ibexa.personalization.server.items.endpoint%'
+
+    Ibexa\Personalization\Factory\Export\ParametersFactoryInterface:
+        '@Ibexa\Personalization\Factory\Export\ParametersFactory'
+
+    Ibexa\Personalization\Factory\Segments\SegmentsUpdateStructFactory: ~
+
+    Ibexa\Personalization\Factory\Segments\SegmentsUpdateStructFactoryInterface:
+        '@Ibexa\Personalization\Factory\Segments\SegmentsUpdateStructFactory'

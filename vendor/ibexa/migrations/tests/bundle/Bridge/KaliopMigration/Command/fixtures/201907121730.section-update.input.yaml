@@ -1,0 +1,14 @@
+-
+    type: section
+    mode: update
+    match:
+        identifier: 'gb'
+    name: 'UK'
+    identifier: 'uk'
+-
+    type: section
+    mode: update
+    match:
+        id: 1
+    name: 'PL'
+    identifier: 'pl'

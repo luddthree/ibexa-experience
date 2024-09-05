@@ -1,0 +1,35 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set subtask_group_progress_value = subtask_group_progress_value|round %}
+{% set subtask_group_status_label = 'product.view.completeness.subtask_group.in_progress_status'|trans|desc('In progress') %}
+
+{% if subtask_group_progress_value == 0 %}
+    {% set subtask_group_status_label = 'product.view.completeness.subtask_group.not_started_status'|trans|desc('Not started') %}
+{% endif %}
+
+{% if subtask_group_progress_value == 100 %}
+    {% set subtask_group_status_label = 'product.view.completeness.subtask_group.compledted_status'|trans|desc('Completed') %}
+{% endif %}
+
+<div class="
+    ibexa-pc-completeness-subtask-group
+    {{ subtask_group_progress_value == 0 ? ' ibexa-pc-completeness-subtask-group--not-started' }}
+    {{ subtask_group_progress_value == 100 ? ' ibexa-pc-completeness-subtask-group--completed' }}
+">
+    <div class="ibexa-pc-completeness-subtask-group__header">
+        <div class="ibexa-pc-completeness-subtask-group__icon-wrapper"></div>
+        <div class="ibexa-pc-completeness-subtask-group__name">{{ subtask_group_label|default('') }}</div>
+        <div class="ibexa-pc-completeness-subtask-group__status">{{ subtask_group_status_label }}</div>
+    </div>
+    <div class="ibexa-pc-completeness-subtask-group__body">
+        {% for subtask in subtasks_group.getTasks() %}
+            {% set completeness = subtask.getEntry(product).completeness %}
+
+            {% include '@ibexadesign/product_catalog/ui/component/completeness_subtask.html.twig' with {
+                is_grouped: true,
+                subtask_label: subtask.getName(),
+                subtask_progress_value: completeness.getValue()|round,
+            }%}
+        {% endfor %}
+    </div>
+</div>

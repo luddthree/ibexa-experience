@@ -1,0 +1,9 @@
+system:
+    default:
+        workflows_config:
+            timeline_entry_templates: # Workflow Timeline
+                - { template: '@ibexadesign/ibexa_workflow/timeline/entries.html.twig', priority: 10 }
+            matcher_value_templates: # Matchers in Admin / Workflow
+                - { template: '@ibexadesign/ibexa_workflow/matcher/matcher_values.html.twig', priority: 10 }
+        limitation_value_templates: # Limitation Value
+            - { template: '@ibexadesign/ibexa_workflow/limitation/limitation_values.html.twig', priority: 10 }

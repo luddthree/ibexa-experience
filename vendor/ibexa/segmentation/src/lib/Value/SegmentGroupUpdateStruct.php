@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+
+namespace Ibexa\Segmentation\Value;
+
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
+
+class SegmentGroupUpdateStruct extends ValueObject
+{
+    /** @var string */
+    public $identifier;
+
+    /** @var string */
+    public $name;
+}
+
+class_alias(SegmentGroupUpdateStruct::class, 'Ibexa\Platform\Segmentation\Value\SegmentGroupUpdateStruct');

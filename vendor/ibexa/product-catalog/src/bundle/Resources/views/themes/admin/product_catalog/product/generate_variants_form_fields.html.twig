@@ -1,0 +1,23 @@
+{% extends  '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+{%- block tagify_widget -%}
+    <div class="ibexa-pc-taggify">
+        <div class="ibexa-pc-taggify__widget taggify form-control ibexa-pc-invalid-class-target"></div>
+        <div class="ibexa-pc-taggify__source-input-wrapper">
+            {{ form_widget(form, {
+                attr: {
+                    hidden: true,
+                    class: 'ibexa-pc-taggify__source-input'
+                },
+            }) }}
+        </div>
+    </div>
+{%- endblock -%}
+
+{%- block choice_widget -%}
+    {% set attr = attr|merge({
+        dropdown_class: attr.dropdown_class|default('') ~ 'ibexa-pc-invalid-class-target'
+    }) %}
+
+    {{ parent() }}
+{%- endblock -%}

@@ -1,0 +1,40 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+<div class="ibexa-site-factory-header">
+    <div class="ibexa-site-factory-header__col">
+        {{ form_start(form, {'attr': {'class': 'input-group ibexa-site-factory-header__search'}}) }}
+            {{ form_widget(form.searchQuery, { attr: { 'class': 'form-control' }}) }}
+            <button type="submit" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--search">
+                {{ 'search.perform'|trans|desc('Search') }}
+            </button>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% if site_factory_enabled and not has_templates %}
+    <div class="mb-4">
+        {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+            type: 'warning',
+            title: 'header.create.unavailable'|trans()|desc('There is a design configuration error and you will not be able to create a new site. Please update the configuration.'),
+        } only %}
+    </div>
+{% endif %}
+<div class="ibexa-site-factory-list-switcher mb-4">
+    <a
+        href="{{ url('ibexa.site_factory.list', { 'locationId': location_id }) }}"
+        class="ibexa-site-factory-list-switcher__option {{ active == 'list' ? "ibexa-site-factory-list-switcher__option--active" : "" }}"
+        title="{{ 'header.list_view'|trans()|desc('List view') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('view-list') }}"></use>
+        </svg>
+    </a>
+    <a
+        href="{{ url('ibexa.site_factory.grid', { 'locationId': location_id }) }}"
+        class="ibexa-site-factory-list-switcher__option {{ active == 'grid' ? "ibexa-site-factory-list-switcher__option--active" : "" }}"
+        title="{{ 'header.grid_view'|trans()|desc('Grid view') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small-medium">
+            <use xlink:href="{{ ibexa_icon_path('view-grid') }}"></use>
+        </svg>
+    </a>
+</div>

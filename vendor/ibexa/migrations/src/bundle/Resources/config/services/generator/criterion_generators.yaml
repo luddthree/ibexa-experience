@@ -1,0 +1,68 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    ibexa.migrations.generator.criterion_generator.content.registry:
+        class: Ibexa\Migration\Generator\CriterionGenerator\GeneratorRegistry
+        arguments:
+            $generators: !tagged_iterator
+                tag: 'ibexa.migrations.generator.criterion_generator.content'
+                index_by: 'key'
+                default_index_method: 'getMatchProperty'
+
+    ibexa.migrations.generator.criterion_generator.user.registry:
+        class: Ibexa\Migration\Generator\CriterionGenerator\GeneratorRegistry
+        arguments:
+            $generators: !tagged_iterator
+                tag: 'ibexa.migrations.generator.criterion_generator.user'
+                index_by: key
+                default_index_method: 'getMatchProperty'
+
+    Ibexa\Migration\Generator\CriterionGenerator\ContentIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\ContentRemoteIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\ContentTypeGroupIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\ContentTypeIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\ContentTypeIdentifierGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\LocationIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\LocationRemoteIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\ParentLocationIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.content' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\UserEmailGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.user', key: 'email' }
+            - { name: 'ibexa.migrations.generator.criterion_generator.content', key: 'user_email' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\UserIdGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.user', key: 'id' }
+            - { name: 'ibexa.migrations.generator.criterion_generator.content', key: 'user_id' }
+
+    Ibexa\Migration\Generator\CriterionGenerator\UserLoginGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator.criterion_generator.user', key: 'login' }
+            - { name: 'ibexa.migrations.generator.criterion_generator.content', key: 'user_login' }

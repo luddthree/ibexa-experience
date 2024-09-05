@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Persistence\Legacy\MigrateRichTextNamespaces\Gateway\DoctrineDatabase:
+        tags:
+            - ibexa.field_type.richtext.persistence.legacy.migrate_xml_namespaces.gateway

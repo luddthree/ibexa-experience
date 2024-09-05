@@ -1,0 +1,646 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\EventListener\\\\EzSelectionFieldTypeSubscriber\\:\\:convertValueToIndex\\(\\) should return int\\|null but returns int\\|string\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/EventListener/EzSelectionFieldTypeSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\Action\\\\AbstractUserRolesActionDenormalizer\\:\\:denormalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Serializer/Action/AbstractUserRolesActionDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\ContentTypeUpdateDenormalizer\\:\\:prepareTranslations\\(\\) should return array\\<string, array\\{name\\: string, description\\: string\\}\\> but returns non\\-empty\\-array\\<string, array\\{name\\: string, description\\: non\\-empty\\-array\\<string, string\\>\\|string\\}\\>\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Serializer/ContentTypeUpdateDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\LocationUpdateDenormalizer\\:\\:prepareMetadata\\(\\) should return array\\{remoteId\\: string, sortOrder\\: int, sortField\\: int, priority\\: int\\} but returns array\\{remoteId\\: mixed, priority\\: mixed, sortField\\: int\\|null, sortOrder\\: int\\|null\\}\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Serializer/LocationUpdateDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\ObjectStateCreateDenormalizer\\:\\:prepareMetadata\\(\\) should return array\\{identifier\\: string, translations\\: array\\<string, array\\{name\\: string, description\\?\\: string\\}\\>, mainTranslation\\: string, objectStateGroup\\: int, priority\\: bool\\|int\\} but returns array\\{identifier\\: mixed, mainTranslation\\: mixed, objectStateGroup\\: mixed, priority\\: false, translations\\: array\\<int\\|string, array\\{name\\: mixed, description\\?\\: mixed\\}\\>\\}\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Serializer/ObjectStateCreateDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\ObjectStateGroupCreateDenormalizer\\:\\:prepareMetadata\\(\\) should return array\\{identifier\\: string, translations\\: array\\<string, array\\{name\\: string, description\\?\\: string\\}\\>, mainTranslation\\: string\\} but returns array\\{identifier\\: mixed, mainTranslation\\: mixed, translations\\: array\\<int\\|string, array\\{name\\: mixed, description\\?\\: mixed\\}\\>\\}\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Serializer/ObjectStateGroupCreateDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\UserUpdateDenormalizer\\:\\:prepareFields\\(\\) should return array\\<string, mixed\\> but returns array\\<int, array\\<string, mixed\\>\\>\\.$#"
+			count: 1
+			path: src/bundle/Bridge/KaliopMigration/Serializer/UserUpdateDenormalizer.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Console\\\\Helper\\\\HelperInterface\\:\\:ask\\(\\)\\.$#"
+			count: 3
+			path: src/bundle/Command/GenerateCommand.php
+
+		-
+			message: "#^Class Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Denormalizer\\\\ArrayDenormalizer extends @final class Symfony\\\\Component\\\\Serializer\\\\Normalizer\\\\ArrayDenormalizer\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Denormalizer/ArrayDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\ContentType\\\\FieldDefinitionCollectionNormalizer\\:\\:normalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/ContentType/FieldDefinitionCollectionNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\ContentType\\\\FieldDefinitionNormalizer\\:\\:normalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/ContentType/FieldDefinitionNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Generic\\\\ByDefinitionNormalizer\\:\\:__construct\\(\\) has parameter \\$defaultContext with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Generic/ByDefinitionNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 4
+			path: src/bundle/Serializer/Normalizer/Step/ContentCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentTypeCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/bundle/Serializer/Normalizer/Step/ContentTypeCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentTypeDeleteStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/ContentTypeDeleteStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentTypeGroup\\\\ContentTypeGroupCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/bundle/Serializer/Normalizer/Step/ContentTypeGroup/ContentTypeGroupCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentTypeGroup\\\\ContentTypeGroupDeleteStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/ContentTypeGroup/ContentTypeGroupDeleteStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentTypeGroup\\\\ContentTypeGroupUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/bundle/Serializer/Normalizer/Step/ContentTypeGroup/ContentTypeGroupUpdateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentTypeUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/bundle/Serializer/Normalizer/Step/ContentTypeUpdateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ContentUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 4
+			path: src/bundle/Serializer/Normalizer/Step/ContentUpdateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\LanguageCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/bundle/Serializer/Normalizer/Step/LanguageCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\LocationUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/bundle/Serializer/Normalizer/Step/LocationUpdateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ObjectStateCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/ObjectStateCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\ObjectStateGroupCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/ObjectStateGroupCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\RoleCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/bundle/Serializer/Normalizer/Step/RoleCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\RoleDeleteStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/RoleDeleteStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\RoleUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 4
+			path: src/bundle/Serializer/Normalizer/Step/RoleUpdateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\SQLStepNormalizer\\:\\:denormalize\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/SQLStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\SectionCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/bundle/Serializer/Normalizer/Step/SectionCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\SectionUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/bundle/Serializer/Normalizer/Step/SectionUpdateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\UserCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/bundle/Serializer/Normalizer/Step/UserCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\UserGroupCreateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/bundle/Serializer/Normalizer/Step/UserGroupCreateStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\UserGroupDeleteStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/Step/UserGroupDeleteStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Step\\\\UserUpdateStepNormalizer\\:\\:denormalizeStep\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/bundle/Serializer/Normalizer/Step/UserUpdateStepNormalizer.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Migration\\\\Serializer\\\\AbstractStepNormalizer\\<T of Ibexa\\\\Migration\\\\ValueObject\\\\Step\\\\StepInterface\\>\\:\\:\\$forbiddenNormalizeStepKeyMessage \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/contracts/Serializer/AbstractStepNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\Dumper\\\\MigrationDumper\\:\\:validResult\\(\\) has parameter \\$result with no type specified\\.$#"
+			count: 1
+			path: src/lib/Dumper/MigrationDumper.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\Dumper\\\\MigrationDumper\\:\\:writeIntoStream\\(\\) has parameter \\$data with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Dumper/MigrationDumper.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\Dumper\\\\MigrationDumper\\:\\:\\$stream \\(resource\\) does not accept resource\\|false\\.$#"
+			count: 1
+			path: src/lib/Dumper/MigrationDumper.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\Dumper\\\\MigrationDumperInterface\\:\\:dump\\(\\) has parameter \\$data with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Dumper/MigrationDumperInterface.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\Event\\\\HashFromFieldValueEvent\\:\\:\\$hash type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/HashFromFieldValueEvent.php
+
+		-
+			message: "#^Argument of an invalid type Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Gateway/MigrationMetadata/DoctrineGateway.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ContentTypeGroup/ContentTypeGroupMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$matchProperty of class Ibexa\\\\Migration\\\\Generator\\\\Exception\\\\UnknownMatchPropertyException constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ContentTypeGroup/ContentTypeGroupMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ContentTypeMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Migration\\\\Generator\\\\ContentTypeMigrationGenerator\\:\\:prepareContentTypesList\\(\\) expects array\\<int\\|string\\>, array\\<bool\\|float\\|int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/ContentTypeMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\$supportedMatchProperty of class Ibexa\\\\Migration\\\\Generator\\\\Exception\\\\UnknownMatchPropertyException constructor expects array\\<string\\>, array\\<string, true\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/Language/LanguageMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/Location/LocationMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$remoteId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocationByRemoteId\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/Generator/Location/LocationMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\$context of method Ibexa\\\\Migration\\\\Generator\\\\MigrationGeneratorInterface\\:\\:generate\\(\\) expects array\\{value\\: array\\<bool\\|float\\|int\\|string\\>, match\\-property\\?\\: string\\|null\\}, array given\\.$#"
+			count: 1
+			path: src/lib/Generator/MigrationGeneratorsManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectState/ObjectStateMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$matchProperty of class Ibexa\\\\Migration\\\\Generator\\\\Exception\\\\UnknownMatchPropertyException constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectState/ObjectStateMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectStateIdentifiersWithGroups of method Ibexa\\\\Migration\\\\Generator\\\\ObjectState\\\\ObjectStateMigrationGenerator\\:\\:getObjectStateIdsByIdentifiersWithGroups\\(\\) expects array\\<string\\>, array\\<int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectState/ObjectStateMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Migration\\\\Generator\\\\ObjectState\\\\ObjectStateMigrationGenerator\\:\\:prepareObjectStateIdsList\\(\\) expects array\\<int\\|string\\>, array\\<bool\\|float\\|int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectState/ObjectStateMigrationGenerator.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\Generator\\\\ObjectState\\\\StepBuilder\\\\Create\\:\\:\\$objectStateService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectState/StepBuilder/Create.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectStateGroup/ObjectStateGroupMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$matchProperty of class Ibexa\\\\Migration\\\\Generator\\\\Exception\\\\UnknownMatchPropertyException constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectStateGroup/ObjectStateGroupMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectStateGroupIdentifiers of method Ibexa\\\\Migration\\\\Generator\\\\ObjectStateGroup\\\\ObjectStateGroupMigrationGenerator\\:\\:getObjectStateGroupIdsByIdentifiers\\(\\) expects array\\<string\\>, array\\<int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectStateGroup/ObjectStateGroupMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Migration\\\\Generator\\\\ObjectStateGroup\\\\ObjectStateGroupMigrationGenerator\\:\\:prepareObjectStateGroupIdsList\\(\\) expects array\\<int\\|string\\>, array\\<bool\\|float\\|int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectStateGroup/ObjectStateGroupMigrationGenerator.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\Generator\\\\ObjectStateGroup\\\\StepBuilder\\\\Create\\:\\:\\$objectStateService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Generator/ObjectStateGroup/StepBuilder/Create.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(bool\\|float\\|int\\|string\\)\\: mixed\\)\\|null, Closure\\(string\\)\\: int given\\.$#"
+			count: 1
+			path: src/lib/Generator/Role/StepBuilder/LimitationConverter/ContentTypeLimitationConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of function array_map expects \\(callable\\(bool\\|float\\|int\\|string\\)\\: mixed\\)\\|null, Closure\\(string\\)\\: string given\\.$#"
+			count: 1
+			path: src/lib/Generator/Role/StepBuilder/LimitationConverter/SiteAccessLimitationConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/Section/SectionMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$matchProperty of class Ibexa\\\\Migration\\\\Generator\\\\Exception\\\\UnknownMatchPropertyException constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Generator/Section/SectionMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$sectionIdentifiers of method Ibexa\\\\Migration\\\\Generator\\\\Section\\\\SectionMigrationGenerator\\:\\:getSectionIdsByIdentifiers\\(\\) expects array\\<string\\>, array\\<int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/Section/SectionMigrationGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Migration\\\\Generator\\\\Section\\\\SectionMigrationGenerator\\:\\:prepareSectionIdsList\\(\\) expects array\\<int\\|string\\>, array\\<bool\\|float\\|int\\|string\\> given\\.$#"
+			count: 1
+			path: src/lib/Generator/Section/SectionMigrationGenerator.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\Generator\\\\StepBuilder\\\\StepFactoryInterface\\:\\:getSupportedModes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Generator/StepBuilder/StepFactoryInterface.php
+
+		-
+			message: "#^Parameter \\#1 \\$userReference of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:setCurrentUserReference\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\UserReference, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\UserReference\\|null given\\.$#"
+			count: 1
+			path: src/lib/MigrationService.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$alwaysAvailable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$modificationDate \\(DateTime\\) does not accept DateTime\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$remoteId \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentCreateStepExecutor.php
+
+		-
+			message: "#^Dead catch \\- Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Exceptions\\\\NotFoundException is never thrown in the try block\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentDeleteStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeCreateStruct\\:\\:\\$creationDate \\(DateTime\\) does not accept DateTime\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$fieldGroup \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isInfoCollector \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isRequired \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isSearchable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isThumbnail \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isTranslatable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$position \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeUpdateStruct\\:\\:\\$defaultAlwaysAvailable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeUpdateStruct\\:\\:\\$isContainer \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeUpdateStruct\\:\\:\\$modificationDate \\(DateTime\\) does not accept DateTime\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeUpdateStruct\\:\\:\\$nameSchema \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeUpdateStruct\\:\\:\\$remoteId \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeUpdateStruct\\:\\:\\$urlAliasSchema \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$fieldGroup \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isInfoCollector \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isRequired \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isSearchable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isThumbnail \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$isTranslatable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinitionCreateStruct\\:\\:\\$position \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ContentTypeUpdateStepExecutor.php
+
+		-
+			message: "#^Parameter \\#1 \\$locationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocation\\(\\) expects int, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/LocationUpdateStepExecutor.php
+
+		-
+			message: "#^Parameter \\#1 \\$remoteId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocationByRemoteId\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/LocationUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\LocationUpdateStruct\\:\\:\\$priority \\(int\\) does not accept int\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/LocationUpdateStepExecutor.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectStateGroupId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ObjectStateService\\:\\:loadObjectStateGroup\\(\\) expects int, int\\|string given\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ObjectStateCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ObjectState\\\\ObjectStateCreateStruct\\:\\:\\$priority \\(int\\) does not accept bool\\|int\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/ObjectStateCreateStepExecutor.php
+
+		-
+			message: "#^Argument of an invalid type array\\<Ibexa\\\\Migration\\\\ValueObject\\\\Step\\\\Role\\\\Limitation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/RoleCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\RoleCreateStepExecutor\\:\\:\\$transactionHandler is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/RoleCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\RoleUpdateStepExecutor\\:\\:\\$transactionHandler is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/RoleUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\SectionCreateStepExecutor\\:\\:\\$transactionHandler is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/SectionCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\SectionUpdateStepExecutor\\:\\:\\$transactionHandler is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/SectionUpdateStepExecutor.php
+
+		-
+			message: "#^Cannot access property \\$fieldTypeIdentifier on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserCreateStepExecutor.php
+
+		-
+			message: "#^Cannot call method getFieldSettings\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\UserCreateStepExecutor\\:\\:\\$transactionHandler is unused\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserCreateStepExecutor.php
+
+		-
+			message: "#^Cannot access property \\$fieldTypeIdentifier on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupCreateStepExecutor.php
+
+		-
+			message: "#^Cannot call method getFieldSettings\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$alwaysAvailable \\(bool\\) does not accept bool\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$modificationDate \\(DateTime\\) does not accept DateTime\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$remoteId \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupCreateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\UserGroupCreateStepExecutor\\:\\:\\$roleService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupCreateStepExecutor.php
+
+		-
+			message: "#^Parameter \\#1 \\$remoteId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContentByRemoteId\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupDeleteStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\UserGroupUpdateStepExecutor\\:\\:\\$contentTypeService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Migration\\\\StepExecutor\\\\UserGroupUpdateStepExecutor\\:\\:\\$roleService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserGroupUpdateStepExecutor.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\UserUpdateStruct\\:\\:\\$contentUpdateStruct \\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentUpdateStruct\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/lib/StepExecutor/UserUpdateStepExecutor.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of class Ibexa\\\\Migration\\\\ValueObject\\\\Content\\\\Field constructor expects bool\\|float\\|int\\|string\\|null, array\\<bool\\|float\\|int\\|string\\|null\\>\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 2
+			path: src/lib/ValueObject/Content/Field.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\ValueObject\\\\Content\\\\UpdateMetadata\\:\\:createFromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ValueObject/Content/UpdateMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\ValueObject\\\\ContentType\\\\FieldDefinition\\:\\:getTranslations\\(\\) should return array\\<string, array\\{name\\: string, description\\: string\\}\\> but returns array\\<string, array\\{name\\: string, description\\?\\: string\\}\\>\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ContentType/FieldDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\ValueObject\\\\ObjectState\\\\CreateMetadata\\:\\:createFromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ObjectState/CreateMetadata.php
+
+		-
+			message: "#^Method Ibexa\\\\Migration\\\\ValueObject\\\\ObjectStateGroup\\\\CreateMetadata\\:\\:createFromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ObjectStateGroup/CreateMetadata.php
+
+		-
+			message: "#^Variable \\$actions on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/lib/ValueObject/Step/ContentCreateStep.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Command\\\\BulkConvertCommandTest\\:\\:generateFilesArray\\(\\) should return array\\{array\\{localInputFile\\: non\\-empty\\-string, flysystemInputFile\\: non\\-empty\\-string, localOutputFile\\: non\\-empty\\-string, flysystemOutputFile\\: non\\-empty\\-string\\}\\} but returns array\\{array\\{localInputFile\\: 'fixtures/100…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures/100…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures/200…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures/200…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures/101\\.user…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures/101\\.user…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures/101\\.user…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures/101\\.user…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures/102\\.user…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures/102\\.user…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures…', flysystemOutputFile\\: string\\}, array\\{localInputFile\\: 'fixtures…', flysystemInputFile\\: string, localOutputFile\\: 'fixtures…', flysystemOutputFile\\: string\\}, \\.\\.\\.\\}\\.$#"
+			count: 1
+			path: tests/bundle/Bridge/KaliopMigration/Command/BulkConvertCommandTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\Action\\\\AbstractUserRolesActionDenormalizerTest\\:\\:\\$denormalizer \\(Ibexa\\\\Bundle\\\\Migration\\\\Bridge\\\\KaliopMigration\\\\Serializer\\\\Action\\\\AbstractUserRolesActionDenormalizer\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: tests/bundle/Bridge/KaliopMigration/Serializer/Action/AbstractUserRolesActionDenormalizerTest.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:convertFields\\(\\)\\.$#"
+			count: 3
+			path: tests/bundle/Bridge/KaliopMigration/Serializer/ContentFieldPreparationTraitTest.php
+
+		-
+			message: "#^Access to protected property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\UserGroupRoleAssignment\\:\\:\\$id\\.$#"
+			count: 1
+			path: tests/bundle/Command/MigrateCommand/MigrateCommandUserGroupUpdateWithActionsTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Bundle\\\\Migration\\\\Serializer\\\\Normalizer\\\\Content\\\\MigrationFieldNormalizerTest\\:\\:providerField\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/bundle/Serializer/Normalizer/Content/MigrationFieldNormalizerTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess, Ibexa\\\\Migration\\\\ValueObject\\\\Step\\\\StepInterface given\\.$#"
+			count: 2
+			path: tests/bundle/Serializer/Normalizer/ExpressionNormalizerTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function array_filter expects \\(callable\\(Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentType\\)\\: bool\\)\\|null, Closure\\(Ibexa\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentType\\)\\: bool given\\.$#"
+			count: 1
+			path: tests/lib/Generator/ContentTypeMigrationGeneratorIntegrationTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function array_reduce expects callable\\(int, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeGroup\\)\\: int, Closure\\(int, Ibexa\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentTypeGroup\\)\\: int given\\.$#"
+			count: 1
+			path: tests/lib/Generator/ContentTypeMigrationGeneratorIntegrationTest.php

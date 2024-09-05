@@ -1,0 +1,18 @@
+-
+    type: user_group
+    mode: update
+    metadata:
+        mainLanguage: eng-GB
+        parentGroupId: 42
+        remoteId: __remote_id__
+    match:
+        field: id
+        value: 42
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: __user_group_name__
+    roles:
+        - Anonymous

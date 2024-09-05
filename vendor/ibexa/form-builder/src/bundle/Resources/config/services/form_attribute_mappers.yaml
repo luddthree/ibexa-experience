@@ -1,0 +1,108 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Form\Mapper\AttributeConfigurationMapperRegistry:
+        arguments:
+            $mappers: !tagged ibexa.form_builder.form.type.attribute.mapper
+
+    Ibexa\FormBuilder\Definition\Validator\ConstraintClassRegistry:
+        calls:
+        - ['setConstraintClass', ['required', 'Symfony\Component\Validator\Constraints\Required']]
+        - ['setConstraintClass', ['regexp', 'Symfony\Component\Validator\Constraints\Regex']]
+        - ['setConstraintClass', ['not_blank', 'Symfony\Component\Validator\Constraints\NotBlank']]
+
+    Ibexa\FormBuilder\Definition\Validator\ConstraintFactory: ~
+
+    Ibexa\FormBuilder\Form\Mapper\FieldAttribute\:
+        resource: '../../../lib/Form/Mapper/FieldAttribute/*'
+        autoconfigure: true
+
+    ibexa.form_builder.attribute_form_type_mapper.string:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeStringType
+            $typeIdentifier: 'string'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.choices:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeChoiceType
+            $typeIdentifier: 'choices'
+        tags:
+        - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.text:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeTextType
+            $typeIdentifier: 'text'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.integer:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeIntegerType
+            $typeIdentifier: 'integer'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.url:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeUrlType
+            $typeIdentifier: 'url'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.multiple:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\ChoiceFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeMultipleType
+            $typeIdentifier: 'multiple'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.radio:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\ChoiceFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeRadioType
+            $typeIdentifier: 'radio'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.action:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeActionType
+            $typeIdentifier: 'action'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    Ibexa\FormBuilder\Form\Mapper\FieldAttribute\SelectFieldAttributeTypeMapper:
+        arguments:
+            $typeIdentifier: 'select'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.checkbox:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeCheckboxType
+            $typeIdentifier: 'checkbox'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+
+    ibexa.form_builder.attribute_form_type_mapper.location:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldAttribute\GenericFieldAttributeTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldAttribute\AttributeLocationType
+            $typeIdentifier: 'location'
+        tags:
+            - { name: ibexa.form_builder.form.type.attribute.mapper }
+

@@ -1,0 +1,22 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% set body_rows = [] %}
+{% for popularity in popularity_list %}
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: popularity.item.title ?? popularity.item.id },
+        { content: popularity.item.typeName },
+        { content: popularity.renderRatings },
+        { content: popularity.rating },
+    ] }]) %}
+{% endfor %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    head_cols: [
+        { content: 'dashboard.title'|trans|desc('Item clicked') },
+        { content: 'dashboard.item_type'|trans|desc('Item type') },
+        { content: 'dashboard.recommended'|trans|desc('Recommended') },
+        { content: 'dashboard.clicked'|trans|desc('Clicked') },
+    ],
+    body_rows,
+    empty_table_info_text: 'dashboard.no_popularity_items'|trans|desc('No popularity items'),
+} only %}

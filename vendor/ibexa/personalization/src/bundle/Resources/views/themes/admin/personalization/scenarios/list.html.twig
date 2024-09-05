@@ -1,0 +1,199 @@
+{% extends '@ibexadesign/personalization/base_list.html.twig' %}
+
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.personalization'|trans|desc('Personalization'), url: path('ibexa.personalization.dashboard', { 'customerId': customer_id }) },
+        { value: 'breadcrumb.scenarios'|trans|desc('Scenarios') }
+    ]} %}
+{% endblock %}
+
+{% set list_title = 'scenarios'|trans|desc('Scenarios') %}
+
+{% set scenariosNo = pager ? pager.nbResults : 0 %}
+{% set table_title = 'scenarios.table_title'|trans({ '%number_of_scenarios%': scenariosNo })|desc('List (%number_of_scenarios%)') %}
+
+{% block content_class %}ibexa-perso-scenarios-list{% endblock %}
+
+{% block context_menu %}
+    {{ parent() }}
+    {% set menu_items %}
+        {% if can_edit %}
+            <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+                <a
+                    href="{{ path('ibexa.personalization.scenario.create', {
+                        'customerId': customer_id })
+                    }}"
+                    class="btn ibexa-btn ibexa-btn--primary"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'scenario.add_scenario'|trans|desc('Add scenario') }}
+                    </span>
+                </a>
+            </li>
+        {% endif %}
+    {% endset %}
+
+    {{ include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', {
+        menu_items: menu_items,
+    }) }}
+{% endblock %}
+
+{% block data_table %}
+    {% set body_rows = [] %}
+    {% if pager %}
+        {% for scenario in pager.currentPageResults %}
+            {% set visible_items_limit = 2 %}
+
+            {% set col_status %}
+                {% if scenario.available %}
+                    {% set status_class = 'ibexa-table__status--success' %}
+                    {% set status_title = 'scenario.operational'|trans|desc('operational') %}
+                {% else %}
+                    {% set status_class = 'ibexa-table__status--danger' %}
+                    {% set status_title = 'scenario.non_operational'|trans|desc('non-operational') %}
+                {% endif %}
+
+                <div
+                    class="ibexa-table__status ibexa-table__status--as-dot {{ status_class }}"
+                    title="{{ status_title }}"
+                ></div>
+            {% endset %}
+
+            {% set col_name %}
+                <a
+                    class="ibexa-perso-scenarios-list__name-link"
+                    href="{{ path('ibexa.personalization.scenario.details', {
+                            'name': scenario.referenceCode,
+                            'customerId': customer_id
+                        }) }}"
+                >
+                    {{ scenario.title }}
+                </a>
+                {% if scenario.description %}
+                    <svg
+                        class="ibexa-icon ibexa-icon--secondary ibexa-icon--small"
+                        title="{{ scenario.description }}"
+                    >
+                        <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+                    </svg>
+                {% endif %}
+            {% endset %}
+
+            {% set col_output_type %}
+                {{ scenario.outputItemTypes.itemTypes|map(outputItem => outputItem.description)|join(', ') }}
+            {% endset %}
+
+            {% set col_models %}
+                {% set models_translated = scenario.models|map(
+                    model => ('models.name.' ~ model)|trans
+                ) %}
+                {% include '@ibexadesign/personalization/parts/list_more_items.html.twig' with {
+                    items: models_translated,
+                    li_class: 'ibexa-perso-scenarios-list__td-list',
+                } only %}
+            {% endset %}
+
+            {% set col_no_of_calls %}
+                <div>{{ scenario.calls }}</div>
+            {% endset %}
+
+            {% set col_action_btns %}
+                <a
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                    href="{{ path('ibexa.personalization.scenario.preview', {
+                            'name': scenario.referenceCode,
+                            'customerId': customer_id
+                        }) }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+                        <use xlink:href="{{ ibexa_icon_path('view') }}"></use>
+                    </svg>
+                </a>
+
+                {% if can_edit %}
+                    <a
+                        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                        href="{{ path('ibexa.personalization.scenario.edit', {
+                                'name': scenario.referenceCode,
+                                'customerId': customer_id
+                            }) }}"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                        </svg>
+                    </a>
+                {% endif %}
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{ cols: [
+                { has_icon: true, content: col_status },
+                { content: col_name, class: 'ibexa-table__cell--scenario-name' },
+                { content: scenario.referenceCode },
+                { content: scenario.inputItemType.description },
+                { content: col_output_type },
+                { content: col_models },
+                { content: col_no_of_calls },
+                { has_action_btns: true, content: col_action_btns },
+            ] }]) %}
+        {% endfor %}
+    {% endif %}
+
+    {% set head_col_scenario_actions %}
+        {% form_theme scenario_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+        <div class="ibexa-table__header-cell-content">
+            {{ 'scenario.no_of_calls'|trans|desc('No. of calls') }}
+            {{ form_start(scenario_form, { attr: { class: "ibexa-perso-scenarios-list__period-form" } }) }}
+                {{ form_widget(scenario_form.select.period, {
+                    attr: {
+                        class: 'ibexa-perso-scenarios-list__period-form-select',
+                        is_switcher: true,
+                        is_small: true,
+                        is_ghost: true,
+                    },
+                }) }}
+                {{ form_widget(scenario_form.period, {
+                    attr: { hidden: true }
+                }) }}
+            {{ form_end(scenario_form) }}
+        </div>
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        head_cols: [
+            { has_icon: true },
+            { content: 'scenario.name'|trans|desc('Name') },
+            { content: 'scenario.identifier'|trans|desc('Identifier') },
+            { content: 'scenario.input_type'|trans|desc('Input type') },
+            { content: 'scenario.output_type'|trans|desc('Output type') },
+            { content: 'scenario.models'|trans|desc('Models') },
+            {
+                content: head_col_scenario_actions,
+                class: 'ibexa-perso-scenarios-list__actions-table-header-cell',
+                attr: {
+                    colspan: 2,
+                },
+            },
+        ],
+        body_rows,
+        empty_table_info_text: 'scenario.no_scenarios_found'|trans|desc('No scenarios found'),
+    } only %}
+{% endblock %}
+
+{% block pagination %}
+    {% if pager and pager.haveToPaginate %}
+        {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': pager
+        } %}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-scenarios-list-js', null, 'ibexa') }}
+{% endblock %}

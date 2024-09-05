@@ -1,0 +1,24 @@
+{# @deprecated, will be removed in 5.0 #}
+{% extends '@ibexadesign/customer_portal/registration/registration_layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block content %}
+    <div class="ibexa-ca-registration-confirmation">
+        <div class="ibexa-ca-registration-confirmation__wrapper">
+            <img
+                class="ibexa-ca-registration-confirmation__fancy-image"
+                src="{{ asset('bundles/ibexacorporateaccount/img/registration-fail-image.svg') }}"
+                alt="{{ 'registration_confirmation.image'|trans|desc('registration confirmation') }}"
+            />
+            <div class="ibexa-ca-registration-confirmation__info">
+                <h1 class="ibexa-ca-registration-confirmation__info-title">
+                    {{ 'registration_already_exists.info.title'|trans|desc('Application already exists.') }}
+                </h1>
+                <div class="ibexa-ca-registration-confirmation__approval-info">
+                    {{ 'registration_already_exists.info.explanation'|trans|desc('Your application has NOT been submitted because there is already an application for that e-mail address.') }}<br>
+                    {{ 'registration_already_exists.info.todo'|trans|desc('Please contact us directly if you think this is a mistake.') }}
+                </div>
+            </div>
+        </div>
+{% endblock %}

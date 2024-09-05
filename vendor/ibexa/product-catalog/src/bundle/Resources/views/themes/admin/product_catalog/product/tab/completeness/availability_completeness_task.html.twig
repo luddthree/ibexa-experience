@@ -1,0 +1,43 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block availability_completeness_task %}
+    {% set entry = task.getEntry(product) %}
+    {% if entry is not null %}
+        {% set completeness = entry.completeness %}
+        {% set progress_value = completeness.getValue() %}
+        {% set progress_value_label = completeness.getValueAsFloat()|format_percent_number %}
+        {% set title = 'product.view.completeness.availability.title'|trans|desc('Availability') %}
+        {% set subtask_progress_value = completeness.getValue() %}
+        {% set subtask_progress_value_label = subtask_progress_value == 100
+            ?  '(1/1)'
+            :  '(0/1)'
+        %}
+        {% set edit_path_name = product.hasAvailability()
+            ? 'ibexa.product_catalog.product.availability.update'
+            : 'ibexa.product_catalog.product.availability.create'
+        %}
+
+        {% embed '@ibexadesign/product_catalog/ui/component/completeness_task.html.twig' with {
+            title,
+            progress_value,
+            progress_value_label,
+            id: 'ibexa-availability-completeness-task',
+            edit_task_link: path(edit_path_name, { productCode: product.code, }),
+        }%}
+            {% trans_default_domain 'ibexa_product_catalog' %}
+
+            {% block progress_tasks_counter %}
+                {{ subtask_progress_value_label }}
+            {% endblock %}
+
+            {% block body_subtasks %}
+                {% set subtask_label = 'product.view.completeness.availability.subtask_title'|trans|desc('Available') %}
+
+                {% include '@ibexadesign/product_catalog/ui/component/completeness_subtask.html.twig' with {
+                    subtask_label,
+                    subtask_progress_value,
+                }%}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+{% endblock %}

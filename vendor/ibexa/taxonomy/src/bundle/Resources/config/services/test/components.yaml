@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Behat\Component\TagPicker: ~
+
+    Ibexa\Taxonomy\Behat\Component\TaxonomyAssignField:
+        tags:
+            - ibexa.testing.browser.component.field_type
+
+    Ibexa\Taxonomy\Behat\Component\TaxonomyEntryField:
+        tags:
+            - ibexa.testing.browser.component.field_type
+
+    Ibexa\Taxonomy\Behat\Component\TaxonomyTree: ~

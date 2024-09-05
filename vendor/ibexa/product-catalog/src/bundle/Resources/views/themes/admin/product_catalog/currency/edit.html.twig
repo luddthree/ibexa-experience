@@ -1,0 +1,35 @@
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block header %}
+    {% set currency_edit_menu = knp_menu_get('ibexa_product_catalog.menu.currency_edit_context_menu', [], {
+        'submit_selector': '#currency-edit-save',
+        'cancel_route': 'ibexa.product_catalog.currency.list',
+    }) %}
+
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'currency.edit.action_name'|trans|desc('Editing currency'),
+        icon_name: 'file',
+        title: currency.code,
+        context_actions: knp_menu_render(currency_edit_menu, {'template': '@ibexadesign/ui/menu/context_menu.html.twig'})
+    } %}
+{% endblock %}
+
+{% block form %}
+    {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig'  %}
+
+    <div class="ibexa-form-block">
+        {{ form_start(form, { attr: { class: 'ibexa-pc-edit__form' } }) }}
+            {% for child in form.children %}
+                {{ form_row(child, { row_attr: { class: 'ibexa-form-field' } }) }}
+            {% endfor %}
+            <button
+                id="currency-edit-save"
+                class="ibexa-pc-edit__submit-btn"
+                type="submit"
+                hidden
+            ></button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

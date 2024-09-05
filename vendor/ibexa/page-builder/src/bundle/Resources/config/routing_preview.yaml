@@ -1,0 +1,9 @@
+ibexa.page_builder.content.preview:
+    path: /content/preview/{contentId}/{versionNo}/{language}/site_access/{siteAccessName}/{locationId}
+    controller: Ibexa\Bundle\PageBuilder\Controller\PageController::previewAction
+    defaults:
+        editorial_mode: true
+        locationId: ~
+    methods:  [GET, POST]
+    options:
+        expose: true

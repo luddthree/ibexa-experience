@@ -1,0 +1,26 @@
+ProductAvailability:
+    type: enum
+    config:
+        values:
+            available: true
+            unavailable: false
+
+SortByProductOptions:
+    type: enum
+    config:
+        values:
+            name:
+                value: '\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName'
+                description: "Sort by product name"
+            code:
+                value: '\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductCode'
+                description: "Sort by product code"
+            availability:
+                value: '\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability'
+                description: "Sort by product availability"
+            created_at:
+                value: '\Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt'
+                description: "Sort by product creation date"
+            _desc:
+                value: "descending"
+                description: "Reverse the previous sorting option"

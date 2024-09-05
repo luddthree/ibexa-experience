@@ -1,0 +1,35 @@
+imports:
+    - { resource: services/controllers.yaml }
+    - { resource: services/configuration.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/services.yaml }
+    - { resource: services/dispatchers.yaml }
+    - { resource: services/param_converters.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/installer.yaml }
+    - { resource: services/field_groups.yaml }
+    - { resource: services/commands.yaml }
+    - { resource: services/security.yaml }
+    - { resource: services/persistence/member_assignment.yaml }
+    - { resource: services/persistence/application_state.yaml }
+    - { resource: services/persistence/company_history.yaml }
+    - { resource: services/customer_portal/events.yaml }
+    - { resource: services/customer_portal/controllers.yaml }
+    - { resource: services/customer_portal/selector.yaml }
+    - { resource: services/migrations.yaml }
+    - { resource: services/page_builder.yaml }
+    - { resource: services/sales_representatives.yaml }
+    - { resource: services/validators.yaml }
+    - { resource: services/menu.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ## move
+    Ibexa\CorporateAccount\Menu\DynamicCustomerPortalMenuBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: customer_portal.menu.main }

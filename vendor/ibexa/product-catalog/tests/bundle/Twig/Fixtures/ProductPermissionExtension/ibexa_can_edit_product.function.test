@@ -1,0 +1,16 @@
+--TEST--
+"ibexa_permission_edit_product" function
+--TEMPLATE--
+{{ ibexa_permission_edit_product() }}
+{{ ibexa_permission_edit_product(uneditable) }}
+{{ ibexa_permission_edit_product(product) }}
+
+--DATA--
+return [
+    'uneditable' => $this->getProduct('uneditable'),
+    'product' => $this->getProduct('product'),
+]
+--EXPECT--
+1
+
+1

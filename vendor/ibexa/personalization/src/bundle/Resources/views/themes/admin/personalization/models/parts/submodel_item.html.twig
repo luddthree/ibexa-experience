@@ -1,0 +1,42 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div
+    class="ibexa-perso-submodel-details
+        {% if submodel.type == "NOMINAL" %}ibexa-perso-submodel-details--nominal{% else %}ibexa-perso-submodel-details--numeric{% endif %}
+        {{ class|default('') }}"
+>
+    {% if submodel.type == "NOMINAL" %}
+        <div class="ibexa-perso-submodel-details__content">
+            <div class="ibexa-perso-submodel-details__existing-groups">
+                <label class="ibexa-label">
+                    {{ 'models.submodel.existing_groups'|trans|desc('Existing groups') }}
+                </label>
+                {% for group in submodel.attributeValues %}
+                    <div class="ibexa-perso-submodel-details__items">
+                        {% for item in group %}
+                            <div class="ibexa-perso-submodel-details__item">
+                                {{ item }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <div class="ibexa-perso-submodel-details__content">
+            <label class="ibexa-label">
+                {{ 'models.submodels.interval-ranges'|trans|desc('Interval ranges') }}
+            </label>
+            <div class="ibexa-perso-submodel-details__items">
+                {% for interval in submodel.attributeValues %}
+                    <div class="ibexa-perso-submodel-details__item">
+                        <div class="ibexa-perso-submodel-details__item-range-label">{{ 'models.details.range.from'|trans|desc('From') }}</div>
+                        <div class="ibexa-perso-submodel-details__item-range-value">{{ interval.leftValue }}</div>
+                        <div class="ibexa-perso-submodel-details__item-range-label">{{ 'models.details.range.to'|trans|desc('to') }}</div>
+                        <div class="ibexa-perso-submodel-details__item-range-value">{{ interval.rightValue }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>

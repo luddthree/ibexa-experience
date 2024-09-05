@@ -1,0 +1,10 @@
+-
+    type: object_state_group
+    mode: create
+    metadata:
+        identifier: ez_lock
+        mainTranslation: eng-US
+        translations:
+            eng-US:
+                name: Lock
+                description: ''

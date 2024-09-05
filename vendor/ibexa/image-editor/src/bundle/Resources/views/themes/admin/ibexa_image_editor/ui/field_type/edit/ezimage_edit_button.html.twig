@@ -1,0 +1,15 @@
+{% trans_default_domain 'ibexa_image_editor' %}
+
+<button
+    type="button"
+    class="ibexa-field-edit-preview__action ibexa-field-edit-preview__action--edit btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+    data-content-id="{{ contentId }}"
+    data-version-no="{{ versionNo }}"
+    data-field-definition-identifier="{{ fieldDefinitionIdentifier }}"
+    {{ disabled|default(false) ? 'disabled' }}
+>
+    <svg class="ibexa-icon ibexa-icon--small">
+        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+    </svg>
+    <span class="ibexa-btn__label">{{ 'content.field_type.ezimage.edit'|trans|desc('Edit image') }}</span>
+</button>

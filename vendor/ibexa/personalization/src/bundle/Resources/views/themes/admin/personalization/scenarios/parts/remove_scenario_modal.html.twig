@@ -1,0 +1,53 @@
+{% set modal_params = {
+    title: 'ibexa_personalization.scenario.trash.close'|trans|desc('Close'),
+    class: 'ibexa-modal--send-to-trash ibexa-modal--trash-scenario',
+    no_header: true,
+    id: 'scenario-remove-modal',
+} %}
+
+{% if scenario_remove_form is defined and scenario_remove_form is not null %}
+    {% embed '@ibexadesign/ui/component/modal/modal.html.twig' with modal_params %}
+        {% block content_before %}
+            {{ form_start(scenario_remove_form) }}
+        {% endblock %}
+        {% block body_content %}
+            {% set scenario_title = scenario.title ?? '' %}
+
+            {{ 'ibexa_personalization.scenario.trash.modal.message'|trans({ '%scenarion_name%': scenario_title|e })|desc('Are you sure you want to delete scenario <b>%scenarion_name%</b>?')|raw }}
+            {{ form_widget(scenario_remove_form.referenceCode, {
+                'attr': { hidden: true }
+            })}}
+        {% endblock %}
+        {% block footer_content %}
+            {{ form_widget(scenario_remove_form.submit, {
+                'label': 'ibexa_personalization.scenario.trash.confirm'|trans|desc('Yes'),
+                'attr': {'class': 'btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm-send-to-trash' }
+            })}}
+            <button type="button" class="btn ibexa-btn ibexa-btn--secondary" data-bs-dismiss="modal">
+                {{ 'ibexa_personalization.scenario.trash.cancel'|trans|desc('No') }}
+            </button>
+        {% endblock %}
+        {% block content_after %}
+            {{ form_end(scenario_remove_form) }}
+        {% endblock %}
+    {% endembed %}
+{% else %}
+    {% embed '@ibexadesign/ui/component/modal/modal.html.twig' with modal_params %}
+        {% block body_content %}
+            {{ 'ibexa_personalization.scenario.trash.modal.message.new_scenario'|trans|desc(
+                'Are you sure you want to delete new scenario?'
+            ) }}
+        {% endblock %}
+        {% block footer_content %}
+            <a
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--remove-new-scenario"
+                href="{{ path('ibexa.personalization.scenarios', { 'customerId': customer_id }) }}"
+            >
+                {{ 'ibexa_personalization.scenario.trash.confirm'|trans|desc('Yes') }}
+            </a>
+            <button type="button" class="btn ibexa-btn ibexa-btn--secondary" data-bs-dismiss="modal">
+                {{ 'ibexa_personalization.scenario.trash.cancel'|trans|desc('No') }}
+            </button>
+        {% endblock %}
+    {% endembed %}
+{% endif %}

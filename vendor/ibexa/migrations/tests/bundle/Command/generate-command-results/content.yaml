@@ -1,0 +1,845 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2002-10-06T15:19:56+00:00'
+        publicationDate: '2002-10-06T15:19:56+00:00'
+        remoteId: f5c88a2209584891056f987fd965b0ba
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: 629709ba256fe317c3ddcee35453a96a
+        locationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Users
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'Main group'
+    references:
+        -
+            name: ref__content__user_group__users
+            type: content_id
+        -
+            name: ref_location__user_group__users
+            type: location_id
+        -
+            name: ref_path__user_group__users
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2003-12-23T11:53:25+00:00'
+        publicationDate: '2002-10-06T16:11:05+00:00'
+        remoteId: faaeb9be3bd98ed09f606fc16d144eca
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 44
+        parentLocationRemoteId: 4fdf0072da953bb276c0c7e0141c5c9b
+        locationRemoteId: 2cf8343bee7b482bab82b269d8fecd76
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-US
+            value: Anonymous
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: user_account
+            languageCode: eng-US
+            value:
+                hasStoredLogin: true
+                contentId: 10
+                login: anonymous
+                email: anonymous@link.invalid
+                passwordHash: $2y$10$35gOSQs6JK4u4whyERaeUuVeQBi2TUBIZIfP7HEj7sfz.MxvTuOeC
+                passwordHashType: '7'
+                passwordUpdatedAt: null
+                enabled: true
+                maxLogin: 1000
+                plainPassword: null
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: 'ref__content__user__anonymous user'
+            type: content_id
+        -
+            name: 'ref_location__user__anonymous user'
+            type: location_id
+        -
+            name: 'ref_path__user__anonymous user'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        publicationDate: '2002-10-06T16:12:26+00:00'
+        remoteId: 5f7f0bdb3381d6a461d8c29ff53d908f
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 5
+        parentLocationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        locationRemoteId: 602dcf84765e56b7f999eaafd3821dd3
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Members
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: ref__content__user_group__members
+            type: content_id
+        -
+            name: ref_location__user_group__members
+            type: location_id
+        -
+            name: ref_path__user_group__members
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2002-10-06T16:12:55+00:00'
+        publicationDate: '2002-10-06T16:12:55+00:00'
+        remoteId: 9b47a45624b023b1a76c73b74d704acf
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 5
+        parentLocationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        locationRemoteId: 769380b7aa94541679167eab817ca893
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 50
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Administrator users'
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: 'ref__content__user_group__administrator users'
+            type: content_id
+        -
+            name: 'ref_location__user_group__administrator users'
+            type: location_id
+        -
+            name: 'ref_path__user_group__administrator users'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2002-10-06T16:13:14+00:00'
+        publicationDate: '2002-10-06T16:13:14+00:00'
+        remoteId: 3c160cca19fb135f83bd02d911f04db2
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 5
+        parentLocationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        locationRemoteId: f7dda2854fc68f7c8455d9cb14bd04a9
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 25
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Editors
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: ref__content__user_group__editors
+            type: content_id
+        -
+            name: ref_location__user_group__editors
+            type: location_id
+        -
+            name: ref_path__user_group__editors
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2012-07-24T14:35:40+00:00'
+        publicationDate: '2002-10-06T16:13:50+00:00'
+        remoteId: 1bb4fe25487f05527efa8bfd394cecc7
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 13
+        parentLocationRemoteId: 769380b7aa94541679167eab817ca893
+        locationRemoteId: e5161a99f733200b9ed4e80f9c16187b
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-US
+            value: Administrator
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: user_account
+            languageCode: eng-US
+            value:
+                hasStoredLogin: true
+                contentId: 14
+                login: admin
+                email: admin@link.invalid
+                passwordHash: $2y$10$FDn9NPwzhq85cLLxfD5Wu.L3SL3Z/LNCvhkltJUV0wcJj7ciJg2oy
+                passwordHashType: '7'
+                passwordUpdatedAt: null
+                enabled: true
+                maxLogin: 10
+                plainPassword: null
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: 'ref__content__user__administrator user'
+            type: content_id
+        -
+            name: 'ref_location__user__administrator user'
+            type: location_id
+        -
+            name: 'ref_path__user__administrator user'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2003-08-12T13:37:37+00:00'
+        publicationDate: '2003-08-12T13:37:37+00:00'
+        remoteId: a6e35cbcb7cd6ae4b691f3eee30cd262
+        alwaysAvailable: true
+        section:
+            id: 3
+            identifier: media
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: 629709ba256fe317c3ddcee35453a96a
+        locationRemoteId: 75c715a51699d2d309a924eca6a95145
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Media
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__media
+            type: content_id
+        -
+            name: ref_location__folder__media
+            type: location_id
+        -
+            name: ref_path__folder__media
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2003-12-23T11:52:10+00:00'
+        publicationDate: '2003-12-23T11:52:10+00:00'
+        remoteId: 15b256dbea2ae72418ff5facc999e8f9
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 5
+        parentLocationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        locationRemoteId: 4fdf0072da953bb276c0c7e0141c5c9b
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Anonymous users'
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'User group for the anonymous user'
+    references:
+        -
+            name: 'ref__content__user_group__anonymous users'
+            type: content_id
+        -
+            name: 'ref_location__user_group__anonymous users'
+            type: location_id
+        -
+            name: 'ref_path__user_group__anonymous users'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2004-03-19T08:16:30+00:00'
+        publicationDate: '2004-03-19T08:16:30+00:00'
+        remoteId: 241d538ce310074e602f29f49e44e938
+        alwaysAvailable: true
+        section:
+            id: 4
+            identifier: setup
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: 629709ba256fe317c3ddcee35453a96a
+        locationRemoteId: 182ce1b5af0c09fa378557c462ba2617
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Setup
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__setup
+            type: content_id
+        -
+            name: ref_location__folder__setup
+            type: location_id
+        -
+            name: ref_path__folder__setup
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2004-03-25T13:09:57+00:00'
+        publicationDate: '2004-03-25T13:09:57+00:00'
+        remoteId: e7ff633c6b8e0fd3531e74c6e712bead
+        alwaysAvailable: true
+        section:
+            id: 3
+            identifier: media
+    location:
+        parentLocationId: 43
+        parentLocationRemoteId: 75c715a51699d2d309a924eca6a95145
+        locationRemoteId: 1b26c0454b09bb49dfb1b9190ffd67cb
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Images
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__images
+            type: content_id
+        -
+            name: ref_location__folder__images
+            type: location_id
+        -
+            name: ref_path__folder__images
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2004-03-25T13:10:20+00:00'
+        publicationDate: '2004-03-25T13:10:20+00:00'
+        remoteId: 732a5acd01b51a6fe6eab448ad4138a9
+        alwaysAvailable: true
+        section:
+            id: 3
+            identifier: media
+    location:
+        parentLocationId: 43
+        parentLocationRemoteId: 75c715a51699d2d309a924eca6a95145
+        locationRemoteId: 0b113a208f7890f9ad3c24444ff5988c
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Files
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__files
+            type: content_id
+        -
+            name: ref_location__folder__files
+            type: location_id
+        -
+            name: ref_path__folder__files
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2004-03-25T13:10:33+00:00'
+        publicationDate: '2004-03-25T13:10:33+00:00'
+        remoteId: 09082deb98662a104f325aaa8c4933d3
+        alwaysAvailable: true
+        section:
+            id: 3
+            identifier: media
+    location:
+        parentLocationId: 43
+        parentLocationRemoteId: 75c715a51699d2d309a924eca6a95145
+        locationRemoteId: 4f18b82c75f10aad476cae5adf98c11f
+        hidden: false
+        sortField: 9
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Multimedia
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__multimedia
+            type: content_id
+        -
+            name: ref_location__folder__multimedia
+            type: location_id
+        -
+            name: ref_path__folder__multimedia
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: common_ini_settings
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2004-04-15T08:09:51+00:00'
+        publicationDate: '2004-04-15T08:09:51+00:00'
+        remoteId: 27437f3547db19cf81a33c92578b2c89
+        alwaysAvailable: false
+        section:
+            id: 4
+            identifier: setup
+    location:
+        parentLocationId: 48
+        parentLocationRemoteId: 182ce1b5af0c09fa378557c462ba2617
+        locationRemoteId: fa9f3cff9cf90ecfae335718dcbddfe2
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Common INI settings'
+        -
+            fieldDefIdentifier: indexpage
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: defaultpage
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugoutput
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugbyip
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugiplist
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugredirection
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: viewcaching
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: templatecache
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: templatecompile
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: imagesmall
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: imagemedium
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: imagelarge
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: 'ref__content__common_ini_settings__common ini settings'
+            type: content_id
+        -
+            name: 'ref_location__common_ini_settings__common ini settings'
+            type: location_id
+        -
+            name: 'ref_path__common_ini_settings__common ini settings'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2004-12-14T11:18:52+00:00'
+        publicationDate: '2004-12-14T11:18:52+00:00'
+        remoteId: 08799e609893f7aba22f10cb466d9cc8
+        alwaysAvailable: true
+        section:
+            id: 5
+            identifier: design
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: 629709ba256fe317c3ddcee35453a96a
+        locationRemoteId: 79f2d67372ab56f59b5d65bb9e0ca3b9
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Design
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    references:
+        -
+            name: ref__content__folder__design
+            type: content_id
+        -
+            name: ref_location__folder__design
+            type: location_id
+        -
+            name: ref_path__folder__design
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: landing_page
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2007-11-28T16:51:36+00:00'
+        publicationDate: '2007-11-19T13:54:46+00:00'
+        remoteId: 8a9c9c761004866fb458d89910f52bee
+        alwaysAvailable: true
+        section:
+            id: 1
+            identifier: standard
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: 629709ba256fe317c3ddcee35453a96a
+        locationRemoteId: f3e90596361e31d496d4026eb624c983
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home
+    references:
+        -
+            name: ref__content__landing_page__home
+            type: content_id
+        -
+            name: ref_location__landing_page__home
+            type: location_id
+        -
+            name: ref_path__landing_page__home
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: feedback_form
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2012-03-28T09:34:42+00:00'
+        publicationDate: '2012-03-28T09:33:25+00:00'
+        remoteId: f8cc7a4cf8a964a1a0ea6666f5da7d0d
+        alwaysAvailable: false
+        section:
+            id: 1
+            identifier: standard
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: f3e90596361e31d496d4026eb624c983
+        locationRemoteId: 86bf306624668ee9b8b979b0d56f7e0d
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: -2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Contact Us'
+        -
+            fieldDefIdentifier: sender_name
+            languageCode: eng-GB
+            value: 'Firstname Lastname'
+        -
+            fieldDefIdentifier: subject
+            languageCode: eng-GB
+            value: Subject
+        -
+            fieldDefIdentifier: message
+            languageCode: eng-GB
+            value: 'Message text'
+        -
+            fieldDefIdentifier: email
+            languageCode: eng-GB
+            value: sender@example.com
+        -
+            fieldDefIdentifier: recipient
+            languageCode: eng-GB
+            value: recipient@example.com
+    references:
+        -
+            name: 'ref__content__feedback_form__contact us'
+            type: content_id
+        -
+            name: 'ref_location__feedback_form__contact us'
+            type: location_id
+        -
+            name: 'ref_path__feedback_form__contact us'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2012-07-24T14:35:41+00:00'
+        publicationDate: '2012-07-24T14:35:41+00:00'
+        remoteId: 14e4411b264a6194a33847843919451a
+        alwaysAvailable: true
+        section:
+            id: 2
+            identifier: users
+    location:
+        parentLocationId: 5
+        parentLocationRemoteId: 3f6d92f8044aed134f32153517850f5a
+        locationRemoteId: 66994c2fce0fd2a1c7ecce7115158971
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Partners
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+    references:
+        -
+            name: ref__content__user_group__partners
+            type: content_id
+        -
+            name: ref_location__user_group__partners
+            type: location_id
+        -
+            name: ref_path__user_group__partners
+            type: path

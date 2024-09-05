@@ -1,0 +1,29 @@
+services:
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\BlockAttributeField:
+        parent: Ibexa\FieldTypePage\GraphQL\Schema\Worker\BaseWorker
+        tags:
+              - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\BlocksIndex:
+        parent: Ibexa\FieldTypePage\GraphQL\Schema\Worker\BaseWorker
+        tags:
+              - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\BlockType:
+        parent: Ibexa\FieldTypePage\GraphQL\Schema\Worker\BaseWorker
+        tags:
+              - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\BlockViewsType:
+        parent: Ibexa\FieldTypePage\GraphQL\Schema\Worker\BaseWorker
+        arguments:
+            $nameValidator: '@Ibexa\GraphQL\Schema\Domain\NameValidator'
+        tags:
+              - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\FieldTypePage\GraphQL\Schema\Worker\BlockViewsValue:
+        parent: Ibexa\FieldTypePage\GraphQL\Schema\Worker\BaseWorker
+        arguments:
+            $nameValidator: '@Ibexa\GraphQL\Schema\Domain\NameValidator'
+        tags:
+              - { name: ibexa.graphql.domain.schema.worker }

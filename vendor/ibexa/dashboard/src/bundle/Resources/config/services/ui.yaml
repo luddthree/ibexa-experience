@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.dashboard.ui.config.provider.chart_color_palette:
+        class: Ibexa\AdminUi\UI\Config\Provider\Value
+        lazy: true
+        arguments:
+            - '%ibexa.chart.color_palette%'
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'chartColorPalette' }

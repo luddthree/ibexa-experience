@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ActivityLogEventListener: ~
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ActionAttributeSerializationSubscriber: ~
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\PageBuilder\ObjectClassAttributeSerializationSubscriber: ~

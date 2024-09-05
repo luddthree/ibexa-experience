@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\Storage\ContentDataSource:
+        arguments:
+            $queryType: '@Ibexa\Personalization\QueryType\ContentDataSourceQueryType'
+        tags:
+            - { name: monolog.logger, channel: ibexa.personalization }

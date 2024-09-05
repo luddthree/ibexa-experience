@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Behat\DataProvider\LandingPageDataProvider:
+        arguments:
+            $type: '@Ibexa\FieldTypePage\FieldType\LandingPage\Type'

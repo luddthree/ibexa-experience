@@ -1,0 +1,47 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block content %}
+    <div class="ibexa-ca-dashboard">
+        <div class="ibexa-ca-dashboard__content">
+            <div class="ibexa-ca-dashboard__profile-wrapper">
+                {% include '@ibexadesign/common/user_profile.html.twig' with {
+                    user: sales_rep,
+                    phone_number: sales_rep.getFieldValue('contact_number'),
+                    role_label: 'dashboard.profile.role'|trans|desc('Sales Representative.'),
+                } %}
+            </div>
+            <div class="ibexa-ca-dashboard__data">
+                <div class="ibexa-ca-dashboard__tiles">
+                    <div class="ibexa-ca-dashboard__tile">
+                        <div class="ibexa-ca-dashboard__tile-data">
+                            {{ orders_sum.getSumMoney() is null ? 0 : orders_sum.getSumMoney()|ibexa_format_price }}
+                        </div>
+                        <div class="ibexa-ca-dashboard__tile-title">
+                            {{ 'dashboard.data.total_amount.title'|trans|desc('Total amount') }}
+                        </div>
+                    </div>
+                    <div class="ibexa-ca-dashboard__tile">
+                        <div class="ibexa-ca-dashboard__tile-data">
+                            {{ orders_sum.getAverageMoney() is null ? 0 : orders_sum.getAverageMoney()|ibexa_format_price }}
+                        </div>
+                        <div class="ibexa-ca-dashboard__tile-title">
+                            {{ 'dashboard.data.average_order.title'|trans|desc('Average order') }}
+                        </div>
+                    </div>
+                </div>
+                <div class="ibexa-ca-dashboard__table-wrapper">
+                    {% embed '@ibexadesign/corporate_account/common/orders_table.html.twig' with {
+                        orders : latest_orders,
+                        headline: 'dashboard.table.last_orders.headline'|trans|desc('Last orders'),
+                    } %}
+                        {% trans_default_domain 'ibexa_corporate_account' %}
+                        {% block table_actions %}
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<div class="ibexa-pc-product-prices__main-price">
+    <div class="ibexa-pc-product-item-preview">
+        <div class="ibexa-pc-product-item-preview__label ibexa-label">{{ 'product.view.prices.main_price'|trans|desc('Base price') }}</div>
+        <div class="ibexa-pc-product-item-preview__value">
+            {% if main_price %}
+                {{ main_price.getAmount() }} {{ main_price.currency.code|currency_symbol }}
+            {% else %}
+                -
+            {% endif %}
+        </div>
+    </div>
+</div>

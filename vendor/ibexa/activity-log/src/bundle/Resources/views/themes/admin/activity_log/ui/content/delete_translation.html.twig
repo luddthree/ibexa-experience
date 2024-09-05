@@ -1,0 +1,7 @@
+{% extends '@ibexadesign/activity_log/ui/content.html.twig' %}
+
+{% block activity_log_action %}
+    {% trans_default_domain 'ibexa_activity_log' %}
+    
+    {{ 'activity_log.data_grid.actions.delete_translation_label'|trans()|desc('deleted translation') }}
+{% endblock %}

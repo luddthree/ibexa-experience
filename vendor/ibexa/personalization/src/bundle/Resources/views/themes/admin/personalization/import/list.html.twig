@@ -1,0 +1,46 @@
+{% extends '@ibexadesign/personalization/base_list.html.twig' %}
+
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.personalization'|trans|desc('Personalization'), url: path('ibexa.personalization.dashboard', { 'customerId': customer_id }) },
+        { value: 'breadcrumb.import'|trans|desc('Import') }
+    ]} %}
+{% endblock %}
+
+{% set list_title = 'import'|trans|desc('Import') %}
+
+{% set table_title = 'import.table_title'|trans|desc('Imported items') %}
+
+{% block content_class %}ibexa-container--imported-item-list{% endblock %}
+
+{% block data_table %}
+    {% set body_rows = [] %}
+    {% for importedItem in imported_items %}
+        {% set body_rows = body_rows|merge([{ cols: [
+            { content: importedItem.itemTypeName },
+            { content: importedItem.itemTypeId },
+            { content: importedItem.language },
+            { content: importedItem.importedItemsCount },
+            { content: importedItem.lastUpdateTimestamp|ibexa_short_datetime },
+        ] }]) %}
+    {% endfor %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        head_cols: [
+            { content: 'import.item_type'|trans|desc('Item type') },
+            { content: 'import.item_type_id'|trans|desc('Item type ID') },
+            { content: 'import.language'|trans|desc('Language') },
+            { content: 'import.imported_items'|trans|desc('Imported items') },
+            { content: 'import.last_update'|trans|desc('Last update') },
+        ],
+        body_rows,
+        empty_table_info_text: 'import.no_items_imported'|trans|desc('No items imported'),
+    } only %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-import-js', null, 'ibexa') }}
+{% endblock %}

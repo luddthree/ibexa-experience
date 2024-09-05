@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\FieldType\Strategy\FieldDefinitionToContentTypeStrategy:
+        arguments:
+            $productTypeService: '@Ibexa\ProductCatalog\Local\Repository\ProductTypeService'
+        tags:
+            - { name: ibexa.graphql.field_type.matrix_mapper.content_type.strategy, priority: -10 }

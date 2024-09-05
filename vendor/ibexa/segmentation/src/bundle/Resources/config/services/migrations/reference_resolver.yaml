@@ -1,0 +1,34 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Ibexa\Segmentation\StepExecutor\ReferenceDefinition\Segment\SegmentResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.segment_resolver' ]
+
+        Ibexa\Segmentation\StepExecutor\ReferenceDefinition\SegmentGroup\SegmentGroupResolverInterface:
+            tags: [ 'ibexa.migrations.reference_resolver.segment_group_resolver' ]
+
+    ibexa.migrations.reference_definition.resolver.segment_group:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.segment_group_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Segmentation\StepExecutor\ReferenceDefinition\SegmentGroup\SegmentGroupIdResolver: ~
+
+    ibexa.migrations.reference_definition.resolver.segment:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.segment_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+
+    Ibexa\Segmentation\StepExecutor\ReferenceDefinition\Segment\SegmentIdResolver: ~
+

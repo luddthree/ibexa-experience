@@ -1,0 +1,266 @@
+{% block _block_configuration_attributes_default_catalog_widget %}
+    {% trans_default_domain 'ibexa_page_builder_block' %}
+
+    {{ form_widget(form) }}
+
+    <div class="ibexa-default-catalog-block">
+        <small class="ibexa-form-help">
+            <svg class="ibexa-icon ibexa-icon--small ibexa-form-help__icon">
+                <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+            </svg>
+            {{- 'block.product_catalog.select_only_published'|trans|desc('You can select only catalogs with status "Published"') -}}
+        </small>
+    </div>
+{% endblock %}
+
+{% block targeted_catalog_customer_group_map_attribute_widget %}
+    {% trans_default_domain 'ibexa_page_builder_block' %}
+
+    {% set no_choice_options = false %}
+    {% for select in form.children.matches.vars.prototype.children %}
+        {% if select.vars.choices|length == 0 %}
+            {% set no_choice_options = true %}
+        {% endif %}
+    {% endfor %}
+
+    <div class="ibexa-catalog-block-options">
+        <div class="ibexa-catalog-block-options__toolbar">
+            <div class="ibexa-catalog-block-options__toolbar-title"></div>
+            <div class="ibexa-catalog-block-options__toolbar-actions">
+                <button
+                    type="button"
+                    class="ibexa-catalog-block-options__add-btn btn ibexa-btn ibexa-btn--small ibexa-btn--info"
+                    {% if no_choice_options %}disabled{% endif %}
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                        <use xlink:href="{{- ibexa_icon_path('create') -}}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{- 'block.product_catalog.add'|trans|desc('Add') -}}</span>
+                </button>
+                <button
+                    type="button"
+                    class="ibexa-catalog-block-options__remove-btn btn ibexa-btn ibexa-btn--small ibexa-btn--ghost-info"
+                    disabled
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                        <use xlink:href="{{- ibexa_icon_path('trash') -}}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{- 'block.product_catalog.delete'|trans|desc('Delete') -}}</span>
+                </button>
+            </div>
+        </div>
+
+        {% set next_index_id = 0 %}
+        {% if form.vars.value|length %}
+            {% set next_index_id = (max(form.vars.value.matches|keys)) + 1 %}
+        {% endif %}
+
+        {% if no_choice_options %}
+            <div class="ibexa-catalog-block-options__no-options">
+                <img
+                    class="ibexa-catalog-block-options__no-options-image"
+                    src="{{ asset('/bundles/ibexaadminui/img/ibexa-empty-table.svg') }}"
+                    alt="{{ 'block.product_catalog.empty_table'|trans|desc('Table is empty') }}"
+                />
+                <span class="ibexa-catalog-block-options__no-options-label">
+                    {{ 'block.product_catalog.no_options'|trans|desc('No customer group and catalog defined. Create customer group and catalog in Admin panel to use this block.') }}
+                </span>
+            </div>
+        {% endif %}
+
+        <div
+            class="ibexa-catalog-block-options__container"
+            data-template-id={{ form.matches.vars.id }}
+            data-next-index-id={{ next_index_id }}
+            data-option-template={{ form_row(form.matches.vars.prototype)|e('html_attr') }}
+        >
+            <div class="ibexa-catalog-block-options__list-labels">
+                <div class="ibexa-catalog-block-options__list-label">
+                    {{- 'block.product_catalog.list_label.label'|trans|desc('Customer group') -}}
+                </div>
+                <div class="ibexa-catalog-block-options__list-label">
+                    {{- 'block.product_catalog.list_label.value'|trans|desc('Catalog') -}}
+                </div>
+            </div>
+            {% for child in form.children %}
+                {{ form_widget(child) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{%- block _block_configuration_attributes_catalog_map_value_matches_widget -%}
+    <ul class="ibexa-catalog-block-options__list">
+        {% for child in form.children %}
+            {{ form_row(child) }}
+        {% endfor %}
+    </ul>
+{%- endblock -%}
+
+{%- block _block_configuration_attributes_catalog_map_value_matches_entry_row -%}
+    <li class="ibexa-catalog-block-options__option">
+        <div class="ibexa-catalog-block-options__option-checkbox-container">
+            <input
+                type="checkbox"
+                class="ibexa-input ibexa-input--checkbox ibexa-catalog-block-options__remove-option-checkbox"
+            />
+        </div>
+        <div class="ibexa-catalog-block-options__option-value-input-container">
+            {{ form_row(form, {
+                label: false,
+                attr: { class: 'ibexa-catalog-block-options__option-value-input' }
+            }) }}
+        </div>
+        <div class="ibexa-catalog-block-options__option-actions-container">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost-info ibexa-btn--no-text ibexa-catalog-block-options__remove-option-btn"
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                    <use xlink:href="{{- ibexa_icon_path('trash') -}}"></use>
+                </svg>
+            </button>
+        </div>
+    </li>
+{%- endblock -%}
+
+{% block product_list_attribute_widget %}
+    {% trans_default_domain 'ibexa_page_builder_block' %}
+
+    <div class="ibexa-pb-product-collection form-group">
+        <div class="ibexa-pb-product-collection__actions-container">
+            <span class="ibexa-pb-product-collection__title">{{ 'product.collection.add_only_base_products'|trans|desc('You can add or select only base products.') }}</span>
+            <div class="ibexa-pb-product-collection__actions">
+                {%- embed '@ibexadesign/ui/component/input_text.html.twig' with { extra_btn: {
+                    label: 'product.collection.add'|trans|desc('Add'),
+                    attr: {
+                        class: "ibexa-pb-product-collection__add-product-btn"
+                    }
+                } } -%}
+                    {% block content %}
+                        {% trans_default_domain 'ibexa_page_builder_block' %}
+                        <input
+                            type="text"
+                            class="ibexa-pb-product-collection__product-code-input form-control ibexa-input ibexa-input--text"
+                            placeholder="{{ ('product.collection.placeholder'|trans|desc('Enter product code')) }}"
+                        />
+                    {% endblock %}
+                {%- endembed -%}
+
+                {% if ibexa_is_pim_local() == true %}
+                    <span class="ibexa-pb-product-collection__or">{{ 'product.collection.or'|trans|desc('or') }}</span>
+                    <button
+                        type="button"
+                        class="ibexa-pb-product-collection__select-product-btn btn ibexa-btn ibexa-btn--tertiary"
+                        data-udw-config="{{ ibexa_udw_config('products') }}"
+                        data-target="{{ form.vars.id }}"
+                    >
+                        {{ 'product.collection.select_products'|trans|desc('Select products') }}
+                    </button>
+                {% endif %}
+            </div>
+        </div>
+        <div class="ibexa-pb-product-collection__error ibexa-pb-product-collection__error--not-found ibexa-pb-product-collection__error--hidden">
+            {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                type: 'warning',
+                title: 'product.collection.error.not_found'|trans|desc('Product not found'),
+            } only %}
+        </div>
+        <div class="ibexa-pb-product-collection__error ibexa-pb-product-collection__error--cannot-add-variant ibexa-pb-product-collection__error--hidden">
+            {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                type: 'warning',
+                title: 'product.collection.error.cannot_add_variant'|trans|desc('You cannot add product variant'),
+            } only %}
+        </div>
+        <div class="ibexa-pb-product-collection__error ibexa-pb-product-collection__error--already-added ibexa-pb-product-collection__error--hidden">
+            <small class="ibexa-form-help">
+                <svg class="ibexa-icon ibexa-icon--small ibexa-form-help__icon">
+                    <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+                </svg>
+                {{ 'product.collection.error.already_added'|trans|desc('Product already added to the list below') }}
+            </small>
+        </div>
+        <div class="ibexa-pb-product-collection__list-container">
+            <div class="ibexa-pb-product-collection__list-header">
+                {{- 'product.collection.product_list'|trans({ '%count%': form.codes.children|length })|desc('Product list (%count%)') -}}
+            </div>
+
+            {% set next_index_id = 0 %}
+            {% if form.vars.value is not null and form.vars.value.codes is not empty %}
+                {% set next_index_id = (max(form.vars.value.codes|keys)) + 1 %}
+            {% endif %}
+
+            <div
+                class="ibexa-pb-product-collection__list-wrapper"
+                data-product-template="{{ form_widget(form.codes.vars.prototype)|e }}"
+                data-next-index-id="{{ next_index_id }}"
+                data-template-id="{{ form.codes.vars.id }}"
+                data-widget-counter="{{ form.codes|length }}"
+            >
+                <div class="ibexa-pb-product-collection__no-products">
+                    <img
+                        class="ibexa-pb-product-collection__no-products-image"
+                        src="{{ asset('/bundles/ibexaadminui/img/ibexa-empty-table.svg') }}"
+                        alt="{{ 'product.collection.empty_table'|trans|desc('Table is empty') }}"
+                    />
+                    <span class="ibexa-pb-product-collection__no-products-label">
+                        {{ 'product.collection.no_products'|trans|desc('There are currently no added products in the list') }}
+                    </span>
+                </div>
+                <div class="ibexa-pb-product-collection__list-labels">
+                    <div class="ibexa-pb-product-collection__list-label">
+                        {{- 'product.collection.product_name'|trans|desc('Product name') -}}
+                    </div>
+                    <div class="ibexa-pb-product-collection__list-label">
+                        {{- 'product.collection.code'|trans|desc('Code') -}}
+                    </div>
+                    <div class="ibexa-pb-product-collection__list-label">
+                        {{- 'product.collection.product_type'|trans|desc('Product Type') -}}
+                    </div>
+                </div>
+                <ul class="ibexa-pb-product-collection__hidden-inputs-list">
+                    {% for child in form.codes.children %}
+                        {{ form_errors(child) }}
+                        {{ form_widget(child) }}
+                    {% endfor %}
+                </ul>
+                <ul
+                    class="ibexa-pb-product-collection__list"
+                    data-item-template="{{ include('@ibexadesign/product_catalog/page_builder/block/collection_item.html.twig', {
+                    'product_name': '__product_name__',
+                    'product_code': '__product_code__',
+                    'product_type': '__product_type__',
+                    'location_id': '__location_id__',
+                    'content_id': '__content_id__',
+                    'id': '__id__',
+                    })|e('html_attr')  }}"
+                    data-placeholder="{{ include('@ibexadesign/product_catalog/page_builder/block/collection_placeholder.html.twig', {
+                    })|e('html_attr')  }}"
+                >
+                    {% for child in form.codes.children %}
+                        {% set code = child.vars.value %}
+
+                        {% if products[code] is defined  %}
+                            {{ include('@ibexadesign/product_catalog/page_builder/block/collection_item.html.twig', {
+                                'product_name': products[code].name,
+                                'product_code': child.vars.value,
+                                'product_type': products[code].productType.identifier,
+                                'content_id': products[code].content.versionInfo.contentInfo.id,
+                                'location_id': products[code].content.versionInfo.contentInfo.mainLocationId,
+                                'id': child.vars.id|last,
+                            }) }}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block product_list_attribute_entry_widget %}
+    <li class="ibexa-pb-product-collection__item" data-id="{{ form.vars.id|last }}">
+        {{ form_widget(form, {
+            attr: { class: 'ibexa-pb-product-collection-item__input' }
+        }) }}
+    </li>
+{% endblock %}

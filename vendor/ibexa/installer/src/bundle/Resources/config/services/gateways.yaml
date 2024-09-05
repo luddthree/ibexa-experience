@@ -1,0 +1,7 @@
+services:
+    Ibexa\Installer\Gateway\SiteDataGateway:
+        alias: Ibexa\Installer\Gateway\SiteDataDoctrineGateway
+
+    Ibexa\Installer\Gateway\SiteDataDoctrineGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'

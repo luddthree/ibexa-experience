@@ -1,0 +1,36 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% set stages_map = stages_map is defined ? stages_map : [] %}
+
+{% extends '@ibexadesign/content/tab/versions/table.html.twig' %}
+
+{% block custom_column_headers %}
+    {% if stages_map is not empty and is_draft %}
+        {% include '@ibexadesign/ui/component/table/table_head_cell.html.twig' with {
+            content: 'location_view.tab.versions.column.workflow'|trans|desc('Workflow'),
+        } %}
+    {% endif %}
+{% endblock %}
+{% block custom_columns %}
+    {% if stages_map is not empty and is_draft %}
+        {% set workflows = stages_map[version.versionNo] %}
+        {% set workflow_cell %}
+            <div>
+                {% for workflow_name, stages in workflows %}
+                    {% for stage in stages %}
+                        <div
+                            class="badge ibexa-badge ibexa-badge--secondary"
+                            {% if stage.color is not null %} style="background-color: {{ stage.color }}"{% endif %}
+                            title="{{ workflow_definition_metadata[workflow_name].name }}"
+                        >
+                            {{ stage.label }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endset %}
+        {% include '@ibexadesign/ui/component/table/table_body_cell.html.twig' with {
+            content: workflow_cell,
+        } %}
+    {% endif %}
+{% endblock %}

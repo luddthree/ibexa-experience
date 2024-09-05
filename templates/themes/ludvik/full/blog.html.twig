@@ -1,0 +1,64 @@
+{# templates/full/blog.html.twig #}
+{% extends "@ibexadesign/pagelayout.html.twig" %}
+
+{% block content %}
+    <article>
+        <h1>{{ content.name }}</h1>
+    {# {{ ibexa_render_field(content, 'content') }} #}
+
+        <div class="blog-content">
+<p>Blog fra Barcelona</p>
+{% for item in children %}
+    {{ ibexa_render(item.valueObject) }}
+{% endfor %}        </div>
+    </article>
+    {# {{dump()}} #}
+
+
+
+    <style>
+/* General styles for the article containing the blog overview */
+article {
+    background-color: #fff; /* White background for the content */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Center the article with margin */
+    padding: 20px; /* Padding inside the article */
+    max-width: 800px; /* Maximum width of the article */
+}
+
+/* Header styles within the article for the blog title */
+article h1 {
+    color: #333; /* Dark grey color for the text */
+    border-bottom: 2px solid #007BFF; /* Blue bottom border for the title */
+    padding-bottom: 10px; /* Space below the title before the border */
+    margin-bottom: 20px; /* Space below the border */
+}
+
+/* Styles for the blog content div that contains individual posts */
+.blog-content {
+    font-family: 'Arial', sans-serif; /* Consistent font family */
+    color: #666; /* Lighter text color for readability */
+    line-height: 1.6; /* Increased line height for readability */
+}
+
+/* Specific styles for each blog post rendered in the loop */
+.blog-content > div {
+    margin-top: 15px; /* Space between blog post entries */
+    padding: 10px; /* Padding inside each blog post entry */
+    border-top: 1px solid #eee; /* Subtle top border for each post */
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+    article {
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+</style>
+{% endblock %}
+
+
+

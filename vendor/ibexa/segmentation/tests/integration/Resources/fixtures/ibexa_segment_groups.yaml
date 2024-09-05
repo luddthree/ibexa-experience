@@ -1,0 +1,14 @@
+ibexa_segment_groups:
+    - { id: 1, identifier: segment_test_group_foo, name: SEGMENT GROUP foo NAME }
+    - { id: 2, identifier: segment_test_group_bar, name: SEGMENT GROUP bar NAME }
+
+ibexa_segments:
+    - { id: 1, identifier: segment_test_foo, name: SEGMENT foo NAME }
+    - { id: 2, identifier: segment_test_bar, name: SEGMENT bar NAME }
+
+ibexa_segment_group_map:
+    - { group_id: 1, segment_id: 1 }
+    - { group_id: 2, segment_id: 2 }
+
+ibexa_segment_user_map:
+    - { user_id: 14, segment_id: 1 }

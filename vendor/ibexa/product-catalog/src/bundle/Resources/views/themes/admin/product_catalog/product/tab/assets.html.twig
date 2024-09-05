@@ -1,0 +1,108 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+{% form_theme delete_asset_form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+<section class="ibexa-pc-product-assets">
+    <div class="ibexa-pc-product-assets__drag-ghost-placeholder-container"></div>
+
+    {% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+        title: 'product.view.assets.validation_status_modal.title'|trans|desc('Upload results'),
+        subtitle: 'product.view.assets.validation_status_modal.not_uploaded_count_msg'|trans({
+                '%invalid_count%': 0,
+                '%valid_count%': 0,
+            })|desc('Files not uploaded (%invalid_count%) Files successfuly uploaded (%valid_count%)'),
+        class: 'ibexa-pc-product-assets__validation-status-modal',
+        id: 'ibexa-pc-product-assets-validation-status-modal',
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+        {% block body_content %}
+            <ul
+                class="ibexa-pc-product-assets__validation-status-list ibexa-pc-product-assets__validation-status-list"
+                data-validation-status-list-item-template="{{ include('@ibexadesign/product_catalog/product/modal/validation_status_list_item.html.twig')|e('html_attr') }}"
+            >
+            </ul>
+        {% endblock %}
+        {% block footer_content %}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-pc-product-assets__validation-status-confirm-btn"
+            >
+                {{ 'product.view.assets.validation_status_modal.close'|trans|desc('Close') }}
+            </button>
+        {% endblock %}
+    {% endembed %}
+
+    {% embed '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        headline: 'product.view.assets.title'|trans|desc('Assets'),
+    } %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+        {% block actions %}
+            {% if tag_asset_form.attributes|length > 0 %}
+                <button
+                    disabled
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#ibexa-pc-create-collection-modal"
+                    class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small ibexa-pc-product-assets__create-collection-modal-btn"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'product.view.assets.actions.create_collection'|trans|desc('Create a new collection') }}
+                    </span>
+                </button>
+
+                {% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+                    title: 'product.view.assets.create_collection.title'|trans|desc('Create a new collection'),
+                    subtitle: 'product.view.assets.create_collection.sub_title'|trans({ '%count%': 0 })|desc('Selected images: %count%'),
+                    class: 'ibexa-pc-product-assets__create-collection-modal',
+                    id: 'ibexa-pc-create-collection-modal',
+                } %}
+                    {% trans_default_domain 'ibexa_product_catalog' %}
+                    {% block body_content %}
+                        {% form_theme tag_asset_form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+                        <div class="ibexa-pc-product-assets__create-collection-modal-attributes-list">
+                            {{ form_start(tag_asset_form) }}
+                                {% if tag_asset_form.attributes is not empty %}
+                                    {% for attribute in tag_asset_form.attributes %}
+                                        {{ form_row(attribute.value) }}
+                                    {% endfor %}
+                                {% else %}
+                                    {% do tag_asset_form.attributes.setRendered() %}
+                                {% endif %}
+                            {{ form_end(tag_asset_form) }}
+                        </div>
+                    {% endblock %}
+                    {% block footer_content %}
+                        <button
+                            type="button"
+                            class="btn ibexa-btn ibexa-btn--primary ibexa-pc-product-assets__create-collection-btn"
+                        >
+                            {{ 'product.view.assets.create_collection.save'|trans|desc('Save') }}
+                        </button>
+                        <button
+                            type="button"
+                            data-bs-dismiss="modal"
+                            class="btn ibexa-btn ibexa-btn--secondary"
+                        >
+                            {{ 'product.view.assets.create_collection.cancel'|trans|desc('Cancel') }}
+                        </button>
+                    {% endblock %}
+                {% endembed %}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+
+    {% for assets_group in assets %}
+        {% include '@ibexadesign/product_catalog/product/assets_collection.html.twig' with {
+            group: assets_group
+        } %}
+    {% endfor %}
+
+    {{ form(create_asset_form, {
+        attr: { hidden: true }
+    }) }}
+
+    {{ form(delete_asset_form) }}
+</section>

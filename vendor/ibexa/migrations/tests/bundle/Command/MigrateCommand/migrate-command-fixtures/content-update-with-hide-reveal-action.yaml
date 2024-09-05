@@ -1,0 +1,40 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: landing_page
+        mainTranslation: eng-GB
+        remoteId: foo_landing_page
+    location:
+        parentLocationId: 1
+        hidden: true
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home
+    actions:
+        - { action: reveal }
+
+-   type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: '8a9c9c761004866fb458d89910f52bee'
+    actions:
+        - { action: hide }
+
+-   type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: '14e4411b264a6194a33847843919451a'
+    actions:
+        - { action: hide }
+
+-   type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: '14e4411b264a6194a33847843919451a'
+        only_visible_content: false
+    actions:
+        - { action: reveal }

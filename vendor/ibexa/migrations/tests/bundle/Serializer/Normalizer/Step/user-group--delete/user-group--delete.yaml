@@ -1,0 +1,6 @@
+-
+    type: user_group
+    mode: delete
+    match:
+        field: remoteId
+        value: __remote_id__

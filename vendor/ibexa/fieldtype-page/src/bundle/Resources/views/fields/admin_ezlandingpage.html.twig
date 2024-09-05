@@ -1,0 +1,14 @@
+{% block ezlandingpage_field %}
+    {% set type = 'info' %}
+    {% set title = 'landingpage.no_preview'|trans({}, 'ibexa_page_fieldtype')|desc('To get preview, choose site context and go to "View" tab or click the "Preview" button.') %}
+
+    {% if location is not defined or location is not ibexa_site_context_aware %}
+        {% set type = 'warning' %}
+        {% set title = 'landingpage.unavailable_preview'|trans({}, 'ibexa_page_fieldtype')|desc('Preview isn\'t available.') %}
+    {% endif %}
+
+    {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+        type: type,
+        title: title,
+    } only %}
+{% endblock %}

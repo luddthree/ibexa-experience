@@ -1,0 +1,47 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% include '@ibexadesign/corporate_account/common/billing_address_table.html.twig' with {
+    billing_address,
+    company_id: company.getId(),
+    edit_path: 'ibexa.corporate_account.company.billing_address.edit',
+} only %}
+
+{% embed '@ibexadesign/corporate_account/common/shipping_address_table.html.twig' with {
+    company,
+    company_id: company.getId(),
+    address_list: addresses,
+    delete_address_form,
+    default_shipping_form,
+    delete_action: path('ibexa.corporate_account.company.shipping_address.delete', {'companyId' : company.getId()}),
+    set_default_action: path('ibexa.corporate_account.company.shipping_address.set_as_default', {'companyId': company.getId()}),
+    edit_path_name: 'ibexa.corporate_account.company.shipping_address.edit'
+} only %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block table_actions %}
+        <a
+            title="{{ 'company.details.tab.address_book.shipping_address.table.action.add_new.label'|trans|desc('Add') }}"
+            href="{{ path('ibexa.corporate_account.company.shipping_address.create', {'companyId': company.getId()}) }}"
+            class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">
+                {{ 'company.details.tab.address_book.shipping_address.table.action.add_new.label'|trans|desc('Add') }}
+            </span>
+        </a>
+        <button
+            type="submit"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-ca-bulk-delete__delete-btn"
+            disabled
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">
+                {{ 'company.details.tab.address_book.shipping_address.table.action.delete.label'|trans|desc('Delete') }}
+            </span>
+        </button>
+    {% endblock %}
+{% endembed %}

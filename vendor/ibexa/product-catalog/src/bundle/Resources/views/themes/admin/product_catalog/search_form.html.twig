@@ -1,0 +1,30 @@
+{% form_theme search_form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+{% set collapsible_items = collapsible_items|default([]) %}
+{% set collapsible_items_count = collapsible_items|length %}
+
+{% embed '@ibexadesign/ui/component/adaptive_filters/adaptive_filters.html.twig' with {
+    form: search_form,
+    is_inside_container: is_inside_container|default(false),
+    is_inside_tabs: is_inside_tabs|default(false),
+    no_labels: not collapsible_items_count,
+    no_collapsible_items: not collapsible_items_count,
+    collapsible_items,
+    attr: {
+        class: search_class|default('') ~ ' ibexa-pc-search__form',
+    },
+} only %}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+
+    {% block actions %}{% endblock %}
+    {% block static_left_input %}
+        {{ form_widget(form.query, {
+            attr: {
+                class: 'ibexa-input ibexa-input--text ibexa-pc-search__form-input',
+                placeholder: 'search_form.search'|trans|desc('Search...'),
+            },
+            has_search: true,
+            should_clear_button_send_form : true,
+        }) }}
+    {% endblock %}
+{% endembed %}

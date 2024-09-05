@@ -1,0 +1,54 @@
+{
+    "scenario": {
+        "referenceCode": "foo",
+        "title": "Foo",
+        "description": "Last purchased products by all users",
+        "type": "foo_type",
+        "available": "NOT_AVAILABLE",
+        "inputItemType": 42,
+        "outputItemTypes": [
+            42
+        ],
+        "stages": {
+            "0": {
+                "useCategoryPath": 0,
+                "xingModels": [
+                    {
+                        "contextFlag": "NONE",
+                        "useSubmodels": false,
+                        "useSegments": false,
+                        "maximumRatingAge": null,
+                        "amountOfSubmodels": "0",
+                        "valueEventType": "",
+                        "keyEventType": "",
+                        "modelType": "RECENT",
+                        "weight": 100,
+                        "modelReferenceCode": "last_purchased",
+                        "algorithm": "",
+                        "listType": ""
+                    }
+                ]
+            },
+            "1": {
+                "useCategoryPath": 0,
+                "xingModels": [
+                    {
+                        "contextFlag": "NONE",
+                        "useSubmodels": false,
+                        "useSegments": false,
+                        "maximumRatingAge": null,
+                        "amountOfSubmodels": "0",
+                        "valueEventType": "",
+                        "keyEventType": "",
+                        "modelType": "EDITOR_BASED",
+                        "weight": 100,
+                        "modelReferenceCode": "editorial_list",
+                        "algorithm": "",
+                        "listType": ""
+                    }
+                ]
+            }
+        },
+        "enabled": "ENABLED"
+    }
+}

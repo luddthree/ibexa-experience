@@ -1,0 +1,15 @@
+-
+    type: user_group
+    mode: create
+    metadata:
+        mainLanguage: eng-GB
+        parentGroupId: 42
+        remoteId: __remote_id__
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: __user_group_name__
+    roles:
+        - Anonymous

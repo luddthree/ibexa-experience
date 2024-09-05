@@ -1,0 +1,13 @@
+includes:
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - phpstan-baseline.neon
+    - phpstan-baseline.neon.php
+
+parameters:
+    level: 8
+    treatPhpDocTypesAsCertain: false
+    checkMissingCallableSignature: true
+    excludePaths:
+        - src/lib/Behat/*
+    paths:
+        - src

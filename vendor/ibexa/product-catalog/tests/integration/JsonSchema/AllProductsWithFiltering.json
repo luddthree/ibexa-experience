@@ -1,0 +1,107 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "products": {
+                    "type": "object",
+                    "properties": {
+                        "all": {
+                            "type": "object",
+                            "properties": {
+                                "edges": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "node": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "code": {
+                                                            "type": "string"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        },
+                                                        "fields": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "_all": {
+                                                                    "type": "array",
+                                                                    "items": [
+                                                                        {
+                                                                            "type": "object",
+                                                                            "properties": {
+                                                                                "fieldDefIdentifier": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "value": {
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "fieldDefIdentifier",
+                                                                                "value"
+                                                                            ]
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "name": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "_all",
+                                                                "name"
+                                                            ]
+                                                        },
+                                                        "attributes": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "_all": {
+                                                                    "type": "array",
+                                                                    "items": {}
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "_all"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "code",
+                                                        "name",
+                                                        "fields",
+                                                        "attributes"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "node"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "edges"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "all"
+                    ]
+                }
+            },
+            "required": [
+                "products"
+            ]
+        }
+    },
+    "required": [
+        "data"
+    ]
+}

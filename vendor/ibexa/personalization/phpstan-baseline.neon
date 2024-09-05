@@ -1,0 +1,1716 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$name of method Ibexa\\\\Personalization\\\\Service\\\\Account\\\\AccountServiceInterface\\:\\:createAccount\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AccountController.php
+
+		-
+			message: "#^Parameter \\#2 \\$template of method Ibexa\\\\Personalization\\\\Service\\\\Account\\\\AccountServiceInterface\\:\\:createAccount\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/AccountController.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of class Ibexa\\\\Personalization\\\\Value\\\\Model\\\\EditorContent constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/ModelController.php
+
+		-
+			message: "#^Parameter \\#1 \\$maximumRatingAge of method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:withMaximumRatingAge\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/ModelController.php
+
+		-
+			message: "#^Parameter \\#2 \\$type of class Ibexa\\\\Personalization\\\\Value\\\\Model\\\\EditorContent constructor expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/ModelController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Controller\\\\RecommendationController\\:\\:getTemplate\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/RecommendationController.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Twig\\\\Loader\\\\LoaderInterface\\:\\:exists\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/RecommendationController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\DependencyInjection\\\\Compiler\\\\RestResponsePass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/RestResponsePass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\Personalization\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/Personalization.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\DependencyInjection\\\\IbexaPersonalizationExtension\\:\\:prependBazingaJsTranslationConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaPersonalizationExtension.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaPersonalizationExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Serializer\\\\Normalizer\\\\AttributeNormalizer\\:\\:normalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/AttributeNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Serializer\\\\Normalizer\\\\UserCollectionNormalizer\\:\\:getNormalizedUsers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/UserCollectionNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Serializer\\\\Normalizer\\\\UserCollectionNormalizer\\:\\:normalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/UserCollectionNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Serializer\\\\Normalizer\\\\UserNormalizer\\:\\:getNormalizedAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/UserNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Serializer\\\\Normalizer\\\\UserNormalizer\\:\\:getNormalizedAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/UserNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Serializer\\\\Normalizer\\\\UserNormalizer\\:\\:normalize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Serializer/Normalizer/UserNormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Personalization\\\\Templating\\\\Twig\\\\DateExtension\\:\\:endDateAndIntervalTransform\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Templating/Twig/DateExtension.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: src/bundle/Templating/Twig/Functions/UserTracking.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\Personalization\\\\Value\\\\ItemInterface\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/Value/ItemInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:buildCacheKey\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:buildCacheTagKey\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:buildCacheTagKey\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:buildCacheTagKeys\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:buildCacheTagKeys\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:processCacheItem\\(\\) has parameter \\$tags with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Cache\\\\AbstractCacheServiceDecorator\\:\\:removeCacheItem\\(\\) has parameter \\$arguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Cache/AbstractCacheServiceDecorator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcher\\:\\:buildOptions\\(\\) has parameter \\$queryParams with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Customer/InformationDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Customer/InformationDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcher\\:\\:fetchInformation\\(\\) has parameter \\$queryParams with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Customer/InformationDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcherInterface\\:\\:fetchInformation\\(\\) has parameter \\$queryParams with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Customer/InformationDataFetcherInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateModelDataSender\\:\\:sendUpdateModel\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Model/UpdateModelDataSender.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateModelDataSenderInterface\\:\\:sendUpdateModel\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Model/UpdateModelDataSenderInterface.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Model/UpdateSubmodelsDataSender.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateSubmodelsDataSender\\:\\:getNominalSubmodelPayload\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Model/UpdateSubmodelsDataSender.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateSubmodelsDataSender\\:\\:getNumericSubmodelPayload\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Model/UpdateSubmodelsDataSender.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateSubmodelsDataSender\\:\\:getSubmodelPayload\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Model/UpdateSubmodelsDataSender.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsDetailsDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Performance/EventsDetailsDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsSummaryDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Performance/EventsSummaryDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\PopularityDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Performance/PopularityDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RecommendationDetailedReportDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Performance/RecommendationDetailedReportDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RevenueDetailsDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Performance/RevenueDetailsDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\SummaryDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Performance/SummaryDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Recommendation\\\\RecommendationDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Recommendation/RecommendationDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataFetcher\\:\\:buildOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Scenario/ScenarioDataFetcher.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataSender\\:\\:updateScenarioFilterSet\\(\\) has parameter \\$body with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Scenario/ScenarioDataSender.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataSenderInterface\\:\\:updateScenarioFilterSet\\(\\) has parameter \\$body with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/Consumer/Scenario/ScenarioDataSenderInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\PersonalizationClient\\:\\:sendRequest\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/PersonalizationClient.php
+
+		-
+			message: "#^Parameter \\#4 \\$previous of class Ibexa\\\\Personalization\\\\Exception\\\\BadResponseException constructor expects Exception\\|null, Throwable\\|null given\\.$#"
+			count: 1
+			path: src/lib/Client/PersonalizationClient.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Client\\\\PersonalizationClientInterface\\:\\:sendRequest\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Client/PersonalizationClientInterface.php
+
+		-
+			message: "#^Call to an undefined method GuzzleHttp\\\\ClientInterface\\:\\:get\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Listener/LoginListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Event\\\\RecommendationResponseEvent\\:\\:getParameterBag\\(\\) should return Symfony\\\\Component\\\\HttpFoundation\\\\ParameterBag but returns Psr\\\\Http\\\\Message\\\\ResponseInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/RecommendationResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Event\\\\RecommendationResponseEvent\\:\\:setRecommendationItems\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/RecommendationResponseEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Event\\\\RecommendationResponseEvent\\:\\:setRecommendationItems\\(\\) has parameter \\$recommendationItems with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/RecommendationResponseEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Event\\\\RecommendationResponseEvent\\:\\:\\$parameterBag \\(Psr\\\\Http\\\\Message\\\\ResponseInterface\\|null\\) does not accept Symfony\\\\Component\\\\HttpFoundation\\\\ParameterBag\\.$#"
+			count: 1
+			path: src/lib/Event/RecommendationResponseEvent.php
+
+		-
+			message: "#^Cannot call method getFirstModelStrategy\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelsData\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/Form/ScenarioStrategySubscriber.php
+
+		-
+			message: "#^Cannot call method getReferenceCode\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelData\\|null\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/Form/ScenarioStrategySubscriber.php
+
+		-
+			message: "#^Cannot call method getSecondModelStrategy\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelsData\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/Form/ScenarioStrategySubscriber.php
+
+		-
+			message: "#^Cannot call method setEnabled\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\OptionalTextData\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/Form/ScenarioUserSettingsSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Event\\\\Subscriber\\\\RecommendationEventSubscriber\\:\\:extractRecommendationItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/RecommendationEventSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$posixLocale of method Ibexa\\\\Core\\\\MVC\\\\Symfony\\\\Locale\\\\LocaleConverterInterface\\:\\:convertToEz\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/RecommendationEventSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$source on Ibexa\\\\Personalization\\\\SPI\\\\UserAPIRequest\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UserCollectionGeneratorEventSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$xmlBody on Ibexa\\\\Personalization\\\\SPI\\\\UserAPIRequest\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UserCollectionGeneratorEventSubscriber.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Event\\\\Subscriber\\\\UserCollectionGeneratorEventSubscriber\\:\\:\\$eventDispatcher \\(Symfony\\\\Component\\\\EventDispatcher\\\\EventDispatcher\\) does not accept Symfony\\\\Contracts\\\\EventDispatcher\\\\EventDispatcherInterface\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UserCollectionGeneratorEventSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\BadAPICallException\\:\\:__construct\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/BadAPICallException.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\BadResponseException\\:\\:__construct\\(\\) has parameter \\$handlerContext with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Exception/BadResponseException.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\BadResponseException\\:\\:getHandlerContext\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Exception/BadResponseException.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Exception\\\\BadResponseException\\:\\:\\$handlerContext type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Exception/BadResponseException.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\FileNotFoundException\\:\\:__construct\\(\\) has parameter \\$code with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/FileNotFoundException.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\FileNotFoundException\\:\\:__construct\\(\\) has parameter \\$message with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/FileNotFoundException.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\UnsupportedFormatException\\:\\:__construct\\(\\) has parameter \\$allowedFormats with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Exception/UnsupportedFormatException.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Exception\\\\UnsupportedFormatException\\:\\:__construct\\(\\) has parameter \\$code with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/UnsupportedFormatException.php
+
+		-
+			message: "#^Cannot call method setExcludeMinimalItemPrice\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioCommerceSettingsData\\|null\\.$#"
+			count: 1
+			path: src/lib/Factory/Form/Data/ScenarioDataFactory.php
+
+		-
+			message: "#^Comparison operation \"\\>\" between int\\<1, max\\> and 0 is always true\\.$#"
+			count: 1
+			path: src/lib/Factory/Form/Data/ScenarioDataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Factory\\\\Form\\\\Data\\\\ScenarioDataFactory\\:\\:getScenarioCategoryPathData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Factory/Form/Data/ScenarioDataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Factory\\\\Form\\\\Data\\\\ScenarioDataFactory\\:\\:getScenarioStrategyModelsData\\(\\) has parameter \\$models with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Factory/Form/Data/ScenarioDataFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$models of method Ibexa\\\\Personalization\\\\Factory\\\\Form\\\\Data\\\\ScenarioDataFactory\\:\\:getScenarioStrategyModelsData\\(\\) expects array, array\\<Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\XingModel\\>\\|null given\\.$#"
+			count: 1
+			path: src/lib/Factory/Form/Data/ScenarioDataFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\ModelData\\:\\:__construct\\(\\) has parameter \\$editorContentList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/ModelData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\ModelData\\:\\:__construct\\(\\) has parameter \\$submodels with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/ModelData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\RecommendationCallData\\:\\:getCustomParameters\\(\\) should return array\\<string, string\\>\\|null but returns array\\<array\\<string, string\\>\\>\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Data/RecommendationCallData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\RecommendationCallData\\:\\:setAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/RecommendationCallData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\RecommendationCallData\\:\\:setContextItems\\(\\) has parameter \\$contextItems with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/RecommendationCallData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\RecommendationCallData\\:\\:setCustomParameters\\(\\) has parameter \\$customParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/RecommendationCallData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioCommerceSettingsData\\:\\:\\$excludeMinimalItemPrice \\(Ibexa\\\\Personalization\\\\Form\\\\Data\\\\OptionalIntegerData\\) does not accept Ibexa\\\\Personalization\\\\Form\\\\Data\\\\OptionalIntegerData\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Scenario/ScenarioCommerceSettingsData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyCollectionData\\:\\:\\$failSafe \\(Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\) does not accept Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Scenario/ScenarioStrategyCollectionData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyCollectionData\\:\\:\\$fallback \\(Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\) does not accept Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Scenario/ScenarioStrategyCollectionData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyCollectionData\\:\\:\\$primaryModels \\(Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\) does not accept Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Scenario/ScenarioStrategyCollectionData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyCollectionData\\:\\:\\$ultimatelyFailSafe \\(Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\) does not accept Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Scenario/ScenarioStrategyCollectionData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Data\\\\SubmodelData\\:\\:setAttributeValues\\(\\) has parameter \\$attributeValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/SubmodelData.php
+
+		-
+			message: "#^Class Ibexa\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/DateIntervalTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$interval of method Ibexa\\\\Personalization\\\\Factory\\\\DateTime\\\\GranularityFactoryInterface\\:\\:createFromEndDateTimestampAndInterval\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/DateIntervalTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$interval of method Ibexa\\\\Personalization\\\\Factory\\\\DateTime\\\\GranularityFactoryInterface\\:\\:createFromInterval\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/DateIntervalTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$duration of class DateInterval constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/TimePeriodTransformer.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Personalization\\\\Form\\\\Type\\\\Scenario\\\\ScenarioBoostItemType\\:\\:\\$translator\\.$#"
+			count: 2
+			path: src/lib/Form/Type/Scenario/ScenarioBoostItemType.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Type\\\\Scenario\\\\ScenarioStrategyModelContextType\\:\\:getChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Scenario/ScenarioStrategyModelContextType.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Type\\\\Scenario\\\\ScenarioStrategyModelContextType\\:\\:getTranslatedModelContextList\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Scenario/ScenarioStrategyModelContextType.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Form\\\\Type\\\\Scenario\\\\ScenarioStrategyModelContextType\\:\\:\\$translator has no type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Scenario/ScenarioStrategyModelContextType.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Type\\\\TimePeriodChoiceType\\:\\:getTimePeriodChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/TimePeriodChoiceType.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Form\\\\Type\\\\TimePeriodChoiceType\\:\\:getTimePeriodField\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/TimePeriodChoiceType.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Helper\\\\ParamsConverterHelper\\:\\:getArrayFromString\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Helper/ParamsConverterHelper.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Helper\\\\ParamsConverterHelper\\:\\:getIdListFromString\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Helper/ParamsConverterHelper.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Mapper\\\\OutputTypeAttributesMapper\\:\\:mapAttribute\\(\\) has parameter \\$attribute with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/OutputTypeAttributesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Mapper\\\\OutputTypeAttributesMapper\\:\\:mapAttribute\\(\\) has parameter \\$configAttributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/OutputTypeAttributesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Mapper\\\\OutputTypeAttributesMapper\\:\\:mapAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/OutputTypeAttributesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Mapper\\\\OutputTypeAttributesMapper\\:\\:mapAttributes\\(\\) has parameter \\$configAttributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Mapper/OutputTypeAttributesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Menu\\\\ScenarioCreateRightSidebarBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Menu/ScenarioCreateRightSidebarBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Menu\\\\ScenarioEditRightSidebarBuilder\\:\\:createStructure\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Menu/ScenarioEditRightSidebarBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Pagination\\\\Pagerfanta\\\\ScenarioAdapter\\:\\:getSlice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Pagination/Pagerfanta/ScenarioAdapter.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Request\\\\BasicRecommendationRequest\\:\\:extractFilters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Request/BasicRecommendationRequest.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Request\\\\BasicRecommendationRequest\\:\\:getRequestAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Request/BasicRecommendationRequest.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Request\\\\EventNotifierRequest\\:\\:getRequestAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Request/EventNotifierRequest.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Request\\\\EventNotifierRequest\\:\\:\\$credentials type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Request/EventNotifierRequest.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Request\\\\UserMetadataRequest\\:\\:getRequestAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Request/UserMetadataRequest.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\SPI\\\\Request\\:\\:getAdditionalAttributesToQueryString\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/SPI/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\SPI\\\\Request\\:\\:getRequestAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/SPI/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Security\\\\Limitation\\\\Mapper\\\\PersonalizationAccessLimitationMapper\\:\\:getSelectionChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/Mapper/PersonalizationAccessLimitationMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$customerId of class Ibexa\\\\Personalization\\\\Value\\\\Account constructor expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Account/AccountService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of class Ibexa\\\\Personalization\\\\Value\\\\Account constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Account/AccountService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcherInterface\\:\\:fetchInformation\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: src/lib/Service/Customer/CustomerInformationService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Import\\\\ImportDataFetcherInterface\\:\\:fetchImportedItems\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Import/ImportService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\AttributeDataFetcherInterface\\:\\:fetchAttribute\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\AttributeListDataFetcherInterface\\:\\:fetchAttributeList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\EditorListDataFetcherInterface\\:\\:fetchEditorList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\ModelListDataFetcherInterface\\:\\:fetchModelList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\SegmentListDataFetcherInterface\\:\\:fetchSegmentList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\SubmodelListDataFetcherInterface\\:\\:fetchSubmodelList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateEditorListDataSenderInterface\\:\\:sendUpdateEditorList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateModelDataSenderInterface\\:\\:sendUpdateModel\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateSegmentsDataSenderInterface\\:\\:sendUpdateSegments\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Model\\\\UpdateSubmodelsDataSenderInterface\\:\\:sendUpdateSubmodels\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Model/ModelService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\ModelBuild\\\\ModelBuildDataFetcherInterface\\:\\:getModelBuildStatus\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/ModelBuild/ModelBuildService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\ModelBuild\\\\ModelBuildDataSenderInterface\\:\\:triggerModelBuild\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/ModelBuild/ModelBuildService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsDetailsDataFetcherInterface\\:\\:fetchRecommendationEventsDetails\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Performance/RecommendationPerformanceService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsSummaryDataFetcherInterface\\:\\:fetchRecommendationEventsSummary\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Performance/RecommendationPerformanceService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\PopularityDataFetcherInterface\\:\\:fetchPopularityList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Performance/RecommendationPerformanceService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RevenueDetailsDataFetcherInterface\\:\\:fetchRevenueDetailsList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Performance/RecommendationPerformanceService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\SummaryDataFetcherInterface\\:\\:fetchRecommendationSummary\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Performance/RecommendationPerformanceService.php
+
+		-
+			message: "#^Cannot call method getBody\\(\\) on Psr\\\\Http\\\\Message\\\\ResponseInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Service/Recommendation/RecommendationService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Recommendation\\\\RecommendationDataFetcherInterface\\:\\:fetchRecommendations\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Recommendation/RecommendationService.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Service\\\\RecommendationService\\:\\:getRecommendationItems\\(\\) has parameter \\$recommendationItems with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Service/RecommendationService.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Service\\\\RecommendationServiceInterface\\:\\:getRecommendationItems\\(\\) has parameter \\$recommendationItems with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Service/RecommendationServiceInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Service\\\\Report\\\\ReportService\\:\\:performFormatCheck\\(\\) has parameter \\$allowedFormats with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Service/Report/ReportService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RecommendationDetailedReportDataFetcherInterface\\:\\:fetchRecommendationDetailedReport\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Report/ReportService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RevenueDetailsDataFetcherInterface\\:\\:fetchRevenueReport\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Report/ReportService.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Service\\\\Scenario\\\\ScenarioService\\:\\:processScenario\\(\\) has parameter \\$scenarioResponseContent with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Service\\\\Scenario\\\\ScenarioService\\:\\:setItemTypesForScenario\\(\\) has parameter \\$scenario with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Service\\\\Scenario\\\\ScenarioService\\:\\:setItemTypesForScenario\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataFetcherInterface\\:\\:fetchScenario\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataFetcherInterface\\:\\:fetchScenarioFilterSet\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataFetcherInterface\\:\\:fetchScenarioList\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataFetcherInterface\\:\\:fetchScenarioListByScenarioType\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataSenderInterface\\:\\:createScenario\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataSenderInterface\\:\\:deleteScenario\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataSenderInterface\\:\\:updateScenario\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataSenderInterface\\:\\:updateScenarioFilterSet\\(\\) expects string, string\\|null given\\.$#"
+			count: 2
+			path: src/lib/Service/Scenario/ScenarioService.php
+
+		-
+			message: "#^Parameter \\#2 \\$licenseKey of method Ibexa\\\\Personalization\\\\Client\\\\Consumer\\\\Search\\\\SearchAttributeDataFetcherInterface\\:\\:search\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Service/Search/SearchService.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Service\\\\Setting\\\\DefaultSiteAccessSettingService\\:\\:\\$defaultSiteAccessName is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Service/Setting/DefaultSiteAccessSettingService.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Validator\\\\Constraints\\\\FulfilledScenarioStrategyLevel\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevel.php
+
+		-
+			message: "#^Cannot call method getFirstModelStrategy\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelsData\\|null\\.$#"
+			count: 4
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevelValidator.php
+
+		-
+			message: "#^Cannot call method getModels\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyData\\|null\\.$#"
+			count: 8
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevelValidator.php
+
+		-
+			message: "#^Cannot call method getReferenceCode\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelData\\|null\\.$#"
+			count: 8
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevelValidator.php
+
+		-
+			message: "#^Cannot call method getSecondModelStrategy\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelsData\\|null\\.$#"
+			count: 4
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevelValidator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Validator\\\\Constraints\\\\FulfilledScenarioStrategyLevelValidator\\:\\:getReferenceCodes\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevelValidator.php
+
+		-
+			message: "#^Variable \\$prevLevelStrategy might not be defined\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/FulfilledScenarioStrategyLevelValidator.php
+
+		-
+			message: "#^Parameter \\#2 \\$scenarioName of method Ibexa\\\\Personalization\\\\Service\\\\Scenario\\\\ScenarioServiceInterface\\:\\:getScenario\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/UniqueScenarioNameValidator.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Content\\\\ItemType\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Content/ItemType.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Content\\\\ItemTypeList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Content/ItemTypeList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Customer\\\\BaseInformation\\:\\:fromArray\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Customer/BaseInformation.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Import\\\\ImportedItem\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Import/ImportedItem.php
+
+		-
+			message: "#^Class Ibexa\\\\Personalization\\\\Value\\\\Import\\\\ImportedItemList implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/Import/ImportedItemList.php
+
+		-
+			message: "#^Class Ibexa\\\\Personalization\\\\Value\\\\Import\\\\ImportedItemList implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/Import/ImportedItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Import\\\\ImportedItemList\\:\\:__construct\\(\\) has parameter \\$importedItemList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Import/ImportedItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Import\\\\ImportedItemList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Import/ImportedItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Import\\\\ImportedItemList\\:\\:slice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Import/ImportedItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:getValues\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:\\$attributeSource \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:\\$key \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:\\$source \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:\\$values \\(array\\) does not accept array\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Attribute\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Attribute.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\AttributeList\\:\\:__construct\\(\\) has parameter \\$attributeList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/AttributeList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\AttributeList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/AttributeList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\AttributeList\\:\\:slice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/AttributeList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\EditorContent\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/EditorContent.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\EditorContentList\\:\\:__construct\\(\\) has parameter \\$editorContentList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/EditorContentList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\EditorContentList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/EditorContentList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\EditorContentList\\:\\:slice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/EditorContentList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:__construct\\(\\) has parameter \\$importedItems with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:__construct\\(\\) has parameter \\$recommendations with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:getImportedItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:getRecommendations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:\\$importedItems type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\MetaData\\:\\:\\$recommendations type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/MetaData.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:__construct\\(\\) has parameter \\$itemTypeTrees with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:__construct\\(\\) has parameter \\$scenarios with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:__construct\\(\\) has parameter \\$submodelSummaries with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:getItemTypeTrees\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:getScenarios\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Model\\:\\:\\$itemTypeTrees type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Model.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\ModelList\\:\\:__construct\\(\\) has parameter \\$modelList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/ModelList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\ModelList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/ModelList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\ModelList\\:\\:slice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/ModelList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Recommendations\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Recommendations.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:__construct\\(\\) has parameter \\$attributeValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:getAttributeValues\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:processAttributeValues\\(\\) has parameter \\$attributeValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:processAttributeValues\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:\\$attributeValues \\(array\\) does not accept array\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Model\\\\Submodel\\:\\:\\$attributeValues type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/Submodel.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\SubmodelList\\:\\:__construct\\(\\) has parameter \\$submodelList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/SubmodelList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\SubmodelList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/SubmodelList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\SubmodelList\\:\\:slice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/SubmodelList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Model\\\\SubmodelSummary\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Model/SubmodelSummary.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Output\\\\User\\:\\:\\$attributes has no type specified\\.$#"
+			count: 1
+			path: src/lib/Value/Output/User.php
+
+		-
+			message: "#^Call to an undefined static method Webmozart\\\\Assert\\\\Assert\\:\\:nullOrAllIsInstanceOf\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Value/Output/UserCollection.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Details\\\\Event\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Details/Event.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Details\\\\Event\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Details/Event.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Details\\\\Revenue\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Details/Revenue.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Details\\\\Revenue\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Details/Revenue.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\RecommendationSummary\\:\\:fromArray\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/RecommendationSummary.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Revenue\\\\Item\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Revenue/Item.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Revenue\\\\Item\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Revenue/Item.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Revenue\\\\RevenueDetails\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Revenue/RevenueDetails.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Revenue\\\\RevenueDetails\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Revenue/RevenueDetails.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Summary\\\\ConversionRate\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Summary/ConversionRate.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Summary\\\\ConversionRate\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Summary/ConversionRate.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Summary\\\\RecommendationCall\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Summary/RecommendationCall.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Performance\\\\Summary\\\\RecommendationCall\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Performance/Summary/RecommendationCall.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Preview\\:\\:__construct\\(\\) has parameter \\$response with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Preview.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Preview\\:\\:getRequestUrl\\(\\) should return string but returns string\\|null\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Preview.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Preview\\:\\:getResponse\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Preview.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Preview\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Preview.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Preview\\:\\:\\$response type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Preview.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\PreviewItem\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/PreviewItem.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\PreviewItem\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/PreviewItem.php
+
+		-
+			message: "#^Class Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\PreviewItemList implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/Recommendation/PreviewItemList.php
+
+		-
+			message: "#^Class Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\PreviewItemList implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Value/Recommendation/PreviewItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\PreviewItemList\\:\\:__construct\\(\\) has parameter \\$previewItemList with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/PreviewItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\PreviewItemList\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/PreviewItemList.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request\\:\\:__construct\\(\\) has parameter \\$contextItems with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request\\:\\:__construct\\(\\) has parameter \\$customParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request\\:\\:getQueryStringParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request\\:\\:parseCustomParameters\\(\\) has parameter \\$customParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request\\:\\:parseCustomParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Parameter \\#3 \\$userId of class Ibexa\\\\Personalization\\\\Value\\\\Recommendation\\\\Request constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Value/Recommendation/Request.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\AttributeBoost\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/AttributeBoost.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\AttributeBoost\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/AttributeBoost.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Event\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Event.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Event\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Event.php
+
+		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 2
+			path: src/lib/Value/Scenario/ProfileFilterSet.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\ProfileFilterSet\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/ProfileFilterSet.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\ProfileFilterSet\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/ProfileFilterSet.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Scenario\\:\\:encodeStages\\(\\) has parameter \\$stages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Scenario.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Scenario\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 3
+			path: src/lib/Value/Scenario/Scenario.php
+
+		-
+			message: "#^Parameter \\#1 \\$referenceCode of class Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Scenario constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Scenario.php
+
+		-
+			message: "#^Parameter \\#2 \\$title of class Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Scenario constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Scenario.php
+
+		-
+			message: "#^Parameter \\#5 \\$inputItemType of class Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Scenario constructor expects Ibexa\\\\Personalization\\\\Value\\\\Content\\\\ItemType, Ibexa\\\\Personalization\\\\Value\\\\Content\\\\ItemType\\|null given\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Scenario.php
+
+		-
+			message: "#^Parameter \\#6 \\$outputItemTypes of class Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Scenario constructor expects Ibexa\\\\Personalization\\\\Value\\\\Content\\\\ItemTypeList, Ibexa\\\\Personalization\\\\Value\\\\Content\\\\ItemTypeList\\|null given\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Scenario.php
+
+		-
+			message: "#^Cannot call method getFirstModelStrategy\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelsData\\|null\\.$#"
+			count: 2
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Cannot call method getReferenceCode\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelData\\|null\\.$#"
+			count: 2
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Cannot call method getSecondModelStrategy\\(\\) on Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelsData\\|null\\.$#"
+			count: 2
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Stage\\:\\:__construct\\(\\) has parameter \\$xingModels with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Stage\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Stage\\:\\:jsonSerialize\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Parameter \\#1 \\$scenarioStrategyModelData of static method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\XingModel\\:\\:fromScenarioStrategyModelData\\(\\) expects Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelData, Ibexa\\\\Personalization\\\\Form\\\\Data\\\\Scenario\\\\ScenarioStrategyModelData\\|null given\\.$#"
+			count: 2
+			path: src/lib/Value/Scenario/Stage.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Scenario\\\\Stages\\:\\:getStages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Scenario/Stages.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Support\\\\AcceptanceStatus\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Support/AcceptanceStatus.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Support\\\\TermsAndConditions\\:\\:__construct\\(\\) has parameter \\$items with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Support/TermsAndConditions.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Support\\\\TermsAndConditions\\:\\:fromArray\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Value/Support/TermsAndConditions.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Support\\\\TermsAndConditions\\:\\:fromArray\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Support/TermsAndConditions.php
+
+		-
+			message: "#^Method Ibexa\\\\Personalization\\\\Value\\\\Support\\\\TermsAndConditions\\:\\:getItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Support/TermsAndConditions.php
+
+		-
+			message: "#^Property Ibexa\\\\Personalization\\\\Value\\\\Support\\\\TermsAndConditions\\:\\:\\$items type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Value/Support/TermsAndConditions.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Cache\\\\CacheItem\\:\\:\\$defaultLifetime\\.$#"
+			count: 1
+			path: tests/lib/Cache/AbstractCacheTestCase.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Cache\\\\AbstractCacheTestCase\\:\\:getCacheItem\\(\\) has parameter \\$defaultLifetime with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Cache/AbstractCacheTestCase.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Cache\\\\AbstractCacheTestCase\\:\\:getCacheItem\\(\\) has parameter \\$key with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Cache/AbstractCacheTestCase.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Cache\\\\AbstractCacheTestCase\\:\\:getCacheItem\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Cache/AbstractCacheTestCase.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Cache\\\\CachedCustomerInformationServiceTest\\:\\:providerForTestGetBaseInformation\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Cache/CachedCustomerInformationServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Cache\\\\CachedScenarioServiceTest\\:\\:providerForTestGetCalledScenarios\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Cache/CachedScenarioServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Cache\\\\CachedScenarioServiceTest\\:\\:providerForTestGetScenarioList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Cache/CachedScenarioServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcherTest\\:\\:providerForTestFetchInformation\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Customer/InformationDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Customer\\\\InformationDataFetcherTest\\:\\:providerForTestFetchInformationWithQueryParams\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Customer/InformationDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsDetailsDataFetcherTest\\:\\:providerForTestFetchRecommendationEventsDetails\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/EventsDetailsDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsSummaryDataFetcherTest\\:\\:providerForTestFetchRecommendationEventsSummaryForCommerceType\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/EventsSummaryDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\EventsSummaryDataFetcherTest\\:\\:providerForTestFetchRecommendationEventsSummaryForPublisherType\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/EventsSummaryDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RecommendationDetailedReportDataFetcherTest\\:\\:providerForTestFetchRecommendationDetailedReport\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/RecommendationDetailedReportDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RevenueDetailsDataFetcherTest\\:\\:providerForTestFetchRecommendationEventsSummaryForCommerceType\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/RevenueDetailsDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\RevenueDetailsDataFetcherTest\\:\\:providerForTestFetchRevenueReport\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/RevenueDetailsDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Performance\\\\SummaryDataFetcherTest\\:\\:providerForTestFetchRecommendationSummary\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Performance/SummaryDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\Consumer\\\\Scenario\\\\ScenarioDataFetcherTest\\:\\:providerForTestFetchScenarioList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Client/Consumer/Scenario/ScenarioDataFetcherTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\PersonalizationClientTest\\:\\:testReturnFalseWhenCredentialsAreNotSet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Client/PersonalizationClientTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\PersonalizationClientTest\\:\\:testSendRequestAndReturnResponse\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Client/PersonalizationClientTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Client\\\\PersonalizationClientTest\\:\\:testSendRequestAndThrowExceptionWhenCredentialsAreNotSet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Client/PersonalizationClientTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:testCreateCredentialsResolverInstance\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:testReturnFalseWhenOneOfRequiredCredentialsAreMissing\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:testShouldReturnTrueWhenRequiredCredentialsAreSet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:\\$credentials type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:\\$invalidCredentials type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:\\$loggerMock \\(PHPUnit\\\\Framework\\\\MockObject\\\\MockObject&Psr\\\\Log\\\\NullLogger\\) does not accept PHPUnit\\\\Framework\\\\MockObject\\\\MockObject&Psr\\\\Log\\\\LoggerInterface\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\CredentialsResolverTest\\:\\:\\$loggerMock is never read, only written\\.$#"
+			count: 1
+			path: tests/lib/Config/CredentialsResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\PersonalizationClientCredentialsResolverTest\\:\\:testCreatePersonalizationClientCredentialsResolverInstance\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Config/PersonalizationClientCredentialsResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\PersonalizationClientCredentialsResolverTest\\:\\:testReturnGetPersonalizationClientCredentials\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Config/PersonalizationClientCredentialsResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Config\\\\PersonalizationClientCredentialsResolverTest\\:\\:testReturnNullWhenCredentialsAreNotSet\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Config/PersonalizationClientCredentialsResolverTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Creator\\\\DataSourceTestItemCreator\\:\\:createTestItemsForConcreteConfig\\(\\) has parameter \\$testItemsConfig with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Creator/DataSourceTestItemCreator.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Creator\\\\DataSourceTestItemCreator\\:\\:createTestItemsForConfig\\(\\) has parameter \\$testItemsConfig with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Creator/DataSourceTestItemCreator.php
+
+		-
+			message: "#^Call to method reverseTransform\\(\\) on an unknown class Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformer\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Constant Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:GRANULARITY_1D is unused\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Constant Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:GRANULARITY_1H is unused\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:providerForTestThrowTransformationFailedExceptionWhenValueIsNotDateIntervalData\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:testThrowTransformationFailedExceptionWhenValueIsNotDateIntervalData\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:\\$dateIntervalTransformer \\(Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformer\\) does not accept Ibexa\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformer\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:\\$dateIntervalTransformer has unknown class Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformer as its type\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:\\$endDate is never read, only written\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\DateIntervalTransformerTest\\:\\:\\$startDate is never read, only written\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/DateIntervalTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\RecommendationCallCustomParametersTransformerTest\\:\\:provideTestReverseTransformData\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/RecommendationCallCustomParametersTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\RecommendationCallCustomParametersTransformerTest\\:\\:provideTestTransformData\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/RecommendationCallCustomParametersTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\RecommendationCallCustomParametersTransformerTest\\:\\:testReverseTransform\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/RecommendationCallCustomParametersTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\RecommendationCallCustomParametersTransformerTest\\:\\:testReverseTransform\\(\\) has parameter \\$valueToTransform with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/RecommendationCallCustomParametersTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Form\\\\DataTransformer\\\\RecommendationCallCustomParametersTransformerTest\\:\\:testTransform\\(\\) has parameter \\$valueToTransform with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/RecommendationCallCustomParametersTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:getArrayFromStringDataProvider\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:stringLists\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetArrayFromString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetArrayFromString\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetArrayFromString\\(\\) has parameter \\$input with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetIdListFromString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetIdListFromString\\(\\) has parameter \\$expected with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetIdListFromString\\(\\) has parameter \\$input with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetIdListFromStringWitInvalidArgument\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Helper\\\\ParamsConverterHelperTest\\:\\:testGetIdListFromStringWithoutSeparator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Helper/ParamsConverterHelperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Permission\\\\CustomerTypeCheckerTest\\:\\:providerInvalidSolutionTypes\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Permission/CustomerTypeCheckerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Permission\\\\CustomerTypeCheckerTest\\:\\:providerValidCommerceSolutionTypesForIsCommerce\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Permission/CustomerTypeCheckerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Permission\\\\CustomerTypeCheckerTest\\:\\:providerValidPublisherSolutionTypesForIsPublisher\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Permission/CustomerTypeCheckerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Service\\\\Customer\\\\CustomerInformationServiceTest\\:\\:providerForTestGetBaseInformation\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Service/Customer/CustomerInformationServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Service\\\\Report\\\\ReportServiceTest\\:\\:providerForTestGetRecommendationDetailedReport\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Service/Report/ReportServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Service\\\\Report\\\\ReportServiceTest\\:\\:providerForTestGetRevenueReport\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Service/Report/ReportServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Service\\\\Scenario\\\\ScenarioServiceTest\\:\\:providerForTestGetCalledScenarios\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Service/Scenario/ScenarioServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Personalization\\\\Service\\\\Scenario\\\\ScenarioServiceTest\\:\\:providerForTestGetScenarioList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Service/Scenario/ScenarioServiceTest.php

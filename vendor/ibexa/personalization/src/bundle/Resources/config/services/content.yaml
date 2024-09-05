@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Content\Image\ImagePathResolver:
+        arguments:
+            $webRootDir: '%webroot_dir%'
+
+    Ibexa\Personalization\Content\Image\ImagePathResolverInterface:
+        '@Ibexa\Personalization\Content\Image\ImagePathResolver'
+
+    Ibexa\Personalization\Content\DataResolver:
+        $restPathPrefix: '%ibexa.rest.path_prefix%'
+
+    Ibexa\Personalization\Content\DataResolverInterface:
+        '@Ibexa\Personalization\Content\DataResolver'
+
+    Ibexa\Personalization\Content\Routing\UrlGenerator: ~
+
+    Ibexa\Personalization\Content\Routing\UrlGeneratorInterface:
+        alias: Ibexa\Personalization\Content\Routing\UrlGenerator

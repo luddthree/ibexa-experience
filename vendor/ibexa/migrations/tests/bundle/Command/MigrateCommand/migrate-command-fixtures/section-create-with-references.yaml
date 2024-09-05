@@ -1,0 +1,6 @@
+-
+    type: section
+    mode: create
+    metadata:
+        identifier: section_1
+        name: 'Section 1'

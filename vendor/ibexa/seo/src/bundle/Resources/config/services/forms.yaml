@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    ibexa.seo.form.type_extension.disable_required_option_for_ibexa_seo_field_type:
+        class: 'Ibexa\AdminUi\Form\Type\Extension\ModifyFieldDefinitionsCollectionTypeExtension'
+        arguments:
+            $fieldTypeIdentifier: 'ibexa_seo'
+            $modifiedOptions:
+                disable_required_field: true

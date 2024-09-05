@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Persistence\Repository\TaxonomyEntryRepository:
+        lazy: true
+        arguments:
+            $em: '@ibexa.doctrine.orm.entity_manager'
+
+    Ibexa\Taxonomy\Persistence\Repository\TaxonomyEntryAssignmentRepository:
+        factory: ["@ibexa.doctrine.orm.entity_manager", getRepository]
+        lazy: true
+        arguments:
+            - Ibexa\Taxonomy\Persistence\Entity\TaxonomyEntryAssignment

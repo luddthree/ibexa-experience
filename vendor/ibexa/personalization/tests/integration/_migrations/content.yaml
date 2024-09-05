@@ -1,0 +1,220 @@
+# Article
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: article
+        mainTranslation: eng-GB
+        remoteId: main_perso_article
+    location:
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: title
+            languageCode: eng-GB
+            value: 'Unleash the power of Ibexa Personalization'
+        -
+            fieldDefIdentifier: title
+            languageCode: pol-PL
+            value: 'Uwolnij potencjał Ibexa Personalization'
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-GB
+            value: ['personalization', 'recommendations'],
+        -
+            fieldDefIdentifier: tags
+            languageCode: pol-PL
+            value: ['personalizacja', 'rekomendacje']
+-
+    type: repeatable
+    mode: create
+    iterations: 2
+    iteration_counter_starting_value: 1
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: article
+                mainTranslation: eng-GB
+                remoteId: '###XXX "perso_article_eng_" ~ i XXX###'
+            location:
+                parentLocationId: 2
+            fields:
+                -   fieldDefIdentifier: title
+                    languageCode: eng-GB
+                    value: '###XXX "Perso article eng " ~ i XXX###'
+
+# Console
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: console
+        mainTranslation: eng-GB
+        remoteId: console_xbox_series_x
+    location:
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'XBOX Series X console'
+
+        -
+            fieldDefIdentifier: name
+            languageCode: pol-PL
+            value: 'Konsola XBOX Series X'
+
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: console
+        mainTranslation: eng-GB
+        remoteId: console_play_station_5
+    location:
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Play Station 5 console'
+
+        -
+            fieldDefIdentifier: name
+            languageCode: pol-PL
+            value: 'Konsola Play Station 5'
+
+-
+    type: repeatable
+    mode: create
+    iterations: 2
+    iteration_counter_starting_value: 1
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: console
+                mainTranslation: eng-GB
+                remoteId: '###XXX "console" ~ i XXX###'
+            location:
+                parentLocationId: 2
+            fields:
+                -
+                    fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: '###XXX "Console eng " ~ i XXX###'
+
+                -
+                    fieldDefIdentifier: name
+                    languageCode: pol-PL
+                    value: '###XXX "Console pl " ~ i XXX###'
+
+-
+    type: repeatable
+    mode: create
+    iterations: 2
+    iteration_counter_starting_value: 1
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: console
+                mainTranslation: eng-GB
+                remoteId: '###XXX "console_eng" ~ i XXX###'
+            location:
+                parentLocationId: 2
+            fields:
+                -
+                    fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: '###XXX "Console eng only " ~ i XXX###'
+
+# Laptop
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: laptop
+        mainTranslation: eng-GB
+        remoteId: laptop_apple_macbook_pro_2024
+    location:
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Apple MacBook Pro 2024'
+
+        -
+            fieldDefIdentifier: name
+            languageCode: pol-PL
+            value: 'Apple MacBook Pro 2024'
+
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: laptop
+        mainTranslation: eng-GB
+        remoteId: laptop_dell_5510
+    location:
+        parentLocationId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Dell 5510'
+        -
+            fieldDefIdentifier: name
+            languageCode: pol-PL
+            value: 'Laptop Dell 5510'
+
+-
+    type: repeatable
+    mode: create
+    iterations: 9
+    iteration_counter_starting_value: 1
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: laptop
+                mainTranslation: eng-GB
+                remoteId: '###XXX "laptop" ~ i XXX###'
+            location:
+                parentLocationId: 2
+            fields:
+                -
+                    fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: '###XXX "Laptop eng " ~ i XXX###'
+                -
+                    fieldDefIdentifier: name
+                    languageCode: pol-PL
+                    value: '###XXX "Laptop pl " ~ i XXX###'
+
+# Smartphone
+-
+    type: repeatable
+    mode: create
+    iterations: 13
+    iteration_counter_starting_value: 1
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: smartphone
+                mainTranslation: eng-GB
+                remoteId: '###XXX "smartphone_eng_" ~ i XXX###'
+            location:
+                parentLocationId: 2
+            fields:
+                -
+                    fieldDefIdentifier: name
+                    languageCode: eng-GB
+                    value: '###XXX "Smartphone eng " ~ i XXX###'
+                -
+                    fieldDefIdentifier: name
+                    languageCode: pol-PL
+                    value: '###XXX "Smartphone pl " ~ i XXX###'

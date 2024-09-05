@@ -1,0 +1,30 @@
+{% extends no_layout == true ? view_base_layout : page_layout %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set product = content|ibexa_get_product %}
+
+{% block content %}
+    {% block header %}
+        <h2>{{ ibexa_content_name(content) }}</h2>
+        <p>{{ "product.product_code"|trans|desc('Product code') }}: <code>{{ product.code }}</code></p>
+    {% endblock %}
+
+    {% block basket_form %}
+        {% if is_basket_available %}
+            <form method="POST" action="{{ path('ibexa.commerce.basket.add') }}">
+                <input type="hidden" name="ses_basket[0][sku]" value="{{ product.code }}"/>
+                <input type="number" name="ses_basket[0][quantity]" value="1" min="1"/>
+
+                <button type="submit">{{ "product.add_to_basket"|trans|desc('Add to basket') }}</button>
+            </form>
+        {% endif %}
+    {% endblock %}
+
+    {%  block content_fields %}
+        {% for field in content.fieldsByLanguage(language|default(null)) %}
+            <h3>{{ field.fieldDefIdentifier }}</h3>
+            {{ ibexa_render_field(content, field.fieldDefIdentifier, {location: location|default(null)}) }}
+        {% endfor %}
+    {% endblock %}
+{% endblock %}

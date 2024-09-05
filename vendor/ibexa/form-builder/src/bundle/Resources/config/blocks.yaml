@@ -1,0 +1,23 @@
+blocks:
+    form:
+        name: Form
+        category: default
+        thumbnail: '/bundles/ibexaformbuilder/images/thumbnails/form.svg#form'
+        configuration_template: '@ibexadesign/page_builder/block/config/form.html.twig'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaFormBuilder/blocks/form.html.twig' }
+        attributes:
+            contentId:
+                name: Form
+                type: embedform
+                validators:
+                    not_blank:
+                        message: You must select a form
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a form
+                    content_type:
+                        message: You must select a Form
+                        options:
+                            types: form

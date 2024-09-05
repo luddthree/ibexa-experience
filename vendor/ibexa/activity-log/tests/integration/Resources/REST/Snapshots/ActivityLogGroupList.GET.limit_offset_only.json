@@ -1,0 +1,36 @@
+{
+    "ActivityLogGroupList": {
+        "_media-type": "application\/vnd.ibexa.api.ActivityLogGroupList+json",
+        "_href": "\/api\/ibexa\/v2\/activity-log-group\/list",
+        "ActivityLogGroups": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 42,
+                "logged_at": 1696337401,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "bar",
+                        "object_class": "stdClass",
+                        "action": "bar_action",
+                        "data": {}
+                    }
+                ]
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ActivityLogGroup+json",
+                "user_id": 14,
+                "logged_at": 1696337402,
+                "ActivityLogEntries": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ActivityLog+json",
+                        "object_id": "bar",
+                        "object_class": "stdClass",
+                        "action": "bar_action",
+                        "data": {}
+                    }
+                ]
+            }
+        ]
+    }
+}

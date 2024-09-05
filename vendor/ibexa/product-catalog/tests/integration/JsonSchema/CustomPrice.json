@@ -1,0 +1,68 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "CustomPrice": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "base_amount": {
+                    "type": "string"
+                },
+                "Currency": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "integer"
+                        },
+                        "code": {
+                            "type": "string"
+                        },
+                        "subunits": {
+                            "type": "integer"
+                        },
+                        "enabled": {
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "_media-type",
+                        "id",
+                        "code",
+                        "subunits",
+                        "enabled"
+                    ]
+                },
+                "money": {
+                    "type": "string"
+                },
+                "base_money": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_media-type",
+                "id",
+                "amount",
+                "base_amount",
+                "Currency",
+                "money",
+                "base_money"
+            ]
+        }
+    },
+    "required": [
+        "CustomPrice"
+    ]
+}

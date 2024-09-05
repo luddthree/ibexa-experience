@@ -1,0 +1,78 @@
+-
+    type: user
+    mode: create
+    metadata:
+        login: __foo__
+        email: anonymous@link.invalid
+        password: __PASSWORD__
+        enabled: true
+        mainLanguage: eng-US
+    groups:
+        - 15b256dbea2ae72418ff5facc999e8f9
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Anonymous
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: signature
+            fieldTypeIdentifier: eztext
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            fieldTypeIdentifier: ezimage
+            languageCode: eng-US
+            value: null
+    actions:
+        -   action: assign_user_to_role
+            id: 2
+            limitation:
+                type: Section
+                values:
+                    - standard
+-
+    type: user
+    mode: create
+    metadata:
+        login: __foo__admin__
+        email: admin@link.invalid
+        password: __PASSWORD__
+        enabled: true
+        mainLanguage: eng-US
+    groups:
+        - 42
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Administrator
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: signature
+            fieldTypeIdentifier: eztext
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            fieldTypeIdentifier: ezimage
+            languageCode: eng-US
+            value: null
+    actions:
+        -   action: assign_user_to_role
+            id: 2
+            limitation:
+                type: Section
+                values:
+                    - 1

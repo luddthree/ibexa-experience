@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Installer\\\\Loader\\\\ConfigurationParametersLoader\\:\\:findContentInfo\\(\\) should return Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentInfo\\|null but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\|null\\.$#"
+			count: 1
+			path: src/lib/Loader/ConfigurationParametersLoader.php
+

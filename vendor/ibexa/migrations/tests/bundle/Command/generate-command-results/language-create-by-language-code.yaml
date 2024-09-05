@@ -1,0 +1,14 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: ger-DE
+        name: German
+        enabled: true
+    references:
+        -
+            name: ref_id__4__language
+            type: language_id
+        -
+            name: ref_code__4__language
+            type: language_code

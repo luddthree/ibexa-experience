@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\Seo\Templating\Twig\SeoExtension: ~
+
+    Ibexa\Bundle\Seo\Templating\Twig\Functions\SeoRenderer: ~

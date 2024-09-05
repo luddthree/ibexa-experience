@@ -1,0 +1,21 @@
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title,
+    subtitle: subtitle|default(null),
+    class: 'ibexa-modal--taxonomy-tree-modal',
+    size: 'large',
+    id,
+} %}
+    {% block body_content %}
+        <div class="ibexa-modal-body__main">
+            <div class="ibexa-taxonomy-tree" id="{{ id }}-tree"></div>
+        </div>
+    {% endblock %}
+    {% block footer_content %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm" data-bs-dismiss="modal" disabled>
+            {{ confirm_button }}
+        </button>
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--cancel" data-bs-dismiss="modal">
+            {{ 'content.hide.modal.cancel'|trans({}, 'ibexa_taxonomy_tree')|desc('Cancel') }}
+        </button>
+    {% endblock %}
+{% endembed %}

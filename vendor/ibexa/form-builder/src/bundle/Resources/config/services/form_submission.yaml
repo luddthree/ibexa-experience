@@ -1,0 +1,94 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FormBuilder\Event\Subscriber\HandleFormSubmission:
+        tags:
+            - {name: kernel.event_subscriber}
+
+    Ibexa\FormBuilder\Event\Subscriber\HandleSubmitAction:
+        tags:
+            - {name: kernel.event_subscriber}
+
+    Ibexa\FormBuilder\FormSubmission\Gateway\FormSubmissionGateway:
+        arguments: ['@ibexa.api.storage_engine.legacy.connection']
+
+    Ibexa\FormBuilder\FormSubmission\Gateway\FormSubmissionDataGateway:
+        arguments: ['@ibexa.api.storage_engine.legacy.connection']
+
+    Ibexa\FormBuilder\FormSubmission\FormSubmissionService: ~
+
+    Ibexa\Contracts\FormBuilder\FormSubmission\FormSubmissionServiceInterface: '@Ibexa\FormBuilder\FormSubmission\FormSubmissionService'
+
+    Ibexa\FormBuilder\FormSubmission\Notification\EmailNotificationSender:
+        arguments:
+            $emailTemplate: '@@ibexadesign/form_builder/form_submit_notification_email.html.twig'
+            $senderAddress: "@=container.hasParameter('swiftmailer.sender_address') ? parameter('swiftmailer.sender_address') : ''"
+
+    Ibexa\FormBuilder\FormSubmission\Notification\NotificationSenderInterface: '@Ibexa\FormBuilder\FormSubmission\Notification\EmailNotificationSender'
+
+    Ibexa\FormBuilder\FormSubmission\Converter\FieldSubmissionConverterRegistry:
+        arguments:
+            $converters: !tagged ibexa.form_builder.field.submission.converter
+            $fallback: '@Ibexa\FormBuilder\FormSubmission\Converter\GenericFieldSubmissionConverter'
+
+    Ibexa\FormBuilder\FormSubmission\Converter\GenericFieldSubmissionConverter:
+        $typeIdentifier: 'generic_converter'
+        $twig: '@twig'
+
+    Ibexa\FormBuilder\FormSubmission\Converter\BooleanFieldSubmissionConverter:
+        class: Ibexa\FormBuilder\FormSubmission\Converter\BooleanFieldSubmissionConverter
+        arguments:
+            $typeIdentifier: 'checkbox'
+            $twig: '@twig'
+        tags:
+            - { name: ibexa.form_builder.field.submission.converter }
+
+    Ibexa\FormBuilder\FormSubmission\Converter\ArrayFieldSubmissionConverter:
+        class: Ibexa\FormBuilder\FormSubmission\Converter\ArrayFieldSubmissionConverter
+        arguments:
+            $typeIdentifier: 'checkbox_list'
+            $twig: '@twig'
+        tags:
+            - { name: ibexa.form_builder.field.submission.converter }
+
+    Ibexa\FormBuilder\FormSubmission\Converter\DateFieldSubmissionConverter:
+        class: Ibexa\FormBuilder\FormSubmission\Converter\DateFieldSubmissionConverter
+        arguments:
+            $typeIdentifier: 'date'
+            $twig: '@twig'
+        tags:
+            - { name: ibexa.form_builder.field.submission.converter }
+
+    Ibexa\FormBuilder\FormSubmission\Converter\FileFieldSubmissionConverter:
+        class: Ibexa\FormBuilder\FormSubmission\Converter\FileFieldSubmissionConverter
+        arguments:
+            $typeIdentifier: 'file'
+            $sectionIdentifier: 'form'
+            $locationAttributeIdentifier: 'location'
+            $twig: '@twig'
+            $contentService: '@ibexa.api.service.content'
+            $contentTypeService: '@ibexa.api.service.content_type'
+            $locationService: '@ibexa.api.service.location'
+            $sectionService: '@ibexa.api.service.section'
+            $repository: '@ibexa.api.repository'
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+            $repositoryConfigurationProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+        calls:
+            - [setSiteAccess, ['@Ibexa\Core\MVC\Symfony\SiteAccess']]
+        tags:
+            - { name: ibexa.form_builder.field.submission.converter }
+
+    Ibexa\FormBuilder\Event\Subscriber\DeleteFileSubmissionEventSubscriber:
+        arguments:
+            - '@Ibexa\FormBuilder\FormSubmission\Converter\FileFieldSubmissionConverter'
+
+    Ibexa\FormBuilder\FormSubmission\Converter\MultilineFieldSubmissionConverter:
+        arguments:
+            $typeIdentifier: 'multi_line'
+            $twig: '@twig'
+        tags:
+            - { name: ibexa.form_builder.field.submission.converter }

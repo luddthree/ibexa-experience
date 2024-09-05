@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Solr\RangeMeasurementAttributeMaximumVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Solr\RangeMeasurementAttributeMinimumVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }
+
+    Ibexa\Measurement\ProductCatalog\Form\Attribute\Search\Solr\SimpleMeasurementAttributeVisitor:
+        tags:
+            - { name: ibexa.search.solr.query.location.criterion.visitor }
+            - { name: ibexa.search.solr.query.content.criterion.visitor }

@@ -1,0 +1,8 @@
+{
+    "queueTime" : null,
+    "startTime" : null,
+    "finishTime" : null,
+    "numberOfItems" : 0,
+    "taskUuid" : null,
+    "state" : "NEW"
+}

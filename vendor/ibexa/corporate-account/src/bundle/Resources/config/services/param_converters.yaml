@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\CompanyParamConverter:
+        tags:
+            - { name: request.param_converter, priority: 0, converter: ibexa_company_converter }
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\ShippingAddressParamConverter:
+        tags:
+            - { name: request.param_converter, priority: 0, converter: ibexa_company_converter }
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\MemberParamConverter:
+        tags:
+            - { name: request.param_converter, priority: 0, converter: ibexa_company_converter }
+
+    Ibexa\Bundle\CorporateAccount\ParamConverter\ApplicationParamConverter:
+        tags:
+            - { name: request.param_converter, priority: 0, converter: ibexa_company_converter }

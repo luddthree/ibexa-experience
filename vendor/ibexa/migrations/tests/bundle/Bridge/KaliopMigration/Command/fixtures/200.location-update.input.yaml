@@ -1,0 +1,28 @@
+-
+    mode: 'update'
+    type: 'location'
+    match:
+        location_id: 444
+    location_remote_id: 'siteaccess_remote'
+    remote_id: 'siteaccess_remote'
+-
+    mode: 'update'
+    type: 'location'
+    location_id: 444
+    remote_id: 'siteaccess_remote'
+-
+    mode: 'update'
+    type: 'location'
+    match:
+        location_remote_id: 'remote_id'
+    remote_id: 'siteaccess_remote'
+-
+    mode: 'update'
+    type: 'location'
+    location_remote_id: 'siteaccess_remote'
+    remote_id: 'siteaccess_remote'
+-
+    mode: 'update'
+    type: 'location'
+    location_remote_id: 'siteaccess_remote'
+    remote_id: 'siteaccess_remote_2'

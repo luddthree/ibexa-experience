@@ -1,0 +1,71 @@
+ibexa.scheduler.rest.schedule_version:
+    path: /content/objects/{contentId}/versions/{versionNumber}/schedule/{publicationTimestamp}
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:scheduleVersionAction
+    methods: [PUT]
+    requirements:
+        contentId: \d+
+        versionNumber: \d+
+        publicationTimestamp: \d+
+
+ibexa.scheduler.rest.reschedule_version:
+    path: /content/objects/{contentId}/versions/{versionNumber}/schedule/{publicationTimestamp}
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:rescheduleVersionAction
+    methods: [PATCH]
+    requirements:
+        contentId: \d+
+        versionNumber: \d+
+        publicationTimestamp: \d+
+
+ibexa.scheduler.rest.unschedule_version:
+    path: /content/objects/{contentId}/versions/{versionNumber}
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:unscheduleVersionAction
+    methods: [DELETE]
+    requirements:
+        contentId: \d+
+        versionNumber: \d+
+
+ibexa.scheduler.rest.get_scheduled_version:
+    path: /content/objects/{contentId}/versions/{versionNumber}/schedule
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:getScheduledVersionAction
+    methods: [GET]
+    requirements:
+        contentId: \d+
+        versionNumber: \d+
+
+ibexa.scheduler.rest.get_scheduled_content_versions:
+    path: /content/objects/{contentId}/schedule/{page}/{limit}
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:getScheduledContentVersionsAction
+        page: 0
+        limit: 10
+    methods: [GET]
+    requirements:
+        contentId: \d+
+        page: \d+
+        limit: \d+
+
+ibexa.scheduler.rest.get_scheduled_versions:
+    path: /content/schedule/{page}/{limit}
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:getScheduledVersionsAction
+        page: 0
+        limit: 10
+    methods: [GET]
+    requirements:
+        page: \d+
+        limit: \d+
+
+ibexa.scheduler.rest.get_user_scheduled_versions:
+    path: /content/schedule/user/{page}/{limit}
+    defaults:
+        _controller: Ibexa\Bundle\Scheduler\Controller\DateBasedPublisherController:getUserScheduledVersionsAction
+        page: 0
+        limit: 10
+    methods: [GET]
+    requirements:
+        page: \d+
+        limit: \d+

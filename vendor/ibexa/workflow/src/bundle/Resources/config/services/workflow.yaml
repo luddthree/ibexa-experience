@@ -1,0 +1,41 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Service\WorkflowService: ~
+
+    Ibexa\Contracts\Workflow\Service\WorkflowServiceInterface: '@Ibexa\Workflow\Service\WorkflowService'
+
+    Ibexa\Workflow\Provider\WorkflowConfigurationProvider:
+        lazy: true
+
+    Ibexa\Workflow\Factory\Registry\WorkflowRegistryFactory:
+        lazy: true
+        arguments:
+            $supportStrategy: '@Ibexa\Workflow\SupportStrategy\MatcherSupportStrategy'
+            $providers:
+                - '@Ibexa\Workflow\Provider\WorkflowConfigurationProvider'
+
+    Ibexa\Workflow\Registry\WorkflowRegistry:
+        lazy: true
+        factory: ['@Ibexa\Workflow\Factory\Registry\WorkflowRegistryFactory', 'create']
+
+    Ibexa\Contracts\Workflow\Registry\WorkflowRegistryInterface: '@Ibexa\Workflow\Registry\WorkflowRegistry'
+
+    Ibexa\Workflow\Registry\WorkflowDefinitionMetadataRegistry:
+        lazy: true
+        factory: ['@Ibexa\Workflow\Factory\Registry\WorkflowDefinitionMetadataRegistryFactory', 'create']
+
+    Ibexa\Workflow\Factory\Registry\WorkflowDefinitionMetadataRegistryFactory:
+        lazy: true
+        arguments:
+            $providers:
+                - '@Ibexa\Workflow\Provider\WorkflowConfigurationProvider'
+
+    Ibexa\Contracts\Workflow\Registry\WorkflowDefinitionMetadataRegistryInterface: '@Ibexa\Workflow\Registry\WorkflowDefinitionMetadataRegistry'
+
+    Ibexa\Workflow\Factory\WorkflowDefinitionMetadata\WorkflowDefinitionMetadataFactory: ~
+
+    Ibexa\Contracts\Workflow\Factory\WorkflowDefinitionMetadata\WorkflowDefinitionMetadataFactoryInterface: '@Ibexa\Workflow\Factory\WorkflowDefinitionMetadata\WorkflowDefinitionMetadataFactory'

@@ -1,0 +1,10 @@
+--TEST--
+"ibexa_taxonomy_entries_for_content" function
+--TEMPLATE--
+{{ content|ibexa_taxonomy_entries_for_content|map(entry => "#{entry.name}")|join(', ') }}
+--DATA--
+return [
+    'content' => $this->getContent(),
+]
+--EXPECT--
+foo, bar

@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\SiteDomainMapper:
+        public: false
+
+    Ibexa\SiteFactory\PageDomainMapper:
+        public: false

@@ -1,0 +1,17 @@
+{% set filter_preview_templates = ibexa_get_filter_preview_templates() %}
+{% set is_filter_preview = is_filter_preview|default(false) %}
+
+{% set block_found = false %}
+{% for prefix in criteria.vars.block_prefixes|reverse %}
+    {% if not block_found %}
+        {% set block_name = prefix ~ '_values' %}
+
+        {% for template in filter_preview_templates %}
+            {% if block(block_name, template) is defined %}
+                {{ block(block_name, template) }}
+
+                {% set block_found = true %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}

@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{% form_theme search_form with '@ibexadesign/activity_log/filters/form_fields.html.twig' %}
+
+{% set is_some_filter_set =
+    (search_form.users is defined and search_form.users.vars.value|length) or
+    search_form.objectClasses.vars.value|length or
+    search_form.actions.vars.value|length or
+    search_form.time.vars.value != 0
+%}
+
+<div class="ibexa-al-filters">
+    <div class="ibexa-al-filters__header">
+        <h3 class="ibexa-al-filters__title">{{ 'activity_log.filters.title'|trans()|desc('Filters') }}</h3>
+        <div class="ibexa-al-filters__btns">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--clear"
+                {% if not is_some_filter_set %}disabled="true"{% endif %}
+            >
+                {{ 'activity_log.filters.clear'|trans|desc('Clear') }}
+            </button>
+            <button
+                type="submit"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--small ibexa-btn--apply"
+                {% if not is_some_filter_set %}disabled="true"{% endif %}
+            >
+                {{ 'activity_log.filters.apply'|trans|desc('Apply') }}
+            </button>
+        </div>
+    </div>
+
+    <div class="ibexa-al-filters__items accordion">
+        {{ form_row(search_form.actions) }}
+        {{ form_row(search_form.objectClasses) }}
+        {% if search_form.users is defined %}{{ form_row(search_form.users) }}{% endif %}
+        {{ form_row(search_form.time) }}
+        {{ form_rest(search_form) }}
+    </div>
+</div>

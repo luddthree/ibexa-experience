@@ -1,0 +1,82 @@
+{% trans_default_domain 'ibexa_fieldtypes_comparison_ui' %}
+
+{% form_theme select_versions_form.side_by_side '@ibexadesign/ui/form_fields.html.twig' '@ibexadesign/version_comparison/button_side_by_side_widget.html.twig' %}
+{% form_theme select_versions_form.compare '@ibexadesign/ui/form_fields.html.twig' '@ibexadesign/version_comparison/button_single_widget.html.twig' %}
+{% form_theme select_versions_form.version_b '@ibexadesign/ui/form_fields.html.twig' %}
+{% form_theme select_versions_form.version_a '@ibexadesign/ui/form_fields.html.twig' %}
+{% form_theme select_versions_form.language '@ibexadesign/ui/form_fields.html.twig' %}
+
+<div class="ibexa-version-compare-menu">
+    {{ form_start(select_versions_form) }}
+        <div class="ibexa-version-compare-menu__header">
+            <div class="ibexa-version-compare-menu__column ibexa-version-compare-menu__column--language-selector">
+                {% set is_only_one_language = select_versions_form.language.vars.choices|length == 1 %}
+
+                <span class="ibexa-version-compare-menu__language-selector-label" {% if is_only_one_language %}hidden="hidden"{% endif %}>
+                    {{ 'content.comparison.language_selector.label'|trans|desc('Language') }}
+                </span>
+                {{ form_widget(select_versions_form.language, {
+                    attr: {
+                        is_ghost: true,
+                        is_small: true,
+                        dropdown_hidden: is_only_one_language,
+                    }
+                }) }}
+            </div>
+            <div class="ibexa-version-compare-menu__column ibexa-version-compare-menu__column--type-selector">
+                <div class="ibexa-version-compare-menu__type-selector-wrapper">
+                    {{ form_widget(select_versions_form.side_by_side, {
+                        attr: {
+                            class: not single ? 'ibexa-version-compare-menu__type-selector--active' : '',
+                        }
+                    }) }}
+                    {{ form_widget(select_versions_form.compare, {
+                        attr: {
+                            class: single ? 'ibexa-version-compare-menu__type-selector--active' : '',
+                        }
+                    }) }}
+                </div>
+            </div>
+        </div>
+        <div class="ibexa-version-compare-menu__version-selector">
+            <div class="ibexa-version-compare-menu__version-select-wrapper">
+                {{ form_widget(select_versions_form.version_a, {
+                    attr: {
+                        class: 'ibexa-version-compare-menu__version-select'
+                    }
+                }) }}
+            </div>
+            {% set versionNoB = app.request.get('versionNoB') %}
+            {% set compareIcon %}
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('version-compare-action') }}"></use>
+                </svg>
+            {% endset %}
+            {% if versionNoB is not empty %}
+                <a
+                    class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--no-text ibexa-version-compare-menu__version-select-icon-wrapper"
+                    href="{{ path(app.request.get('_route'), {
+                        contentInfoId: app.request.get('contentInfoId'),
+                        versionNoA: versionNoB,
+                        versionALanguageCode: app.request.get('versionBLanguageCode'),
+                        versionNoB: app.request.get('versionNoA'),
+                        versionBLanguageCode: app.request.get('versionALanguageCode')
+                    }) }}"
+                >
+                    {{ compareIcon }}
+                </a>
+            {% else %}
+                <span class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--no-text ibexa-version-compare-menu__version-select-icon-wrapper">
+                    {{ compareIcon }}
+                </span>
+            {% endif %}
+            <div class="ibexa-version-compare-menu__version-select-wrapper">
+                {{ form_widget(select_versions_form.version_b, {
+                    attr: {
+                        class: 'ibexa-version-compare-menu__version-select'
+                    }
+                }) }}
+            </div>
+        </div>
+    {{ form_end(select_versions_form) }}
+</div>

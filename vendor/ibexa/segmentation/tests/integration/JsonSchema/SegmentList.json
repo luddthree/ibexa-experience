@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "SegmentList": {
+      "type": "object",
+      "properties": {
+        "_media-type": {
+          "type": "string"
+        },
+        "_href": {
+          "type": "string"
+        },
+        "Segment": {
+          "type":"array",
+          "items": {
+            "properties": {
+              "_media-type": {
+                "type": "string"
+              },
+              "_href": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "identifier": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[[:alnum:]_]+"
+              },
+              "SegmentGroup": {
+                "type": "object",
+                "properties": {
+                  "_media-type": {
+                    "type": "string"
+                  },
+                  "_href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "_media-type",
+                  "_href"
+                ]
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "_media-type",
+              "_href",
+              "id",
+              "identifier",
+              "SegmentGroup",
+              "name"
+            ]
+          }
+        }
+      },
+      "required": [
+        "_media-type",
+        "_href",
+        "Segment"
+      ]
+    }
+  },
+  "required": [
+    "SegmentList"
+  ]
+}

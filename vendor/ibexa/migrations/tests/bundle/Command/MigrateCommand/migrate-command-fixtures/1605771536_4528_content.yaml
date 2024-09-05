@@ -1,0 +1,90 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: landing_page
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2007-11-28T16:51:36+00:00'
+        publicationDate: '2007-11-19T13:54:46+00:00'
+        remoteId: foo_landing_page
+        alwaysAvailable: true
+        section: 1
+        objectStates: {  }
+    location:
+        parentLocationId: 1
+        locationRemoteId: foo_landing_page_location
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home
+    references:
+        -
+            name: ref__content__landing_page__home
+            type: content_id
+        -
+            name: ref_location__landing_page__home
+            type: location_id
+        -
+            name: ref_path__landing_page__home
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: feedback_form
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2012-03-28T09:34:42+00:00'
+        publicationDate: '2012-03-28T09:33:25+00:00'
+        remoteId: foo_feedback_form
+        alwaysAvailable: false
+        section: 1
+        objectStates: {  }
+    location:
+        parentLocationId: 2
+        locationRemoteId: foo_feedback_form_location
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: -2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Contact Us'
+        -
+            fieldDefIdentifier: sender_name
+            languageCode: eng-GB
+            value: 'Firstname Lastname'
+        -
+            fieldDefIdentifier: subject
+            languageCode: eng-GB
+            value: Subject
+        -
+            fieldDefIdentifier: message
+            languageCode: eng-GB
+            value: 'Message text'
+        -
+            fieldDefIdentifier: email
+            languageCode: eng-GB
+            value: sender@example.com
+        -
+            fieldDefIdentifier: recipient
+            languageCode: eng-GB
+            value: recipient@example.com
+    references:
+        -
+            name: 'ref__content__feedback_form__contact us'
+            type: content_id
+        -
+            name: 'ref_location__feedback_form__contact us'
+            type: location_id
+        -
+            name: 'ref_path__feedback_form__contact us'
+            type: path

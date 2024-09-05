@@ -1,0 +1,33 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+{% import '@ibexadesign/ui/component/macros.html.twig' as html %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set progress_value = progress_value|round %}
+
+<div class="
+    ibexa-pc-progress-bar
+    {{ is_task|default(false) ? ' ibexa-pc-progress-bar--task' }}
+    {{ is_collapsed_task|default(false) ? ' ibexa-pc-progress-bar--collapsed-task' }}
+    {{ progress_value == 0 ? ' ibexa-pc-progress-bar--not-started' }}
+    {{ progress_value == 100 ? ' ibexa-pc-progress-bar--completed' }}
+">
+    <div class="ibexa-pc-progress-bar__value">
+        <div class="ibexa-pc-progress-bar__value-mask" style="width: calc(100% - {{ progress_value }}%);"></div>
+    </div>
+
+    {% if progress_bar_label is defined %}
+        <div class="ibexa-pc-progress-bar__label">
+            {{ progress_bar_label }}
+        </div>
+    {% endif %}
+
+    <div class="ibexa-pc-progress-bar__completed-msg-wrapper">
+        <svg class="ibexa-icon ibexa-icon--tiny-small">
+            <use xlink:href="{{ ibexa_icon_path('checkmark') }}"></use>
+        </svg>
+        <span class="ibexa-pc-progress-bar__completed-msg">
+            {{ 'product.view.progress_bar.completed_status_label'|trans|desc('Completed 100%') }}
+        </span>
+    </div>
+</div>

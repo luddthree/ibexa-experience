@@ -1,0 +1,57 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\Personalization\PageBlock\Event\Subscriber\PersonalizationBlocksSubscriber: ~
+
+    # Mappers
+    Ibexa\Personalization\PageBuilder\FormTypeMapper\ScenarioListFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: personalization_scenario_list }
+
+    ibexa.personalization.form_type_attribute.mapper.personalization_segment_scenario_map:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\Personalization\Form\Type\BlockAttribute\TargetedScenarioMapAttributeType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: personalization_segment_scenario_map }
+
+    ibexa.personalization.form_type_attribute.mapper.personalization_customer_select:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\Personalization\Form\Type\BlockAttribute\CustomerSelectAttributeType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: personalization_customer_select }
+
+    Ibexa\Personalization\PageBuilder\FormTypeMapper\OutputTypeFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: personalization_output_type_list }
+
+    # Custom attribute types
+    Ibexa\Personalization\Form\Type\BlockAttribute\ScenarioListAttributeType: ~
+
+    Ibexa\Personalization\Form\Type\BlockAttribute\OutputTypeListAttributeType:
+        arguments:
+            $serializer: '@ibexa.personalization.serializer'
+
+    Ibexa\Personalization\Form\Type\BlockAttribute\TargetedScenarioMapAttributeType:
+        arguments:
+            $serializer: '@ibexa.personalization.serializer'
+
+    Ibexa\Personalization\Form\Type\BlockAttribute\CustomerSelectAttributeType:
+        arguments:
+            $choiceLoader: '@Ibexa\Personalization\Form\Type\ChoiceType\CustomerSiteChoiceLoader'
+
+    Ibexa\Personalization\Form\Type\ChoiceType\CustomerSiteChoiceLoader: ~
+
+    # Twig extensions
+    Ibexa\Bundle\Personalization\Templating\Twig\DynamicTargetingBlockResponseExtension:
+        arguments:
+            $serializer: '@ibexa.personalization.serializer'
+        tags:
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    # Customizable Dashboard blocks
+    Ibexa\Personalization\Event\Subscriber\CustomizableDashboard\TopClickedItemsBlockSubscriber: ~

@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Tests\Integration\ActivityLog\Security\PermissionResolverMock:
+        decorates: Ibexa\Contracts\Core\Repository\PermissionResolver
+        decoration_priority: 9999

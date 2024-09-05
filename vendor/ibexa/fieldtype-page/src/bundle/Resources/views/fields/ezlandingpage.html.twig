@@ -1,0 +1,39 @@
+{% extends "@IbexaCore/content_fields.html.twig" %}
+
+{% block ezlandingpage_field %}
+    {% set field_value %}
+        {% set page = field.value.page() %}
+        {% include ibexa_page_layout(page) with {'zones': page.zones} %}
+    {% endset %}
+    {{ block('simple_block_field') }}
+    {% if parameters.editorial_mode %}
+        {{ encore_entry_link_tags('ibexa-page-fieldtype-common-css', null, 'ibexa') }}
+        {% set hidden_blocks = [] %}
+        {% for zone in page.zones %}
+            {% for block in zone.blocks %}
+                {% if not block.isVisible(parameters.reference_date_time) %}
+                    {% set hidden_blocks = hidden_blocks|merge([block.id]) %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+        <script type="text/javascript">
+            (function(global, doc) {
+                'use strict';
+
+                const hiddenBlocks = {{ hidden_blocks|json_encode|raw }};
+
+                hiddenBlocks.forEach((id) => {
+                    const element = doc.querySelector(`.landing-page__block[data-ez-block-id="${id}"]`);
+
+                    if (element) {
+                        [...element.childNodes].forEach((child) => {
+                            if (child instanceof HTMLElement) {
+                                child.classList.add('ibexa-mark-invisible');
+                            }
+                        });
+                    }
+                });
+            })(window, window.document);
+        </script>
+    {% endif %}
+{% endblock %}

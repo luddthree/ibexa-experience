@@ -1,0 +1,104 @@
+{% macro header_custom_action(custom_action) %}
+    {% import '@ibexadesign/ui/component/macros.html.twig' as html %}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+
+    {% set attr = custom_action.attr|default({})|merge({
+        class: (custom_action.attr.class|default('') ~ ' btn ibexa-btn')|trim,
+        type: custom_action.attr.button_type|default('button')
+    }) %}
+
+    <button {{ html.attributes(attr) }}>
+        {% if custom_action.icon_name is defined %}
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                <use xlink:href="{{ ibexa_icon_path(custom_action.icon_name) }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">{{ custom_action.label }}</span>
+        {% else %}
+            {{ custom_action.label }}
+        {% endif %}
+    </button>
+{% endmacro %}
+
+{% macro header_delete_action(modal_id, modal_message) %}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+
+    <button
+        type="button"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-pc-data-grid__delete-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#{{ modal_id }}"
+        disabled
+    >
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">{{ 'list.delete'|trans|desc('Delete') }}</span>
+    </button>
+
+    {% include '@ibexadesign/product_catalog/ui/modal/bulk_delete_confirmation.html.twig' with {
+        id: modal_id,
+        message: modal_message,
+    } %}
+{% endmacro %}
+
+{% macro cell_checkbox(name, value, disabled = false) %}
+    <div class="form-check">
+        <input
+            type="checkbox"
+            name="{{ name }}"
+            value="{{ value }}"
+            {{ disabled ? 'disabled="disabled"' }}
+            class="ibexa-input ibexa-input--checkbox ibexa-pc-data-grid__mark-row-checkbox form-check-input"
+        />
+    </div>
+{% endmacro %}
+
+{% macro cell_name(name = '', url) %}
+    {% if url is defined and url %}
+        <a href="{{ url }}">{{ name }}</a>
+    {% else %}
+        <span>{{ name }}</span>
+    {% endif %}
+{% endmacro %}
+
+{% macro cell_image(image, extraWrapperClass = []) %}
+    <div class="ibexa-pc-data-grid__image-wrapper {{ extraWrapperClass|join(' ') }}">
+        {% if image.thumbnail and image.thumbnail.mimeType is defined %}
+            {% if image.thumbnail.mimeType == 'image/svg+xml' %}
+                <svg class="ibexa-icon">
+                    <use xlink:href="{{ image.thumbnail.resource }}"></use>
+                </svg>
+            {% elseif (image.thumbnail.resource is defined) %}
+                <img class="ibexa-pc-data-grid__image" src="{{ image.thumbnail.resource }}" alt="{{ image.name }}" />
+            {% endif %}
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro cell_edit(edit_url) %}
+    <a
+        href="{{ edit_url }}"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+        title="{{ 'list.tooltip.edit'|trans|desc('Edit') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+            <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+        </svg>
+    </a>
+{% endmacro %}
+
+{% macro cell_copy(copy_source_id, target_input_selector, confirm_modal_selector) %}
+    <button
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-pc-data-grid__copy-btn"
+        title="{{ 'list.tooltip.copy'|trans|desc('Duplicate') }}"
+        type="button"
+        data-copy-source-id="{{ copy_source_id }}"
+        data-target-input-selector="{{ target_input_selector }}"
+        data-bs-toggle="modal"
+        data-bs-target="{{ confirm_modal_selector }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+            <use xlink:href="{{ ibexa_icon_path('copy') }}"></use>
+        </svg>
+    </button>
+{% endmacro %}

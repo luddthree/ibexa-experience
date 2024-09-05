@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Ibexa\Personalization\Menu\ScenarioEditRightSidebarBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ibexa_personalization.menu.scenario_edit.sidebar_right }
+
+    Ibexa\Personalization\Menu\ScenarioCreateRightSidebarBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ibexa_personalization.menu.scenario_create.sidebar_right }
+
+    Ibexa\Personalization\Menu\ModelEditRightSidebarBuilder:
+        public: true
+        tags:
+            - { name: knp_menu.menu_builder, method: build, alias: ibexa_personalization.menu.model_edit.sidebar_right }

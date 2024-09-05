@@ -1,0 +1,37 @@
+services:
+    _defaults:
+        autowire: true
+        # Warning: Do NOT enable autoconfigure for Serializer and Normalizer services.
+        # They will be tagged with "serializer.normalizer" tag and injected to main app serializer service if done so.
+        autoconfigure: false
+        public: false
+
+    ibexa.product_catalog.product.serializer:
+        class: Symfony\Component\Serializer\Serializer
+        arguments:
+            - ['@Ibexa\Bundle\ProductCatalog\Serializer\ProductNormalizer']
+            - ['@serializer.encoder.json']
+
+    Ibexa\Bundle\ProductCatalog\Serializer\ProductNormalizer:
+        arguments:
+            $fullDateTimeFormatter: '@ibexa.user.settings.full_datetime_format.formatter'
+
+    Ibexa\Bundle\ProductCatalog\Serializer\AttributeClassDiscriminatorMappingFactory:
+        arguments:
+            $mappingFactories: !tagged_iterator ibexa.product_catalog.rest.attribute_discriminator_mapping
+
+    Ibexa\Bundle\ProductCatalog\Serializer\AttributeDenormalizer:
+        arguments:
+            $classDiscriminatorResolver: '@Ibexa\Bundle\ProductCatalog\Serializer\AttributeDiscriminatorResolver'
+        tags:
+            - ibexa.rest.serializer.normalizer
+
+    Ibexa\Bundle\ProductCatalog\Serializer\AttributeDiscriminatorResolver: ~
+
+    Ibexa\Bundle\ProductCatalog\Serializer\AttributesDenormalizer:
+        tags:
+            - ibexa.rest.serializer.normalizer
+
+    Ibexa\Bundle\ProductCatalog\Serializer\DefaultAttributeValueMappingFactory:
+        tags:
+            - ibexa.product_catalog.rest.attribute_discriminator_mapping

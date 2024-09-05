@@ -1,0 +1,184 @@
+{% extends '@ibexadesign/personalization/base_details.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-perso-model-details{% endblock %}
+
+{% macro model_name_with_maximum_rating_age(model) %}
+    {{ ('models.name.' ~ model.referenceCode)|trans }}
+    {% if model.maximumRatingAge %}
+        ({{ model.maximumRatingAge|format_interval }})
+    {% endif %}
+{% endmacro %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.personalization'|trans|desc('Personalization'), url: path('ibexa.personalization.dashboard', { 'customerId': customer_id }) },
+        { value: 'breadcrumb.models'|trans|desc('Models'), url: path('ibexa.personalization.models', { 'customerId': customer_id }) },
+        { value: model ? _self.model_name_with_maximum_rating_age(model) : '' },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if can_edit %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                <a
+                    class="btn ibexa-btn ibexa-btn--primary"
+                    href="{{ url('ibexa.personalization.model.edit', {
+                        "referenceCode": model.referenceCode,
+                        'customerId': customer_id
+                    }) }}"
+                >
+                    <span class="ibexa-btn__label">{{ 'model.edit_short'|trans|desc('Edit') }}</span>
+                </a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: model ? _self.model_name_with_maximum_rating_age(model) : '',
+    } %}
+        {% block bottom %}
+            <div class="ibexa-perso-details__subtitle">
+                {{ 'model.details.subtitle'|trans|desc('Model') }}
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block details %}
+    {% if model %}
+        {% set general_details_items = [
+            {
+                label: 'model.details.name'|trans|desc('Name'),
+                content: _self.model_name_with_maximum_rating_age(model),
+            },
+            {
+                label: 'model.details.identifier'|trans|desc('Identifier'),
+                content: model.referenceCode,
+            },
+            {
+                label: 'model.details.description'|trans|desc('Model description'),
+                content: ('models.description.' ~ model.referenceCode)|trans,
+            },
+        ] %}
+
+        {% if model.maximumRatingAge %}
+            {% set general_details_items = general_details_items|merge([
+                {
+                    label: 'model.details.event_history'|trans|desc('Relevant event history'),
+                    content: model.maximumRatingAge|format_interval,
+                },
+            ]) %}
+        {% endif %}
+
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            headline: 'model.details.general'|trans|desc('General'),
+            items: general_details_items,
+        } only %}
+
+        {% set content %}
+            {% if model.metaData.buildFinish is empty %}
+                {% if model.size > 0 %}
+                    {{ 'model.details.active'|trans|desc('Active') }}
+                {% else %}
+                    {{ 'model.details.not_active'|trans|desc('Not active') }}
+                {% endif %}
+            {% else %}
+                {{ model.metaData.buildFinish|ibexa_short_date }}
+            {% endif %}
+        {% endset %}
+        {% set status_details_items = [
+            {
+                label: 'model.details.last_build'|trans|desc('Last build'),
+                content,
+            },
+        ] %}
+
+        {% if model.scenarios|length > 0 %}
+            {% set content %}
+                <ul class="list-unstyled">
+                    {% for scenario in model.scenarios %}
+                        <li>{{ scenario }}</li>
+                    {% endfor %}
+                </ul>
+            {% endset %}
+            {% set status_details_items = status_details_items|merge([
+                {
+                    label: 'model.details.used_scenario'|trans|desc('Used in scenario'),
+                    content,
+                },
+            ]) %}
+        {% endif %}
+
+        {% if model.metadata.recommendations|length > 0 %}
+            {% set content %}
+                <ul class="list-unstyled">
+                    {% for recommendation in model.metadata.recommendations %}
+                        <li>{{ recommendation.itemTypeName }}: {{ recommendation.amount }}</li>
+                    {% endfor %}
+                </ul>
+            {% endset %}
+            {% set status_details_items = status_details_items|merge([
+                {
+                    label: 'model.details.number_recommendations'|trans|desc('Number of recommendations'),
+                    content,
+                },
+            ]) %}
+        {% endif %}
+
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            headline: 'model.details.status'|trans|desc('Status'),
+            items: status_details_items,
+        } only %}
+
+        {% if model.submodelsSupported and submodels|length %}
+            {% embed '@ibexadesign/ui/component/details/details.html.twig' with {
+                headline: 'model.details.submodels'|trans|desc('Submodels'),
+                submodels,
+            } only %}
+                {% block details_items %}
+                    {% from '@ibexadesign/personalization/models/macros.html.twig' import submodel_name %}
+
+                    <label class="ibexa-label">
+                        {{ 'model.details.submodel_type'|trans|desc('Submodel type') }}
+                    </label>
+                    {% set source %}
+                        <select class="ibexa-input ibexa-input--select form-control ibexa-dropdown__source-input ibexa-perso-model-details__submodel-select d-none">
+                            {% for submodel in submodels %}
+                                <option value="{{ submodel.attributeKey }}">
+                                    {{ submodel_name(submodel) }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    {% endset %}
+
+                    {% set choices = submodels|map(
+                        submodel => { value: submodel.attributeKey, label: submodel_name(submodel) }
+                    ) %}
+
+                    {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                        source: source,
+                        choices: choices,
+                    } %}
+
+                    {% for index, submodel in submodels %}
+                        {% include '@ibexadesign/personalization/models/parts/submodel_item.html.twig' with {
+                            submodel: submodel,
+                            class: 'ibexa-perso-submodel-details--' ~ submodel.attributeKey ~ (not loop.first ? ' d-none' : '')
+                        }%}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-model-details-js', null, 'ibexa') }}
+{% endblock %}

@@ -1,0 +1,22 @@
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-symfony/extension.neon
+    - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+    - ignore-by-php-version.neon.php
+    - phpstan-baseline.neon
+
+parameters:
+    level: max
+    ignoreErrors:
+        -
+            message: "#^Cannot call method (fetchOne|fetchColumn|fetchAllAssociative|fetchAssociative|fetchAllKeyValue)\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+            paths:
+                - src/*
+        -
+                message: "#^Parameter \\#1 \\$submittedData of method Symfony\\\\Component\\\\Form\\\\FormInterface\\<mixed\\>\\:\\:submit\\(\\) expects array\\|string\\|null, float\\|string given\\.$#"
+                count: 1
+                path: tests/lib/FieldType/Field/NumberFieldTypeTest.php
+    treatPhpDocTypesAsCertain: false
+    paths:
+        - src
+        - tests

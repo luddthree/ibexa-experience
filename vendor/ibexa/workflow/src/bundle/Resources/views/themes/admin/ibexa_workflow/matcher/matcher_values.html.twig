@@ -1,0 +1,23 @@
+{% block ez_workflow_matcher_content_type_value %}
+    {% apply spaceless %}
+        {% for value in values %}
+            {{ value.name }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    {% endapply %}
+{% endblock %}
+
+{% block ez_workflow_matcher_content_status_value %}
+    {% apply spaceless %}
+        {% for value in values %}
+            {{ value|capitalize }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    {% endapply %}
+{% endblock %}
+
+{% block ez_workflow_matcher_value_fallback %}
+    {% apply spaceless %}
+        {% for value in values %}
+            {{ value|capitalize }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    {% endapply %}
+{% endblock %}

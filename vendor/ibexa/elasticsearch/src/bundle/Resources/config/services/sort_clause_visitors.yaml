@@ -1,0 +1,101 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  ibexa.elasticsearch.query.content.sort_clause_visitor.dispatcher:
+    class: Ibexa\Elasticsearch\Query\SortClauseVisitor\DispatcherVisitor
+    arguments:
+      $visitors: !tagged ibexa.search.elasticsearch.query.content.sort_clause.visitor
+
+  ibexa.elasticsearch.query.location.sort_clause_visitor.dispatcher:
+    class: Ibexa\Elasticsearch\Query\SortClauseVisitor\DispatcherVisitor
+    arguments:
+      $visitors: !tagged ibexa.search.elasticsearch.query.location.sort_clause.visitor
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\ContentIdVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\ContentNameVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\ContentTranslatedNameVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\DateModifiedVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\DatePublishedVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\FieldVisitor:
+    arguments:
+      $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\MapLocationDistanceVisitor:
+    arguments:
+      $fieldNameResolver: '@Ibexa\Core\Search\Common\FieldNameResolver'
+      $fieldName: 'value_location'
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\CustomFieldVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\ScoreVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\SectionIdentifierVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\SectionNameVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.content.sort_clause.visitor }
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  ### Location specific
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\Location\IdVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\Location\IsMainLocationVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\Location\DepthVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\Location\PathVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\Location\PriorityVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }
+
+  Ibexa\Elasticsearch\Query\SortClauseVisitor\Location\VisibilityVisitor:
+    tags:
+      - { name: ibexa.search.elasticsearch.query.location.sort_clause.visitor }

@@ -1,0 +1,23 @@
+imports:
+    - { resource: services/commands.yaml }
+    - { resource: services/controllers.yaml }
+    - { resource: services/doctrine.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/extractors.yaml }
+    - { resource: services/fieldtype.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/gateways.yaml }
+    - { resource: services/graphql/**.yaml }
+    - { resource: services/input_parsers.yaml }
+    - { resource: services/installer.yaml }
+    - { resource: services/menu.yaml }
+    - { resource: services/proxy.yaml }
+    - { resource: services/repository.yaml }
+    - { resource: services/security.yaml }
+    - { resource: services/taxonomy.yaml }
+    - { resource: services/twig.yaml }
+    - { resource: services/ui.yaml }
+    - { resource: services/value_object_visitors.yaml }
+    - { resource: services/view_matchers.yaml }
+    - { resource: services/search/common.yaml }
+    - { resource: services/search/legacy.yaml }

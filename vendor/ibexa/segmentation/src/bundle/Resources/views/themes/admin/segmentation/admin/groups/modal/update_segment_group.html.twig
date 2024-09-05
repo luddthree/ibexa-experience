@@ -1,0 +1,32 @@
+{% trans_default_domain 'ibexa_segmentation' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'form.editing'|trans({'%name%': segment_group.name})|desc('Editing %name% segment group'),
+    class: 'ibexa-modal--update-segment-group',
+    id: 'update-segment-group-modal',
+} %}
+    {% trans_default_domain 'ibexa_segmentation' %}
+
+    {% block content_before %}
+        {% form_theme form '@ibexadesign/segmentation/admin/groups/modal/form_types.html.twig' %}
+        {{ form_start(form, {
+            'action': path('ibexa.segmentation.group.update', {'segmentGroupId': segment_group.id}),
+            'method': 'POST'
+        }) }}
+    {% endblock %}
+    {% block body_content %}
+        <div class="ibexa-form-block">
+            {{ form_row(form.name, { row_attr: { class: 'ibexa-form-field' } }) }}
+            {{ form_row(form.identifier, { row_attr: { class: 'ibexa-form-field' } }) }}
+        </div>
+    {% endblock %}
+    {% block footer_content %}
+        {{ form_widget(form.update, { 'attr': { 'class': 'btn ibexa-btn ibexa-btn--primary' } }) }}
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary" data-bs-dismiss="modal">
+            {{ 'form.cancel'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+    {% block content_after %}
+        {{ form_end(form) }}
+    {% endblock %}
+{% endembed %}

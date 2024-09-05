@@ -1,0 +1,51 @@
+orm:
+    entity_mappings:
+        IbexaTaxonomyBundle:
+            is_bundle: false
+            type: annotation
+            dir: '%kernel.project_dir%/vendor/ibexa/taxonomy/src/lib/Persistence/Entity'
+            prefix: Ibexa\Taxonomy\Persistence\Entity
+        gedmo_tree:
+            type: annotation
+            prefix: Gedmo\Tree\Entity
+            dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Tree/Entity"
+            is_bundle: false
+
+system:
+    default:
+        field_templates:
+            - { template: '@ibexadesign/ibexa/taxonomy/fieldtypes.html.twig', priority: 50 }
+
+    admin_group:
+        admin_ui_forms:
+            content_edit:
+                form_templates:
+                    - { template: '@ibexadesign/ibexa/taxonomy/forms/content_edit/fieldtypes.html.twig', priority: 50 }
+
+        field_templates:
+            - { template: '@ibexadesign/ibexa/taxonomy/forms/content_view/fieldtypes.html.twig', priority: 60 }
+
+        limitation_value_templates:
+            - { template: '@ibexadesign/ibexa/taxonomy/limitation/limitation_values.html.twig', priority: 10 }
+
+        content_view:
+            full:
+                taxonomy:
+                    controller: 'Ibexa\Bundle\Taxonomy\Controller\ContentViewController::locationViewAction'
+                    template: '@ibexadesign/ibexa/taxonomy/taxonomy_entry/show.html.twig'
+                    match:
+                        '@Ibexa\Taxonomy\View\Matcher\IsTaxonomy': true
+                taxonomyParentFolder:
+                    controller: 'Ibexa\Bundle\Taxonomy\Controller\ContentViewController::redirectToRootEntryAction'
+                    match:
+                        '@Ibexa\Taxonomy\View\Matcher\IsTaxonomyParentFolder': true
+
+        content_edit_view:
+            full:
+                taxonomy:
+                    controller: 'Ibexa\Bundle\Taxonomy\Controller\ContentEditController::contentEditAction'
+                    template: '@ibexadesign/ibexa/taxonomy/taxonomy_entry/edit.html.twig'
+                    params:
+                        view_base_layout: '@ibexadesign/ui/layout.html.twig'
+                    match:
+                        '@Ibexa\Taxonomy\View\Matcher\IsTaxonomy': true

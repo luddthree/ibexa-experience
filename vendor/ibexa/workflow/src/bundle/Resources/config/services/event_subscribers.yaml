@@ -1,0 +1,31 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Event\Subscriber\FormProcessor: ~
+
+    Ibexa\Workflow\Event\Subscriber\WorkflowGuardSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\UiComponentsSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\DeleteWorkflowSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\StartWorkflowSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\TimelineTransitionEntriesSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\StageChangeSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\WorkflowTransitionSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\VersionLockSubscriber: ~
+
+    Ibexa\Workflow\Event\Subscriber\VersionLockedExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onVersionLocked, priority: 255 }
+
+    Ibexa\Workflow\Event\Subscriber\CleanupWorkflowMetadataSubscriber:
+        arguments:
+            - '@Ibexa\Contracts\Workflow\Persistence\Handler\HandlerInterface'

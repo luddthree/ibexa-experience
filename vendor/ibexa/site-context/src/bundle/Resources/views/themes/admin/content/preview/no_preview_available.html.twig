@@ -1,0 +1,24 @@
+{% trans_default_domain 'ibexa_site_context' %}
+
+{% set theme = app.request.get('theme')|default('light') %}
+
+<html>
+    <head>
+        {{ encore_entry_link_tags('ibexa-site-context-preview-not-available-css', null, 'ibexa') }}
+    </head>
+    <body class="ibexa-sc-preview-not-available ibexa-sc-preview-not-available--{{ theme }}">
+        <img
+            class="ibexa-sc-preview-not-available__empty-image"
+            src="{{ asset('/bundles/ibexasitecontext/img/preview-not-available-' ~ theme ~ '.svg') }}"
+            alt="{{ 'ibexa.site_context.preview.no_available.main'|trans|desc("Preview isn't available in selected language") }}"
+        />
+        <div class="ibexa-sc-preview-not-available__empty-text">
+            <div class="ibexa-sc-preview-not-available__empty-header-text">
+                {{ 'ibexa.site_context.preview.no_available.main'|trans|desc("Preview isn't available in selected language") }}
+            </div>
+            <div class="ibexa-sc-preview-not-available__empty-info-text">
+                {{ 'ibexa.site_context.preview.no_available.helper'|trans|desc("This content doesn't have translation in the selected language. To see the preview, create a translation.") }}
+            </div>
+        </div>
+    </body>
+</html>

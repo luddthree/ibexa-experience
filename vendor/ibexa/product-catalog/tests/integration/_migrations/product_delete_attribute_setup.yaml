@@ -1,0 +1,80 @@
+-   type: content_type
+    mode: create
+    metadata:
+        identifier: product_attribute_delete_test
+        mainTranslation: eng-GB
+        creationDate: '2023-07-28T10:20:40+00:00'
+        urlAliasSchema: ''
+        nameSchema: '<name>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - product
+        translations:
+            eng-GB:
+                name: Product Attribute Delete test
+    fields:
+        -   identifier: name
+            type: ezstring
+            position: 1
+            translations:
+                eng-GB:
+                    name: Name
+            required: false
+            searchable: true
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: ''
+            fieldSettings: { }
+            validatorConfiguration:
+                StringLengthValidator:
+                    maxStringLength: 255
+                    minStringLength: null
+        -   identifier: specification
+            type: ibexa_product_specification
+            position: 0
+            translations:
+                eng-GB:
+                    name: Specification
+            required: true
+            searchable: false
+            infoCollector: false
+            translatable: false
+            category: Content
+            defaultValue: null
+            fieldSettings:
+                attributes_definitions:
+                    dimensions:
+                        - { attributeDefinition: foo, required: false, discriminator: false }
+                        - { attributeDefinition: bar, required: false, discriminator: false }
+                regions:
+                    - { region_identifier: __REGION_1__, vat_category_identifier: fii }
+            validatorConfiguration: { }
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: product_attribute_delete_test
+        mainTranslation: eng-GB
+        modificationDate: '2023-07-28T10:25:40+00:00'
+        publicationDate: '2023-07-28T10:30:40+00:00'
+        remoteId: 'product_delete_attribute_test_0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'product_delete_attribute_test_0001'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Product Attribute Delete Test'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'product_delete_attribute_test_0001'
+                attributes:
+                    foo: 10
+                    bar: false

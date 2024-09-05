@@ -1,0 +1,21 @@
+parameters:
+    ignoreErrors:
+        -
+            message: "#^Parameter \\#1 \\$segmentGroups of class Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData constructor expects array, array\\<false\\>\\|false given\\.$#"
+            count: 1
+            path: src/bundle/Controller/SegmentController.php
+
+        -
+            message: "#^Parameter \\#1 \\$segments of class Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData constructor expects array, array\\<int, false\\>\\|false given\\.$#"
+            count: 1
+            path: src/bundle/Controller/SegmentController.php
+
+        -
+            message: "#^Parameter \\#1 \\$choices of class Symfony\\\\Component\\\\Form\\\\ChoiceList\\\\ArrayChoiceList constructor expects iterable, array\\<string, int\\>\\|false given\\.$#"
+            count: 1
+            path: src/lib/Form/ChoiceLoader/SegmentGroupChoiceLoader.php
+
+        -
+            message: "#^Parameter \\#1 \\$arr1 of function array_merge expects array, mixed given\\.$#"
+            count: 1
+            path: src/lib/Event/Subscriber/PersonalizationUserSegmentsSubscriber.php

@@ -1,0 +1,289 @@
+{% set attribute_name = 'measurement.name'|trans({}, 'ibexa_product_catalog_attributes')|desc('Measurement (deprecated)') %}
+
+{% block measurement_type %}
+    <div class="ibexa-measurement-type">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        <div class="ibexa-form-error">
+            {{- form_errors(form) -}}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_type_row %}
+    {{ block('measurement_type') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_type_row %}
+    {{ block('measurement_type') }}
+{% endblock %}
+
+{% block measurement_unit %}
+    <div class="ibexa-measurement-unit">
+        <div class="ibexa-measurement-unit__original-dropdown">
+            {{- form_label(form) -}}
+            {{- form_widget(form) -}}
+        </div>
+        <div class="ibexa-measurement-unit__content">
+            <div class="ibexa-measurement-unit__icon-wrapper">
+                <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--base-dark">
+                    <use xlink:href="{{ ibexa_icon_path('go-right') }}"></use>
+                </svg>
+            </div>
+            <div class="ibexa-measurement-unit__dropdown-wrapper">
+                {{- form_label(form) -}}
+
+                {% set selected_type = form.parent.children.type.vars.value|default(form.vars.choices|first.label) %}
+                {% set selected_choices = form.vars.choices[selected_type].choices %}
+                {% set value = form.vars.value %}
+                {% set choices = selected_choices|map((choice) => {
+                    value: choice.value,
+                    label: choice.label
+                }) %}
+                {% set source %}
+                    <select class="form-control ibexa-input ibexa-input--select">
+                        {% for choice in selected_choices %}
+                            <option value="{{ choice.value }}" {% if choice is selectedchoice(form.vars.value) %}selected{% endif %}>
+                                {{ choice.label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                {% endset %}
+
+                {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                    source: source,
+                    choices: choices,
+                    value: value,
+                } %}
+            </div>
+        </div>
+        <div class="ibexa-form-error">
+            {{- form_errors(form) -}}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_unit_row %}
+    {{ block('measurement_unit') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_unit_row %}
+    {{ block('measurement_unit') }}
+{% endblock %}
+
+{% block measurement_inputType %}
+    <div class="ibexa-measurement-input-type">
+        {{- form_label(form) -}}
+        {{- form_widget(form) -}}
+        <div class="ibexa-form-error">
+            {{- form_errors(form) -}}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_inputType_row %}
+    {{ block('measurement_inputType') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_inputType_row %}
+    {{ block('measurement_inputType') }}
+{% endblock %}
+
+{% block measurement_sign %}
+    <div class="ibexa-measurement-options">
+        <div class="ibexa-measurement-options__icon-wrapper">
+            <svg class="ibexa-icon ibexa-icon--medium ibexa-icon--base-dark">
+                <use xlink:href="{{ ibexa_icon_path('go-right') }}"></use>
+            </svg>
+        </div>
+
+        {% set is_simple_input_selected = form.parent.children.inputType.vars.value|default('0') is same as('0') %}
+
+        <div class="ibexa-measurement-options__content">
+            <div class="ibexa-measurement-sign {% if is_simple_input_selected is not same as(true) %}ibexa-measurement-sign--hidden{% endif %}">
+                {{- form_label(form) -}}
+                {{- form_widget(form) -}}
+                <div class="ibexa-form-error">
+                    {{- form_errors(form) -}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_sign_row %}
+    {{ block('measurement_sign') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_sign_row %}
+    {{ block('measurement_sign') }}
+{% endblock %}
+
+{% block measurement_measurementRange %}
+    <div class="ibexa-measurement-options">
+        <div class="ibexa-measurement-options__icon-wrapper">
+        </div>
+
+        {% set is_simple_input_selected = form.parent.children.inputType.vars.value|default('0') is same as('0') %}
+
+        <div class="ibexa-measurement-options__content">
+            <div class="ibexa-measurement-options__min-max">
+                <div class="ibexa-measurement-options__min">
+                    {{- form_label(form.minimum) -}}
+                    <div class="ibexa-measurement-form-number ibexa-measurement-form-number--minimum">
+                        <div class="ibexa-measurement-form-number__input-wrapper">
+                            {{- form_widget(form.minimum) -}}
+                        </div>
+                        <div class="ibexa-measurement-form-number__unit-wrapper">
+                            {{- form.parent.children.unit.vars.value -}}
+                        </div>
+                    </div>
+                    <div class="ibexa-form-error">
+                        {{- form_errors(form.minimum) -}}
+                    </div>
+                </div>
+                <div class="ibexa-measurement-options__max">
+                    {{- form_label(form.maximum) -}}
+                    <div class="ibexa-measurement-form-number ibexa-measurement-form-number--maximum">
+                        <div class="ibexa-measurement-form-number__input-wrapper">
+                            {{- form_widget(form.maximum) -}}
+                        </div>
+                        <div class="ibexa-measurement-form-number__unit-wrapper">
+                            {{- form.parent.children.unit.vars.value -}}
+                        </div>
+                    </div>
+                    <div class="ibexa-form-error">
+                        {{- form_errors(form.maximum) -}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_measurementRange_row %}
+    {{ block('measurement_measurementRange') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_measurementRange_row %}
+    {{ block('measurement_measurementRange') }}
+{% endblock %}
+
+{% block measurement_defaultValue %}
+    <div class="ibexa-measurement-options">
+        <div class="ibexa-measurement-options__icon-wrapper">
+        </div>
+
+        {% set is_simple_input_selected = form.parent.children.inputType.vars.value|default('0') is same as('0') %}
+
+        <div class="ibexa-measurement-options__content">
+            <div class="ibexa-measurement-default-value ibexa-measurement-default-value--simple {% if is_simple_input_selected is not same as(true) %}ibexa-measurement-default-value--hidden{% endif %}">
+                {{- form_label(form) -}}
+                <div class="ibexa-measurement-form-number ibexa-measurement-form-number--default-value">
+                    <div class="ibexa-measurement-form-number__input-wrapper">
+                        {{- form_widget(form) -}}
+                    </div>
+                    <div class="ibexa-measurement-form-number__unit-wrapper">
+                        {{- form.parent.children.unit.vars.value -}}
+                    </div>
+                </div>
+                <div class="ibexa-form-error">
+                    {{- form_errors(form) -}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_defaultValue_row %}
+    {{ block('measurement_defaultValue') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_defaultValue_row %}
+    {{ block('measurement_defaultValue') }}
+{% endblock %}
+
+{% block measurement_measurementDefaultRange %}
+    <div class="ibexa-measurement-options">
+        <div class="ibexa-measurement-options__icon-wrapper">
+        </div>
+
+        {% set is_simple_input_selected = form.parent.children.inputType.vars.value|default('0') is same as('0') %}
+
+        <div class="ibexa-measurement-options__content">
+            <div class="ibexa-measurement-default-value ibexa-measurement-default-value--range {% if is_simple_input_selected is same as(true) %}ibexa-measurement-default-value--hidden{% endif %}">
+                {{- form_label(form.defaultRangeMinimumValue) -}}
+                <div class="ibexa-measurement-form-number ibexa-measurement-form-number--default-value ibexa-measurement-form-number--range">
+                    <div class="ibexa-measurement-form-number__input-wrapper ibexa-measurement-form-number__input-wrapper--min">
+                        {{- form_widget(form.defaultRangeMinimumValue) -}}
+                    </div>
+                    <div class="ibexa-measurement-form-number__input-separator">-</div>
+                    <div class="ibexa-measurement-form-number__input-wrapper ibexa-measurement-form-number__input-wrapper--max">
+                        {{- form_widget(form.defaultRangeMaximumValue) -}}
+                    </div>
+                    <div class="ibexa-measurement-form-number__unit-wrapper">
+                        {{- form.parent.children.unit.vars.value -}}
+                    </div>
+                </div>
+                <div class="ibexa-form-error">
+                    {{- form_errors(form.defaultRangeMinimumValue) -}}
+                    {{- form_errors(form.defaultRangeMaximumValue) -}}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _attribute_definition_create_options_measurementDefaultRange_row %}
+    {{ block('measurement_measurementDefaultRange') }}
+{% endblock %}
+
+{% block _attribute_definition_update_options_measurementDefaultRange_row %}
+    {{ block('measurement_measurementDefaultRange') }}
+{% endblock %}
+
+{% block measurement_attribute_value_row %}
+    {% set is_range = form.measurementRangeMinimumValue is defined and form.measurementRangeMaximumValue is defined %}
+    {% set is_single = form.value is defined %}
+
+    {% set label_attr = label_attr|merge({class: 'ibexa-attribute-edit__label'}) %}
+    {% set wrapper_class =
+        'ibexa-attribute-edit '
+        ~ 'ibexa-attribute-edit--measurement '
+        ~ (is_range ? ' ibexa-attribute-edit--measurement-range')
+        ~ (form.vars.required ? ' ibexa-attribute-edit--required')
+    %}
+
+    <div class="{{ wrapper_class }}">
+        {{ form_label(form, form.vars.label, {
+            label_attr: label_attr
+        }) }}
+        <div class="ibexa-measurement-form-number {% if is_range %}ibexa-measurement-form-number--range{% endif %}">
+            <div class="ibexa-measurement-form-number__input-wrapper">
+                {% if is_single %}
+                    {{- form_widget(form.value) -}}
+                {% endif %}
+                {% if is_range %}
+                    {{- form_widget(form.measurementRangeMinimumValue, {
+                        attr: { class: 'ibexa-measurement-form-number__input--first' },
+                    }) -}}
+
+                    <div class="ibexa-measurement-form-number__input-separator">-</div>
+
+                    {{- form_widget(form.measurementRangeMaximumValue, {
+                        attr: { class: 'ibexa-measurement-form-number__input--second' },
+                    }) -}}
+                {% endif %}
+            </div>
+            <div class="ibexa-measurement-form-number__unit-wrapper">
+                {{ form_widget(form.measurementUnit, { attr: { is_ghost: true }}) }}
+            </div>
+            <div class="ibexa-measurement-form-number__type-wrapper">
+                {{ form_widget(form.measurementType) }}
+            </div>
+        </div>
+        <div class="ibexa-form-error">
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endblock %}

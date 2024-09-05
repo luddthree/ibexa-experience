@@ -1,0 +1,89 @@
+imports:
+    - { resource: persistence/*.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\BuildSchemaSubscriber: ~
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\GatewayInterface:
+        alias: Ibexa\ActivityLog\Persistence\ActivityLog\DoctrineDatabase
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Action\ActionGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Action\ActionGatewayInterface:
+        alias: Ibexa\ActivityLog\Persistence\ActivityLog\Action\ActionGateway
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Group\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Group\GatewayInterface:
+        alias: Ibexa\ActivityLog\Persistence\ActivityLog\Group\DoctrineDatabase
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Ip\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Ip\GatewayInterface:
+        alias: Ibexa\ActivityLog\Persistence\ActivityLog\Ip\DoctrineDatabase
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Object\ObjectGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Object\ObjectGatewayInterface:
+        alias: Ibexa\ActivityLog\Persistence\ActivityLog\Object\ObjectGateway
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Source\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ActivityLog\Persistence\ActivityLog\Source\GatewayInterface:
+        alias: Ibexa\ActivityLog\Persistence\ActivityLog\Source\DoctrineDatabase
+
+    Ibexa\ActivityLog\Query\CriterionMapper:
+        autoconfigure: false
+        arguments:
+            $mappers: !tagged_iterator 'ibexa.activity_log.query.criterion_mapper'
+
+    Ibexa\ActivityLog\Query\CriterionMapper\ActionCriterionMapper: ~
+
+    Ibexa\ActivityLog\Query\CriterionMapper\CompositeCriterionMapper:
+        arguments:
+            $criterionMapper: '@Ibexa\ActivityLog\Query\CriterionMapper'
+
+    Ibexa\ActivityLog\Query\CriterionMapper\LoggedAtCriterionMapper: ~
+
+    Ibexa\ActivityLog\Query\CriterionMapper\LogicalNotCriterionMapper:
+        arguments:
+            $criterionMapper: '@Ibexa\ActivityLog\Query\CriterionMapper'
+
+    Ibexa\ActivityLog\Query\CriterionMapper\ObjectCriterionMapper: ~
+
+    Ibexa\ActivityLog\Query\CriterionMapper\ObjectNameCriterionMapper: ~
+
+    Ibexa\ActivityLog\Query\CriterionMapper\UserCriterionMapper: ~
+
+    Ibexa\ActivityLog\Query\SortClauseMapper:
+        autoconfigure: false
+        arguments:
+            $mappers: !tagged_iterator 'ibexa.activity_log.query.sort_clause_mapper'
+
+    Ibexa\ActivityLog\Query\SortClauseMapper\LoggedAtSortClauseMapper: ~
+
+    Ibexa\ActivityLog\Persistence\Handler:
+        arguments:
+            $serializer: '@ibexa.activity_log.persistence.serializer'
+
+    Ibexa\ActivityLog\Persistence\HandlerInterface:
+        alias: Ibexa\ActivityLog\Persistence\Handler

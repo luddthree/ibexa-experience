@@ -1,0 +1,33 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\ProductCatalog\GraphQL\Resolver\ProductTypeResolver:
+        tags:
+            - { name: overblog_graphql.resolver, alias: 'ProductTypeByIdentifier', method: 'resolveProductTypeByIdentifier' }
+
+    Ibexa\ProductCatalog\GraphQL\Resolver\ProductResolver:
+        tags:
+            - { name: overblog_graphql.resolver, alias: 'Product', method: 'resolveProduct' }
+            - { name: overblog_graphql.resolver, alias: 'ProductOfType', method: 'resolveProductsByType' }
+            - { name: overblog_graphql.resolver, alias: 'ProductsList', method: 'resolveProducts' }
+
+    Ibexa\ProductCatalog\GraphQL\Resolver\AttributeResolver:
+        tags:
+            - { name: overblog_graphql.resolver, alias: 'AttributeByIdentifier', method: 'resolveAttributeByIdentifier' }
+            - { name: overblog_graphql.resolver, alias: 'AttributesByProduct', method: 'resolveAttributesByProduct' }
+            - { name: overblog_graphql.resolver, alias: 'AttributesType', method: 'resolveAttributesType' }
+            - { name: overblog_graphql.resolver, alias: 'AttributeType', method: 'resolveAttributeType' }
+            - { name: overblog_graphql.resolver, alias: 'SelectionAttributeLabel', method: 'resolveSelectionAttributeLabel' }
+
+    Ibexa\ProductCatalog\GraphQL\Resolver\ContentFieldsResolver:
+        tags:
+            - { name: overblog_graphql.resolver, alias: 'ContentFieldsType', method: 'resolveContentFieldsType' }
+            - { name: overblog_graphql.resolver, alias: 'ContentFieldByProduct', method: 'resolveContentFieldByProduct'}
+            - { name: overblog_graphql.resolver, alias: 'ContentFieldsByProduct', method: 'resolveContentFieldsByProduct'}
+
+    Ibexa\ProductCatalog\GraphQL\Strategy\ProductContentResolvingStrategy:
+        tags:
+            - { name: ibexa.graphql.field_type.matrix_resolver.content.strategy, priority: -20 }

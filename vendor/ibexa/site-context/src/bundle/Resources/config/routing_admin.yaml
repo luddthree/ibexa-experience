@@ -1,0 +1,21 @@
+ibexa.site_context.change:
+    path: /site-context/change/{locationId}
+    controller: Ibexa\Bundle\SiteContext\Controller\ChangeContextController::changeAction
+
+ibexa.site_context.location_preview:
+    path: /site-context/location-preview/{locationId}
+    controller: Ibexa\Bundle\SiteContext\Controller\LocationPreviewController::executeAction
+    options:
+        expose: true
+
+ibexa.site_context.no_preview_available:
+    path: /site-context/no-preview-available
+    controller: Ibexa\Bundle\SiteContext\Controller\LocationPreviewController::noPreviewAvailableAction
+    options:
+        expose: true
+
+ibexa.site_context.toggle_fullscreen:
+    path: /site-context/toggle-fullscreen/{locationId}
+    controller: Ibexa\Bundle\SiteContext\Controller\FullscreenPreviewController::toggleFullscreenAction
+    options:
+        expose: true

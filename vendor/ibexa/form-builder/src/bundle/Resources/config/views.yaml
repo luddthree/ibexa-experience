@@ -1,0 +1,19 @@
+system:
+    admin_group:
+        admin_ui_forms:
+            content_edit_form_templates:
+                - { template: '@ibexadesign/form_builder/content_edit_form_fields.html.twig', priority: 1 }
+
+    default:
+        content_view:
+            ezplatform_form_builder_content_name:
+                content_name:
+                    template: '@ibexadesign/content/content_name.html.twig'
+                    match: {}
+            embed:
+                form:
+                    template: '@ibexadesign/form_builder/default_form_view.html.twig'
+                    match:
+                        # Should be part of AdminUI, not PageBuilder
+                        \Ibexa\PageBuilder\Matcher\ContentBased\Identifier\FieldType: [ezform]
+#                        Identifier\ContentType: [form]

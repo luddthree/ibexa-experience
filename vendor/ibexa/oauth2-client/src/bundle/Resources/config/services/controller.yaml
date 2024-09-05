@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\Bundle\OAuth2Client\Controller\OAuth2Controller:
+    arguments:
+      $debug: '%kernel.debug%'
+    tags:
+      - { name: 'controller.service_arguments' }

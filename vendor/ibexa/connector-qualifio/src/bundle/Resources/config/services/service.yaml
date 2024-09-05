@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\Contracts\ConnectorQualifio\QualifioServiceInterface:
+        alias: Ibexa\ConnectorQualifio\Service\QualifioService
+
+    Ibexa\ConnectorQualifio\Service\QualifioService:
+        arguments:
+            $tokenManager: '@lexik_jwt_authentication.jwt_manager'
+            $tokenEnrichers: !tagged_iterator ibexa.qualifio.token.enricher
+
+    Ibexa\ConnectorQualifio\Service\QualifioConfiguration:
+        arguments:
+            $clientId: '%ibexa.qualifio.client_id%'
+            $channel: '%ibexa.qualifio.channel%'
+            $feedUrl: '%ibexa.qualifio.feed_url%'
+
+    Ibexa\ConnectorQualifio\Service\QualifioFieldMapResolver:
+        arguments:
+            $variableMap: '%ibexa.qualifio.variable_map%'

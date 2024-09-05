@@ -1,0 +1,19 @@
+-
+    type: content
+    mode: update
+    match: # The locations to update
+        field: location_id
+        value: '2'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: '8a9c9c761004866fb458d89910f52bee'
+    lang: 'eng-GB'
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: Partners

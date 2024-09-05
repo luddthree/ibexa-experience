@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Dashboard\Migration\AddBlockToAvailableBlocksActionDenormalizer:
+        tags:
+            - { name: ibexa.migrations.serializer.normalizer }
+
+    Ibexa\Dashboard\Migration\AddBlockToAvailableBlocksActionExecutor:
+        tags:
+            - { name: ibexa.migrations.executor.action.content_type, key: add_block_to_available_blocks }
+
+    Ibexa\Dashboard\Migration\AssignDashboardToUserDenormalizer:
+        tags:
+            - { name: ibexa.migrations.serializer.normalizer }
+
+    Ibexa\Dashboard\Migration\AssignDashboardToUserExecutor:
+        tags:
+            -   name: ibexa.migrations.executor.action.content
+                key: !php/const Ibexa\Dashboard\Migration\AssignDashboardToUser::TYPE

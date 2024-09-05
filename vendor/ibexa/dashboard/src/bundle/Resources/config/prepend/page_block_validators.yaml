@@ -1,0 +1,3 @@
+ibexa_fieldtype_page:
+    block_validators:
+        less_than: 'Symfony\Component\Validator\Constraints\LessThan'

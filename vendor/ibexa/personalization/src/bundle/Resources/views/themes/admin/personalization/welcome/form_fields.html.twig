@@ -1,0 +1,37 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{%- block form_errors -%}
+    <div class="ibexa-form-error">
+        {%- if errors|length > 0 -%}
+            {%- for error in errors -%}
+                <em class="ibexa-field__error ibexa-form-error__row">
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-form-error__icon">
+                        <use xlink:href="{{ ibexa_icon_path('warning-triangle') }}"></use>
+                    </svg>
+                    {{ error.message }}
+                </em>
+            {%- endfor -%}
+        {%- endif -%}
+    </div>
+{%- endblock -%}
+
+{% block _acceptance_termsAndConditions_row %}
+    <div class="ibexa-perso-welcome__accept-terms-container">
+        {{ form_widget(form, {
+            label_attr: { hidden: true },
+            attr: { class: 'ibexa-input ibexa-input--checkbox ibexa-perso-welcome__accept-terms-checkbox' },
+        }) }}
+        <div class="ibexa-perso-welcome__accept-terms-checkbox-label">
+            {{ "welcome.form.tems_accept"|trans|desc("I have read and agree to the <a class='ibexa-perso-welcome__show-modal-button' href='#'>Terms and Conditions.</a>")|raw }}
+        </div>
+    </div>
+    <div class="ibexa-perso-welcome__terms-description">
+        {{ "welcome.form.tems_accept_description"|trans|desc("If you are accepting these terms on behalf of another person or company or other legal entity. You represent and warrant that you have full authority to bind that person, company or legal entity to these terms.") }}
+    </div>
+{% endblock %}
+
+{% block _acceptance_submit_row %}
+    {{ form_widget(form, {
+        attr: { class: 'ibexa-btn ibexa-btn--primary ibexa-perso-welcome__send-button' }
+    }) }}
+{% endblock %}

@@ -1,0 +1,65 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div class="ibexa-perso-scenario-edit__separator"></div>
+<h2 class="ibexa-content-type-edit__section-column-header">{{ 'scenario.create.strategy.title'|trans|desc('Strategy') }}</h2>
+<div class="ibexa-perso-scenario-strategy-edit">
+    <div class="ibexa-perso-scenario-strategy-edit__models">
+        {% for strategy in scenario_form.strategy %}
+            {% include '@ibexadesign/personalization/scenarios/parts/scenario_strategy.html.twig' with {
+                strategy,
+                models,
+            } only %}
+        {% endfor %}
+    </div>
+
+    <div class="ibexa-perso-scenario-strategy-edit__sidebar ibexa-perso-strategy-sidebar">
+        <div class="ibexa-perso-strategy-sidebar__action-bar"></div>
+        <div class="ibexa-perso-strategy-sidebar__title-bar">
+            <h3 class="ibexa-perso-strategy-sidebar__title">{{ 'scenario.create.sidebar.title'|trans|desc('Models') }}</h3>
+        </div>
+        <div class="ibexa-perso-strategy-sidebar__search-bar">
+            {% embed '@ibexadesign/ui/component/input_text.html.twig' with { has_search: true, search_button_type: 'button' } %}
+                {% block content %}
+                    <input
+                        type="text"
+                        class="ibexa-input ibexa-input--text ibexa-perso-strategy-sidebar__sidebar-filter form-control"
+                        placeholder="{{ 'product_type.edit.search'|trans|desc('Search...') }}"
+                    />
+                {% endblock %}
+            {% endembed %}
+        </div>
+        <ul class="ibexa-perso-strategy-sidebar__list">
+            {% for model in models %}
+                {% set model_name = ('models.name.' ~ model.referenceCode)|trans %}
+
+                {% if model.maximumRatingAge %}
+                    {% set model_name =  model_name ~ ' (' ~ model.maximumRatingAge|format_interval ~ ')' %}
+                {% endif %}
+
+                <li
+                    class="ibexa-perso-strategy-sidebar-item"
+                    data-type="new"
+                    data-model-name="{{ model_name }}"
+                    data-reference-code="{{ model.referenceCode }}"
+                    data-data-type-supported-values="{{ ibexa_personalization_supported_model_data_types(model) }}"
+                    data-website-context-supported="{{ model.websiteContextSupported }}"
+                >
+                    <div
+                        draggable="true"
+                        class="ibexa-perso-strategy-sidebar-item__content"
+                    >
+                        <div class="ibexa-perso-strategy-sidebar-item__drag">
+                            <svg class="ibexa-icon ibexa-perso-strategy-sidebar-item__drag-icon ibexa-icon--tiny-small">
+                                <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                            </svg>
+                        </div>
+                        <div class="ibexa-perso-strategy-sidebar-item__content-text">
+                            <div class="ibexa-perso-strategy-sidebar-item__label">{{ model_name }}</div>
+                            <div class="ibexa-perso-strategy-sidebar-item__description">{{ ('models.description.' ~ model.referenceCode)|trans }}</div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

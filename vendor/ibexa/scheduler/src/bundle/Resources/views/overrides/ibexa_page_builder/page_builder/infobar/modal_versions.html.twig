@@ -1,0 +1,11 @@
+{% extends '@IbexaPageBuilder/page_builder/infobar/modal_versions.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_infobar_preview' %}
+
+{% block table_versions %}
+    {% include '@IbexaScheduler/overrides/ibexa_page_builder/page_builder/infobar/tables/versions.html.twig' with {
+        'versions': versions,
+        'location': location,
+        'future_versions': future_versions
+    } %}
+{% endblock %}

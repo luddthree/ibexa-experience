@@ -1,0 +1,99 @@
+parameters:
+    # Classes
+
+    # Parameters
+    ibexa.scheduler.rest.output.visitor.regexps.json: ['(^application/vnd\.datebasedpublisher\.api\.[A-Za-z]+\+json$)']
+    ibexa.scheduler.rest.output.visitor.regexps.xml: ['(^application/vnd\.datebasedpublisher\.api\.[A-Za-z]+\+xml$)']
+    ibexa.scheduler.rest.output.value_object.visitor.types:
+      - 'NotScheduled'
+      - 'ScheduledVersion'
+      - 'ScheduledVersionList'
+
+services:
+    Ibexa\Scheduler\REST\Server\RestController:
+        abstract: true
+        calls:
+            - [ setInputDispatcher, ['@Ibexa\Rest\Input\Dispatcher'] ]
+
+    Ibexa\Scheduler\REST\Server\Output\Generator\Json:
+        calls:
+            - [ setFormatOutput, [ '%kernel.debug%' ] ]
+            - [ registerTypes, ['%ibexa.scheduler.rest.output.value_object.visitor.types%'] ]
+        arguments:
+            - '@Ibexa\Rest\Output\Generator\Json'
+
+    Ibexa\Scheduler\REST\Server\Output\Generator\Xml:
+        calls:
+            - [ setFormatOutput, [ '%kernel.debug%' ] ]
+            - [ registerTypes, ['%ibexa.scheduler.rest.output.value_object.visitor.types%'] ]
+        arguments:
+            - '@Ibexa\Rest\Output\Generator\Xml'
+
+    ibexa.scheduler.rest.output.visitor.json:
+        class: Ibexa\Contracts\Rest\Output\Visitor
+        arguments:
+            - '@Ibexa\Scheduler\REST\Server\Output\Generator\Json'
+            - '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher'
+        tags:
+            - { name: ibexa.rest.output.visitor, regexps: ibexa.scheduler.rest.output.visitor.regexps.json, priority: 10 }
+
+    ibexa.scheduler.rest.output.visitor.xml:
+        class: Ibexa\Contracts\Rest\Output\Visitor
+        arguments:
+            - '@Ibexa\Scheduler\REST\Server\Output\Generator\Xml'
+            - '@Ibexa\Contracts\Rest\Output\ValueObjectVisitorDispatcher'
+        tags:
+            - { name: ibexa.rest.output.visitor, regexps: ibexa.scheduler.rest.output.visitor.regexps.xml, priority: 10 }
+
+    Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\ScheduledVersion:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        class: Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\ScheduledVersion
+        arguments:
+            - '@ibexa.api.service.content_type'
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntry }
+
+    Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\ScheduledVersionList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        class: Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\ScheduledVersionList
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Scheduler\ValueObject\ScheduledEntryList }
+
+    Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\NotScheduled:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        class: Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\NotScheduled
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Contracts\Scheduler\ValueObject\NotScheduledEntry }
+
+    Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\FuturePublicationEvent:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        arguments:
+            $translator: '@translator'
+            $languageService: '@ibexa.api.service.language'
+            $contentTypeService: '@ibexa.api.service.content_type'
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Scheduler\Calendar\FuturePublicationEvent }
+
+    Ibexa\Scheduler\REST\Server\Output\ValueObjectVisitor\FutureHideEvent:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        arguments:
+            $translator: '@translator'
+            $contentTypeService: '@ibexa.api.service.content_type'
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\Scheduler\Calendar\FutureHideEvent }
+
+    Ibexa\Scheduler\REST\Server\Input\Parser\RescheduleEventActionContextParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $calendarService: '@Ibexa\Contracts\Calendar\CalendarServiceInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.calendar.future_publication.RescheduleAction }
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.calendar.future_hide.RescheduleAction }
+
+    Ibexa\Scheduler\REST\Server\Input\Parser\UnscheduleEventActionContextParser:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $calendarService: '@Ibexa\Contracts\Calendar\CalendarServiceInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.calendar.future_publication.UnscheduleAction }
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.calendar.future_hide.UnscheduleAction }

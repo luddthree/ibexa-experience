@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\Event\Subscriber\UpdateRolesSubscriber:
+        arguments:
+            $roleService: '@Ibexa\Contracts\Core\Repository\RoleService'
+            $updateRoles: '%ibexa.site_factory.update_roles%'
+        calls:
+            - [ setLogger, [ '@?logger' ] ]

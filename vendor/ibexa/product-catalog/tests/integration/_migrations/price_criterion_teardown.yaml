@@ -1,0 +1,47 @@
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '25E'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '50E'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '100E'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '200E'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '300E'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '50USD'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '100USD'
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: '200USD'

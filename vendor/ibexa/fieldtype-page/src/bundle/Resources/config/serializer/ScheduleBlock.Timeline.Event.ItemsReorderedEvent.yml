@@ -1,0 +1,8 @@
+Ibexa\FieldTypePage\ScheduleBlock\Timeline\Event\ItemsReorderedEvent:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        map:
+            type: array<string>
+            skip_when_empty: false
+            expose: true

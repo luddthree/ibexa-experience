@@ -1,0 +1,11 @@
+{% include '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+    body_row_cols: [
+        { content: date_and_time },
+        { content: name },
+        { content: version },
+        { content: translations },
+        { content: content_type },
+        { content: creation_date },
+        { content: creator },
+    ],
+} only %}

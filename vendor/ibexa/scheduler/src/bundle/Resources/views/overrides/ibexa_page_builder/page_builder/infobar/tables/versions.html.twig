@@ -1,0 +1,10 @@
+{% extends '@IbexaPageBuilder/page_builder/infobar/tables/versions.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_infobar_preview' %}
+
+{% block version_row_status %}
+    {{ parent() }}
+    {% if version.versionNo in future_versions %}
+        <br><span class="badge ibexa-badge ibexa-badge--success">{{ 'versions.future'|trans|desc('FUTURE') }}</span>
+    {% endif %}
+{% endblock %}

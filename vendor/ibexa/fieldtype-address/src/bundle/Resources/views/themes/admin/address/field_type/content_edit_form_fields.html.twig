@@ -1,0 +1,54 @@
+{% trans_default_domain 'ibexa_fieldtype_address' %}
+
+{% block ibexa_fieldtype_address_widget %}
+    {% set readonly = attr.readonly|default(false) %}
+    {% set mainForm = form.parent.parent.parent %}
+    {% set formName = mainForm.vars.name %}
+    {% set contentFormValue = mainForm.vars.value %}
+    {% set fieldIdentifier = form.parent.vars.name %}
+
+    {% set isUser = contentFormValue.parentGroups is defined or contentFormValue.user is defined %}
+
+    {% if isUser %}
+        {% set isEdit = contentFormValue.user is defined %}
+        {% set contentType = contentFormValue.contentType %}
+        {% set languageCode =  isEdit ? contentFormValue.user.content.versionInfo.initialLanguageCode : contentFormValue.mainLanguageCode %}
+        {% set contentId = isEdit ? contentFormValue.user.content.id : null %}
+        {% set parentLocationId = isEdit ? null : (contentFormValue.getParentGroups()|first).versionInfo.contentInfo.mainLocationId %}
+    {% else %}
+        {% set isEdit = contentFormValue.contentDraft is defined %}
+        {% set contentType = isEdit ? contentFormValue.contentDraft.contentType : contentFormValue.contentType %}
+        {% set languageCode =  isEdit ? contentFormValue.initialLanguageCode : contentFormValue.mainLanguageCode %}
+        {% set contentId = isEdit ? contentFormValue.contentDraft.id : null %}
+        {% set parentLocationId = isEdit ? null : (contentFormValue.getLocationStructs()|first).parentLocationId %}
+    {% endif %}
+
+    {{ form_row(form.name, { attr: { readonly: readonly}}) }}
+    {{ form_row(form.country, {
+        attr: {
+            dropdown_custom_init: true,
+            dropdown_class: 'ibexa-data-source__country-dropdown',
+            readonly: readonly,
+        },
+    }) }}
+
+    {% set dropdown_loader_template %}
+        <div class="ibexa-fa-dropdown-loader">
+            <div class="ibexa-fa-dropdown-loader__spinner"></div>
+        </div>
+    {% endset %}
+
+    <div
+        class="ibexa-data-source__fields-wrapper"
+        data-form-intent="{{ isEdit ? 'update' : 'create' }}"
+        data-content-type-identifier="{{ contentType.identifier }}"
+        data-field-identifier="{{ fieldIdentifier }}"
+        data-language-code="{{ languageCode }}"
+        data-form-name="{{ formName }}"
+        data-parent-location-id="{{ parentLocationId }}"
+        data-content-id="{{ contentId }}"
+        data-dropdown-loader-template="{{ dropdown_loader_template|spaceless|e('html_attr') }}"
+    >
+        {{ form_widget(form, { attr: { readonly: readonly}}) }}
+    </div>
+{% endblock %}

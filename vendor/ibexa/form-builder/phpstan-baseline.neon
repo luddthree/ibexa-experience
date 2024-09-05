@@ -1,0 +1,2416 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function reset expects array\\|object, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentTypeService\\:\\:loadContentTypeByIdentifier\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$locationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocation\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$login of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:loadUserByLogin\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$mainLanguageCode of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:newContentCreateStruct\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$values of function array_combine expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/CreateFormsContainerCommand.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/bundle/Command/PurgeFormSubmissionsCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$login of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:loadUserByLogin\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/PurgeFormSubmissionsCommand.php
+
+		-
+			message: "#^Parameter \\#1 \\$submission of method Ibexa\\\\Contracts\\\\FormBuilder\\\\FormSubmission\\\\FormSubmissionServiceInterface\\:\\:delete\\(\\) expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FormSubmission, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/PurgeFormSubmissionsCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$languageCode of method Ibexa\\\\Bundle\\\\FormBuilder\\\\Command\\\\PurgeFormSubmissionsCommand\\:\\:getFormSubmissionsCount\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/PurgeFormSubmissionsCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$languageCode of method Ibexa\\\\Bundle\\\\FormBuilder\\\\Command\\\\PurgeFormSubmissionsCommand\\:\\:purgeFormSubmissions\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Command/PurgeFormSubmissionsCommand.php
+
+		-
+			message: "#^Part \\$limit \\(mixed\\) of encapsed string cannot be cast to string\\.$#"
+			count: 1
+			path: src/bundle/Command/PurgeFormSubmissionsCommand.php
+
+		-
+			message: "#^Cannot access an offset on mixed\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Cannot access offset 'phrase' on mixed\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\Controller\\\\CaptchaController\\:\\:__construct\\(\\) has parameter \\$captchaOptions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Parameter \\#2 \\$haystack of function in_array expects array, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Property Ibexa\\\\Bundle\\\\FormBuilder\\\\Controller\\\\CaptchaController\\:\\:\\$captchaOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/CaptchaController.php
+
+		-
+			message: "#^Cannot call method getFieldById\\(\\) on Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/FieldController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\Controller\\\\FieldController\\:\\:composeAttributesArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/FieldController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\Controller\\\\FieldController\\:\\:composeValidatorsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/FieldController.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:getFieldDefinition\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/FieldController.php
+
+		-
+			message: "#^Parameter \\#1 \\$definition of method Ibexa\\\\FormBuilder\\\\FieldType\\\\FormFactory\\:\\:createForm\\(\\) expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null given\\.$#"
+			count: 2
+			path: src/bundle/Controller/FormBuilderController.php
+
+		-
+			message: "#^Cannot call method getContentInfo\\(\\) on mixed\\.$#"
+			count: 2
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Cannot call method getSubmissions\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\Controller\\\\FormSubmissionController\\:\\:getRow\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/FormSubmissionController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\DependencyInjection\\\\Compiler\\\\CaptchaCompilerPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/CaptchaCompilerPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\DependencyInjection\\\\Compiler\\\\FormBlockRelationCompilerPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/FormBlockRelationCompilerPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FormBuilder\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FormBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 4
+			path: src/bundle/DependencyInjection/IbexaFormBuilderExtension.php
+
+		-
+			message: "#^Parameter \\#2 \\$config of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerBuilder\\:\\:prependExtensionConfig\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
+			count: 6
+			path: src/bundle/DependencyInjection/IbexaFormBuilderExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FormBuilder\\\\IbexaFormBuilderBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaFormBuilderBundle.php
+
+		-
+			message: "#^Cannot call method addChild\\(\\) on Knp\\\\Menu\\\\ItemInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/Menu/ConfigureMainMenuListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$locationId of method Ibexa\\\\AdminUi\\\\Menu\\\\MenuItemFactory\\:\\:createLocationMenuItem\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/bundle/Menu/ConfigureMainMenuListener.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Attribute\\:\\:\\$identifier \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Attribute\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Attribute.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Field\\:\\:\\$id \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Field.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Field\\:\\:\\$identifier \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Field.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Field\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Field.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FieldValue\\:\\:\\$displayValue \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/contracts/FieldType/Model/FieldValue.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FormSubmission\\:\\:fromRawData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/FieldType/Model/FormSubmission.php
+
+		-
+			message: "#^Class Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FormSubmissionList implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/contracts/FieldType/Model/FormSubmissionList.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Validator\\:\\:\\$identifier \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Validator.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Validator\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/contracts/FieldType/Model/Validator.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\ApplicationConfig\\\\FormBuilderConfigProvider\\:\\:getConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/FormBuilderConfigProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:deleteSubmissionsButtonIsDisabled\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:functioniClickToShowSubmission\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:iCanSeeExpectedNumberOfSubmissions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:iCantSeeFormSubmissions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:iDeleteSubmission\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:iSeeFormSubmissions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormAdministrationContext\\:\\:iSeeModalWithCorrectData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormAdministrationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iAddFieldToForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iAddFieldsToForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iDeleteFieldFromForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iDeleteFieldsFromForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iDeleteFormFromFormContentItem\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iGoBackToContentEdit\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iShouldSeeEmptyFormPreview\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iShouldSeeFormPreviewWithFields\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iShouldSeeFormPreviewWithoutFields\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iStartCreateForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:iStartEditingForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormBuilderContext\\:\\:previewContainsAHiddenField\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormBuilderContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormFieldConfigurationContext\\:\\:iConfigureFieldFromForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormFieldConfigurationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormFieldConfigurationContext\\:\\:iConfirmFieldConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormFieldConfigurationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormFieldConfigurationContext\\:\\:iSetCustomConfigurationForField\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormFieldConfigurationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormFieldConfigurationContext\\:\\:iShoudSeeFormWithConfiguredFields\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormFieldConfigurationContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormFrontContext\\:\\:fillForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormFrontContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\BrowserContext\\\\FormFrontContext\\:\\:submitForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/BrowserContext/FormFrontContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormBuilderEditor\\:\\:openFieldSettings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormBuilderEditor\\:\\:removeField\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormBuilderEditor.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:check\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:discard\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:getCheckValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:getField\\(\\) has parameter \\$fieldName with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:getSelectValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormBuilderField\\:\\:select\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormBuilderField.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormFieldRegistry\\:\\:__construct\\(\\) has parameter \\$formFields with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormFieldRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormFieldRegistry\\:\\:\\$formFields \\(array\\<Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormFields\\\\FormFieldInterface\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormFields/FormFieldRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\:\\:fillField\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\:\\:setExpectedPreviewData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\:\\:setExpectedPreviewData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\:\\:submit\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreview\\:\\:verifyPreviewData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\Component\\\\FormPreviewPanel\\:\\:verifyIsEmpty\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/FormPreviewPanel.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getFormValue\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/FormDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\DataProvider\\\\FormDataProvider\\:\\:createForm\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/FormDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\DataProvider\\\\FormDataProvider\\:\\:generateData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/FormDataProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Behat\\\\DataProvider\\\\FormDataProvider\\:\\:parseFromString\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/DataProvider/FormDataProvider.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Block/FormBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Block/FormBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/Block/FormBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Block\\\\FormBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Block/FormBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Block\\\\FormBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Block/FormBlockListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContentInfo\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/lib/Block/FormBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getForm\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Component/FormBuilderComponent.php
+
+		-
+			message: "#^Cannot call method getFormValue\\(\\) on mixed\\.$#"
+			count: 2
+			path: src/lib/Component/FormBuilderComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Component\\\\FormBuilderComponent\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/FormBuilderComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Component\\\\FormBuilderComponent\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/FormBuilderComponent.php
+
+		-
+			message: "#^Parameter \\#2 \\$fieldId of class Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\RequestFieldConfiguration constructor expects string\\|null, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/Component/FormBuilderComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition\\:\\:__construct\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition\\:\\:getConstraints\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinition.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition\\:\\:\\$constraints type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinition.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilder\\:\\:getConstraints\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilder\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilder\\:\\:setConstraints\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilder\\:\\:setOptions\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Parameter \\#7 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition constructor expects null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilder\\:\\:\\$constraints type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilder\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldAttributeDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinition\\:\\:__construct\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionBuilder\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionBuilder\\:\\:setAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:getAttributesDefinitions\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:getAttributesDefinitions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:getFieldDefinitions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:getValidatorsDefinitions\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:getValidatorsDefinitions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactory\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition\\:\\:__construct\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition\\:\\:getConstraints\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinition.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition\\:\\:\\$constraints type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinition.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinitionBuilder\\:\\:getConstraints\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinitionBuilder\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinitionBuilder\\:\\:setConstraints\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinitionBuilder\\:\\:setOptions\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Parameter \\#5 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition constructor expects null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinitionBuilder\\:\\:\\$constraints type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinitionBuilder\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/FieldValidatorDefinitionBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry\\:\\:getConstraintClasses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/Validator/ConstraintClassRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry\\:\\:setConstraintClasses\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Definition/Validator/ConstraintClassRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry\\:\\:setConstraintClasses\\(\\) has parameter \\$constraintClasses with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/Validator/ConstraintClassRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry\\:\\:\\$registry type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/Validator/ConstraintClassRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintFactory\\:\\:getConstraint\\(\\) has parameter \\$constraint with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Definition/Validator/ConstraintFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FieldAttributeDefinitionEvent\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldAttributeDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FieldAttributeDefinitionEvent\\:\\:getConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldAttributeDefinitionEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Event\\\\FieldAttributeDefinitionEvent\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldAttributeDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FieldDefinitionEvent\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FieldDefinitionEvent\\:\\:getConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldDefinitionEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Event\\\\FieldDefinitionEvent\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FieldValidatorDefinitionEvent\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldValidatorDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FieldValidatorDefinitionEvent\\:\\:getConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldValidatorDefinitionEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Event\\\\FieldValidatorDefinitionEvent\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FieldValidatorDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FormEvents\\:\\:getFieldValidatorDefinitionEventName\\(\\) has parameter \\$validatorIdentifier with no type specified\\.$#"
+			count: 1
+			path: src/lib/Event/FormEvents.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FormSubmitEvent\\:\\:__construct\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FormSubmitEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FormSubmitEvent\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FormSubmitEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\FormSubmitEvent\\:\\:setData\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FormSubmitEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Event\\\\FormSubmitEvent\\:\\:\\$data type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/FormSubmitEvent.php
+
+		-
+			message: "#^Call to an undefined method Symfony\\\\Component\\\\Form\\\\ClickableInterface\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\:\\:getName\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Cannot access offset 'action' on mixed\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Cannot access offset mixed on mixed\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Cannot access property \\$attributes on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Cannot call method getFieldById\\(\\) on Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleFormSubmission\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleFormSubmission\\:\\:handleFormSubmission\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#1 \\$actionName of static method Ibexa\\\\FormBuilder\\\\Event\\\\FormEvents\\:\\:getSubmitActionEventName\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#2 \\$form of class Ibexa\\\\FormBuilder\\\\Event\\\\FormActionEvent constructor expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#2 \\$form of class Ibexa\\\\FormBuilder\\\\Event\\\\FormSubmitEvent constructor expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#2 \\$form of method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Notification\\\\NotificationSenderInterface\\:\\:sendNotification\\(\\) expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#3 \\$action of class Ibexa\\\\FormBuilder\\\\Event\\\\FormActionEvent constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#3 \\$data of class Ibexa\\\\FormBuilder\\\\Event\\\\FormSubmitEvent constructor expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#3 \\$form of method Ibexa\\\\Contracts\\\\FormBuilder\\\\FormSubmission\\\\FormSubmissionServiceInterface\\:\\:create\\(\\) expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Parameter \\#4 \\$data of method Ibexa\\\\Contracts\\\\FormBuilder\\\\FormSubmission\\\\FormSubmissionServiceInterface\\:\\:create\\(\\) expects array\\<array\\{id\\: int, identifier\\: string, name\\: string, value\\: mixed\\}\\>, array\\<int\\<0, max\\>, array\\{id\\: mixed, identifier\\: string\\|null, name\\: string\\|null, value\\: mixed\\}\\> given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleFormSubmission.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleSubmitAction\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleSubmitAction.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleSubmitAction\\:\\:handleLocationRedirect\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleSubmitAction.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleSubmitAction\\:\\:handleMessage\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleSubmitAction.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleSubmitAction\\:\\:handleUrlRedirect\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/HandleSubmitAction.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Exception\\\\FormNotFoundException\\:\\:__construct\\(\\) has parameter \\$languageCodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Exception/FormNotFoundException.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Converter\\\\AbstractSerializerBasedConverter\\:\\:fromArray\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Converter\\\\AbstractSerializerBasedConverter\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\FieldHandlerRegistry\\:\\:getHandlers\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/FieldHandlerRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\FieldMapperRegistry\\:\\:getMappers\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/FieldMapperRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\ButtonFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/ButtonFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CaptchaFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/CaptchaFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/CheckboxFieldMapper.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/CheckboxListFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxListFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/CheckboxListFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxListFieldMapper\\:\\:prepareChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/CheckboxListFieldMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$options of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxListFieldMapper\\:\\:prepareChoices\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/CheckboxListFieldMapper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/DateFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\DateFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/DateFieldMapper.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/DropdownFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\DropdownFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/DropdownFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\DropdownFieldMapper\\:\\:prepareChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/DropdownFieldMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$options of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\DropdownFieldMapper\\:\\:prepareChoices\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/DropdownFieldMapper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/EmailFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\EmailFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/EmailFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\FileFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/FileFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\GenericFieldMapper\\:\\:buildView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/GenericFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\GenericFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/GenericFieldMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$child of method Symfony\\\\Component\\\\Form\\\\FormBuilderInterface\\<mixed\\>\\:\\:add\\(\\) expects string\\|Symfony\\\\Component\\\\Form\\\\FormBuilderInterface, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/GenericFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\HiddenFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/HiddenFieldMapper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/MultiLineFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\MultiLineFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/MultiLineFieldMapper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/NumberFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\NumberFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/NumberFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\ParagraphDesignMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/ParagraphDesignMapper.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/RadioFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\RadioFieldMapper\\:\\:getDefaultChoice\\(\\) has parameter \\$choices with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/RadioFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\RadioFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/RadioFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\RadioFieldMapper\\:\\:prepareChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/RadioFieldMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$options of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\RadioFieldMapper\\:\\:prepareChoices\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/RadioFieldMapper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/SingleLineFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\SingleLineFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/SingleLineFieldMapper.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/UrlFieldMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\UrlFieldMapper\\:\\:mapFormOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Field/Mapper/UrlFieldMapper.php
+
+		-
+			message: "#^Cannot call method error\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/FormFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Field\\\\FieldMapperRegistry\\:\\:getMapper\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/FormFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Symfony\\\\Component\\\\Form\\\\FormFactoryInterface\\:\\:createNamed\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/FormFactory.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\FieldType\\\\FormFactory\\:\\:\\$eventDispatcher is never read, only written\\.$#"
+			count: 1
+			path: src/lib/FieldType/FormFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:insertAttribute\\(\\) has parameter \\$attribute with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:insertField\\(\\) has parameter \\$field with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:insertValidator\\(\\) has parameter \\$validator with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadFieldAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadFieldValidators\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadFormByContentFieldId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadFormFields\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadFormsByContent\\(\\) has parameter \\$languageCodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\DoctrineGateway\\:\\:loadFormsByContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Class Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage extends generic class Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\GatewayBasedStorage but does not specify its types\\: T$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:deleteFieldData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:deleteFieldData\\(\\) has parameter \\$fieldIds with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:deleteFieldData\\(\\) should return bool but return statement is missing\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:getFieldData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:getFieldData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:getIndexData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:getIndexData\\(\\) should return array\\<Ibexa\\\\Contracts\\\\Core\\\\Search\\\\Field\\> but returns null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:insertForm\\(\\) has parameter \\$form with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:insertForm\\(\\) never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:removeForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:storeFieldData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$form has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFormByContentFieldId\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFormsByContent\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\Handler\\:\\:load\\(\\) expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\FormStorage\\:\\:\\$contentHandler \\(Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\Handler\\) does not accept Ibexa\\\\Core\\\\Persistence\\\\Cache\\\\ContentHandler\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/FormStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:insertAttribute\\(\\) has parameter \\$attribute with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:insertField\\(\\) has parameter \\$field with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:insertValidator\\(\\) has parameter \\$validator with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFieldAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFieldValidators\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFormByContentFieldId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFormFields\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFormsByContent\\(\\) has parameter \\$languageCodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Storage\\\\Gateway\\:\\:loadFormsByContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getFormValue\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Type\\:\\:checkValueStructure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Type\\:\\:fromPersistenceValue\\(\\) should return Ibexa\\\\Core\\\\FieldType\\\\Value but returns Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\.$#"
+			count: 2
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\FormBuilder\\\\FieldType\\\\Value\\)\\: Unexpected token \"\\\\n     \", expected variable at offset 52$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Converter\\\\FormConverter\\:\\:fromArray\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FieldType\\\\Value\\:\\:getForm\\(\\) should return Symfony\\\\Component\\\\Form\\\\FormInterface\\|null but returns Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|Symfony\\\\Component\\\\Form\\\\FormInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Value.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\AttributeConfiguration\\:\\:\\$identifier \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/AttributeConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\AttributeConfiguration\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/AttributeConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:__construct\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:getAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:getValidators\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:setAttributes\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:setValidators\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:\\$id \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:\\$identifier \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\FieldConfiguration\\:\\:\\$validators type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/FieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\RequestFieldConfiguration\\:\\:\\$fieldId \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/RequestFieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\RequestFieldConfiguration\\:\\:\\$form \\(Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\) does not accept Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/RequestFieldConfiguration.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\RequestFormPreview\\:\\:\\$form \\(Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\) does not accept Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Data/RequestFormPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\Submission\\\\SubmissionRemoveData\\:\\:__construct\\(\\) has parameter \\$submissions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Submission/SubmissionRemoveData.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\Submission\\\\SubmissionRemoveData\\:\\:getSubmissions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Submission/SubmissionRemoveData.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\Submission\\\\SubmissionRemoveData\\:\\:setSubmissions\\(\\) has parameter \\$submissions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Submission/SubmissionRemoveData.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$submissions with type array\\|null is not subtype of native type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Submission/SubmissionRemoveData.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Data\\\\Submission\\\\SubmissionRemoveData\\:\\:\\$submissions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Data/Submission/SubmissionRemoveData.php
+
+		-
+			message: "#^Parameter \\#1 \\$languageCode of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\MultiLanguageName\\:\\:getName\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/FormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\AttributeConfigurationMapperInterface\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/AttributeConfigurationMapperInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\AttributeConfigurationMapperRegistry\\:\\:__construct\\(\\) has parameter \\$mappers with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/AttributeConfigurationMapperRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldAttribute\\\\ChoiceFieldAttributeTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldAttribute/ChoiceFieldAttributeTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldAttribute\\\\GenericFieldAttributeTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldAttribute/GenericFieldAttributeTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldAttribute\\\\SelectFieldAttributeTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldAttribute/SelectFieldAttributeTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldValidator\\\\BooleanFieldValidatorConstraintMapper\\:\\:map\\(\\) should return Symfony\\\\Component\\\\Validator\\\\Constraint but returns object\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldValidator/BooleanFieldValidatorConstraintMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldValidator\\\\FloatFieldValidatorConstraintMapper\\:\\:map\\(\\) should return Symfony\\\\Component\\\\Validator\\\\Constraint but returns object\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldValidator/FloatFieldValidatorConstraintMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldValidator\\\\GenericFieldValidatorConstraintMapper\\:\\:map\\(\\) should return Symfony\\\\Component\\\\Validator\\\\Constraint but returns object\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldValidator/GenericFieldValidatorConstraintMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldValidator\\\\GenericFieldValidatorTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldValidator/GenericFieldValidatorTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FieldValidator\\\\IntegerFieldValidatorConstraintMapper\\:\\:map\\(\\) should return Symfony\\\\Component\\\\Validator\\\\Constraint but returns object\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FieldValidator/IntegerFieldValidatorConstraintMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FormMapper\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\FormMapper\\:\\:mapFieldValueForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FormMapper.php
+
+		-
+			message: "#^Parameter \\#1 \\$languageCode of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\MultiLanguageName\\:\\:getName\\(\\) expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/FormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\ValidatorConfigurationMapperInterface\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/ValidatorConfigurationMapperInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\ValidatorConfigurationMapperRegistry\\:\\:__construct\\(\\) has parameter \\$mappers with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/ValidatorConfigurationMapperRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\ValidatorConstraintMapperRegistry\\:\\:__construct\\(\\) has parameter \\$mappers with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/ValidatorConstraintMapperRegistry.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method Ibexa\\\\FormBuilder\\\\Form\\\\Mapper\\\\ValidatorConstraintMapperRegistry\\:\\:getMapper\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Form/Mapper/ValidatorConstraintMapperRegistry.php
+
+		-
+			message: "#^Class Ibexa\\\\FormBuilder\\\\Form\\\\Transformer\\\\FormHashTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			count: 1
+			path: src/lib/Form/Transformer/FormHashTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Converter\\\\FormConverter\\:\\:decode\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FormHashTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$object of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Converter\\\\FormConverter\\:\\:encode\\(\\) expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Transformer/FormHashTransformer.php
+
+		-
+			message: "#^PHPDoc tag @return with type string\\|null is not subtype of native type string\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeEmbedFormType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\Field\\\\DateFieldType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Field/DateFieldType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\Action\\\\ActionType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/Action/ActionType.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/Action/LocationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\Action\\\\LocationType\\:\\:buildView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/Action/LocationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\Action\\\\LocationType\\:\\:buildView\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/Action/LocationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeActionType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeActionType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeActionType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeActionType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeActionType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeActionType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeIntegerType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeIntegerType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeIntegerType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeIntegerType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeMultipleType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeMultipleType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeMultipleType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeMultipleType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeMultipleType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeMultipleType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeRadioType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeRadioType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeSelectType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeSelectType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeSelectType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeSelectType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttribute\\\\AttributeSelectType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttribute/AttributeSelectType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttributeConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttributeConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttributeConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttributeConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttributeConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttributeConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttributesConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttributesConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttributesConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttributesConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldAttributesConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldAttributesConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\Regex\\\\PatternSelectType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/Regex/PatternSelectType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorCheckboxType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorCheckboxType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorCheckboxType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorCheckboxType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorIntegerType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorIntegerType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorIntegerType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorIntegerType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorRegexType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorRegexType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorRegexType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorRegexType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorStringType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorStringType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidator\\\\ValidatorStringType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidator/ValidatorStringType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidatorConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidatorConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidatorConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidatorConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidatorConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidatorConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidatorsConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidatorsConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FieldValidatorsConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FieldValidatorsConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FormFieldType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FormFieldType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FormFieldType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FormFieldType.php
+
+		-
+			message: "#^Parameter \\#1 \\$object of method Ibexa\\\\FormBuilder\\\\FieldType\\\\Converter\\\\FormConverter\\:\\:encode\\(\\) expects Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form, Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|null given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FormFieldType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\FormValueType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/FormValueType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\RequestFieldConfigurationType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RequestFieldConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\RequestFieldConfigurationType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RequestFieldConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\RequestFieldConfigurationType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RequestFieldConfigurationType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\RequestFormPreviewType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RequestFormPreviewType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\RequestFormPreviewType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RequestFormPreviewType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\RequestFormPreviewType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/RequestFormPreviewType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\Submission\\\\SubmissionRemoveType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Submission/SubmissionRemoveType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\Submission\\\\SubmissionRemoveType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Submission/SubmissionRemoveType.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Type\\\\Submission\\\\SubmissionRemoveType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/Submission/SubmissionRemoveType.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\Extensions\\:\\:\\$extensions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/Extensions.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\Extensions\\:\\:\\$extensionsMessage has no type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/Extensions.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\ExtensionsValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/ExtensionsValidator.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\MaxChoicesValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/MaxChoicesValidator.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\MinChoicesValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/MinChoicesValidator.php
+
+		-
+			message: "#^Cannot access property \\$pattern on mixed\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/Regex.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\Regex\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/Regex.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\RequiredValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/RequiredValidator.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\UploadSize\\:\\:\\$uploadSizeMessage has no type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/UploadSize.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Form\\\\Validator\\\\Constraints\\\\UploadSizeValidator\\:\\:validate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Validator/Constraints/UploadSizeValidator.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\ArrayFieldSubmissionConverter\\:\\:toExportValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/ArrayFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\BooleanFieldSubmissionConverter\\:\\:toExportValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/BooleanFieldSubmissionConverter.php
+
+		-
+			message: "#^Call to method getUserSetting\\(\\) on an unknown class Ibexa\\\\AdminUi\\\\UserSetting\\\\UserSettingService\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/DateFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\DateFieldSubmissionConverter\\:\\:toDisplayValue\\(\\) should return string but returns bool\\|string\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/DateFieldSubmissionConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldValue \\(DateTime\\) of method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\DateFieldSubmissionConverter\\:\\:toDisplayValue\\(\\) should be compatible with parameter \\$fieldValue \\(string\\) of method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\GenericFieldSubmissionConverter\\:\\:toDisplayValue\\(\\)$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/DateFieldSubmissionConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\DateFieldSubmissionConverter\\:\\:\\$userSettingService \\(Ibexa\\\\AdminUi\\\\UserSetting\\\\UserSettingService\\) does not accept Ibexa\\\\User\\\\UserSetting\\\\UserSettingService\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/DateFieldSubmissionConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\DateFieldSubmissionConverter\\:\\:\\$userSettingService has unknown class Ibexa\\\\AdminUi\\\\UserSetting\\\\UserSettingService as its type\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/DateFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FieldSubmissionConverterInterface\\:\\:removePersistenceValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FieldSubmissionConverterInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FieldSubmissionConverterInterface\\:\\:toDisplayValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FieldSubmissionConverterInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FieldSubmissionConverterInterface\\:\\:toExportValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FieldSubmissionConverterInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FieldSubmissionConverterRegistry\\:\\:__construct\\(\\) has parameter \\$converters with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FieldSubmissionConverterRegistry.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FieldSubmissionConverterRegistry\\:\\:getConverter\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FieldSubmissionConverterRegistry.php
+
+		-
+			message: "#^Cannot access property \\$id on mixed\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Cannot call method isTrashed\\(\\) on string\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FileFieldSubmissionConverter\\:\\:__construct\\(\\) has parameter \\$siteAccessGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FileFieldSubmissionConverter\\:\\:toPersistenceValue\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\Contracts\\\\Core\\\\SiteAccess\\\\ConfigResolverInterface\\)\\: Unexpected token \"\\\\n     \\* \", expected variable at offset 696$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContentInfo\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentInfo of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:deleteContent\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentInfo, mixed given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentInfo of method Ibexa\\\\Core\\\\Helper\\\\TranslationHelper\\:\\:getTranslatedContentNameByContentInfo\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentInfo, string given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldValue of method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FileFieldSubmissionConverter\\:\\:generateFileUrl\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentInfo, string given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Parameter \\#2 \\$mainLanguageCode of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:newContentCreateStruct\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FileFieldSubmissionConverter\\:\\:\\$logger \\(Psr\\\\Log\\\\LoggerInterface\\) does not accept Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\FileFieldSubmissionConverter\\:\\:\\$siteAccessGroups type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/FileFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\GenericFieldSubmissionConverter\\:\\:removePersistenceValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/GenericFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\GenericFieldSubmissionConverter\\:\\:toExportValue\\(\\) has parameter \\$fieldValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/GenericFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Converter\\\\GenericFieldSubmissionConverter\\:\\:toPersistenceValue\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Converter/GenericFieldSubmissionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\FormSubmissionService\\:\\:buildFormSubmissionDomainObject\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/FormSubmissionService.php
+
+		-
+			message: "#^Parameter \\#4 \\$values of class Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FormSubmission constructor expects array\\<Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FieldValue\\>, array\\<Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FieldValue\\|null\\> given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/FormSubmissionService.php
+
+		-
+			message: "#^Cannot call method fetchAll\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionDataGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Gateway\\\\FormSubmissionDataGateway\\:\\:loadBySubmissionId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionDataGateway.php
+
+		-
+			message: "#^Cannot call method fetchAll\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 3
+			path: src/lib/FormSubmission/Gateway/FormSubmissionGateway.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Gateway\\\\FormSubmissionGateway\\:\\:getColumns\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Gateway\\\\FormSubmissionGateway\\:\\:loadByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Gateway\\\\FormSubmissionGateway\\:\\:loadById\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Gateway\\\\FormSubmissionGateway\\:\\:loadHeaders\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Gateway/FormSubmissionGateway.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Notification/EmailNotificationSender.php
+
+		-
+			message: "#^Parameter \\#2 \\$parameters of method Ibexa\\\\FormBuilder\\\\FormSubmission\\\\Notification\\\\EmailNotificationSender\\:\\:doSendEmail\\(\\) expects array\\<string\\>, array\\<string, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\|Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Form\\|Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\FormSubmission\\> given\\.$#"
+			count: 1
+			path: src/lib/FormSubmission/Notification/EmailNotificationSender.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Pagination\\\\Pagerfanta\\\\SubmissionsAdapter\\:\\:getSlice\\(\\) return type has no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/lib/Pagination/Pagerfanta/SubmissionsAdapter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Pagination\\\\Pagerfanta\\\\SubmissionsAdapter\\:\\:getSlice\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Pagination/Pagerfanta/SubmissionsAdapter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Pagination\\\\Pagerfanta\\\\SubmissionsAdapter\\:\\:getSlice\\(\\) return type has no value type specified in iterable type array\\|Traversable\\.$#"
+			count: 1
+			path: src/lib/Pagination/Pagerfanta/SubmissionsAdapter.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Siteaccess\\\\FormBuilderSiteaccessPreviewVoter\\:\\:getRootLocationIds\\(\\) should return array\\<int\\> but returns array\\<int, mixed\\>\\.$#"
+			count: 1
+			path: src/lib/Siteaccess/FormBuilderSiteaccessPreviewVoter.php
+
+		-
+			message: "#^Cannot access offset 'submission' on mixed\\.$#"
+			count: 1
+			path: src/lib/Tab/Event/Subscriber/SubmissionsTabSubscriber.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 3
+			path: src/lib/Tab/Event/Subscriber/SubmissionsTabSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Tab\\\\Event\\\\Subscriber\\\\SubmissionsTabSubscriber\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Tab/Event/Subscriber/SubmissionsTabSubscriber.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Cannot call method getItems\\(\\) on iterable\\<\\(int\\|string\\), mixed\\>\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Tab\\\\LocationView\\\\SubmissionsTab\\:\\:evaluate\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Tab\\\\LocationView\\\\SubmissionsTab\\:\\:getSubmissionChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Tab\\\\LocationView\\\\SubmissionsTab\\:\\:loadContentLanguages\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Method Ibexa\\\\FormBuilder\\\\Tab\\\\LocationView\\\\SubmissionsTab\\:\\:renderView\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$maxPerPage of method Pagerfanta\\\\Pagerfanta\\<mixed\\>\\:\\:setMaxPerPage\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/lib/Tab/LocationView/SubmissionsTab.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\ApplicationConfig\\\\FormBuilderConfigProviderTest\\:\\:dataProviderForGetConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ApplicationConfig/FormBuilderConfigProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\ApplicationConfig\\\\FormBuilderConfigProviderTest\\:\\:testGetConfig\\(\\) has parameter \\$definitions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ApplicationConfig/FormBuilderConfigProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\ApplicationConfig\\\\FormBuilderConfigProviderTest\\:\\:testGetConfig\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ApplicationConfig/FormBuilderConfigProviderTest.php
+
+		-
+			message: "#^Parameter \\#5 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition constructor expects null, string given\\.$#"
+			count: 1
+			path: tests/lib/ApplicationConfig/FormBuilderConfigProviderTest.php
+
+		-
+			message: "#^Parameter \\#7 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition constructor expects null, string given\\.$#"
+			count: 1
+			path: tests/lib/ApplicationConfig/FormBuilderConfigProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilderTest\\:\\:dataProviderForBuildDefinition\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldAttributeDefinitionBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilderTest\\:\\:testBuildDefinition\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldAttributeDefinitionBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilderTest\\:\\:testBuildDefinition\\(\\) has parameter \\$defaultValue with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldAttributeDefinitionBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinitionBuilderTest\\:\\:testBuildDefinition\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldAttributeDefinitionBuilderTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition constructor expects string, mixed given\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldAttributeDefinitionBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldAttributeConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldConfiguration\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldConfiguration\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldDefinition\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldDefinition\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:createFieldValidatorConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:dataProviderForGetFieldDefinition\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:testGetFieldDefinition\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionFactoryTest\\:\\:testGetFieldDefinition\\(\\) has parameter \\$expectedEvents with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Parameter \\#5 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition constructor expects null, string given\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Parameter \\#7 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition constructor expects null, string given\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionTest\\:\\:createFieldDefinition\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\FieldDefinitionTest\\:\\:createFieldDefinition\\(\\) has parameter \\$validators with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionTest.php
+
+		-
+			message: "#^Parameter \\#5 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldValidatorDefinition constructor expects null, string given\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionTest.php
+
+		-
+			message: "#^Parameter \\#7 \\$defaultValue of class Ibexa\\\\FormBuilder\\\\Definition\\\\FieldAttributeDefinition constructor expects null, string given\\.$#"
+			count: 1
+			path: tests/lib/Definition/FieldDefinitionTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistryTest\\:\\:\\$constraintClassRegistry \\(Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\) does not accept Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry\\.$#"
+			count: 1
+			path: tests/lib/Definition/Validator/ConstraintClassRegistryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassStub\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Definition/Validator/ConstraintFactoryTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassStub\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: tests/lib/Definition/Validator/ConstraintFactoryTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassStub\\:\\:\\$options has no type specified\\.$#"
+			count: 1
+			path: tests/lib/Definition/Validator/ConstraintFactoryTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintFactoryTest\\:\\:\\$constraintClassRegistry \\(Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\) does not accept Ibexa\\\\FormBuilder\\\\Definition\\\\Validator\\\\ConstraintClassRegistry\\.$#"
+			count: 1
+			path: tests/lib/Definition/Validator/ConstraintFactoryTest.php
+
+		-
+			message: "#^Cannot access property \\$attributes on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: tests/lib/Event/Subscriber/HandleFormSubmissionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleFormSubmissionTest\\:\\:getBuilder\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Event/Subscriber/HandleFormSubmissionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleFormSubmissionTest\\:\\:getFormMock\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Event/Subscriber/HandleFormSubmissionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleFormSubmissionTest\\:\\:handle\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Event/Subscriber/HandleFormSubmissionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\Event\\\\Subscriber\\\\HandleFormSubmissionTest\\:\\:handle\\(\\) has parameter \\$contentView with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Event/Subscriber/HandleFormSubmissionTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of class Ibexa\\\\Contracts\\\\FormBuilder\\\\FieldType\\\\Model\\\\Attribute constructor expects string\\|null, string\\|false given\\.$#"
+			count: 1
+			path: tests/lib/Event/Subscriber/HandleFormSubmissionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\FieldMapperRegistryTest\\:\\:createRegistry\\(\\) has parameter \\$mappers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/FieldMapperRegistryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\AbstractFieldMapperTest\\:\\:createField\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/AbstractFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\AbstractFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/AbstractFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\AbstractFieldMapperTest\\:\\:testMapForm\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/AbstractFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\AbstractFieldMapperTest\\:\\:testMapForm\\(\\) has parameter \\$expectedOptions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/AbstractFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\ButtonFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/ButtonFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/CheckboxFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\CheckboxListFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/CheckboxListFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\DateFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/DateFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\DropdownFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/DropdownFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\EmailFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/EmailFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\FileFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/FileFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\GenericFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/GenericFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\HiddenFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/HiddenFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\MultiLineFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/MultiLineFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\NumberFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/NumberFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\RadioFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/RadioFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\SingleLineFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/SingleLineFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\Field\\\\Mapper\\\\UrlFieldMapperTest\\:\\:dataProviderForMapForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Field/Mapper/UrlFieldMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\FormFactoryTest\\:\\:dataProviderForCreateForm\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/FieldType/FormFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\FormFactoryTest\\:\\:testCreateForm\\(\\) has parameter \\$data with no type specified\\.$#"
+			count: 1
+			path: tests/lib/FieldType/FormFactoryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FormBuilder\\\\FieldType\\\\FormFactoryTest\\:\\:testCreateFormLogMissingFieldMapper\\(\\) has parameter \\$data with no type specified\\.$#"
+			count: 1
+			path: tests/lib/FieldType/FormFactoryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of class Ibexa\\\\FormBuilder\\\\Exception\\\\FieldMapperNotFoundException constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: tests/lib/FieldType/FormFactoryTest.php

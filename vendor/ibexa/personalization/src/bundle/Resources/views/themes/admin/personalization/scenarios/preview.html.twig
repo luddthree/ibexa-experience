@@ -1,0 +1,130 @@
+{% extends '@ibexadesign/ui/edit_base.html.twig' %}
+{% form_theme recommendation_call_form '@ibexadesign/personalization/scenarios/form_fields/preview.html.twig' %}
+
+{% trans_default_domain 'ibexa_scenario' %}
+
+{% set anchor_params = {
+    close_href: path('ibexa.personalization.scenarios', { customerId: customer_id }),
+} %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'preview.action_name'|trans|desc('Preview'),
+        title: scenario.title,
+        icon_name: 'landingpage-preview',
+        show_extra_bottom_content: true,
+    } %}
+        {% block extra_bottom_content %}
+            {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                type: 'info',
+                title: 'preview.recommendation_response_description'|trans|desc('The way how recommendations are rendered is only an example. It could differ from the actual approach used by the customer on the website'),
+                class: 'ibexa-perso-scenario-preview-header-alert',
+            } only %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+<div
+    class="offset-1 ibexa-perso-scenario-preview"
+    data-scenario-name="{{ scenario.referenceCode }}"
+    data-customer-id="{{ customer_id }}"
+>
+    <section class="ibexa-perso-scenario-preview__form-wrapper ibexa-fieldgroup">
+        <div class="ibexa-perso-scenario-preview__form-fields">
+            <h2 class="ibexa-perso-scenario-preview__form-title">{{ 'preview.settings'|trans|desc('Settings') }}</h2>
+            {{ form_start(recommendation_call_form, { attr: { class: 'ibexa-form ibexa-perso-scenario-preview__form' } }) }}
+            {{ form_end(recommendation_call_form) }}
+            <div class="form-group">
+                <label class="ibexa-label col-form-label">{{ 'preview.generated_url'|trans|desc('Generated url') }}</label>
+                <div class="ibexa-perso-scenario-preview__generated-url">
+                    {{ preview.requestUrl }}
+                </div>
+            </div>
+        </div>
+        <div class="ibexa-perso-scenario-preview__submit-btn-wrapper">
+            <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-perso-scenario-preview__submit-btn">{{ 'preview.send_request'|trans|desc('Send request') }}</button>
+        </div>
+    </section>
+    <div class="ibexa-perso-scenario-preview__response-preview">
+        {% if can_edit %}
+            {% set has_preloaded_items = preview.previewRecommendationItemList|length > 0 %}
+
+            {% set initial_preview_fault_message = preview.errorMessage %}
+            <h2 class="ibexa-perso-scenario-preview__response-title">{{ 'preview.response.title'|trans|desc('Recommendation response') }}</h2>
+            {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                type: 'error',
+                title: initial_preview_fault_message|default(''),
+                class: 'ibexa-perso-scenario-preview__response-error'
+                    ~ (initial_preview_fault_message is null ? ' ibexa-perso-scenario-preview__response-error--hidden'),
+            } only %}
+            <div class="ibexa-perso-scenario-preview__no-recommendations {{ has_preloaded_items ? 'ibexa-perso-scenario-preview__no-recommendations--hidden' }}">
+                <img
+                    class="ibexa-perso-scenario-preview__no-recommendations-image"
+                    src="/bundles/ibexaadminui/img/no-gallery-items.svg"
+                    alt="{{ 'preview.no_recommenations.text'|trans|desc('No recommendations available') }}"
+                />
+                <div class="ibexa-perso-scenario-preview__no-recommendations-text">
+                    <strong>{{ 'preview.no_recommenations.text'|trans|desc('No recommendations available') }}</strong>
+                </div>
+            </div>
+            <div
+                class="ibexa-perso-scenario-preview__gallery {{ not has_preloaded_items ? 'ibexa-perso-scenario-preview__gallery--hidden' }} ibexa-grid-view"
+                data-item-template="{{ include('@ibexadesign/personalization/scenarios/parts/gallery_item.html.twig', {
+                    is_template: true,
+                })|e('html_attr') }}"
+            >
+                {% for item in preview.previewRecommendationItemList %}
+                    {{ include('@ibexadesign/personalization/scenarios/parts/gallery_item.html.twig', {
+                        image: item.image,
+                        title: item.title,
+                        description: item.description
+                    }) }}
+                {% endfor %}
+            </div>
+            <div class="ibexa-perso-scenario-preview-response-code">
+                <div class="ibexa-perso-scenario-preview-response-code__toggler ibexa-perso-scenario-preview-response-code__toggler--rolled-up">
+                    <div class="ibexa-perso-scenario-preview-response-code__toggler-show">
+                        {{ 'preview.response.toggler.show'|trans|desc('Show response code') }}
+                    </div>
+                    <div class="ibexa-perso-scenario-preview-response-code__toggler-hide">
+                        {{ 'preview.response.toggler.hide'|trans|desc('Hide response code') }}
+                    </div>
+                </div>
+                <div class="ibexa-perso-scenario-preview-response-code__card ibexa-perso-scenario-preview-response-code__card--hidden">
+                    <div class="ibexa-perso-scenario-preview-response-code__card-header">
+                        <div class="ibexa-perso-scenario-preview-response-code__card-header-title">
+                            {{ 'preview.response.card.header.title'|trans|desc('Header') }}
+                        </div>
+                        <button
+                            type="button"
+                            class="btn ibexa-perso-scenario-preview-response-code__copy-btn"
+                            data-tooltip-trigger="manual"
+                            title="{{ 'preview.copy_btn.message'|trans|desc('Copied!') }}"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--small">
+                                <use xlink:href="{{ ibexa_icon_path('copy') }}"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre
+                        class="ibexa-perso-scenario-preview-response-code__code"
+                        data-default-json-response="{{ preview.response|json_encode(constant('JSON_PRETTY_PRINT')) }}"
+                    ></pre>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-personalization-scenarios-preview-js', null, 'ibexa') }}
+{% endblock %}

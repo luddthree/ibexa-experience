@@ -1,0 +1,9 @@
+ibexa.page.block.render:
+    path: /block/render/{blockId}/{contentId}/{versionNo}/{languageCode}/{locationId}
+    defaults:
+        _controller: 'Ibexa\Bundle\FieldTypePage\Controller\BlockController::renderAction'
+    requirements:
+        blockId: \w+
+        contentId: \d+
+        versionNo: \d+
+        languageCode: \w+

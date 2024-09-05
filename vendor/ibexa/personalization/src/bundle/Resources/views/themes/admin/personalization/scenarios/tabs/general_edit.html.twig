@@ -1,0 +1,15 @@
+{{ form_row(scenario_form._token) }}
+{{ form_row(scenario_form.name, { row_attr: { class: 'ibexa-form-field' } }) }}
+{{ form_row(scenario_form.id, { row_attr: { class: 'ibexa-form-field' } }) }}
+{{ form_row(scenario_form.input_type, { row_attr: { class: 'ibexa-form-field' } }) }}
+{{ form_row(scenario_form.output_type, { row_attr: { class: 'ibexa-form-field' } }) }}
+{{ form_row(scenario_form.description, { row_attr: { class: 'ibexa-form-field' } }) }}
+
+<div class="ibexa-perso-scenario-edit__separator"></div>
+
+{{ form_row(scenario_form.user_profile_settings, { row_attr: { class: 'ibexa-form-field' } }) }}
+{{ form_row(scenario_form.exclusions, { row_attr: { class: 'ibexa-form-field' } }) }}
+
+{% if is_commerce %}
+    {{ form_row(scenario_form.commerce_settings, { row_attr: { class: 'ibexa-form-field' } }) }}
+{% endif %}

@@ -1,0 +1,12 @@
+{% extends '@ibexadesign/ui/chart.html.twig' %}
+
+{% block chart_footer %}
+    <ul
+        class="ibexa-chart-legend"
+        data-item-template={{ include('@ibexadesign/product_catalog/ui/component/chart/legend_item_template.html.twig', {
+            'checked_color' : '{{ checked_color }}',
+            'label': '{{ label }}',
+            'dataset_index': '{{ dataset_index }}'
+        })|e('html_attr') }}
+    ></ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+Ibexa\Contracts\FormBuilder\FieldType\Model\Validator:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        identifier:
+            type: string
+            accessor:
+                getter: getIdentifier
+                setter: setIdentifier
+            skip_when_empty: false
+            expose: true
+        value:
+            type: string
+            accessor:
+                getter: getValue
+                setter: setValue
+            skip_when_empty: false
+            expose: true

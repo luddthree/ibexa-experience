@@ -1,0 +1,92 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'tab.variants.modal.title'|trans|desc('Generate variants'),
+    class: 'ibexa-generate-variants',
+    id: 'generate-variants-modal',
+} %}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+    {% form_theme form '@ibexadesign/product_catalog/product/generate_variants_form_fields.html.twig' %}
+
+    {% block content_before %}
+        {{ form_start(form, { attr: {
+            class: 'ibexa-generate-variants__form',
+            novalidate: true,
+        } }) }}
+    {% endblock %}
+    {% block body_content %}
+        <div class="ibexa-generate-variants__form-spinner">
+            <svg class="ibexa-icon ibexa-spin">
+                <use xlink:href="{{ ibexa_icon_path('spinner') }}"></use>
+            </svg>
+        </div>
+
+        <div class="ibexa-generate-variants__form-content">
+            <div class="ibexa-generate-variants__info">
+                {{ 'tab.variants.modal.main_info'|trans|desc(
+                    'Provide values for attributes to generate product variants.'
+                ) }}
+            </div>
+
+            {% set body_rows = [] %}
+
+            {%- for attribute in form.attributes %}
+                {% set attr = attribute.vars.attr %}
+                {% set is_choice_widget = attribute.vars.choices is defined %}
+
+                {% if is_choice_widget %}
+                    {% set attr = attr|merge({ has_select_all_toggler: true }) %}
+                {% endif %}
+
+                {% set widget_wrapper %}
+                    <div class="ibexa-generate-variants__form-field">
+                        {{ form_widget(attribute, { attr }) }}
+                    </div>
+                {% endset %}
+
+                {% set label_content %}
+                    {{ form_label(attribute) }}
+                    {{ form_help(attribute, {
+                        help_attr: { with_icon: false }
+                    }) }}
+                {% endset %}
+
+                {% set body_rows = body_rows|merge([{ cols: [{
+                    content: label_content,
+                    raw: true,
+                }, {
+                    content: widget_wrapper,
+                    raw: true,
+                }] }]) %}
+            {% endfor -%}
+
+            {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                headline: 'tab.variants.modal.technical_characteristics'|trans|desc('Technical characteristics'),
+                head_cols: [
+                    { content: 'tab.variants.modal.attribute'|trans|desc('Attribute') },
+                    { },
+                ],
+                body_rows,
+            } %}
+
+            <div class="ibexa-generate-variants__info ibexa-generate-variants__info--secondary">
+                {{ 'tab.variants.modal.secondary_info'|trans|desc('Automatically create variants based on the attributes defined above.') }}
+            </div>
+        </div>
+    {% endblock %}
+    {% block footer_content %}
+        <button class="btn ibexa-btn ibexa-btn--primary ibexa-btn--generate-variants" type="submit">
+            {{ 'tab.variants.modal.generate'|trans|desc('Generate variants') }}
+        </button>
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary"
+            data-bs-dismiss="modal"
+        >
+            {{ 'tab.variants.modal.cancel'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+    {% block content_after %}
+        {{ form_end(form) }}
+    {% endblock %}
+{% endembed %}

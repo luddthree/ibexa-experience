@@ -1,0 +1,12 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+{%
+    set statuses = {
+        0: 'site.factory.page.status.offline'|trans|desc('Offline'),
+        1: 'site.factory.page.status.online'|trans|desc('Live'),
+        2: 'site.factory.page.status.building'|trans|desc('Building...'),
+    }
+%}
+{% set status_name = statuses[status] %}
+{% set badge_name = { 0: 'offline', 1: 'online', 2: 'build' }[status] %}
+<div class="ibexa-sf-status ibexa-sf-status--{{ badge_name }} {{ class|default('') }}" title="{{ status_name }}"></div>

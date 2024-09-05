@@ -1,0 +1,78 @@
+{% trans_default_domain 'ibexa_segmentation' %}
+
+{% extends '@IbexaAdminUi/themes/admin/ui/form_fields.html.twig' %}
+
+{% block _segment_group_create_create_segments_row %}
+    {%- set prototype_attr = prototype is defined and not prototype.rendered ? form_row(prototype) : '' -%}
+    {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline: 'segment_group.segments.header'|trans|desc('Segments under this group'),
+        head_cols: [
+            { has_checkbox: true },
+            { content: 'segment_groups.list.name'|trans|desc('Name') },
+            { content: 'segment_groups.list.identifier'|trans|desc('Identifier') },
+        ],
+        show_head_cols_if_empty: true,
+        class: 'ibexa-table--add-segments',
+        attr: {
+            'data-template': prototype_attr,
+        },
+        empty_table_info_text: 'segment_groups.list.empty'|trans|desc('No Segment Groups.'),
+    } %}
+        {% block header %}
+            {% embed '@ibexadesign/ui/component/table/table_header.html.twig' with {
+                class: 'ibexa-table-header--add-segments',
+            } %}
+                {% trans_default_domain 'ibexa_segmentation' %}
+
+                {% block actions %}
+                    <button
+                        type="button"
+                        class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small ibexa-btn ibexa-btn--add"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                        </svg>
+                        <span class="ibexa-btn__label">
+                            {{ 'segment_group.segment.add'|trans|desc('Add') }}
+                        </span>
+                    </button>
+                    <button
+                        type="button"
+                        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn ibexa-btn--remove"
+                        disabled
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                        </svg>
+                        <span class="ibexa-btn__label">
+                            {{ 'segment_group.segment.remove'|trans|desc('Remove') }}
+                        </span>
+                    </button>
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block tbody %}
+            {{ form_widget(form) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block _segment_group_create_create_segments_entry_row -%}
+    {% apply spaceless %}
+
+    {% set col_checkbox %}
+        <div class="form-check">
+            <input type="checkbox" class="ibexa-input ibexa-input--checkbox form-check-input">
+        </div>
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+        body_row_cols: [
+            { has_checkbox: true, content: col_checkbox, raw: true },
+            { content: form_widget(form.name), raw: true },
+            { content: form_widget(form.identifier), raw: true },
+        ],
+    } only %}
+
+    {% endapply %}
+{%- endblock %}

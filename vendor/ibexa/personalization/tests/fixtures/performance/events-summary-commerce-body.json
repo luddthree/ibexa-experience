@@ -1,0 +1,105 @@
+{
+    "revenueDetails": {
+        "currency": "EUR",
+        "items_purchased": "105",
+        "revenue": "769500"
+    },
+    "recoCallDetails": {
+        "category_page": {
+            "percentage": "0.0",
+            "calls": "84",
+            "scenarioNames": ["Category page"]
+        },
+        "random": {
+            "percentage": "39.5",
+            "calls": "84539",
+            "scenarioNames": ["Random"]
+        },
+        "ultimately_bought": {
+            "percentage": "0.0",
+            "calls": "1",
+            "scenarioNames": ["Ultimately bought"]
+        },
+        "also_purchased": {
+            "percentage": "0.3",
+            "calls": "683",
+            "scenarioNames": ["Also purchased"]
+        },
+        "test": {
+            "percentage": "0.0",
+            "calls": "25",
+            "scenarioNames": ["Test"]
+        },
+        "also_purchased2": {
+            "percentage": "0.0",
+            "calls": "2",
+            "scenarioNames": ["Also purchased2"]
+        },
+        "landingPage": {
+            "percentage": "0.1",
+            "calls": "274",
+            "scenarioNames": ["landingPage"]
+        },
+        "profile_models": {
+            "percentage": "0.0",
+            "calls": "13",
+            "scenarioNames": ["Profile models"]
+        },
+        "landing_page": {
+            "percentage": "0.1",
+            "calls": "107",
+            "scenarioNames": ["Landing page"]
+        },
+        "ALL_CALLS": {
+            "percentage": "100.0",
+            "calls": "213877",
+            "scenarioNames": ["ALL_CALLS"]
+        },
+        "blog": {
+            "percentage": "59.9",
+            "calls": "128074",
+            "scenarioNames": ["Blog"]
+        },
+        "top_clicked": {
+            "percentage": "0.0",
+            "calls": "75",
+            "scenarioNames": ["Top clicked"]
+        }
+    },
+    "conversionDetails": {
+        "category_page": {
+            "value": "2.4",
+            "scenarioNames": ["Category page"]
+        },
+        "also_purchased": {
+            "value": "4.8",
+            "scenarioNames": ["Also purchased"]
+        },
+        "also_purchased2": {
+            "value": "741000.0",
+            "scenarioNames": ["Also purchased2"]
+        },
+        "landingPage": {
+            "value": "3570.1",
+            "scenarioNames": ["LandingPage"]
+        },
+        "landing_page": {
+            "value": "2.8",
+            "scenarioNames": ["Landing page"]
+        },
+        "blog": {
+            "value": "0.0",
+            "scenarioNames": ["Blog"]
+        },
+        "ALL_SCENARIOS": {
+            "value": "19.1"
+        }
+    },
+    "eventsDetails": {
+        "BUY": "10501",
+        "CLICK": "84196",
+        "BASKET": "10615",
+        "CONSUME": "9",
+        "TOTAL_EVENTS": "105321"
+    }
+}

@@ -1,0 +1,16 @@
+{% block ibexa_product_specification_field %}
+    {% set product = content|ibexa_get_product %}
+    {% apply spaceless %}
+        <table>
+            <tbody>
+            {% for attribute in product.attributes %}
+                {% set definition = attribute.getAttributeDefinition() %}
+                <tr>
+                    <th>{{ definition.getName() }}</th>
+                    <td>{{ attribute|ibexa_format_product_attribute }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endapply %}
+{% endblock %}

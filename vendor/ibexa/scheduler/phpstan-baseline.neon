@@ -1,0 +1,1021 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\PermissionResolver\\:\\:sudo\\(\\)\\.$#"
+			count: 4
+			path: src/bundle/Command/ScheduledRunCommand.php
+
+		-
+			message: "#^Cannot access property \\$contentInfo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/bundle/Command/ScheduledRunCommand.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/bundle/Command/ScheduledRunCommand.php
+
+		-
+			message: "#^Cannot access property \\$status on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/bundle/Command/ScheduledRunCommand.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/bundle/Command/ScheduledRunCommand.php
+
+		-
+			message: "#^Cannot access property \\$contentId on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedContentController.php
+
+		-
+			message: "#^Cannot call method getContentInfo\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 2
+			path: src/bundle/Controller/DateBasedContentController.php
+
+		-
+			message: "#^Parameter \\#1 \\$location of method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedContentController\\:\\:redirectToLocation\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null given\\.$#"
+			count: 4
+			path: src/bundle/Controller/DateBasedContentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$when of method Ibexa\\\\Contracts\\\\Scheduler\\\\Repository\\\\DateBasedHideServiceInterface\\:\\:scheduleHide\\(\\) expects DateTimeInterface, DateTimeImmutable\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedContentController.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location and null will always evaluate to false\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedContentController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:__construct\\(\\) has parameter \\$defaultSiteAccess with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledContentVersionsAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledContentVersionsAction\\(\\) has parameter \\$contentId with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledContentVersionsAction\\(\\) has parameter \\$limit with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledContentVersionsAction\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledVersionAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledVersionAction\\(\\) has parameter \\$contentId with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledVersionAction\\(\\) has parameter \\$versionNumber with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledVersionsAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledVersionsAction\\(\\) has parameter \\$limit with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getScheduledVersionsAction\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getUserScheduledVersionsAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getUserScheduledVersionsAction\\(\\) has parameter \\$limit with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:getUserScheduledVersionsAction\\(\\) has parameter \\$page with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:rescheduleVersionAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:rescheduleVersionAction\\(\\) has parameter \\$contentId with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:rescheduleVersionAction\\(\\) has parameter \\$publicationTimestamp with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:rescheduleVersionAction\\(\\) has parameter \\$versionNumber with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:scheduleVersionAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:scheduleVersionAction\\(\\) has parameter \\$contentId with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:scheduleVersionAction\\(\\) has parameter \\$publicationTimestamp with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:scheduleVersionAction\\(\\) has parameter \\$versionNumber with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:unscheduleVersionAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:unscheduleVersionAction\\(\\) has parameter \\$contentId with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Scheduler\\\\Controller\\\\DateBasedPublisherController\\:\\:unscheduleVersionAction\\(\\) has parameter \\$versionNumber with no type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Parameter \\#2 \\$when of method Ibexa\\\\Contracts\\\\Scheduler\\\\Repository\\\\DateBasedPublishServiceInterface\\:\\:schedulePublish\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Parameter \\#2 \\$when of method Ibexa\\\\Contracts\\\\Scheduler\\\\Repository\\\\DateBasedPublishServiceInterface\\:\\:updateScheduledPublish\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: src/bundle/Controller/DateBasedPublisherController.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: src/contracts/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntryList\\:\\:\\$limit has no type specified\\.$#"
+			count: 1
+			path: src/contracts/ValueObject/ScheduledEntryList.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntryList\\:\\:\\$page has no type specified\\.$#"
+			count: 1
+			path: src/contracts/ValueObject/ScheduledEntryList.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntryList\\:\\:\\$total has no type specified\\.$#"
+			count: 1
+			path: src/contracts/ValueObject/ScheduledEntryList.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Calendar\\\\AbstractDateBasedActionEventSource\\:\\:getEvents\\(\\) should return iterable\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\> but returns iterable\\<Ibexa\\\\Scheduler\\\\Calendar\\\\ScheduledEntryBasedEvent\\>\\.$#"
+			count: 1
+			path: src/lib/Calendar/AbstractDateBasedActionEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of class ArrayIterator constructor expects array\\<TKey of \\(int\\|string\\), TValue\\>, iterable\\<Ibexa\\\\Scheduler\\\\Calendar\\\\ScheduledEntryBasedEvent\\> given\\.$#"
+			count: 1
+			path: src/lib/Calendar/AbstractDateBasedActionEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$scheduledEntries of method Ibexa\\\\Scheduler\\\\Calendar\\\\AbstractDateBasedActionEventSource\\:\\:buildEventDomainObjectList\\(\\) expects array\\<Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\>, iterable\\<Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\> given\\.$#"
+			count: 2
+			path: src/lib/Calendar/AbstractDateBasedActionEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$scheduledEntriesIds of method Ibexa\\\\Contracts\\\\Scheduler\\\\Repository\\\\DateBasedEntriesListInterface\\:\\:getScheduledEntriesByIds\\(\\) expects array\\<int\\>, array\\<int\\<0, max\\>, string\\> given\\.$#"
+			count: 1
+			path: src/lib/Calendar/AbstractDateBasedActionEventSource.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\Calendar\\\\EventAction\\\\RescheduleEventActionContext\\:\\:\\$dateTime \\(DateTimeImmutable\\) does not accept DateTimeImmutable\\|false\\.$#"
+			count: 1
+			path: src/lib/Calendar/EventAction/RescheduleEventActionContext.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Calendar/EventAction/UnschedulePublishEventAction.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of class Ibexa\\\\Scheduler\\\\Calendar\\\\FutureHideEvent constructor expects Ibexa\\\\Scheduler\\\\Calendar\\\\FutureHideEventType, Ibexa\\\\Contracts\\\\Calendar\\\\EventType\\\\EventTypeInterface given\\.$#"
+			count: 1
+			path: src/lib/Calendar/FutureHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Calendar\\\\Event\\:\\:getScheduledEntry\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/FutureHideEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Calendar\\\\FutureHideEventType\\:\\:__construct\\(\\) has parameter \\$actions with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Calendar/FutureHideEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Calendar\\\\FutureHideEventType\\:\\:getActions\\(\\) should return Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection but returns Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/FutureHideEventType.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\Calendar\\\\FutureHideEventType\\:\\:\\$actions \\(Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\) does not accept Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/FutureHideEventType.php
+
+		-
+			message: "#^Cannot access property \\$initialLanguageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Calendar/FuturePublicationEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of class Ibexa\\\\Scheduler\\\\Calendar\\\\FuturePublicationEvent constructor expects Ibexa\\\\Scheduler\\\\Calendar\\\\FuturePublicationEventType, Ibexa\\\\Contracts\\\\Calendar\\\\EventType\\\\EventTypeInterface given\\.$#"
+			count: 1
+			path: src/lib/Calendar/FuturePublicationEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Calendar\\\\Event\\:\\:getScheduledEntry\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/FuturePublicationEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Calendar\\\\FuturePublicationEventType\\:\\:__construct\\(\\) has parameter \\$actions with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Calendar/FuturePublicationEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Calendar\\\\FuturePublicationEventType\\:\\:getActions\\(\\) should return Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection but returns Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/FuturePublicationEventType.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\Calendar\\\\FuturePublicationEventType\\:\\:\\$actions \\(Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\) does not accept Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/FuturePublicationEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Component\\\\DateBasedHideAlertComponent\\:\\:render\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/DateBasedHideAlertComponent.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Symfony\\\\Component\\\\Form\\\\FormFactoryInterface\\:\\:createNamed\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Component/DateBasedHideAlertComponent.php
+
+		-
+			message: "#^Cannot access property \\$creationDate on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$creatorId on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$initialLanguageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$modificationDate on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot call method getContentInfo\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of class Pagerfanta\\\\Adapter\\\\ArrayAdapter constructor expects array, iterable\\<Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\> given\\.$#"
+			count: 1
+			path: src/lib/Dashboard/AllScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$creationDate on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$creatorId on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$initialLanguageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$modificationDate on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot call method getContentInfo\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of class Pagerfanta\\\\Adapter\\\\ArrayAdapter constructor expects array, iterable\\<Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\> given\\.$#"
+			count: 1
+			path: src/lib/Dashboard/MyScheduledTab.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageBuilderTemplatesSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PageTimelineEventsSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/QuickReviewEventSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Event\\\\Subscriber\\\\QuickReviewEventSubscriber\\:\\:onQuickReview\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/QuickReviewEventSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/RepositoryEventSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Form\\\\ContentEditTypeExtension\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/ContentEditTypeExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Form\\\\ContentEditTypeExtension\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/ContentEditTypeExtension.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentCreateData\\|Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentUpdateData\\:\\:\\$contentDraft\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:\\$contentDraft\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:\\$mainLanguageCode\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Access to property \\$contentDraft on an unknown class Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentData\\.$#"
+			count: 2
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Access to property \\$contentType on an unknown class Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentData\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentCreateData\\|Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentUpdateData\\:\\:getLocationStructs\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentStruct\\:\\:isNew\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Call to method getLocationStructs\\(\\) on an unknown class Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentData\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Call to method isNew\\(\\) on an unknown class Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentData\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Cannot access property \\$contentId on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 2
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Cannot call method getData\\(\\) on Symfony\\\\Component\\\\Form\\\\FormInterface\\<mixed\\>\\|null\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentCreateStruct of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:createContent\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct, Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentCreateData\\|Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentUpdateData given\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Parameter \\#2 \\$contentUpdateStruct of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:updateContent\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentUpdateStruct, Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentCreateData\\|Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentUpdateData given\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Parameter \\#2 \\$when of method Ibexa\\\\Contracts\\\\Scheduler\\\\Repository\\\\DateBasedPublishServiceInterface\\:\\:schedulePublish\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Parameter \\#2 \\$when of method Ibexa\\\\Contracts\\\\Scheduler\\\\Repository\\\\DateBasedPublishServiceInterface\\:\\:updateScheduledPublish\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Parameter \\$data of method Ibexa\\\\Scheduler\\\\Form\\\\Processor\\\\ContentFormProcessor\\:\\:getContentEditUrl\\(\\) has invalid type Ibexa\\\\ContentForms\\\\Data\\\\Content\\\\ContentData\\.$#"
+			count: 1
+			path: src/lib/Form/Processor/ContentFormProcessor.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Form\\\\Type\\\\DateBasedHideCancelType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/DateBasedHideCancelType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Form\\\\Type\\\\DateBasedHideCancelType\\:\\:buildForm\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/DateBasedHideCancelType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Form\\\\Type\\\\DateBasedPublisherType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/DateBasedPublisherType.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:appendScheduleLaterToMenu\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:appendScheduleLaterToMenu\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:canContentBePublished\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:onAdminUiMenuConfigure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:onPageBuilderMenuConfigure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:shouldAddDiscardItem\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureMenuListener\\:\\:\\$translator is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureMenuListener.php
+
+		-
+			message: "#^Left side of \\|\\| is always false\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureRightMenuSidebarListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method Symfony\\\\Component\\\\Form\\\\FormFactoryInterface\\:\\:createNamed\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureRightMenuSidebarListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function uasort expects callable\\(Knp\\\\Menu\\\\ItemInterface, Knp\\\\Menu\\\\ItemInterface\\)\\: int, Closure\\(Knp\\\\Menu\\\\MenuItem, Knp\\\\Menu\\\\MenuItem\\)\\: int\\<\\-1, 1\\> given\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureRightMenuSidebarListener.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\Menu\\\\ConfigureRightMenuSidebarListener\\:\\:\\$translator is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Menu/ConfigureRightMenuSidebarListener.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Notification\\\\Sender\\:\\:getScheduleSubscribers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Notification/Sender.php
+
+		-
+			message: "#^Cannot call method fetch\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 11
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Cannot call method fetchAll\\(\\) on Doctrine\\\\DBAL\\\\ForwardCompatibility\\\\Result\\|int\\|string\\.$#"
+			count: 2
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:buildScheduledEntrySPIObject\\(\\) has parameter \\$row with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:buildScheduledEntrySPIObjectList\\(\\) has parameter \\$rows with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:buildScheduledEntrySPIObjectList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getContentsEntriesByDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getContentsEntriesByDateRange\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getEntriesOlderThan\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getInsertEntryValues\\(\\) has parameter \\$additionalEntryValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getInsertEntryValues\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getPaginatedResult\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Gateway\\\\DoctrineDatabase\\:\\:getVersionsEntriesForContent\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/DoctrineDatabase.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Handler\\:\\:countContentsEntriesInDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Handler\\:\\:countVersionsEntriesInDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Handler\\:\\:getContentsEntriesByDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Handler\\:\\:getContentsEntriesByDateRange\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Handler\\:\\:getVersionsEntries\\(\\) should return array\\<Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\> but returns iterable\\<Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\>\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\Handler\\:\\:getVersionsEntriesForContent\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/Handler.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\HandlerInterface\\:\\:countContentsEntriesInDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/HandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\HandlerInterface\\:\\:countVersionsEntriesInDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/HandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\HandlerInterface\\:\\:getContentsEntriesByDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/HandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\HandlerInterface\\:\\:getContentsEntriesByDateRange\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/HandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Persistence\\\\HandlerInterface\\:\\:getVersionsEntriesForContent\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Persistence/HandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Input\\\\Parser\\\\RescheduleEventActionContextParser\\:\\:parseContext\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Input/Parser/RescheduleEventActionContextParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Input\\\\Parser\\\\RescheduleEventActionContextParser\\:\\:parseDateTimeValue\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Input/Parser/RescheduleEventActionContextParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Input\\\\Parser\\\\UnscheduleEventActionContextParser\\:\\:parseContext\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Input/Parser/UnscheduleEventActionContextParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:isRegistered\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:isRegistered\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:registerType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:registerType\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:registerTypes\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:registerTypes\\(\\) has parameter \\$names with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:\\$baseGenerator has no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Json\\:\\:\\$registered has no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Json.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:isRegistered\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:isRegistered\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:registerType\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:registerType\\(\\) has parameter \\$name with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:registerTypes\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:registerTypes\\(\\) has parameter \\$names with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:\\$baseGenerator has no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\Generator\\\\Xml\\:\\:\\$registered has no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/Generator/Xml.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\ValueObjectVisitor\\\\FutureHideEvent\\:\\:generateAttribute\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/FutureHideEvent.php
+
+		-
+			message: "#^Cannot access property \\$contentInfo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/FuturePublicationEvent.php
+
+		-
+			message: "#^Cannot access property \\$initialLanguageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/FuturePublicationEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\ValueObjectVisitor\\\\FuturePublicationEvent\\:\\:generateAttribute\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/FuturePublicationEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\ValueObjectVisitor\\\\NotScheduled\\:\\:visit\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/NotScheduled.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Contracts\\\\Rest\\\\Output\\\\Visitor\\:\\:setHeader\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/NotScheduled.php
+
+		-
+			message: "#^Cannot access property \\$contentInfo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Cannot access property \\$initialLanguageCode on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Cannot access property \\$modificationDate on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 4
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Cannot access property \\$versionNo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 3
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Cannot call method getName\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\ValueObjectVisitor\\\\ScheduledVersion\\:\\:visit\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Contracts\\\\Rest\\\\Output\\\\Generator\\:\\:startAttribute\\(\\) expects string, int given\\.$#"
+			count: 2
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Contracts\\\\Rest\\\\Output\\\\Visitor\\:\\:setHeader\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\ValueObjectVisitor\\\\ScheduledVersion\\:\\:\\$contentTypeService has no type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersion.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\Output\\\\ValueObjectVisitor\\\\ScheduledVersionList\\:\\:visit\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersionList.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of method Ibexa\\\\Contracts\\\\Rest\\\\Output\\\\Visitor\\:\\:setHeader\\(\\) expects string, false given\\.$#"
+			count: 1
+			path: src/lib/REST/Server/Output/ValueObjectVisitor/ScheduledVersionList.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\REST\\\\Server\\\\RestController\\:\\:setInputDispatcher\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/REST/Server/RestController.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Repository\\\\DateBasedContentStrategy\\:\\:scheduleContent\\(\\) should return Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry but returns Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\|null\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedContentStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Repository\\\\DateBasedContentStrategy\\:\\:updateScheduledEntry\\(\\) should return Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry but returns Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\|null\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedContentStrategy.php
+
+		-
+			message: "#^Parameter \\#1 \\$scheduledEntry of method Ibexa\\\\Scheduler\\\\Repository\\\\DateBasedContentStrategy\\:\\:updateScheduledEntry\\(\\) expects Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry, Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\|null given\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedContentStrategy.php
+
+		-
+			message: "#^Cannot call method getContentInfo\\(\\) on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedPublisherService.php
+
+		-
+			message: "#^Cannot access property \\$id on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedVersionStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Repository\\\\DateBasedVersionStrategy\\:\\:scheduleVersion\\(\\) should return Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry but returns Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\|null\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedVersionStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Repository\\\\DateBasedVersionStrategy\\:\\:updateScheduledEntry\\(\\) should return Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry but returns Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\|null\\.$#"
+			count: 1
+			path: src/lib/Repository/DateBasedVersionStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\Schedule\\\\AbstractDateBasedStrategy\\:\\:buildScheduledDomainObjectList\\(\\) should return array\\<Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\> but returns array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\|null\\>\\.$#"
+			count: 1
+			path: src/lib/Schedule/AbstractDateBasedStrategy.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$action has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$actionTimestamp has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$contentId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$urlRoot has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$userId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$versionId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\CreateScheduledEntryStruct\\:\\:\\$versionNumber has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/CreateScheduledEntryStruct.php
+
+		-
+			message: "#^Method Ibexa\\\\Scheduler\\\\ValueObject\\\\NotificationFactory\\:\\:getNotificationCreateStruct\\(\\) has parameter \\$type with no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/NotificationFactory.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$action has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$actionTimestamp has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$contentId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$urlRoot has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$userId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$versionId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\ScheduledEntry\\:\\:\\$versionNumber has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/ScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\UpdateScheduledEntry\\:\\:\\$actionTimestamp has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/UpdateScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\UpdateScheduledEntry\\:\\:\\$id has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/UpdateScheduledEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\Scheduler\\\\ValueObject\\\\UpdateScheduledEntry\\:\\:\\$userId has no type specified\\.$#"
+			count: 1
+			path: src/lib/ValueObject/UpdateScheduledEntry.php

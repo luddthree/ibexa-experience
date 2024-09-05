@@ -1,0 +1,79 @@
+{% extends '@ibexadesign/content/form_fields.html.twig' %}
+
+{%- block attribute_collection_row -%}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+{%- endblock -%}
+
+{%- block product_catalog_attribute_row -%}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+{%- endblock -%}
+
+{% block color_attribute_value_widget %}
+    <div class="ibexa-attribute-edit__input-wrapper">
+        {{ form_widget(form, {
+            attr: {
+                class: 'ibexa-input'
+            }
+        }) }}
+        <div class="ibexa-attribute-edit__hex-value">{{ form.vars.value|default('#000000') }}</div>
+    </div>
+{% endblock %}
+
+{% block color_attribute_value_row %}
+    {% set type = 'color' %}
+    {{- block('attribute_value') -}}
+{% endblock %}
+
+{% block selection_attribute_value_row %}
+    {% set type = 'choice' %}
+    {{- block('attribute_value') -}}
+{% endblock %}
+
+{% block float_attribute_value_row %}
+    {% set number_type = 'float' %}
+
+    {{ form_row(form, {'number_type': number_type}) }}
+{% endblock %}
+
+{% block integer_attribute_value_row %}
+    {% set number_type = 'integer' %}
+
+    {{ form_row(form, {'number_type': number_type}) }}
+{% endblock %}
+
+{% block number_attribute_value_row %}
+    {% set type = 'number' %}
+    
+    {{- block('attribute_value') -}}
+{% endblock %}
+
+{% block attribute_value %}
+    {% set label_attr = label_attr|merge({
+        class: 'ibexa-attribute-edit__label',
+    }) %}
+
+    {% set attr = attr|merge({
+        'data-number-type': number_type|default(false),
+    }) %}
+
+    {% set wrapper_class =
+        'ibexa-attribute-edit '
+        ~ (form.vars.required ? ' ibexa-attribute-edit--required')
+        ~ ' ibexa-attribute-edit--' ~ type|default('text')
+        ~ (number_type|default(false) == 'integer' ? ' ibexa-attribute-edit--integer')
+    %}
+
+    <div class="{{ wrapper_class }}">
+        {{ form_label(form, form.vars.label, {
+            label_attr: label_attr
+        }) }}
+
+        {{ form_widget(form, {'attr': attr }) }}
+
+        <div class="ibexa-form-error">
+            {{ form_errors(form) }}
+        </div>
+    </div>
+{% endblock %}

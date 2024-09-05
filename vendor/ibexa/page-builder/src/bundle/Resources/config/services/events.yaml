@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    # Notice that Event\Subscriber\SetPreAuthCookieSubscriber is defined in
+    # src/bundle/Resources/config/security.yml
+    Ibexa\PageBuilder\Event\Subscriber\BlockConfigurationTemplateSubscriber: ~
+    Ibexa\PageBuilder\Event\Subscriber\BlockPreviewSubscriber: ~
+    Ibexa\PageBuilder\Event\Subscriber\CacheDisableOnEditorialPreviewResponseSubscriber: ~
+    Ibexa\PageBuilder\Event\Subscriber\TimelineEventsSubscriber: ~
+
+    Ibexa\PageBuilder\Event\Subscriber\ExceptionSubscriber:
+        arguments:
+            $previewHelper: '@Ibexa\Core\Helper\ContentPreviewHelper'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\PageBuilder\Event\Subscriber\ContextAwareBlockResponseSubscriber:
+        decorates: Ibexa\FieldTypePage\Event\Subscriber\BlockResponseSubscriber
+        arguments: ['@Ibexa\PageBuilder\Event\Subscriber\ContextAwareBlockResponseSubscriber.inner']
+
+    Ibexa\PageBuilder\Event\Subscriber\InjectCrossOriginHelperSubscriber:
+        arguments:
+            $siteaccessGroups: '%ibexa.site_access.groups%'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\PageBuilder\Event\Subscriber\BlockContextSubscriber:
+        arguments:
+            $controllerResolver: '@controller_resolver'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\PageBuilder\Event\Subscriber\ScheduleBlockSubscriber:
+        arguments:
+            $serializer: '@Ibexa\FieldTypePage\Serializer\Serializer'
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\PageBuilder\Event\Subscriber\ContentProxyCreateNoDraftSubscriber: ~
+
+    Ibexa\PageBuilder\Event\Subscriber\ActivePreviewInEditorialModeRequestSubscriber:
+        arguments:
+            $contentPreviewHelper: '@Ibexa\Core\Helper\ContentPreviewHelper'

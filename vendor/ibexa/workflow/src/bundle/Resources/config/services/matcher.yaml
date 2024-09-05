@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Mapper\Matcher\ContentTypeMatcherMapper:
+        arguments:
+            $identifier: 'content_type'
+        tags:
+            - ibexa.workflow.matcher.value.mapper
+
+    Ibexa\Workflow\Mapper\Matcher\ContentStatusMatcherMapper:
+        arguments:
+            $identifier: 'content_status'
+        tags:
+            - ibexa.workflow.matcher.value.mapper
+
+    Ibexa\Workflow\Registry\MatcherValueMapperRegistry:
+        arguments:
+            $matcherMappers: !tagged ibexa.workflow.matcher.value.mapper
+
+    Ibexa\Workflow\Registry\MatcherValueMapperRegistryInterface: '@Ibexa\Workflow\Registry\MatcherValueMapperRegistry'
+
+    Ibexa\Workflow\Renderer\MatcherBlockRenderer: ~
+
+    Ibexa\Workflow\Renderer\MatcherBlockRendererInterface: '@Ibexa\Workflow\Renderer\MatcherBlockRenderer'

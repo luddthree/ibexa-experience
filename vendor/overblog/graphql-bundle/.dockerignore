@@ -1,0 +1,7 @@
+/*
+!/src/
+!/tests/
+!/composer.json
+!/phpunit.xml.*
+!/phpstan*.neon
+!/.php_cs.*

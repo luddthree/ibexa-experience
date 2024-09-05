@@ -1,0 +1,38 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FormBuilder\FieldType\Converter\AbstractSerializerBasedConverter:
+        abstract: true
+        arguments:
+            $serializer: '@Ibexa\FormBuilder\FieldType\Serializer\Serializer'
+
+    Ibexa\FormBuilder\FieldType\Converter\FormConverter:
+        parent: Ibexa\FormBuilder\FieldType\Converter\AbstractSerializerBasedConverter
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FormBuilder\FieldType\Converter\FieldConverter:
+        parent: Ibexa\FormBuilder\FieldType\Converter\AbstractSerializerBasedConverter
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FormBuilder\FieldType\Serializer\SerializerFactory:
+        arguments:
+            $serializationContextFactory: '@Ibexa\FormBuilder\FieldType\Serializer\SerializationContextFactory'
+            $deserializationContextFactory: '@Ibexa\FormBuilder\FieldType\Serializer\DeserializationContextFactory'
+
+    Ibexa\FormBuilder\FieldType\Serializer\Serializer:
+        factory: ['@Ibexa\FormBuilder\FieldType\Serializer\SerializerFactory', 'create']
+
+    Ibexa\FormBuilder\FieldType\Serializer\SerializationContextFactory:
+        arguments:
+            $innerSerializationContextFactory: ~
+
+    Ibexa\FormBuilder\FieldType\Serializer\DeserializationContextFactory:
+        arguments:
+            $innerDeserializationContextFactory: ~

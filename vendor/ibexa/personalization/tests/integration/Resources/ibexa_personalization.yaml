@@ -1,0 +1,36 @@
+parameters:
+    ibexa.personalization.server.items.endpoint: 'https://items.link.invalid.perso'
+    ibexa.personalization.server.admin.endpoint: 'https://admin.link.invalid.perso'
+    ibexa.personalization.server.recommendation.endpoint: 'https://reco.link.invalid.perso'
+    ibexa.personalization.server.event_tracking.endpoint: 'https://event.link.invalid.perso'
+    ibexa.personalization.server.event_tracking.script_url: 'cdn.link.invalid.perso/tracker-test.js'
+    ibexa.personalization.server.user.endpoint: 'https://import.link.invalid.perso'
+
+ibexa:
+    system:
+        site:
+            personalization:
+                site_name: 'Site eng'
+                host_uri: 'site.link.invalid'
+                authentication:
+                    customer_id: 12345
+                    license_key: '12345-12345-12345-12345'
+                included_item_types: [ article ]
+
+        site_pl:
+            personalization:
+                site_name: 'Site pl'
+                host_uri: 'site_pl.link.invalid'
+                authentication:
+                    customer_id: 56789
+                    license_key: '12345-56789-12345-56789'
+                included_item_types: [ article ]
+
+        computer_shop:
+            personalization:
+                site_name: 'Computer shop'
+                host_uri: 'shop.link.invalid'
+                authentication:
+                    customer_id: 13579
+                    license_key: '13579-24680-12457-39812'
+                included_item_types: [ console, laptop, smartphone]

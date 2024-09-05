@@ -1,0 +1,12 @@
+Ibexa\FieldTypePage\ScheduleBlock\Slot:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        id:
+            type: string
+            skip_when_empty: false
+            expose: true
+        item:
+            type: Ibexa\FieldTypePage\ScheduleBlock\Item\Item
+            skip_when_empty: false
+            expose: true

@@ -1,0 +1,368 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block personalization_model_editorial_list_widget %}
+    <div class="ibexa-perso-editorial-models__actions-wrapper">
+        <div class="ibexa-perso-editorial-models__field-label">
+            {{ 'models.edit.editorial_list.add_items'|trans|desc('Add items') }}
+        </div>
+        <div class="ibexa-perso-editorial-models__no-items {% if form.children|length != 0 %}d-none{% endif %}">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+            </svg>
+            {{ 'models.no_items_selected'|trans|desc('No items selected') }}
+        </div>
+
+        {{ include('@ibexadesign/personalization/parts/search_input.html.twig', {
+            class: 'ibexa-perso-editorial-models__search-input',
+        }) }}
+        <div class="ibexa-perso-editorial-models__items" data-template="{{ form_widget(form.vars.prototype)|e('html_attr') }}">
+            {% for child in form.children %}
+                {% set item_name = contentItems[child.vars.value.id]|default(null) %}
+
+                {{ form_widget(child, { label: item_name|default('__labe_name__') }) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _model_editorContentList_entry_widget %}
+    <div class="ibexa-perso-editorial-models__item">
+        <div class="ibexa-tag ibexa-tag--deletable">
+            <button type="button" class="ibexa-tag__remove-btn" data-items-type="editorial">
+                <svg class="ibexa-icon ibexa-icon--tiny">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+
+            {{ label|default('{{ label }}') }}
+            {{ form_widget(form.children.id, { attr: { class: 'ibexa-perso-editorial-models__input ibexa-perso-editorial-models__input--id' }, label_attr: { hidden: true } }) }}
+            {{ form_widget(form.children.type, { attr: { class: 'ibexa-perso-editorial-models__input ibexa-perso-editorial-models__input--type' }, label_attr: { hidden: true } }) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block personalization_attribute_nominal_widget %}
+    {% set groupPrototype = form.attributeValues.vars.prototype %}
+    {% set itemPrototype = groupPrototype.vars.prototype %}
+
+    <div class="ibexa-perso-submodel ibexa-perso-submodel--nominal ibexa-perso-submodel--{{ value.attributeKey }} {% if attr.class is defined %}{{ attr.class }}{% endif %}">
+        <div
+            class="ibexa-perso-submodel__item-template"
+            data-input-id-pattern="{{ itemPrototype.vars.id }}"
+            data-input-name-pattern="{{ itemPrototype.vars.full_name }}"
+            data-template="{{ form_widget(itemPrototype)|e('html_attr') }}"
+        ></div>
+
+        <div class="ibexa-perso-submodel__content ibexa-perso-submodel__content--nominal">
+            <div
+                class="ibexa-perso-models-drop-groups"
+                data-group-template="{{ form_widget(groupPrototype)|e('html_attr') }}"
+            >
+                <h3 class="ibexa-perso-models-drop-groups__title">{{ 'models.submodel.existing_groups'|trans|desc('Existing groups') }}</h3>
+                <div class="ibexa-perso-models-drop-groups__groups-wrapper">
+                    {% for child in form.children %}
+                        {{ form_widget(child) }}
+                    {% endfor %}
+                </div>
+                <div class="ibexa-perso-models-drop-groups__add-group-wrapper">
+                    <button
+                        type="button"
+                        class="btn ibexa-btn ibexa-btn--info ibexa-perso-models-drop-groups__add-group-btn"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                        </svg>
+                        {{ 'models.submodel.add_group'|trans|desc('Add group') }}
+                    </button>
+                </div>
+            </div>
+            <div class="ibexa-perso-submodel__sidebar-wrapper">
+                <div class="ibexa-perso-submodel-sidebar">
+                    <div class="ibexa-perso-submodel-sidebar__action-bar"></div>
+                    <div class="ibexa-perso-submodel-sidebar__title-bar">
+                        <h3 class="ibexa-perso-submodel-sidebar__title">{{ 'model.edit.submodels.sidebar.title'|trans|desc('Library') }}</h3>
+                    </div>
+                    <!-- TODO: wait for Kuba's PR to replace search and add placeholder to it -->
+                    <div class="ibexa-perso-submodel-sidebar__search-bar">
+                        {% embed '@ibexadesign/ui/component/input_text.html.twig' with { has_search: true } %}
+                            {% block content %}
+                                <input
+                                    type="text"
+                                    class="ibexa-input ibexa-input--text ibexa-perso-submodel-sidebar__sidebar-filter form-control"
+                                    placeholder="{{ 'models.submodel.sidebar.search.placeholder'|trans|desc('Search...') }}"
+                                />
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                    <div class="ibexa-perso-submodel-sidebar__list-spinner">
+                        <svg class="ibexa-field-edit-preview__spinner ibexa-icon ibexa-spin">
+                            <use xlink:href="{{ ibexa_icon_path('spinner') }}"></use>
+                        </svg>
+                    </div>
+                    <div class="ibexa-perso-submodel-sidebar__list-empty">
+                        <img
+                            class="ibexa-perso-submodel-sidebar__list-empty-image"
+                            src="{{ asset('bundles/ibexaadminui/img/empty-library.svg') }}"
+                            alt="{{ 'model.edit.submodels.sidebar.empty.img'|trans|desc('Empty library') }}"
+                        >
+                        {{ 'model.edit.submodels.sidebar.empty.library'|trans|desc('Your library is empty') }}
+                    </div>
+                    <ul class="ibexa-perso-submodel-sidebar__list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block personalization_attribute_nominal_value_widget %}
+    <div class="ibexa-perso-models-drop-group">
+        <div class="ibexa-perso-models-drop-group__actions">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-perso-models-drop-group__remove-btn"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+                {{ 'models.submodel.delete_group'|trans|desc('Delete group') }}
+            </button>
+        </div>
+        <div class="ibexa-perso-models-drop-group__items">
+            {% for child in form.children %}
+                {{ form_widget(child, { label_attr: { hidden: true } }) }}
+            {% endfor %}
+            <div
+                class="ibexa-perso-models-drop-group-item-placeholder ibexa-perso-models-drop-group-item-placeholder--anchored
+                    {{ not form.children|length ? 'ibexa-perso-models-drop-group-item-placeholder--hidden' }}"
+            >
+                <div class="ibexa-perso-models-drop-group-item-placeholder__item"></div>
+                <div class="ibexa-perso-models-drop-group-item-placeholder__item"></div>
+                <div class="ibexa-perso-models-drop-group-item-placeholder__item"></div>
+            </div>
+            <div
+                class="ibexa-perso-models-drop-empty-group
+                    {{ form.children|length ? 'ibexa-perso-models-drop-empty-group--hidden' }}"
+            >
+                <img
+                    class="ibexa-perso-models-drop-empty-group__image"
+                    src="{{ asset('bundles/ibexaadminui/img/empty-field-definition-group.svg') }}"
+                    alt="{{ 'models.segments.group.empty.image_alt'|trans|desc('Empty group, please drag some segments') }}"
+                >
+                <label class="ibexa-perso-models-drop-empty-group__label">
+                    {{ 'models.segments.group.empty.label'|trans|desc('Your group is empty') }}
+                </label>
+                <h3 class="ibexa-perso-models-drop-empty-group__title">
+                    {{ 'models.segments.group.empty.title'|trans|desc('Drag and drop segments') }}
+                </h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block personalization_attribute_nominal_value_entry_widget %}
+    <div
+        class="ibexa-perso-models-drop-group-item"
+        data-value="{{ value|default('__name__') }}"
+    >
+        <div
+            draggable="true"
+            class="ibexa-perso-models-drop-group-item__content"
+        >
+            <div class="ibexa-perso-models-drop-group-item__icon">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                </svg>
+            </div>
+            <div class="ibexa-perso-models-drop-group-item__name">
+                {{ value|default('__name__') }}
+            </div>
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-models-drop-group-item__remove-btn"
+            >
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+            {{ form_widget(form, {
+                attr: { class: 'ibexa-perso-models-drop-group-item__input' },
+            }) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block personalization_attribute_numeric_widget %}
+    <div class="ibexa-perso-submodel ibexa-perso-submodel--numeric ibexa-perso-submodel--{{ value.attributeKey }} {% if attr.class is defined %}{{ attr.class }}{% endif %}">
+        <div
+            class="ibexa-perso-submodel__item-template"
+            data-template="{{ form_widget(form.attributeValues.vars.prototype)|e('html_attr') }}"
+        ></div>
+
+        <div class="ibexa-perso-submodel__content">
+            <div class="ibexa-perso-submodel-ranges">
+                <div class="ibexa-perso-submodel-ranges__header">
+                    <h2 class="ibexa-perso-submodel-ranges__title">
+                        {{ 'models.submodel.existing_ranges'|trans|desc('Interval ranges') }}
+                    </h2>
+                    <button
+                        type="button"
+                        class="btn ibexa-btn ibexa-btn--ghost ibexa-perso-submodel-ranges__add-range-btn"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                        </svg>
+                        {{ 'models.submodel.add_range'|trans|desc('Add range') }}
+                    </button>
+                </div>
+                <div class="ibexa-perso-submodel-ranges__items-wrapper">
+                    {% for child in form.children %}
+                        {{ form_widget(child) }}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block personalization_attribute_numeric_value_widget %}
+    <div class="ibexa-perso-submodel-range">
+        {% for child in form.children %}
+            {{ form_row(child) }}
+        {% endfor %}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-submodel-range__remove-btn"
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    </div>
+{% endblock %}
+
+{% block personalization_segments_widget %}
+    {% set segment_items_count = form.activeSegments.children|length + form.inactiveSegments.children|length %}
+    {% set sidebar_main_groups = [
+        { 
+            form: form.activeSegments,
+            map: active_segments_group_map,
+            label: 'models.segments.sidebar.group.available'|trans|desc('Available'),
+            class: 'active',
+        },
+        {
+            form: form.inactiveSegments,
+            map: inactive_segments_group_map,
+            label: 'models.segments.sidebar.group.not_available'|trans|desc('Not Available'),
+            class: 'inactive',
+        }
+    ] %}
+
+    <div class="ibexa-perso-segments">
+        <div
+            class="ibexa-perso-segments__container"
+            data-group-template="{{ include('@ibexadesign/personalization/models/segments/group.html.twig', { group_id: '__group_id__' })|e('html_attr') }}"
+        >
+            <h3 class="ibexa-perso-segments__title">{{ 'models.segments.existing_groups'|trans|desc('Existing Groups') }}</h3>
+            {{ form_widget(form.segmentItemGroups, {
+                attr: { class: 'ibexa-perso-segments__json-container', hidden: true },
+            }) }}
+            <div class="ibexa-perso-segments__groups-wrapper"></div>
+            <div class="ibexa-perso-segments__add-group">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--info ibexa-perso-segments__add-group-btn"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    {{ 'models.submodel.add_group'|trans|desc('Add group') }}
+                </button>
+            </div>
+        </div>
+        <div class="ibexa-perso-segments__sidebar-wrapper">
+            <div
+                class="ibexa-perso-segments-sidebar"
+                data-item-template="{{ include(
+                    '@ibexadesign/personalization/models/segments/sidebar_item.html.twig',
+                    with_context = false,
+                )|e('html_attr') }}"
+            >
+                <div class="ibexa-perso-segments-sidebar__action-bar"></div>
+                <div class="ibexa-perso-segments-sidebar__title-bar">
+                    <h3 class="ibexa-perso-segments-sidebar__title">
+                        {{ 'models.segments.sidebar.title'|trans|desc('Elements') }}
+                    </h3>
+                    <small class="ibexa-form-help">
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-form-help__icon">
+                            <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+                        </svg>
+                    </small>
+                </div>
+                <div class="ibexa-perso-segments-sidebar__search-bar">
+                    {% embed '@ibexadesign/ui/component/input_text.html.twig' with { has_search: true, search_button_type: 'button' } %}
+                        {% block content %}
+                            <input
+                                type="text"
+                                class="ibexa-input ibexa-input--text ibexa-perso-segments-sidebar__sidebar-filter form-control"
+                                placeholder="{{ 'models.segments.sidebar.search'|trans|desc('Search...') }}"
+                            />
+                        {% endblock %}
+                    {% endembed %}
+                </div>
+                <div class="ibexa-perso-segments-sidebar__list-empty {{ segment_items_count == 0 ? 'ibexa-perso-segments-sidebar__list-empty--visible' }}">
+                    <img
+                        class="ibexa-perso-segments-sidebar__list-empty-image"
+                        src="{{ asset('bundles/ibexaadminui/img/empty-library.svg') }}"
+                        alt="{{ 'models.segments.sidebar.empty.img'|trans|desc('Empty library') }}"
+                    >
+                    {{ 'models.segments.sidebar.empty.library'|trans|desc('Your library is empty') }}
+                </div>
+                <div class="ibexa-perso-segments-sidebar__list">
+                    {% for main_group in sidebar_main_groups %}
+                        <div class="ibexa-perso-segments-sidebar-group ibexa-perso-segments-sidebar-group--{{ main_group.class }}">
+                            <div class="ibexa-perso-segments-sidebar-group__title-bar">
+                                <div class="ibexa-perso-segments-sidebar-group__title ibexa-perso-segments-sidebar-group__title--{{ main_group.class }}">
+                                    {{ main_group.label }}
+                                </div>
+                                <div class="ibexa-perso-segments-sidebar-group__toggler">
+                                    <svg class="ibexa-icon ibexa-icon--tiny-small">
+                                        <use xlink:href="{{ ibexa_icon_path('caret-up') }}"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="ibexa-perso-segments-sidebar-group__segments-container ibexa-perso-segments-sidebar-group__segments-container--{{ main_group.class }}-segments">
+                                {% for segment_group in segment_groups|filter(group => main_group.map[group.id] is defined) %}
+                                    <div class="ibexa-perso-segments-sidebar-group__segments">
+                                        <div class="ibexa-perso-segments-sidebar-group__segments-group">
+                                            <div class="ibexa-perso-segments-sidebar-group__segments-title">{{ segment_group.name }}</div>
+                                            <div class="ibexa-perso-segments-sidebar-group__segments-toggler">
+                                                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                                                    <use xlink:href="{{ ibexa_icon_path('caret-up') }}"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        {% for segment in main_group.map[segment_group.id] %}
+                                            {{ form_widget(main_group.form[segment.id]) }}
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block personalization_segments_segment_widget %}
+    {% include '@ibexadesign/personalization/models/segments/sidebar_item.html.twig' with {
+        value,
+    } only %}
+    {% do form.name.setRendered %}
+{% endblock %}
+
+{% block personalization_segment_groups_widget %}
+    {{ block('form_widget') }}
+{% endblock %}

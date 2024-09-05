@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "UserSegmentList": {
+      "type": "object",
+      "properties": {
+        "_media-type": {
+          "type": "string"
+        },
+        "_href": {
+          "type": "string"
+        },
+        "UserSegment": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_media-type": {
+                "type": "string"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "identifier": {
+                "type": "string",
+                "minLength": 1,
+                "pattern": "^[[:alnum:]_]+"
+              },
+              "name": {
+                "type": "string"
+              },
+              "SegmentGroup": {
+                "type": "object",
+                "properties": {
+                  "_media-type": {
+                    "type": "string"
+                  },
+                  "_href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "_media-type",
+                  "_href"
+                ]
+              },
+              "User": {
+                "type": "object",
+                "properties": {
+                  "_media-type": {
+                    "type": "string"
+                  },
+                  "_href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "_media-type",
+                  "_href"
+                ]
+              }
+            },
+            "required": [
+              "_media-type",
+              "id",
+              "identifier",
+              "name",
+              "SegmentGroup",
+              "User"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "UserSegmentList"
+  ]
+}

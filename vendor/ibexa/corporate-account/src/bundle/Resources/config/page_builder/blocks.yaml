@@ -1,0 +1,9 @@
+blocks:
+    sales_rep:
+        name: Sales Representative
+        category: Customer Portal
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#business-deal-cash'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/customer_portal/page_builder/blocks/sales_rep.html.twig'

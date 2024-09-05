@@ -1,0 +1,37 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\BlockRegistry:
+        arguments:
+            $blocks: !tagged_iterator ezplatform.behat.page_builder.block
+
+    _instanceof:
+        Ibexa\PageBuilder\Behat\Component\Blocks\PageBuilderBlockInterface:
+            tags: ['ezplatform.behat.page_builder.block']
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\BannerBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\CodeBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\CollectionBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\ContentListBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\ContentSchedulerBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\EmbedBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\FormBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\GalleryBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\RSSBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\TextBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\VideoBlock: ~
+
+    Ibexa\PageBuilder\Behat\Component\Blocks\TargetingBlock: ~

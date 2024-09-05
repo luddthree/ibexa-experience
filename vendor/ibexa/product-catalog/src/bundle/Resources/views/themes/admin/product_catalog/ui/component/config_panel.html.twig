@@ -1,0 +1,48 @@
+{% import '@ibexadesign/ui/component/macros.html.twig' as html %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set config_panel_main_class = 'ibexa-pc-config-panel ibexa-pc-config-panel--hidden' %}
+{% set attr = attr|default({})|merge({
+    class: attr.class|default('') ~ ' ' ~ config_panel_main_class
+}) %}
+
+<div {{ html.attributes(attr) }}>
+    <div class="ibexa-pc-config-panel__header">
+        {% block header %}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--close-config-panel"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('caret-back') }}"></use>
+                </svg>
+            </button>
+            <h2 class="ibexa-pc-config-panel__title">{{ title }}</h2>
+        {% endblock %}
+    </div>
+    <div class="ibexa-pc-config-panel__body">
+        <div class="ibexa-pc-config-panel__content-actions">
+            {% block content_actions %}{% endblock %}
+        </div>
+        <div class="ibexa-pc-config-filter__content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <div class="ibexa-pc-config-panel__footer">
+        {% block footer %}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--filled-info ibexa-pc-config-panel__save-btn"
+            >
+                {{ 'config_panel.btn.save_label'|trans|desc('Save') }}
+            </button>
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--info ibexa-pc-config-panel__cancel-btn ibexa-btn--close-config-panel"
+            >
+                {{ 'config_panel.btn.cancel_label'|trans|desc('Cancel') }}
+            </button>
+        {% endblock %}
+    </div>
+</div>

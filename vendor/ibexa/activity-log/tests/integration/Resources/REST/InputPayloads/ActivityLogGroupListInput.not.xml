@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ActivityLogGroupListInput>
+    <criteria>
+        <criterion type="not">
+            <criterion type="action">
+                <value>bar_action</value>
+            </criterion>
+        </criterion>
+    </criteria>
+</ActivityLogGroupListInput>

@@ -1,0 +1,23 @@
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: __REMOTE_ID__
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-GB
+        creatorId: null
+        remoteId: __NEW_REMOTE_ID__
+        alwaysAvailable: true
+        mainLanguageCode: eng-FOO
+        mainLocationId: 45
+        modificationDate: '2020-12-28T13:20:00+00:00'
+        publishedDate: '2020-12-28T13:21:00+00:00'
+        name: __NEW_NAME__
+        ownerId: __NEW_OWNER_ID__
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: '5 Patio Arrangements to Inspire Your Outdoor Room'

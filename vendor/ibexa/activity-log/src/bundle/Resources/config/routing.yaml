@@ -1,0 +1,11 @@
+ibexa.activity_log.list:
+    path: /activity-log
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ActivityLog\Controller\ActivityLogController::renderAction'
+    options:
+        expose: true
+
+ibexa.activity_log.user_activity_list:
+    path: /current-user/activity-log
+    methods: [GET]
+    controller: 'Ibexa\Bundle\ActivityLog\Controller\UserActivityLogController::renderAction'

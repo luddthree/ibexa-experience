@@ -1,0 +1,13 @@
+-   type: language
+    mode: create
+    metadata:
+        languageCode: pol-PL
+        name: 'Polish'
+        enabled: true
+
+-   type: language
+    mode: create
+    metadata:
+        languageCode: fre-FR
+        name: 'French'
+        enabled: true

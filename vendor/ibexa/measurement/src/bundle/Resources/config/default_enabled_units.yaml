@@ -1,0 +1,82 @@
+system:
+    default:
+        measurement:
+            types:
+                length:
+                    - centimeter
+                    - foot
+                    - inch
+                    - meter
+                    - millimeter
+                    - yard
+                area:
+                    - acre
+                    - hectare
+                    - square foot
+                    - square inch
+                    - square meter
+                    - square mile
+                    - square yard
+                mass:
+                    - gram
+                    - imperial ton
+                    - kilogram
+                    - microgram
+                    - milligram
+                    - ounce
+                    - pound
+                    - stone
+                    - tonne
+                    - US ton
+                pressure:
+                    - bar
+                    - pascal
+                    - pound per square inch
+                speed:
+                    - foot per second
+                    - kilometer per hour
+                    - knot
+                    - meter per second
+                    - miles per hour
+                temperature:
+                    - celsius
+                    - fahrenheit
+                    - kelvin
+                time:
+                    - day
+                    - hour
+                    - millisecond
+                    - minute
+                    - month
+                    - second
+                    - week
+                volume:
+                    - cubic meter
+                    - fluid ounce
+                    - liter
+                    - milliliter
+                    - US legal cup
+                    - US liquid gallon
+                    - US liquid pint
+                    - US liquid quart
+                    - US tablespoon
+                    - US teaspoon
+                data transfer rate:
+                    - gibibit per second
+                    - gigabyte per second
+                    - gigabit per second
+                    - mebibit per second
+                    - megabit per second
+                    - megabyte per second
+                    - terabit per second
+                    - terabyte per second
+                energy:
+                    - British thermal unit
+                    - electronvolt
+                    - gram calorie
+                    - joule
+                    - kilocalorie
+                    - kilojoule
+                    - kilowatt hour
+                    - US therm
+                    - watt hour

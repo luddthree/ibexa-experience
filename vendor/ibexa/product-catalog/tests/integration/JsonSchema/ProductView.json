@@ -1,0 +1,348 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "ProductView": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "ProductQuery": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "_media-type"
+                    ]
+                },
+                "Result": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        },
+                        "count": {
+                            "type": "integer"
+                        },
+                        "ProductList": {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "Product": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "_media-type": {
+                                                "type": "string"
+                                            },
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "ProductType": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "_media-type": {
+                                                        "type": "string"
+                                                    },
+                                                    "identifier": {
+                                                        "type": "string"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "AttributeAssignmentList": {
+                                                        "type": "array",
+                                                        "items": [
+                                                            {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "_media-type": {
+                                                                        "type": "string"
+                                                                    },
+                                                                    "is_required": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "is_discriminator": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "Attribute": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "_media-type": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "identifier": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "name": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "description": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "type": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "type_identifier": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "value": {
+                                                                                "type": ["string", "integer", "object", "array", "boolean", "null"]
+                                                                            },
+                                                                            "group": {
+                                                                                "type": "string"
+                                                                            },
+                                                                            "position": {
+                                                                                "type": "integer"
+                                                                            },
+                                                                            "options": {
+                                                                                "type": ["array", "object"]
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "_media-type",
+                                                                            "identifier",
+                                                                            "name",
+                                                                            "description",
+                                                                            "type",
+                                                                            "type_identifier",
+                                                                            "group",
+                                                                            "position",
+                                                                            "options"
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "_media-type",
+                                                                    "is_required",
+                                                                    "is_discriminator",
+                                                                    "Attribute"
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "required": [
+                                                    "_media-type",
+                                                    "identifier",
+                                                    "name",
+                                                    "AttributeAssignmentList"
+                                                ]
+                                            },
+                                            "created_at": {
+                                                "type": "integer"
+                                            },
+                                            "updated_at": {
+                                                "type": "integer"
+                                            },
+                                            "AttributesList": {
+                                                "type": "array",
+                                                "items": {}
+                                            }
+                                        },
+                                        "required": [
+                                            "_media-type",
+                                            "code",
+                                            "name",
+                                            "ProductType",
+                                            "created_at",
+                                            "updated_at",
+                                            "AttributesList"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "Product"
+                            ]
+                        },
+                        "aggregations": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "_media-type",
+                                            "name",
+                                            "entries"
+                                        ],
+                                        "properties": {
+                                            "_media-type": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "entries": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "additionalProperties": false,
+                                                    "required": [
+                                                        "_media-type",
+                                                        "key",
+                                                        "count"
+                                                    ],
+                                                    "properties": {
+                                                        "_media-type": {
+                                                            "type": "string"
+                                                        },
+                                                        "key": {
+                                                            "anyOf": [
+                                                                {
+                                                                    "type": "object",
+                                                                    "additionalProperties": false,
+                                                                    "required": [
+                                                                        "Range"
+                                                                    ],
+                                                                    "properties": {
+                                                                        "Range": {
+                                                                            "type": "object",
+                                                                            "additionalProperties": false,
+                                                                            "required": [
+                                                                                "_media-type",
+                                                                                "from",
+                                                                                "to"
+                                                                            ],
+                                                                            "properties": {
+                                                                                "_media-type": {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "from": {
+                                                                                    "type": "integer"
+                                                                                },
+                                                                                "to": {
+                                                                                    "type": "integer"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }, {
+                                                                    "type": "boolean"
+                                                                }, {
+                                                                    "type": "object",
+                                                                    "required": [
+                                                                        "ContentType"
+                                                                    ],
+                                                                    "additionalProperties": false,
+                                                                    "properties": {
+                                                                        "ContentType": {
+                                                                            "type": "object"
+                                                                        }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        },
+                                                        "count": {
+                                                            "type": "integer"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "_media-type",
+                                            "name",
+                                            "sum",
+                                            "count",
+                                            "min",
+                                            "max",
+                                            "avg"
+                                        ],
+                                        "properties": {
+                                            "_media-type": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "sum": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "null"
+                                                    }
+                                                ]
+                                            },
+                                            "count": {
+                                                "type": "number"
+                                            },
+                                            "min": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "null"
+                                                    }
+                                                ]
+                                            },
+                                            "max": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "null"
+                                                    }
+                                                ]
+                                            },
+                                            "avg": {
+                                                "oneOf": [
+                                                    {
+                                                        "type": "number"
+                                                    },
+                                                    {
+                                                        "type": "null"
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "_media-type",
+                        "count",
+                        "ProductList"
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "ProductQuery",
+                "Result"
+            ]
+        }
+    },
+    "required": [
+        "ProductView"
+    ]
+}

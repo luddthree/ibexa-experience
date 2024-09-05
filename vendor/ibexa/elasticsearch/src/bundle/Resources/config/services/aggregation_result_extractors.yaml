@@ -1,0 +1,264 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.elasticsearch.query.content.aggregation_result_extractor.dispatcher:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\DispatcherAggregationResultExtractor
+        arguments:
+            $extractors: !tagged ibexa.search.elasticsearch.query.content.aggregation.result.extractor
+
+    ibexa.elasticsearch.query.location.aggregation_result_extractor.dispatcher:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\DispatcherAggregationResultExtractor
+        arguments:
+            $extractors: !tagged ibexa.search.elasticsearch.query.location.aggregation.result.extractor
+
+    ### Term mappers
+
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\AuthorAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\BooleanAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ContentTypeAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ContentTypeGroupAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\CountryAggregationKeyMapper:
+        arguments:
+            $countriesInfo: '%ibexa.field_type.country.data%'
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\InvertedBooleanAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\LanguageAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\LocationAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ObjectStateAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\SectionAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\UserMetadataAggregationKeyMapper: ~
+    Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\SubtreeAggregationKeyMapper:
+        arguments:
+            $locationAggregationKeyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\LocationAggregationKeyMapper'
+
+    ### Commons
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.content_type_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\ContentTypeTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ContentTypeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.content_type_group_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\ContentTypeGroupTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ContentTypeGroupAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.date_metadata_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\DateRangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\DateMetadataRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.author_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\AuthorTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\AuthorAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.checkbox_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\CheckboxTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\BooleanAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.country_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\CountryTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\CountryAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.date_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\DateRangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\DateRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.datetime_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\DateRangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\DateTimeRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.float_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\FloatRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.float_stats:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\FloatStatsAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.integer_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\IntegerRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.integer_stats:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\IntegerStatsAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.keyword_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\KeywordTermAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.selection_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\SelectionTermAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.field.time_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Field\TimeRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.language_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\LanguageTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\LanguageAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.object_state_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\ObjectStateTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\ObjectStateAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.location_children_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Location\LocationChildrenTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\LocationAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.raw_range:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\RangeAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawRangeAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.raw_stats:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\StatsAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawStatsAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.raw_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\RawTermAggregation'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.section_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\SectionTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\SectionAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.subtree_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\Location\SubtreeTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\SubtreeAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.subtree_term.nested:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\NestedAggregationResultExtractor
+        decorates: ibexa.elasticsearch.query.common.aggregation_result_extractor.subtree_term
+        arguments:
+            $nestedResultKey: 'nested'
+
+    ibexa.elasticsearch.query.common.aggregation_result_extractor.user_metadata_term:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\UserMetadataTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\UserMetadataAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }
+
+    ### Content specific
+
+    ibexa.elasticsearch.query.content.aggregation_result_extractor.visibility:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\VisibilityTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\BooleanAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.content.aggregation.result.extractor }
+
+    ### Location specific
+
+    ibexa.elasticsearch.query.location.aggregation_result_extractor.visibility:
+        class: Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationResultExtractor
+        arguments:
+            $aggregationClass: 'Ibexa\Contracts\Core\Repository\Values\Content\Query\Aggregation\VisibilityTermAggregation'
+            $keyMapper: '@Ibexa\Elasticsearch\Query\ResultExtractor\AggregationResultExtractor\TermAggregationKeyMapper\InvertedBooleanAggregationKeyMapper'
+        tags:
+            - { name: ibexa.search.elasticsearch.query.location.aggregation.result.extractor }

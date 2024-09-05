@@ -1,0 +1,15 @@
+--TEST--
+"ibexa_product" test
+--TEMPLATE--
+{% if null is ibexa_product %}Yes {% else %}No {% endif %}
+{% if product is ibexa_product %}Yes {% else %}No {% endif %}
+{% if content_with_product is ibexa_product %}Yes {% else %}No {% endif %}
+{% if content_without_product is ibexa_product %}Yes {% else %}No {% endif %}
+--DATA--
+return [
+    'product' => $this->getProduct('FOO'),
+    'content_with_product' => $this->getContentWithProduct($this->getProduct('FOO')),
+    'content_without_product' => $this->getContentWithoutProduct(),
+];
+--EXPECT--
+No Yes Yes Yes

@@ -1,0 +1,21 @@
+{% extends '@IbexaPageBuilder/page_builder/infobar/base.html.twig' %}
+
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% block page_builder_name %}{{ 'info_bar.dashboard.label'|trans|desc('Dashboard Builder') }}{% endblock %}
+{% block context_info %}{% endblock %}
+{% block preview_switcher %}{% endblock %}
+{% block timeline_toggler %}{% endblock %}
+{% block timeline %}{% endblock %}
+{% block site_access_info %}{% endblock %}
+{% block other_btns %}{% endblock %}
+{% set back_btn_href = path('ibexa.dashboard') %}
+
+{% if mode == constant('Ibexa\\PageBuilder\\PageBuilder\\PageBuilderMode::MODE_EDIT') %}
+    {% set page_edit_actions = knp_menu_get('ibexa_dashboard.edit.actions', [], {
+        'content': content,
+        'location': location,
+        'language': language,
+        'parent_location': parent_location,
+    }) %}
+{% endif %}

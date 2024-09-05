@@ -1,0 +1,10 @@
+layouts:
+  default:
+    identifier: 'default'
+    name: 'default'
+    description: 'Default layout for Landing Page'
+    thumbnail: '/bundles/ibexafieldtypepage/images/layouts/default.svg'
+    template: '@IbexaFieldTypePage/default_layout.html.twig'
+    zones:
+      default_id:
+        name: 'default'

@@ -1,0 +1,71 @@
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        bootstrap="vendor/autoload.php"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        beStrictAboutTestsThatDoNotTestAnything="false"
+        colors="true">
+    <php>
+        <env name="setupFactory" value="Ibexa\Tests\Integration\Elasticsearch\LegacySetupFactory"/>
+        <env name="backendVersion" value="5"/>
+        <!-- TODO: Record new fixtures for Elastisearch -->
+        <env name="fixtureDir" value="Solr"/>
+
+        <ini name="error_reporting" value="-1"/>
+    </php>
+    <testsuites>
+        <testsuite name="ElasticSearch Search Engine Integration">
+            <directory>tests/integration/</directory>
+        </testsuite>
+        <testsuite name="Repository Integration">
+            <directory>vendor/ibexa/core/tests/integration/Core/Repository/Values/Content</directory>
+            <directory>vendor/ibexa/core/tests/integration/Core/Repository/Values/User/Limitation</directory>
+            <directory>vendor/ibexa/core/tests/integration/Core/Repository/FieldType/</directory>
+            <directory>vendor/ibexa/core/tests/integration/Core/Repository/Limitation</directory>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/RepositoryTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/PermissionResolverTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SectionServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/LanguageServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/LanguageServiceMaximumSupportedLanguagesTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/ContentTypeServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/ContentServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/Parallel/ContentServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/NonRedundantFieldSetTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/LocationServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/UserServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/RoleServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/TrashServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/URLServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/URLAliasServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/URLWildcardServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/ObjectStateServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SectionServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/LanguageServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/ContentTypeServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/ContentServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/LocationServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/UserServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/RoleServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/TrashServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/URLServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/URLAliasServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/URLWildcardServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/ObjectStateServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SearchServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SearchServiceTranslationLanguageFallbackTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SearchServiceLocationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SearchServiceAuthorizationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SearchServiceAggregationTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/SearchEngineIndexingTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/FieldTypeServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/BookmarkServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/NotificationServiceTest.php</file>
+            <file>vendor/ibexa/core/tests/integration/Core/Repository/UserPreferenceServiceTest.php</file>
+        </testsuite>
+        <testsuite name="Ibexa\Core\Repository\Tests\Regression">
+            <directory>vendor/ibexa/core/tests/integration/Core/Repository/Regression/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

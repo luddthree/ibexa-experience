@@ -1,0 +1,23 @@
+{% trans_default_domain 'ibexa_scheduler' %}
+
+<div class="ibexa-extra-actions-container">
+    <div class="ibexa-extra-actions ibexa-extra-actions--dropdown ibexa-extra-actions--publish-later ibexa-extra-actions--hidden ibexa-scheduler-publish-later dbp-publish-later" data-actions="publish-later">
+        <div class="ibexa-extra-actions__header">
+            <h3>{{ 'publish_later.settings'|trans|desc('Future publication settings')  }}</h3>
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-btn--no-text ibexa-btn--close">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="ibexa-extra-actions__content">
+            <div class="dbp-publish-later__pick">
+                <span class="ibexa-date-time-picker__label dbp-publish-later__pick-label">{{ 'publish_later.date_and_time'|trans|desc('Date and time') }}</span>
+                {% include '@ibexadesign/ui/component/inputs/input_date_time_picker.html.twig' with { is_datetime_popup_inline: true, is_small: true } %}
+            </div>
+            <div class="ibexa-scheduler-publish-later__actions dbp-publish-later__actions">
+                <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm-schedule" disabled>{{ 'publish_later.confirm'|trans|desc('Confirm') }}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{% set today_date_string = "now"|date('Ymd') %}
+{% set last_group_date_string = null %}
+{% set default_block_name = 'activity_log.block.title'|trans|desc('Recent activity') %}
+
+<div id="ibexa-page-block-{{ block_id }}" class="block-tag {{ block_class }}">
+    <div class="ibexa-al-block">
+        <h2 class="ibexa-al-block__header">{{ block_name|default(default_block_name) }}</h2>
+        <div class="ibexa-al-block__tiles">
+            {% for group in activity_logs_groups %}
+                {% set group_datetime = group.getLoggedAt() %}
+                {% set group_date_string = group_datetime.format('Ymd') %}
+
+                {% if last_group_date_string != group_date_string %}
+                    {% set last_group_date_string = group_date_string %}
+
+                    <div class="ibexa-al-block__date">
+                        {{ today_date_string == group_date_string
+                            ? 'activity_log.block.today_label'|trans()|desc('Today')
+                            : group_datetime|ibexa_full_date
+                        }}
+                    </div>
+                {% endif %}
+
+                {% set activity_log_group_template = [
+                    '@ibexadesign/dashboard/blocks/ui/group.html.twig',
+                ] %}
+
+                {% include activity_log_group_template with { group } only %}
+            {% endfor %}
+            <div class="ibexa-al-block__footer">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-al-block__all-activity-btn"
+                >
+                    {{ 'activity_log.block.all_activity'|trans|desc('View all activities') }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

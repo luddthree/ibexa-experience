@@ -1,0 +1,61 @@
+{% extends "@ibexadesign/product_catalog/edit.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set anchor_navigation_item_basic_information_label = 'product_variant.anchor_navigation_item.basic_information'|trans|desc('Basic information') %}
+{% set anchor_navigation_item_attributes_label = 'product_variant.anchor_navigation_item.attributes'|trans|desc('Attributes') %}
+
+{% block main_container_class %}
+    ibexa-main-container--edit-container ibexa-main-container--with-anchor-menu-items
+{% endblock %}
+
+{% block form %}
+    {% form_theme form with [ _self, '@ibexadesign/product_catalog/form_fields.html.twig' ]  %}
+
+    {{ form_start(form, {
+        attr: { class: 'ibexa-pc-edit__form' }
+    }) }}
+        <div class="ibexa-anchor-navigation-sections">
+            {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                anchor_section_key: anchor_navigation_item_basic_information_label
+            } %}
+                {% trans_default_domain 'ibexa_product_catalog' %}
+
+                {% block anchor_section_header %}
+                    <h2 class="ibexa-pc-anchor-section__header">{{ anchor_section_key }}</h2>
+                {% endblock %}
+
+                {% block anchor_section_body %}
+                    {{ form_row(form.code) }}
+                {% endblock %}
+            {% endembed %}
+
+            {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                anchor_section_key: anchor_navigation_item_attributes_label
+            } %}
+                {% trans_default_domain 'ibexa_product_catalog' %}
+
+                {% block anchor_section_header %}
+                    <h2 class="ibexa-pc-anchor-section__header">{{ anchor_navigation_item_attributes_label }}</h2>
+                {% endblock %}
+
+                {% block anchor_section_body %}
+                    {{ form_row(form.attributes) }}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        {% block form_submit %}{% endblock %}
+
+    {{ form_end(form) }}
+{% endblock %}
+
+{%- block attribute_collection_row -%}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+{%- endblock -%}
+
+{%- block product_catalog_attribute_row -%}
+    {{ form_widget(form) }}
+    {{ form_errors(form) }}
+{%- endblock -%}

@@ -1,0 +1,77 @@
+parameters:
+    ibexa.taxonomy.fieldtype.taxonomy_entry.identifier: ibexa_taxonomy_entry
+    ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier: ibexa_taxonomy_entry_assignment
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # TaxonomyEntry
+    #
+    Ibexa\Taxonomy\FieldType\TaxonomyEntry\Type:
+        autoconfigure: true
+        autowire: true
+        public: true
+        parent: Ibexa\Core\FieldType\FieldType
+        arguments:
+            $fieldTypeIdentifier: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%'
+        tags:
+            - { name: ibexa.field_type, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntry\Converter:
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntry\Indexable:
+        tags:
+            - { name: ibexa.field_type.indexable, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntry\FormMapper\TaxonomyEntryFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%' }
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%' }
+
+    Ibexa\Taxonomy\Event\Subscriber\FieldType\TaxonomyEntryIdentifierConverter:
+        arguments:
+            $fieldTypeIdentifier: '%ibexa.taxonomy.fieldtype.taxonomy_entry.identifier%'
+
+    #
+    # TaxonomyEntryAssignment
+    #
+    Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Type:
+        autoconfigure: false
+        autowire: true
+        public: true
+        parent: Ibexa\Core\FieldType\FieldType
+        arguments:
+            $fieldTypeIdentifier: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%'
+        tags:
+            - { name: ibexa.field_type, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Converter:
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Indexable:
+        tags:
+            - { name: ibexa.field_type.indexable, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\FormMapper\TaxonomyEntryAssignmentFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%' }
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%' }
+
+    Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Storage:
+        public: true
+        lazy: true
+        arguments:
+            $entityManager: '@ibexa.doctrine.orm.entity_manager'
+        tags:
+            - {name: ibexa.field_type.storage.external.handler, alias: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%'}
+
+    Ibexa\Taxonomy\Event\Subscriber\FieldType\TaxonomyEntryAssignmentIdentifierConverter:
+        arguments:
+            $fieldTypeIdentifier: '%ibexa.taxonomy.fieldtype.taxonomy_entry_assignment.identifier%'

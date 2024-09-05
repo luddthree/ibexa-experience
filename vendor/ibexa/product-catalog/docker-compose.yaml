@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+    elasticsearch:
+        image: elasticsearch:7.12.1
+        ports:
+            - '127.0.0.1::9200/tcp'
+        # use --compatibility flag on non-swarm to prevent docker from claiming all resources, especially on startup
+        deploy:
+            resources:
+                limits:
+                    cpus: '1'
+                    memory: 500M
+        healthcheck:
+            test: ["CMD", "curl", "http://localhost:9200/_cluster/health"]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+        environment:
+            discovery.type: single-node
+
+    elasticsearch-index:
+        depends_on:
+            - elasticsearch
+        build:
+            dockerfile: ./docker/elasticsearch-index/Dockerfile
+            context: .
+        command:
+            - "elasticsearch:9200"
+            - "--strict"
+            - '--timeout=0'
+            - "--"
+            - "curl"
+            - "-X"
+            - "PUT"
+            - "-H"
+            - "Content-Type: application/json"
+            - "-d"
+            - "@./es-index-template.json"
+            - "http://elasticsearch:9200/_template/repository"
+
+    solr:
+        image: ghcr.io/ibexa/core/solr
+        healthcheck:
+            test: [ "CMD", "solr", "status" ]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+        ports:
+            - '127.0.0.1::8983/tcp'

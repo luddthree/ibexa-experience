@@ -1,0 +1,30 @@
+system:
+    default:
+        workflows:
+            quick_review:
+                name: Quick Review
+                matchers:
+                    content_status: draft
+                stages:
+                    draft:
+                        label: Draft
+                    review:
+                        label: Quick review
+                        actions:
+                            notify_reviewer: ~
+                initial_stage: draft
+                transitions:
+                    to_review:
+                        from: draft
+                        to: review
+                        label: Send to review
+                        icon: '/bundles/ibexaicons/img/all-icons.svg#comment'
+                        reviewers:
+                            required: true
+                    re_review:
+                        from: review
+                        to: review
+                        label: Send to review
+                        icon: '/bundles/ibexaicons/img/all-icons.svg#comment'
+                        reviewers:
+                            required: true

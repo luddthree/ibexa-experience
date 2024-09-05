@@ -1,0 +1,12 @@
+{% set is_pim_local = ibexa_is_pim_local() %}
+
+<div class="block-product-collection {{ block_class }}">
+    {% for product in products %}
+        {% if is_pim_local == true %}
+            {{ ibexa_http_cache_tag_relation_ids(product.content.id) }}
+            <h3>{{ ibexa_render_field(product.content, 'name') }}</h3>
+        {% else %}
+            <h3>{{ product.getName() }}</h3>
+        {% endif %}
+    {% endfor %}
+</div>

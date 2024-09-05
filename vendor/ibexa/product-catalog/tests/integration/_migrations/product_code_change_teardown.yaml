@@ -1,0 +1,18 @@
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: CODE_CHANGE_AVAILABILITY_TEST
+
+-   type: content
+    mode: delete
+    match:
+        field: content_remote_id
+        value: CODE_CHANGE_PRICE_TEST
+
+
+-   type: content_type
+    mode: delete
+    match:
+        field: content_type_identifier
+        value: code_integration_test

@@ -1,0 +1,80 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section class="ibexa-pc-product-details">
+    <div class="ibexa-view-rawcontentview">
+        {% set details_actions %}
+            {% form_theme language_switch_form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+            {% set selected_language = app.request.query.get('language') %}
+
+            {{ form_start(language_switch_form, { attr: { class: 'form-inline ibexa-raw-content-title__language-form' }}) }}
+                {% set source %}
+                    {{ form_widget(language_switch_form.language) }}
+                {% endset %}
+
+                <label class="ibexa-label">{{ 'product.view.preview'|trans|desc('Preview') }}</label>
+
+                {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                    source: source,
+                    choices: language_switch_form.language.vars.choices,
+                    value: selected_language,
+                    is_small: true,
+                } %}
+            {{ form_end(language_switch_form, { render_rest: false }) }}
+        {% endset %}
+
+        {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: 'product.view.details.title'|trans|desc('Details'),
+            actions: details_actions
+        } %}
+
+        {% set product_specification_type = constant('Ibexa\\ProductCatalog\\FieldType\\ProductSpecification\\Type::FIELD_TYPE_IDENTIFIER') %}
+        {% for key, fields_group in field_definitions_by_group %}
+            {% if fields_group.fieldDefinitions|length %}
+                {% set collapse_state_key = 'collapse-' ~ key %}
+                {% set collapse_class_name = 'ibexa-pc-product-item-preview-group-preview-collapse--' ~ key %}
+
+                <section class="ibexa-pc-product-item-preview-group">
+                    <a
+                        class="ibexa-pc-product-item-preview-group__toggler"
+                        data-bs-toggle="collapse"
+                        href=".{{ collapse_class_name }}"
+                    >
+                        <span class="ibexa-pc-product-item-preview-group__name">{{ fields_group.name|capitalize }}</span>
+                    </a>
+                    <div
+                        class="{{ collapse_class_name }} ibexa-pc-product-item-preview-group-preview-collapse collapse show"
+                        data-collapse-state-key="{{ collapse_state_key }}"
+                    >
+                        {% if loop.first %}
+                        <div class="ibexa-pc-product-item-preview">
+                            <div class="ibexa-pc-product-item-preview__label ibexa-label">
+                                {{ 'product.view.details.product_code'|trans|desc('Product code') }}
+                            </div>
+                            <div class="ibexa-pc-product-item-preview__value ibexa-dbl-click-mark">
+                                {{ product.code }}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% for field in fields_group.fieldDefinitions %}
+                            {% if field.fieldTypeIdentifier != product_specification_type %}
+                                <div class="ibexa-pc-product-item-preview">
+                                    <div class="ibexa-pc-product-item-preview__label ibexa-label">
+                                        {{ ibexa_field_name(product.content, field.identifier) }}
+                                    </div>
+                                    <div class="ibexa-pc-product-item-preview__value">
+                                        {% if ibexa_field_is_empty(product.content, field.identifier) %}
+                                            <em>{{ 'product.view.details.field.empty'|trans|desc('This field is empty') }}</em>
+                                        {% else %}
+                                            {{ ibexa_render_field(product.content, field.identifier) }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </section>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>

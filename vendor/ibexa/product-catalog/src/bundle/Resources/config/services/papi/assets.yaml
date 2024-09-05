@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\AssetTags\ScalarAssetTagsStorageConverter:
+        tags:
+            - { name: ibexa.product_catalog.asset.tag.storage_converter, priority: -100 }

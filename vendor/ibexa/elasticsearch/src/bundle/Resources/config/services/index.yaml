@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Elasticsearch\DocumentMapper\DocumentIdGenerator: ~
+
+    Ibexa\Elasticsearch\DocumentMapper\DocumentIdGeneratorInterface:
+        alias: Ibexa\Elasticsearch\DocumentMapper\DocumentIdGenerator
+
+    Ibexa\Elasticsearch\DocumentSerializer\DocumentSerializer:
+        arguments:
+            $fieldValueMapper: '@Ibexa\Core\Search\Common\FieldValueMapper\Aggregate'
+            $fieldNameGenerator: '@Ibexa\Core\Search\Common\FieldNameGenerator'
+
+    Ibexa\Elasticsearch\DocumentSerializer\DocumentSerializerInterface:
+        alias: Ibexa\Elasticsearch\DocumentSerializer\DocumentSerializer
+
+    Ibexa\Elasticsearch\DocumentMapper\DocumentFactory:
+        arguments:
+            $persistenceHandler: '@Ibexa\Contracts\Core\Persistence\Handler'
+            $fieldRegistry: '@Ibexa\Core\Search\Common\FieldRegistry'
+            $fieldNameGenerator: '@Ibexa\Core\Search\Common\FieldNameGenerator'
+            $fieldTypeRegistry: '@Ibexa\Core\Persistence\FieldTypeRegistry'
+
+    Ibexa\Elasticsearch\DocumentMapper\DocumentFactoryInterface:
+        alias: Ibexa\Elasticsearch\DocumentMapper\DocumentFactory
+
+    Ibexa\Elasticsearch\DocumentMapper\EventSubscriber\UserContentDocumentMapper: ~
+
+    Ibexa\Elasticsearch\ElasticSearch\Index\Group\LanguageGroupResolver: ~
+
+    Ibexa\Elasticsearch\ElasticSearch\Index\Group\ContentTypeGroupResolver: ~
+    
+    Ibexa\Elasticsearch\ElasticSearch\Index\Group\NullGroupResolver: ~
+
+    ibexa.elasticsearch.index.group.default_group_resolver:
+        class: Ibexa\Elasticsearch\ElasticSearch\Index\Group\CompositeGroupResolver
+        arguments:
+            $resolvers:
+                - '@Ibexa\Elasticsearch\ElasticSearch\Index\Group\LanguageGroupResolver'
+                - '@Ibexa\Elasticsearch\ElasticSearch\Index\Group\ContentTypeGroupResolver'
+
+    Ibexa\Elasticsearch\FieldType\SpellcheckFieldMapper:
+        tags:
+            - { name: ibexa.search.common.field_value.mapper, maps: Ibexa\Elasticsearch\FieldType\SpellcheckField }

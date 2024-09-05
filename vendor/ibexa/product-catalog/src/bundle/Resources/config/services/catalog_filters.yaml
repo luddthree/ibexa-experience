@@ -1,0 +1,89 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\ProductCatalog\CatalogFilters\FilterDefinitionProviderInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\ChainFilterDefinitionProvider
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\ChainFilterDefinitionProvider:
+        arguments:
+            $providers: !tagged_iterator { tag: ibexa.product_catalog.catalog_filter.provider }
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\InMemoryFilterDefinitionProvider:
+        arguments:
+            $catalogFilters: !tagged_iterator { tag: ibexa.product_catalog.catalog_filter, index_by: 'alias' }
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.provider, priority: 200 }
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\ProductType:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_type
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\ProductCode:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_code
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\ProductAvailability:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_availability
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\ProductBasePrice:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_price
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\ProductCategory:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_category
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\ProductCreated:
+        tags:
+            - name: ibexa.product_catalog.catalog_filter
+              alias: product_created
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\AttributeFilterDefinitionProvider:
+        arguments:
+            $filterDefinitionFactories: !tagged_iterator { tag: ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory, index_by: 'type' }
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.provider, priority: 100 }
+
+    ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory.checkbox:
+        class: Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\Attribute\FilterDefinitionFactory
+        arguments:
+            $criterionClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\CheckboxAttribute
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory, type: checkbox }
+
+    ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory.float:
+        class: Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\Attribute\FilterDefinitionFactory
+        arguments:
+            $criterionClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\FloatAttributeRange
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory, type: float }
+
+    ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory.integer:
+        class: Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\Attribute\FilterDefinitionFactory
+        arguments:
+            $criterionClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\IntegerAttributeRange
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory, type: integer }
+
+    ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory.selection:
+        class: Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\Attribute\FilterDefinitionFactory
+        arguments:
+            $criterionClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\SelectionAttribute
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory, type: selection }
+
+    ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory.color:
+        class: Ibexa\ProductCatalog\Local\Repository\CatalogFilter\DefinitionProvider\Attribute\FilterDefinitionFactory
+        arguments:
+            $criterionClass: Ibexa\Contracts\ProductCatalog\Values\Product\Query\Criterion\ColorAttribute
+        tags:
+            - { name: ibexa.product_catalog.catalog_filter.attribute_filter_definition_factory, type: color }

@@ -1,0 +1,50 @@
+-
+    type: user_group
+    mode: create
+    metadata:
+        alwaysAvailable: true
+        contentTypeIdentifier: user_group
+        mainLanguage: eng-US
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: __with_identifier__
+        sectionId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Members
+        -
+            fieldDefIdentifier: description
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: null
+    roles:
+        - Anonymous
+-
+    type: user_group
+    mode: create
+    metadata:
+        alwaysAvailable: true
+        contentTypeIdentifier: user_group
+        mainLanguage: eng-US
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: __with_id__
+        sectionId: 2
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Members
+        -
+            fieldDefIdentifier: description
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: null
+    roles:
+        - 1

@@ -1,0 +1,39 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: seo_content_type
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2023-09-13T20:06:52+02:00'
+        publicationDate: '2023-09-13T20:06:52+02:00'
+        remoteId: my_seo_content_remote_id
+        alwaysAvailable: true
+        section:
+            id: 1
+            identifier: standard
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: f3e90596361e31d496d4026eb624c983
+        locationRemoteId: 4cd7257047425302cd281d5433dcfade
+        hidden: false
+        sortField: 2
+        sortOrder: 0
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: seo_field
+            languageCode: eng-GB
+            value:
+                types:
+                    foo: { type: foo, fields: { field1: 'Field 1 content value' } }
+    references:
+        -
+            name: ref__content__seo_content_type__
+            type: content_id
+        -
+            name: ref_location__seo_content_type__
+            type: location_id
+        -
+            name: ref_path__seo_content_type__
+            type: path

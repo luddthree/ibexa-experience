@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Tabs
+    #
+    Ibexa\Taxonomy\UI\Tab\AssignedContentTab:
+        tags:
+            - { name: ibexa.admin_ui.tab, group: location-view }

@@ -1,0 +1,421 @@
+{
+    "numberRows": 16,
+    "channels": [
+        {
+            "channelId": "85A00D4C-9063-4CA0-B855-B7A4A918D43B",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1265524,
+            "dateCreated": "2023-07-12T07:43:42.543Z",
+            "dateLastModified": "2023-07-12T09:54:17.257Z",
+            "campaign": {
+                "campaignId": 1265523,
+                "campaignTitle": "The Movie quiz",
+                "campaignType": "Quizz ou concours identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2021-12-16T00:00:00.000Z",
+                "endDate": "2090-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1265524\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1265524', 'ibexa.qualifioapp.com',\n                    '20', '85A00D4C-9063-4CA0-B855-B7A4A918D43B', '100%', '1200', '', '', '', 'max-width:810px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/85A00D4C-9063-4CA0-B855-B7A4A918D43B\/v1.cfm?id=85A00D4C-9063-4CA0-B855-B7A4A918D43B",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/85A00D4C-9063-4CA0-B855-B7A4A918D43B\/v1.cfm?id=85A00D4C-9063-4CA0-B855-B7A4A918D43B\"\n    id=\"qualifio1265524\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "774EF52E-FA60-4CFD-8813-1652066FCFC8",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1265526,
+            "dateCreated": "2023-07-12T07:44:23.177Z",
+            "dateLastModified": "2023-07-12T09:45:46.557Z",
+            "campaign": {
+                "campaignId": 1265525,
+                "campaignTitle": "News - Editorial quiz",
+                "campaignType": "Quizz ou concours identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2022-12-14T00:00:00.000Z",
+                "endDate": "2050-12-28T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1265526\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1265526', 'ibexa.qualifioapp.com',\n                    '20', '774EF52E-FA60-4CFD-8813-1652066FCFC8', '100%', '400', '', '', '', 'max-width:810px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/774EF52E-FA60-4CFD-8813-1652066FCFC8\/v1.cfm?id=774EF52E-FA60-4CFD-8813-1652066FCFC8",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/774EF52E-FA60-4CFD-8813-1652066FCFC8\/v1.cfm?id=774EF52E-FA60-4CFD-8813-1652066FCFC8\"\n    id=\"qualifio1265526\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "31C0658F-3E63-4ADF-8ACB-51362D74F9E4",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1265528,
+            "dateCreated": "2023-07-12T07:46:30.170Z",
+            "dateLastModified": "2023-07-12T09:46:53.830Z",
+            "campaign": {
+                "campaignId": 1265527,
+                "campaignTitle": "Prediction France Morocco",
+                "campaignType": "Pronostic"
+            },
+            "schedule": {
+                "startDate": "2022-12-14T00:00:00.000Z",
+                "endDate": "2055-12-28T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1265528\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1265528', 'ibexa.qualifioapp.com',\n                    '20', '31C0658F-3E63-4ADF-8ACB-51362D74F9E4', '100%', '400', '', '', '', 'max-width:810px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/31C0658F-3E63-4ADF-8ACB-51362D74F9E4\/v1.cfm?id=31C0658F-3E63-4ADF-8ACB-51362D74F9E4",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/31C0658F-3E63-4ADF-8ACB-51362D74F9E4\/v1.cfm?id=31C0658F-3E63-4ADF-8ACB-51362D74F9E4\"\n    id=\"qualifio1265528\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "A6FDF634-2C56-430D-A58C-64DA629161BC",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1273135,
+            "dateCreated": "2023-07-28T12:47:11.400Z",
+            "dateLastModified": "2023-11-22T15:17:46.843Z",
+            "campaign": {
+                "campaignId": 1265537,
+                "campaignTitle": "Survey Example Douwe Egbert",
+                "campaignType": "Branching identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2023-07-12T00:00:00.000Z",
+                "endDate": "2024-08-15T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1273135\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1273135', 'ibexa.qualifioapp.com',\n                    '20', 'A6FDF634-2C56-430D-A58C-64DA629161BC', '100%', '1200', '', '', '', 'max-width:810px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/A6FDF634-2C56-430D-A58C-64DA629161BC\/v1.cfm?id=A6FDF634-2C56-430D-A58C-64DA629161BC",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/A6FDF634-2C56-430D-A58C-64DA629161BC\/v1.cfm?id=A6FDF634-2C56-430D-A58C-64DA629161BC\"\n    id=\"qualifio1273135\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "9DDC8A1F-A7F9-49C0-ACC8-1DB925E9F474",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1301695,
+            "dateCreated": "2023-09-28T12:03:06.627Z",
+            "dateLastModified": "2023-10-17T07:19:19.807Z",
+            "campaign": {
+                "campaignId": 1301694,
+                "campaignTitle": "Step 1 form - Product Synergies demo",
+                "campaignType": "Test de personnalit\u00e9 identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2023-09-20T00:00:00.000Z",
+                "endDate": "2030-11-30T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1301695\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1301695', 'ibexa.qualifioapp.com',\n                    '20', '9DDC8A1F-A7F9-49C0-ACC8-1DB925E9F474', '100%', '700', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/9DDC8A1F-A7F9-49C0-ACC8-1DB925E9F474\/v1.cfm?id=9DDC8A1F-A7F9-49C0-ACC8-1DB925E9F474",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/9DDC8A1F-A7F9-49C0-ACC8-1DB925E9F474\/v1.cfm?id=9DDC8A1F-A7F9-49C0-ACC8-1DB925E9F474\"\n    id=\"qualifio1301695\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "8152BB09-A1A0-499A-87F4-1BBA66E2A64C",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1304211,
+            "dateCreated": "2023-10-03T18:18:34.137Z",
+            "dateLastModified": "2023-10-03T18:19:01.977Z",
+            "campaign": {
+                "campaignId": 1304210,
+                "campaignTitle": "Pharma Demo - Wheel of Fortune - Coupon Campaign",
+                "campaignType": "Wheel Of Fortune"
+            },
+            "schedule": {
+                "startDate": "2023-10-03T00:00:00.000Z",
+                "endDate": "2030-10-17T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1304211\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1304211', 'ibexa.qualifioapp.com',\n                    '20', '8152BB09-A1A0-499A-87F4-1BBA66E2A64C', '100%', '1200', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/8152BB09-A1A0-499A-87F4-1BBA66E2A64C\/v1.cfm?id=8152BB09-A1A0-499A-87F4-1BBA66E2A64C",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/8152BB09-A1A0-499A-87F4-1BBA66E2A64C\/v1.cfm?id=8152BB09-A1A0-499A-87F4-1BBA66E2A64C\"\n    id=\"qualifio1304211\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "421AF303-E47E-449B-BBA4-926266E343B6",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1336765,
+            "dateCreated": "2023-11-22T15:35:43.000Z",
+            "dateLastModified": "2023-11-22T16:48:34.503Z",
+            "campaign": {
+                "campaignId": 1336756,
+                "campaignTitle": "Feedback",
+                "campaignType": "Branching identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2023-07-12T00:00:00.000Z",
+                "endDate": "2024-08-15T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1336765\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1336765', 'ibexa.qualifioapp.com',\n                    '20', '421AF303-E47E-449B-BBA4-926266E343B6', '100%', '1200', '', '', '', 'max-width:810px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/421AF303-E47E-449B-BBA4-926266E343B6\/v1.cfm?id=421AF303-E47E-449B-BBA4-926266E343B6",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/421AF303-E47E-449B-BBA4-926266E343B6\/v1.cfm?id=421AF303-E47E-449B-BBA4-926266E343B6\"\n    id=\"qualifio1336765\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "2CB238CF-960C-418D-A768-AE79870CF9E9",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1349157,
+            "dateCreated": "2023-12-06T16:52:56.027Z",
+            "dateLastModified": "2024-02-22T12:36:54.137Z",
+            "campaign": {
+                "campaignId": 1349156,
+                "campaignTitle": "Custom Controller Order",
+                "campaignType": "Formulaire simple"
+            },
+            "schedule": {
+                "startDate": "2023-12-06T00:00:00.000Z",
+                "endDate": "2024-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1349157\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1349157', 'ibexa.qualifioapp.com',\n                    '20', '2CB238CF-960C-418D-A768-AE79870CF9E9', '100%', '1200', '', '', '', 'max-width:810px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/2CB238CF-960C-418D-A768-AE79870CF9E9\/v1.cfm?id=2CB238CF-960C-418D-A768-AE79870CF9E9",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/2CB238CF-960C-418D-A768-AE79870CF9E9\/v1.cfm?id=2CB238CF-960C-418D-A768-AE79870CF9E9\"\n    id=\"qualifio1349157\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "1B7039B7-3B2F-4BFA-A45D-1FDC59F15193",
+            "website": {
+                "id": 16120,
+                "name": "Harmony"
+            },
+            "channel": "WIDGET",
+            "id": 1361565,
+            "dateCreated": "2024-01-04T10:42:48.087Z",
+            "dateLastModified": "2024-04-30T09:53:47.660Z",
+            "campaign": {
+                "campaignId": 1361564,
+                "campaignTitle": "Demo - Harmony - WOF",
+                "campaignType": "Wheel Of Fortune"
+            },
+            "schedule": {
+                "startDate": "2024-01-04T00:00:00.000Z",
+                "endDate": "2030-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1361565\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1361565', 'ibexa.qualifioapp.com',\n                    '20', '1B7039B7-3B2F-4BFA-A45D-1FDC59F15193', '100%', '890', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/1B7039B7-3B2F-4BFA-A45D-1FDC59F15193\/v1.cfm?id=1B7039B7-3B2F-4BFA-A45D-1FDC59F15193",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/1B7039B7-3B2F-4BFA-A45D-1FDC59F15193\/v1.cfm?id=1B7039B7-3B2F-4BFA-A45D-1FDC59F15193\"\n    id=\"qualifio1361565\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "C8019163-F0EA-4478-AFBF-1F37C1F94BD3",
+            "website": {
+                "id": 16120,
+                "name": "Harmony"
+            },
+            "channel": "WIDGET",
+            "id": 1361910,
+            "dateCreated": "2024-01-04T15:44:41.853Z",
+            "dateLastModified": "2024-04-30T09:52:46.570Z",
+            "campaign": {
+                "campaignId": 1361909,
+                "campaignTitle": "Demo - Harmony - Catcher Game \"Products of the Month\"",
+                "campaignType": "Jeu identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2024-01-04T00:00:00.000Z",
+                "endDate": "2045-03-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1361910\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1361910', 'ibexa.qualifioapp.com',\n                    '20', 'C8019163-F0EA-4478-AFBF-1F37C1F94BD3', '100%', '890', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/C8019163-F0EA-4478-AFBF-1F37C1F94BD3\/v1.cfm?id=C8019163-F0EA-4478-AFBF-1F37C1F94BD3",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/C8019163-F0EA-4478-AFBF-1F37C1F94BD3\/v1.cfm?id=C8019163-F0EA-4478-AFBF-1F37C1F94BD3\"\n    id=\"qualifio1361910\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "AE925975-EEBC-45E3-AFB9-563434C45D9A",
+            "website": {
+                "id": 16120,
+                "name": "Harmony"
+            },
+            "channel": "WIDGET",
+            "id": 1364124,
+            "dateCreated": "2024-01-09T16:44:25.250Z",
+            "dateLastModified": "2024-04-30T09:53:29.887Z",
+            "campaign": {
+                "campaignId": 1361339,
+                "campaignTitle": "Harmony - Diagnostic - Skincare",
+                "campaignType": "Test de personnalit\u00e9 identifi\u00e9 + Branching"
+            },
+            "schedule": {
+                "startDate": "2024-01-03T00:00:00.000Z",
+                "endDate": "2030-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1364124\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1364124', 'ibexa.qualifioapp.com',\n                    '20', 'AE925975-EEBC-45E3-AFB9-563434C45D9A', '100%', '890', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/AE925975-EEBC-45E3-AFB9-563434C45D9A\/v1.cfm?id=AE925975-EEBC-45E3-AFB9-563434C45D9A",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/AE925975-EEBC-45E3-AFB9-563434C45D9A\/v1.cfm?id=AE925975-EEBC-45E3-AFB9-563434C45D9A\"\n    id=\"qualifio1364124\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "B440481F-EA79-4A35-A3E9-D3F04575675D",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1393247,
+            "dateCreated": "2024-03-01T17:40:00.837Z",
+            "dateLastModified": "2024-04-05T08:33:38.390Z",
+            "campaign": {
+                "campaignId": 1393246,
+                "campaignTitle": "Lidea Seeds",
+                "campaignType": "Enqu\u00eate identifi\u00e9e"
+            },
+            "schedule": {
+                "startDate": "2024-03-01T00:00:00.000Z",
+                "endDate": "2025-03-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1393247\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1393247', 'ibexa.qualifioapp.com',\n                    '20', 'B440481F-EA79-4A35-A3E9-D3F04575675D', '100%', '600', '', '', '', 'max-width:800px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/B440481F-EA79-4A35-A3E9-D3F04575675D\/v1.cfm?id=B440481F-EA79-4A35-A3E9-D3F04575675D",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/B440481F-EA79-4A35-A3E9-D3F04575675D\/v1.cfm?id=B440481F-EA79-4A35-A3E9-D3F04575675D\"\n    id=\"qualifio1393247\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "16559E2C-A522-4A7C-94A8-9925769C4E9D",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1400252,
+            "dateCreated": "2024-03-15T17:01:33.240Z",
+            "dateLastModified": "2024-04-24T18:47:03.643Z",
+            "campaign": {
+                "campaignId": 1400251,
+                "campaignTitle": "Product Tour DACH",
+                "campaignType": "Quizz ou concours identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2024-01-01T00:00:00.000Z",
+                "endDate": "2024-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1400252\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1400252', 'ibexa.qualifioapp.com',\n                    '20', '16559E2C-A522-4A7C-94A8-9925769C4E9D', '100%', '1200', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/16559E2C-A522-4A7C-94A8-9925769C4E9D\/v1.cfm?id=16559E2C-A522-4A7C-94A8-9925769C4E9D",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/16559E2C-A522-4A7C-94A8-9925769C4E9D\/v1.cfm?id=16559E2C-A522-4A7C-94A8-9925769C4E9D\"\n    id=\"qualifio1400252\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "219DEAA0-9501-4225-9682-1BC72A2536C1",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1410271,
+            "dateCreated": "2024-04-05T08:36:25.000Z",
+            "dateLastModified": "2024-04-05T11:08:42.820Z",
+            "campaign": {
+                "campaignId": 1410270,
+                "campaignTitle": "Vignerons ind\u00e9pendants",
+                "campaignType": "Enqu\u00eate identifi\u00e9e"
+            },
+            "schedule": {
+                "startDate": "2024-03-01T00:00:00.000Z",
+                "endDate": "2025-03-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1410271\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1410271', 'ibexa.qualifioapp.com',\n                    '20', '219DEAA0-9501-4225-9682-1BC72A2536C1', '100%', '600', '', '', '', 'max-width:800px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/219DEAA0-9501-4225-9682-1BC72A2536C1\/v1.cfm?id=219DEAA0-9501-4225-9682-1BC72A2536C1",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/219DEAA0-9501-4225-9682-1BC72A2536C1\/v1.cfm?id=219DEAA0-9501-4225-9682-1BC72A2536C1\"\n    id=\"qualifio1410271\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "A910EB78-E403-4406-9AD2-18462027856B",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1420943,
+            "dateCreated": "2024-04-24T18:38:21.000Z",
+            "dateLastModified": "2024-04-25T12:44:53.507Z",
+            "campaign": {
+                "campaignId": 1420942,
+                "campaignTitle": "OMR - Product of the month",
+                "campaignType": "Jeu identifi\u00e9"
+            },
+            "schedule": {
+                "startDate": "2024-04-01T00:00:00.000Z",
+                "endDate": "2045-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1420943\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1420943', 'ibexa.qualifioapp.com',\n                    '20', 'A910EB78-E403-4406-9AD2-18462027856B', '100%', '890', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/A910EB78-E403-4406-9AD2-18462027856B\/v1.cfm?id=A910EB78-E403-4406-9AD2-18462027856B",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/A910EB78-E403-4406-9AD2-18462027856B\/v1.cfm?id=A910EB78-E403-4406-9AD2-18462027856B\"\n    id=\"qualifio1420943\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        },
+        {
+            "channelId": "CB1689C5-23CE-4783-ACFF-BA3986337488",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1420947,
+            "dateCreated": "2024-04-24T18:48:19.000Z",
+            "dateLastModified": "2024-04-25T14:43:38.273Z",
+            "campaign": {
+                "campaignId": 1420946,
+                "campaignTitle": "OMR - Diagnostic Skin Care Discount",
+                "campaignType": "Test de personnalit\u00e9 identifi\u00e9 + Branching"
+            },
+            "schedule": {
+                "startDate": "2024-04-01T00:00:00.000Z",
+                "endDate": "2024-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1420947\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1420947', 'ibexa.qualifioapp.com',\n                    '20', 'CB1689C5-23CE-4783-ACFF-BA3986337488', '100%', '890', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/CB1689C5-23CE-4783-ACFF-BA3986337488\/v1.cfm?id=CB1689C5-23CE-4783-ACFF-BA3986337488",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/CB1689C5-23CE-4783-ACFF-BA3986337488\/v1.cfm?id=CB1689C5-23CE-4783-ACFF-BA3986337488\"\n    id=\"qualifio1420947\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        }
+    ]
+}

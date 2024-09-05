@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    _instanceof:
+        Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\GatewayInterface:
+            tags:
+                - 'ibexa.product_catalog.common.doctrine_gateway'
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\GatewayInterface:
+        alias: Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\Gateway\DoctrineDatabase
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\HandlerInterface:
+        alias: Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\Handler
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\Handler: ~
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\DomainMapper: ~
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\DomainMapperInterface:
+        alias: Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\DomainMapper
+
+    Ibexa\CorporateAccount\Persistence\Legacy\CompanyHistory\Mapper: ~

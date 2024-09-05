@@ -1,0 +1,120 @@
+{% extends page_builder_config.layout.base_template is defined
+    ? page_builder_config.layout.base_template
+    : '@IbexaPageBuilder/page_builder/base.html.twig'
+%}
+
+{% trans_default_domain 'ibexa_page_builder' %}
+
+{% set is_field_view_mode = editor_mode == constant('Ibexa\\FieldTypePage\\FieldType\\LandingPage\\Mapper\\LandingPageFormMapper::FIELD_VIEW_MODE') %}
+
+{% block body_class %}ibexa-pb-app--create{% endblock %}
+
+{% block navigation %}{% endblock %}
+{% block side_column %}{% endblock %}
+{% block header_row %}{% endblock %}
+
+{% block infobar %}
+    {% include '@IbexaPageBuilder/page_builder/infobar/create.html.twig' with {
+        'language': language,
+        'parent_location': parent_location,
+        'siteaccess': siteaccess,
+        'content_create_struct': content_create_struct,
+        'content_type': content_type,
+        'editor_mode': editor_mode,
+        'form': form,
+        'page_builder_config': page_builder_config ?? [],
+    } only %}
+{% endblock %}
+
+{% block config_panel %}
+    {% trans_default_domain 'ibexa_page_builder' %}
+    <div class="ibexa-pb-config-panels-wrapper">
+        {% embed '@IbexaPageBuilder/page_builder/parts/config_panel.html.twig' with {
+            title: 'creating'|trans({ '%content_type_name%': content_type.name })|desc('Creating %content_type_name%'),
+            subtitle: config_panel_subtitle,
+            class: 'ibexa-pb-fields-config-panel',
+            no_close_btn: true,
+            is_opened: is_field_view_mode,
+        } %}
+            {% block body %}
+                {% embed '@ibexadesign/content/create/create.html.twig' with {
+                    'view_base_layout': '@IbexaPageBuilder/content_edit/content_wrapper.html.twig',
+                } %}
+                    {% block header %}{% endblock %}
+                    {% block close_button %}{% endblock %}
+                    {% block right_sidebar_wrapper %}{% endblock %}
+                    {% block content %}
+                        <div class="ibexa-edit-content">
+                            {{ block('anchor_menu') }}
+                            {{ block('form_before') }}
+                            {{ block('form') }}
+                            {{ block('form_after') }}
+                        </div>
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
+        {% endembed %}
+    </div>
+{% endblock %}
+
+{% block config %}
+    {% set blocks_json = landing_page_config.blocks|json_encode %}
+    {% set layouts_json = landing_page_config.layouts|json_encode %}
+    {% set form_page_value = page_field_identifier is not null ? attribute(form.fieldsData, page_field_identifier).value : null %}
+
+    {% set iframe_css_url = encore_entry_css_files('ibexa-page-builder-iframe-editor-ui-css', 'ibexa')|first %}
+    {% set default_layout_id = content_type.getFieldDefinition(page_field_identifier).defaultValue.getPage.layout %}
+
+    <script>
+        window.ibexa.addConfig('pageBuilder.callbacks', {});
+        window.ibexa.addConfig('pageBuilder.timeline', {
+            events: []
+        });
+        window.ibexa.addConfig('pageBuilder.data', {
+            parentLocationId: {{ parent_location.id }},
+            contentTypeIdentifier: '{{ content_type.identifier }}',
+            languageCode: '{{ language.languageCode }}',
+            siteaccess: '{{ siteaccess }}'
+        });
+        window.ibexa.addConfig('pageBuilder.config', {
+            fieldValue: {{ field_value_json|raw }},
+            blocksConfig: {{ blocks_json|raw }},
+            previewUrl: `{{ url('ibexa.page_builder.layout', {'siteaccessName': siteaccess, 'layoutId': default_layout_id}) }}`,
+            iframeCss: '{{ iframe_css_url }}',
+            layoutsConfig: {{ layouts_json|raw }},
+            pageFieldValueSelector: `{{ form_page_value is not null ? '#' ~ form_page_value.vars.id : '' }}`,
+            mode: '{{ constant('Ibexa\\PageBuilder\\PageBuilder\\PageBuilderMode::MODE_CREATE') }}',
+            intentParameters: {
+                parentLocationId: {{ parent_location.id }},
+                contentTypeIdentifier: '{{ content_type.identifier }}',
+                languageCode: '{{ language.languageCode }}'
+            },
+            onCreateCancelURL: `{{ path('ibexa.content.view', {
+                'locationId': parent_location.id,
+                'contentId': parent_location.contentId
+            }) }}`,
+            blockPreviewRequestParams: {},
+            timelineGetEventsRequestParams: {},
+            previewSiteaccess: '{{ siteaccess }}',
+            referenceTimestamp: {{ reference_timestamp }},
+            toolboxTitle: '{{ toolbox_title }}'
+        });
+    </script>
+
+    <div class="ibexa-pb-iframe-backdrop ibexa-pb-iframe-backdrop--is-loading">
+        <div class="ibexa-pb-iframe-backdrop__loader-container">
+            <div class="ibexa-pb-iframe-backdrop__loader"></div>
+        </div>
+    </div>
+    <div class="ibexa-pb-events-tooltip-container"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-page-builder-create-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-page-builder-create-css', null, 'ibexa') }}
+{% endblock %}

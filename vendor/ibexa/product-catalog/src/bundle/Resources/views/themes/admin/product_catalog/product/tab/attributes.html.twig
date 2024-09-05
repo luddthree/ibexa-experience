@@ -1,0 +1,41 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section class="ibexa-pc-product-attributes">
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        headline: 'product.view.attributes.title'|trans|desc('Attributes'),
+    } %}
+
+    {% for group in attributes_by_group %}
+        {% set collapse_state_key = 'collapse-' ~ group.identifier %}
+        {% set collapse_class_name = 'ibexa-pc-product-item-preview-group-preview-collapse--' ~ group.identifier %}
+
+        <section class="ibexa-pc-product-item-preview-group">
+            <a
+                class="ibexa-pc-product-item-preview-group__toggler"
+                data-bs-toggle="collapse"
+                href=".{{ collapse_class_name }}"
+            >
+                <span class="ibexa-pc-product-item-preview-group__name">{{ group.name|capitalize }}</span>
+            </a>
+            <div
+                class="{{ collapse_class_name }} ibexa-pc-product-item-preview-group-preview-collapse collapse show"
+                data-collapse-state-key="{{ collapse_state_key }}"
+            >
+                {% for attribute in group %}
+                    {% set attribute_definition = attribute.attributeDefinition %}
+
+                    <div class="ibexa-pc-product-item-preview">
+                        <div class="ibexa-pc-product-item-preview__label ibexa-label">{{ attribute_definition.name }}</div>
+                        <div class="ibexa-pc-product-item-preview__value">
+                            {{ attribute|ibexa_format_product_attribute }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% else %}
+        {% include '@ibexadesign/product_catalog/product/empty_product_tab_content.html.twig' with {
+            header_msg: 'product.view.attributes.no_attributes.header'|trans|desc('There are no attributes yet'),
+        } %}
+    {% endfor %}
+</section>

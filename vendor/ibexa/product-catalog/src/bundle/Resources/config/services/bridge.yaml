@@ -1,0 +1,30 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Bridge\CatalogDataProvider:
+        tags:
+            - { name: catalog_data_provider_operation, alias: ibexa }
+
+    Ibexa\ProductCatalog\Bridge\CatalogFactory:
+        arguments:
+            $urlService: '@Ibexa\Bundle\Commerce\Eshop\Services\Url\BaseCatalogUrl'
+
+    Ibexa\ProductCatalog\Bridge\PriceProvider:
+        arguments:
+            $vatService: '@ibexa.commerce.price.vat_service'
+        tags:
+            - { name: ibexa.commerce.plugin.price.provider }
+
+    Ibexa\ProductCatalog\Bridge\ProductAvailabilitySubscriber:
+        arguments:
+            $basketRepository: '@Ibexa\Bundle\Commerce\Checkout\Entity\BasketRepository'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\Installer\CommerceBridgeProvisioner:
+        tags:
+            -   name: ibexa.installer.provisioner.commerce
+                priority: 50

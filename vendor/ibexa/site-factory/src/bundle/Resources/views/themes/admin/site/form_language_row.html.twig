@@ -1,0 +1,34 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+<li
+    class="ibexa-sf-form-languages-item"
+    data-language-code="{{ language_code }}"
+>
+    <div
+        class="ibexa-sf-form-languages-item__content"
+        data-language-code="{{ language_code }}"
+        draggable="true"
+    >
+        <div class="ibexa-sf-form-languages-item__left-col">
+            <div class="ibexa-sf-form-languages-item__drag-handler">
+                <svg class="ibexa-icon ibexa-icon--tiny-small">
+                    <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                </svg>
+            </div>
+            <div class="ibexa-sf-form-languages-item__label">{{ language_name }}</div>
+        </div>
+        <div class="ibexa-sf-form-languages-item__right-col">
+            <div class="ibexa-sf-form-languages-item__trash-wrapper">
+                <button 
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--small ibexa-sf-form-languages__delete-language-btn" 
+                    title="{{ 'delete'|trans|desc('Delete') }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--tiny-small">
+                        <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</li>

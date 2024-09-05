@@ -1,0 +1,100 @@
+{% extends '@ibexadesign/corporate_account/edit.html.twig' %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set basic_information_label = 'application.edit.section.basic_information.title'|trans|desc('Basic information') %}
+{% set contact_information_label = 'application.edit.section.contact_information.title'|trans|desc('Contact information') %}
+{% set billing_information_label = 'application.edit.section.billing_information.title'|trans|desc('Billing address') %}
+{% set internal_label = 'application.edit.section.internal.title'|trans|desc('Internal') %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-application-create-edit{% endblock %}
+
+{% block left_sidebar %}
+    {% block anchor_menu %}
+        {% include '@ibexadesign/ui/anchor_navigation_menu.html.twig' with {
+            items: [
+                basic_information_label,
+                contact_information_label,
+                billing_information_label,
+            ]
+        } %}
+    {% endblock %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'application.edit.editing'|trans|desc('Editing'),
+        content_type_name: content_type.name,
+        title: application.getName(),
+        icon_name: 'file',
+        show_autosave_status: true,
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set edit_menu = knp_menu_get('ibexa_corporate_account.menu.application_edit_context_menu', [], {
+        content,
+        content_type,
+        location,
+        parent_location,
+        language,
+        cancel_uri: close_href,
+    }) %}
+
+    {{ knp_menu_render(edit_menu, { template: '@ibexadesign/ui/menu/context_menu.html.twig', close_href: null }) }}
+{% endset %}
+
+{% block form %}
+    {{ form_start(form, {'attr': {'class': 'ibexa-form-validate ibexa-form'}}) }}
+        {% block form_fields %}
+            <div class="ibexa-anchor-navigation-sections">
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: basic_information_label,
+                } %}
+                    {% trans_default_domain 'ibexa_corporate_account' %}
+                    {% from '@ibexadesign/content/edit_macros.html.twig' import render_form_field %}
+
+                    {% block anchor_section_body %}
+                        <h2 class="ibexa-ca-company-create-edit__header ibexa-ca-company-create-edit__header--basic-information-header">
+                            {{ basic_information_label }}
+                        </h2>
+                        {{ render_form_field(form.fieldsData.name) }}
+                        {{ render_form_field(form.fieldsData.vat) }}
+                        {{ render_form_field(form.fieldsData.website) }}
+                    {% endblock %}
+                {% endembed %}
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: contact_information_label,
+                } %}
+                    {% trans_default_domain 'ibexa_corporate_account' %}
+                    {% from '@ibexadesign/content/edit_macros.html.twig' import render_form_field %}
+
+                    {% block anchor_section_body %}
+                        <h2 class="ibexa-ca-company-create-edit__header ibexa-ca-company-create-edit__header--contact-information-header">
+                            {{ contact_information_label }}
+                        </h2>
+                        {{ render_form_field(form.fieldsData.first_name) }}
+                        {{ render_form_field(form.fieldsData.last_name) }}
+                        {{ render_form_field(form.fieldsData.phone_number) }}
+                        {{ render_form_field(form.fieldsData.user) }}
+                    {% endblock %}
+                {% endembed %}
+                {% embed '@ibexadesign/ui/anchor_navigation_section.html.twig' with {
+                    anchor_section_key: billing_information_label,
+                } %}
+                    {% trans_default_domain 'ibexa_corporate_account' %}
+                    {% from '@ibexadesign/content/edit_macros.html.twig' import render_form_field %}
+
+                    {% block anchor_section_body %}
+                        <h2 class="ibexa-ca-company-create-edit__billing-information-header">
+                            {{ billing_information_label }}
+                        </h2>
+                        {{ render_form_field(form.fieldsData.address) }}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+        {% endblock %}
+        {{- form_widget(form.publish, { attr: { hidden: true }}) -}}
+        {{- form_widget(form.publishAndEdit, { attr: { hidden: true }}) -}}
+    {{ form_end(form) }}
+{% endblock %}

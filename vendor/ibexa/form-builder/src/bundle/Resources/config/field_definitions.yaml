@@ -1,0 +1,212 @@
+fields:
+    single_line:
+        name: 'Single line input'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#input-line'
+        attributes:
+            placeholder:
+                name: 'Placeholder'
+                type: 'string'
+            help:
+                name: 'Help text'
+                type: 'string'
+            default_value:
+                name: 'Default value'
+                type: 'string'
+        validators:
+            required: ~
+            min_length: ~
+            max_length: ~
+            regex: ~
+    multi_line:
+        name: 'Multiple line input'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#input-line-multiple'
+        attributes:
+            placeholder:
+                name: 'Placeholder'
+                type: 'string'
+            help:
+                name: 'Help text'
+                type: 'string'
+            default_value:
+                name: 'Default value'
+                type: 'string'
+        validators:
+            required: ~
+    number:
+        name: 'Number'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#input-number'
+        attributes:
+            placeholder:
+                name: 'Placeholder'
+                type: 'string'
+            help:
+                name: 'Help text'
+                type: 'string'
+            default_value:
+                name: 'Default value'
+                type: 'string'
+        validators:
+            required: ~
+            min_value: ~
+            max_value: ~
+            regex: ~
+    checkbox:
+        name: 'Checkbox'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#checkbox'
+        attributes:
+            help:
+                name: 'Help text'
+                type: 'string'
+        validators:
+            required: ~
+    checkbox_list:
+        name: 'Checkboxes'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#checkbox-multiple'
+        attributes:
+            help:
+                name: 'Help'
+                type: 'string'
+            options:
+                name: 'Options'
+                type: 'choices'
+        validators:
+            required: ~
+            min_choices: ~
+            max_choices: ~
+    radio:
+        name: 'Radio'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#radio-button-multiple'
+        attributes:
+            help:
+                name: 'Help text'
+                type: 'string'
+            options:
+                name: 'Options'
+                type: 'choices'
+        validators:
+            required: ~
+    dropdown:
+        name: 'Dropdown'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#dropdown'
+        attributes:
+            help:
+                name: 'Help text'
+                type: 'string'
+            options:
+                name: 'Options'
+                type: 'choices'
+        validators:
+            required: ~
+    email:
+        name: 'Email'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#mail'
+        attributes:
+            placeholder:
+                name: 'Placeholder'
+                type: 'string'
+            help:
+                name: 'Help text'
+                type: 'string'
+        validators:
+            required: ~
+            regex: ~
+    date:
+        name: 'Date'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#date'
+        attributes:
+            placeholder:
+                name: 'Placeholder'
+                type: 'string'
+            help:
+                name: 'Help text'
+                type: 'string'
+            format:
+                name: 'Date format'
+                type: 'select'
+                options:
+                    choices:
+                        'mm/dd/yyyy': 'MM/dd/yyyy'
+                        'dd/mm/yyyy': 'dd/MM/yyyy'
+                        'dd/mm': 'dd/MM'
+                        'mm/dd': 'MM/dd'
+                        'mm/yyyy': 'MM/yyyy'
+                        'yyyy': 'yyyy'
+                validators:
+                    not_blank:
+                        message: 'You must provide date format'
+                default_value: 'MM/dd/yyyy'
+            current_date_as_default_value:
+                name: 'Current date as default value'
+                type: 'checkbox'
+        validators:
+            required: ~
+    url:
+        name: 'URL'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#link'
+        attributes:
+            placeholder:
+                name: 'Placeholder'
+                type: 'string'
+            help:
+                name: 'Help text'
+                type: 'string'
+            default_value:
+                name: 'Default value'
+                type: 'string'
+        validators:
+            required: ~
+    file:
+        name: 'File'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#upload'
+        attributes:
+            help:
+                name: 'Help text'
+                type: 'string'
+            location:
+                name: 'Select file upload location'
+                type: 'location'
+        validators:
+            required: ~
+            upload_size: ~
+            extensions: ~
+    captcha:
+        name: 'Captcha'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#captcha'
+        attributes:
+            help:
+                name: 'Help text'
+                type: 'string'
+    button:
+        name: 'Button'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#button'
+        attributes:
+            action:
+                name: 'Action'
+                type: 'action'
+            notification_email:
+                name: 'Notification email(s)'
+                type: 'string'
+    hidden:
+        name: 'Hidden field'
+        category: 'Basic form fields'
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#input-hidden'
+        attributes:
+            value:
+                name: 'Default value'
+                type: 'string'
+                validators:
+                    not_blank:
+                        message: 'You must provide value of the field'

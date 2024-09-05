@@ -1,0 +1,9 @@
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+<div class="ibexa-ca-dashboard__profile-wrapper">
+    {% include '@ibexadesign/common/user_profile.html.twig' with {
+        user: sales_rep,
+        phone_number: sales_rep.getFieldValue('contact_number'),
+        role_label: 'dashboard.profile.role'|trans|desc('Sales Representative.'),
+    } %}
+</div>

@@ -1,0 +1,19 @@
+{% set list_element %}
+    <li class="page-item"><button class="page-link" type="button">{{ '{{ page }}' }}</button></li>
+{% endset %}
+{% set pagination_info %}
+    <span>
+        {{
+            'pagination.viewing'|trans({
+                '%viewing%': '{{ viewing }}',
+                '%total%': '{{ total }}',
+            },
+            'ibexa_pagination')|desc('Viewing %viewing% out of %total% items')|raw
+        }}
+    </span>
+{% endset %}
+
+<div class="ibexa-pagination">
+    <div class="ibexa-pagination__info" data-template={{ pagination_info|e('html_attr') }}></div>
+    <ul class="pagination ibexa-pagination__navigation" data-template={{ list_element|e('html_attr') }}></ul>
+</div>

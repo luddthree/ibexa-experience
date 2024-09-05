@@ -1,0 +1,16 @@
+RichTextBlockAttributeValue:
+    type: object
+    config:
+        fields:
+            xml:
+                type: "String"
+                description: "The raw DocBook XML."
+                resolve: "@=value"
+            html5:
+                type: "String"
+                description: "HTML5 representation."
+                resolve: "@=resolver('RichTextStringXmlToHtml5', [value])"
+            html5_edit:
+                type: "String"
+                description: "Editable HTML5 representation."
+                resolve: "@=resolver('RichTextStringXmlToHtml5Edit', [value])"

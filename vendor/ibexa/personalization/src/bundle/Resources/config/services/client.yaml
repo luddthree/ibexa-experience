@@ -1,0 +1,287 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    ibexa.personalization.http_client:
+        class: GuzzleHttp\Client
+        arguments:
+            $config:
+                handler: '@ibexa.personalization.http_client_handler'
+
+    ibexa.personalization.http_client_handler:
+        class: GuzzleHttp\HandlerStack
+        factory: 'GuzzleHttp\HandlerStack::create'
+        calls:
+            - ['push', ['@ibexa.personalization.http_client.logger_middleware']]
+
+    ibexa.personalization.http_client.logger_middleware:
+        class: Closure
+        factory: 'GuzzleHttp\Middleware::log'
+        arguments:
+            $logger: '@logger'
+            $formatter: '@ibexa.personalization.http_client.logger.message_formatter'
+            $logLevel: debug
+
+    ibexa.personalization.http_client.logger.message_formatter:
+        class: GuzzleHttp\MessageFormatter
+
+    Ibexa\Personalization\Client\PersonalizationClient:
+        arguments:
+            $credentialsResolver: '@Ibexa\Personalization\Config\PersonalizationClientCredentialsResolver'
+            $client: '@ibexa.personalization.http_client'
+
+    Ibexa\Personalization\Client\PersonalizationClientInterface:
+        '@Ibexa\Personalization\Client\PersonalizationClient'
+
+    Ibexa\Personalization\Client\Consumer\Customer\InformationDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Customer\InformationDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Customer\InformationDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Customer\FeaturesDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Customer\FeaturesDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Customer\FeaturesDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Performance\SummaryDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Performance\SummaryDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Performance\SummaryDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Performance\EventsSummaryDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Performance\EventsSummaryDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Performance\EventsSummaryDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Performance\EventsDetailsDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Performance\EventsDetailsDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Performance\EventsDetailsDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Performance\RevenueDetailsDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Performance\RevenueDetailsDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Performance\RevenueDetailsDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Scenario\ScenarioDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Scenario\ScenarioDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Scenario\ScenarioDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Scenario\ScenarioDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Scenario\ScenarioDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Scenario\ScenarioDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Performance\RecommendationDetailedReportDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Performance\RecommendationDetailedReportDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Performance\RecommendationDetailedReportDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Performance\PopularityDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Performance\PopularityDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Performance\PopularityDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Recommendation\RecommendationDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.recommendation.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Recommendation\RecommendationDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Recommendation\RecommendationDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\ModelListDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\ModelListDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\ModelListDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\SubmodelListDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\SubmodelListDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\SubmodelListDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\SegmentListDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\SegmentListDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\SegmentListDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\AttributeDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\AttributeDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\AttributeDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\AttributeListDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\AttributeListDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\AttributeListDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Import\ImportDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Import\ImportDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Import\ImportDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Support\AcceptanceCheckDataFetcher:
+        arguments:
+            $endpoint: '%ibexa.personalization.support_endpoint%'
+            $client: '@ibexa.personalization.http_client'
+
+    Ibexa\Personalization\Client\Consumer\Support\AcceptanceCheckDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Support\AcceptanceCheckDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Support\StoreCustomerDataSender:
+        arguments:
+            $endpoint: '%ibexa.personalization.support_endpoint%'
+            $client: '@ibexa.personalization.http_client'
+
+    Ibexa\Personalization\Client\Consumer\Support\StoreCustomerDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Support\StoreCustomerDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Support\TermsAndConditionsDataFetcher:
+        arguments:
+            $endpoint: '%ibexa.personalization.terms_and_conditions_endpoint%'
+            $client: '@ibexa.personalization.http_client'
+
+    Ibexa\Personalization\Client\Consumer\Support\TermsAndConditionsDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Support\TermsAndConditionsDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateModelDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateModelDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\UpdateModelDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateSegmentsDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateSegmentsDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\UpdateSegmentsDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateSubmodelsDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateSubmodelsDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\UpdateSubmodelsDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Model\EditorListDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\EditorListDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\EditorListDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateEditorListDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Model\UpdateEditorListDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Model\UpdateEditorListDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Search\SearchAttributeDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Search\SearchAttributeDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\Search\SearchAttributeDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\Event\EventTrackingDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.event_tracking.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Event\EventTrackingDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Event\EventTrackingDataSender'
+
+    Ibexa\Personalization\Client\Consumer\User\UpdateUserDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.user.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\User\UpdateUserDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\User\UpdateUserDataSender'
+
+    Ibexa\Personalization\Client\Consumer\ModelBuild\ModelBuildDataFetcher:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\ModelBuild\ModelBuildDataFetcherInterface:
+        '@Ibexa\Personalization\Client\Consumer\ModelBuild\ModelBuildDataFetcher'
+
+    Ibexa\Personalization\Client\Consumer\ModelBuild\ModelBuildDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.admin.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\ModelBuild\ModelBuildDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\ModelBuild\ModelBuildDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Account\AccountDataSender:
+        arguments:
+            $endpoint: '%ibexa.personalization.support.create_account.endpoint%'
+            $client: '@ibexa.personalization.http_client'
+
+    Ibexa\Personalization\Client\Consumer\Account\AccountDataSenderInterface:
+        '@Ibexa\Personalization\Client\Consumer\Account\AccountDataSender'
+
+    Ibexa\Personalization\Client\Consumer\Item\ItemDataSender:
+        arguments:
+            $endPointUri: '%ibexa.personalization.server.items.endpoint%'
+
+    Ibexa\Personalization\Client\Consumer\Item\ItemDataSenderInterface:
+        alias: Ibexa\Personalization\Client\Consumer\Item\ItemDataSender
+
+    #
+    # Data Mappers
+    #
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentsUpdateStructMapper: ~
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentListMapper: ~
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentItemGroupMapper: ~
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentDataMapper: ~
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentsUpdateStructMapperInterface:
+        '@Ibexa\Personalization\Client\Consumer\Mapper\SegmentsUpdateStructMapper'
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentListMapperInterface:
+        '@Ibexa\Personalization\Client\Consumer\Mapper\SegmentListMapper'
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentItemGroupMapperInterface:
+        '@Ibexa\Personalization\Client\Consumer\Mapper\SegmentItemGroupMapper'
+
+    Ibexa\Personalization\Client\Consumer\Mapper\SegmentDataMapperInterface:
+        '@Ibexa\Personalization\Client\Consumer\Mapper\SegmentDataMapper'

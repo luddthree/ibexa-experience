@@ -1,0 +1,9 @@
+<div class="block-form {{ block_class }}">
+    {{ fos_httpcache_tag('relation-location-' ~ locationId) }}
+    {{ render(controller('ibexa_content:viewAction', {
+        'contentId': contentId,
+        'locationId': locationId,
+        'viewType': 'embed'
+    })) }}
+    <style type="text/css">{{ block_style|raw }}</style>
+</div>

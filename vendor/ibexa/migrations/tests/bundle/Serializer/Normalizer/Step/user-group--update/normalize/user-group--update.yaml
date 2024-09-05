@@ -1,0 +1,21 @@
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: null
+        mainLanguage: eng-GB
+        modificationDate: null
+        ownerId: null
+        parentGroupId: 42
+        remoteId: __remote_id__
+        sectionId: null
+    match:
+        field: id
+        value: 42
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: __user_group_name__
+    roles:
+        - Anonymous

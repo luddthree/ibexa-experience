@@ -1,0 +1,23 @@
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 8a9c9c761004866fb458d89910f52bee
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-GB
+        creatorId: 14
+        remoteId: 8a9c9c761004866fb458d89910f52bee
+        alwaysAvailable: true
+        mainLanguageCode: eng-GB
+        mainLocationId: 2
+        modificationDate: '2007-11-28T16:51:36+00:00'
+        publishedDate: '2007-11-19T13:54:46+00:00'
+        name: Home
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home

@@ -1,0 +1,10 @@
+<div class="block-collection {{ block_class }}">
+    {% for location in locationlist %}
+                {{ ibexa_http_cache_tag_relation_location_ids(location.locationId) }}
+                {{ render(controller('ibexa_content:viewAction', {
+                    'locationId': location.locationId,
+                    'viewType': 'embed'
+                })) }}
+    {% endfor %}
+    <style type="text/css">{{ block_style|raw }}</style>
+</div>

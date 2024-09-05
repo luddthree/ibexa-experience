@@ -1,0 +1,75 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Migrations\Generator\Company\CompanyMigrationGenerator:
+        arguments:
+            $stepFactory: '@Ibexa\CorporateAccount\Migrations\Generator\Company\StepBuilder\Factory'
+            $chunkSize: '%ibexa.migrations.default.generator.chunk_size%'
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+
+    Ibexa\CorporateAccount\Migrations\Generator\Company\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.corporate_account.migrations.generator.step_builder.company', index_by: 'key' }
+            - 'company'
+
+    Ibexa\CorporateAccount\Migrations\Generator\Company\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Migration\Service\FieldTypeService'
+            - '@Ibexa\CorporateAccount\Migrations\Generator\Company\Reference\ReferenceGenerator'
+        tags:
+            - name: 'ibexa.corporate_account.migrations.generator.step_builder.company'
+              key: !php/const \Ibexa\Migration\Generator\Mode::CREATE
+
+    Ibexa\CorporateAccount\Migrations\Normalizer\Company\CreateStepNormalizer:
+        autoconfigure: false
+        tags:
+            - { name: 'ibexa.migrations.serializer.step_normalizer' }
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\MembersGroupIdResolver:
+        tags:
+            - ibexa.migrations.reference_resolver.company_resolver
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\MembersGroupLocationIdResolver:
+        tags:
+            - ibexa.migrations.reference_resolver.company_resolver
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\AddressBookIdResolver:
+        tags:
+            - ibexa.migrations.reference_resolver.company_resolver
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\AddressBookLocationIdResolver:
+        tags:
+            - ibexa.migrations.reference_resolver.company_resolver
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\ContentResolver:
+        arguments:
+            $contentResolver: '@ibexa.migrations.reference_definition.resolver.content'
+        tags:
+            - ibexa.corporate_account.migrations.reference_resolver.company_resolver
+
+    Ibexa\CorporateAccount\Migrations\Generator\Company\Reference\ReferenceGenerator: ~
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\DelegatingReferenceResolver:
+        arguments:
+            $referenceResolvers: !tagged_iterator ibexa.corporate_account.migrations.reference_resolver.company_resolver
+
+    Ibexa\CorporateAccount\Migrations\StepExecutor\Company\CreateCompanyStepExecutor:
+        tags:
+            - name: container.service_subscriber
+              key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+              id: 'Ibexa\CorporateAccount\Migrations\StepExecutor\ReferenceDefinition\DelegatingReferenceResolver'
+
+    ibexa.migrations.reference_definition.resolver.company:
+        class: Ibexa\Migration\StepExecutor\ReferenceDefinition\Resolver
+        arguments:
+            $resolverRegistryByType: !tagged_locator
+                tag: 'ibexa.migrations.reference_resolver.company_resolver'
+                index_by: 'type'
+                default_index_method: 'getHandledType'
+        tags:
+            - ibexa.corporate_account.migrations.reference_resolver.company_resolver

@@ -1,0 +1,68 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: console
+        nameSchema: '<name>'
+        mainTranslation: eng-GB
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Console
+            pol-PL:
+                name: Konsola
+    fields:
+        -
+            identifier: name
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: 'Name'
+
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: laptop
+        nameSchema: '<name>'
+        mainTranslation: eng-GB
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Laptop
+            pol-PL:
+                name: Laptop
+    fields:
+        -
+            identifier: name
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: 'Name'
+
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: smartphone
+        nameSchema: '<name>'
+        mainTranslation: eng-GB
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: Smartphone
+            pol-PL:
+                name: Smartfon
+    fields:
+        -
+            identifier: name
+            type: ezstring
+            required: true
+            translations:
+                eng-GB:
+                    name: 'Name'

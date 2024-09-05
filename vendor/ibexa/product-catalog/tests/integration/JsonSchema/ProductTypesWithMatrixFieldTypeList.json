@@ -1,0 +1,131 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "products": {
+                    "type": "object",
+                    "properties": {
+                        "_types": {
+                            "type": "object",
+                            "properties": {
+                                "trousers": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_contentType": {
+                                            "type": "object",
+                                            "properties": {
+                                                "fieldDefinitions": {
+                                                    "type": "array",
+                                                    "items": [
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "fieldTypeIdentifier": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "fieldTypeIdentifier"
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "fieldDefinitions"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "_contentType"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "trousers"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "_types"
+                    ]
+                }
+            },
+            "required": [
+                "products"
+            ]
+        }
+    },
+    "required": [
+        "data"
+    ]
+}

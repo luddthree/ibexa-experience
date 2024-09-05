@@ -1,0 +1,40 @@
+services:
+    Ibexa\Bundle\PageBuilder\Controller\:
+        resource: "../../../Controller/*"
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        autoconfigure: false
+        public: true
+
+    Ibexa\Bundle\PageBuilder\Controller\PageController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        arguments:
+            $serializer: '@Ibexa\PageBuilder\PageBuilder\Timeline\Serializer'
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+            $siteAccessResolver: '@Ibexa\PageBuilder\Siteaccess\PageBuilderSiteAccessResolver'
+
+    Ibexa\Bundle\PageBuilder\Controller\BlockController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+
+    Ibexa\Bundle\PageBuilder\Controller\PreviewController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        autoconfigure: false
+        public: true
+        arguments:
+            $defaultBaseTemplate: '%ibexa.content_view.viewbase_layout%'
+            $previewHelper: '@Ibexa\Core\Helper\ContentPreviewHelper'
+
+    Ibexa\Bundle\PageBuilder\Controller\ScheduleBlockController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        arguments:
+            $serializer: '@Ibexa\FieldTypePage\Serializer\Serializer'
+
+    Ibexa\Bundle\PageBuilder\Controller\TimelineController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        arguments:
+            $serializer: '@Ibexa\PageBuilder\PageBuilder\Timeline\Serializer'

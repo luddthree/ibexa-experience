@@ -1,0 +1,20 @@
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: !php/const \Ibexa\Tests\Integration\FieldTypePage\Migration\LandingPageMigrationTest::HOME_CONTENT_REMOTE_ID
+    actions:
+        -
+            action: ibexa.landing_page.put_block_onto_page
+            fieldDefinitionIdentifier: page
+            zones:
+                - name: 'default'
+                  blocks:
+                      - id: 'b-1e99e97a-a0e3-44a7-87b9-27792372c80c'
+                        type: richtext
+                        name: 'Text'
+                        attributes:
+                            - id: 'a-87d069a3-654c-400b-930e-36bd6367214b'
+                              name: content
+                              value: !php/const \Ibexa\Tests\Integration\FieldTypePage\Migration\Action\PutBlockOntoPageActionTest::RICHTEXT_BLOCK_CONTENT

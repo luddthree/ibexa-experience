@@ -1,0 +1,21 @@
+ibexa.dashboard.customize_dashboard:
+    path: /dashboard/customize-dashboard
+    controller: 'Ibexa\Bundle\Dashboard\Controller\CustomizeDashboardController::customizeDashboardAction'
+    methods: [POST]
+
+ibexa.dashboard.change_active:
+    path: /dashboard/change-active/{locationId}
+    controller: 'Ibexa\Bundle\Dashboard\Controller\ChangeActiveDashboardController::changeActiveAction'
+    methods: [POST]
+
+ibexa.dashboard.content_type:
+    path: /dashboard/content-type
+    controller: 'Ibexa\Bundle\Dashboard\Controller\DashboardContentTypeController::dashboardContentTypeAction'
+    methods: [GET]
+
+ibexa.dashboard.hide_banner:
+    path: /dashboard/hide-banner
+    controller: 'Ibexa\Bundle\Dashboard\Controller\HideDashboardBannerController::hideDashboardBannerAction'
+    methods: [POST]
+    options:
+        expose: true

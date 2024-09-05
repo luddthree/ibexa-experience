@@ -1,0 +1,15 @@
+-
+    type: role
+    mode: update
+    match:
+        field: identifier
+        value: Editor
+    metadata:
+        identifier: Editor
+    actions:
+        -   action: assign_role_to_user
+            login: admin
+            limitation:
+                type: Section
+                values:
+                    - users

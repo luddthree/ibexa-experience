@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Company">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:unsignedByte" />
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="Content">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="ContentType">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Name" type="xs:string" />
+                            <xs:element name="TranslatedName" type="xs:string" />
+                            <xs:element name="Versions">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="CurrentVersion">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Version">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="VersionInfo">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="id" type="xs:unsignedShort" />
+                                                                <xs:element name="versionNo" type="xs:unsignedByte" />
+                                                                <xs:element name="status" type="xs:string" />
+                                                                <xs:element name="modificationDate" type="xs:dateTime" />
+                                                                <xs:element name="Creator">
+                                                                    <xs:complexType>
+                                                                        <xs:attribute name="media-type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="href" type="xs:string" use="required" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="creationDate" type="xs:dateTime" />
+                                                                <xs:element name="initialLanguageCode" type="xs:string" />
+                                                                <xs:element name="languageCodes" type="xs:string" />
+                                                                <xs:element name="VersionTranslationInfo">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Language">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="languageCode" type="xs:string" />
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                        <xs:attribute name="media-type" type="xs:string" use="required" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="names">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="value">
+                                                                                <xs:complexType>
+                                                                                    <xs:simpleContent>
+                                                                                        <xs:extension base="xs:string">
+                                                                                            <xs:attribute name="languageCode" type="xs:string" use="required" />
+                                                                                        </xs:extension>
+                                                                                    </xs:simpleContent>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Content">
+                                                                    <xs:complexType>
+                                                                        <xs:attribute name="media-type" type="xs:string" use="required" />
+                                                                        <xs:attribute name="href" type="xs:string" use="required" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Fields">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element maxOccurs="unbounded" name="field">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="id" type="xs:unsignedShort" />
+                                                                            <xs:element name="fieldDefinitionIdentifier" type="xs:string" />
+                                                                            <xs:element name="languageCode" type="xs:string" />
+                                                                            <xs:element name="fieldTypeIdentifier" type="xs:string" />
+                                                                            <xs:element name="fieldValue">
+                                                                                <xs:complexType mixed="true">
+                                                                                    <xs:sequence minOccurs="0">
+                                                                                        <xs:element maxOccurs="unbounded" name="value">
+                                                                                            <xs:complexType mixed="true">
+                                                                                                <xs:sequence minOccurs="0">
+                                                                                                    <xs:element maxOccurs="unbounded" name="value">
+                                                                                                        <xs:complexType>
+                                                                                                            <xs:simpleContent>
+                                                                                                                <xs:extension base="xs:string">
+                                                                                                                    <xs:attribute name="key" type="xs:string" use="required" />
+                                                                                                                </xs:extension>
+                                                                                                            </xs:simpleContent>
+                                                                                                        </xs:complexType>
+                                                                                                    </xs:element>
+                                                                                                </xs:sequence>
+                                                                                                <xs:attribute name="key" type="xs:string" use="required" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Relations">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="media-type" type="xs:string" use="required" />
+                                                            <xs:attribute name="href" type="xs:string" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Thumbnail">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="resource" type="xs:string" />
+                                                                <xs:element name="width" />
+                                                                <xs:element name="height" />
+                                                                <xs:element name="mimeType" type="xs:string" />
+                                                            </xs:sequence>
+                                                            <xs:attribute name="media-type" type="xs:string" use="required" />
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="media-type" type="xs:string" use="required" />
+                                                <xs:attribute name="href" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Section">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="MainLocation">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Locations">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Owner">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="lastModificationDate" type="xs:dateTime" />
+                            <xs:element name="publishedDate" type="xs:dateTime" />
+                            <xs:element name="mainLanguageCode" type="xs:string" />
+                            <xs:element name="currentVersionNo" type="xs:unsignedByte" />
+                            <xs:element name="alwaysAvailable" type="xs:boolean" />
+                            <xs:element name="isHidden" type="xs:boolean" />
+                            <xs:element name="status" type="xs:string" />
+                            <xs:element name="ObjectStates">
+                                <xs:complexType>
+                                    <xs:attribute name="media-type" type="xs:string" use="required" />
+                                    <xs:attribute name="href" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="media-type" type="xs:string" use="required" />
+                        <xs:attribute name="href" type="xs:string" use="required" />
+                        <xs:attribute name="remoteId" type="xs:string" use="required" />
+                        <xs:attribute name="id" type="xs:unsignedByte" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="billingAddress" type="xs:string" />
+                <xs:element name="contactId" />
+                <xs:element name="salesRepresentativeId" type="xs:unsignedByte" />
+                <xs:element name="defaultAddressId" type="xs:unsignedByte" />
+                <xs:element name="addressBookId" type="xs:unsignedByte" />
+                <xs:element name="membersId" type="xs:unsignedByte" />
+                <xs:element name="MemberList">
+                    <xs:complexType>
+                        <xs:attribute name="media-type" type="xs:string" use="required" />
+                        <xs:attribute name="href" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Location">
+                    <xs:complexType>
+                        <xs:attribute name="media-type" type="xs:string" use="required" />
+                        <xs:attribute name="href" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="locationPath" type="xs:string" />
+                <xs:element name="isActive" type="xs:unsignedByte" />
+            </xs:sequence>
+            <xs:attribute name="media-type" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,21 @@
+<phpunit
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        bootstrap="tests/integration/bootstrap.php"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        colors="true">
+    <testsuites>
+        <testsuite name="integration">
+            <directory>tests/integration</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="DATABASE_URL" value="sqlite://i@i/var/test.db" />
+        <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\Seo\TestKernel" />
+    </php>
+    <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+    </extensions>
+</phpunit>

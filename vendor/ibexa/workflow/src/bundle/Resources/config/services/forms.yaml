@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Form\ContentEditTypeExtension: ~
+
+    Ibexa\Workflow\Form\Type\EditorialWorkflowType: ~
+
+    Ibexa\Workflow\Form\Type\WorkflowTransitionChoiceType: ~
+
+    Ibexa\Workflow\Form\Type\WorkflowStageChoiceType: ~

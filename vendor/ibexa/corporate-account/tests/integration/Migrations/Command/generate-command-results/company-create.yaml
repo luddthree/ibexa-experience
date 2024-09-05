@@ -1,0 +1,75 @@
+-
+    type: company
+    mode: create
+    metadata:
+        creatorId: 14
+        modificationDate: '2022-12-15T11:19:48+00:00'
+        publicationDate: '2022-12-15T11:19:48+00:00'
+        remoteId: f09d12cdfd84f30dd25946e94740a324
+    fields:
+        -
+            fieldDefIdentifier: active
+            languageCode: eng-GB
+            value: true
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'foo ltd.'
+        -
+            fieldDefIdentifier: vat
+            languageCode: eng-GB
+            value: '123 456 789'
+        -
+            fieldDefIdentifier: website
+            languageCode: eng-GB
+            value: null
+        -
+            fieldDefIdentifier: customer_group
+            languageCode: eng-GB
+            value:
+                customer_group_id: 1
+        -
+            fieldDefIdentifier: sales_rep
+            languageCode: eng-GB
+            value:
+                destinationContentId: 14
+                contentRemoteId: 1bb4fe25487f05527efa8bfd394cecc7
+        -
+            fieldDefIdentifier: contact
+            languageCode: eng-GB
+            value:
+                destinationContentId: null
+        -
+            fieldDefIdentifier: default_address
+            languageCode: eng-GB
+            value:
+                destinationContentId: null
+        -
+            fieldDefIdentifier: billing_address
+            languageCode: eng-GB
+            value:
+                name: HQ
+                country: uk
+                fields:
+                    locality: example_city
+                    phone_number: '999 888 777'
+                    postal_code: 90-210
+                    region: test_region
+                    street: test_street
+                    email: spam@ibexa.co
+    references:
+        -
+            name: 'ref__members_group_id__company__foo ltd.'
+            type: members_group_id
+        -
+            name: 'ref__members_group_location_id__company__foo ltd.'
+            type: members_group_location_id
+        -
+            name: 'ref__address_book_id__company__foo ltd.'
+            type: address_book_id
+        -
+            name: 'ref__address_book_location_id__company__foo ltd.'
+            type: address_book_location_id
+        -
+            name: 'ref__company_id__company__foo ltd.'
+            type: content_id

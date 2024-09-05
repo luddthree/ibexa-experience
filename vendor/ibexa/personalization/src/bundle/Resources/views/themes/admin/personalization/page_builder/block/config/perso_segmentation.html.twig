@@ -1,0 +1,36 @@
+{% trans_default_domain 'ibexa_page_builder' %}
+
+<div class="form-group ibexa-personalization">
+    {% set actions %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--small ibexa-btn--add">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+            </svg>
+            <span class="ibexa-btn__label">
+                {{ 'block.personalization.add'|trans|desc('Add') }}
+            </span>
+        </button>
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        actions,
+    } %}
+    <div class="ibexa-personalization__labels">
+        <label  class="ibexa-label form-label required ibexa-personalization__label ibexa-personalization__label--segment">
+            {{ 'block.personalization.label.segment'|trans|desc('Segment') }}
+        </label>
+        <label  class="ibexa-label form-label required ibexa-personalization__label ibexa-personalization__label--scenario">
+            {{ 'block.personalization.label.scenario'|trans|desc('Scenario') }}
+        </label>
+        <label  class="ibexa-label form-label required ibexa-personalization__label ibexa-personalization__label--output-type">
+            {{ 'block.personalization.label.output_type'|trans|desc('Output type') }}
+        </label>
+    </div>
+    <ol
+        class="ibexa-personalization__items"
+        data-template="{{ include('@ibexadesign/personalization/page_builder/block/config/perso_segmentation_item.html.twig', {
+        })|e('html_attr') }}"
+        data-placeholder="{{ include('@ibexadesign/personalization/page_builder/block/config/perso_segmentation_placeholder.html.twig', {
+        })|e('html_attr') }}">
+    </ol>
+</div>

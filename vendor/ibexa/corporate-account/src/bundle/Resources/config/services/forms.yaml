@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Form\CompanyFormFactory: ~
+
+    Ibexa\CorporateAccount\Form\ShippingAddressFormFactory: ~
+
+    Ibexa\CorporateAccount\Form\MemberFormFactory: ~
+
+    Ibexa\CorporateAccount\Form\ApplicationFormFactory: ~
+
+    Ibexa\CorporateAccount\Form\ApplicationWorkflowFormFactory: ~
+
+    Ibexa\CorporateAccount\Form\Type\Invitation\InviteMembersType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Invitation\InviteMembersWithSiteAccessType:
+        arguments:
+            $siteAccessGroups: '%ibexa.site_access.groups%'
+
+    Ibexa\CorporateAccount\Form\Type\Invitation\SimpleInvitationType: ~
+
+    Ibexa\CorporateAccount\Form\Type\ShippingAddress\ShippingAddressItemCheckboxType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Company\CompanySearchType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Individual\IndividualSearchType: ~
+
+    Ibexa\CorporateAccount\Form\ChoiceLoader\CustomerGroupChoiceLoader: ~
+
+    Ibexa\CorporateAccount\Form\Type\Member\MemberType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Member\MemberRoleChoiceType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Company\CompanyType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Register\CorporateAccountApplicationCreateType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Application\ApplicationSearchType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Workflow\AcceptType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Workflow\OnHoldType: ~
+
+    Ibexa\CorporateAccount\Form\Type\Workflow\RejectType: ~

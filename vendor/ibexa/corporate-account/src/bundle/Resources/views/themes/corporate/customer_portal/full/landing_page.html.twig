@@ -1,0 +1,19 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: content.getName() },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: content.getName(),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="columns">
+        {{ ibexa_render_field(content, 'page') }}
+    </div>
+{% endblock %}

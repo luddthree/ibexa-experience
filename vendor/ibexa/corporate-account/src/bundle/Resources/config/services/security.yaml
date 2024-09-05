@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Permission\Policy\PolicyProvider: ~
+
+    Ibexa\CorporateAccount\Permission\Limitation\ApplicationStateLimitation:
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: ApplicationState }
+
+    Ibexa\CorporateAccount\Permission\Limitation\ApplicationStateLimitationMapper:
+        calls:
+            - [setFormTemplate, ['%ibexa.content_forms.limitation.multiple_selection.template%']]
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: ApplicationState }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: ApplicationState }
+
+    Ibexa\CorporateAccount\Form\Type\Limitation\ApplicationStateLimitationType: ~
+
+    Ibexa\CorporateAccount\Permission\Limitation\ApplicationStateLimitationHandler:
+        parent: Ibexa\Core\Persistence\Legacy\User\Role\LimitationHandler
+        tags:
+            - { name: ibexa.storage.legacy.role.limitation.handler }

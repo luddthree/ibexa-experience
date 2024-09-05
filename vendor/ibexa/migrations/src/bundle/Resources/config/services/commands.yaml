@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+        bind:
+            Symfony\Component\Serializer\Encoder\EncoderInterface: '@ibexa.migrations.serializer'
+            Symfony\Component\Serializer\Normalizer\NormalizerInterface: '@ibexa.migrations.serializer'
+            string $defaultUserLogin: '%ibexa.migrations.default.user_login%'
+
+    _instanceof:
+        Symfony\Component\Console\Command\Command:
+            tags:
+                - { name: console.command }
+                - { name: monolog.logger, channel: ibexa-migration }
+
+    Ibexa\Bundle\Migration\Command\GenerateCommand:
+
+    Ibexa\Bundle\Migration\Command\ImportCommand:
+
+    Ibexa\Bundle\Migration\Command\MigrateCommand:
+        arguments:
+            $lockFactory: '@ibexa.migrations.lock_factory'
+
+    Ibexa\Bundle\Migration\Command\StatusCommand:

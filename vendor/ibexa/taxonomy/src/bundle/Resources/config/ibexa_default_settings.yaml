@@ -1,0 +1,5 @@
+parameters:
+    ibexa.site_access.config.default.taxonomy.pagination.tab_assigned_content_limit: 10
+    ibexa.site_access.config.default.taxonomy.admin_ui.delete_subtree_size_limit: 100
+    ibexa.site_access.config.default.content_type.tag:
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#tags'

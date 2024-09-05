@@ -1,0 +1,26 @@
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+    colors="true"
+    failOnWarning="true"
+>
+    <testsuites>
+        <testsuite name="Ibexa Personalization bundle tests">
+            <directory>tests/bundle/</directory>
+        </testsuite>
+        <testsuite name="Ibexa Personalization lib tests">
+            <directory>tests/lib/</directory>
+        </testsuite>
+    </testsuites>
+    <extensions>
+        <extension class="Ibexa\Tests\Personalization\PHPUnit\BypassFinalHook"/>
+    </extensions>
+    <php>
+        <ini name="date.timezone" value="UTC" />
+        <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\Personalization\IbexaTestKernel" />
+        <env name="PERSONALIZATION_CUSTOMER_ID" value="0" />
+        <env name="PERSONALIZATION_LICENSE_KEY" value="" />
+        <env name="PERSONALIZATION_HOST_URI" value="" />
+    </php>
+</phpunit>

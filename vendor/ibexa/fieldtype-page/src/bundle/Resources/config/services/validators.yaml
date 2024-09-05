@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Ibexa\FieldTypePage\Validator\Constraints\ContentTypeValidator:
+        arguments:
+            $contentService: '@ibexa.api.service.content'
+
+    Ibexa\FieldTypePage\Validator\Constraints\ContentContainerTypeValidator:
+        arguments:
+            $contentService: '@ibexa.api.service.content'
+
+    Ibexa\FieldTypePage\Validator\Constraints\NotBlankRichTextValidator:
+        arguments:
+            $domDocumentFactory: '@Ibexa\FieldTypeRichText\RichText\DOMDocumentFactory'

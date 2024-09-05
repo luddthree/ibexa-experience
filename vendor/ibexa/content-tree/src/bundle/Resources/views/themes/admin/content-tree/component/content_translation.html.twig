@@ -1,0 +1,9 @@
+<div class="ibexa-content-tree-content-form-container ibexa-content-tree-content-form-container--translation">
+    {% include '@ibexadesign/content/modal/add_translation.html.twig' with {
+        form,
+        modal_id: 'content-tree-add-translation-modal',
+        action: path('ibexa.translation.add', {
+            'formName': 'content_tree_content_translation'
+        })
+    } only %}
+</div>

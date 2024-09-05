@@ -1,0 +1,161 @@
+tables:
+    ibexa_activity_log:
+        id:
+            id:
+                type: bigint
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            object_class_id:
+                type: integer
+                nullable: false
+                index: ibexa_activity_log_object_class_idx
+                foreignKey:
+                    name: ibexa_activity_log_object_class_fk
+                    table: ibexa_activity_log_object_class
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: RESTRICT
+            action_id:
+                type: integer
+                nullable: false
+                index: ibexa_activity_log_action_idx
+                foreignKey:
+                    name: ibexa_activity_log_action_fk
+                    table: ibexa_activity_log_action
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: RESTRICT
+            object_id:
+                type: string
+                nullable: false
+                length: 64
+                index: ibexa_activity_log_object_idx
+            object_name:
+                type: string
+                nullable: true
+                length: 190
+                index: ibexa_activity_log_object_name_idx
+            group_id:
+                type: bigint
+                nullable: false
+                index: ibexa_activity_log_group_idx
+                foreignKey:
+                    name: ibexa_activity_log_group_fk
+                    table: ibexa_activity_log_group
+                    field: id
+                    options:
+                        onDelete: CASCADE # Truncate requires this
+                        onUpdate: CASCADE
+            data:
+                type: json
+                nullable: false
+
+    ibexa_activity_log_group_source:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            name:
+                type: string
+                nullable: false
+                index:
+                    name: ibexa_activity_log_group_source_name_uidx
+                    unique: true
+                length: 190
+
+    ibexa_activity_log_ip:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            ip:
+                type: string
+                nullable: false
+                index:
+                    name: ibexa_activity_log_group_source_ip_uidx
+                    unique: true
+                length: 190
+
+    ibexa_activity_log_group:
+        id:
+            id:
+                type: bigint
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            description:
+                type: string
+                nullable: true
+            source_id:
+                type: integer
+                nullable: true
+                index: ibexa_activity_log_group_source_idx
+                foreignKey:
+                    name: ibexa_activity_log_group_source_fk
+                    table: ibexa_activity_log_group_source
+                    field: id
+                    options:
+                        onDelete: RESTRICT
+                        onUpdate: RESTRICT
+            ip_id:
+                type: integer
+                nullable: true
+                index: ibexa_activity_log_ip_idx
+                foreignKey:
+                    name: ibexa_activity_log_ip_fk
+                    table: ibexa_activity_log_ip
+                    field: id
+                    options:
+                        onDelete: SET NULL
+                        onUpdate: CASCADE
+            logged_at:
+                type: datetime_immutable
+                nullable: false
+                index: ibexa_activity_log_logged_at_idx
+            user_id:
+                type: integer
+                nullable: false
+                index: ibexa_activity_log_user_id_idx
+
+    ibexa_activity_log_action:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            action:
+                type: string
+                nullable: false
+                length: 30
+                index:
+                    unique: true
+                    name: ibexa_activity_log_action_uidx
+
+    ibexa_activity_log_object_class:
+        id:
+            id:
+                type: integer
+                nullable: false
+                options:
+                    autoincrement: true
+        fields:
+            object_class:
+                type: string
+                nullable: false
+                length: 190
+                index:
+                    unique: true
+                    name: ibexa_activity_log_object_class_uidx

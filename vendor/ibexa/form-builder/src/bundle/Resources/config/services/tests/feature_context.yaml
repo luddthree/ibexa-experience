@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Behat\BrowserContext\FormAdministrationContext: ~
+
+    Ibexa\FormBuilder\Behat\BrowserContext\FormBuilderContext: ~
+
+    Ibexa\FormBuilder\Behat\BrowserContext\FormFieldConfigurationContext: ~
+
+    Ibexa\FormBuilder\Behat\BrowserContext\FormFrontContext: ~

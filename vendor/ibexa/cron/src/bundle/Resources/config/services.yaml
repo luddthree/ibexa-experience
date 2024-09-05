@@ -1,0 +1,19 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\Bundle\Cron\Registry\CronJobsRegistry:
+        lazy: true
+        arguments:
+            - '%kernel.environment%'
+            - '@Ibexa\Core\MVC\Symfony\SiteAccess'
+
+    Ibexa\Bundle\Cron\Command\CronRunCommand:
+        arguments:
+            $logger: '@monolog.logger.cronjob'
+            $cronJobsRegistry: '@Ibexa\Bundle\Cron\Registry\CronJobsRegistry'
+        tags:
+            - { name: 'console.command' }

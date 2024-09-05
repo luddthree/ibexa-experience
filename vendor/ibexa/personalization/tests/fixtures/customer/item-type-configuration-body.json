@@ -1,0 +1,43 @@
+{
+    "baseInformation": {
+        "id": "12345",
+        "version": "EXTENDED",
+        "website": "Test version",
+        "alphanumericItems": "NUMERIC",
+        "solutionType": "newsh",
+        "enabled": true
+    },
+    "itemTypeConfiguration": {
+        "defaultType": 2,
+        "types": [
+            {
+                "id": 18,
+                "description": "Blog post",
+                "contentTypes": [
+                    "18"
+                ]
+            },
+            {
+                "id": 19,
+                "description": "Place",
+                "contentTypes": [
+                    "19"
+                ]
+            },
+            {
+                "id": 20,
+                "description": "Article",
+                "contentTypes": [
+                    "20"
+                ]
+            },
+            {
+                "id": 42,
+                "description": "Product",
+                "contentTypes": [
+                    42
+                ]
+            }
+        ]
+    }
+}

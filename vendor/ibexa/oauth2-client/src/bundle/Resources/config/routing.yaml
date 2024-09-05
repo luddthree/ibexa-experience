@@ -1,0 +1,7 @@
+ibexa.oauth2.connect:
+  path: /oauth2/connect/{identifier}
+  controller: Ibexa\Bundle\OAuth2Client\Controller\OAuth2Controller::connectAction
+
+ibexa.oauth2.check:
+  path: /oauth2/check/{identifier}
+  controller: Ibexa\Bundle\OAuth2Client\Controller\OAuth2Controller::checkAction

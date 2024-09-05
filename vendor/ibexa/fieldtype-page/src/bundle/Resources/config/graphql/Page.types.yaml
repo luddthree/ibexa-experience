@@ -1,0 +1,8 @@
+Page:
+    type: object
+    config:
+        fields:
+            layout:
+                type: String
+            zones:
+                type: '[PageZone]'

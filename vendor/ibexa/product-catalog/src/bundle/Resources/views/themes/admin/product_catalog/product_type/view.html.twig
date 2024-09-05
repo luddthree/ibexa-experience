@@ -1,0 +1,65 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { url: path('ibexa.product_catalog.product_type.list'), value: 'product_type.breadcrumb.list'|trans|desc('Product Types') },
+        { value: 'product_type.view.identifier'|trans({ '%product_type_name%': product_type.name })|desc('%product_type_name%') },
+    ]} %}
+{% endblock %}
+
+{% block title %}
+    {{ 'product_type.view.title'|trans({ '%product_type_name%': product_type.name })|desc('Product type "%product_type_name%"') }}
+{% endblock %}
+
+{% block context_menu %}
+    {% set context_menu = knp_menu_get('ibexa_product_catalog.menu.product_type_view_context_menu', [], {
+        'product_type': product_type,
+        'delete_form_selector': '#delete-product-type'
+    }) %}
+
+    {{ knp_menu_render(context_menu, {
+        'template': '@ibexadesign/ui/menu/context_menu.html.twig'
+    }) }}
+
+    {% include '@ibexadesign/product_catalog/ui/modal/delete_confirmation.html.twig' with {
+        id: 'delete-product-type-modal',
+        message: 'modal.delete.product_type.confirm_message'|trans|desc(
+            'Delete this product type permanently?'
+        ),
+        data_click: '#delete-product-type',
+    } %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: product_type.name
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ ibexa_render_component_group('product-type-block', {
+        'product_type': product_type
+    }) }}
+
+    {% if is_editable and ibexa_permission_delete_product_type(product_type) and delete_form is defined %}
+        {{ form_start(delete_form) }}
+            <button id="delete-product-type" type="submit" hidden></button>
+        {{ form_end(delete_form) }}
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-product-catalog-product-type-view-js', null, 'ibexa') }}
+{% endblock %}

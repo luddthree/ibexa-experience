@@ -1,0 +1,1691 @@
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: 1
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Components
+    references:
+        -
+            identifier: components_location_id
+            attribute: location_id
+
+-
+    type: content
+    mode: create
+    content_type: configuration
+    parent_location: reference:components_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        configuration_name: silver-eshop
+        configuration_file: |
+            ibexa.commerce.site_access.config.core.default.category_view: product_list
+            ibexa.commerce.site_access.config.eshop.default.last_viewed_products_in_session_limit: 10
+            ibexa.commerce.site_access.config.eshop.default.catalog_description_limit: 50
+            ibexa.commerce.site_access.config.core.default.currency_rate_changed_at: 01.01.2018
+            ibexa.commerce.site_access.config.core.default.automatic_currency_conversion: true
+            ibexa.commerce.site_access.config.core.default.currency_list:
+                EUR: '1'
+                USD: '1.23625'
+                GBP: '0.86466'
+                CAD: '1.55686'
+            ibexa.commerce.site_access.config.core.default.standard_price_factory.fallback_currency: EUR
+            ibexa.commerce.site_access.config.core.default.standard_price_factory.base_currency: EUR
+            ibexa.commerce.site_access.config.price.default.price_service_chain.product_list:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.product_detail:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.slider_product_list:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.basket:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.basket_variant:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.stored_basket:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.wish_list:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.quick_order:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.quick_order_line_preview:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.comparison:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.search_list:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.price.default.price_service_chain.bestseller_list:
+                - Ibexa\Bundle\Commerce\PriceEngine\Service\ShopPriceProvider
+            ibexa.commerce.site_access.config.core.default.marketing.olark_chat.activated: false
+            ibexa.commerce.site_access.config.core.default.marketing.olark_chat.id: 6295-386-10-7457
+            ibexa.commerce.site_access.config.basket.default.discontinued_products_listener_active: true
+            ibexa.commerce.site_access.config.basket.default.discontinued_products_listener_consider_packaging_unit: true
+            ibexa.commerce.site_access.config.checkout.default.order_confirmation.sales_email_address: ''
+            ibexa.commerce.site_access.config.newsletter.default.newsletter_active: false
+            ibexa.commerce.site_access.config.newsletter.default.unsubscribe_globally: true
+            ibexa.commerce.site_access.config.newsletter.default.display_newsletter_box_for_logged_in_users: true
+            ibexa.commerce.site_access.config.newsletter.default.newsletter2go_username: ''
+            ibexa.commerce.site_access.config.newsletter.default.newsletter2go_password: ''
+            ibexa.commerce.site_access.config.newsletter.default.newsletter2go_auth_key: ''
+            ibexa.commerce.site_access.config.basket.default.validHours: 120
+            ibexa.commerce.site_access.config.basket.default.refreshCatalogElementAfter: '1 hours'
+            ibexa.commerce.site_access.config.basket.default.stock_in_column: true
+            ibexa.commerce.site_access.config.basket.default.description_limit: 50
+            ibexa.commerce.site_access.config.basket.default.additional_text_for_basket_line: false
+            ibexa.commerce.site_access.config.basket.default.additional_text_for_basket_line_input_limit: 30
+            ibexa.commerce.site_access.config.basket.stored.default.stock_in_column: true
+            ibexa.commerce.site_access.config.basket.stored.default.description_limit: 50
+            ibexa.commerce.site_access.config.wishlist.default.description_limit: 50
+            ibexa.commerce.site_access.config.core.default.template_debitor_country: DE
+            ibexa.commerce.site_access.config.core.default.enable_customer_number_login: false
+            ibexa.commerce.site_access.config.core.default.use_template_debitor_customer_number: true
+            ibexa.commerce.site_access.config.core.default.use_template_debitor_contact_number: false
+            ibexa.commerce.site_access.config.core.default.price_requests_without_customer_number: true
+            ibexa.commerce.site_access.config.basket.default.recalculatePricesAfter: '3 hours'
+            ibexa.commerce.site_access.config.eshop.default.erp.variant_handling: SKU_ONLY
+            ibexa.commerce.site_access.config.erp.default.web_connector.service_location: 'http://webconnproxy.silver-eshop.de?config=harmony_wc3_noop_mapping'
+            ibexa.commerce.site_access.config.eshop.default.webconnector.username: admin
+            ibexa.commerce.site_access.config.eshop.default.webconnector.password: passwo
+            ibexa.commerce.site_access.config.eshop.default.webconnector.soapTimeout: 5
+            ibexa.commerce.site_access.config.eshop.default.webconnector.erpTimeout: 5
+            ibexa.commerce.site_access.config.core.default.bestseller_limit_on_bestseller_page: 6
+            ibexa.commerce.site_access.config.core.default.bestseller_limit_on_catalog_page: 6
+            ibexa.commerce.site_access.config.core.default.bestseller_limit_in_silver_module: 6
+            ibexa.commerce.site_access.config.core.default.bestseller_threshold: 1
+            ibexa.commerce.site_access.config.checkout.default.payment_method.paypal_express_checkout: true
+            ibexa.commerce.site_access.config.checkout.default.payment_method.invoice: true
+            ibexa.commerce.site_access.config.checkout.default.shipping_method.standard: true
+            ibexa.commerce.site_access.config.checkout.default.shipping_method.express_delivery: false
+            ibexa.commerce.site_access.config.order.management.local.default.shipping_cost: ''
+            ibexa.commerce.site_access.config.order.management.local.default.shipping_free: ''
+            ibexa.commerce.site_access.config.core.default.shipping_vat_code: '19'
+            ibexa.commerce.site_access.config.core.en.standard_price_factory.fallback_currency: EUR
+            ibexa.commerce.site_access.config.checkout.en.payment_method.paypal_express_checkout: true
+            ibexa.commerce.site_access.config.checkout.en.payment_method.invoice: true
+            ibexa.commerce.site_access.config.checkout.en.shipping_method.standard: true
+            ibexa.commerce.site_access.config.checkout.en.shipping_method.express_delivery: true
+            ibexa.commerce.site_access.config.core.de.standard_price_factory.fallback_currency: EUR
+            ibexa.commerce.site_access.config.checkout.de.payment_method.paypal_express_checkout: true
+            ibexa.commerce.site_access.config.checkout.de.payment_method.invoice: true
+            ibexa.commerce.site_access.config.checkout.de.shipping_method.standard: true
+            ibexa.commerce.site_access.config.checkout.de.shipping_method.express_delivery: true
+
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:components_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Textmodules
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references: 
+        - 
+            identifier: textmodule_location_id 
+            attribute: location_id
+
+
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Basket
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: basket_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Checkout
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: checkout_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Contact
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: contact_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Customercenter
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: customercenter_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Email
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: email_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Footer
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: footer_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Forms
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: forms_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Misc
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: misc_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: Orderhistory
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: orderhistory_location_id
+            attribute: location_id
+-
+    type: content
+    mode: create
+    content_type: folder
+    parent_location: reference:textmodule_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: User
+        short_name: null
+        short_description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+        description:
+            content: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<section xmlns=\"http://docbook.org/ns/docbook\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" version=\"5.0-variant ezpublish-1.0\"/>\n"
+    references:
+        -
+            identifier: user_location_id
+            attribute: location_id
+
+###
+# Textmodules
+
+# basket_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:basket_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Introtext stored basket'
+        identifier: wishlist_stored_basket_intro_text
+        context: storedBasket
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">You can remove or update products and add one or more products to the basket.</para>
+                    <para ezxhtml:class="paraClass">We have recalculated prices and stock information for your stored basket. Price or stock information may have changed.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:basket_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Introtext wishlist'
+        identifier: wishlist_stored_basket_intro_text
+        context: wishList
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Use the wishlist to store items for later.</para>
+            </section>
+
+# checkout_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:checkout_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Accept our Data protection and Cancellation policies'
+        identifier: label.accept_cancellation_policies
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Please accept our <link xlink:href="/viewcontent/cancellation_policy" xlink:show="none" xlink:title="">Cancellation policies</link>.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:checkout_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        name: 'Data privay hint'
+        identifier: data_privacy_hint
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>By placing your order you agree to our <link xlink:href="/viewcontent/data_protection" xlink:show="none" xlink:title="">data &amp; privacy regulations</link>.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:checkout_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message - Cancellation'
+        identifier: common.success_cancellation
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Thank you for submitting this form.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:checkout_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Introtext - Summary of order'
+        identifier: introtext_order_summary
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        This is a summary of your order. If you have chosen an electronic payment method you will be redirected to the payment provider after clicking on the order button.
+                    </para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:checkout_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Terms&Conditions'
+        identifier: terms_conditions
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Please accept our <link xlink:href="/viewcontent/termsAndConditionsIdentifier" xlink:show="none" xlink:title="">Terms&amp;Conditions</link>.</para>
+            </section>
+
+# contact_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:contact_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message - Contact form'
+        identifier: success_contact
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        Thank you very much for your request. We will come back as soon as possible.
+                    </para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:contact_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Intro text - Contact form'
+        identifier: contact_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        Please let us a message. We will take care as soon as possible.
+                    </para>
+            </section>
+
+# customercenter_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Appoval request entry page'
+        identifier: approver_entry_page_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Here you can see a list of baskets that are waiting for approval.</para>
+                    <para ezxhtml:class="paraClass">You can</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>approve an order (the buyer will get an email as well). You can change products or the delivery address for this order if required.</para>
+                        </listitem>
+                        <listitem>
+                            <para>reject the order and add a comment for the buyer</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para ezxhtml:class="paraClass">If you want to approve an order, make sure that you don't have an active basket. Either order or remove it.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Basket sent to approver'
+        identifier: basket_send_to_approver_success_message
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Your basket is now in the approval process. All approvers were informed. You will be informed immediately when your basket is ordered or rejected.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Basket was send to approver info '
+        identifier: basket_send_to_approver_info_message
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Please wait until your order has been approved. You will get a message when your order is approved.</para>
+                    <para ezxhtml:class="paraClass">You will also receive an email, if your order is rejected.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Buyer approval request entry page'
+        identifier: buyer_entry_page_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Here you can find a list of your approval requests</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Email request new user'
+        identifier: customercenter_new_user_created_email
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">The main contact has created a shop account for you. You can log in with your new login data. For security reasons we recommend you to change your password.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message edit user'
+        identifier: success_message_customer_center_edit_user
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">The user data was successfully updated.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message add erp user to the shop'
+        identifier: success_message_customer_center_add_user
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Benutzer wurde erfolgreich in den Shop hinzugefügt. Eine Email mit seinen Login-Daten wurde an ihn versendet.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message request new user'
+        identifier: success_message_customer_center_request_user
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Ein neuer Benutzer wurde erfolgreich angelegt. Eine Email mit seinen Login-Daten wurde an ihn versendet.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Error message forms'
+        identifier: error_message_customer_center_forms
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Es sind Fehler aufgetreten. Bitte prüfen Sie oballe Pflicht-Felder ausgefüllt sind,für diese E-Mail Adresse ggf. bereits ein Benutzer im Shop angelegt wurde undmindestens eine Rolle aktiviert wurde.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Customercenter - Contacts from ERP'
+        identifier: customer_center_entry_page_erp_users_intro
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Folgende Mitarbeiter sind uns bereits bekannt aber sie haben noch keinen Shop-Account. Sie können Mitarbeiter hier direkt aktivieren.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Customercenter introtext'
+        identifier: customer_center_entry_page_shop_users_intro
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        The customercenter allows to maintain shop accounts for your employees. You can:Change the rights for an userDeactivate an userChange a users settingsYou can also create new shop accounts. \_
+                    </para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:customercenter_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Request new user tooltip'
+        identifier: customer_center_request_new_user_tooltip
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Hier können Sie neue Benutzer in Shop anlegen.</para>
+            </section>
+
+# email_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        name: 'Email cancellation policies'
+        identifier: email_cancelation_policies
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para><link xlink:href="/viewcontent/cancellation_policy" xlink:show="none">Cancellation policy</link></para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        name: 'Email footer'
+        identifier: email_footer
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>
+            <literallayout class="normal">Best regards
+            \_
+            -- -- -- -- -- -- -- -- -- -- -- -- -- --
+            \_
+            Ibexa AS
+            Solligata 2
+            0254 OSLO
+            Norway
+            Phone: +47 35 58 70 20
+            * Shop systems B2B und B2C with integration in your ERP system * Multishop systems * Mobile commerce *
+            \_
+            </literallayout>
+                    </para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        name: 'Email intro text Shop Owner'
+        identifier: email_shop_owner_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Thank you for your order</para>
+            </section>
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Email header address invoice text'
+        identifier: header_address_invoice_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>Ibexa AS</para>
+                    <para>Solligata 2</para>
+                    <para>0254 OSLO</para>
+                    <para>Norway</para>
+                    <para><link xlink:href="mailto:info@ibexa.co" xlink:show="none">info@ibexa.co</link></para>
+                    <para><link xlink:href="https://www.ibexa.co/" xlink:show="none">https://www.ibexa.co/</link></para>
+                    <para>+47 35 58 70 20</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Email payment method invoice text'
+        identifier: invoice_payment_method_invoice_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>If you have any questions do not hesitate to contact us.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Email invoice left footer'
+        identifier: invoice_left_footer
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para></para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Email invoice right footer'
+        identifier: invoice_right_footer
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para></para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:email_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Introduction text newsletter'
+        identifier: common.subscribe_newsletter_intro
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Subscribe to our newsletter and benefit from our regular updates about new products and news,</para>
+            </section>
+
+# footer_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:footer_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Footer address'
+        identifier: footer_block_address
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>Ibexa AS</para>
+                    <para>Solligata 2</para>
+                    <para>0254 OSLO</para>
+                    <para>Norway</para>
+                    <para><link xlink:href="mailto:info@ibexa.co" xlink:show="none">info@ibexa.co</link></para>
+                    <para><link xlink:href="https://www.ibexa.co/" xlink:show="none">https://www.ibexa.co/</link></para>
+                    <para>+47 35 58 70 20</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:footer_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Footer block company'
+        identifier: footer_block_company
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        <link xlink:href="/service/contact" xlink:show="none" xlink:title="">Contact</link>
+                    </para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:footer_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Footer block ordering'
+        identifier: footer_block_ordering
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        <link xlink:href="/service/cancellation" xlink:show="none" xlink:title="">Online-Cancellation form</link>
+                    </para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:footer_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Footer block service'
+        identifier: footer_block_service
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">
+                        <link xlink:href="/service/rma" xlink:show="none">Product return form</link>
+                    </para>
+            </section>
+
+# forms_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:forms_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        name: 'Quickorder Introtext'
+        identifier: quickorder_introtext
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>If you know the skus of the products you want to order, you can use quickorder to add these products to the basket.</para>
+                    <para>You can search for</para>
+                    <itemizedlist>
+                        <listitem>
+                            <para>a product name</para>
+                        </listitem>
+                        <listitem>
+                            <para>a sku</para>
+                        </listitem>
+                        <listitem>
+                            <para>a sku and variant code or a variant name</para>
+                        </listitem>
+                    </itemizedlist>
+                    <para>The shop will display suggestions and you can choose one of the list.</para>
+                    <para>A csv file containing a list of skus, variant codes and quantity can be imported by drag &amp; drop. Instead of uploading a file you can paste the content into the textbox s well.</para>
+                    <para>Please click on "Refresh quickorder" if you want to see your individual prices and the updated stock information.</para>
+            </section>
+# misc_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:misc_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: '404 Page'
+        identifier: 404_page
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">The page you've requested could not be found. The requested page may no longer exist, or there may be a typo in the URL.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:misc_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Access denied'
+        identifier: 403_access_denied
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">You have been logged out automatically because of a timeout or you don't have access to the requested content. Please log in again if you are already a customers or create a new account.</para>
+            </section>
+
+# orderhistory_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:orderhistory_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Introtext orderhistory'
+        identifier: orderhistory_introtext
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Here you will find an overview of your order history.</para>
+            </section>
+
+# user_location_id
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Back to catalog'
+        identifier: back_to_catalog
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Go back to catalog</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: false
+    attributes:
+        name: 'Click here to register new user'
+        identifier: common.click_here_to_register
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para>New customer? You can create a new account here:</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message password change'
+        identifier: success_message_password_change
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Password changed successfully.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message for password request'
+        identifier: success_message_password_reminder
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">An email was sent to your email address.</para>
+                    <para ezxhtml:class="paraClass">Please check your mailbox to get a new password.</para>
+            </section>
+
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Intro text Edit Buyer'
+        identifier: buyer_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">You can edit your buyer address here.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Intro text edit My Account'
+        identifier: my_account_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">You can edit your account here.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'My profile information intro text'
+        identifier: my_profile_intro_text
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">You may edit your profile information here.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Registration error message'
+        identifier: error_message_register
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Some errors occurred. See below.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message activate business customer'
+        identifier: success_activate_business
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Thank you for activating your account.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message Edit Buyer'
+        identifier: success_buyer
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Your buyer address has been successfully modified.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message edit invoice'
+        identifier: success_invoice
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">If your account doesn't have a customer number, your invoice address has been modified. If your account has a customer number, your changes have to be approved first. An email has been sent to the administrator.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message Edit MyAccount'
+        identifier: success_my_account
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Your account has been modified.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message registration business customer'
+        identifier: success_register_business
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Thank you for your registration. You will receive an email after your data is verified by an administrator.</para>
+            </section>
+
+-
+    type: content
+    mode: create
+    content_type: st_textmodule
+    parent_location: reference:user_location_id
+    priority: 0
+    is_hidden: false
+    sort_field: name
+    sort_order: ASC
+    lang: eng-GB
+    section: 1
+    always_available: true
+    attributes:
+        name: 'Success message registration private customer'
+        identifier: success_register_private
+        context: null
+        content: >-
+            <section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:ezxhtml="http://ibexa.co/xmlns/dxp/docbook/xhtml"
+                xmlns:ezcustom="http://ibexa.co/xmlns/dxp/docbook/custom"
+                version="5.0-variant ezpublish-1.0">
+                    <para ezxhtml:class="paraClass">Thank you for your registration. In a few minutes you will receive a confirmation email.</para>
+            </section>
+
+
+
+
+

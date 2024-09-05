@@ -1,0 +1,60 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.product_catalog.ui.tabs.product:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $twig: '@twig'
+            $eventDispatcher: '@event_dispatcher'
+            $template: '@@ibexadesign/product_catalog/ui/tab/product.html.twig'
+            $groupIdentifier: 'product'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'product-block' }
+
+    Ibexa\ProductCatalog\Tab\Product\DetailsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\AttributesTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\PricesTab:
+        lazy: true
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\AvailabilityTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\TranslationsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\AssetsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\CompletenessTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    Ibexa\ProductCatalog\Tab\Product\VariantsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }
+
+    ibexa.product_catalog.ui.tabs.url_tab:
+        class: Ibexa\ProductCatalog\Tab\Product\UrlsTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'product' }

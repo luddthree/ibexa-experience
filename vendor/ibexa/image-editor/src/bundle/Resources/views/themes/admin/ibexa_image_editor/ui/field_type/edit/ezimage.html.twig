@@ -1,0 +1,11 @@
+{% trans_default_domain 'ibexa_content_forms_content' %}
+
+{% use '@ibexadesign/ui/field_type/edit/binary_base.html.twig' %}
+
+{% block binary_base_widget %}
+    {{ parent() }}
+    {% if form.vars.use_base64 %}
+        {{ form_widget(form.base64, {attr: {class: 'ibexa-data-source__base64'}}) }}
+        {{ form_widget(form.fileName) }}
+    {% endif %}
+{% endblock %}

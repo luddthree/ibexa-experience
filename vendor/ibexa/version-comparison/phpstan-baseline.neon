@@ -1,0 +1,1041 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Controller\\\\VersionComparisonController\\:\\:getRedirectParams\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Controller/VersionComparisonController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Controller\\\\VersionComparisonController\\:\\:unifiedAction\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Controller/VersionComparisonController.php
+
+		-
+			message: "#^Parameter \\#2 \\$languages of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContent\\(\\) expects array\\<string\\>\\|null, array\\<int, string\\|null\\> given\\.$#"
+			count: 2
+			path: src/bundle/Controller/VersionComparisonController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\DependencyInjection\\\\IbexaVersionComparisonExtension\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaVersionComparisonExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\DependencyInjection\\\\IbexaVersionComparisonExtension\\:\\:prepend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaVersionComparisonExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\DependencyInjection\\\\IbexaVersionComparisonExtension\\:\\:setHtmlComparisonDefaultValueParameters\\(\\) has parameter \\$htmlComparisonConfig with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaVersionComparisonExtension.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaVersionComparisonExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\ChoiceList\\\\Loader\\\\LanguageChoiceLoader\\:\\:loadChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Form/ChoiceList/Loader/LanguageChoiceLoader.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_column expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\> given\\.$#"
+			count: 1
+			path: src/bundle/Form/ChoiceList/Loader/LanguageChoiceLoader.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\ChoiceList\\\\Loader\\\\VersionInfoChoiceLoader\\:\\:loadChoices\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/Form/ChoiceList/Loader/VersionInfoChoiceLoader.php
+
+		-
+			message: "#^Parameter \\#1 \\$availableLanguages of method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\ChoiceList\\\\Loader\\\\VersionInfoChoiceLoader\\:\\:getLanguageMap\\(\\) expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\>, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\> given\\.$#"
+			count: 1
+			path: src/bundle/Form/ChoiceList/Loader/VersionInfoChoiceLoader.php
+
+		-
+			message: "#^Parameter \\#2 \\$languageCode of class Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\Data\\\\ValueChoice constructor expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Form/Data/VersionData.php
+
+		-
+			message: "#^Cannot access property \\$contentInfo on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\VersionInfo\\|null\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/VersionComparisonType.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\Type\\\\VersionComparisonType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/VersionComparisonType.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\Type\\\\VersionComparisonType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/VersionComparisonType.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\Type\\\\VersionInfoChoiceType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/VersionInfoChoiceType.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\Form\\\\Type\\\\VersionInfoChoiceType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/Form/Type/VersionInfoChoiceType.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\VersionComparison\\\\IbexaVersionComparisonBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaVersionComparisonBundle.php
+
+		-
+			message: "#^Class Ibexa\\\\Contracts\\\\VersionComparison\\\\VersionDiff implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/contracts/VersionDiff.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\VersionComparison\\\\VersionDiff\\:\\:__construct\\(\\) has parameter \\$fieldDiffs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/VersionDiff.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\Preview\\\\SingleColumnBaseFieldTypePreview\\:\\:getAddedElements\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Preview/SingleColumnBaseFieldTypePreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\Preview\\\\SingleColumnBaseFieldTypePreview\\:\\:getRemovedElements\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/Preview/SingleColumnBaseFieldTypePreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\VersionPreview\\:\\:__construct\\(\\) has parameter \\$changedFieldComponents with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\VersionPreview\\:\\:__construct\\(\\) has parameter \\$fieldTypeComponents with no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\VersionPreview\\:\\:verifyLeftSideFieldHasCorrectValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\VersionPreview\\:\\:verifyLeftSideFieldHasCorrectValues\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\VersionPreview\\:\\:verifyRightSideFieldHasCorrectValues\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Component\\\\VersionPreview\\:\\:verifyRightSideFieldHasCorrectValues\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Parameter \\#1 \\$locator of method Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\CSSLocatorBuilder\\:\\:withDescendant\\(\\) expects Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\CSSLocator, Ibexa\\\\Behat\\\\Browser\\\\Locator\\\\LocatorInterface given\\.$#"
+			count: 2
+			path: src/lib/Behat/Component/VersionPreview.php
+
+		-
+			message: "#^Binary operation \"\\+\" between int\\|string and 1 results in an error\\.$#"
+			count: 1
+			path: src/lib/Behat/Component/VersionTab.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iSelectAsTheBaseOfTheComparison\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iShouldBeOnSingleColumnVersionComparePageWithOnTheLeftSide\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iShouldBeOnVersionComparePageFor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iShouldSeeCorrectDataAdded\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iShouldSeeCorrectDataForTheRightSideComparison\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iShouldSeeCorrectForTheLeftSideComparison\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Context\\\\VersionComparisonContext\\:\\:iSwitchToSingleColumnView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Parameter \\#2 \\$leftVersionNumber of method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\BaseComparisonPage\\:\\:setExpectedVersionComparisonData\\(\\) expects int, string given\\.$#"
+			count: 2
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Parameter \\#3 \\$rightVersionNumber of method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\BaseComparisonPage\\:\\:setExpectedVersionComparisonData\\(\\) expects int, string given\\.$#"
+			count: 2
+			path: src/lib/Behat/Context/VersionComparisonContext.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\BaseComparisonPage\\:\\:selectRightSideVersion\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/BaseComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\BaseComparisonPage\\:\\:verifyLeftSideVersion\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/BaseComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:switchToSingleColumnView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:verifyLeftSideFieldData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:verifyLeftSideFieldData\\(\\) has parameter \\$expectedValue with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:verifyLeftSideFieldData\\(\\) has parameter \\$fieldName with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:verifyLeftSideFieldData\\(\\) has parameter \\$fieldTypeIdentifier with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:verifyRightSideFieldData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SideBySideComparisonPage\\:\\:verifyRightSideFieldData\\(\\) has parameter \\$expectedValue with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SideBySideComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SingleColumnComparisonPage\\:\\:verifyDataAdded\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SingleColumnComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SingleColumnComparisonPage\\:\\:verifyDataRemoved\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SingleColumnComparisonPage.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Behat\\\\Page\\\\SingleColumnComparisonPage\\:\\:verifyDataRemoved\\(\\) has parameter \\$expectedValueAddedRemoved with no type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Page/SingleColumnComparisonPage.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\Collection\\:\\:\\$collection type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ComparisonValue/Collection.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\HashMap\\:\\:\\$hashMap type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ComparisonValue/HashMap.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 3
+			path: src/lib/Engine/FieldType/AuthorComparisonEngine.php
+
+		-
+			message: "#^Cannot access property \\$email on Ibexa\\\\VersionComparison\\\\FieldType\\\\Author\\\\Author\\|null\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/AuthorComparisonEngine.php
+
+		-
+			message: "#^Cannot access property \\$name on Ibexa\\\\VersionComparison\\\\FieldType\\\\Author\\\\Author\\|null\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/AuthorComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#2 \\$authors of method Ibexa\\\\VersionComparison\\\\Engine\\\\FieldType\\\\AuthorComparisonEngine\\:\\:findMatchingAuthor\\(\\) expects array\\<Ibexa\\\\VersionComparison\\\\FieldType\\\\Author\\\\Author\\>, array\\|null given\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/AuthorComparisonEngine.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue\\|null\\.$#"
+			count: 2
+			path: src/lib/Engine/FieldType/DateTimeComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#1 \\$integerA of method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\IntegerComparisonEngine\\:\\:compareValues\\(\\) expects Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue, Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue\\|null given\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/DateTimeComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#2 \\$integerB of method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\IntegerComparisonEngine\\:\\:compareValues\\(\\) expects Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue, Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue\\|null given\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/DateTimeComparisonEngine.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldType\\\\FieldTypeComparisonValue\\:\\:\\$email\\.$#"
+			count: 2
+			path: src/lib/Engine/FieldType/EmailAddressComparisonEngine.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldType\\\\FieldTypeComparisonValue\\:\\:\\$html\\.$#"
+			count: 2
+			path: src/lib/Engine/FieldType/RichTextComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#1 \\$comparisonResult of class Ibexa\\\\VersionComparison\\\\Result\\\\FieldType\\\\SelectionComparisonResult constructor expects Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\CollectionComparisonResult, Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\IntegerComparisonResult given\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/SelectionComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#1 \\$integerA of method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\IntegerComparisonEngine\\:\\:compareValues\\(\\) expects Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue, Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\Collection given\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/SelectionComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#2 \\$integerB of method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\IntegerComparisonEngine\\:\\:compareValues\\(\\) expects Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\IntegerComparisonValue, Ibexa\\\\VersionComparison\\\\ComparisonValue\\\\Collection given\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/SelectionComparisonEngine.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\Engine\\\\FieldType\\\\SelectionComparisonEngine\\:\\:\\$collectionComparisonEngine \\(Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\IntegerComparisonEngine\\) does not accept Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\CollectionComparisonEngine\\.$#"
+			count: 1
+			path: src/lib/Engine/FieldType/SelectionComparisonEngine.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldType\\\\FieldTypeComparisonValue\\:\\:\\$textLine\\.$#"
+			count: 2
+			path: src/lib/Engine/FieldType/TextLineComparisonEngine.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldType\\\\FieldTypeComparisonValue\\:\\:\\$link\\.$#"
+			count: 2
+			path: src/lib/Engine/FieldType/UrlComparisonEngine.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldType\\\\FieldTypeComparisonValue\\:\\:\\$text\\.$#"
+			count: 2
+			path: src/lib/Engine/FieldType/UrlComparisonEngine.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\Html\\\\ExternalHtmlDiffHandler\\:\\:__construct\\(\\) has parameter \\$additionalArguments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/Html/ExternalHtmlDiffHandler.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\Html\\\\ExternalHtmlDiffHandler\\:\\:\\$additionalArguments type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/Html/ExternalHtmlDiffHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$htmlA of method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\Html\\\\HtmlDiffHandler\\:\\:getHtmlDiff\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/HtmlComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#2 \\$htmlB of method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\Html\\\\HtmlDiffHandler\\:\\:getHtmlDiff\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/HtmlComparisonEngine.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\StringComparisonEngine\\:\\:combineValuesWithSameStatus\\(\\) has parameter \\$rawDiff with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/StringComparisonEngine.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Engine\\\\Value\\\\StringComparisonEngine\\:\\:combineValuesWithSameStatus\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/StringComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#1 \\$from of method SebastianBergmann\\\\Diff\\\\Differ\\:\\:diffToArray\\(\\) expects array\\|string, array\\<int, string\\|null\\>\\|false given\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/StringComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_split expects string, string\\|null given\\.$#"
+			count: 2
+			path: src/lib/Engine/Value/StringComparisonEngine.php
+
+		-
+			message: "#^Parameter \\#2 \\$to of method SebastianBergmann\\\\Diff\\\\Differ\\:\\:diffToArray\\(\\) expects array\\|string, array\\<int, string\\|null\\>\\|false given\\.$#"
+			count: 1
+			path: src/lib/Engine/Value/StringComparisonEngine.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\DiffBuilder\\:\\:getOperations\\(\\) should return array\\<Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\AbstractOperation\\> but returns array\\<int\\<0, max\\>, Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\DeleteOperation\\|Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\EqualOperation\\|Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\InsertOperation\\|Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\ReplaceOperation\\>\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/DiffBuilder.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\DiffBuilder\\:\\:\\$tokenWrapper \\(Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapper\\) does not accept Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapperInterface\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/DiffBuilder.php
+
+		-
+			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Lexer/Tokenizer.php
+
+		-
+			message: "#^Binary operation \"\\+\" between int\\|string\\|null and 1 results in an error\\.$#"
+			count: 2
+			path: src/lib/HtmlDiff/Match/FullMatchFinder.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\FullMatchFinder\\:\\:getArraySliceWithingRange\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/FullMatchFinder.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\FullMatchFinder\\:\\:getArraySliceWithingRange\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/FullMatchFinder.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\MatchBinarySearchTree\\:\\:add\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/MatchBinarySearchTree.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\MatchBinarySearchTree\\:\\:inOrder\\(\\) has parameter \\$nodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/MatchBinarySearchTree.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\MatchBinarySearchTree\\:\\:inOrder\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/MatchBinarySearchTree.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\MatchBinarySearchTree\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/MatchBinarySearchTree.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:__construct\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:__construct\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:createMap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:getNewMap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:getOldMap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:\\$newMap type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Match\\\\Segment\\:\\:\\$oldMap type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Match/Segment.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\AbstractOperation\\:\\:getArraySliceWithingRange\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/AbstractOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\AbstractOperation\\:\\:getArraySliceWithingRange\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/AbstractOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\DeleteOperation\\:\\:wrap\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/DeleteOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\DeleteOperation\\:\\:wrap\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/DeleteOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\EqualOperation\\:\\:wrap\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/EqualOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\EqualOperation\\:\\:wrap\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/EqualOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\InsertOperation\\:\\:wrap\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/InsertOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\InsertOperation\\:\\:wrap\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/InsertOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\Operation\\:\\:wrap\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/Operation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\Operation\\:\\:wrap\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/Operation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\ReplaceOperation\\:\\:wrap\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/ReplaceOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Operation\\\\ReplaceOperation\\:\\:wrap\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Operation/ReplaceOperation.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapper\\:\\:combine\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Token/TokenWrapper.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapper\\:\\:getArraySliceWithingRange\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Token/TokenWrapper.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapper\\:\\:getArraySliceWithingRange\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Token/TokenWrapper.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapper\\:\\:wrap\\(\\) has parameter \\$tokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Token/TokenWrapper.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\HtmlDiff\\\\Token\\\\TokenWrapperInterface\\:\\:wrap\\(\\) has parameter \\$tokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/HtmlDiff/Token/TokenWrapperInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Registry\\\\ComparisonEngineRegistry\\:\\:__construct\\(\\) has parameter \\$engines with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Registry/ComparisonEngineRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Registry\\\\FieldRegistry\\:\\:__construct\\(\\) has parameter \\$types with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Registry/FieldRegistry.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/Result/FieldType/Author/AuthorComparisonResult.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Result\\\\FieldType\\\\CheckboxComparisonResult\\:\\:getFrom\\(\\) should return Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\BooleanDiff but returns Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\FloatDiff\\.$#"
+			count: 1
+			path: src/lib/Result/FieldType/CheckboxComparisonResult.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Result\\\\FieldType\\\\CheckboxComparisonResult\\:\\:getTo\\(\\) should return Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\BooleanDiff but returns Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\FloatDiff\\.$#"
+			count: 1
+			path: src/lib/Result/FieldType/CheckboxComparisonResult.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\Result\\\\FieldType\\\\CheckboxComparisonResult\\:\\:\\$comparisonResult \\(Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\FloatComparisonResult\\) does not accept Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\BooleanComparisonResult\\.$#"
+			count: 1
+			path: src/lib/Result/FieldType/CheckboxComparisonResult.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Result\\\\FieldType\\\\RichTextComparisonResult\\:\\:getRichTextDiff\\(\\) should return Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\HtmlComparisonResult but returns Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\StringComparisonResult\\.$#"
+			count: 1
+			path: src/lib/Result/FieldType/RichTextComparisonResult.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\Result\\\\FieldType\\\\RichTextComparisonResult\\:\\:\\$htmlComparisonResult \\(Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\StringComparisonResult\\) does not accept Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\HtmlComparisonResult\\.$#"
+			count: 1
+			path: src/lib/Result/FieldType/RichTextComparisonResult.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\CollectionDiff\\:\\:__construct\\(\\) has parameter \\$collection with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Result/Value/Diff/CollectionDiff.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\CollectionDiff\\:\\:getCollection\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Result/Value/Diff/CollectionDiff.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\CollectionDiff\\:\\:\\$collection type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Result/Value/Diff/CollectionDiff.php
+
+		-
+			message: "#^Class Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\StringComparisonResult implements generic interface IteratorAggregate but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/Result/Value/StringComparisonResult.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Security\\\\ComparisonPolicyProvider\\:\\:addPolicies\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Security/ComparisonPolicyProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldDefinition of class Ibexa\\\\Contracts\\\\VersionComparison\\\\FieldValueDiff constructor expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null given\\.$#"
+			count: 2
+			path: src/lib/Service/VersionComparisonService.php
+
+		-
+			message: "#^Property Ibexa\\\\VersionComparison\\\\Service\\\\VersionComparisonService\\:\\:\\$contentTypeService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/Service/VersionComparisonService.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Templating\\\\ComparisonResultRenderer\\:\\:renderContentFieldComparisonResult\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Templating/ComparisonResultRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Templating\\\\ComparisonResultRenderer\\:\\:sortComparisonBlockTemplatesResources\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Templating/ComparisonResultRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Templating\\\\ComparisonResultRenderer\\:\\:sortComparisonBlockTemplatesResources\\(\\) has parameter \\$resources with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Templating/ComparisonResultRenderer.php
+
+		-
+			message: "#^Parameter \\#1 \\$field of method Ibexa\\\\Core\\\\MVC\\\\Symfony\\\\FieldType\\\\View\\\\ParameterProviderInterface\\:\\:getViewParameters\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null given\\.$#"
+			count: 1
+			path: src/lib/Templating/ComparisonResultRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Templating\\\\ComparisonResultRendererInterface\\:\\:renderContentFieldComparisonResult\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Templating/ComparisonResultRendererInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\Templating\\\\ComparisonResultRendererInterface\\:\\:renderContentFieldComparisonResult\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Templating/ComparisonResultRendererInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\VersionComparison\\\\UI\\\\FieldDefinitionGroups\\:\\:groupFieldDefinitionsDiff\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/UI/FieldDefinitionGroups.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\AbstractFieldTypeComparisonTest\\:\\:createContentDraft\\(\\) has parameter \\$fieldValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\AbstractFieldTypeComparisonTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\AbstractFieldTypeComparisonTest\\:\\:getSetupFactory\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\AbstractFieldTypeComparisonTest\\:\\:testCompareVersions\\(\\) has parameter \\$newValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\AbstractFieldTypeComparisonTest\\:\\:testCompareVersions\\(\\) has parameter \\$oldValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\ContentCreateStruct\\:\\:\\$remoteId \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\AbstractFieldTypeComparisonTest\\:\\:\\$setupFactory \\(Ibexa\\\\Contracts\\\\Core\\\\Test\\\\Repository\\\\SetupFactory\\) does not accept object\\.$#"
+			count: 1
+			path: tests/integration/FieldType/AbstractFieldTypeComparisonTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\BinaryFileTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/BinaryFileTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\CheckboxTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/CheckboxTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\CountryTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/CountryTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\DateTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/DateTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\DateTimeTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/DateTimeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\EmailAddressTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/EmailAddressTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\FloatTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/FloatTest.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\IntegerDiff\\:\\:\\$remoteId\\.$#"
+			count: 2
+			path: tests/integration/FieldType/ImageAssetTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageAssetTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageAssetTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageAssetTest\\:\\:testCompareVersions\\(\\) has parameter \\$newValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageAssetTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageAssetTest\\:\\:testCompareVersions\\(\\) has parameter \\$oldValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageAssetTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageAssetTest\\:\\:\\$remoteIdToContentId has no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageAssetTest.php
+
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 10
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageTest\\:\\:getImageValue\\(\\) should return array\\{path\\: string, fileName\\: string, fileSize\\: string, uri\\: string, alternativeText\\: string\\}\\|null but returns array\\{path\\: string, fileName\\: string, fileSize\\: int\\<0, max\\>\\|false, uri\\: non\\-falsy\\-string, alternativeText\\?\\: string\\}\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageTest\\:\\:testCompareVersions\\(\\) has parameter \\$newValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageTest\\:\\:testCompareVersions\\(\\) has parameter \\$oldValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Offset 'path' does not exist on array\\{path\\: string, alternativeText\\?\\: string\\}\\|null\\.$#"
+			count: 2
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$from of method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageTest\\:\\:getFieldDiff\\(\\) expects array\\{path\\: string, alternativeText\\?\\: string\\}\\|null, array\\{path\\: null\\} given\\.$#"
+			count: 2
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$to of method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\ImageTest\\:\\:getFieldDiff\\(\\) expects array\\{path\\: string, alternativeText\\?\\: string\\}\\|null, array\\{path\\: null\\} given\\.$#"
+			count: 1
+			path: tests/integration/FieldType/ImageTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\IntegerTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/IntegerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\MapLocationTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/MapLocationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\MatrixTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/MatrixTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\MediaTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/MediaTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$integer of class Ibexa\\\\VersionComparison\\\\Result\\\\Value\\\\Diff\\\\IntegerDiff constructor expects int\\|null, int\\<0, max\\>\\|false given\\.$#"
+			count: 5
+			path: tests/integration/FieldType/MediaTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\RelationListTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/RelationListTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\RelationTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/RelationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\RelationTest\\:\\:testCompareVersions\\(\\) has parameter \\$newValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/RelationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\RelationTest\\:\\:testCompareVersions\\(\\) has parameter \\$oldValue with no type specified\\.$#"
+			count: 1
+			path: tests/integration/FieldType/RelationTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\SelectionTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/SelectionTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\TimeTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/TimeTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\FieldType\\\\UrlTest\\:\\:dataToCompare\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/FieldType/UrlTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\LegacySetupFactory\\:\\:externalBuildContainer\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\LegacySetupFactory\\:\\:loadVersionComparisonSettings\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\LegacySetupFactory\\:\\:setHtmlComparisonDefaultValueParameters\\(\\) has parameter \\$htmlComparisonConfig with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Static property Ibexa\\\\Contracts\\\\Core\\\\Test\\\\Repository\\\\SetupFactory\\\\Legacy\\:\\:\\$serviceContainer \\(Ibexa\\\\Core\\\\Base\\\\ServiceContainer\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: tests/integration/LegacySetupFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\Service\\\\VersionComparisonServiceTest\\:\\:createContentDraft\\(\\) has parameter \\$contentTypeIdentifier with no type specified\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\Service\\\\VersionComparisonServiceTest\\:\\:createContentDraft\\(\\) has parameter \\$fieldValues with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\Service\\\\VersionComparisonServiceTest\\:\\:createContentDraft\\(\\) has parameter \\$parentLocationId with no type specified\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\Service\\\\VersionComparisonServiceTest\\:\\:getSetupFactory\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\Service\\\\VersionComparisonServiceTest\\:\\:testContentComparisonServiceCreated\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$fieldDefinition of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentTypeService\\:\\:removeFieldDefinition\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null given\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\Integration\\\\VersionComparison\\\\Service\\\\VersionComparisonServiceTest\\:\\:\\$setupFactory \\(Ibexa\\\\Contracts\\\\Core\\\\Test\\\\Repository\\\\SetupFactory\\) does not accept object\\.$#"
+			count: 1
+			path: tests/integration/Service/VersionComparisonServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Engine\\\\AuthorComparisonEngineTest\\:\\:fieldsAndResultProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Engine/AuthorComparisonEngineTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Engine\\\\BinaryFileComparisonEngineTest\\:\\:filesAndResultProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Engine/BinaryFileComparisonEngineTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function fopen expects string, string\\|null given\\.$#"
+			count: 2
+			path: tests/lib/Engine/BinaryFileComparisonEngineTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Engine\\\\DateComparisonEngineTest\\:\\:fieldsAndResultProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Engine/DateComparisonEngineTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Engine\\\\MatrixComparisonEngineTest\\:\\:fieldsAndResultProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Engine/MatrixComparisonEngineTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$comparisonDataA of method Ibexa\\\\VersionComparison\\\\Engine\\\\FieldType\\\\DateComparisonEngine\\:\\:compareFieldsTypeValues\\(\\) expects Ibexa\\\\VersionComparison\\\\FieldType\\\\Date\\\\Value, Ibexa\\\\VersionComparison\\\\FieldType\\\\Matrix\\\\Value given\\.$#"
+			count: 1
+			path: tests/lib/Engine/MatrixComparisonEngineTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$comparisonDataB of method Ibexa\\\\VersionComparison\\\\Engine\\\\FieldType\\\\DateComparisonEngine\\:\\:compareFieldsTypeValues\\(\\) expects Ibexa\\\\VersionComparison\\\\FieldType\\\\Date\\\\Value, Ibexa\\\\VersionComparison\\\\FieldType\\\\Matrix\\\\Value given\\.$#"
+			count: 1
+			path: tests/lib/Engine/MatrixComparisonEngineTest.php
+
+		-
+			message: "#^Property Ibexa\\\\Tests\\\\VersionComparison\\\\Engine\\\\MatrixComparisonEngineTest\\:\\:\\$engine \\(Ibexa\\\\VersionComparison\\\\Engine\\\\FieldType\\\\DateComparisonEngine\\) does not accept Ibexa\\\\VersionComparison\\\\Engine\\\\FieldType\\\\MatrixComparisonEngine\\.$#"
+			count: 1
+			path: tests/lib/Engine/MatrixComparisonEngineTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Engine\\\\TextLineComparisonEngineTest\\:\\:fieldsAndResultProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Engine/TextLineComparisonEngineTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\DiffBuilderTest\\:\\:htmlDataProvider\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/DiffBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\DiffBuilderTest\\:\\:operationsDataProvider\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/DiffBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\DiffBuilderTest\\:\\:testBuild\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/DiffBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\DiffBuilderTest\\:\\:testGetOperations\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/DiffBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\FullMatchFinderTest\\:\\:findMatchDataProvider\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/FullMatchFinderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\FullMatchFinderTest\\:\\:testFindMatch\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/FullMatchFinderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\FullMatchFinderTest\\:\\:testFindMatch\\(\\) has parameter \\$expectedMatches with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/FullMatchFinderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\FullMatchFinderTest\\:\\:testFindMatch\\(\\) has parameter \\$newTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/FullMatchFinderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\FullMatchFinderTest\\:\\:testFindMatch\\(\\) has parameter \\$oldTokens with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/FullMatchFinderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\TokenWrapperTest\\:\\:testWrap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/TokenWrapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\TokenizerTest\\:\\:htmlAndListOfWordsDataProvider\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/TokenizerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\TokenizerTest\\:\\:testConvertHtmlToListOfWords\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/TokenizerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\HtmlDiff\\\\TokenizerTest\\:\\:testHashOfImgTag\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/HtmlDiff/TokenizerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Result\\\\TextLineComparisonResultTest\\:\\:isChangedDataProvider\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Result/TextLineComparisonResultTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\VersionComparison\\\\Result\\\\TextLineComparisonResultTest\\:\\:testIsChanged\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Result/TextLineComparisonResultTest.php

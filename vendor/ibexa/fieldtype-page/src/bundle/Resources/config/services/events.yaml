@@ -1,0 +1,53 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    #
+    # Event Subscribers
+    #
+
+    Ibexa\FieldTypePage\Event\Subscriber\:
+        resource: "../../../lib/Event/Subscriber/*"
+        autowire: true
+        autoconfigure: false
+        public: true
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\FieldTypePage\Event\Subscriber\BlockResponseSubscriber:
+        tags:
+            - { name: monolog.logger, channel: ibexa.page_builder }
+            - kernel.event_subscriber
+
+    Ibexa\FieldTypePage\Event\Subscriber\TagBlockResponseSubscriber:
+        arguments:
+            $tagHandler: '@Ibexa\HttpCache\Handler\TagHandler'
+            $repository: '@ibexa.api.repository'
+            $userHashHeaderName: "@=container.getParameter('fos_http_cache.event_listener.user_context.options')['user_hash_header']"
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\FieldTypePage\Event\Subscriber\SetCacheHeadersResponseSubscriber:
+        arguments:
+            $userHashHeaderName: "@=container.getParameter('fos_http_cache.event_listener.user_context.options')['user_hash_header']"
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\FieldTypePage\Event\Subscriber\BlockContextSubscriber:
+        arguments:
+            $controllerResolver: '@controller_resolver'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\FieldTypePage\Event\Subscriber\EmbedAttributeSubscriber:
+        arguments:
+            $attributeTypes: ['embed', 'embedvideo']
+
+    Ibexa\FieldTypePage\Event\Subscriber\CachePurge\ContentEventsSubscriber:
+        arguments:
+            $purgeClient: '@ibexa.http_cache.purge_client'
+            $locationHandler: '@Ibexa\Core\Persistence\Cache\LocationHandler'
+            $urlHandler: '@Ibexa\Core\Persistence\Cache\URLHandler'
+            $isTranslationAware: '%ibexa.http_cache.translation_aware.enabled%'

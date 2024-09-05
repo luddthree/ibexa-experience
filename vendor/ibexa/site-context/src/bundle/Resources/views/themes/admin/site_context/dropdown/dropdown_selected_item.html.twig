@@ -1,0 +1,15 @@
+{% trans_default_domain 'ibexa_site_context' %}
+
+<li
+    class="ibexa-dropdown__selected-item ibexa-dropdown__selected-item--has-icon"
+    data-value="{{ value }}"
+    title="{{ label|trim }}"
+>
+    <span class="ibexa-dropdown__selected-item-icon">
+        <svg class="ibexa-icon ibexa-icon--light ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('earth-access') }}"></use>
+        </svg>
+    </span>
+    {{ 'change_sa.dropdown.selected_item.label'|trans({ '%sa_name%': label })|desc('Site: %sa_name%') }}
+    <span class="ibexa-dropdown__remove-selection" hidden></span>
+</li>

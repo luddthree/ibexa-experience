@@ -1,0 +1,115 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set application_content = application.getContent() %}
+
+<div class="ibexa-ca-application-tab-summary">
+    <div class="ibexa-ca-application-tab-summary__basic-wrapper">
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            view_mode: 'vertical',
+            headline: 'application.tab.summary.basic_information.details.headline'|trans|desc('Basic information'),
+            items: [
+                {
+                    label: 'application.tab.summary.basic_information.details.label.name'|trans|desc('Company name'),
+                    content: ibexa_field_value(application_content, 'name'),
+                },
+                {
+                    label: 'application.tab.summary.basic_information.details.label.vat'|trans|desc('Tax ID'),
+                    content: ibexa_field_value(application_content, 'vat'),
+                },
+                {
+                    label: 'application.tab.summary.basic_information.details.label.website'|trans|desc('Website'),
+                    content: ibexa_field_value(application_content, 'website'),
+                },
+                {
+                    label: 'application.tab.summary.basic_information.details.label.billing_address'|trans|desc('Billing address'),
+                    content: ibexa_field_value(application_content, 'address'),
+                },
+            ],
+        } only %}
+
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            view_mode: 'vertical',
+            headline: 'application.tab.summary.contact_information.details.headline'|trans|desc('Contact information'),
+            items: [
+                {
+                    label: 'application.tab.summary.contact_information.details.label.name'|trans|desc('First name'),
+                    content: ibexa_field_value(application_content, 'first_name'),
+                },
+                {
+                    label: 'application.tab.summary.contact_information.details.label.vat'|trans|desc('Last name'),
+                    content: ibexa_field_value(application_content, 'last_name'),
+                },
+                {
+                    label: 'application.tab.summary.contact_information.details.label.website'|trans|desc('Email'),
+                    content: ibexa_field_value(application_content, 'user'),
+                },
+            ],
+        } only %}
+    </div>
+    <div class="ibexa-ca-application-tab-summary__assignments-wrapper">
+        <div class="ibexa-ca-applications-assignments">
+            {% set headline_items %}
+                <a
+                    title="{{ 'application.tab.summary.assignments.details.action.edit'|trans|desc('Edit') }}"
+                    href="{{ path('ibexa.corporate_account.application.edit.internal', {
+                        'applicationId': application_content.id
+                    }) }}"
+                    class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                    </svg>
+                </a>
+            {% endset %}
+
+            {% embed '@ibexadesign/ui/component/details/details.html.twig' with {
+                headline: 'application.tab.summary.assignments.details.headline'|trans|desc('Sales Representative and Customer group'),
+                headline_items,
+                application_content,
+                customer_group,
+                sales_rep
+            } only %}
+                {% trans_default_domain 'ibexa_corporate_account' %}
+
+                {% block details_items %}
+                    <div class="ibexa-details__items">
+                        <div class="ibexa-details__item">
+                            <div class="ibexa-ca-applications-assignments-disc">
+                                <svg class="ibexa-icon ibexa-icon--medium">
+                                    <use xlink:href="{{ ibexa_icon_path('blog') }}"></use>
+                                </svg>
+                            </div>
+                            <div class="ibexa-details__item-label ibexa-label">
+                                {{ 'application.tab.summary.assignments.details.label.sales_rep'|trans|desc('Sales Representative') }}
+                            </div>
+                            <div class="ibexa-details__item-content">
+                                {% if sales_rep is defined and sales_rep is not null %}
+                                    {{ sales_rep.name }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="ibexa-details__item">
+                            <div class="ibexa-ca-applications-assignments-disc">
+                                <svg class="ibexa-icon ibexa-icon--medium">
+                                    <use xlink:href="{{ ibexa_icon_path('user_group') }}"></use>
+                                </svg>
+                            </div>
+                            <div class="ibexa-details__item-label ibexa-label">
+                                {{ 'application.tab.summary.assignments.details.label.customer_group'|trans|desc('Customer group') }}
+                            </div>
+                            <div class="ibexa-details__item-content">
+                                {% if customer_group is defined and customer_group is not null %}
+                                    {{ customer_group.name }}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+</div>

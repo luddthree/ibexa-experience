@@ -1,0 +1,48 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Ibexa\FormBuilder\FieldType\Type:
+        parent: Ibexa\Core\FieldType\FieldType
+        tags:
+            - { name: ibexa.field_type, alias: ezform }
+        autowire: true
+        public: true
+        autoconfigure: false
+
+    ibexa.field_type.indexable.ezform:
+        class: Ibexa\Core\FieldType\Unindexed
+        tags:
+            - { name: ibexa.field_type.indexable, alias: ezform }
+
+    ibexa.storage_engine.legacy.converter.ezform:
+        class: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\NullConverter
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: ezform }
+
+    Ibexa\FormBuilder\FieldType\Storage\DoctrineGateway:
+        arguments: ['@ibexa.api.storage_engine.legacy.connection']
+
+    Ibexa\FormBuilder\FieldType\Storage\FormStorage:
+        arguments: ['@Ibexa\FormBuilder\FieldType\Storage\DoctrineGateway', '@Ibexa\Contracts\Core\Persistence\Content\Handler']
+        tags:
+            - { name: ibexa.field_type.storage.external.handler, alias: ezform }
+
+    #
+    # FormMappers
+    #
+
+    Ibexa\FormBuilder\Form\Mapper\FormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezform }
+
+    Ibexa\FormBuilder\Form\Type\:
+        resource: "../../../../lib/Form/Type/*"
+        tags:
+            - form.type
+
+    Ibexa\FormBuilder\Form\Type\FieldAttribute\Action\LocationType:
+        arguments:
+            $imageFieldType: '@Ibexa\Core\FieldType\Image\Type'

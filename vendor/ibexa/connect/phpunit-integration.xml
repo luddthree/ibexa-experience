@@ -1,0 +1,24 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+        bootstrap="tests/integration/bootstrap.php"
+        colors="true"
+>
+    <php>
+        <env name="KERNEL_CLASS" value="Ibexa\Tests\Integration\Connect\TestKernel"/>
+        <env name="DATABASE_URL" value="sqlite://i@i/test.db" />
+        <env name="SEARCH_ENGINE" value="legacy" />
+        <env name="ELASTICSEARCH_DSN" value="http://127.0.0.1:49155" />
+        <env name="SOLR_DSN" value="http://127.0.0.1:49156/solr" />
+        <env name="SOLR_CORE" value="collection1" />
+        <env name="IBEXA_REST_GENERATE_SNAPSHOTS" value="0"/>
+    </php>
+    <testsuites>
+        <testsuite name="Ibexa Connect Integration">
+            <directory>tests/integration/</directory>
+        </testsuite>
+    </testsuites>
+    <extensions>
+        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+    </extensions>
+</phpunit>

@@ -1,0 +1,270 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Psr\Log\LoggerAwareInterface:
+            calls:
+                - [ setLogger, [ '@?logger' ] ]
+        Ibexa\Migration\Generator\Role\StepBuilder\LimitationConverter\LimitationConverterInterface:
+            tags:
+                - 'ibexa.migrations.limitation_converter'
+
+    Ibexa\Migration\Generator\MigrationGeneratorsManager:
+        arguments:
+            $generators: !tagged 'ibexa.migrations.generator'
+
+    Ibexa\Migration\Generator\Role\RoleMigrationGenerator:
+        tags:
+            - 'ibexa.migrations.generator'
+        arguments:
+            $stepFactory: '@Ibexa\Migration\Generator\Role\StepBuilder\RoleStepFactory'
+            $roleService: '@Ibexa\Contracts\Core\Repository\RoleService'
+
+    Ibexa\Migration\Generator\Role\StepBuilder\RoleStepFactory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.role', index_by: 'key' }
+            - 'role'
+
+    Ibexa\Migration\Generator\Role\StepBuilder\LimitationConverterManager:
+        arguments:
+            $limitationConverters: !tagged_iterator  { tag: 'ibexa.migrations.limitation_converter' }
+
+    Ibexa\Migration\Generator\Role\StepBuilder\LimitationConverter\ContentTypeLimitationConverter: ~
+    Ibexa\Migration\Generator\Role\StepBuilder\LimitationConverter\SectionLimitationConverter: ~
+    Ibexa\Migration\Generator\Role\StepBuilder\LimitationConverter\ParentContentTypeLimitationConverter: ~
+    Ibexa\Migration\Generator\Role\StepBuilder\LimitationConverter\SiteAccessLimitationConverter:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+
+    Ibexa\Migration\Generator\Reference\RoleGenerator: ~
+
+    Ibexa\Migration\Generator\Role\StepBuilder\RoleCreateStepBuilder:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\RoleGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.role', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\Role\StepBuilder\RoleUpdateStepBuilder:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\RoleGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.role', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\Role\StepBuilder\RoleDeleteStepBuilder:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.role', key: !php/const \Ibexa\Migration\Generator\Mode::DELETE }
+
+    Ibexa\Migration\Generator\Reference\ContentTypeGroupGenerator: ~
+
+    Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\ContentTypeGroupGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content_type_group', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content_type_group', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Delete:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content_type_group', key: !php/const \Ibexa\Migration\Generator\Mode::DELETE }
+
+    Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.content_type_group', index_by: 'key' }
+            - 'content_type_group'
+
+    Ibexa\Migration\Generator\ContentTypeGroup\ContentTypeGroupMigrationGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+        arguments:
+            $contentTypeGroupStepFactory: '@Ibexa\Migration\Generator\ContentTypeGroup\StepBuilder\Factory'
+
+    Ibexa\Migration\Generator\Reference\ContentGenerator: ~
+
+    Ibexa\Migration\Generator\Content\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\ContentGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\Content\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\Content\StepBuilder\Delete:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.content', key: !php/const \Ibexa\Migration\Generator\Mode::DELETE }
+
+    Ibexa\Migration\Generator\Content\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.content', index_by: 'key' }
+            - 'content'
+
+    Ibexa\Migration\Generator\Content\CriterionFactory:
+        arguments:
+            $registry: '@ibexa.migrations.generator.criterion_generator.content.registry'
+
+    ibexa.migrations.generator.content:
+        class: Ibexa\Migration\Generator\Content\ContentMigrationGenerator
+        arguments:
+            $chunkSize: '%ibexa.migrations.default.generator.chunk_size%'
+            $contentStepFactory: '@Ibexa\Migration\Generator\Content\StepBuilder\Factory'
+            $type: !php/const Ibexa\Migration\Generator\Content\ContentMigrationGenerator::TYPE_CONTENT
+            $criterionFactory: '@Ibexa\Migration\Generator\Content\CriterionFactory'
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+
+    Ibexa\Migration\Generator\User\StepBuilder\Create:
+        arguments:
+            $userService: '@ibexa.api.service.user'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.user', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\User\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.user', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\User\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.user', index_by: 'key' }
+            - 'content'
+
+    Ibexa\Migration\Generator\User\CriterionFactory:
+        arguments:
+            $registry: '@ibexa.migrations.generator.criterion_generator.user.registry'
+
+    ibexa.migrations.generator.user:
+        class: Ibexa\Migration\Generator\User\UserMigrationGenerator
+        arguments:
+            $chunkSize: '%ibexa.migrations.default.generator.chunk_size%'
+            $stepFactory: '@Ibexa\Migration\Generator\User\StepBuilder\Factory'
+            $criterionFactory: '@Ibexa\Migration\Generator\User\CriterionFactory'
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+
+    Ibexa\Migration\Generator\UserGroup\UserGroupMigrationGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+        arguments:
+            $userGroupStepFactory: '@Ibexa\Migration\Generator\UserGroup\StepBuilder\Factory'
+
+    Ibexa\Migration\Generator\UserGroup\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.user_group', index_by: 'key' }
+            - 'user_group'
+
+    Ibexa\Migration\Generator\Reference\UserGroupGenerator: ~
+
+    Ibexa\Migration\Generator\UserGroup\StepBuilder\Create:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.user_group', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+    
+    Ibexa\Migration\Generator\UserGroup\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.user_group', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\UserGroup\StepBuilder\Delete:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.user_group', key: !php/const \Ibexa\Migration\Generator\Mode::DELETE }
+
+    Ibexa\Migration\Generator\ObjectState\ObjectStateMigrationGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+        arguments:
+            $objectStateStepFactory: '@Ibexa\Migration\Generator\ObjectState\StepBuilder\Factory'
+
+    Ibexa\Migration\Generator\ObjectState\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.object_state', index_by: 'key' }
+            - 'object_state'
+
+    Ibexa\Migration\Generator\ObjectState\StepBuilder\Create:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.object_state', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\ObjectStateGroup\ObjectStateGroupMigrationGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+        arguments:
+            $objectStateGroupStepFactory: '@Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Factory'
+
+    Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.object_state_group', index_by: 'key' }
+            - 'object_state_group'
+
+    Ibexa\Migration\Generator\ObjectStateGroup\StepBuilder\Create:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.object_state_group', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\Section\SectionMigrationGenerator:
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+        arguments:
+            $sectionStepFactory: '@Ibexa\Migration\Generator\Section\StepBuilder\Factory'
+
+    Ibexa\Migration\Generator\Section\StepBuilder\Factory:
+        arguments:
+            - !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.section', index_by: 'key' }
+            - 'section'
+
+    Ibexa\Migration\Generator\Section\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\SectionGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.section', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\Section\StepBuilder\Update:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\SectionGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.section', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\Reference\SectionGenerator: ~
+    
+    Ibexa\Migration\Generator\StepBuilder\AbstractStepFactory:
+        abstract: true
+
+    Ibexa\Migration\Generator\Reference\LanguageGenerator: ~
+
+    Ibexa\Migration\Generator\Language\LanguageMigrationGenerator:
+        arguments:
+            $languageService: '@ibexa.api.service.language'
+            $languageStepFactory: '@Ibexa\Migration\Generator\Language\StepBuilder\Factory'
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+
+    Ibexa\Migration\Generator\Language\StepBuilder\Factory:
+        arguments:
+            $serviceLocator: !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.language', index_by: 'key' }
+            $type: 'language'
+
+    Ibexa\Migration\Generator\Language\StepBuilder\Create:
+        arguments:
+            - '@Ibexa\Migration\Generator\Reference\LanguageGenerator'
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.language', key: !php/const \Ibexa\Migration\Generator\Mode::CREATE }
+
+    Ibexa\Migration\Generator\Location\LocationMigrationGenerator:
+        arguments:
+            $locationService: '@ibexa.api.service.location'
+            $locationStepFactory: '@Ibexa\Migration\Generator\Location\StepBuilder\Factory'
+            $chunkSize: '%ibexa.migrations.default.generator.chunk_size%'
+        tags:
+            - { name: 'ibexa.migrations.generator' }
+
+    Ibexa\Migration\Generator\Location\StepBuilder\Factory:
+        arguments:
+            $serviceLocator: !tagged_locator { tag: 'ibexa.migrations.generator.step_builder.location', index_by: 'key' }
+            $type: 'location'
+
+    Ibexa\Migration\Generator\Location\StepBuilder\Update:
+        tags:
+            - { name: 'ibexa.migrations.generator.step_builder.location', key: !php/const \Ibexa\Migration\Generator\Mode::UPDATE }
+
+    Ibexa\Migration\Generator\Reference\UserGenerator: ~

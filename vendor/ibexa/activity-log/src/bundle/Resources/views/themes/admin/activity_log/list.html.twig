@@ -1,0 +1,50 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{% block body_class %}ibexa-al{% endblock %}
+{% block content_column_class %}ibexa-al__content-column ibexa-al__content-column--full-width{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'list.breadcrumbs'|trans|desc('Recent Activity') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'list.title'|trans|desc('Recent Activity')
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% set is_simple_list = app.request.get('simple_list') %}
+
+    {{ form_start(search_form, {
+        attr: { class: 'ibexa-al-list-search-form' }
+    }) }}
+        <div class="ibexa-al-list {% if is_simple_list %}ibexa-al-list--simple{% endif %}">
+            <div class="ibexa-al-list__data-grid-wrapper">
+                {% include '@ibexadesign/activity_log/data_grid.html.twig' with {
+                    has_search_bar: not is_simple_list
+                } %}
+            </div>
+
+            {% if not is_simple_list %}
+                <div class="ibexa-al-list__filters-wrapper">
+                    {% include '@ibexadesign/activity_log/filters.html.twig' %}
+                </div>
+            {% endif %}
+        </div>
+    {{ form_end(search_form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-activity-log-list-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-activity-log-list-css', null, 'ibexa') }}
+{% endblock %}

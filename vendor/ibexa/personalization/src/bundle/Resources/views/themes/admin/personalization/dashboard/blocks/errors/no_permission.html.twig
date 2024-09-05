@@ -1,0 +1,12 @@
+{% trans_default_domain 'ibexa_dashboard' %}
+
+<div class="ibexa-db-errors {{ block_class }}">
+    <div class="ibexa-card">
+        <div class="ibexa-card__title">{{ block_name }}</div>
+        {% set error_messsage = 'blocks._all_.no_permissions.body'|trans|desc('You don\'t have permissions to view this block') %}
+        {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+            type: 'error',
+            title: error_messsage,
+        } only %}
+    </div>
+</div>

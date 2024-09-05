@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\Contracts\OAuth2Client\Repository\OAuth2UserService:
+    alias: 'Ibexa\OAuth2Client\Repository\OAuth2UserService'
+    public: true
+
+  Ibexa\OAuth2Client\Repository\OAuth2UserService:
+    arguments:
+      $innerService: '@Ibexa\Contracts\Core\Repository\UserService'
+
+  Ibexa\OAuth2Client\Repository\User\PasswordHashService:
+    decorates: 'Ibexa\Contracts\Core\Repository\PasswordHashService'

@@ -1,0 +1,14 @@
+<div class="ibexa-ca-tucked-menu">
+    <button
+        type="button"
+        class="btn ibexa-btn ibexa-btn--small ibexa-btn--ghost ibexa-btn--no-text ibexa-ca-tucked-menu__btn"
+    >
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('options') }}"></use>
+        </svg>
+    </button>
+
+    {{ include('@ibexadesign/ui/component/popup_menu/popup_menu.html.twig', {
+        items,
+    }) }}
+</div>

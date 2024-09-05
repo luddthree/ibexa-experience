@@ -1,0 +1,2 @@
+parameters:
+    ibexa.commerce.site_access.config.eshop.default.catalog_data_provider: ibexa

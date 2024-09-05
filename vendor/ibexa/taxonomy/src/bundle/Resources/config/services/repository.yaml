@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Repository\Content\Validator\ContentUpdateStructValidator:
+        arguments:
+            $contentMapper: '@Ibexa\Core\Repository\Mapper\ContentMapper'
+        tags:
+            - ibexa.repository.content.validator
+
+    Ibexa\Taxonomy\Repository\Content\Validator\ContentCreateStructValidator:
+        arguments:
+            $contentMapper: '@Ibexa\Core\Repository\Mapper\ContentMapper'
+        tags:
+            - ibexa.repository.content.validator
+
+    Ibexa\Taxonomy\Repository\Content\ContentSynchronizer: ~
+
+    Ibexa\Taxonomy\Repository\Content\ContentSynchronizerInterface: '@Ibexa\Taxonomy\Repository\Content\ContentSynchronizer'

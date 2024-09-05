@@ -1,0 +1,19 @@
+name: Browser tests
+
+on:
+    push:
+        branches:
+            - main
+            - '[0-9]+.[0-9]+'
+    pull_request: ~
+
+jobs:
+    content-forms:
+        name: "Content Forms browser tests"
+        uses: ibexa/gh-workflows/.github/workflows/browser-tests.yml@main
+        with:
+            project-edition: 'oss'
+            test-suite:  '--mode=standard --profile=content-forms --tags=~@broken --non-strict'
+            test-setup-phase-1: '--mode=standard --profile=setup-content-forms'
+        secrets:
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

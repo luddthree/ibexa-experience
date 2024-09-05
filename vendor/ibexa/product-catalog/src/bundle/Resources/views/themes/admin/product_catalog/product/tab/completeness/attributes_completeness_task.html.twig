@@ -1,0 +1,15 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% block attributes_completeness_task %}
+    {% set completeness = task.getEntry(product).completeness %}
+    {% set progress_value = completeness.getValue() %}
+    {% set progress_value_label = completeness.getValueAsFloat()|format_percent_number %}
+    {% set title = 'product.view.completeness.attributes.title'|trans|desc('Attributes') %}
+
+    {% include '@ibexadesign/product_catalog/ui/component/completeness_task.html.twig' with {
+        title,
+        progress_value,
+        progress_value_label,
+        id: 'ibexa-attributes-completeness-task',
+    } %}
+{% endblock %}

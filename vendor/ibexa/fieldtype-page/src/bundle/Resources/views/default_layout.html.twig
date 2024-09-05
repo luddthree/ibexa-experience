@@ -1,0 +1,19 @@
+<div class="landing-page__zones">
+    <div class="landing-page__zone landing-page__zone--{{ zones[0].id }}" data-ibexa-zone-id="{{ zones[0].id }}">
+        {% if zones[0].blocks %}
+            {% set locationId = parameters.location is not null ? parameters.location.id : contentInfo.mainLocationId %}
+
+            {% for block in zones[0].blocks %}
+                <div class="landing-page__block" data-ez-block-id="{{ block.id }}">
+                    {{ render_esi(controller('Ibexa\\Bundle\\FieldTypePage\\Controller\\BlockController::renderAction', {
+                        'locationId': locationId,
+                        'contentId': contentInfo.id,
+                        'blockId': block.id,
+                        'versionNo': versionInfo.versionNo,
+                        'languageCode': field.languageCode
+                    })) }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

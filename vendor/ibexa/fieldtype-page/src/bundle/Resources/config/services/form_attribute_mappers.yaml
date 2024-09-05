@@ -1,0 +1,143 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypePage\FieldType\Page\Registry\AttributeFormTypeMapperRegistry: ~
+
+    ibexa.page_builder.attribute_form_type_mapper.string:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeStringType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: string }
+
+    ibexa.page_builder.attribute_form_type_mapper.checkbox:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\CheckboxFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeCheckboxType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: checkbox }
+
+    ibexa.page_builder.attribute_form_type_mapper.text:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeTextType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: text }
+
+    ibexa.page_builder.attribute_form_type_mapper.integer:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeIntegerType
+            $mergeOptions: true
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: integer }
+
+    ibexa.page_builder.attribute_form_type_mapper.url:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeUrlType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: url }
+
+    ibexa.page_builder.attribute_form_type_mapper.embed:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeEmbedType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: embed }
+
+    ibexa.page_builder.attribute_form_type_mapper.embed_video:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeEmbedVideoType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: embedvideo }
+
+    ibexa.page_builder.attribute_form_type_mapper.multiple:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericChoiceFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeMultipleType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: multiple }
+
+    ibexa.page_builder.attribute_form_type_mapper.radio:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericChoiceFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeRadioType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: radio }
+
+    ibexa.page_builder.attribute_form_type_mapper.user_choice:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\GenericFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\AdminUi\Form\Type\UserChoiceType
+            $mergeOptions: true
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: Ibexa\AdminUi\Form\Type\UserChoiceType }
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\RichTextFormTypeMapper:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\RichTextFormTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FieldTypePage\Form\Type\BlockAttribute\AttributeRichTextType
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: richtext }
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\SelectFormTypeMapper:
+        arguments:
+            $mergeOptions: true
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: select }
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\LocationListFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: locationlist }
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\ContentTypeListFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: contenttypelist }
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\NestedAttributeFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: nested_attribute}
+
+    #
+    # Schedule Block
+    #
+
+    ibexa.page_builder.attribute_form_type_mapper.schedule.events:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\ScheduleAttributeFormTypeMapper
+        arguments:
+            $attributeIdentifier: events
+        tags:
+        - { name: ibexa.page_builder.form_type_attribute.mapper, alias: schedule_events }
+
+    ibexa.page_builder.attribute_form_type_mapper.schedule.snapshots:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\ScheduleAttributeFormTypeMapper
+        arguments:
+            $attributeIdentifier: snapshots
+        tags:
+        - { name: ibexa.page_builder.form_type_attribute.mapper, alias: schedule_snapshots }
+
+    ibexa.page_builder.attribute_form_type_mapper.schedule.initial_items:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\ScheduleAttributeFormTypeMapper
+        arguments:
+            $attributeIdentifier: initial_items
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: schedule_initial_items }
+
+    ibexa.page_builder.attribute_form_type_mapper.schedule.slots:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\ScheduleAttributeFormTypeMapper
+        arguments:
+            $attributeIdentifier: slots
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: schedule_slots }
+
+    ibexa.page_builder.attribute_form_type_mapper.schedule.loaded_snapshot:
+        class: Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\FormTypeMapper\ScheduleAttributeFormTypeMapper
+        arguments:
+            $attributeIdentifier: loaded_snapshot
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: schedule_loaded_snapshot }

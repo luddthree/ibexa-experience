@@ -1,0 +1,37 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+        # Low priority makes user-defined normalizers go first
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    _instanceof:
+        Ibexa\Bundle\Migration\Serializer\Denormalizer\StepNormalizerInterface:
+            tags:
+                - { name: 'ibexa.migrations.serializer.step_normalizer', priority: -100 }
+
+    Ibexa\Bundle\Segmentation\Serializer\Denormalizer\Segment\Action\AssignToUserActionDenormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Segment\Action\AssignToUserActionNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Denormalizer\Segment\Action\UnassignFromUserActionDenormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Segment\Action\UnassignFromUserActionNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Segment\MatcherNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Step\SegmentCreateStepNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Step\SegmentUpdateStepNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Step\SegmentDeleteStepNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\SegmentGroup\MatcherNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Step\SegmentGroupCreateStepNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Step\SegmentGroupUpdateStepNormalizer: ~
+
+    Ibexa\Bundle\Segmentation\Serializer\Normalizer\Step\SegmentGroupDeleteStepNormalizer: ~

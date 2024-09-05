@@ -1,0 +1,61 @@
+parameters:
+    ibexa.taxonomy.taxonomies: []
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Domain Mappers
+    #
+    Ibexa\Taxonomy\Mapper\EntryDomainMapper: ~
+
+    Ibexa\Taxonomy\Mapper\EntryDomainMapperInterface: '@Ibexa\Taxonomy\Mapper\EntryDomainMapper'
+
+    Ibexa\Taxonomy\Mapper\EntryAssignmentDomainMapper: ~
+
+    Ibexa\Taxonomy\Mapper\EntryAssignmentDomainMapperInterface: '@Ibexa\Taxonomy\Mapper\EntryAssignmentDomainMapper'
+
+    #
+    # Services
+    #
+    Ibexa\Taxonomy\Service\TaxonomyService:
+        arguments:
+            $entityManager: '@ibexa.doctrine.orm.entity_manager'
+
+    Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface: '@Ibexa\Taxonomy\Service\TaxonomyService'
+
+    Ibexa\Taxonomy\Service\Event\TaxonomyService:
+        decorates: Ibexa\Contracts\Taxonomy\Service\TaxonomyServiceInterface
+
+    Ibexa\Taxonomy\Service\TaxonomyEntryAssignmentService:
+        arguments:
+            $entityManager: '@ibexa.doctrine.orm.entity_manager'
+
+    Ibexa\Contracts\Taxonomy\Service\TaxonomyEntryAssignmentServiceInterface: '@Ibexa\Taxonomy\Service\TaxonomyEntryAssignmentService'
+
+    # Decorators
+    Ibexa\Taxonomy\Service\Decorator\SearchEngineIndexerTaxonomyEntryAssignmentServiceDecorator:
+        decorates: Ibexa\Taxonomy\Service\TaxonomyEntryAssignmentService
+        arguments:
+            $innerService: '@.inner'
+            $searchHandler: '@ibexa.spi.search'
+            $persistenceHandler: '@ibexa.api.persistence_handler'
+
+    #
+    # Tree
+    #
+    Ibexa\Taxonomy\Tree\TaxonomyTreeService: ~
+
+    Ibexa\Taxonomy\Tree\TaxonomyTreeServiceInterface: '@Ibexa\Taxonomy\Tree\TaxonomyTreeService'
+
+    Ibexa\Taxonomy\Tree\TreeNodeMapper: ~
+
+    #
+    # Misc.
+    #
+    Ibexa\Taxonomy\Service\TaxonomyConfiguration:
+        arguments:
+            $config: '%ibexa.taxonomy.taxonomies%'

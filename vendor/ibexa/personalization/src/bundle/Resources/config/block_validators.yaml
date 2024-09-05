@@ -1,0 +1,2 @@
+block_validators:
+    output_type: 'Ibexa\Personalization\Validator\Constraints\OutputType'

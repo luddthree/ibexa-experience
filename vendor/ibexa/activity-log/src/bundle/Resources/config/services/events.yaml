@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\PostActivityListLoad\ContentActivity: ~
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\PostActivityListLoad\UserActivity: ~
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\SourceListener\MigrationEventSubscriber: ~
+
+    Ibexa\Bundle\ActivityLog\EventSubscriber\SourceListener\WebRequestEventSubscriber: ~
+
+    Ibexa\Bundle\ActivityLog\Event\ContentEventsListener: ~
+
+    Ibexa\Bundle\ActivityLog\Event\LocationEventsListener: ~
+
+    Ibexa\Bundle\ActivityLog\Event\ProductEventsListener: ~
+
+    Ibexa\Bundle\ActivityLog\Event\ProductVariantEventsListener: ~

@@ -1,0 +1,198 @@
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: f3e90596361e31d496d4026eb624c983
+    metadata:
+        remoteId: f3e90596361e31d496d4026eb624c983
+        priority: 0
+        sortField: 8
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 3f6d92f8044aed134f32153517850f5a
+    metadata:
+        remoteId: 3f6d92f8044aed134f32153517850f5a
+        priority: 0
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 75c715a51699d2d309a924eca6a95145
+    metadata:
+        remoteId: 75c715a51699d2d309a924eca6a95145
+        priority: 0
+        sortField: 9
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 182ce1b5af0c09fa378557c462ba2617
+    metadata:
+        remoteId: 182ce1b5af0c09fa378557c462ba2617
+        priority: 0
+        sortField: 9
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 79f2d67372ab56f59b5d65bb9e0ca3b9
+    metadata:
+        remoteId: 79f2d67372ab56f59b5d65bb9e0ca3b9
+        priority: 0
+        sortField: 2
+        sortOrder: 0
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 602dcf84765e56b7f999eaafd3821dd3
+    metadata:
+        remoteId: 602dcf84765e56b7f999eaafd3821dd3
+        priority: 0
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 769380b7aa94541679167eab817ca893
+    metadata:
+        remoteId: 769380b7aa94541679167eab817ca893
+        priority: 50
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: f7dda2854fc68f7c8455d9cb14bd04a9
+    metadata:
+        remoteId: f7dda2854fc68f7c8455d9cb14bd04a9
+        priority: 25
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 4fdf0072da953bb276c0c7e0141c5c9b
+    metadata:
+        remoteId: 4fdf0072da953bb276c0c7e0141c5c9b
+        priority: 0
+        sortField: 9
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 1b26c0454b09bb49dfb1b9190ffd67cb
+    metadata:
+        remoteId: 1b26c0454b09bb49dfb1b9190ffd67cb
+        priority: 0
+        sortField: 9
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 0b113a208f7890f9ad3c24444ff5988c
+    metadata:
+        remoteId: 0b113a208f7890f9ad3c24444ff5988c
+        priority: 0
+        sortField: 9
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 4f18b82c75f10aad476cae5adf98c11f
+    metadata:
+        remoteId: 4f18b82c75f10aad476cae5adf98c11f
+        priority: 0
+        sortField: 9
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: fa9f3cff9cf90ecfae335718dcbddfe2
+    metadata:
+        remoteId: fa9f3cff9cf90ecfae335718dcbddfe2
+        priority: 0
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 772da20ecf88b3035d73cbdfcea0f119
+    metadata:
+        remoteId: 772da20ecf88b3035d73cbdfcea0f119
+        priority: 0
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 86bf306624668ee9b8b979b0d56f7e0d
+    metadata:
+        remoteId: 86bf306624668ee9b8b979b0d56f7e0d
+        priority: -2
+        sortField: 8
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 66994c2fce0fd2a1c7ecce7115158971
+    metadata:
+        remoteId: 66994c2fce0fd2a1c7ecce7115158971
+        priority: 0
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: e5161a99f733200b9ed4e80f9c16187b
+    metadata:
+        remoteId: e5161a99f733200b9ed4e80f9c16187b
+        priority: 0
+        sortField: 1
+        sortOrder: 1
+-
+    type: location
+    mode: update
+    match:
+        field: location_remote_id
+        value: 2cf8343bee7b482bab82b269d8fecd76
+    metadata:
+        remoteId: 2cf8343bee7b482bab82b269d8fecd76
+        priority: 0
+        sortField: 9
+        sortOrder: 1

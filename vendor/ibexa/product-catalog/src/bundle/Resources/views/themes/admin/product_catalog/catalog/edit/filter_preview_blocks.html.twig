@@ -1,0 +1,43 @@
+{% block catalog_criteria_product_type_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_choice.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_code_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_taggify.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_availability_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_radio.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_base_price_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_price.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_created_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_daterange.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_attribute_selection_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_choice.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_attribute_checkbox_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_radio.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_attribute_integer_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_number_range.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_attribute_float_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_number_range.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_category_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_taxonomy.html.twig' with { criteria } %}
+{% endblock %}
+
+{% block catalog_criteria_product_attribute_color_values %}
+    {% include '@ibexadesign/product_catalog/catalog/edit/list_filter_taggify.html.twig' with { criteria } %}
+{% endblock %}

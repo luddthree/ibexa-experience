@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\PageBuilder\FormTypeMapper\SegmentContentMapFormTypeMapper:
+        tags:
+            - { name: ibexa.page_builder.form_type_attribute.mapper, alias: segment_content_map }

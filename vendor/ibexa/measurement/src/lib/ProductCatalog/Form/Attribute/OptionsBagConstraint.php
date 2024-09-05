@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\Measurement\ProductCatalog\Form\Attribute;
+
+use Symfony\Component\Validator\Constraints\Collection;
+
+/**
+ * @Annotation
+ */
+final class OptionsBagConstraint extends Collection
+{
+}

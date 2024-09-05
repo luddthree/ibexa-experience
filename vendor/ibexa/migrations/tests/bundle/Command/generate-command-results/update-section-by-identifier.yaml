@@ -1,0 +1,13 @@
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: standard
+    metadata:
+        identifier: standard
+        name: Standard
+    references:
+        -
+            name: ref__section__1__section_id
+            type: section_id

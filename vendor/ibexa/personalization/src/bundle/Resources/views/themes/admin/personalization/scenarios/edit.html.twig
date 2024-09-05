@@ -1,0 +1,77 @@
+{% extends '@ibexadesign/ui/edit_base.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% if scenario_form %}
+    {% form_theme scenario_form '@ibexadesign/personalization/scenarios/form_fields/edit.html.twig' %}
+{% endif %}
+
+{% set anchor_params = {
+    items: [
+        'scenario.create.anchor_navigation.general'|trans|desc('General'),
+        'scenario.create.anchor_navigation.strategy'|trans|desc('Strategy'),
+    ],
+} %}
+
+{% block header %}
+    {% set url_create_sidebar_right = knp_menu_get('ibexa_personalization.menu.scenario_edit.sidebar_right', [], {
+        'reference_code': scenario.referenceCode,
+        'customer_id': customer_id
+    }) %}
+
+    {% embed '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'scenario.action_name.editing'|trans|desc('Editing'),
+        title: scenario.title,
+        icon_name: 'landingpage-preview',
+        context_actions: knp_menu_render(url_create_sidebar_right, { 'template': '@ibexadesign/ui/menu/context_menu.html.twig' }),
+        show_extra_bottom_content: scenario_form.vars.errors.count() > 0,
+    } %}
+        {% block extra_bottom_content %}
+            {% if scenario and scenario_form %}
+                {% for error in scenario_form.vars.errors %}
+                    {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                        type: 'info',
+                        title: error.message,
+                    } only %}
+                {% endfor %}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(scenario_form, {
+        attr: { class: 'ibexa-perso-scenario-edit ibexa-scenario-edit-form ibexa-form-validate' }
+    }) }}
+        <div class="ibexa-edit-content__container">
+            {% embed "@ibexadesign/ui/edit_section.html.twig" with {
+                section_id: '#General',
+                is_active: true,
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/personalization/scenarios/tabs/general_edit.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+
+        <div class="ibexa-edit-content__container ibexa-edit-content__container--wide">
+            {% embed "@ibexadesign/ui/edit_section.html.twig" with { section_id: '#Strategy' } %}
+                {% block content %}
+                    {% include '@ibexadesign/personalization/scenarios/tabs/strategy_edit.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    {{ form_end(scenario_form) }}
+    {% include '@ibexadesign/personalization/scenarios/parts/remove_scenario_modal.html.twig' %}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('ibexa-personalization-scenarios-edit-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}

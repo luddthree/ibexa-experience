@@ -1,0 +1,30 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% set body_rows = [] %}
+{% if pager %}
+    {% for product in pager.currentPageResults %}
+        {% set body_rows = body_rows|merge([{ cols: [
+            { content: product.item.title ?? product.item.id },
+            { content: product.timeRecommended|ibexa_short_datetime },
+            { content: product.quantity and product.price
+                ? "#{product.quantity} x #{product.price} #{product.currency}"
+                : '-' },
+        ] }]) %}
+    {% endfor %}
+{% endif %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    head_cols: [
+        { content: 'ibexa_personalization.dashboard.item_bought'|trans|desc('Item bought') },
+        { content: 'ibexa_personalization.dashboard.date_of_purchase'|trans|desc('Date of purchase') },
+        { content: 'ibexa_personalization.dashboard.price'|trans|desc('Price') },
+    ],
+    body_rows,
+    empty_table_info_text: 'ibexa_personalization.dashboard.no_products_purchased'|trans|desc('No products purchased'),
+} only %}
+
+{% if pager and pager.haveToPaginate %}
+    {% include '@ibexadesign/ui/pagination.html.twig' with {
+        'pager': pager
+    } %}
+{% endif %}

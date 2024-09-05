@@ -1,0 +1,41 @@
+{% for type in seo_types %}
+    <div class="ibexa-details">
+        <div class="ibexa-details__header">
+            <div class="ibexa-table-header ">
+                {% set type_label = ('type.' ~ type.type)|trans({}, 'ibexa_seo_types')|desc(type.label) %}
+                <div class="ibexa-table-header__headline" title="" data-bs-original-title="{{- type_label -}}">
+                    {{- type_label -}}
+                </div>
+            </div>
+        </div>
+
+        {% for field in type.fields %}
+            <div class="ibexa-details__items">
+                <div class="ibexa-details__item">
+                    <div class="ibexa-label ibexa-details__item-label">
+                        {{- ('type.' ~ type.type ~ '.field.' ~ field.name)|trans({}, 'ibexa_seo_types')|desc(field.label) -}}
+                    </div>
+                    <div class="ibexa-details__item-content">
+                        <input class="ibexa-input ibexa-input--text ibexa-input--small form-control" value="{{ field.value.base }}" disabled />
+                    </div>
+                </div>
+                <div class="ibexa-details__item">
+                    <div class="ibexa-label ibexa-details__item-label">
+                        {{- 'content.preview.label.resolved'|trans({}, 'ibexa_seo_content_view')|desc('resolved') -}}
+                    </div>
+                    <div class="ibexa-details__item-content">
+                        <input class="ibexa-input ibexa-input--text ibexa-input--small form-control" value="{{ field.value.resolved }}" disabled />
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="ibexa-details__items">
+            <div class="ibexa-details__item">
+                {% if type.template is not null %}
+                    {% include type.template with { type, content } only %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}

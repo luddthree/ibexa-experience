@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Validator\Constraints\HostnameWithOptionalPortValidator: ~
+
+    Ibexa\Bundle\SiteFactory\Validator\Constraints\PortValidator: ~
+

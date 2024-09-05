@@ -1,0 +1,27 @@
+<div
+    class="
+        ibexa-pc-edit-catalog-list-filter
+        {% if is_empty_filter|default(false) %}ibexa-pc-edit-catalog-list-filter--hidden{% endif %}
+    "
+    data-filter-name="{{ criteria.vars.name }}"
+    data-tag-template="{{ include('@ibexadesign/ui/tag.html.twig', {
+        content: '{{ content }}',
+        is_loading_state: false,
+        is_deletable: not is_filter_preview,
+        tag_attributes: {
+            class: 'ibexa-pc-edit-catalog-list-filter-tag',
+        }
+    })|e('html_attr') }}"
+>
+    <div class="ibexa-pc-edit-catalog-list-filter__name">{{ criteria.vars.label|trans({}, criteria.vars.translation_domain) }}</div>
+    <div class="ibexa-pc-edit-catalog-list-filter__tags">
+        {% block content %}{% endblock %}
+    </div>
+    <button
+        type="button"
+        class="
+            btn ibexa-btn ibexa-btn--small ibexa-btn--tertiary
+            ibexa-pc-edit-catalog-list-filter__tags-toggler-btn ibexa-pc-edit-catalog-list-filter__tags-toggler-btn--hidden
+        "
+    ></button>
+</div>

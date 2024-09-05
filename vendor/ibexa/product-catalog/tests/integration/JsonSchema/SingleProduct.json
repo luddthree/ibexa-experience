@@ -1,0 +1,241 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "products": {
+                    "type": "object",
+                    "properties": {
+                        "single": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "type": "string"
+                                },
+                                "productType": {
+                                    "type": "object",
+                                    "properties": {
+                                        "identifier": {
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "identifier",
+                                        "name"
+                                    ]
+                                },
+                                "thumbnail": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_media-type": {
+                                            "type": "string"
+                                        },
+                                        "resource": {
+                                            "type": "string"
+                                        },
+                                        "width": {
+                                            "oneOf": [
+                                                {"type": "number"}, {"type": "null"}
+                                            ]
+                                        },
+                                        "height": {
+                                            "oneOf": [
+                                                {"type": "number"}, {"type": "null"}
+                                            ]
+                                        },
+                                        "mimeType": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "createdAt": {
+                                    "type": "object",
+                                    "properties": {
+                                        "format": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "format"
+                                    ]
+                                },
+                                "updatedAt": {
+                                    "type": "object",
+                                    "properties": {
+                                        "format": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "format"
+                                    ]
+                                },
+                                "fields": {
+                                    "type": "object",
+                                    "properties": {
+                                        "_all": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "fieldDefIdentifier": {
+                                                            "type": "string"
+                                                        },
+                                                        "value": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "fieldDefIdentifier",
+                                                        "value"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "_all"
+                                    ]
+                                },
+                                "_content": {
+                                    "type": "object",
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "contentTypeId": {
+                                            "type": "integer"
+                                        },
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "section": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "identifier": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "identifier",
+                                                "name"
+                                            ]
+                                        },
+                                        "currentVersionNo": {
+                                            "type": "integer"
+                                        },
+                                        "currentVersion": {
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "name"
+                                            ]
+                                        },
+                                        "ownerId": {
+                                            "type": "integer"
+                                        },
+                                        "locations": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "contentId": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "contentId"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        "relations": {
+                                            "type": "array",
+                                            "items": {}
+                                        },
+                                        "states": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "identifier": {
+                                                            "type": "string"
+                                                        },
+                                                        "priority": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "identifier",
+                                                        "priority"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "id",
+                                        "contentTypeId",
+                                        "name",
+                                        "section",
+                                        "currentVersionNo",
+                                        "currentVersion",
+                                        "ownerId",
+                                        "locations",
+                                        "relations",
+                                        "states"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "code",
+                                "name",
+                                "productType",
+                                "thumbnail",
+                                "createdAt",
+                                "updatedAt",
+                                "fields",
+                                "_content"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "single"
+                    ]
+                }
+            },
+            "required": [
+                "products"
+            ]
+        }
+    },
+    "required": [
+        "data"
+    ]
+}

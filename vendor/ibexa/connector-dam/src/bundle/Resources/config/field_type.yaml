@@ -1,0 +1,60 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Connector\Dam\FieldType\ImageAsset\Type:
+        decorates: Ibexa\Core\FieldType\ImageAsset\Type
+        arguments:
+            $innerFieldType: '@.inner'
+        tags:
+            - { name: ibexa.field_type, alias: ezimageasset }
+
+    Ibexa\Connector\Dam\FieldType\ImageAsset\SearchField:
+        tags:
+            - { name: ibexa.field_type.indexable, alias: ezimageasset }
+
+    Ibexa\Connector\Dam\Form\FieldType\ImageAssetFieldType:
+        decorates: Ibexa\ContentForms\Form\Type\FieldType\ImageAssetFieldType
+        arguments:
+            $innerType: '@.inner'
+            $assetMapper: '@Ibexa\Core\FieldType\ImageAsset\AssetMapper'
+            $maxUploadSize: '@Ibexa\ContentForms\ConfigResolver\MaxUploadSize'
+            $configurationResolver: '@ibexa.config.resolver'
+        tags:
+            - { name: 'form.type' }
+
+    Ibexa\Connector\Dam\Persistance\FieldValue\ImageAssetConverter:
+        decorates: Ibexa\Core\Persistence\Legacy\Content\FieldValue\Converter\ImageAssetConverter
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: ezimageasset }
+
+    Ibexa\Connector\Dam\FieldType\ImageAsset\Mapper\FormMapper:
+        decorates: Ibexa\ContentForms\FieldType\Mapper\ImageAssetFormMapper
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezimageasset }
+
+    Ibexa\Connector\Dam\View\ParameterProvider\ExternalAssetParameterProvider:
+        decorates: ibexa.field_type.ezimageasset.parameterProvider
+        arguments:
+            $innerProvider: '@Ibexa\Connector\Dam\View\ParameterProvider\ExternalAssetParameterProvider.inner'
+            $fieldTypeService: '@ibexa.api.service.field_type'
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+        tags:
+            - { name: ibexa.field_type.view.parameter.provider, alias: ezimageasset }
+
+    Ibexa\Connector\Dam\FieldType\ImageAsset\ExternalAssetThumbnailStrategy:
+        decorates: Ibexa\Core\FieldType\ImageAsset\ImageAssetThumbnailStrategy
+        arguments:
+            $innerImageAssetThumbnailStrategy: '@.inner'
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+            $transformationFactoryRegistry: '@Ibexa\Connector\Dam\Variation\DefaultTransformationFactoryRegistry'
+            $assetVariationGeneratorRegistry: '@Ibexa\Connector\Dam\Variation\DefaultAssetVariationGeneratorRegistry'
+            $variationName: 'medium'
+
+    Ibexa\Connector\Dam\FieldType\ImageAsset\Mapper\DAMImageAssetMapperStrategy:
+        arguments:
+            $assetService: '@Ibexa\Connector\Dam\AssetService'
+        tags:
+            - { name: ibexa.field_type.image_asset.mapper.strategy, priority: 10 }

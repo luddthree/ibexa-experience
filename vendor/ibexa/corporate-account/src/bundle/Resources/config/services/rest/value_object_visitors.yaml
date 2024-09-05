@@ -1,0 +1,50 @@
+services:
+    _defaults:
+        autoconfigure: true
+        public: false
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\InputValidationFailedException:
+        parent: Ibexa\Rest\Server\Output\ValueObjectVisitor\BadRequestException
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Exception\InputValidationFailedException }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\CompanyList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\CompanyList }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\Company:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        autowire: true
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\Company }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\Member:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        autowire: true
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\Member }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\MemberList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        autowire: true
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\MemberList }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\SalesRepresentativesList:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        autowire: true
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\SalesRepresentativesList }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\CorporateAccountRoot:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        autowire: true
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\CorporateAccountRoot }
+
+    Ibexa\CorporateAccount\REST\Output\ValueObjectVisitor\Link:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        autowire: true
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\CorporateAccount\REST\Value\Link }

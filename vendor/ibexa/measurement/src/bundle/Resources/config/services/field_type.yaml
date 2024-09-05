@@ -1,0 +1,57 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Measurement\FieldType\MeasurementType:
+        parent: Ibexa\Core\FieldType\FieldType
+        arguments:
+            $measurementTypes: '@Ibexa\Contracts\Measurement\ConfigResolver\MeasurementTypesInterface'
+            $measurementService: '@Ibexa\Contracts\Measurement\MeasurementServiceInterface'
+        tags:
+            - { name: ibexa.field_type, alias: !php/const \Ibexa\Measurement\FieldType\MeasurementType::IDENTIFIER }
+
+    Ibexa\Measurement\FieldType\MeasurementValueConverter:
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: !php/const \Ibexa\Measurement\FieldType\MeasurementType::IDENTIFIER }
+
+    Ibexa\Bundle\Measurement\EventSubscriber\BuildSchemaSubscriber: ~
+
+    Ibexa\Bundle\Measurement\EventSubscriber\Migrations\ProductAttributeConversionSubscriber: ~
+
+    Ibexa\Measurement\FieldType\Storage\MeasurementValueStorage:
+        tags:
+            - { name: ibexa.field_type.storage.external.handler, alias: !php/const \Ibexa\Measurement\FieldType\MeasurementType::IDENTIFIER }
+
+    Ibexa\Measurement\FieldType\Storage\MeasurementValueStorageGatewayInterface:
+        alias: Ibexa\Measurement\FieldType\Storage\Gateway\MeasurementValueStorageGateway
+
+    Ibexa\Measurement\FieldType\Storage\Gateway\MeasurementValueStorageGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Measurement\FieldType\Mapper\MeasurementFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: !php/const \Ibexa\Measurement\FieldType\MeasurementType::IDENTIFIER }
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: !php/const \Ibexa\Measurement\FieldType\MeasurementType::IDENTIFIER }
+
+    Ibexa\Measurement\Form\Type\MeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\Form\Type\FieldType\MeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\Form\Type\FieldType\RangeMeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\Form\Type\FieldType\SingleMeasurementType:
+        tags:
+            - { name: form.type }
+
+    Ibexa\Measurement\FieldType\MeasurementSearchField:
+        tags:
+            - { name: ibexa.field_type.indexable, alias: !php/const \Ibexa\Measurement\FieldType\MeasurementType::IDENTIFIER }

@@ -1,0 +1,28 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\FormBuilder\Controller\:
+        resource: "../../../Controller/*"
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        autoconfigure: false
+        public: true
+
+    Ibexa\Bundle\FormBuilder\Controller\FormSubmissionController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        autoconfigure: false
+        public: true
+        arguments:
+            $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+
+    Ibexa\Bundle\FormBuilder\Controller\CaptchaController:
+        autowire: true
+        autoconfigure: false
+        public: true
+        arguments:
+            $captchaOptions: '%gregwar_captcha.config%'
+            $captchaGenerator: '@gregwar_captcha.generator'

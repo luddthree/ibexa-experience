@@ -1,0 +1,10 @@
+<div class="ibexa-db-review-queue {{ block_class }}">
+    {{ ibexa_render_component(
+        'Ibexa\\Workflow\\Dashboard\\Block\\ReviewQueueBlock',
+        'dashboard-blocks',
+        {
+            pager_options: { routeName: 'ibexa.dashboard' },
+            review_queue_title: block_name
+        },
+    ) }}
+</div>

@@ -1,0 +1,17 @@
+ibexa:
+    http_cache:
+        purge_type: local
+    repositories:
+        default:
+            search:
+                engine: '%env(SEARCH_ENGINE)%'
+                connection: default
+    siteaccess:
+        groups:
+            admin_group: []
+    system:
+        default:
+            languages:
+                - eng-US
+                - eng-GB
+                - ger-DE

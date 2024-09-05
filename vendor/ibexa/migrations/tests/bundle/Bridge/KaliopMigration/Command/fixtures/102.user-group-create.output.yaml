@@ -1,0 +1,46 @@
+-
+    type: user_group
+    mode: create
+    metadata:
+        contentTypeIdentifier: user_group
+        mainLanguage: eng-GB
+        parentGroupId: 42
+        remoteId: editors_uk
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: Editors_UK
+        -
+            fieldDefIdentifier: description
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: 'Editors UK'
+    actions:
+        -
+            action: assign_user_group_to_role
+            identifier: Editor
+-
+    type: user_group
+    mode: create
+    metadata:
+        contentTypeIdentifier: user_group
+        mainLanguage: eng-GB
+        parentGroupId: 42
+        remoteId: editors_uk_2
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: Editors_UK_2
+        -
+            fieldDefIdentifier: description
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-GB
+            value: 'Editors UK_2'
+    actions:
+        -
+            action: assign_user_group_to_role
+            id: 1

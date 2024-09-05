@@ -1,0 +1,144 @@
+-
+    type: role
+    mode: create
+    metadata:
+        identifier: Editor
+    policies:
+        -
+            module: user
+            function: login
+        -
+            module: ezoe
+            function: '*'
+        -
+            module: ezoe
+            function: '*'
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [file, product, feedback_form, landing_page, article, blog, poll, wiki_page, gallery, forum, forums, event_calendar, banner, image, folder, link]
+                -
+                    identifier: ParentClass
+                    values: [folder]
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [blog_post]
+                -
+                    identifier: ParentClass
+                    values: [blog]
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [forum_topic]
+                -
+                    identifier: ParentClass
+                    values: [forum]
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [event]
+                -
+                    identifier: ParentClass
+                    values: [event_calendar]
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: Class
+                    values: [image]
+                -
+                    identifier: ParentClass
+                    values: [gallery]
+        -
+            module: content
+            function: create
+            limitations:
+                -
+                    identifier: ParentClass
+                    values: [landing_page]
+                -
+                    identifier: Class
+                    values: [forums, event_calendar, gallery, wiki_page, landing_page, feedback_form, link, folder]
+        -
+            module: websitetoolbar
+            function: use
+            limitations:
+                -
+                    identifier: Class
+                    values: [forums, folder, link, article, blog, blog_post, product, feedback_form, landing_page, wiki_page, poll, file, image, gallery, forum, event, event_calendar]
+        -
+            module: content
+            function: edit
+        -
+            module: content
+            function: read
+            limitations:
+                -
+                    identifier: Section
+                    values: [standard, '', media]
+        -
+            module: notification
+            function: use
+        -
+            module: content
+            function: manage_locations
+        -
+            module: ezodf
+            function: '*'
+        -
+            module: ezflow
+            function: '*'
+        -
+            module: ezajax
+            function: '*'
+        -
+            module: content
+            function: diff
+        -
+            module: content
+            function: versionread
+        -
+            module: content
+            function: versionremove
+        -
+            module: content
+            function: remove
+        -
+            module: content
+            function: translate
+        -
+            module: rss
+            function: feed
+        -
+            module: content
+            function: bookmark
+        -
+            module: content
+            function: pendinglist
+        -
+            module: content
+            function: dashboard
+        -
+            module: content
+            function: view_embed
+        -
+            module: content
+            function: publish
+    references:
+        -
+            name: ref__role__3__role_id
+            type: role_id

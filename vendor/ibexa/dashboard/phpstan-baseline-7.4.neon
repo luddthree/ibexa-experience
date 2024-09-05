@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^PHPDoc tag @throws with type Exception\\|Psr\\\\Cache\\\\InvalidArgumentException is not subtype of Throwable$#"
+			count: 1
+			path: src/lib/News/CachedFeed.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Exceptions\\\\InvalidArgumentException\\|Ibexa\\\\Dashboard\\\\News\\\\FeedException\\|Psr\\\\Cache\\\\InvalidArgumentException is not subtype of Throwable$#"
+			count: 2
+			path: tests/lib/News/CachedFeedTest.php

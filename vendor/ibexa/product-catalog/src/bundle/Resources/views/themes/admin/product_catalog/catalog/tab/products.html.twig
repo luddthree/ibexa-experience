@@ -1,0 +1,60 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% set default_headline = results_headline(products|length) %}
+{% set headline = custom_results_headline ?? default_headline %}
+
+{% block content %}
+    <div class="ibexa-pc-details-catalog-tab-products">
+        {% block list_search %}
+            {% include '@ibexadesign/product_catalog/search_form.html.twig' with {
+                is_inside_tabs: true,
+            } %}
+        {% endblock %}
+
+        <div class="ibexa-pc-data-grid">
+            {% block data_grid %}
+                {% set search_query = search_form.vars.value.getQuery() ?? null %}
+                {% set default_headline = results_headline(products|length, false, search_query) %}
+                {% set headline = custom_results_headline ?? default_headline %}
+
+                {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+                    headline: 'tab.products.filter_settings.title'|trans|desc('Filter settings'),
+                    class: 'ibexa-pc-details-catalog-tab-products__filter-settings-title',
+                } %}
+
+                <div class="ibexa-pc-edit-catalog-products__list-filters">
+                    {% for criteria in catalog_form.criteria %}
+                        {% include '@ibexadesign/product_catalog/catalog/edit/list_filter.html.twig' with {
+                            criteria,
+                            is_filter_preview: true,
+                        } %}
+                    {% endfor %}
+                </div>
+
+                {% include '@ibexadesign/product_catalog/product/data_grid.html.twig' %}
+            {% endblock %}
+            {% block data_grid_pagination %}
+                {% if products.haveToPaginate %}
+                    {% include '@ibexadesign/ui/pagination.html.twig' with {
+                        pager: products,
+                        paginaton_params: {
+                            routeParams: {
+                                _fragment: constant('Ibexa\\ProductCatalog\\Tab\\Catalog\\ProductsTab::URI_FRAGMENT'),
+                            },
+                        },
+                    } %}
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-product-catalog-category-products-list-js', null, 'ibexa') }}
+{% endblock %}

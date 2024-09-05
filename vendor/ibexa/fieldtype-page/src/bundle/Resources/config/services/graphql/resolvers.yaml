@@ -1,0 +1,37 @@
+services:
+  _defaults:
+      autowire: true
+      autoconfigure: true
+      public: false
+
+  Ibexa\FieldTypePage\GraphQL\Resolver\PageResolver:
+      tags:
+          - { name: overblog_graphql.resolver, alias: 'PageBlockAttributeType', method: 'resolvePageBlockAttributeType' }
+          - { name: overblog_graphql.resolver, alias: 'PageBlockAttributes', method: 'resolvePageBlockAttributes' }
+          - { name: overblog_graphql.resolver, alias: 'PageBlockType', method: 'resolvePageBlockType' }
+          - { name: overblog_graphql.resolver, alias: 'Page', method: 'resolvePage' }
+
+  Ibexa\FieldTypePage\GraphQL\Resolver\RichtextBlockAttributeTypeResolver:
+      arguments:
+          $richTextEditConverter: '@Ibexa\FieldTypeRichText\RichText\Converter\Html5Edit'
+          $richTextConverter: '@ibexa.richtext.converter.output.xhtml5'
+      tags:
+          - { name: overblog_graphql.resolver, alias: 'RichTextStringXmlToHtml5Edit', method: 'resolveRichTextStringXmlToHtml5Edit' }
+          - { name: overblog_graphql.resolver, alias: 'RichTextStringXmlToHtml5', method: 'resolveRichTextStringXmlToHtml5' }
+
+  Ibexa\FieldTypePage\GraphQL\Resolver\BlockAttributeStorageValueResolver:
+      tags:
+          -  { name: overblog_graphql.resolver, alias: 'SerializedAttributeValue', method: 'resolveAttributeSerializedValue' }
+          -  { name: overblog_graphql.resolver, alias: 'SerializedAttributeValueFromContext', method: 'resolveAttributeSerializedValueFromContext' }
+          -  { name: overblog_graphql.resolver, alias: 'LocationListStorageValue', method: 'resolveLocationList' }
+          -  { name: overblog_graphql.resolver, alias: 'ContentTypeListStorageValue', method: 'resolveContentTypeList' }
+          -  { name: overblog_graphql.resolver, alias: 'MultipleStorageValue', method: 'resolveMultiple' }
+          -  { name: overblog_graphql.resolver, alias: 'EmbedAttributeValue', method: 'resolveEmbed' }
+
+  Ibexa\FieldTypePage\GraphQL\Resolver\PageBlockResolver:
+      tags:
+          -  { name: overblog_graphql.resolver, alias: 'PageBlockHtml', method: 'resolvePageBlockHtml' }
+
+  Ibexa\FieldTypePage\GraphQL\Resolver\SchedulerBlockResolver:
+      tags:
+          -  { name: overblog_graphql.resolver, alias: 'SchedulerBlockEventType', method: 'resolverSchedulerBlockEventType' }

@@ -1,0 +1,12 @@
+QualifioPageBlock:
+    type: object
+    inherits:
+        - BasePageBlock
+    config:
+        fields:
+            width:
+                type: String
+                resolve: '@=value.getAttribute("width").getValue()'
+            height:
+                type: String
+                resolve: '@=value.getAttribute("height").getValue()'

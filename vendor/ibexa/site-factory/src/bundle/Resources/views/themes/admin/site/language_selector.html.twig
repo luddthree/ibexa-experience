@@ -1,0 +1,23 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+{% set items = ibexa_admin_ui_config.languages.mappings|map(language => {
+    'label': language.name,
+    'class': language.languageCode in selected_languages ? 'ibexa-popup-menu__item--hidden' : '',
+    'action_attr': {
+        'data-language-code': language.languageCode
+}}) %}
+
+{{ include('@ibexadesign/ui/component/popup_menu/popup_menu.html.twig', { items }) }}
+
+<button
+    type="button"
+    class="btn ibexa-btn ibexa-btn--small ibexa-btn--secondary ibexa-sf-form-languages__language-popup-trigger"
+    {% if ibexa_admin_ui_config.languages.mappings|length == selected_languages|length %}
+        disabled
+    {% endif %}
+>
+    <svg class="ibexa-icon ibexa-icon--small">
+        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+    </svg>
+    <span class="ibexa-btn__label">{{ 'site.view.create.languages.add.language'|trans|desc('Add language') }}</span>
+</button>

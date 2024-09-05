@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Search\Legacy\Criterion\Handler\TaxonomyEntryId:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        arguments:
+            $entityManager: '@ibexa.doctrine.orm.entity_manager'
+        tags:
+            - ibexa.search.legacy.gateway.criterion_handler.location
+            - ibexa.search.legacy.gateway.criterion_handler.content
+
+    Ibexa\Taxonomy\Search\Legacy\Criterion\Handler\TaxonomySubtree:
+        parent: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        arguments:
+            $entityManager: '@ibexa.doctrine.orm.entity_manager'
+        tags:
+            - ibexa.search.legacy.gateway.criterion_handler.location
+            - ibexa.search.legacy.gateway.criterion_handler.content

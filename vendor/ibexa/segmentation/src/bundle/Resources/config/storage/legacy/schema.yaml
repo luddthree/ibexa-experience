@@ -1,0 +1,25 @@
+tables:
+    ibexa_segments:
+        uniqueConstraints:
+            ibexa_segments_identifier: { fields: [ identifier ] }
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true }  }
+            identifier: { type: string, nullable: false, length: 255 }
+        fields:
+            name: { type: string, nullable: false, options: { default: '' } }
+    ibexa_segment_groups:
+        uniqueConstraints:
+            ibexa_segment_groups_identifier: { fields: [ identifier ] }
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true }  }
+            identifier: { type: string, nullable: false, length: 255}
+        fields:
+            name: { type: string, nullable: false, options: { default: '' } }
+    ibexa_segment_group_map:
+        id:
+            segment_id: { type: integer, nullable: false }
+            group_id: { type: integer, nullable: false }
+    ibexa_segment_user_map:
+        id:
+            segment_id: { type: integer, nullable: false }
+            user_id: { type: integer, nullable: false }

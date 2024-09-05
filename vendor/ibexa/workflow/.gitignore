@@ -1,0 +1,19 @@
+# Composer
+vendor
+composer.lock
+
+# Bower
+bundle/Resources/public/vendors/
+
+# IDE
+.idea
+*.iml
+
+# PHP CS
+.php_cs.cache
+.php-cs-fixer.cache
+
+yarn.lock
+node_modules/
+bundle/Tests/instrument/
+bundle/Tests/report/

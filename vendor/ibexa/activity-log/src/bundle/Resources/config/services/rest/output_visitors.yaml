@@ -1,0 +1,20 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ActivityLog\REST\ValueObjectVisitor\ActivityLogGroupVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\ActivityLog\REST\Value\ActivityLogGroup }
+
+    Ibexa\ActivityLog\REST\ValueObjectVisitor\ActivityLogGroupListVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\ActivityLog\REST\Value\ActivityLogGroupList }
+
+    Ibexa\ActivityLog\REST\ValueObjectVisitor\ActivityLogVisitor:
+        parent: Ibexa\Contracts\Rest\Output\ValueObjectVisitor
+        tags:
+            - { name: ibexa.rest.output.value_object.visitor, type: Ibexa\ActivityLog\REST\Value\ActivityLog }

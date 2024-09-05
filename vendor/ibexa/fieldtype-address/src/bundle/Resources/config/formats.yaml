@@ -1,0 +1,8 @@
+formats:
+    personal:
+        country:
+            default:
+                - region
+                - locality
+                - street
+                - postal_code

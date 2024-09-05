@@ -1,0 +1,66 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Ibexa\ProductCatalog\Local\Persistence\Legacy\GatewayInterface:
+            tags:
+                - 'ibexa.product_catalog.common.doctrine_gateway'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $subtypeGateways: !tagged_iterator 'ibexa.product_catalog.attribute.gateway'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Mapper:
+        arguments:
+            $converters: !tagged_locator
+                tag: 'ibexa.product_catalog.attribute.storage_converter'
+                default_index_method: getDiscriminator
+                index_by: type
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Boolean\StorageConverter:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'checkbox' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Boolean\StorageDefinition:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'checkbox' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageConverter:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'float' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Float\StorageDefinition:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'float' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Integer\StorageConverter:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'integer' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Integer\StorageDefinition:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'integer' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Selection\StorageConverter:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'selection' }
+            - { name: 'ibexa.product_catalog.attribute.storage_converter', type: 'color' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\Selection\StorageDefinition:
+        tags:
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'selection' }
+            - { name: 'ibexa.product_catalog.attribute.storage_definition', type: 'color' }
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Attribute\SimpleCustom\StorageConverter: ~

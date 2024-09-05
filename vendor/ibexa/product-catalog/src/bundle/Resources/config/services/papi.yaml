@@ -1,0 +1,241 @@
+imports:
+    - { resource: papi/** }
+
+parameters:
+    ibexa.product_catalog.code_generator.default: incremental
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ### Local
+
+    Ibexa\ProductCatalog\Local\Repository\AssetService:
+        arguments:
+            $assetTagsStorageConverters: !tagged_iterator 'ibexa.product_catalog.asset.tag.storage_converter'
+        tags:
+            -   name: ibexa.product_catalog.asset_service
+                engine: local
+
+    Ibexa\Contracts\ProductCatalog\Local\LocalAssetServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\AssetService
+
+    Ibexa\ProductCatalog\Local\Repository\CatalogService:
+        arguments:
+            $workflow: '@state_machine.ibexa_catalog'
+
+    Ibexa\ProductCatalog\Local\Repository\CustomerGroupService:
+        arguments:
+            $criterionMapper: '@Ibexa\ProductCatalog\Local\Repository\CriterionMapper'
+
+    Ibexa\Contracts\ProductCatalog\CustomerGroupServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\CustomerGroupService
+
+    Ibexa\ProductCatalog\Local\Repository\ChainCustomerGroupResolver:
+        arguments:
+            $resolvers: !tagged_iterator ibexa.product_catalog.customer_group.resolver
+
+    Ibexa\ProductCatalog\Local\Repository\CustomerGroupResolver:
+        tags:
+            - { name: ibexa.product_catalog.customer_group.resolver, priority: 10 }
+
+    Ibexa\Contracts\ProductCatalog\CustomerGroupResolverInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ChainCustomerGroupResolver
+
+    Ibexa\ProductCatalog\Local\Repository\AttributeDefinitionService:
+        arguments:
+            $languageHandler: '@Ibexa\Contracts\Core\Persistence\Content\Language\Handler'
+        tags:
+            -   name: ibexa.product_catalog.attribute_definition_service
+                engine: local
+
+    Ibexa\ProductCatalog\Local\Repository\AttributeGroupService:
+        arguments:
+            $languageHandler: '@Ibexa\Contracts\Core\Persistence\Content\Language\Handler'
+        tags:
+            -   name: ibexa.product_catalog.attribute_group_service
+                engine: local
+
+    Ibexa\ProductCatalog\Local\Repository\AttributeTypeService:
+        arguments:
+            $types: !tagged_iterator { tag: ibexa.product_catalog.attribute_type, index_by: 'alias' }
+
+    Ibexa\ProductCatalog\Local\Repository\ProductService:
+        tags:
+            -   name: ibexa.product_catalog.product_service
+                engine: local
+
+    Ibexa\ProductCatalog\Local\Repository\ProductType\ContentTypeFactory: ~
+
+    Ibexa\ProductCatalog\Local\Repository\ProductType\ContentTypeFactoryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductType\ContentTypeFactory
+
+    Ibexa\ProductCatalog\Local\Repository\ProductTypeService:
+        tags:
+            -   name: ibexa.product_catalog.product_type_service
+                engine: local
+
+    Ibexa\ProductCatalog\Local\Repository\ProductPriceService:
+        arguments:
+            $domainMappers: !tagged_iterator 'ibexa.product_catalog.product_price.inheritance.domain_mapper'
+
+    Ibexa\ProductCatalog\Local\Repository\CurrencyService:
+        arguments:
+            $criterionMapper: '@Ibexa\ProductCatalog\Local\Repository\CriterionMapper'
+
+    Ibexa\ProductCatalog\Local\Repository\CurrencyResolver: ~
+
+    Ibexa\Contracts\ProductCatalog\CurrencyResolverInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\CurrencyResolver
+
+    Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\AttributeDefinitionService
+
+    Ibexa\Contracts\ProductCatalog\Local\LocalAttributeGroupServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\AttributeGroupService
+
+    Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductService
+
+    Ibexa\Contracts\ProductCatalog\Local\LocalProductTypeServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductTypeService
+
+    Ibexa\Contracts\ProductCatalog\ProductPriceServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\ProductPriceService
+
+    Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\CurrencyService
+
+    Ibexa\Contracts\ProductCatalog\AttributeTypeServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\AttributeTypeService
+
+    Ibexa\Contracts\ProductCatalog\RegionServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\RegionService
+
+    Ibexa\ProductCatalog\Local\Repository\Region\RegionPoolFactory: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Region\RegionPoolFactoryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Region\RegionPoolFactory
+
+    Ibexa\ProductCatalog\Local\Repository\Region\RegionProvider: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Region\RegionProviderInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Region\RegionProvider
+
+    Ibexa\ProductCatalog\Local\Repository\RegionService: ~
+
+    Ibexa\ProductCatalog\Local\Repository\RegionResolver: ~
+
+    Ibexa\Contracts\ProductCatalog\RegionResolverInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\RegionResolver
+
+    Ibexa\ProductCatalog\Local\Repository\DomainMapper:
+        arguments:
+            $languageHandler: '@Ibexa\Contracts\Core\Persistence\Content\Language\Handler'
+
+    Ibexa\ProductCatalog\Local\Repository\Variant\VariantCodeGenerator:
+        $default: '%ibexa.product_catalog.code_generator.default%'
+
+    Ibexa\ProductCatalog\Local\Repository\Variant\VariantGenerator:
+        arguments:
+            $codeGenerator: '@Ibexa\ProductCatalog\Local\Repository\Variant\VariantCodeGenerator'
+
+    Ibexa\ProductCatalog\Local\Repository\Variant\VariantGeneratorInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Variant\VariantGenerator
+
+    Ibexa\ProductCatalog\Local\Repository\Variant\NameGenerator: ~
+
+    Ibexa\ProductCatalog\Local\Repository\Variant\NameGeneratorInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\Variant\NameGenerator
+
+    Ibexa\ProductCatalog\Local\Repository\CodeGenerator\Strategy\IncrementalCodeGenerator:
+        tags:
+            - { name: ibexa.product_catalog.code_generator, type: 'incremental' }
+
+    Ibexa\ProductCatalog\Local\Repository\CodeGenerator\Strategy\RandomCodeGenerator:
+        tags:
+            - { name: ibexa.product_catalog.code_generator, type: 'random' }
+
+    Ibexa\ProductCatalog\Local\Repository\CodeGenerator\CodeGeneratorRegistry:
+        arguments:
+            $generators: !tagged_iterator  { tag: ibexa.product_catalog.code_generator, index_by: 'type' }
+
+    Ibexa\ProductCatalog\Local\Repository\CodeGenerator\CodeGeneratorRegistryInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\CodeGenerator\CodeGeneratorRegistry
+
+    Ibexa\ProductCatalog\Local\Repository\DomainMapper\ProductAvailabilityDelegate:
+        lazy: true
+
+    Ibexa\ProductCatalog\Local\Repository\DomainMapper\ProductPriceDelegate:
+        lazy: true
+
+    Ibexa\ProductCatalog\Local\Repository\DomainMapper\ProductVariantsDelegate:
+        lazy: true
+
+    Ibexa\ProductCatalog\Local\Repository\ProductPriceContextResolver: ~
+
+    Ibexa\Contracts\ProductCatalog\ProductPriceContextResolverInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Repository\ProductPriceContextResolver'
+
+    Ibexa\ProductCatalog\Local\Repository\ProductSpecificationLocator:
+        arguments:
+            $contentService: '@ibexa.api.service.content'
+
+    Ibexa\ProductCatalog\Local\Repository\PriceResolver: ~
+
+    ### Dispatcher services
+
+    Ibexa\ProductCatalog\Dispatcher\AssetsServiceDispatcher:
+        arguments:
+            $locator: !tagged_locator { tag: 'ibexa.product_catalog.asset_service', index_by: 'engine' }
+
+    Ibexa\ProductCatalog\Dispatcher\AttributeDefinitionServiceDispatcher:
+        arguments:
+            $locator: !tagged_locator { tag: 'ibexa.product_catalog.attribute_definition_service', index_by: 'engine' }
+
+    Ibexa\ProductCatalog\Dispatcher\AttributeGroupServiceDispatcher:
+        arguments:
+            $locator: !tagged_locator { tag: 'ibexa.product_catalog.attribute_group_service', index_by: 'engine' }
+
+    Ibexa\ProductCatalog\Dispatcher\ProductServiceDispatcher:
+        arguments:
+            $locator: !tagged_locator { tag: 'ibexa.product_catalog.product_service', index_by: 'engine' }
+
+    Ibexa\ProductCatalog\Dispatcher\ProductTypeServiceDispatcher:
+        arguments:
+            $locator: !tagged_locator { tag: 'ibexa.product_catalog.product_type_service', index_by: 'engine' }
+
+    ### Aliases
+
+    Ibexa\Contracts\ProductCatalog\AssetServiceInterface:
+        alias: Ibexa\ProductCatalog\Dispatcher\AssetsServiceDispatcher
+
+    Ibexa\Contracts\ProductCatalog\AttributeDefinitionServiceInterface:
+        alias: Ibexa\ProductCatalog\Dispatcher\AttributeDefinitionServiceDispatcher
+
+    Ibexa\Contracts\ProductCatalog\AttributeGroupServiceInterface:
+        alias: Ibexa\ProductCatalog\Dispatcher\AttributeGroupServiceDispatcher
+
+    Ibexa\Contracts\ProductCatalog\ProductServiceInterface:
+        alias: Ibexa\ProductCatalog\Dispatcher\ProductServiceDispatcher
+
+    Ibexa\Contracts\ProductCatalog\ProductTypeServiceInterface:
+        alias: Ibexa\ProductCatalog\Dispatcher\ProductTypeServiceDispatcher
+
+    Ibexa\Contracts\ProductCatalog\CatalogServiceInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\CatalogService
+
+    Ibexa\Contracts\ProductCatalog\PriceResolverInterface:
+        alias: Ibexa\ProductCatalog\Local\Repository\PriceResolver
+
+    ### Configuration provider
+
+    Ibexa\ProductCatalog\Config\ConfigProviderInterface:
+        alias: Ibexa\ProductCatalog\Config\ConfigProvider
+
+    Ibexa\ProductCatalog\Config\ConfigProvider:
+        arguments:
+            $repositoryConfigurationProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+            $engines: '%ibexa.product_catalog.engines%'

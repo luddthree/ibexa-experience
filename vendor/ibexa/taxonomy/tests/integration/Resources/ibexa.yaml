@@ -1,0 +1,29 @@
+parameters:
+    locale_fallback: en
+
+ibexa:
+    repositories:
+        default:
+            search:
+                engine: '%env(SEARCH_ENGINE)%'
+                connection: default
+
+    system:
+        default:
+            languages:
+                - eng-US
+                - eng-GB
+                - ger-DE
+
+    orm:
+        entity_mappings:
+            IbexaTaxonomyBundle:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/lib/Persistence/Entity'
+                prefix: Ibexa\Taxonomy\Persistence\Entity
+            gedmo_tree:
+                type: annotation
+                prefix: Gedmo\Tree\Entity
+                dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Tree/Entity"
+                is_bundle: false

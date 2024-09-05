@@ -1,0 +1,108 @@
+{
+    "scenarioInfoList": [
+        {
+            "referenceCode": "also_purchased",
+            "title": "Also purchased",
+            "description": null,
+            "type": "commerce",
+            "models": [
+                "also_purchased",
+                "top_purchased"
+            ],
+            "available": "AVAILABLE",
+            "enabled": "ENABLED",
+            "inputItemType": 42,
+            "outputItemTypes": [
+                42
+            ],
+            "websiteContext": "IGNORED",
+            "profileContext": "IGNORED",
+            "statisticItems": [
+                {
+                    "timespanBegin": "2020-10-11T12:00:00",
+                    "timespanDuration": "PT12H",
+                    "scenarioCalls": 3191,
+                    "deliveredRecommendations": 15950,
+                    "conversionRatePercent": 33.33
+                },
+                {
+                    "timespanBegin": "2020-10-12T00:00:00",
+                    "timespanDuration": "PT12H",
+                    "scenarioCalls": 1598,
+                    "deliveredRecommendations": 7982,
+                    "conversionRatePercent": 24.30
+                }
+            ],
+            "avaliable": "AVAILABLE"
+        },
+        {
+            "referenceCode": "also_purchased2",
+            "title": "Also purchased 2",
+            "description": null,
+            "type": "commerce",
+            "models": [
+                "also_purchased"
+            ],
+            "available": "AVAILABLE",
+            "enabled": "ENABLED",
+            "inputItemType": 42,
+            "outputItemTypes": [
+                42
+            ],
+            "websiteContext": "IGNORED",
+            "profileContext": "IGNORED",
+            "statisticItems": [
+                {
+                    "timespanBegin": "2020-10-11T12:00:00",
+                    "timespanDuration": "PT12H",
+                    "scenarioCalls": 0,
+                    "deliveredRecommendations": 0,
+                    "conversionRatePercent": 24.1
+                },
+                {
+                    "timespanBegin": "2020-10-12T00:00:00",
+                    "timespanDuration": "PT12H",
+                    "scenarioCalls": 0,
+                    "deliveredRecommendations": 0,
+                    "conversionRatePercent": 24.30
+                }
+            ],
+            "avaliable": "AVAILABLE"
+        },
+        {
+            "referenceCode": "ultimately_bought",
+            "title": "Ultimately bought",
+            "description": "Following the click of the mostly bought product (with probabilities)",
+            "type": "commerce",
+            "models": [
+                "top_purchased",
+                "editorial_list"
+            ],
+            "available": "NOT_AVAILABLE",
+            "enabled": "ENABLED",
+            "inputItemType": 42,
+            "outputItemTypes": [
+                1,
+                20,
+                42
+            ],
+            "websiteContext": "MANDATORY",
+            "profileContext": "IGNORED",
+            "statisticItems": [
+                {
+                    "timespanBegin": "2020-10-11T12:00:00",
+                    "timespanDuration": "PT12H",
+                    "scenarioCalls": 0,
+                    "deliveredRecommendations": 0
+                },
+                {
+                    "timespanBegin": "2020-10-12T00:00:00",
+                    "timespanDuration": "PT12H",
+                    "scenarioCalls": 0,
+                    "deliveredRecommendations": 0
+                }
+            ],
+            "avaliable": "NOT_AVAILABLE"
+        }
+    ]
+}

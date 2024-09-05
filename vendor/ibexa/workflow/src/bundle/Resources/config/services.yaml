@@ -1,0 +1,23 @@
+imports:
+    - { resource: services/controllers.yaml }
+    - { resource: services/workflow.yaml }
+    - { resource: services/event_subscribers.yaml }
+    - { resource: services/components.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/limitations.yaml }
+    - { resource: services/persistence.yaml }
+    - { resource: services/support_strategy.yaml }
+    - { resource: services/ui.yaml }
+    - { resource: services/matcher.yaml }
+    - { resource: services/twig.yaml }
+    - { resource: services/timeline.yaml }
+    - { resource: services/menu.yaml }
+    - { resource: services/builders.yaml }
+    - { resource: services/renderers.yaml }
+    - { resource: services/mappers.yaml }
+    - { resource: services/action_listeners.yaml }
+    - { resource: services/installer.yaml }
+    - { resource: services/query_types.yaml }
+    - { resource: services/search.yaml }
+    - { resource: services/commands.yaml }
+    - { resource: services/proxy.yaml }

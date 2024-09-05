@@ -1,0 +1,6 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% include '@ibexadesign/product_catalog/product/empty_product_tab_content.html.twig' with {
+    header_msg: 'product_price.no_base_price.info_text'|trans|desc('Add a base price'),
+    description_msg: 'product_price.no_base_price.description'|trans|desc('Adding the base price will allow you to enter custom prices for the product.'),
+} only %}

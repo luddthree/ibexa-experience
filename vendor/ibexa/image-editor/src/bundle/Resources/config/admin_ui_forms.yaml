@@ -1,0 +1,5 @@
+system:
+    admin_group:
+        admin_ui_forms:
+            content_edit_form_templates:
+                - { template: '@IbexaImageEditor/themes/admin/ibexa_image_editor/ui/field_type/edit/ezimage.html.twig', priority: -20 }

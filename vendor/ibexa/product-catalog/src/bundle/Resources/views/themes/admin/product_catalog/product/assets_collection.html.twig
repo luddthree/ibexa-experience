@@ -1,0 +1,193 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% import '@ibexadesign/ui/component/macros.html.twig' as html %}
+
+{% set max_visible_tags_count = 4 %}
+{% set is_base_product_group = group.isBaseProductGroup() %}
+
+{% set title = is_base_product_group
+    ? 'product.view.assets.collection.base_assets'|trans|desc('All assets')
+    : 'product.view.assets.collection'|trans|desc('Assets collection for variant')
+%}
+{% set default_class = ' ibexa-pc-product-assets-collection'
+    ~ (is_base_product_group ? ' ibexa-pc-product-assets-collection--base')
+    ~ (group.assets.isEmpty() ? ' ibexa-pc-product-assets-collection--empty')
+%}
+{% set attr = attr|default({})|merge({
+    class: (attr.class|default('') ~ default_class)|trim,
+}) %}
+
+<div {{ html.attributes(attr) }} />
+    <input type="file" class="ibexa-pc-product-assets-collection__file-input" multiple />
+
+    {% block assets_collection_header %}
+        <div class="ibexa-pc-product-assets-collection__header">
+            <div class="ibexa-pc-product-assets-collection__header-title-wrapper">
+                <div class="ibexa-pc-product-assets-collection__header-title">{{ title }}</div>
+                {% set tags = group.tags %}
+                {% set visible_tags =  tags|slice(0, max_visible_tags_count) %}
+                {% set hidden_tags = tags|slice(max_visible_tags_count) %}
+
+                {% for index, tag in tags %}
+                    <div class="
+                        ibexa-pc-product-assets-collection__header-tag
+                        {{ index >= max_visible_tags_count ? 'ibexa-pc-product-assets-collection__header-tag--hidden' }}
+                    ">
+                        <div class="ibexa-pc-product-assets-collection__header-tag-label">{{ tag.label }}</div>
+                        <div
+                            class="ibexa-pc-product-assets-collection__header-tag-content ibexa-badge"
+                            data-tag-attribute-name="{{ tag.name }}"
+                            data-tag-attribute-value="{{ tag.value }}"
+                        >
+                            {{ tag.formattedValue }}
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% if hidden_tags|length %}
+                    <div class="ibexa-pc-product-assets-collection__hidden-tags">
+                        <button class="btn ibexa-btn ibexa-btn--small ibexa-btn--tertiary ibexa-pc-product-assets-collection__hidden-tags-more-btn">+ {{ hidden_tags|length }}</button>
+
+                        <div class="ibexa-popup-menu ibexa-popup-menu--hidden ibexa-pc-product-assets-collection__hidden-tags-popup">
+                            {% embed '@ibexadesign/ui/component/input_text.html.twig' with {
+                                has_search: true,
+                                search_button_type: 'button'
+                            }%}
+                                {% trans_default_domain 'ibexa_product_catalog' %}
+
+                                {% block content %}
+                                    <input
+                                        type="text"
+                                        class="ibexa-input ibexa-input--text ibexa-pc-product-assets-collection__hidden-tags-search-input form-control"
+                                        placeholder="{{ 'product.view.assets.collection.search'|trans|desc('Search...') }}"
+                                    />
+                                {% endblock %}
+                            {% endembed %}
+
+                            <ul class="ibexa-pc-product-assets-collection__hidden-tags-list">
+                                {% for hidden_tag in hidden_tags %}
+                                    <li class="ibexa-popup-menu__item ibexa-pc-product-assets-collection__hidden-tag" data-filter-value="{{ hidden_tag.label }} {{ hidden_tag.formattedValue }}">
+                                        <div class="ibexa-pc-product-assets-collection__hidden-tag-label">{{ hidden_tag.label }}</div>
+                                        <div class="ibexa-pc-product-assets-collection__hidden-tag-value">{{ hidden_tag.formattedValue }}</div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <button class="btn ibexa-btn ibexa-btn--ghost ibexa-pc-product-assets-collection__remove-btn">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{ 'product.view.assets.remove_collection'|trans|desc('Remove collection') }}</span>
+            </button>
+        </div>
+    {% endblock %}
+    {% block assets_collection_body %}
+        <div class="ibexa-pc-product-assets-collection__spinner ibexa-pc-product-assets-collection__spinner--hidden">
+            <svg class="ibexa-icon ibexa-spin">
+                <use xlink:href="{{ ibexa_icon_path('spinner') }}"></use>
+            </svg>
+        </div>
+        <div class="ibexa-pc-product-assets-collection__body">
+            <div class="ibexa-pc-product-assets-collection__body-actions">
+                <div class="ibexa-pc-product-assets-collection__selection-toggler">
+                    <input class="ibexa-input ibexa-input--checkbox ibexa-pc-product-assets-collection__selection-toggler-checkbox" type="checkbox" />
+                    <span class="ibexa-pc-product-assets-collection__selection-toggler-label">{{ 'product.view.assets.select_all'|trans|desc('Select all') }}</span>
+                </div>
+                <div class="ibexa-pc-product-assets-collection__body-actions-separator"></div>
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-pc-product-assets-collection__delete-selected-assets"
+                    disabled
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                        <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'product.view.assets.actions.delete'|trans|desc('Delete') }}
+                    </span>
+                </button>
+            </div>
+            <div class="ibexa-pc-product-assets-collection__body-content">
+                <div class="ibexa-pc-product-assets-collection__empty-image-wrapper">
+                    <img
+                        class="ibexa-pc-product-assets-collection__empty-image"
+                        src="{{ asset('bundles/ibexaadminui/img/ibexa-empty-table.svg') }}"
+                        alt=""
+                    />
+                </div>
+                <div class="ibexa-pc-product-assets-collection__assets-wrapper">
+                    <div class="ibexa-pc-product-assets-source">
+                        <div class="ibexa-pc-product-assets-source__message">
+                            {{ 'product.view.assets.actions.drag_drop.main_message'|trans|raw|desc('Drag and drop image here or <br /><button type="button" class="ibexa-pc-product-assets-source__btn-add">Browse</button> to choose a file') }}
+                        </div>
+                        <div class="ibexa-pc-product-assets-source__message ibexa-pc-product-assets-source__message--separator">
+                            {{ 'product.view.assets.actions.drag_drop.separator'|trans|desc('or') }}
+                        </div>
+                        <div class="ibexa-pc-product-assets-source__action">
+                            <button
+                                type="button"
+                                class="btn ibexa-btn ibexa-btn--secondary ibexa-pc-product-assets-source__select-from-library"
+                                data-udw-config="{{ ibexa_udw_config('image_asset') }}"
+                            >
+                                {{ 'product.view.assets.actions.drag_drop.select_from_library'|trans|desc('Select from library') }}
+                            </button>
+                        </div>
+                        <div class="ibexa-pc-product-assets-source__message ibexa-pc-product-assets-source__message--filesize">
+                            {{ 'product.view.assets.actions.drag_drop.max_filesize'|trans({'%size%': max_upload_size ~ ' Mb'})|desc('Max file size: %size%')  }}
+                        </div>
+                    </div>
+
+                    {% for asset in group.assets %}
+                        {% set content_id = asset.uri|url_component('host') %}
+                        {% set view_url = path('ibexa.content.view', { contentId: content_id }) %}
+                        {% set checkbox_value = asset.identifier %}
+                        {% set is_main_asset = false %} <!-- TODO: implement later, https://issues.ibexa.co/browse/IBX-3145 -->
+
+                        <div draggable="true" class="ibexa-pc-product-asset {% if is_main_asset %}ibexa-pc-product-asset--main{% endif %}">
+                            <div class="ibexa-pc-product-asset__header">
+                                <div class="ibexa-pc-product-asset__main-asset-flag"></div>
+                                <input
+                                    type="checkbox"
+                                    name="mark-checkbox-{{ asset.identifier }}"
+                                    class="ibexa-input ibexa-input--checkbox ibexa-pc-product-asset__mark-checkbox"
+                                    value="{{ checkbox_value }}"
+                                />
+                            </div>
+                            <a
+                                target="_blank"
+                                href="{{ view_url }}"
+                                class="ibexa-pc-product-asset__image-wrapper"
+                                draggable="false"
+                            >
+                                {{ ibexa_render_product_asset(asset) }}
+                            </a>
+                            <div class="ibexa-pc-product-asset__toolbar">
+                                <div class="ibexa-pc-product-asset__file-name">{{ asset.name }}</div>
+                                <button
+                                    type="button"
+                                    class="btn ibexa-btn ibexa-btn--small ibexa-btn--no-text ibexa-pc-product-asset__toolbar-actions-btn"
+                                >
+                                    <svg class="ibexa-icon ibexa-icon--small">
+                                        <use xlink:href="{{ ibexa_icon_path('options') }}"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="ibexa-popup-menu ibexa-popup-menu--hidden ibexa-pc-product-asset__actions-popup">
+                                <ul class="ibexa-pc-product-asset__actions-popup-list">
+                                    <li class="ibexa-popup-menu__item">
+                                        <button class="ibexa-popup-menu__item-content ibexa-pc-product-asset__actions-popup-btn ibexa-pc-product-asset__actions-popup-btn--delete">{{ 'product.view.assets.actions.delete'|trans|desc('Delete') }}</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="ibexa-pc-product-assets-collection__drop-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</div>

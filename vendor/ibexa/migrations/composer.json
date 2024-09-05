@@ -1,0 +1,101 @@
+{
+    "name": "ibexa/migrations",
+    "description": "Migrations for Ibexa DXP",
+    "license": "proprietary",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Ibexa AS",
+            "email": "dev-team@ibexa.co"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ibexa/doctrine-schema": "~4.6.0",
+        "ibexa/core": "~4.6.0",
+        "league/flysystem": "^2.5.0",
+        "symfony/asset": "^5.3",
+        "symfony/expression-language": "^5.3",
+        "symfony/framework-bundle": "^5.3",
+        "symfony/proxy-manager-bridge": "^5.3",
+        "symfony/yaml": "^5.3",
+        "webmozart/assert": "^1.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.7",
+        "dama/doctrine-test-bundle": "^6.7",
+        "doctrine/doctrine-bundle": "^2.1",
+        "fakerphp/faker": "^1.19",
+        "ibexa/code-style": "^1.0",
+        "ibexa/content-forms": "~4.6.0",
+        "ibexa/design-engine": "~4.6.0",
+        "ibexa/user": "~4.6.0",
+        "ibexa/admin-ui": "~4.6.0",
+        "ibexa/fieldtype-richtext": "~4.6.0",
+        "ibexa/rest": "~4.6.0",
+        "ibexa/search": "~4.6.0",
+        "ibexa/http-cache": "~4.6.0",
+        "friends-of-behat/mink-extension": "^2.4",
+        "friendsofsymfony/jsrouting-bundle": "^2.6",
+        "league/flysystem-memory": "^2.0.6",
+        "mikey179/vfsstream": "^1.6",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-symfony": "^1.3",
+        "phpstan/phpstan-webmozart-assert": "^1.0",
+        "phpunit/phpunit": "^9.6",
+        "symfony/finder": "^5.3",
+        "symfony/phpunit-bridge": "^5.3"
+    },
+    "conflict": {
+        "symfony/serializer": "5.4.39"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ibexa\\Migration\\": "src/lib/",
+            "Ibexa\\Bundle\\Migration\\": "src/bundle/",
+            "Ibexa\\Contracts\\Migration\\": "src/contracts/",
+            "Ibexa\\Platform\\Bundle\\Migration\\": "src/bundle/",
+            "Ibexa\\Platform\\Contracts\\Migration\\": "src/contracts/",
+            "Ibexa\\Platform\\Migration\\": "src/lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ibexa\\Tests\\Migration\\": "tests/lib/",
+            "Ibexa\\Tests\\Bundle\\Migration\\": "tests/bundle/",
+            "Ibexa\\Tests\\Integration\\Migration\\": "tests/integration/",
+            "Ibexa\\Platform\\Tests\\Migration\\": "tests/lib/",
+            "Ibexa\\Platform\\Tests\\Bundle\\Migration\\": "tests/bundle/",
+            "Ibexa\\Platform\\Tests\\Integration\\Migration\\": "tests/integration/"
+        }
+    },
+    "suggest": {
+        "fakerphp/faker": "Enables usage of Faker in migration expressions"
+    },
+    "scripts": {
+        "fix-cs": "php-cs-fixer fix --config=.php-cs-fixer.php -v --show-progress=dots",
+        "fix-cs-changed": "@fix-cs $(git diff ${GIT_DIFF_BASE:-origin/master} --diff-filter=ACMR --name-only \"*.php\"|paste -sd ' ')",
+        "test": "phpunit -c phpunit.xml",
+        "phpstan": "phpstan analyse -c phpstan.neon",
+        "check-cs-changed": "@check-cs $(git diff ${GIT_DIFF_BASE:-origin/master} --diff-filter=ACMR --name-only \"*.php\"|paste -sd ' ')",
+        "check-cs": "@fix-cs --dry-run"
+    },
+    "scripts-descriptions": {
+        "fix-cs": "Fix Coding standard issues in current checkout.",
+        "fix-cs-changed": "Automatically fixes code style in changed files only, compared to branch in GIT_DIFF_BASE env variable, defaults to origin/master",
+        "test": "Run automatic tests",
+        "phpstan": "Run static code analysis",
+        "check-cs-changed": "Run code style checker against changed files only, compared to branch in GIT_DIFF_BASE env variable, defaults to origin/master",
+        "check-cs": "Run code style checker for all files"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": false
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "4.6.x-dev"
+        }
+    }
+}

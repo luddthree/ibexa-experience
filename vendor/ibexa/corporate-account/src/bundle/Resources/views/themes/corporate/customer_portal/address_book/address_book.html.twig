@@ -1,0 +1,67 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+{% form_theme delete_address_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-address-book{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'address_book.breadcrumb'|trans|desc('Address book') },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'address_book.header'|trans|desc('Address book'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    <div class="ibexa-container">
+        {% include '@ibexadesign/corporate_account/common/billing_address_table.html.twig' with {
+            billing_address,
+            company_id: null,
+            edit_path: 'ibexa.corporate_account.customer_portal.edit_billing_address',
+        } only %}
+
+        {% embed '@ibexadesign/corporate_account/common/shipping_address_table.html.twig' with {
+            company,
+            company_id: null,
+            address_list,
+            delete_address_form,
+            default_shipping_form,
+            edit_path_name: 'ibexa.corporate_account.customer_portal.edit_address',
+            set_default_action: path('ibexa.corporate_account.customer_portal.update_default_shipping_address')
+        } only %}
+            {% trans_default_domain 'ibexa_corporate_account' %}
+
+            {% block table_actions %}
+                <a
+                    title="{{ 'company.details.tab.address_book.shipping_address.table.action.add_new.label'|trans|desc('Add') }}"
+                    href="{{ path('ibexa.corporate_account.customer_portal.create_address') }}"
+                    class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'company.details.tab.address_book.shipping_address.table.action.add_new.label'|trans|desc('Add') }}
+                    </span>
+                </a>
+                <button
+                    type="submit"
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small ibexa-ca-bulk-delete__delete-btn"
+                    disabled
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'company.details.tab.address_book.shipping_address.table.action.delete.label'|trans|desc('Delete') }}
+                    </span>
+                </button>
+            {% endblock %}
+        {% endembed %}
+    </div>
+{% endblock %}

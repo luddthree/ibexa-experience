@@ -1,0 +1,849 @@
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_ch_folder'
+  remote_id: 'siteaccess_ch_folder'
+  location_remote_id: 'siteaccess_ch_folder'
+  parent_location: 1
+  section: 'ch'
+  lang: 'de-CH'
+  attributes:
+      name: 'Switzerland CH'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_ch_folder'
+  identifier: 'siteaccess_ch'
+  location_remote_id: 'siteaccess_ch'
+  remote_id: 'siteaccess_ch'
+  lang: 'de-CH'
+  object_states:
+      - live
+  attributes:
+      name: 'Startpage CH'
+      page: '{"layout":"frontpage","title":"Switzerland (CH)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+- mode: 'update'
+  type: 'content'
+  identifier: 'siteaccess_ch'
+  location_remote_id: 'siteaccess_ch'
+  remote_id: 'siteaccess_ch'
+  lang: 'fr-CH'
+  attributes:
+      name: 'Startpage CH'
+      page: '{"layout":"frontpage","title":"Switzerland (CH)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+- mode: 'update'
+  type: 'content'
+  identifier: 'siteaccess_ch'
+  location_remote_id: 'siteaccess_ch'
+  remote_id: 'siteaccess_ch'
+  lang: 'it-CH'
+  attributes:
+      name: 'Startpage CH'
+      page: '{"layout":"frontpage","title":"Switzerland (CH)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_ldi_folder'
+  remote_id: 'siteaccess_ldi_folder'
+  location_remote_id: 'siteaccess_ldi_folder'
+  parent_location: 1
+  section: 'ldi'
+  lang: 'en-LD'
+  attributes:
+      name: 'Lidl Digital LDI'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_ldi_folder'
+  identifier: 'siteaccess_ldi'
+  location_remote_id: 'siteaccess_ldi'
+  remote_id: 'siteaccess_ldi'
+  lang: 'en-LD'
+  object_states:
+      - live
+  attributes:
+      name: 'Startpage LDI'
+      page: '{"layout":"frontpage","title":"Lidl Digital (LDI)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_ro_folder'
+  remote_id: 'siteaccess_ro_folder'
+  location_remote_id: 'siteaccess_ro_folder'
+  parent_location: 1
+  section: 'ro'
+  lang: 'ro-RO'
+  attributes:
+      name: 'Lidl Digital RO'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_ro_folder'
+  identifier: 'siteaccess_ro'
+  location_remote_id: 'siteaccess_ro'
+  remote_id: 'siteaccess_ro'
+  section: 'ro'
+  lang: 'ro-RO'
+  object_states:
+      - live
+  attributes:
+      name: 'Romania (RO)'
+      page: '{"layout":"frontpage","title":"Romania (RO)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_fi_folder'
+  remote_id: 'siteaccess_fi_folder'
+  location_remote_id: 'siteaccess_fi_folder'
+  parent_location: 1
+  section: 'fi'
+  lang: 'fi-FI'
+  attributes:
+      name: 'Lidl Digital FI'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_fi_folder'
+  identifier: 'siteaccess_fi'
+  location_remote_id: 'siteaccess_fi'
+  remote_id: 'siteaccess_fi'
+  section: 'fi'
+  lang: 'fi-FI'
+  object_states:
+      - live
+  attributes:
+      name: 'Finland (FI)'
+      page: '{"layout":"frontpage","title":"Finnland (FI)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_at_folder'
+  remote_id: 'siteaccess_at_folder'
+  location_remote_id: 'siteaccess_at_folder'
+  parent_location: 1
+  section: 'at'
+  lang: 'de-AT'
+  attributes:
+      name: 'Lidl Digital AT'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_at_folder'
+  identifier: 'siteaccess_at'
+  location_remote_id: 'siteaccess_at'
+  remote_id: 'siteaccess_at'
+  section: 'at'
+  lang: 'de-AT'
+  object_states:
+      - live
+  attributes:
+      name: 'Austria (AT)'
+      page: '{"layout":"frontpage","title":"Austria (AT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_gb_folder'
+  remote_id: 'siteaccess_gb_folder'
+  location_remote_id: 'siteaccess_gb_folder'
+  parent_location: 1
+  section: 'gb'
+  lang: 'en-GB'
+  attributes:
+      name: 'Lidl Digital GB'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_gb_folder'
+  identifier: 'siteaccess_gb'
+  location_remote_id: 'siteaccess_gb'
+  remote_id: 'siteaccess_gb'
+  lang: 'en-GB'
+  section: 'gb'
+  object_states:
+      - live
+  attributes:
+      name: 'United Kingdom (UK)'
+      page: '{"layout":"frontpage","title":"United Kingdom (UK)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_nl_folder'
+  remote_id: 'siteaccess_nl_folder'
+  location_remote_id: 'siteaccess_nl_folder'
+  parent_location: 1
+  section: 'nl'
+  lang: 'nl-NL'
+  attributes:
+      name: 'Lidl Digital NL'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_nl_folder'
+  identifier: 'siteaccess_nl'
+  location_remote_id: 'siteaccess_nl'
+  remote_id: 'siteaccess_nl'
+  lang: 'nl-NL'
+  section: 'nl'
+  object_states:
+      - live
+  attributes:
+      name: 'Netherlands (NL)'
+      page: '{"layout":"frontpage","title":"Netherlands (NL)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_ie_folder'
+  remote_id: 'siteaccess_ie_folder'
+  location_remote_id: 'siteaccess_ie_folder'
+  parent_location: 1
+  section: 'ie'
+  lang: 'en-IE'
+  attributes:
+      name: 'Lidl Digital IE'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_ie_folder'
+  identifier: 'siteaccess_ie'
+  location_remote_id: 'siteaccess_ie'
+  remote_id: 'siteaccess_ie'
+  section: 'ie'
+  lang: 'en-IE'
+  object_states:
+      - live
+  attributes:
+      name: 'Ireland (IE)'
+      page: '{"layout":"frontpage","title":"Ireland (IE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_pl_folder'
+  remote_id: 'siteaccess_pl_folder'
+  location_remote_id: 'siteaccess_pl_folder'
+  parent_location: 1
+  section: 'pl'
+  lang: 'pl-PL'
+  attributes:
+      name: 'Lidl Digital PL'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_pl_folder'
+  identifier: 'siteaccess_pl'
+  location_remote_id: 'siteaccess_pl'
+  remote_id: 'siteaccess_pl'
+  section: 'pl'
+  lang: 'pl-PL'
+  object_states:
+      - live
+  attributes:
+      name: 'Poland (PL)'
+      page: '{"layout":"frontpage","title":"Poland (PL)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_dk_folder'
+  remote_id: 'siteaccess_dk_folder'
+  location_remote_id: 'siteaccess_dk_folder'
+  parent_location: 1
+  section: 'dk'
+  lang: 'da-DK'
+  attributes:
+      name: 'Lidl Digital DK'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_dk_folder'
+  identifier: 'siteaccess_dk'
+  location_remote_id: 'siteaccess_dk'
+  remote_id: 'siteaccess_dk'
+  section: 'dk'
+  lang: 'da-DK'
+  object_states:
+      - live
+  attributes:
+      name: 'Denmark (DK)'
+      page: '{"layout":"frontpage","title":"Denmark (DK)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_be_folder'
+  remote_id: 'siteaccess_be_folder'
+  location_remote_id: 'siteaccess_be_folder'
+  parent_location: 1
+  section: 'be'
+  lang: 'fr-BE'
+  attributes:
+      name: 'Lidl Digital BE'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_be_folder'
+  identifier: 'siteaccess_be'
+  location_remote_id: 'siteaccess_be'
+  remote_id: 'siteaccess_be'
+  section: 'be'
+  lang: 'fr-BE'
+  object_states:
+      - live
+  attributes:
+      name: 'Belguim (BE)'
+      page: '{"layout":"frontpage","title":"Belguim (BE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+- mode: 'update'
+  type: 'content'
+  identifier: 'siteaccess_be'
+  location_remote_id: 'siteaccess_be'
+  remote_id: 'siteaccess_be'
+  lang: 'nl-BE'
+  attributes:
+      name: 'Belguim (CH)'
+      page: '{"layout":"frontpage","title":"Belguim (BE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_cz_folder'
+  remote_id: 'siteaccess_cz_folder'
+  location_remote_id: 'siteaccess_cz_folder'
+  parent_location: 1
+  section: 'cz'
+  lang: 'cz-CZ'
+  attributes:
+      name: 'Lidl Digital CZ'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_cz_folder'
+  identifier: 'siteaccess_cz'
+  location_remote_id: 'siteaccess_cz'
+  remote_id: 'siteaccess_cz'
+  section: 'cz'
+  lang: 'cz-CZ'
+  object_states:
+      - live
+  attributes:
+      name: 'Czech (CZ)'
+      page: '{"layout":"frontpage","title":"Czech (CZ)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_gr_folder'
+  remote_id: 'siteaccess_gr_folder'
+  location_remote_id: 'siteaccess_gr_folder'
+  parent_location: 1
+  section: 'gr'
+  lang: 'el-GR'
+  attributes:
+      name: 'Lidl Digital GR'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_gr_folder'
+  identifier: 'siteaccess_gr'
+  location_remote_id: 'siteaccess_gr'
+  remote_id: 'siteaccess_gr'
+  section: 'gr'
+  lang: 'el-GR'
+  object_states:
+      - live
+  attributes:
+      name: 'Greece (GR)'
+      page: '{"layout":"frontpage","title":"Greece (GR)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_it_folder'
+  remote_id: 'siteaccess_it_folder'
+  location_remote_id: 'siteaccess_it_folder'
+  parent_location: 1
+  section: 'it'
+  lang: 'it-IT'
+  attributes:
+      name: 'Lidl Digital IT'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_it_folder'
+  identifier: 'siteaccess_it'
+  location_remote_id: 'siteaccess_it'
+  remote_id: 'siteaccess_it'
+  section: 'it'
+  lang: 'it-IT'
+  object_states:
+      - live
+  attributes:
+      name: 'Italy (IT)'
+      page: '{"layout":"frontpage","title":"Italy (IT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_hu_folder'
+  remote_id: 'siteaccess_hu_folder'
+  location_remote_id: 'siteaccess_hu_folder'
+  parent_location: 1
+  section: 'hu'
+  lang: 'hu-HU'
+  attributes:
+      name: 'Lidl Digital HU'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_hu_folder'
+  identifier: 'siteaccess_hu'
+  location_remote_id: 'siteaccess_hu'
+  remote_id: 'siteaccess_hu'
+  section: 'hu'
+  lang: 'hu-HU'
+  object_states:
+      - live
+  attributes:
+      name: 'Hungary (HU)'
+      page: '{"layout":"frontpage","title":"Hungary (HU)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_pt_folder'
+  remote_id: 'siteaccess_pt_folder'
+  location_remote_id: 'siteaccess_pt_folder'
+  parent_location: 1
+  section: 'pt'
+  lang: 'pt-PT'
+  attributes:
+      name: 'Lidl Digital PT'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_pt_folder'
+  identifier: 'siteaccess_pt'
+  location_remote_id: 'siteaccess_pt'
+  remote_id: 'siteaccess_pt'
+  section: 'pt'
+  lang: 'pt-PT'
+  object_states:
+      - live
+  attributes:
+      name: 'Portugal (PT)'
+      page: '{"layout":"frontpage","title":"Portugal (PT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_sk_folder'
+  remote_id: 'siteaccess_sk_folder'
+  location_remote_id: 'siteaccess_sk_folder'
+  parent_location: 1
+  section: 'sk'
+  lang: 'sk-SK'
+  attributes:
+      name: 'Lidl Digital SK'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_sk_folder'
+  identifier: 'siteaccess_sk'
+  location_remote_id: 'siteaccess_sk'
+  remote_id: 'siteaccess_sk'
+  section: 'sk'
+  lang: 'sk-SK'
+  object_states:
+      - live
+  attributes:
+      name: 'Slovakia (SK)'
+      page: '{"layout":"frontpage","title":"Slovakia (SK)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_cy_folder'
+  remote_id: 'siteaccess_cy_folder'
+  location_remote_id: 'siteaccess_cy_folder'
+  parent_location: 1
+  section: 'cy'
+  lang: 'el-CY'
+  attributes:
+      name: 'Lidl Digital CY'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_cy_folder'
+  identifier: 'siteaccess_cy'
+  location_remote_id: 'siteaccess_cy'
+  remote_id: 'siteaccess_cy'
+  section: 'cy'
+  lang: 'el-CY'
+  object_states:
+      - live
+  attributes:
+      name: 'Cyprus (CY)'
+      page: '{"layout":"frontpage","title":"Cyprus (CY)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+- mode: 'update'
+  type: 'content'
+  identifier: 'siteaccess_cy'
+  location_remote_id: 'siteaccess_cy'
+  remote_id: 'siteaccess_cy'
+  lang: 'en-CY'
+  attributes:
+      name: 'Cyprus (CY)'
+      page: '{"layout":"frontpage","title":"Cyprus (CY)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_hr_folder'
+  remote_id: 'siteaccess_hr_folder'
+  location_remote_id: 'siteaccess_hr_folder'
+  parent_location: 1
+  section: 'hr'
+  lang: 'hr-HR'
+  attributes:
+      name: 'Lidl Digital HR'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_hr_folder'
+  identifier: 'siteaccess_hr'
+  location_remote_id: 'siteaccess_hr'
+  remote_id: 'siteaccess_hr'
+  section: 'hr'
+  lang: 'hr-HR'
+  object_states:
+      - live
+  attributes:
+      name: 'Croatia (HR)'
+      page: '{"layout":"frontpage","title":"Croatia (HR)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_bg_folder'
+  remote_id: 'siteaccess_bg_folder'
+  location_remote_id: 'siteaccess_bg_folder'
+  parent_location: 1
+  section: 'bg'
+  lang: 'bg-BG'
+  attributes:
+      name: 'Lidl Digital BG'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_bg_folder'
+  identifier: 'siteaccess_bg'
+  location_remote_id: 'siteaccess_bg'
+  remote_id: 'siteaccess_bg'
+  section: 'bg'
+  lang: 'bg-BG'
+  object_states:
+      - live
+  attributes:
+      name: 'Bulgaria (BG)'
+      page: '{"layout":"frontpage","title":"Bulgaria (BG)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_se_folder'
+  remote_id: 'siteaccess_se_folder'
+  location_remote_id: 'siteaccess_se_folder'
+  parent_location: 1
+  section: 'se'
+  lang: 'sv-SE'
+  attributes:
+      name: 'Lidl Digital SE'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_se_folder'
+  identifier: 'siteaccess_se'
+  location_remote_id: 'siteaccess_se'
+  remote_id: 'siteaccess_se'
+  section: 'se'
+  lang: 'sv-SE'
+  object_states:
+      - live
+  attributes:
+      name: 'Sweden (SE)'
+      page: '{"layout":"frontpage","title":"Sweden (SE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_mt_folder'
+  remote_id: 'siteaccess_mt_folder'
+  location_remote_id: 'siteaccess_mt_folder'
+  parent_location: 1
+  section: 'mt'
+  lang: 'en-MT'
+  attributes:
+      name: 'Lidl Digital MT'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_mt_folder'
+  identifier: 'siteaccess_mt'
+  location_remote_id: 'siteaccess_mt'
+  remote_id: 'siteaccess_mt'
+  section: 'mt'
+  lang: 'en-MT'
+  object_states:
+      - live
+  attributes:
+      name: 'Malta (MT)'
+      page: '{"layout":"frontpage","title":"Malta (MT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_es_folder'
+  remote_id: 'siteaccess_es_folder'
+  location_remote_id: 'siteaccess_es_folder'
+  parent_location: 1
+  section: 'es'
+  lang: 'es-ES'
+  attributes:
+      name: 'Lidl Digital ES'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_es_folder'
+  identifier: 'siteaccess_es'
+  location_remote_id: 'siteaccess_es'
+  remote_id: 'siteaccess_es'
+  section: 'es'
+  lang: 'es-ES'
+  object_states:
+      - live
+  attributes:
+      name: 'Spain (ES)'
+      page: '{"layout":"frontpage","title":"Spain (SP)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_si_folder'
+  remote_id: 'siteaccess_si_folder'
+  location_remote_id: 'siteaccess_si_folder'
+  parent_location: 1
+  section: 'si'
+  lang: 'sl-SI'
+  attributes:
+      name: 'Lidl Digital SI'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_si_folder'
+  identifier: 'siteaccess_si'
+  location_remote_id: 'siteaccess_si'
+  remote_id: 'siteaccess_si'
+  section: 'si'
+  lang: 'sl-SI'
+  object_states:
+      - live
+  attributes:
+      name: 'Slovenia (SI)'
+      page: '{"layout":"frontpage","title":"Slovenia (SI)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_lu_folder'
+  remote_id: 'siteaccess_lu_folder'
+  location_remote_id: 'siteaccess_lu_folder'
+  parent_location: 1
+  section: 'lu'
+  lang: 'de-LU'
+  attributes:
+      name: 'Lidl Digital LU'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_lu_folder'
+  identifier: 'siteaccess_lu'
+  location_remote_id: 'siteaccess_lu'
+  remote_id: 'siteaccess_lu'
+  section: 'lu'
+  lang: 'de-LU'
+  object_states:
+      - live
+  attributes:
+      name: 'Luxembourg (LU)'
+      page: '{"layout":"frontpage","title":"Luxembourg (LU)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+- mode: 'update'
+  type: 'content'
+  identifier: 'siteaccess_lu'
+  location_remote_id: 'siteaccess_lu'
+  remote_id: 'siteaccess_lu'
+  lang: 'fr-LU'
+  attributes:
+      name: 'Luxembourg (LU)'
+      page: '{"layout":"frontpage","title":"Luxembourg (LU)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_lt_folder'
+  remote_id: 'siteaccess_lt_folder'
+  location_remote_id: 'siteaccess_lt_folder'
+  parent_location: 1
+  section: 'lt'
+  lang: 'lt-LT'
+  attributes:
+      name: 'Lidl Digital LT'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_lt_folder'
+  identifier: 'siteaccess_lt'
+  location_remote_id: 'siteaccess_lt'
+  remote_id: 'siteaccess_lt'
+  section: 'lt'
+  lang: 'lt-LT'
+  object_states:
+      - live
+  attributes:
+      name: 'Lithuania (LT)'
+      page: '{"layout":"frontpage","title":"Lithuania (LT)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_rs_folder'
+  remote_id: 'siteaccess_rs_folder'
+  location_remote_id: 'siteaccess_rs_folder'
+  parent_location: 1
+  section: 'rs'
+  lang: 'sr-RS'
+  attributes:
+      name: 'Lidl Digital RS'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_rs_folder'
+  identifier: 'siteaccess_rs'
+  location_remote_id: 'siteaccess_rs'
+  remote_id: 'siteaccess_rs'
+  section: 'rs'
+  lang: 'sr-RS'
+  object_states:
+      - live
+  attributes:
+      name: 'Serbia (RS)'
+      page: '{"layout":"frontpage","title":"Serbia (RS)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_ee_folder'
+  remote_id: 'siteaccess_ee_folder'
+  location_remote_id: 'siteaccess_ee_folder'
+  parent_location: 1
+  section: 'ee'
+  lang: 'et-EE'
+  attributes:
+      name: 'Lidl Digital EE'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_ee_folder'
+  identifier: 'siteaccess_ee'
+  location_remote_id: 'siteaccess_ee'
+  remote_id: 'siteaccess_ee'
+  section: 'ee'
+  lang: 'et-EE'
+  object_states:
+      - live
+  attributes:
+      name: 'Estonia (EE)'
+      page: '{"layout":"frontpage","title":"Estonia (EE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_lv_folder'
+  remote_id: 'siteaccess_lv_folder'
+  location_remote_id: 'siteaccess_lv_folder'
+  parent_location: 1
+  section: 'lv'
+  lang: 'lv-LV'
+  attributes:
+      name: 'Lidl Digital LV'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_lv_folder'
+  identifier: 'siteaccess_lv'
+  location_remote_id: 'siteaccess_lv'
+  remote_id: 'siteaccess_lv'
+  section: 'lv'
+  lang: 'lv-LV'
+  object_states:
+      - live
+  attributes:
+      name: 'Latvia (LV)'
+      page: '{"layout":"frontpage","title":"Latvia (LV)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_nie_folder'
+  remote_id: 'siteaccess_nie_folder'
+  location_remote_id: 'siteaccess_nie_folder'
+  parent_location: 1
+  section: 'nie'
+  lang: 'en-GB'
+  attributes:
+      name: 'Lidl Digital NIE'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_nie_folder'
+  identifier: 'siteaccess_nie'
+  location_remote_id: 'siteaccess_nie'
+  remote_id: 'siteaccess_nie'
+  section: 'nie'
+  lang: 'en-GB'
+  object_states:
+      - live
+  attributes:
+      name: 'Northern Ireland (NIE)'
+      page: '{"layout":"frontpage","title":"Norther Ireland (NIE)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'
+#######################################################
+- mode: 'create'
+  type: 'content'
+  content_type: 'folder'
+  identifier: 'siteaccess_fr_folder'
+  remote_id: 'siteaccess_fr_folder'
+  location_remote_id: 'siteaccess_fr_folder'
+  parent_location: 1
+  section: 'fr'
+  lang: 'fr-FR'
+  attributes:
+      name: 'Foo Digital FR'
+- mode: 'create'
+  type: 'content'
+  content_type: 'startpage'
+  parent_location: 'siteaccess_fr_folder'
+  identifier: 'siteaccess_fr'
+  location_remote_id: 'siteaccess_fr'
+  remote_id: 'siteaccess_fr'
+  section: 'fr'
+  lang: 'fr-FR'
+  object_states:
+      - live
+  attributes:
+      name: 'France (FR)'
+      page: '{"layout":"frontpage","title":"France (FR)","zones":[{"id":"default_id","name":"default","blocks":[]}]}'

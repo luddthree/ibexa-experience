@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+    public: false
+
+  Ibexa\VersionComparison\Behat\Page\SingleColumnComparisonPage: ~
+
+  Ibexa\VersionComparison\Behat\Page\SideBySideComparisonPage: ~

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\Bundle\ProductCatalog\Form\Type;
+
+use Ibexa\Bundle\ProductCatalog\Form\Data\AssetBulkDeleteData;
+use Ibexa\Contracts\ProductCatalog\Values\ProductInterface;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+final class AssetBulkDeleteType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder->add('assets', ReferenceCollectionType::class, [
+            'entry_type' => AssetReferenceType::class,
+            'entry_options' => [
+                'product' => $options['product'],
+            ],
+        ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setRequired(['product']);
+        $resolver->setAllowedTypes('product', ProductInterface::class);
+
+        $resolver->setDefaults([
+            'data_class' => AssetBulkDeleteData::class,
+            'translation_domain' => 'ibexa_product_catalog',
+        ]);
+    }
+}

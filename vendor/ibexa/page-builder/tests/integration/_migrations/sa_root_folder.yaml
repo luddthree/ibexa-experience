@@ -1,0 +1,18 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-GB
+        modificationDate: '2021-08-01T07:45:17+02:00'
+        publicationDate: '2021-08-01T07:45:17+02:00'
+        remoteId: 'sa_root_1'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'sa_root_1_location'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'SA Root'
+

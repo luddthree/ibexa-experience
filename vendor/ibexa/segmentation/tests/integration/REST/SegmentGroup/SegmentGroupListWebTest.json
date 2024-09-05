@@ -1,0 +1,22 @@
+{
+    "SegmentGroupList": {
+        "_media-type": "application\/vnd.ibexa.api.SegmentGroupList+json",
+        "_href": "\/api\/ibexa\/v2\/segment_groups",
+        "SegmentGroup": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.SegmentGroup+json",
+                "_href": "\/api\/ibexa\/v2\/segment_groups\/segment_test_group_foo",
+                "id": 1,
+                "identifier": "segment_test_group_foo",
+                "name": "SEGMENT GROUP foo NAME"
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.SegmentGroup+json",
+                "_href": "\/api\/ibexa\/v2\/segment_groups\/segment_test_group_bar",
+                "id": 2,
+                "identifier": "segment_test_group_bar",
+                "name": "SEGMENT GROUP bar NAME"
+            }
+        ]
+    }
+}

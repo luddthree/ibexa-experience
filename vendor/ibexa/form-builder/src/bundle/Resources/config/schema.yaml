@@ -1,0 +1,46 @@
+tables:
+    ezform_field_attributes:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            field_id: { type: integer, nullable: true, index: ezform_fa_f_id }
+            identifier: { type: string, nullable: true, length: 128 }
+            value: { type: text, nullable: true, length: 65535 }
+    ezform_field_validators:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            field_id: { type: integer, nullable: true, index: ezform_fv_f_id }
+            identifier: { type: string, nullable: true, length: 128 }
+            value: { type: text, nullable: true, length: 65535 }
+    ezform_fields:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            form_id: { type: integer, nullable: true }
+            name: { type: string, nullable: false, length: 128 }
+            identifier: { type: string, nullable: true, length: 128 }
+    ezform_form_submission_data:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            form_submission_id: { type: integer, nullable: false }
+            name: { type: string, nullable: false, length: 128 }
+            identifier: { type: string, nullable: false, length: 128 }
+            value: { type: text, nullable: true, length: 65535 }
+    ezform_form_submissions:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            content_id: { type: integer, nullable: false }
+            language_code: { type: string, nullable: false, length: 6 }
+            user_id: { type: integer, nullable: false }
+            created: { type: integer, nullable: false }
+    ezform_forms:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            content_id: { type: integer, nullable: true }
+            version_no: { type: integer, nullable: true }
+            content_field_id: { type: integer, nullable: true }
+            language_code: { type: string, nullable: true, length: 16 }

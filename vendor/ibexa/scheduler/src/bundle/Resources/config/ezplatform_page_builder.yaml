@@ -1,0 +1,6 @@
+timeline:
+    serializer:
+        metadata_dirs:
+            Ibexa\Scheduler: '@IbexaSchedulerBundle/Resources/config/serializer'
+        event_type_map:
+            future_publication: Ibexa\Scheduler\Timeline\FuturePublicationEvent

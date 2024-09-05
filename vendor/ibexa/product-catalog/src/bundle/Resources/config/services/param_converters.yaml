@@ -1,0 +1,65 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Converter\AttributeDefinitionParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_attribute_definition_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\AttributeGroupParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_attribute_group_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\AttributeTypeParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_attribute_type_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\CurrencyCodeParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_attribute_group_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\CustomerGroupParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_customer_group_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\PriceParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_customer_group_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\ProductParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_product_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\ProductTypeParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_product_type_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\CatalogParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_catalog_converter
+
+    Ibexa\Bundle\ProductCatalog\Converter\RegionParamConverter:
+        tags:
+            -   name: request.param_converter
+                priority: -2
+                converter: ibexa_region_converter

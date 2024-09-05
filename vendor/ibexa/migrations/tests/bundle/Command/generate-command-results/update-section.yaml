@@ -1,0 +1,78 @@
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: standard
+    metadata:
+        identifier: standard
+        name: Standard
+    references:
+        -
+            name: ref__section__1__section_id
+            type: section_id
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: users
+    metadata:
+        identifier: users
+        name: Users
+    references:
+        -
+            name: ref__section__2__section_id
+            type: section_id
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: media
+    metadata:
+        identifier: media
+        name: Media
+    references:
+        -
+            name: ref__section__3__section_id
+            type: section_id
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: setup
+    metadata:
+        identifier: setup
+        name: Setup
+    references:
+        -
+            name: ref__section__4__section_id
+            type: section_id
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: design
+    metadata:
+        identifier: design
+        name: Design
+    references:
+        -
+            name: ref__section__5__section_id
+            type: section_id
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: ''
+    metadata:
+        identifier: ''
+        name: Restricted
+    references:
+        -
+            name: ref__section__6__section_id
+            type: section_id

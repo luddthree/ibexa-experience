@@ -1,0 +1,12 @@
+BasePageBlockAttribute:
+    type: object
+    config:
+        interfaces: [PageBlockAttribute]
+        fields:
+            id:
+                type: String
+            name:
+                type: String
+            value:
+                type: String
+                resolve: '@=resolver("SerializedAttributeValueFromContext", [value, context])'

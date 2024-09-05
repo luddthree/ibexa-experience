@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\ActivityLog\Config\ConfigProvider: ~
+
+    Ibexa\ActivityLog\Config\ConfigProviderInterface:
+        alias: 'Ibexa\ActivityLog\Config\ConfigProvider'

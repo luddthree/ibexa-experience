@@ -1,0 +1,6 @@
+{% extends '@ibexadesign/content/form_fields.html.twig' %}
+
+{% block ezplatform_fieldtype_ezlandingpage_row %}
+    {% set wrapper_attr = wrapper_attr|default({})|merge({'hidden': 'hidden'}) %}
+    {{ block('form_row_fieldtype') }}
+{% endblock %}

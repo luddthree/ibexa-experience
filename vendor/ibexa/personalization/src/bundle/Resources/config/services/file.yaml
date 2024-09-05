@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\File\FileManager:
+        $exportDocumentRoot: '%ibexa.site_access.config.default.personalization.export.document_root%'
+
+    Ibexa\Personalization\File\FileManagerInterface:
+        '@Ibexa\Personalization\File\FileManager'

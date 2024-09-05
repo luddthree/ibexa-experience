@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\PageBuilder\Timeline\Serializer:
+        factory: ['@Ibexa\PageBuilder\PageBuilder\Timeline\Serializer\SerializerFactory', 'create']
+
+    Ibexa\PageBuilder\PageBuilder\Timeline\Serializer\SerializerFactory:
+        arguments:
+            $fileLocator: '@file_locator'
+            $driverFactory: '@Ibexa\PageBuilder\PageBuilder\Timeline\Serializer\Driver\DriverFactory'
+            $metadataDirs: '%ibexa.page_builder.timeline.serializer.metadata_dirs%'
+
+    Ibexa\PageBuilder\PageBuilder\Timeline\Serializer\Driver\DriverFactory:
+        arguments:
+            $eventTypeMap: '%ibexa.page_builder.timeline.serializer.event_type_map%'

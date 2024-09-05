@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Dashboard\UserSetting\Group\DashboardGroup:
+        tags:
+            - { name: ibexa.user.setting.group, identifier: dashboard, priority: -10 }
+
+    Ibexa\Dashboard\UserSetting\ActiveDashboard:
+        tags:
+            - { name: ibexa.user.setting.value, identifier: active_dashboard, group: dashboard, priority: 10 }
+            - { name: ibexa.user.setting.mapper.form, identifier: active_dashboard }

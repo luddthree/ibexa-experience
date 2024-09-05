@@ -1,0 +1,24 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: landing_page
+        mainTranslation: el-CY
+        creatorId: null
+        modificationDate: null
+        publicationDate: null
+        remoteId: siteaccess_cy_extras
+        alwaysAvailable: null
+        section: null
+    location:
+        locationRemoteId: siteaccess_cy_extras
+        hidden: null
+        sortField: null
+        sortOrder: null
+        priority: null
+        parentLocationRemoteId: siteaccess_cy
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: el-CY
+            value: Extras

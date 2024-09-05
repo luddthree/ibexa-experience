@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "AttributeGroup": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_media-type",
+                "name",
+                "identifier",
+                "position"
+            ]
+        }
+    },
+    "required": [
+        "AttributeGroup"
+    ]
+}

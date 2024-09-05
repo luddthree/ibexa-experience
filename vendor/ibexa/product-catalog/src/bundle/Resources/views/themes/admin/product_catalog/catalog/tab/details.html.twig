@@ -1,0 +1,35 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section>
+    {% set creator_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: catalog.creator } only %}
+    {% endset %}
+
+    {% set catalog_items = [
+        {
+            label: 'catalog.details.name'|trans|desc('Name'),
+            content: catalog.name,
+        },
+        {
+            label: 'catalog.details.identifier'|trans|desc('Identifier'),
+            content: catalog.identifier,
+        },
+        {
+            label: 'catalog.details.creator'|trans|desc('Creator'),
+            content: creator_name,
+        },
+        {
+            label: 'catalog.details.created'|trans|desc('Created'),
+            content: catalog.created|ibexa_full_datetime,
+        },
+        {
+            label: 'catalog.details.modified'|trans|desc('Modified'),
+            content: catalog.modified|ibexa_full_datetime,
+        },
+    ] %}
+
+    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+        headline: 'catalog.information.headline'|trans|desc('Catalog information'),
+        items: catalog_items,
+    } only %}
+</section>

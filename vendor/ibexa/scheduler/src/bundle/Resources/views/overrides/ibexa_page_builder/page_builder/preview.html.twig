@@ -1,0 +1,13 @@
+{% extends '@IbexaPageBuilder/page_builder/preview.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder' %}
+
+{% block modal_versions %}
+    {% include '@IbexaScheduler/overrides/ibexa_page_builder/page_builder/infobar/modal_versions.html.twig' with {
+        'form_version_edit': form_version_edit,
+        'location': location,
+        'versions': versions,
+        'siteaccess': siteaccess,
+        'future_versions': future_versions
+    } %}
+{% endblock %}

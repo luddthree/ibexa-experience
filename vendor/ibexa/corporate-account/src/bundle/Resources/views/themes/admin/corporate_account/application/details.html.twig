@@ -1,0 +1,122 @@
+{% extends "@ibexadesign/corporate_account/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% import "@ibexadesign/ui/dashboard/macros.html.twig" as macros %}
+
+{% block main_container_class %} ibexa-ca-application-details{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'corporate'|trans|desc('Corporate') },
+        { value: 'application.list.breadcrumbs'|trans|desc('Applications'), url: path('ibexa.corporate_account.application.list') },
+        { value: application.name, url: path('ibexa.corporate_account.application.details', {
+            applicationId: application.getId(),
+        }) },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    <ul class="ibexa-context-menu">
+        <li class="ibexa-context-menu__item">
+            <a
+                class="btn ibexa-btn ibexa-btn--primary"
+                href="{{ path('ibexa.corporate_account.application.edit', { applicationId: application.getId() }) }}"
+            >
+                {{ 'application.details.context_menu.edit.label'|trans|desc('Edit') }}
+            </a>
+        </li>
+        <li class="ibexa-context-menu__item">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--extra-actions"
+                data-actions="application-approve"
+            >
+                {{ 'application.details.context_menu.workflow_approve.label'|trans|desc('Approve') }}
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--extra-actions"
+                data-actions="application-on-hold"
+            >
+                {{ 'application.details.context_menu.workflow_on_hold.label'|trans|desc('Hold') }}
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item">
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--extra-actions"
+                data-actions="application-reject"
+            >
+                {{ 'application.details.context_menu.workflow_reject.label'|trans|desc('Reject') }}
+            </button>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: application.name,
+    } %}
+        {% trans_default_domain 'ibexa_corporate_account' %}
+
+        {% block bottom %}
+            <span class="ibexa-icon-tag">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('clipboard') }}"></use>
+                </svg>
+                {{ 'application.details.subtitle'|trans|desc('Application') }}
+            </span>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form_edit, {
+        action: path('ibexa.content.edit'),
+        attr: { class: 'ibexa-edit-content-form' },
+    }) }}
+        {{ form_widget(form_edit.language, { attr: {
+            hidden: 'hidden',
+            class: 'language-input',
+        }}) }}
+    {{ form_end(form_edit) }}
+
+    {% embed '@ibexadesign/ui/component/extra_actions/extra_actions_container.html.twig' with {
+        extra_actions: block('extra_actions') is defined ? block('extra_actions'),
+    } %}
+        {% block content %}
+            {% include '@ibexadesign/corporate_account/application/extra_actions/approve.html.twig' %}
+            {% include '@ibexadesign/corporate_account/application/extra_actions/on_hold.html.twig' %}
+            {% include '@ibexadesign/corporate_account/application/extra_actions/reject.html.twig' %}
+
+            {{ extra_actions|default(null)|raw }}
+        {% endblock %}
+    {% endembed %}
+
+    {% set tabs = [
+        { id: 'summary', label: 'application.details.tab.summary.label'|trans|desc('Details'), active: true },
+    ]|merge(extra_tabs|default([])) %}
+
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        tabs,
+        hide_toggler: true,
+        extra_tabs_panes: block('extra_tabs_panes') is defined ? block('extra_tabs_panes'),
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with {
+                id: 'summary',
+                tab_pane_class: 'ibexa-ca-application-tab-summary',
+                active: true,
+            } %}
+                {% block content %}
+                    {% include '@ibexadesign/corporate_account/application/details_summary.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+
+            {{ extra_tabs_panes|default(null)|raw }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

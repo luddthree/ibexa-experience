@@ -1,0 +1,15 @@
+-
+    type: content
+    mode: delete
+    match:
+        content_remote_id: 'siteaccess_be_content_images_assets_100'
+-
+    type: content
+    mode: delete
+    match:
+        content_remote_id: 'siteaccess_be_content_images_assets_280'
+-
+    type: content
+    mode: delete
+    match:
+        content_remote_id: 'siteaccess_be_content_images_assets_292'

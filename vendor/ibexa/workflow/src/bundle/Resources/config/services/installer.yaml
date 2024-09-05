@@ -1,0 +1,6 @@
+services:
+    Ibexa\Workflow\Event\Subscriber\BuildSchemaSubscriber:
+        autoconfigure: true
+        public: false
+        arguments:
+            - '@=service("kernel").locateResource("@IbexaWorkflowBundle/Resources/config/storage/schema.yaml")'

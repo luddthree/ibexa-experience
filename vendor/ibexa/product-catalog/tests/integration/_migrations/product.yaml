@@ -1,0 +1,332 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        modificationDate: '2021-07-26T07:45:17+02:00'
+        publicationDate: '2021-07-26T07:45:17+02:00'
+        remoteId: 'DRESS_0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'DRESS_0001'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Dress A'
+        -   fieldDefIdentifier: name
+            languageCode: ger-DE
+            value: 'Dress A German'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '0001'
+                attributes:
+                    foo: 42
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        modificationDate: '2021-07-27T07:45:30+02:00'
+        publicationDate: '2021-07-27T07:45:30+02:00'
+        remoteId: 'DRESS_0002'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'DRESS_0002'
+    fields:
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '0002'
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Dress B'
+        -   fieldDefIdentifier: name
+            languageCode: ger-DE
+            value: 'Dress B German'
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: dress
+        mainTranslation: eng-GB
+        modificationDate: '2021-07-28T07:45:30+02:00'
+        publicationDate: '2021-07-28T07:45:30+02:00'
+        remoteId: 'DRESS_0003'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'DRESS_0003'
+    fields:
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: '0003'
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Dress C'
+        -   fieldDefIdentifier: name
+            languageCode: ger-DE
+            value: 'Dress C German'
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: shirt
+        mainTranslation: eng-GB
+        modificationDate: '2021-07-29T07:45:17+02:00'
+        publicationDate: '2021-07-29T07:45:17+02:00'
+        remoteId: 'SHIRT0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'SHIRT0001'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Shirt A'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'SHIRTA'
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: shirt
+        mainTranslation: eng-GB
+        modificationDate: '2021-07-30T07:45:30+02:00'
+        publicationDate: '2021-07-30T07:45:30+02:00'
+        remoteId: 'SHIRT0002'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'SHIRT0002'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Shirt B'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'SHIRTB'
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: jeans
+        mainTranslation: eng-GB
+        modificationDate: '2021-08-01T07:45:17+02:00'
+        publicationDate: '2021-08-01T07:45:17+02:00'
+        remoteId: 'JEANS_0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'JEANS_0001'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Jeans A'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'JEANS_A'
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: jeans
+        mainTranslation: eng-GB
+        modificationDate: '2021-08-02T07:45:30+02:00'
+        publicationDate: '2021-08-02T07:45:30+02:00'
+        remoteId: 'JEANS_0002'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'JEANS_0002'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Jeans B'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'JEANS_B'
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: attribute_search_check
+        mainTranslation: eng-GB
+        remoteId: 'ATTRIBUTE_SEARCH_CHECK_0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'ATTRIBUTE_SEARCH_CHECK_0001'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'ATTRIBUTE_SEARCH_CHECK_0001'
+                attributes:
+                    foo_boolean: true
+                    foo_color: '#999999'
+                    foo_float: 9.6
+                    foo_integer: 96
+                    foo_selection: ATTRIBUTE_SEARCH_CHECK_SELECTION_2
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: attribute_search_check
+        mainTranslation: eng-GB
+        remoteId: 'ATTRIBUTE_SEARCH_CHECK_0002'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'ATTRIBUTE_SEARCH_CHECK_0002'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'ATTRIBUTE_SEARCH_CHECK_0002'
+                attributes:
+                    foo_boolean: ~
+                    foo_color: ~
+                    foo_float: ~
+                    foo_integer: ~
+                    foo_selection: ~
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: attribute_search_check
+        mainTranslation: eng-GB
+        remoteId: 'ATTRIBUTE_SEARCH_CHECK_0003'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'ATTRIBUTE_SEARCH_CHECK_0003'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'ATTRIBUTE_SEARCH_CHECK_0003'
+                attributes:
+                    foo_boolean: true
+                    foo_color: '#FFFFFF'
+                    foo_float: 4.2
+                    foo_integer: 42
+                    foo_selection: ATTRIBUTE_SEARCH_CHECK_SELECTION_1
+        -   fieldDefIdentifier: product_category
+            languageCode: eng-GB
+            value:
+                taxonomy_entries_identifiers:
+                    - product_taxonomy_0001
+                taxonomy: product_categories
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: attribute_search_check
+        mainTranslation: eng-GB
+        remoteId: 'ATTRIBUTE_SEARCH_CHECK_0004'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'ATTRIBUTE_SEARCH_CHECK_0004'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'ATTRIBUTE_SEARCH_CHECK_0004'
+                attributes:
+                    foo_boolean: false
+                    foo_color: ~
+                    foo_float: 4.2
+                    foo_integer: 1000
+                    foo_selection: ATTRIBUTE_SEARCH_CHECK_SELECTION_1
+        -   fieldDefIdentifier: product_category
+            languageCode: eng-GB
+            value:
+                taxonomy_entries_identifiers:
+                    - product_taxonomy_0002
+                taxonomy: product_categories
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: trousers
+        mainTranslation: eng-GB
+        modificationDate: '2021-07-28T07:45:30+02:00'
+        publicationDate: '2021-07-28T07:45:30+02:00'
+        remoteId: 'TROUSERS_0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'TROUSERS_0001'
+    fields:
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'TROUSERS_0001'
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Trousers'
+        -   fieldDefIdentifier: name
+            languageCode: ger-DE
+            value: 'Trousers German'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'TROUSERS_0001'
+                attributes:
+                    foo_integer: 42
+        -   fieldDefIdentifier: matrix
+            language: eng-GB
+            value: { }
+
+-   type: content
+    mode: create
+    metadata:
+        contentType: warranty
+        mainTranslation: eng-GB
+        modificationDate: '2023-05-29T12:15:00+02:00'
+        publicationDate: '2023-05-29T12:15:00+02:00'
+        remoteId: 'WARRANTY_0001'
+        alwaysAvailable: true
+        section: 1
+    location:
+        parentLocationId: 2
+        locationRemoteId: 'WARRANTY_0001'
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'WARRANTY_0001'
+        -   fieldDefIdentifier: specification
+            languageCode: eng-GB
+            value:
+                code: 'WARRANTY_0001'

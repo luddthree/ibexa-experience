@@ -1,0 +1,30 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% embed '@ibexadesign/corporate_account/application/extra_actions/extra_actions.html.twig' with {
+    id: 'application-reject',
+    title: 'application.workflow.extra_actions.reject.title'|trans|desc('Rejecting application'),
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+    {% form_theme reject_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+    {% block content %}
+        {{ form_start(reject_form, { action: path('ibexa.corporate_account.application.workflow.state', {
+            state: 'reject',
+            applicationId: application.id,
+        }), method: 'POST'}) }}
+            {{ form_row(reject_form.reason) }}
+            {{ form_row(reject_form.notes) }}
+
+            {% embed '@ibexadesign/corporate_account/application/extra_actions/extra_actions_btns.html.twig' %}
+                {% trans_default_domain 'ibexa_corporate_account' %}
+                {% form_theme accept_form '@ibexadesign/ui/form_fields.html.twig' %}
+
+                {% block extra_btns %}
+                    {{ form_widget(reject_form.reject, { attr: {
+                        class: 'ibexa-btn ibexa-btn--primary ibexa-ca-application-workflow-extra-actions__btn',
+                    }}) }}
+                {% endblock %}
+            {% endembed %}
+        {{ form_end(reject_form) }}
+    {% endblock %}
+{% endembed %}

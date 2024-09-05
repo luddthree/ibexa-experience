@@ -1,0 +1,10 @@
+system:
+    default:
+        fielddefinition_edit_templates:
+            - { template: "@ibexadesign/measurement/field_type/field_types.html.twig", priority: 1 }
+        field_templates:
+            - { template: '@ibexadesign/measurement/field_type/content_fields.html.twig', priority: 0 }
+    admin_group:
+        admin_ui_forms:
+            content_edit_form_templates:
+                - { template: '@ibexadesign/measurement/field_type/content_edit_form_fields.html.twig', priority: 1 }

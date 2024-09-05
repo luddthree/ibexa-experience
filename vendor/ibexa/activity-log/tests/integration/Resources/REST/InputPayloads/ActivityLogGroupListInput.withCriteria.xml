@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ActivityLogGroupListInput>
+    <criteria>
+        <criterion type="logged_at">
+            <value>2023-10-03 10:50:00</value>
+            <operator>&gt;</operator>
+        </criterion>
+        <criterion type="logged_at">
+            <value>2023-10-03 14:50:00</value>
+            <operator>&lt;</operator>
+        </criterion>
+        <criterion type="action">
+            <value>bar_action</value>
+        </criterion>
+        <criterion type="action">
+            <value>foo_action</value>
+            <value>bar_action</value>
+        </criterion>
+        <criterion type="object_class">
+            <class>stdClass</class>
+        </criterion>
+        <criterion type="object_class">
+            <class>stdClass</class>
+            <ids>bar</ids>
+        </criterion>
+        <criterion type="object_class">
+            <class>stdClass</class>
+            <ids>
+                <id>foo</id>
+                <id>bar</id>
+            </ids>
+        </criterion>
+        <criterion type="user">
+            <value>14</value>
+        </criterion>
+        <criterion type="user">
+            <value>14</value>
+            <value>42</value>
+        </criterion>
+    </criteria>
+</ActivityLogGroupListInput>

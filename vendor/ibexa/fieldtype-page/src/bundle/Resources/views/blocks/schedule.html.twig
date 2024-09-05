@@ -1,0 +1,17 @@
+{%  set render_empty = render_empty|default(false) %}
+
+<div class="block-schedule schedule-layout schedule-layout--list">
+    {% for i in 0..3 %}
+        {% if items[i] is defined or render_empty %}
+            <div class="schedule-layout--list__slot schedule-layout__slot">
+                {% if items[i] is defined %}
+                    {{ render(controller('ibexa_content:viewAction', {
+                        'contentId': items[i].contentId,
+                        'locationId': items[i].id,
+                        'viewType': 'embed'
+                    })) }}
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

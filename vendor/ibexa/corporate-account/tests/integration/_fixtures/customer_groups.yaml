@@ -1,0 +1,5 @@
+ibexa_customer_group:
+    - { id: 1, identifier: eu, global_price_rate: 1.00 }
+
+ibexa_customer_group_ml:
+    - { id: 1, customer_group_id: 1, language_id: 2, name: EU, name_normalized: eu, description: ''}

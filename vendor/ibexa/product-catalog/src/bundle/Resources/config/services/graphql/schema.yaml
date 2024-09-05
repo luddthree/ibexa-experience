@@ -1,0 +1,46 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\GraphQL\Schema\ProductDomainIterator:
+        tags:
+            - { name: ibexa.graphql.domain_schema.iterator }
+
+    Ibexa\ProductCatalog\GraphQL\Schema\Worker\Base:
+        abstract: true
+        calls:
+            - [ setNameHelper, ['@Ibexa\ProductCatalog\GraphQL\Schema\NameHelper'] ]
+
+    Ibexa\ProductCatalog\GraphQL\Schema\Worker\MatrixFieldType\AbstractMatrixFieldDefinitionSchemaWorker:
+        abstract: true
+        arguments:
+            $matrixFieldTypeIdentifier: '%ibexa.field_type.matrix.identifier%'
+        calls:
+            - [ setNameHelper, ['@Ibexa\ProductCatalog\GraphQL\Schema\NameHelper'] ]
+
+    Ibexa\ProductCatalog\GraphQL\Schema\Worker\FilterAware:
+        abstract: true
+        parent: Ibexa\ProductCatalog\GraphQL\Schema\Worker\Base
+
+    Ibexa\ProductCatalog\GraphQL\Schema\Worker\:
+        resource: './../../../../../lib/GraphQL/Schema/Worker/*'
+        parent: Ibexa\ProductCatalog\GraphQL\Schema\Worker\Base
+        tags:
+            - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\ProductCatalog\GraphQL\Schema\Worker\Filter\:
+        resource: './../../../../../lib/GraphQL/Schema/Worker/Filter/*'
+        parent: Ibexa\ProductCatalog\GraphQL\Schema\Worker\FilterAware
+        tags:
+            - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\ProductCatalog\GraphQL\Schema\Worker\MatrixFieldType\:
+        resource: './../../../../../lib/GraphQL/Schema/Worker/MatrixFieldType/*'
+        parent: Ibexa\ProductCatalog\GraphQL\Schema\Worker\MatrixFieldType\AbstractMatrixFieldDefinitionSchemaWorker
+        tags:
+            - { name: ibexa.graphql.domain.schema.worker }
+
+    Ibexa\ProductCatalog\GraphQL\Schema\NameHelper:
+        parent: Ibexa\GraphQL\Schema\Domain\BaseNameHelper

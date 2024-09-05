@@ -1,0 +1,27 @@
+{% trans_default_domain 'ibexa_fieldtypes_comparison_ui' %}
+
+<div class="ibexa-version-compare-header-tooltip">
+    <h4 class="ibexa-version-compare-header-tooltip__title">
+        {{ 'content.comparison.tooltip.title'|trans|desc('Legend') }}
+    </h4>
+    <div class="ibexa-version-compare-header-tooltip__items">
+        <div class="ibexa-version-compare-header-tooltip__item">
+            <div class="ibexa-version-compare-header-tooltip__item-preview ibexa-version-compare-header-tooltip__item-preview--added"></div>
+            <div class="ibexa-version-compare-header-tooltip__item-label">
+                {{ 'content.comparison.tooltip.item.label.added'|trans|desc('Text added') }}
+            </div>
+        </div>
+        <div class="ibexa-version-compare-header-tooltip__item">
+            <div class="ibexa-version-compare-header-tooltip__item-preview ibexa-version-compare-header-tooltip__item-preview--changed"></div>
+            <div class="ibexa-version-compare-header-tooltip__item-label">
+                {{ 'content.comparison.tooltip.item.label.changed'|trans|desc('Text modified') }}
+            </div>
+        </div>
+        <div class="ibexa-version-compare-header-tooltip__item">
+            <div class="ibexa-version-compare-header-tooltip__item-preview ibexa-version-compare-header-tooltip__item-preview--removed"></div>
+            <div class="ibexa-version-compare-header-tooltip__item-label">
+                {{ 'content.comparison.tooltip.item.label.removed'|trans|desc('Text removed') }}
+            </div>
+        </div>
+    </div>
+</div>

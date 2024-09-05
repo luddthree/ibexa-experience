@@ -1,0 +1,23 @@
+Ibexa\Bundle\ProductCatalog\Form\Data\Price\AbstractProductPrice\AbstractProductPrice:
+    properties:
+        basePrice:
+            -   Positive: ~
+
+Ibexa\Bundle\ProductCatalog\Form\Data\Price\Create\ProductPriceCreateData:
+    properties:
+        basePrice:
+            -   Positive: ~
+            -   NotBlank: ~
+
+Ibexa\Bundle\ProductCatalog\Form\Data\AbstractProductData:
+    properties:
+        fieldsData:
+            -   Valid: ~
+
+Ibexa\Contracts\ProductCatalog\Values\Price\Create\Struct\ProductPriceCreateStruct:
+    constraints:
+        -   Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueProductPrice: ~
+
+Ibexa\Contracts\ProductCatalog\Values\Price\Create\Struct\CustomerGroupPriceCreateStruct:
+    constraints:
+        -   Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueProductPriceCustomerGroup: ~

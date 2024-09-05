@@ -1,0 +1,13 @@
+{% import '@ibexadesign/ui/component/macros.html.twig' as macros %}
+
+<li
+    class="ibexa-popup-menu__item ibexa-pc-edit-catalog-tags-popup-menu__item"
+    {{ macros.attributes(attr|default({})) }}
+>
+    <span class="ibexa-pc-edit-catalog-tags-popup-menu__item-label">{{ label|default('{{ label }}') }}</span>
+    <button type="button" class="btn ibexa-btn ibexa-btn--small ibexa-btn--no-text ibexa-pc-edit-catalog-tags-popup-menu__item-remove-btn">
+        <svg class="ibexa-icon ibexa-icon--tiny">
+            <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+        </svg>
+    </button>
+</li>

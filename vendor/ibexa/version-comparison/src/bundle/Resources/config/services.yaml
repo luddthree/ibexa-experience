@@ -1,0 +1,81 @@
+imports:
+  - { resource: comparable_fieldtypes.yaml }
+
+services:
+  _defaults:
+      autoconfigure: true
+      autowire: true
+      public: false
+
+  Ibexa\Bundle\VersionComparison\Controller\:
+      resource: "../../Controller/*"
+      parent: Ibexa\Contracts\AdminUi\Controller\Controller
+      autowire: true
+      autoconfigure: false
+      public: false
+      tags:
+        - controller.service_arguments
+
+  Ibexa\Bundle\VersionComparison\Form\Type\:
+      resource: '../../Form/Type'
+
+  Ibexa\VersionComparison\UI\:
+      resource: '../../../lib/UI'
+
+  Ibexa\Bundle\VersionComparison\Event\:
+      resource: "../../Event/*"
+
+  Ibexa\VersionComparison\Service\VersionComparisonService: ~
+
+  Ibexa\Contracts\VersionComparison\Service\VersionComparisonServiceInterface: '@Ibexa\VersionComparison\Service\VersionComparisonService'
+
+  Ibexa\VersionComparison\Registry\FieldRegistry:
+      arguments: [!tagged { tag: ibexa.field_type.comparable, index_by: alias }]
+
+  Ibexa\VersionComparison\Registry\FieldRegistryInterface: '@Ibexa\VersionComparison\Registry\FieldRegistry'
+
+  Ibexa\VersionComparison\Registry\ComparisonEngineRegistry:
+      arguments: [!tagged { tag: ibexa.field_type.comparable.engine, index_by: supported_type }]
+
+  Ibexa\VersionComparison\Registry\ComparisonEngineRegistryInterface: '@Ibexa\VersionComparison\Registry\ComparisonEngineRegistry'
+
+  Ibexa\Bundle\VersionComparison\Templating\Twig\ComparisonResultRenderingExtension: ~
+
+  Ibexa\VersionComparison\Templating\ComparisonResultRenderer:
+      arguments:
+        $parameterProviderRegistry: '@Ibexa\Core\MVC\Symfony\FieldType\View\ParameterProviderRegistry'
+        $translationHelper: '@Ibexa\Core\Helper\TranslationHelper'
+
+  Ibexa\VersionComparison\Templating\ComparisonResultRendererInterface: '@Ibexa\VersionComparison\Templating\ComparisonResultRenderer'
+
+  Ibexa\VersionComparison\Engine\Value\Html\ExternalHtmlDiffHandler:
+      arguments:
+          $filesystem: '@filesystem'
+          $tmpDir: '%kernel.project_dir%/var/tmp/'
+          $diffBinaryPath: '%ibexa.version_comparison.html.external_tool_path%'
+          $timeout: '%ibexa.version_comparison.html.timeout%'
+          $additionalArguments: '%ibexa.version_comparison.html.additional_parameters%'
+
+  Ibexa\VersionComparison\Engine\Value\Html\PlainTextHtmlDiffHandler:
+      arguments:
+          $template: '%ibexa.version_comparison.html.path_to_template%'
+          $blockName: '%ibexa.version_comparison.html.block_name%'
+
+  Ibexa\VersionComparison\Engine\Value\Html\TagAwareHtmlDiffHandler: ~
+
+  Ibexa\VersionComparison\Engine\Value\Html\HtmlDiffHandler: '@Ibexa\VersionComparison\Engine\Value\Html\TagAwareHtmlDiffHandler'
+
+  Ibexa\VersionComparison\HtmlDiff\Token\TokenWrapper: ~
+  Ibexa\VersionComparison\HtmlDiff\Token\TokenWrapperInterface: '@Ibexa\VersionComparison\HtmlDiff\Token\TokenWrapper'
+
+  Ibexa\VersionComparison\HtmlDiff\Token\TokenFactory: ~
+  Ibexa\VersionComparison\HtmlDiff\Token\TokenFactoryInterface: '@Ibexa\VersionComparison\HtmlDiff\Token\TokenFactory'
+
+  Ibexa\VersionComparison\HtmlDiff\DiffBuilder: ~
+  Ibexa\VersionComparison\HtmlDiff\DiffBuilderInterface: '@Ibexa\VersionComparison\HtmlDiff\DiffBuilder'
+
+  Ibexa\VersionComparison\HtmlDiff\Match\FullMatchFinder: ~
+  Ibexa\VersionComparison\HtmlDiff\Match\MatchFinder: '@Ibexa\VersionComparison\HtmlDiff\Match\FullMatchFinder'
+
+  Ibexa\VersionComparison\HtmlDiff\Lexer\Tokenizer: ~
+  Ibexa\VersionComparison\HtmlDiff\Lexer\TokenizerInterface: '@Ibexa\VersionComparison\HtmlDiff\Lexer\Tokenizer'

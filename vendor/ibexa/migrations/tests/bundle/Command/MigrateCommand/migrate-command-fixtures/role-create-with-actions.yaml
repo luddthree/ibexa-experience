@@ -1,0 +1,107 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-US
+        creatorId: 14
+        modificationDate: '2003-08-12T13:37:37+00:00'
+        publicationDate: '2003-08-12T13:37:37+00:00'
+        remoteId: foo
+        alwaysAvailable: true
+        section: 3
+        objectStates: {  }
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: null
+        locationRemoteId: foo_location
+        hidden: false
+        sortField: !php/const Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_NAME
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Media
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+    actions: {  }
+    references:
+        -
+            name: ref__content__folder__media
+            type: content_id
+        -
+            name: ref_location__folder__media
+            type: location_id
+        -
+            name: ref_path__folder__media
+            type: path
+
+-
+    type: user
+    mode: create
+    metadata:
+        login: __foo__
+        email: anonymous@link.invalid
+        password: __PASSWORD__
+        enabled: true
+        mainLanguage: eng-US
+    groups:
+        - 15b256dbea2ae72418ff5facc999e8f9
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Anonymous
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: signature
+            fieldTypeIdentifier: eztext
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            fieldTypeIdentifier: ezimage
+            languageCode: eng-US
+            value: null
+
+-
+    type: role
+    mode: create
+    metadata:
+        identifier: foo
+    policies:
+        -
+            module: content
+            function: 'read'
+            limitations:
+                -
+                    identifier: Subtree
+                    values: ['reference:ref_path__folder__media']
+    references:
+        -
+            name: ref__role__foo__role_id
+            type: role_id
+    actions:
+        -   action: assign_role_to_user
+            login: __foo__
+            limitation:
+                type: Section
+                values:
+                    - standard

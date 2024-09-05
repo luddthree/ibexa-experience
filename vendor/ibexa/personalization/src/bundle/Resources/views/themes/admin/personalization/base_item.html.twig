@@ -1,0 +1,30 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% block navigation %}{% endblock %}
+
+{% block header %}
+    {% if exit_link is defined %}
+        <a class="ibexa-header__exit-btn" href="{{ exit_link }}" title="{{ 'tooltip.exit_label'|trans({}, 'ibexa_content')|desc('Exit') }}">
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--primary">
+                <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+            </svg>
+        </a>
+    {% endif %}
+
+    <div class="container-fluid ibexa-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {% block header_title %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}

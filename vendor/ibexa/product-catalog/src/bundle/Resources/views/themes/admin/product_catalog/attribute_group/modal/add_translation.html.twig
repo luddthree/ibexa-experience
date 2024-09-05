@@ -1,0 +1,45 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'tab.translations.add.title'|trans|desc('Create a new translation'),
+    class: 'ibexa-translation ibexa-pc-translation',
+    id: 'add-translation-modal',
+} %}
+    {% trans_default_domain 'ibexa_product_catalog' %}
+    {% form_theme form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+
+    {% block content_before %}
+        {% set action = action is defined ? action : path('ibexa.product_catalog.attribute_group.translation.create') %}
+        {{ form_start(form, { action }) }}
+    {% endblock %}
+    {% block body_content %}
+        {{ form_row(form.base_language, {
+            row_attr: { class: 'ibexa-pc-translation__form-field' },
+            attr: { class: 'ibexa-translation__language-wrapper ibexa-translation__language-wrapper--base-language' },
+        }) }}
+        <div class="ibexa-translation__arrow">
+            <svg class="ibexa-icon ibexa-icon--medium">
+                <use xlink:href="{{ ibexa_icon_path('back') }}"></use>
+            </svg>
+        </div>
+        {{ form_row(form.language, {
+            row_attr: { class: 'ibexa-pc-translation__form-field' },
+            attr: { class: 'ibexa-translation__language-wrapper ibexa-translation__language-wrapper--language' },
+        }) }}
+    {% endblock %}
+    {% block footer_content %}
+        {{ form_widget(form.add, {
+            attr: { class: 'btn ibexa-btn ibexa-btn--primary ibexa-btn--create-translation' },
+        }) }}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary"
+            data-bs-dismiss="modal"
+        >
+            {{ 'tab.translations.add.cancel'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+    {% block content_after %}
+        {{ form_end(form) }}
+    {% endblock %}
+{% endembed %}

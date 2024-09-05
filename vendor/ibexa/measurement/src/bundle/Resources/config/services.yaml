@@ -1,0 +1,51 @@
+imports:
+    - { resource: services/*.yaml }
+
+parameters:
+    ibexa.measurement.sign.map:
+        none: ''
+        gt: '>'
+        lt: '<'
+        gte: '≥'
+        lte: '≤'
+        pm: '±'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Measurement\MeasurementTypeFactory:
+        arguments:
+            $types: '%measurement.types%'
+
+    Ibexa\Measurement\MeasurementService: ~
+
+    Ibexa\Contracts\Measurement\ConfigResolver\MeasurementTypesInterface: '@Ibexa\Measurement\ConfigResolver\MeasurementTypes'
+
+    Ibexa\Measurement\ConfigResolver\MeasurementTypes: ~
+
+    Ibexa\Measurement\Parser\MeasurementParser: ~
+
+    Ibexa\Measurement\Formatter\Strategy\InputFormattingStrategy:
+        tags:
+            - { name: ibexa.measurement.value.formatter, strategy: input }
+
+    Ibexa\Measurement\Formatter\Strategy\PresentationFormattingStrategy:
+        tags:
+            - { name: ibexa.measurement.value.formatter, strategy: presentation }
+
+    Ibexa\Measurement\Formatter\MeasurementValueFormatter:
+        arguments:
+            $strategies: !tagged_iterator { tag: ibexa.measurement.value.formatter, index_by: strategy }
+            $defaultStrategy: '@Ibexa\Measurement\Formatter\Strategy\PresentationFormattingStrategy'
+
+    Ibexa\Measurement\Formatter\MeasurementSignFormatter:
+        arguments:
+            $map: '%ibexa.measurement.sign.map%'
+
+    Ibexa\Measurement\ValueFactory\ValueFactory: ~
+
+    Ibexa\Measurement\ValueFactory\ValueFactoryInterface:
+        alias: Ibexa\Measurement\ValueFactory\ValueFactory

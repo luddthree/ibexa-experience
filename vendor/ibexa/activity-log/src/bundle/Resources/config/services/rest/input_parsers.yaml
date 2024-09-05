@@ -1,0 +1,72 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ActivityLog\REST\Input\Parser\ActivityLogGroupListInput:
+        parent: Ibexa\Rest\Server\Common\Parser
+        arguments:
+            $configResolver: '@Ibexa\Contracts\Core\SiteAccess\ConfigResolverInterface'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.ActivityLogGroupListInput }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\Criteria:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criteria }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\Criterion:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\Action:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.action }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\LoggedAt:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.logged_at }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\LogicalAnd:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.and }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\LogicalOr:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.or }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\LogicalNot:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.not }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\ObjectClass:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.object_class }
+
+    Ibexa\ActivityLog\REST\Input\Parser\Criterion\User:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.criterion.user }
+
+    Ibexa\ActivityLog\REST\Input\Parser\SortClause\SortClauses:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.sort_clauses }
+
+    Ibexa\ActivityLog\REST\Input\Parser\SortClause\SortClause:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.sort_clause }
+
+    Ibexa\ActivityLog\REST\Input\Parser\SortClause\LoggedAt:
+        parent: Ibexa\Rest\Server\Common\Parser
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.activity_log.sort_clause.logged_at }

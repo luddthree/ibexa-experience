@@ -1,0 +1,154 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set table_actions %}
+    {% block table_actions %}{% endblock %}
+{% endset %}
+
+{% set current_user_id = app.user.getAPIUser().id %}
+
+{% set body_rows = [] %}
+{% for row in members %}
+    {% set col_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: row.getUser() } only %}
+    {% endset %}
+
+    {% set col_role %}
+        {{ row.getRole().identifier }}
+    {% endset %}
+
+    {% set col_status %}
+        {% if ibexa_field_value(row.getUser(), 'user').enabled %}
+            <span class="badge ibexa-badge ibexa-badge--success ibexa-badge--small">
+                {{ 'table.members.status.active.label'|trans|desc('Active') }}
+            </span>
+        {% else %}
+            <span class="badge ibexa-badge ibexa-badge--secondary ibexa-badge--small">
+                {{ 'table.members.status.deactivated.label'|trans|desc('De-activated') }}
+            </span>
+        {% endif %}
+    {% endset %}
+
+    {% set col_action_btns %}
+        {% set show_edit_member_button = true %}
+        {% if can_edit_member_map is defined
+            and can_edit_member_map[row.id] is defined
+            and can_edit_member_map[row.id] == false
+        %}
+            {% set show_edit_member_button = false %}
+        {% endif %}
+
+        {% set can_user_activate_deactivate = current_user_id != row.getUser().id %}
+
+        {% if show_edit_member_button and can_user_activate_deactivate %}
+            {% if ibexa_field_value(row.getUser(), 'user').enabled %}
+                <button
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-ca-user-status-change-btn"
+                    title="{{ 'table.members.action.deactivate'|trans|desc('De-activate') }}"
+                    data-status-change-type="deactivate"
+                    data-username="{{ row.name|e('html_attr') }}"
+                    data-href="{{ path(deactivate_path, {
+                        memberId: row.id,
+                        companyId: company_id,
+                    })|e('html_attr') }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('user-blocked') }}"></use>
+                    </svg>
+                </button>
+            {% else %}
+                <button
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-ca-user-status-change-btn"
+                    title="{{ 'table.members.action.activate'|trans|desc('Activate') }}"
+                    data-status-change-type="activate"
+                    data-username="{{ row.name|e('html_attr') }}"
+                    data-href="{{ path(activate_path, {
+                        memberId: row.id,
+                        companyId: company_id,
+                    })|e('html_attr') }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('user-tick') }}"></use>
+                    </svg>
+                </button>
+            {% endif %}
+        {% endif %}
+
+        {% set show_change_role_button = true %}
+        {% if can_assign_role_map is defined
+            and can_assign_role_map[row.id] is defined
+            and can_assign_role_map[row.id] == false
+        %}
+            {% set show_change_role_button = false %}
+        {% endif %}
+
+        {% if show_change_role_button %}
+            <button
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-ca-user-change-role-btn"
+                title="{{ 'table.members.action.change_role'|trans|desc('Change role') }}"
+                data-company-id="{{ company.getId() }}"
+                data-user-id="{{ row.id }}"
+                data-current-role-id="{{ row.getRole().id }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('user-recycle') }}"></use>
+                </svg>
+            </button>
+        {% endif %}
+
+        {% if show_edit_member_button %}
+            <a
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                title="{{ 'table.members.actions.edit.title'|trans|desc('Edit') }}"
+                href="{{ path(edit_path_name|default('ibexa.corporate_account.company.member.edit'), {
+                    memberId: row.id,
+                    companyId: company_id,
+                }) }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                </svg>
+            </a>
+        {% endif %}
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: col_name },
+        { content: ibexa_field_value(row.getUser(), 'user').email },
+        { content: col_role },
+        { content: col_status },
+        { has_action_btns: true, content: col_action_btns },
+    ] }]) %}
+{% endfor %}
+
+{% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+    head_cols: [
+        { content: 'table.members.header.name'|trans|desc('Name') },
+        { content: 'table.members.header.customer_group'|trans|desc('Email') },
+        { content: 'table.members.header.sales_rep'|trans|desc('Role') },
+        { content: 'table.members.header.status'|trans|desc('Status') },
+        { },
+    ],
+    body_rows,
+    empty_table_info_text: empty_table_info_text|default(''),
+    class: 'ibexa-ca-members-table',
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block header %}
+        {% embed '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: 'table.members.headline'|trans({ '%count%': members.getNbResults })|desc('List (%count%)'),
+            table_actions,
+            members,
+        } only %}
+            {% block actions %}
+                {{ table_actions }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+
+{% if members.haveToPaginate %}
+    {% include '@ibexadesign/ui/pagination.html.twig' with {
+        pager: members
+    } %}
+{% endif %}

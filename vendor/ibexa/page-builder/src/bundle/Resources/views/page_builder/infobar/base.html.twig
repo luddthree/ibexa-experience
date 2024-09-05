@@ -1,0 +1,176 @@
+{% trans_default_domain 'ibexa_page_builder_infobar' %}
+
+{% set is_edit_mode = is_edit_mode is defined ? is_edit_mode : mode is same as(constant('Ibexa\\PageBuilder\\PageBuilder\\PageBuilderMode::MODE_EDIT')) %}
+{% set is_page_view_mode = editor_mode == constant('Ibexa\\FieldTypePage\\FieldType\\LandingPage\\Mapper\\LandingPageFormMapper::PAGE_VIEW_MODE') %}
+
+<div class="ibexa-pb-infobar">
+    <div class="ibexa-pb-menu-bar">
+        <div class="ibexa-pb-menu-bar__page-builder">
+            <span class="ibexa-pb-menu-bar__page-builder-name">
+                {% block page_builder_name %}{{ 'menu_bar.page_buider.label'|trans|desc('Page Builder') }}{% endblock %}
+            </span>
+            <div class="ibexa-pb-menu-bar__autosave-wrapper">
+                {% set is_autosave_enabled = ibexa_user_settings['autosave'] is same as('enabled') %}
+                {% set form_has_autosave = form.autosave is defined %}
+                {% include '@ibexadesign/ui/component/autosave/autosave.html.twig' with {
+                    is_enabled: is_autosave_enabled and form_has_autosave,
+                    is_dark_mode: true,
+                } only %}
+            </div>
+        </div>
+        <div class="ibexa-pb-menu-bar__menu">
+            {% block menu %}{% endblock %}
+        </div>
+    </div>
+    <div class="ibexa-pb-action-bar ibexa-pb-action-bar--hidden{% if page_builder_config.builder_name is defined %} ibexa-pb-action-bar--{{ page_builder_config.builder_name }}{% endif %}">
+        <div class="ibexa-pb-action-bar__left">
+            {% block action_btns %}
+                <div class="ibexa-pb-action-bar__action-btns">
+                    <div class="ibexa-pb-action-bar__fields-toggler">
+                        <button
+                            class="btn ibexa-btn ibexa-btn--selector ibexa-btn--no-text ibexa-pb-action-bar__action-btn ibexa-pb-action-bar__action-btn--show-fields
+                                {{ not is_page_view_mode ? 'ibexa-btn--selected' }}"
+                            title="{{ 'action_bar.action_btn.fields.title'|trans|desc('Fields') }}"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--medium">
+                                <use xlink:href="{{ ibexa_icon_path('fields') }}"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="ibexa-pb-action-bar__layout-switcher-toggler"></div>
+                    {% block other_btns %}
+                        <div class="ibexa-pb-action-bar__other">
+                            <div class="ibexa-pb-action-bar__other-wrapper">
+                                {{ ibexa_render_component_group('infobar-options-before') }}
+                            </div>
+                        </div>
+                    {% endblock %}
+                    {% block timeline_toggler %}
+                        <div
+                            class="ibexa-pb-action-bar__timeline-toggler"
+                            title="{{ 'infobar.timeline'|trans|desc('Schedule') }}"
+                        ></div>
+                    {% endblock %}
+                    {# TODO: do we want this old block here???? #}
+                    {% block tools %}{% endblock %}
+                </div>
+            {% endblock %}
+            {% block context_info %}
+                <div class="ibexa-pb-action-bar__content-action-info">
+                    <div class="ibexa-pb-content-action-info">
+                        {% set default_content_name = 'infobar.content_name.default'|trans|desc('New landing page') %}
+                        {% set content_name = content.name|default(default_content_name) %}
+
+                        <span
+                            class="ibexa-pb-content-action-info__content-name {{ not content.name ? 'ibexa-pb-content-action-info__content-name--empty' }}"
+                            title="{{ content_name }}"
+                        >
+                            {{ content_name }}
+                        </span>
+                        {% block context_info_url %}
+                            {% if content.versionInfo.contentInfo.isPublished %}
+                                <a class="ibexa-pb-content-action-info__preview-url" href="{{ display_url }}" title="{{ display_url }}" target="_blank">
+                                    {{ display_url }}&lrm;
+                                </a>
+                            {% else %}
+                                <span class="ibexa-pb-content-action-info__preview-url" href="{{ display_url }}" title="{{ display_url }}" target="_blank">
+                                    {{ display_url }}&lrm;
+                                </span>
+                            {% endif %}
+                        {% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+            {% block site_access_info %}
+                <div class="ibexa-pb-action-bar__siteaccess">
+                    <span class="ibexa-pb-action-bar__siteaccess-name">{{ siteaccess|trans({}, 'ibexa_siteaccess') }}</span>
+                </div>
+            {% endblock %}
+        </div>
+        <div class="ibexa-pb-action-bar__center">
+            {% block preview_switcher %}
+                <div class="ibexa-preview-switcher ibexa-pb-action-bar__preview-switcher">
+                    <button
+                        title="{{ 'preview_switcher.desktop.label'|trans|desc('Desktop') }}"
+                        data-preview-mode="desktop"
+                        class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--selector ibexa-pb-action-bar__action-btn ibexa-btn--selected ibexa-preview-switcher__action "
+                    >
+                        <svg class="ibexa-icon ibexa-icon--medium">
+                            <use xlink:href="{{ ibexa_icon_path('view-desktop') }}"></use>
+                        </svg>
+                    </button>
+                    <button
+                        title="{{ 'preview_switcher.tablet.label'|trans|desc('Tablet') }}"
+                        data-preview-mode="tablet"
+                        class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--selector ibexa-pb-action-bar__action-btn ibexa-preview-switcher__action"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--medium">
+                            <use xlink:href="{{ ibexa_icon_path('view-tablet') }}"></use>
+                        </svg>
+                    </button>
+                    <button
+                        title="{{ 'preview_switcher.mobile.label'|trans|desc('Mobile') }}"
+                        data-preview-mode="mobile"
+                        class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--selector ibexa-pb-action-bar__action-btn ibexa-preview-switcher__action"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--medium">
+                            <use xlink:href="{{ ibexa_icon_path('view-mobile') }}"></use>
+                        </svg>
+                    </button>
+                </div>
+            {% endblock %}
+            {% block preview_history %}
+                {% set is_mac = 'Mac OS X' in app.request.headers.get('user-agent') %}
+                {% set undo_shortcut = is_mac ? '⌘ + Z' : 'Ctrl + Z' %}
+                {% set redo_shortcut = is_mac ? '⌘ + Shift + Z' : 'Ctrl + Y' %}
+                {% set undo_disabled_title = 'preview_history.nothing_to_undo.label'|trans|desc('Nothing to undo') %}
+                {% set undo_enabled_title = 'preview_history.undo.label'|trans|desc('Undo') ~ ' <span class="ibexa-pb-action-bar__shortcut">' ~ undo_shortcut ~ '</span>' %}
+                {% set redo_disabled_title = 'preview_history.nothing_to_redo.label'|trans|desc('Nothing to redo') %}
+                {% set redo_enabled_title = 'preview_history.redo.label'|trans|desc('Redo') ~ ' <span class="ibexa-pb-action-bar__shortcut">' ~ redo_shortcut ~ '</span>' %}
+
+                <div class="ibexa-preview-history ibexa-pb-action-bar__preview-history">
+                    <button
+                        disabled
+                        data-history-action="undo"
+                        class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--selector ibexa-pb-action-bar__action-btn ibexa-preview-history__action"
+                    >
+                        <span
+                            data-tooltip-use-html
+                            data-disabled-title="{{ undo_disabled_title }}"
+                            data-enabled-title="{{ undo_enabled_title }}"
+                            title="{{ undo_disabled_title }}"
+                            class="ibexa-preview-history__tooltip-wrapper"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--medium">
+                                <use xlink:href="{{ ibexa_icon_path('undo') }}"></use>
+                            </svg>
+                        </span>
+                    </button>
+                    <button
+                        disabled
+                        data-history-action="redo"
+                        class="btn ibexa-btn ibexa-btn--no-text ibexa-btn--selector ibexa-pb-action-bar__action-btn ibexa-preview-history__action"
+                    >
+                        <span
+                            data-tooltip-use-html
+                            data-disabled-title="{{ redo_disabled_title }}"
+                            data-enabled-title="{{ redo_enabled_title }}"
+                            title="{{ redo_disabled_title }}"
+                            class="ibexa-preview-history__tooltip-wrapper"
+                        >
+                            <svg class="ibexa-icon ibexa-icon--medium">
+                                <use xlink:href="{{ ibexa_icon_path('redo') }}"></use>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            {% endblock %}
+        </div>
+        <div class="ibexa-pb-action-bar__right"></div>
+    </div>
+    <div class="ibexa-pb-back-to-current-time-wrapper"></div>
+</div>
+
+{% block timeline %}
+    <div class="ibexa-pb-timeline-wrapper ibexa-page-info-bar__timeline-wrapper"></div>
+{% endblock %}

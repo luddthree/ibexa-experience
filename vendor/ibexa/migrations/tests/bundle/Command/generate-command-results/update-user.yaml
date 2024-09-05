@@ -1,0 +1,54 @@
+-
+    type: user
+    mode: update
+    match:
+        field: login
+        value: anonymous
+    metadata:
+        email: anonymous@link.invalid
+        password: null
+        enabled: true
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-US
+            value: Anonymous
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-US
+            value: null
+-
+    type: user
+    mode: update
+    match:
+        field: login
+        value: admin
+    metadata:
+        email: admin@link.invalid
+        password: null
+        enabled: true
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-US
+            value: Administrator
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-US
+            value: null

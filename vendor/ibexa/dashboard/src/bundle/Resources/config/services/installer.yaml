@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\Dashboard\Installer\DashboardProvisioner:
+        tags:
+            -   name: ibexa.installer.provisioner.commerce
+                priority: 40
+            -   name: ibexa.installer.provisioner.experience
+                priority: 40

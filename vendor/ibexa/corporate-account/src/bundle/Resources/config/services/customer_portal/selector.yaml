@@ -1,0 +1,20 @@
+parameters:
+    ibexa.corporate_account.customer_portal.customer_group_to_portal_map: []
+
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\CustomerPortal\PickRule\CustomerGroupRule:
+        arguments:
+            $customerGroupsToLocationsMap: '%ibexa.corporate_account.customer_portal.customer_group_to_portal_map%'
+        tags:
+            - { name: ibexa.corporate_account.customer_portal.pick_rule, priority: -40 }
+
+    Ibexa\CorporateAccount\CustomerPortal\CustomerPortalResolver:
+        arguments:
+            $pickRules: !tagged_iterator ibexa.corporate_account.customer_portal.pick_rule
+
+    Ibexa\Contracts\CorporateAccount\CustomerPortal\CustomerPortalResolver: '@Ibexa\CorporateAccount\CustomerPortal\CustomerPortalResolver'

@@ -1,0 +1,27 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # CLI
+    Ibexa\Fastly\ImageOptimizer\AliasConfigurationMapper: ~
+
+    Ibexa\Bundle\Fastly\Command\FastlyMigrateConfigurationCommand:
+        arguments:
+            $siteAccessList: '%ibexa.site_access.list%'
+
+    # Variations
+    Ibexa\Fastly\ImageOptimizer\VariationResolver:
+        arguments:
+            $variationPathGenerator: '@Ibexa\Fastly\ImageOptimizer\PathGenerator\RawPathGenerator'
+
+    Ibexa\Fastly\ImageOptimizer\PathGenerator\NamedPathGenerator: ~
+
+    Ibexa\Fastly\ImageOptimizer\PathGenerator\RawPathGenerator: ~
+
+    Ibexa\Fastly\ImageOptimizer\VariationHandler:
+        arguments:
+            $referenceHandler: '@Ibexa\Bundle\Core\Imagine\Variation\ImagineAwareAliasGenerator'
+        tags:
+            - { name: 'ibexa.media.images.variation.handler', identifier: 'fastly' }

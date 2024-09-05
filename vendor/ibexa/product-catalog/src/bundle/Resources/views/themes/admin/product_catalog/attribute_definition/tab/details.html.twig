@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section>
+    {% set attribute_definition_items = [
+        {
+            label: 'attribute_definition.view.name'|trans|desc('Name'),
+            content: attribute_definition.name,
+        },
+        {
+            label: 'attribute_definition.view.identifier'|trans|desc('Identifier'),
+            content: attribute_definition.identifier,
+        },
+        {
+            label: 'attribute_definition.view.description'|trans|desc('Description'),
+            content: attribute_definition.description,
+        },
+        {
+            label: 'attribute_definition.view.type'|trans|desc('Type'),
+            content: attribute_definition.type.name,
+        },
+        {
+            label: 'attribute_definition.view.group'|trans|desc('Group'),
+            content: attribute_definition.group.name,
+        },
+        {
+            label: 'attribute_definition.view.position'|trans|desc('Position'),
+            content: attribute_definition.position,
+        },
+    ] %}
+
+    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+        headline: 'attribute_definition.information.headline'|trans|desc('Attributes definition information'),
+        items: attribute_definition_items,
+    } only %}
+
+    {{ ibexa_render_component_group('attribute-definition-options-block', {
+        'attribute_definition': attribute_definition,
+        'is_editable': is_editable
+    }) }}
+</section>

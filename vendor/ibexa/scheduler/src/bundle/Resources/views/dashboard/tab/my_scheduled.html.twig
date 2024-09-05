@@ -1,0 +1,144 @@
+{% trans_default_domain 'ibexa_scheduler' %}
+
+{% set scheduling_btns %}
+    <button
+        id="dbp-my-scheduled-reschedule"
+        type="button"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+        disabled
+        data-bs-toggle="modal"
+        data-bs-target="#dbp-my-scheduled-scheduling-modal"
+        data-checkbox-selector=".ibexa-dbp-my-scheduled--checkbox"
+        data-modal-title="{{ 'dashboard.my_scheduled.table.reschedule_modal.title'|trans|desc('Reschedule') }}"
+        data-modal-table-title="{{ 'dashboard.my_scheduled.table.reschedule_modal.table.title'|trans|desc('Selected content') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('schedule') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'dashboard.my_scheduled.table.reschedule_btn.title'|trans|desc('Reschedule') }}
+        </span>
+    </button>
+    <button
+        id="dbp-my-scheduled-unschedule"
+        type="button"
+        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+        disabled
+        data-bs-toggle="modal"
+        data-bs-target="#dbp-my-scheduled-scheduling-modal"
+        data-checkbox-selector=".ibexa-dbp-my-scheduled--checkbox"
+        data-modal-title="{{ 'dashboard.my_scheduled.table.unschedule_modal.title'|trans|desc('Cancel publication') }}"
+        data-modal-table-title="{{ 'dashboard.my_scheduled.table.unschedule_modal.table.title'|trans|desc('Selected content') }}"
+    >
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_icon_path('publish-later-cancel') }}"></use>
+        </svg>
+        <span class="ibexa-btn__label">
+            {{ 'dashboard.my_scheduled.table.unschedule_btn.title'|trans|desc('Cancel publication') }}
+        </span>
+    </button>
+{% endset %}
+
+{% set body_rows = [] %}
+{% for row in data %}
+    {% set item_data = {
+        'contentId': row.contentId,
+        'publicationDate': row.publicationDate|ibexa_full_datetime,
+        'name': row.name,
+        'version': row.version,
+        'language': row.language,
+        'contentTypeName': row.content_type.identifier,
+        'creationDate': row.creationDate|ibexa_full_datetime,
+        'creator': row.creator,
+    } %}
+
+    {% set col_checkbox %}
+        <div class="form-check">
+            <input type="checkbox" class="ibexa-input ibexa-input--checkbox form-check-input ibexa-dbp-my-scheduled--checkbox" value="{{ row.contentId }}">
+            <label></label>
+        </div>
+    {% endset %}
+
+    {% set col_icon %}
+        <svg class="ibexa-icon ibexa-icon--small">
+            <use xlink:href="{{ ibexa_content_type_icon(row.content_type.identifier) }}"></use>
+        </svg>
+    {% endset %}
+
+    {% set col_action_btns %}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--content-draft-edit"
+            data-content-draft-edit-url="{{ path('ibexa.content.draft.edit', {
+                'contentId': row.contentId,
+                'versionNo': row.version,
+                'language': row.language
+            }) }}"
+            data-version-has-conflict-url="{{ path('ibexa.version.has_no_conflict', {
+                'contentId': row.contentId,
+                'versionNo': row.version,
+                'languageCode': row.language
+            }) }}"
+            data-content-id="{{ row.contentId }}"
+            data-language-code="{{ row.language }}"
+            title="{{ 'dashboard.table.edit'|trans|desc('Edit') }}"
+        >
+            <svg class="ibexa-icon ibexa-icon--small ibexa-icon--edit">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </button>
+    {% endset %}
+
+    {% set contributor_name %}
+        {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: row.contributor_content } only %}
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{
+        cols: [
+            { has_checkbox: true, content: col_checkbox, raw: true },
+            { has_icon: true, content: col_icon, raw: true },
+            {
+                content: row.name,
+                class: 'ibexa-table__cell--name',
+            },
+            { content: row.content_type.name },
+            { content: contributor_name },
+            { content: row.publicationDate|ibexa_full_datetime },
+            { content: row.modified|ibexa_full_datetime },
+            { has_action_btns: true, content: col_action_btns, raw: true },
+        ],
+        attr: {
+            'data-item-data': item_data|json_encode,
+        }
+    }]) %}
+{% endfor %}
+
+{% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline: 'dashboard.my_scheduled.table.header'|trans|desc('My scheduled content'),
+    head_cols: [
+        { has_checkbox: true },
+        { has_icon: true },
+        { content: 'dashboard.table.name'|trans|desc('Name') },
+        { content: 'dashboard.table.content_type'|trans|desc('Content type') },
+        { content: 'dashboard.table.contributor'|trans|desc('Contributor') },
+        { content: 'dashboard.table.date'|trans|desc('Publication date') },
+        { content: 'dashboard.table.last_saved'|trans|desc('Last saved') },
+        { },
+    ],
+    body_rows,
+    empty_table_info_text: 'dashboard.tab.my_scheduled.empty'|trans|desc('There is no scheduled content yet.'),
+    scheduling_btns: scheduling_btns,
+} only %}
+    {% block header %}
+        {% embed '@ibexadesign/ui/component/table/table_header.html.twig' %}
+            {% block actions %}
+                {{ scheduling_btns }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+    {% block between_header_and_table %}
+        {% include '@IbexaScheduler/dashboard/tab/modal/scheduling.html.twig' with {
+            'id': 'dbp-my-scheduled-scheduling-modal'
+        } %}
+    {% endblock %}
+{% endembed %}

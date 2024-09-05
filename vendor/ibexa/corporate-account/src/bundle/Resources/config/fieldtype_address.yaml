@@ -1,0 +1,10 @@
+formats:
+    billing:
+        country:
+            default:
+                - region
+                - locality
+                - street
+                - postal_code
+                - email
+                - phone_number

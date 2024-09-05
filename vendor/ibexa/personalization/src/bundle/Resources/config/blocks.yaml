@@ -1,0 +1,211 @@
+blocks:
+    personalized:
+        name: Personalized
+        category: default
+        thumbnail: '/bundles/ibexaadminui/img/ibexa-icons.svg#personalize-block'
+        configuration_template: '@IbexaPersonalization/page_builder/block/config/personalized.html.twig'
+        views:
+            default: { name: 'Default block layout', template: '@IbexaPersonalization/blocks/personalized.html.twig' }
+        attributes:
+            scenario:
+                name: Select a scenario
+                type: personalization_scenario_list
+                validators:
+                    not_blank:
+                        message: Scenario must be set
+            output:
+                name: Select a content type to be displayed
+                type: personalization_output_type_list
+            number:
+                name: Display limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of Items must be set
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Number of Items must be an integer
+                value: '%ibexa.personalization.page_block.default_item_limit%'
+    dynamic_targeting:
+        name: Dynamic targeting
+        category: default
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#profile'
+        configuration_template: '@ibexadesign/personalization/page_builder/block/config/dynamic_targeting.html.twig'
+        views:
+            default: { name: 'Default block layout', template: '@ibexadesign/personalization/page_builder/blocks/dynamic_targeting.html.twig', priority: -255 }
+        attributes:
+            default_scenario:
+                name: Select default scenario
+                type: personalization_scenario_list
+                validators:
+                    not_blank:
+                        message: Scenario must be set
+            default_output:
+                name: Select default content type to be displayed
+                type: personalization_output_type_list
+            limit:
+                name: Display limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of Items must be set
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Number of Items must be an integer
+                value: '%ibexa.personalization.page_block.default_item_limit%'
+            scenario_map:
+                name: Setup segment and scenario matching priority rules
+                type: personalization_segment_scenario_map
+                validators:
+                    not_blank:
+                        message: You must provide value
+    last_viewed:
+        name: Last viewed
+        category: PIM
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#last-viewed'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/personalization/page_builder/blocks/last_viewed.html.twig'
+                priority: -255
+        configuration_template: '@ibexadesign/personalization/page_builder/block/config/last_viewed.html.twig'
+        attributes:
+            scenario:
+                name: Personalization Scenario
+                type: personalization_scenario_list
+                validators:
+                    not_blank:
+                        message: Scenario must be set
+                options:
+                    scenario_type: last_viewed
+            product_types:
+                name: Product Types to be displayed
+                type: personalization_output_type_list
+            limit:
+                name: Limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of Items must be set
+                    regexp:
+                        options:
+                            pattern: '/^[0-9]+$/'
+                        message: Number of Items must be an integer
+                value: '%ibexa.personalization.page_block.default_item_limit%'
+    last_purchased:
+        name: Last purchased
+        category: PIM
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#last-purchased'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/personalization/page_builder/blocks/last_purchased.html.twig'
+                priority: -255
+        configuration_template: '@ibexadesign/personalization/page_builder/block/config/last_purchased.html.twig'
+        attributes:
+            scenario:
+                name: Personalization Scenario
+                type: personalization_scenario_list
+                validators:
+                    not_blank:
+                        message: Scenario must be set
+                options:
+                    scenario_type: last_purchased
+            product_types:
+                name: Product Types to be displayed
+                type: personalization_output_type_list
+            limit:
+                name: Limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of Items must be set
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Number of Items must be an integer
+                value: '%ibexa.personalization.page_block.default_item_limit%'
+    bestsellers:
+        name: Bestsellers
+        category: Commerce
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#bestseller'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/personalization/page_builder/blocks/bestsellers.html.twig'
+                priority: -255
+        configuration_template: '@ibexadesign/personalization/page_builder/block/config/bestsellers.html.twig'
+        attributes:
+            scenario:
+                name: Personalization Scenario
+                type: personalization_scenario_list
+                validators:
+                    not_blank:
+                        message: Scenario must be set
+                options:
+                    scenario_type: bestsellers
+            product_types:
+                name: Product Types to be displayed
+                type: personalization_output_type_list
+            limit:
+                name: Limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of Items must be set
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Number of Items must be an integer
+                value: '%ibexa.personalization.page_block.default_item_limit%'
+    recently_added:
+        name: Recently added
+        category: PIM
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#recently-added'
+        views:
+            default:
+                name: 'Default block layout'
+                template: '@ibexadesign/personalization/page_builder/blocks/recently_added.html.twig'
+                priority: -255
+        configuration_template: '@ibexadesign/personalization/page_builder/block/config/recently_added.html.twig'
+        attributes:
+            scenario:
+                name: Personalization Scenario
+                type: personalization_scenario_list
+                validators:
+                    not_blank:
+                        message: Scenario must be set
+                options:
+                    scenario_type: recently_added
+            product_types:
+                name: Product Types to be displayed
+                type: personalization_output_type_list
+            limit:
+                name: Limit
+                type: integer
+                validators:
+                    not_blank:
+                        message: Number of items must be set
+                    regexp:
+                        options:
+                            pattern: '/^[0-9]+$/'
+                        message: Number of items must be an integer
+                value: '%ibexa.personalization.page_block.default_item_limit%'
+
+    # Customizable Dashboard (Back-office) blocks
+    top_clicked_items:
+        name: Top 10 clicked items
+        category: Dashboard
+        thumbnail: /bundles/ibexaicons/img/all-icons.svg#dashboard
+        views:
+            default:
+                template: '@ibexadesign/personalization/dashboard/blocks/top_clicked_items.html.twig'
+        attributes:
+            customer_id:
+                name: Customer ID
+                type: personalization_customer_select
+                validators:
+                    not_blank:
+                        message: Customer ID needs to be specified.

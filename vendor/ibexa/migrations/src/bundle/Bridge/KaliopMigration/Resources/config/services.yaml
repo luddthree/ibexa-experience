@@ -1,0 +1,112 @@
+imports:
+    - { resource: serializer.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Symfony\Component\Console\Command\Command:
+            tags:
+                - { name: console.command }
+                - { name: monolog.logger, channel: ibexa-migration }
+
+        Symfony\Component\Serializer\Normalizer\DenormalizerInterface:
+            tags: [ { name: 'ibexa.migrations.kaliop_bridge.serializer.normalizer', priority: -10 } ]
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Command\ConvertCommand:
+        arguments:
+            $serializer: '@ibexa.migrations.kaliop_bridge.serializer'
+            $filesystem: '@ibexa.migrations.kaliop.io.flysystem.default_filesystem'
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Command\BulkConvertCommand:
+        arguments:
+            $serializer: '@ibexa.migrations.kaliop_bridge.serializer'
+            $filesystem: '@ibexa.migrations.kaliop.io.flysystem.default_filesystem'
+
+    ibexa.migrations.kaliop.io.flysystem.default_adapter:
+        class: League\Flysystem\Local\LocalFilesystemAdapter
+        lazy: true
+        arguments:
+            - '%kernel.project_dir%'
+
+    ibexa.migrations.kaliop.io.flysystem.default_filesystem:
+        class: League\Flysystem\Filesystem
+        lazy: true
+        arguments:
+            - '@ibexa.migrations.kaliop.io.flysystem.default_adapter'
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\Content\ContentMatcherDenormalizer: ~
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ContentCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ContentDeleteDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ContentUpdateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\RoleCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\RoleDeleteDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\RoleUpdateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ServiceCallDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ContentTypeCreateDenormalizer:
+        arguments:
+            - '@Ibexa\Migration\Service\FieldTypeService'
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ContentTypeDeleteDenormalizer:
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ContentTypeUpdateDenormalizer:
+        arguments:
+            - '@Ibexa\Migration\Service\FieldTypeService'
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\UserCreateDenormalizer: ~
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\Action\UserGroupRolesActionDenormalizer: ~
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\Action\UserRolesActionDenormalizer: ~
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\UserUpdateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\LocationUpdateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\UserGroupCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\UserGroupDeleteDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\SectionCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\LanguageCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\SectionUpdateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ObjectStateGroupCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ObjectStateCreateDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\SQLExecuteDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ReferenceLoadDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ReferenceSaveDenormalizer:
+        arguments:
+            - '%ibexa.migrations.default.references_files_subdir%'
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\ReferenceSetDenormalizer: ~
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\Reference\ReferenceArrayDenormalizer: ~
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\Serializer\Reference\ReferenceFileConverter:
+        arguments:
+            - '@ibexa.migrations.kaliop.io.flysystem.default_filesystem'
+            - '%ibexa.migrations.default.references_files_subdir%'
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\EventListener\EzDateFieldTypeSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\EventListener\EzRichTextFieldTypeSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\EventListener\EzSelectionFieldTypeSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    Ibexa\Bundle\Migration\Bridge\KaliopMigration\EventListener\EzLandingpageFieldTypeSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    ibexa.migrations.kaliop_bridge.encoder.yaml_encoder:
+        class: Symfony\Component\Serializer\Encoder\YamlEncoder
+        tags: [ 'ibexa.migrations.kaliop_bridge.serializer.encoder' ]
+        arguments:
+            $defaultContext:
+                yaml_indent: 0
+                yaml_inline: 6
+                yaml_flags: !php/const Symfony\Component\Yaml\Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK
+
+    ibexa.migrations.kaliop_bridge.denormalizer.steps_denormalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Denormalizer\StepsDenormalizer

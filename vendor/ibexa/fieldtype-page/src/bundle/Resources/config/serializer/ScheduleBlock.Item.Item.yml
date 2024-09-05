@@ -1,0 +1,20 @@
+Ibexa\FieldTypePage\ScheduleBlock\Item\Item:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        id:
+            type: string
+            skip_when_empty: false
+            expose: true
+        additionDate:
+            type: DateTime<'U'>
+            skip_when_empty: false
+            expose: true
+            serialized_name: additionDate
+            accessor:
+                getter: getAdditionDate
+                setter: setAdditionDate
+        location:
+            type: Ibexa\Core\Repository\Values\Content\Location
+            skip_when_empty: false
+            expose: true

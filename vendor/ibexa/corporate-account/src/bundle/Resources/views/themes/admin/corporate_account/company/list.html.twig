@@ -1,0 +1,210 @@
+{% extends "@ibexadesign/corporate_account/layout.html.twig" %}
+
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% form_theme search_form with ['@ibexadesign/ui/form_fields.html.twig', '@ibexadesign/corporate_account/company/search_form_fields.html.twig'] %}
+
+{% block main_container_class %} ibexa-ca-company-list{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'company.list.breadcrumbs.members'|trans|desc('Customers') },
+        { value: 'company.list.breadcrumbs.companies'|trans|desc('Companies'), url: path('ibexa.corporate_account.company.list') },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    <ul class="ibexa-context-menu">
+        <li class="ibexa-context-menu__item">
+            <a
+                class="btn ibexa-btn ibexa-btn--primary {{ no_customer_groups ? 'disabled' }}"
+                href="{{ path('ibexa.corporate_account.company.create') }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{ 'company.list.create'|trans|desc('Create') }}</span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'company.list.title'|trans|desc('Companies'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form_edit, {
+        'action': path('ibexa.content.edit'),
+        'attr': { 'class': 'ibexa-edit-content-form'}
+    }) }}
+    {{ form_widget(form_edit.language, {'attr': {'hidden': 'hidden', 'class': 'language-input'}}) }}
+    {{ form_end(form_edit) }}
+
+    <div class="ibexa-container">
+        {% embed '@ibexadesign/ui/component/adaptive_filters/adaptive_filters.html.twig' with {
+            form: search_form,
+            is_inside_container: true,
+            collapsible_items: [
+                form_row(search_form.customer_group, {
+                    attr: {
+                        dropdown_class: 'ibexa-ca-company-list__customer-group',
+                    }
+                }),
+                form_row(search_form.status, {
+                    attr: {
+                        dropdown_class: 'ibexa-ca-company-list__status',
+                    }
+                })
+            ]
+        } only %}
+            {% trans_default_domain 'ibexa_corporate_account' %}
+
+            {% block static_left_input %}
+                {{ form_widget(form.query, {
+                    attr: {
+                        class: 'ibexa-ca-company-list__company-name',
+                        placeholder: 'comapany.list.search.placeholder'|trans|desc('Search by name'),
+                    },
+                    has_search: true,
+                }) }}
+            {% endblock %}
+        {% endembed %}
+
+        {% set body_rows = [] %}
+        {% for row in companies %}
+            {% set row_content = row.getContent() %}
+
+            {% set col_name %}
+                <a
+                    href="{{ path('ibexa.corporate_account.company.details', {
+                        'companyId': row.getId()
+                    }) }}"
+                >
+                    {{ row.getName() }}
+                </a>
+            {% endset %}
+
+            {% set col_status %}
+                {% if ibexa_field_value(row_content, 'active').bool %}
+                    <span class="badge ibexa-badge ibexa-badge--success ibexa-badge--small">
+                        {{ 'company.list.table.status.active.label'|trans|desc('Active') }}
+                    </span>
+                {% else %}
+                    <span class="badge ibexa-badge ibexa-badge--secondary ibexa-badge--small">
+                        {{ 'company.list.table.status.deactivated.label'|trans|desc('De-activated') }}
+                    </span>
+                {% endif %}
+            {% endset %}
+
+            {% set col_action_btns %}
+                {% if ibexa_field_value(row_content, 'active').bool %}
+                    <a
+                        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                        title="{{ 'company.list.table.action.deactivate.label'|trans|desc('De-activate') }}"
+                        href="{{ path('ibexa.corporate_account.company.deactivate', { companyId: row.getId() }) }}"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('user-blocked') }}"></use>
+                        </svg>
+                    </a>
+                {% else %}
+                    <a
+                        class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                        title="{{ 'company.list.table.action.activate.label'|trans|desc('Activate') }}"
+                        href="{{ path('ibexa.corporate_account.company.activate', { companyId: row.getId() }) }}"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small">
+                            <use xlink:href="{{ ibexa_icon_path('user-tick') }}"></use>
+                        </svg>
+                    </a>
+                {% endif %}
+
+                <a
+                    class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+                    title="{{ 'company.list.table.action.edit.label'|trans|desc('Edit') }}"
+                    href="{{ path('ibexa.corporate_account.company.edit', { companyId: row.getId() }) }}"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small">
+                        <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                    </svg>
+                </a>
+            {% endset %}
+
+            {% set col_sales_rep %}
+                {% set sales_rep_id = row_content.getField('sales_rep').value.destinationContentId|default(null) %}
+
+                {% if sales_rep_id is not empty %}
+                    {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: sales_reps[sales_rep_id] } only %}
+                {% else %}
+                    {{ '-' }}
+                {% endif %}
+            {% endset %}
+
+            {% set col_contact %}
+                {% set contact_id = row_content.getField('contact').value.destinationContentId|default(null) %}
+
+                {% if contact_id is not empty %}
+                    {% include '@ibexadesign/ui/component/user/user.html.twig' with { user: contacts[contact_id] } only %}
+                {% else %}
+                    {{ '-' }}
+                {% endif %}
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{ cols: [
+                { content: col_name },
+                { content: ibexa_field_value(row_content, 'customer_group').getCustomerGroup().name },
+                { content: col_contact },
+                { content: col_sales_rep },
+                { content: col_status },
+                { has_action_btns: true, content: col_action_btns },
+            ] }]) %}
+        {% endfor %}
+
+        {% set search_query = search_form.vars.value.getQuery() ?? null %}
+        {% set customer_group = search_form.vars.value.getCustomerGroup() ?? null %}
+        {% set status = search_form.vars.value.getStatus() ?? null %}
+        {% set has_filters = search_query or customer_group or status is not null %}
+
+        {% if no_customer_groups %}
+            {% set empty_table_info_text = 'company.list.no_customer_groups.info_text'|trans|desc('Add company') %}
+            {% set empty_table_action_text = 'company.list.no_customer_groups.action_text'|trans|desc('To create a company, you need to have at least one customer group.') %}
+
+            {% set empty_table_extra_actions %}
+                {% include '@ibexadesign/ui/component/table/empty_table_extra_actions.html.twig' with {
+                    url: path('ibexa.product_catalog.customer_group.list'),
+                    label: 'company.list.no_customer_groups.link_label'|trans|desc('Go to customer groups')
+                } %}
+            {% endset %}
+        {% else %}
+            {% set empty_table_info_text = 'company.list.empty_list.info_text'|trans|desc('Add company') %}
+            {% set empty_table_action_text = 'company.list.empty_list.action_text'|trans|desc('Create and manage companies, invite members, and edit contact information.') %}
+        {% endif %}
+
+        {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: custom_results_headline ?? results_headline(companies.getNbResults(), has_filters, search_query),
+            head_cols: [
+                { content: 'company.list.table.header.name'|trans|desc('Name') },
+                { content: 'company.list.table.header.customer_group'|trans|desc('Customer Group') },
+                { content: 'company.list.table.header.contact_person'|trans|desc('Contact person') },
+                { content: 'company.list.table.header.sales_rep'|trans|desc('Sales Representative') },
+                { content: 'company.list.table.header.status'|trans|desc('Status') },
+                { },
+            ],
+            body_rows,
+            empty_table_info_text,
+            empty_table_action_text,
+            empty_table_extra_actions: empty_table_extra_actions|default(''),
+        } %}
+        {% endembed %}
+        {% if companies.haveToPaginate %}
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                pager: companies,
+            } %}
+        {% endif %}
+    </div>
+{% endblock %}

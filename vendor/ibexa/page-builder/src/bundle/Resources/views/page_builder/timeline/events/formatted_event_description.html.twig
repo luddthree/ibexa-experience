@@ -1,0 +1,33 @@
+{% trans_default_domain 'ibexa_page_builder_timeline_events' %}
+
+{% block event_description %}
+    {% if icon is defined %}
+        {% set icon_path = icon %}
+    {% elseif block_definition is defined %}
+        {% set icon_path = block_definition.thumbnail %}
+    {% else %}
+        {% set icon_path = ibexa_icon_path('flag') %}
+    {% endif %}
+
+    {% if block_name is not defined and block_value is defined %}
+        {% set block_name = block_value.name %}
+    {% endif %}
+
+    <div class="ibexa-pb-event-item">
+        <svg class="ibexa-icon ibexa-icon--small ibexa-pb-event-item__icon">
+            <use xlink:href="{{ icon_path }}"></use>
+        </svg>
+        <div class="ibexa-pb-event-item__content">
+            <div class="ibexa-pb-event-item__event-name">{{ name|default('') }}</div>
+            {% if block_name is defined %}
+                <div class="ibexa-pb-event-item__event-block-name">
+                    {{ block_name }}
+                </div>
+            {% endif %}
+            <div class="ibexa-pb-event-item__event-date">
+                {% set data_label = 'event.date'|trans|desc('Date') %}
+                {{ date_str|default(data_label ~ ' ' ~ date|ibexa_full_datetime) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

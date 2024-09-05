@@ -1,0 +1,21 @@
+{% extends '@ibexadesign/content_type/index.html.twig' %}
+
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% block breadcrumbs %}
+    {% trans_default_domain 'ibexa_dashboard' %}
+
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans|desc('Admin') , },
+        { value: 'dashboard.dashboard_type'|trans|desc('Dashboard type') },
+        { value: content_type.name },
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {{ parent() }}
+    <svg class="ibexa-icon ibexa-icon--small">
+        <use xlink:href="{{ ibexa_content_type_group_icon(content_type_group.identifier) }}"></use>
+    </svg>
+    {{ 'dashboard.dashboard_type'|trans|desc('Dashboard type') }}
+{% endblock %}

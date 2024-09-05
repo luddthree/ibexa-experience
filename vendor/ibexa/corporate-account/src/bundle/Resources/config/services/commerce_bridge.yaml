@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Commerce\Orders\OrdersProviderInterface:
+        alias: Ibexa\CorporateAccount\Commerce\Orders\Legacy\OrdersProvider
+
+    Ibexa\CorporateAccount\Commerce\Orders\Legacy\OrdersProvider: ~
+
+    Ibexa\CorporateAccount\Commerce\Orders\Legacy\InvoiceFactoryInterface:
+        alias: Ibexa\CorporateAccount\Commerce\Orders\Legacy\InvoiceFactory
+
+    Ibexa\CorporateAccount\Commerce\Orders\Legacy\InvoiceFactory: ~
+
+    Ibexa\CorporateAccount\Commerce\Orders\Legacy\OrderFactoryInterface:
+        alias: Ibexa\CorporateAccount\Commerce\Orders\Legacy\OrderFactory
+
+    Ibexa\CorporateAccount\Commerce\Orders\Legacy\OrderFactory: ~
+
+    Ibexa\Bundle\CorporateAccount\EventSubscriber\Commerce\PopulateCommerceUserWithCompanyAddresses:
+        tags:
+            - { name: kernel.event_subscriber }

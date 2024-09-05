@@ -1,0 +1,21 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    ibexa.segmentation.build_schema_subscriber:
+        class: Ibexa\Bundle\RepositoryInstaller\Event\Subscriber\BuildSchemaSubscriber
+        arguments:
+            - '@=service("kernel").locateResource("@IbexaSegmentationBundle/Resources/config/storage/legacy/schema.yaml")'
+
+    Ibexa\Segmentation\Persistence\Gateway\DoctrineGateway:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Segmentation\Persistence\Handler\DatabaseHandler: ~
+
+    # aliases for default adapters
+    Ibexa\Segmentation\Persistence\Gateway\GatewayInterface: '@Ibexa\Segmentation\Persistence\Gateway\DoctrineGateway'
+    Ibexa\Segmentation\Persistence\Handler\HandlerInterface: '@Ibexa\Segmentation\Persistence\Handler\DatabaseHandler'
+

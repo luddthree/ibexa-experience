@@ -1,0 +1,41 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\Persistence\Site\Gateway\DoctrineGateway:
+        arguments:
+            $connection: '@doctrine.dbal.site_factory_connection'
+            $criteriaConverter: '@Ibexa\SiteFactory\Persistence\Site\Query\CriteriaConverter'
+
+    Ibexa\SiteFactory\Persistence\Site\Handler\SiteHandler:
+        lazy: true
+        arguments:
+            $gateway: '@Ibexa\SiteFactory\Persistence\Site\Gateway\DoctrineGateway'
+            $siteFactoryEnabled: '%ibexa.site_factory.enabled%'
+
+    Ibexa\SiteFactory\Persistence\Site\Handler\HandlerInterface:
+        '@Ibexa\SiteFactory\Persistence\Cache\SiteHandler'
+
+    Ibexa\SiteFactory\Persistence\PublicAccess\Gateway\DoctrineGateway:
+        arguments:
+            $connection: '@doctrine.dbal.site_factory_connection'
+
+    Ibexa\SiteFactory\Persistence\PublicAccess\Handler\PublicAccessHandler:
+        lazy: true
+        arguments:
+            $gateway: '@Ibexa\SiteFactory\Persistence\PublicAccess\Gateway\DoctrineGateway'
+
+    Ibexa\SiteFactory\Persistence\PublicAccess\Handler\HandlerInterface:
+        '@Ibexa\SiteFactory\Persistence\Cache\PublicAccessHandler'
+
+    Ibexa\SiteFactory\Persistence\Site\Query\CriteriaConverter: ~
+
+    Ibexa\SiteFactory\Persistence\Site\Query\Criterion\MatchAll:
+        tags:
+            - { name: ibexa.site.factory.storage.legacy.criterion.handler }
+
+    Ibexa\SiteFactory\Persistence\Site\Query\Criterion\MatchName:
+        tags:
+            - { name: ibexa.site.factory.storage.legacy.criterion.handler }

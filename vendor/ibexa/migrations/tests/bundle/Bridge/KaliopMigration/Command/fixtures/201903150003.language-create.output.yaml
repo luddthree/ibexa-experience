@@ -1,0 +1,21 @@
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: de-AT
+        name: 'German (AT)'
+        enabled: true
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: en-GB
+        name: 'English (GB)'
+        enabled: true
+-
+    type: language
+    mode: create
+    metadata:
+        languageCode: nl-NL
+        name: 'Dutch (NL)'
+        enabled: true

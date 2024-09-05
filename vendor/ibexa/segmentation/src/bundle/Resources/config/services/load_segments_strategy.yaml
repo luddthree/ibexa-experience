@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\Loader\UserSegmentsLoadStrategy: ~
+
+    Ibexa\Segmentation\Loader\UserSegmentsForcedLoadStrategy: ~
+
+    Ibexa\Segmentation\Loader\UserSegmentsLoadStrategyInterface: '@Ibexa\Segmentation\Loader\UserSegmentsLoadStrategy'
+

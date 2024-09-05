@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductType media-type="application/vnd.ibexa.api.ProductType+xml">
+ <identifier>attribute_measurement_check</identifier>
+ <name>Dress</name>
+ <AttributeAssignment media-type="application/vnd.ibexa.api.AttributeAssignment+xml">
+  <is_required></is_required>
+  <is_discriminator></is_discriminator>
+  <Attribute media-type="application/vnd.ibexa.api.Attribute+xml">
+   <identifier>measurement_single_identifier</identifier>
+   <name></name>
+   <description></description>
+   <type>Measurement (single)</type>
+   <type_identifier>measurement_single</type_identifier>
+   <group></group>
+   <position>0</position>
+   <options>
+    <value key="sign">none</value>
+    <value key="type">length</value>
+    <value key="unit">centimeter</value>
+   </options>
+   <value/>
+   <extra_options>
+    <value key="available_units">
+     <value>
+      <value key="label">Centimeter</value>
+      <value key="value">centimeter</value>
+     </value>
+     <value>
+      <value key="label">Foot</value>
+      <value key="value">foot</value>
+     </value>
+     <value>
+      <value key="label">Inch</value>
+      <value key="value">inch</value>
+     </value>
+     <value>
+      <value key="label">Meter</value>
+      <value key="value">meter</value>
+     </value>
+     <value>
+      <value key="label">Millimeter</value>
+      <value key="value">millimeter</value>
+     </value>
+     <value>
+      <value key="label">Yard</value>
+      <value key="value">yard</value>
+     </value>
+    </value>
+   </extra_options>
+  </Attribute>
+ </AttributeAssignment>
+ <AttributeAssignment media-type="application/vnd.ibexa.api.AttributeAssignment+xml">
+  <is_required></is_required>
+  <is_discriminator></is_discriminator>
+  <Attribute media-type="application/vnd.ibexa.api.Attribute+xml">
+   <identifier>measurement_range_identifier</identifier>
+   <name></name>
+   <description></description>
+   <type>Measurement (range)</type>
+   <type_identifier>measurement_range</type_identifier>
+   <group></group>
+   <position>0</position>
+   <options>
+    <value key="type">length</value>
+    <value key="unit">centimeter</value>
+   </options>
+   <value/>
+   <extra_options>
+    <value key="available_units">
+     <value>
+      <value key="label">Centimeter</value>
+      <value key="value">centimeter</value>
+     </value>
+     <value>
+      <value key="label">Foot</value>
+      <value key="value">foot</value>
+     </value>
+     <value>
+      <value key="label">Inch</value>
+      <value key="value">inch</value>
+     </value>
+     <value>
+      <value key="label">Meter</value>
+      <value key="value">meter</value>
+     </value>
+     <value>
+      <value key="label">Millimeter</value>
+      <value key="value">millimeter</value>
+     </value>
+     <value>
+      <value key="label">Yard</value>
+      <value key="value">yard</value>
+     </value>
+    </value>
+   </extra_options>
+  </Attribute>
+ </AttributeAssignment>
+</ProductType>

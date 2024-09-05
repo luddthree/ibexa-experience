@@ -1,0 +1,23 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section>
+    {% set attribute_group_items = [
+        {
+            label: 'attribute_group.view.name'|trans|desc('Name'),
+            content: attribute_group.name,
+        },
+        {
+            label: 'attribute_group.view.identifier'|trans|desc('Identifier'),
+            content: attribute_group.identifier,
+        },
+        {
+            label: 'attribute_group.view.position'|trans|desc('Position'),
+            content: attribute_group.position,
+        },
+    ] %}
+
+    {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+        headline: 'attribute_group.information.headline'|trans|desc('Attribute group information'),
+        items: attribute_group_items,
+    } only %}
+</section>

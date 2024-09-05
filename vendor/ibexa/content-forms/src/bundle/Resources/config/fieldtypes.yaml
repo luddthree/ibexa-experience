@@ -1,0 +1,138 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Contracts\Core\Repository\FieldTypeService: '@ibexa.api.service.field_type'
+
+    #
+    # FieldTypes
+    #
+
+    Ibexa\ContentForms\Form\Type\FieldType\:
+        resource: '../../../lib/Form/Type/FieldType/*'
+        tags:
+            - { name: 'form.type' }
+
+    Ibexa\ContentForms\Form\Type\FieldType\CountryFieldType:
+        arguments:
+            $countriesInfo: '%ibexa.field_type.country.data%'
+
+    #
+    # FormMappers
+    #
+
+    Ibexa\ContentForms\FieldType\Mapper\AuthorFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezauthor }
+
+    Ibexa\ContentForms\FieldType\Mapper\BinaryFileFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezbinaryfile }
+
+    Ibexa\ContentForms\FieldType\Mapper\CheckboxFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezboolean }
+
+    Ibexa\ContentForms\FieldType\Mapper\SelectionFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezselection }
+
+    Ibexa\ContentForms\FieldType\Mapper\CountryFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezcountry }
+
+    Ibexa\ContentForms\FieldType\Mapper\DateFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezdate }
+
+    Ibexa\ContentForms\FieldType\Mapper\DateTimeFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezdatetime }
+
+    Ibexa\ContentForms\FieldType\Mapper\FloatFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezfloat }
+
+    Ibexa\ContentForms\FieldType\Mapper\ImageFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezimage }
+
+    Ibexa\ContentForms\FieldType\Mapper\IntegerFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezinteger }
+
+    Ibexa\ContentForms\FieldType\Mapper\ISBNFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezisbn }
+
+    Ibexa\ContentForms\FieldType\Mapper\MediaFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezmedia }
+
+    Ibexa\ContentForms\FieldType\Mapper\AbstractRelationFormMapper:
+        abstract: true
+        arguments:
+            $contentTypeService: '@ibexa.api.service.content_type'
+
+    Ibexa\ContentForms\FieldType\Mapper\RelationFormMapper:
+        parent: Ibexa\ContentForms\FieldType\Mapper\AbstractRelationFormMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezobjectrelation }
+
+    Ibexa\ContentForms\FieldType\Mapper\RelationListFormMapper:
+        parent: Ibexa\ContentForms\FieldType\Mapper\AbstractRelationFormMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezobjectrelationlist }
+
+    Ibexa\ContentForms\FieldType\Mapper\TextLineFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezstring }
+
+    Ibexa\ContentForms\FieldType\Mapper\TextBlockFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: eztext }
+
+    Ibexa\ContentForms\FieldType\Mapper\TimeFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: eztime }
+
+    Ibexa\ContentForms\FieldType\Mapper\FormTypeBasedFieldValueFormMapper:
+        abstract: true
+
+    Ibexa\ContentForms\FieldType\Mapper\UserAccountFieldValueFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezuser }
+
+    Ibexa\ContentForms\FieldType\Mapper\UrlFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezurl }
+
+    Ibexa\ContentForms\FieldType\Mapper\MapLocationFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezgmaplocation }
+
+    Ibexa\ContentForms\FieldType\Mapper\KeywordFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezkeyword }
+
+    ibexa.content_forms.field_type.form_mapper.ezemail:
+        parent: Ibexa\ContentForms\FieldType\Mapper\FormTypeBasedFieldValueFormMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezemail }
+        calls:
+            - [setFormType, ['Symfony\Component\Form\Extension\Core\Type\EmailType']]
+
+    Ibexa\ContentForms\FieldType\Mapper\ImageAssetFormMapper:
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: ezimageasset }

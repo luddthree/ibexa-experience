@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Validation\Constraints\IsCorporateSiteAccessValidator:
+        arguments:
+           $siteAccessGroups: '%ibexa.site_access.groups%'

@@ -1,0 +1,5 @@
+-
+    type: user_group
+    mode: delete
+    match:
+        id: 11

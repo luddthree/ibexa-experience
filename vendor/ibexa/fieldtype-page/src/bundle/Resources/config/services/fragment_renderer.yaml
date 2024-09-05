@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FieldTypePage\FragmentRenderer\BlockRenderOptionsFragmentRenderer:
+        public: false
+        decorates: 'fragment.renderer.esi'
+        decoration_priority: 10
+        arguments:
+            $innerRenderer: '@Ibexa\FieldTypePage\FragmentRenderer\BlockRenderOptionsFragmentRenderer.inner'
+            $controllerResolver: '@controller_resolver'

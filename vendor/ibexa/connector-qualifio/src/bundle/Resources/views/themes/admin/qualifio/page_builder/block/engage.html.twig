@@ -1,0 +1,10 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+{% block body_class %}{{ parent() }} ibexa-pb-block-config--engage-campaign{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-qualifio-block-css', null, 'ibexa') }}
+{% endblock %}

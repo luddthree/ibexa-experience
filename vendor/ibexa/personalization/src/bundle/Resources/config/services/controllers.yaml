@@ -1,0 +1,45 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\Personalization\Controller\:
+        resource: '../../../bundle/Controller/*'
+
+    Ibexa\Bundle\Personalization\Controller\AbstractPersonalizationController: ~
+
+    Ibexa\Bundle\Personalization\Controller\DashboardController:
+        parent: 'Ibexa\Bundle\Personalization\Controller\AbstractPersonalizationController'
+
+    Ibexa\Bundle\Personalization\Controller\RecommendationPreviewController: ~
+
+    Ibexa\Bundle\Personalization\Controller\RecommendationController:
+        public: true
+        arguments:
+            $credentialsResolver: '@Ibexa\Personalization\Config\PersonalizationClientCredentialsResolver'
+            $encoreTagRenderer: '@webpack_encore.tag_renderer'
+            $entrypointLookupCollection: '@webpack_encore.entrypoint_lookup_collection'
+
+    ibexa_personalization:
+        alias: Ibexa\Bundle\Personalization\Controller\RecommendationController
+        public: true
+
+    Ibexa\Bundle\Personalization\Controller\AccountController: ~
+
+    # REST
+    Ibexa\Bundle\Personalization\Controller\REST\ContentController:
+        parent: 'Ibexa\Rest\Server\Controller'
+        arguments:
+            $authentication: '@Ibexa\Personalization\Authentication\AuthenticationInterface'
+            $dataSourceService: '@Ibexa\Personalization\Service\Storage\DataSourceServiceInterface'
+        tags:
+            - controller.service_arguments
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    Ibexa\Bundle\Personalization\Controller\REST\ExportController:
+        parent: 'Ibexa\Rest\Server\Controller'
+        arguments:
+            $authentication: '@Ibexa\Personalization\Authentication\AuthenticationInterface'
+            $fileManager: '@Ibexa\Personalization\File\FileManagerInterface'
+        tags: [controller.service_arguments]

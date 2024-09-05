@@ -1,0 +1,52 @@
+SchedulerBlockSlot:
+    type: object
+    config:
+        fields:
+            id:
+                type: String
+            item:
+                type: SchedulerBlockItem
+
+SchedulerBlockItem:
+    type: object
+    config:
+        fields:
+            id:
+                type: String
+            additionDate:
+                type: DateTime
+            location:
+                type: Location
+
+SchedulerBlockSnapshot:
+    type: object
+    config:
+        fields:
+            date:
+                type: DateTime
+            initialItems:
+                type: '[SchedulerBlockItem]'
+
+SchedulerBlockEvent:
+    type: interface
+    config:
+        resolveType: "@=resolver('SchedulerBlockEventType', [value])"
+        fields:
+            id:
+                type: String
+            type:
+                type: String
+            dateTime:
+                type: DateTime
+
+BaseSchedulerBlockEvent:
+    type: object
+    config:
+        interfaces: [SchedulerBlockEvent]
+        fields:
+            id:
+                type: String
+            type:
+                type: String
+            dateTime:
+                type: DateTime

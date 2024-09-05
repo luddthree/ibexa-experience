@@ -1,0 +1,90 @@
+ibexa.page_builder.edit:
+    alias: ibexa.page_builder.edit.original
+    deprecated:
+        package: 'ibexa/page-builder'
+        version: '4.5'
+
+ibexa.page_builder.edit.original:
+    path: /page/edit/{locationId}/{siteaccessName}
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\PageController::createDraftAction'
+        locationId: ~
+        siteaccessName: ~
+    requirements:
+        locationId: \d+
+    options:
+        expose: true
+
+ibexa.page_builder.create:
+    path: /page/create/{contentTypeIdentifier}/{parentLocationId}/{language}/{siteaccessName}
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\PageController::createAction'
+        language: ~
+        siteaccessName: ~
+    requirements:
+        parentLocationId: \d+
+
+ibexa.page_builder.layout:
+    path: /page/layout/{siteaccessName}/{layoutId}
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\PreviewController::siteaccessLayoutPreviewAction'
+        siteaccessName: ~
+        layoutId: ~
+    options:
+        expose: true
+
+ibexa.page_builder.block.request_configuration_form:
+    path: /page/block/request-configuration-form
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\BlockController::requestBlockConfigurationAction'
+    options:
+        expose: true
+
+ibexa.page_builder.block.configure:
+    path: /page/block/configure/{blockType}/{languageCode}
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\BlockController::configureBlockAction'
+        languageCode: null
+    options:
+        expose: true
+
+ibexa.page_builder.block.siteaccess_preview:
+    path: /page/block/preview/siteaccess/{siteaccessName}
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\PreviewController::siteaccessBlockPreviewAction'
+    methods: [POST]
+    options:
+        expose: true
+
+ibexa.page_builder.site.preview:
+    path: /page/site/preview/{contentId}/{versionNo}/{language}/{siteAccessName}
+    defaults:
+        _controller: 'ibexa.controller.content.preview:previewContentAction'
+    methods:  [GET]
+
+#
+# Schedule Block
+#
+
+ibexa.page.block.schedule_block.list_content:
+    path: /page/block/schedule/list-content
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\ScheduleBlockController::listContentAction'
+    options:
+        expose: true
+
+#
+# Timeline
+#
+
+ibexa.page_builder.timeline.events.get:
+    path: /page/timeline/events/get
+    methods: [POST]
+    defaults:
+        _controller: 'Ibexa\Bundle\PageBuilder\Controller\TimelineController::getEventsAction'
+    options:
+        expose: true
+

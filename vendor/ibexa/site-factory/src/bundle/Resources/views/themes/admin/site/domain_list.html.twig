@@ -1,0 +1,20 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+<div>
+    {% for publicAccess in publicAccesses %}
+        {% set url = publicAccess.matcherConfiguration.url |default('') %}
+        <div class="ibexa-sf-domain">
+            {% include '@ibexadesign/common/status.html.twig' with {
+                'status': publicAccess.status,
+            } %}
+            <a href="{{ '//' ~ url }}" target="_blank" class="ibexa-sf-domain__url">
+                {{ url }}
+            </a>
+            <span class="ibexa-sf-domain__icon" title="{{ 'site.action.domain'|trans|desc('Open link in browser') }}">
+                <svg class="ibexa-icon ibexa-icon--dark ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('open-newtab') }}"></use>
+                </svg>
+            </span>
+        </div>
+    {% endfor %}
+</div>

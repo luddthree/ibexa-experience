@@ -1,0 +1,19 @@
+{% trans_default_domain 'ibexa_form_builder_field_config' %}
+
+<div class="ibexa-fb-form-field-config__actions">
+    {{ form_widget(form.configure, {
+            'attr': {
+                'class': 'ibexa-fb-form-field-config__btn--save ibexa-fb-form-field-config__btn btn ibexa-btn ibexa-btn--filled-info',
+                'data-form-action': 'save'
+            },
+            'label': 'submit'|trans|desc('Submit')
+        })
+    }}
+    <button
+    	type="button"
+    	class="ibexa-fb-form-field-config__btn--cancel ibexa-fb-form-field-config__btn btn ibexa-btn ibexa-btn--info"
+    	data-form-action="discard"
+    >
+    	{{ 'discard'|trans|desc('Discard') }}
+    </button>
+</div>

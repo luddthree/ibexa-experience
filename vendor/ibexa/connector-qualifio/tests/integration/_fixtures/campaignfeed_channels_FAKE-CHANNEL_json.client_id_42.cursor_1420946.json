@@ -1,0 +1,31 @@
+{
+    "numberRows": 1,
+    "channels": [
+        {
+            "channelId": "CB1689C5-23CE-4783-ACFF-BA3986337488",
+            "website": {
+                "id": 15330,
+                "name": "Ibexa.co"
+            },
+            "channel": "WIDGET",
+            "id": 1420947,
+            "dateCreated": "2024-04-24T18:48:19.000Z",
+            "dateLastModified": "2024-04-25T14:43:38.273Z",
+            "campaign": {
+                "campaignId": 1420946,
+                "campaignTitle": "OMR - Diagnostic Skin Care Discount",
+                "campaignType": "Test de personnalit\u00e9 identifi\u00e9 + Branching"
+            },
+            "schedule": {
+                "startDate": "2024-04-01T00:00:00.000Z",
+                "endDate": "2024-12-31T23:59:00.000Z",
+                "hourlyLimitation": false
+            },
+            "integration": {
+                "javascript": "<div id=\"qualifio_insert_place_1420947\" class=\"qualifio_iframe_wrapper\"><\/div>\n                  <script type=\"text\/javascript\">\n                    (function(b,o,n,u,s){\n                      var a,t;a=b.createElement(u);\n                      a.async=1;a.src=s;t=b.getElementsByTagName(u)[0];\n                      t.parentNode.insertBefore(a,t);o[n]=o[n]||[]})\n                    (document,window,'_qual_async','script','\/\/ibexa.qualifioapp.com\/kit\/qualp.2.min.js');\n                    _qual_async.push(['createIframe', 'qualifio_insert_place_1420947', 'ibexa.qualifioapp.com',\n                    '20', 'CB1689C5-23CE-4783-ACFF-BA3986337488', '100%', '890', '', '', '', 'max-width:1400px;margin:0 auto;']);\n                  <\/script>",
+                "webview": "https:\/\/ibexa.qualifioapp.com\/20\/CB1689C5-23CE-4783-ACFF-BA3986337488\/v1.cfm?id=CB1689C5-23CE-4783-ACFF-BA3986337488",
+                "html": "<iframe src=\"\/\/ibexa.qualifioapp.com\/20\/CB1689C5-23CE-4783-ACFF-BA3986337488\/v1.cfm?id=CB1689C5-23CE-4783-ACFF-BA3986337488\"\n    id=\"qualifio1420947\" class=\"qualifio_iframe_tag\" width=\"100%\" height=\"1200\"\n    scrolling=\"auto\" frameborder=\"0\" hspace=\"0\" vspace=\"0\" style=\"overflow-x:hidden;max-width: 1200px;\">\n    "
+            }
+        }
+    ]
+}

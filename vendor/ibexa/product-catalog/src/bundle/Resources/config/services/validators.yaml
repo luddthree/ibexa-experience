@@ -1,0 +1,29 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueAttributeGroupIdentifierValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueAttributeDefinitionIdentifierValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueCurrencyCodeValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueCustomerGroupIdentifierValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueProductCodeValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueProductPriceValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueProductPriceCustomerGroupValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueProductVariantAttributeCombinationValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\AttributeDefinitionOptionsValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\AttributeValueValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\UniqueCatalogIdentifierValidator: ~
+
+    Ibexa\Bundle\ProductCatalog\Validator\Constraints\AtLeastOneLanguageWillRemainValidator: ~

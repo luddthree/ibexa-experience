@@ -1,0 +1,14 @@
+-
+    type: user_group
+    mode: create
+    metadata:
+        mainLanguage: eng-US
+        parentGroupId: 4
+        # Not needed per se, but tests need something to find this object by
+        remoteId: __with_identifier__
+    fields:
+        -
+            fieldDefIdentifier: name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Members

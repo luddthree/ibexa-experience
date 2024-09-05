@@ -1,0 +1,116 @@
+ProductTypeInterface:
+    type: interface
+    config:
+        description: "Ibexa Product Type"
+        fields:
+            identifier:
+                type: String!
+                description: "Product Type's unique identifier"
+            name:
+                type: String
+                description: "Product Type's name"
+            attributesDefinitions:
+                type: "[AttributeAssignment]"
+                description: "Product Type's assigned attribute definitions"
+
+ContentTypeAwareInterface:
+    type: interface
+    config:
+        fields:
+            _contentType:
+                type: ContentType
+                description: "Underlying content type"
+
+BaseProductType:
+    type: object
+    inherits:
+        - ProductTypeInterface
+        - ContentTypeAwareInterface
+    config:
+        fields:
+            identifier:
+                type: String!
+                description: "Product Type's unique identifier"
+            name:
+                type: String
+                description: "Product Type's name"
+            attributesDefinitions:
+                type: "[AttributeAssignment]"
+                description: "Product Type's assigned attribute definitions"
+            _contentType:
+                type: ContentType
+                description: "Underlying content type"
+                resolve: '@=query("ContentTypeById", value.getContentType().id)'
+
+AttributeAssignment:
+    type: object
+    config:
+        fields:
+            isRequired:
+                type: Boolean
+                description: "Determine if given attribute definition assignment is required"
+            isDiscriminator:
+                type: Boolean
+                description: "Determine whether given attribute will be used for product variants"
+            attributeDefinition:
+                type: AttributeDefinition
+                description: "Attribute assignment definition"
+
+AttributeDefinition:
+    type: object
+    config:
+        fields:
+            name:
+                type: String!
+                description: "Attribute name"
+            description:
+                type: String
+                description: "Attribute description"
+            identifier:
+                type: String
+                description: "Attribute identifier"
+            type:
+                type: AttributeType
+                description: "Attribute type"
+            group:
+                type: AttributeGroup
+                description: "Attribute group"
+            position:
+                type: Int
+                description: "Attribute position"
+            options:
+                type: "[Option]"
+                description: "Attribute options"
+                resolve: '@=value.getOptions().all()'
+
+AttributeType:
+    type: object
+    config:
+        fields:
+            identifier:
+                type: String!
+                description: "Attribute type identifier"
+            name:
+                type: String!
+                description: "Attribute type name"
+
+AttributeGroup:
+    type: object
+    config:
+        fields:
+            identifier:
+                type: String!
+                description: "Attribute group identifier"
+            name:
+                type: String!
+                description: "Attribute group name"
+            position:
+                type: Int
+                description: "Attribute group position"
+
+Option:
+    type: object
+    config:
+        fields:
+            key: String
+            name: String

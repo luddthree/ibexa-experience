@@ -1,0 +1,72 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Ibexa\Contracts\Personalization\Serializer\Normalizer\ValueNormalizerInterface:
+            tags:
+                - { name: 'ibexa.personalization.field_type.value.normalizer', priority: -100 }
+
+        Ibexa\Contracts\Personalization\Serializer\Normalizer\DestinationValueAwareInterface:
+            tags:
+                - { name: 'ibexa.personalization.field_type.destination.value.normalizer', priority: -100 }
+
+    Ibexa\Personalization\FieldType\DestinationContentNormalizerDispatcher:
+        arguments:
+            $normalizers: !tagged_iterator
+                tag: 'ibexa.personalization.field_type.destination.value.normalizer'
+
+    Ibexa\Personalization\FieldType\DestinationContentNormalizerDispatcherInterface:
+        '@Ibexa\Personalization\FieldType\DestinationContentNormalizerDispatcher'
+
+    Ibexa\Personalization\FieldType\ValueNormalizerDispatcher:
+        arguments:
+            $normalizers: !tagged_iterator
+                tag: 'ibexa.personalization.field_type.value.normalizer'
+
+    Ibexa\Personalization\FieldType\ValueNormalizerDispatcherInterface:
+        '@Ibexa\Personalization\FieldType\ValueNormalizerDispatcher'
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\AuthorNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\BinaryFileNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\CheckboxNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\CountryNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\DateNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\DateAndTimeNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\EmailAddressNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\FloatNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\ImageNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\ImageAssetNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\IntegerNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\ISBNNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\KeywordNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\MapLocationNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\MediaNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\RelationNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\RelationListNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\TextBlockNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\TextLineNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\TimeNormalizer: ~
+
+    Ibexa\Bundle\Personalization\Serializer\Normalizer\FieldType\UrlNormalizer: ~

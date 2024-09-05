@@ -1,0 +1,873 @@
+{% extends '@ibexadesign/ui/field_type/preview/content_fields.html.twig' %}
+
+{% trans_default_domain 'ibexa_fieldtypes_comparison_preview' %}
+
+{% block string_diff_render %}
+    {% set extra_class = extra_class|default('') %}
+    {% for string_diff in comparison_result %}
+        <span class="ibexa-compared-part {{ extra_class }} ibexa-compared-part--{{ string_diff.getStatus() }}">
+            {{- string_diff.getToken()|nl2br  -}}
+        </span>
+    {% endfor %}
+{% endblock %}
+
+{% block ezstring_field_comparison %}
+    {% apply spaceless %}
+        <span {{ block( 'field_attributes' ) }}>
+            {% with {
+                'comparison_result': comparison_result.getTextLineDiff()
+            } %}
+                {{ block('string_diff_render') }}
+            {% endwith %}
+        </span>
+    {% endapply %}
+{% endblock %}
+
+{% block ezdate_field_comparison %}
+    {% apply spaceless %}
+        {% if comparison_result.isChanged() %}
+            {% if comparison_result.from.getDateTime() is not null %}
+                <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.from.getStatus() }}">
+                    {{ comparison_result.from.getDateTime()|ibexa_full_date('UTC') }}
+                </span>
+            {% endif %}
+        {% endif %}
+        {% if comparison_result.to.getDateTime() is not null %}
+            <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.to.getStatus() }}">
+                {{ comparison_result.to.getDateTime()|ibexa_full_date('UTC') }}
+            </span>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block eztime_field_comparison %}
+    {% apply spaceless %}
+        {% if comparison_result.isChanged() %}
+            {% if comparison_result.from.getInteger() is not null %}
+                <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.from.getStatus() }}">
+                    {{ comparison_result.from.getInteger()|ibexa_full_time('UTC') }}
+                </span>
+            {% endif %}
+        {% endif %}
+        {% if comparison_result.to.getInteger() is not null %}
+            <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.to.getStatus() }}">
+                {{ comparison_result.to.getInteger()|ibexa_full_time('UTC') }}
+            </span>
+        {% endif %}
+        {% if field_settings.useSeconds %}
+            {% include '@ibexadesign/ui/component/alert/alert.html.twig' with {
+                type: 'info',
+                title: 'ezdatetime.useseconds.enabled'|trans()|desc('`The date format is based on your user preferences and does not include seconds even if the Field allows it`'),
+                class: 'mt-2',
+            } only %}
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block ezdatetime_field_comparison %}
+    {% apply spaceless %}
+        {% with {
+            'comparison_result': comparison_result.getDateComparisonResult(),
+        } %}
+            {{ block('ezdate_field_comparison') }}
+        {% endwith %}
+
+        {% with {
+            'comparison_result': comparison_result.getTimeComparisonResult(),
+        } %}
+            {{ block('eztime_field_comparison') }}
+        {% endwith %}
+    {% endapply %}
+{% endblock %}
+
+{% block ezfloat_field_comparison %}
+    {% apply spaceless %}
+        {% if comparison_result.from.getFloat() is not null %}
+            <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.from.getStatus() }}">
+                {{ comparison_result.from.getFloat()|format_number }}
+            </span>
+        {% endif %}
+        {% if comparison_result.to.getFloat() is not null %}
+            <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.to.getStatus() }}">
+                {{ comparison_result.to.getFloat()|format_number }}
+            </span>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block ezinteger_field_comparison %}
+    {% apply spaceless %}
+        {% if comparison_result.from.getInteger() is not null %}
+            <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.from.getStatus() }}">
+                {{ comparison_result.from.getInteger() }}
+            </span>
+        {% endif %}
+        {% if comparison_result.to.getInteger() is not null %}
+            <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.to.getStatus() }}">
+                {{ comparison_result.to.getInteger() }}
+            </span>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block eztext_field_comparison %}
+    {% apply spaceless %}
+        <span {{ block( 'field_attributes' ) }}>
+            {% with {
+                'comparison_result': comparison_result.getTextBlockDiff()
+            } %}
+                {{ block('string_diff_render') }}
+            {% endwith %}
+        </span>
+    {% endapply %}
+{% endblock %}
+
+{% block ezgmaplocation_field_comparison %}
+    {% apply spaceless %}
+        {% set latitudeComparisonResult = comparison_result.getLatitudeComparisonResult() %}
+        {% set longitudeComparisonResult = comparison_result.getLongitudeComparisonResult() %}
+        {% set addressComparisonResult = comparison_result.getAddressComparisonResult() %}
+
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezgmaplocation')|trim}) %}
+        <div {{ block( 'field_attributes' ) }}>
+            <div class="ibexa-field-preview__map-wrapper">
+                {% if longitudeComparisonResult.getTo().getFloat() is not null and latitudeComparisonResult.getTo().getFloat() is not null %}
+                    {% set latitude = latitudeComparisonResult.getTo().getFloat() %}
+                    {% set longitude = longitudeComparisonResult.getTo().getFloat() %}
+                    <div class="ibexa-gmaplocation__map"  data-longitude="{{ longitude }}" data-latitude="{{ latitude }}"></div>
+                {% endif %}
+            </div>
+            <div class="ibexa-field-preview__map-meta">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>{{ 'ezgmaplocation.location_properties'|trans|desc('Location properties') }}:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ 'ezgmaplocation.address'|trans|desc('Address') }}:</td>
+                        <td>
+                            {% with {
+                                'comparison_result': addressComparisonResult
+                            } %}
+                                {{ block('string_diff_render') }}
+                            {% endwith %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'ezgmaplocation.latitude'|trans|desc('Latitude') }}:</td>
+                        <td>
+                            {% if latitudeComparisonResult.from.getFloat() is not null %}
+                                <span class="ibexa-compared-part ibexa-compared-part--{{ latitudeComparisonResult.from.getStatus() }}">
+                                    {{ latitudeComparisonResult.from.getFloat() }}
+                                </span>
+                            {% endif %}
+                            {% if latitudeComparisonResult.to.getFloat() is not null %}
+                                <span class="ibexa-compared-part ibexa-compared-part--{{ latitudeComparisonResult.to.getStatus() }}">
+                                    {{ latitudeComparisonResult.to.getFloat() }}
+                                </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>{{ 'ezgmaplocation.longitude'|trans|desc('Longitude') }}:</td>
+                        <td>
+                            {% if longitudeComparisonResult.from.getFloat() is not null %}
+                                <span class="ibexa-compared-part ibexa-compared-part--{{ longitudeComparisonResult.from.getStatus() }}">
+                                    {{ longitudeComparisonResult.from.getFloat() }}
+                                </span>
+                            {% endif %}
+                            {% if longitudeComparisonResult.to.getFloat() is not null %}
+                                <span class="ibexa-compared-part ibexa-compared-part--{{ longitudeComparisonResult.to.getStatus() }}">
+                                    {{ longitudeComparisonResult.to.getFloat() }}
+                                </span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endapply %}
+{% endblock %}
+
+{% block ezemail_field_comparison %}
+    {% apply spaceless %}
+        <span {{ block( 'field_attributes' ) }}>
+            {% with {
+                'comparison_result': comparison_result.getEmailDiff()
+            } %}
+                {{ block('string_diff_render') }}
+            {% endwith %}
+        </span>
+    {% endapply %}
+{% endblock %}
+
+{% block ezauthor_field_comparison %}
+    {% apply spaceless %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezauthor')|trim}) %}
+        <table {{ block( 'field_attributes' ) }}>
+            <tbody>
+            {% with {
+                'comparison_result': comparison_result.getRemovedAuthors(),
+            } %}
+                {{ block('inner_author_block') }}
+            {% endwith %}
+
+            {% with {
+                'comparison_result': comparison_result.getRetainedAuthors(),
+            } %}
+                {{ block('inner_author_block') }}
+            {% endwith %}
+
+            {% with {
+                'comparison_result': comparison_result.getAddedAuthors(),
+            } %}
+                {{ block('inner_author_block') }}
+            {% endwith %}
+
+            </tbody>
+        </table>
+    {% endapply %}
+{% endblock %}
+
+{% block inner_author_block %}
+    {% for author in comparison_result.getCollection() %}
+        <tr>
+            <td>{{ 'ezauthor.name'|trans|desc('Name') }}:</td>
+            <td>
+                {% with {
+                    'comparison_result': author.getNameComparisonResult()
+                } %}
+                    {{ block('string_diff_render') }}
+                {% endwith %}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ 'ezauthor.email'|trans|desc('Email') }}:</td>
+            <td>
+                {% with {
+                    'comparison_result': author.getEmailComparisonResult()
+                } %}
+                    {{ block('string_diff_render') }}
+                {% endwith %}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock %}
+
+{% block ezboolean_field_comparison %}
+    {% apply spaceless %}
+        <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.from.getStatus() }}">
+            {{ comparison_result.from.getBool() ? 'ezboolean.yes'|trans|desc('Yes') : 'ezboolean.no'|trans|desc('No') }}
+        </span>
+        <span class="ibexa-compared-part ibexa-compared-part--{{ comparison_result.to.getStatus() }}">
+            {{ comparison_result.to.getBool() ? 'ezboolean.yes'|trans|desc('Yes') : 'ezboolean.no'|trans|desc('No')}}
+        </span>
+    {% endapply %}
+{% endblock %}
+
+{% block ezselection_field_comparison %}
+    {% apply spaceless %}
+        {% set options = field_settings.options %}
+
+        {% if field_settings.multilingualOptions[field.languageCode] is defined %}
+            {% set options = field_settings.multilingualOptions[field.languageCode] %}
+        {% elseif fieldSettings.multilingualOptions[contentInfo.mainLanguageCode] is defined %}
+            {% set options = field_settings.multilingualOptions[contentInfo.mainLanguageCode] %}
+        {% endif %}
+
+        {% with {
+            'options': options,
+            'comparison_result': comparison_result.getRemovedSelection(),
+            'is_multiple': field_settings.isMultiple
+        } %}
+            {{ block('inner_selection_block') }}
+        {% endwith %}
+
+        {% with {
+            'options': options,
+            'comparison_result': comparison_result.getUnchangedSelection(),
+            'is_multiple': field_settings.isMultiple
+        } %}
+            {{ block('inner_selection_block') }}
+        {% endwith %}
+
+        {% with {
+            'options': options,
+            'comparison_result': comparison_result.getAddedSelection(),
+            'is_multiple': field_settings.isMultiple
+        } %}
+            {{ block('inner_selection_block') }}
+        {% endwith %}
+    {% endapply %}
+{% endblock %}
+
+{% block inner_selection_block %}
+    {% for option_index in comparison_result.getCollection() %}
+        <span class="ibexa-compared-part {{ is_multiple ? 'ibexa-compared-part--multiple-selection' : '' }} ibexa-compared-part--{{ comparison_result.getStatus() }}">
+            {{ options[option_index] }}
+        </span>
+    {% endfor %}
+{% endblock %}
+
+{% block ezcountry_field_comparison %}
+    {% apply spaceless %}
+        {% with {
+            'country_diff': comparison_result.getRemovedCountries(),
+            'is_multiple': field_settings.isMultiple
+        } %}
+            {{ block('inner_country_block') }}
+        {% endwith %}
+
+        {% with {
+            'country_diff': comparison_result.getUnchangedCountries(),
+            'is_multiple': field_settings.isMultiple
+        } %}
+            {{ block('inner_country_block') }}
+        {% endwith %}
+
+        {% with {
+            'country_diff': comparison_result.getAddedCountries(),
+            'is_multiple': field_settings.isMultiple
+        } %}
+            {{ block('inner_country_block') }}
+        {% endwith %}
+    {% endapply %}
+{% endblock %}
+
+{% block inner_country_block %}
+    {% for country in country_diff.getCollection() %}
+        <span class="ibexa-compared-part {{ is_multiple ? 'ibexa-compared-part--multiple-selection' : '' }} ibexa-compared-part--{{ country_diff.getStatus() }}">
+            {{ country['Name'] }}
+        </span>
+    {% endfor %}
+{% endblock %}
+
+{% block ezurl_field_comparison %}
+    {% apply spaceless %}
+        <table {{ block( 'field_attributes' ) }}>
+            <tbody>
+                <tr>
+                    <td>{{ 'ezurl.link'|trans|desc('URL') }}:</td>
+                    <td>
+                        {% with {
+                            'comparison_result': comparison_result.getLinkComparisonResult()
+                        } %}
+                            {{ block('string_diff_render') }}
+                        {% endwith %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{ 'ezurl.text'|trans|desc('Text') }}:</td>
+                    <td>
+                        {% with {
+                            'comparison_result': comparison_result.getTextComparisonResult()
+                        } %}
+                            {{ block('string_diff_render') }}
+                        {% endwith %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endapply %}
+{% endblock %}
+
+{% block ezbinaryfile_field_comparison %}
+    {% apply spaceless %}
+        {% set fileSizeComparisonResult = comparison_result.getFileSizeComparisonResult() %}
+        {% set fileNameComparisonResult = comparison_result.getFileNameComparisonResult() %}
+
+        {% set have_old_file = fileSizeComparisonResult.from.getInteger() is not null %}
+        {% set have_new_file = fileSizeComparisonResult.to.getInteger() is not null %}
+
+        {% if have_old_file %}
+            {% set old_file_name = fileNameComparisonResult.getTokenStringDiffs()[0].getToken() %}
+            {% set old_route_reference = ibexa_route( 'ibexa.content.download', {
+                'content': content,
+                'fieldIdentifier': field_definition.identifier,
+                'inLanguage': content.prioritizedFieldLanguageCode,
+                'version': app.request.get('versionNoB'),
+                'filename': old_file_name
+            } ) %}
+        {% endif %}
+
+        {% if have_new_file %}
+            {% set new_file_name = have_old_file
+                ? fileNameComparisonResult.getTokenStringDiffs()[1].getToken()
+                : fileNameComparisonResult.getTokenStringDiffs()[0].getToken()
+            %}
+            {% set new_route_reference = ibexa_route( 'ibexa.content.download', {
+                'content': content,
+                'fieldIdentifier': field_definition.identifier,
+                'inLanguage': content.prioritizedFieldLanguageCode,
+                'version': app.request.get('versionNoA'),
+                'filename': new_file_name
+            } ) %}
+        {% endif %}
+
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezbinaryfile')|trim}) %}
+
+        <div {{ block( 'field_attributes' ) }}>
+            {% if have_old_file %}
+                <a download href="{{ ibexa_path( old_route_reference ) }}">
+                    <svg class="ibexa-icon ibexa-icon--download ibexa-icon--removed">
+                        <use xlink:href="{{ ibexa_icon_path('download') }}"></use>
+                    </svg>
+                </a>
+            {% endif %}
+            {% with {
+                'comparison_result': fileNameComparisonResult
+            } %}
+                {{ block('string_diff_render') }}
+            {% endwith %}
+            {% if have_old_file %}
+                <span class="ibexa-compared-part ibexa-compared-part--{{ fileSizeComparisonResult.from.getStatus() }}">
+                    {{ fileSizeComparisonResult.from.getInteger()|ibexa_file_size(1) }}
+                </span>
+            {% endif %}
+            {% if have_new_file %}
+                <span class="ibexa-compared-part ibexa-compared-part--{{ fileSizeComparisonResult.to.getStatus() }}">
+                    {{ fileSizeComparisonResult.to.getInteger()|ibexa_file_size(1) }}
+                </span>
+            {% endif %}
+
+            {% if have_new_file %}
+                <a download href="{{ ibexa_path( new_route_reference ) }}">
+                    <svg class="ibexa-icon ibexa-icon--download ibexa-icon--added">
+                        <use xlink:href="{{ ibexa_icon_path('download') }}"></use>
+                    </svg>
+                </a>
+            {% endif %}
+        </div>
+    {% endapply %}
+{% endblock %}
+
+{% block ezrichtext_field_comparison %}
+    {{- comparison_result.getRichTextDiff().getHtmlDiff()|raw -}}
+{% endblock %}
+
+{% block ezimage_field_comparison %}
+    {% apply spaceless %}
+        {% set fileComparisonResult = comparison_result.getBinaryFileComparisonResult() %}
+        {% set fileNameComparisonResult = comparison_result.getFileNameComparisonResult() %}
+        {% set alternativeTextComparisonResult = comparison_result.getAlternativeTextComparisonResult() %}
+
+        {% set have_alternative_text = false %}
+        {% if alternativeTextComparisonResult.getTokenStringDiffs()|length > 0 %}
+            {% set have_alternative_text = true %}
+        {% endif %}
+
+        {% set have_old_image = fileComparisonResult.from.getPath() is not null %}
+        {% set have_new_image = fileComparisonResult.to.getPath() is not null %}
+
+        {% set old_name_diff = fileNameComparisonResult.getTokenStringDiffs()[0] %}
+
+        {% set new_name_diff = old_name_diff %}
+        {% if fileNameComparisonResult.getTokenStringDiffs()|length > 1 %}
+            {% set new_name_diff = fileNameComparisonResult.getTokenStringDiffs()[1] %}
+        {% endif %}
+
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezimage ezimage-comparison__content')|trim}) %}
+
+        <div class="ezimage-comparison">
+            {% if have_old_image %}
+                <div class="ezimage-comparison__version-wrapper">
+                    <div {{ block( 'field_attributes' ) }}>
+                        <div class="ibexa-field-preview__image ibexa-compared-part--{{ fileComparisonResult.from.getStatus() }}">
+                            <img src="{{ fileComparisonResult.from.getPath() }}">
+                        </div>
+                    </div>
+                    <span class="ibexa-compared-part ibexa-compared-part--{{ old_name_diff.getStatus() }}">
+                        {{ old_name_diff.getToken() }}
+                    </span>
+                </div>
+            {% endif %}
+            {% if have_new_image %}
+                <div class="ezimage-comparison__version-wrapper">
+                    <div {{ block( 'field_attributes' ) }}>
+                        <div class="ibexa-field-preview__image ibexa-compared-part--{{ fileComparisonResult.to.getStatus() }}">
+                            <img src="{{ fileComparisonResult.to.getPath() }}">
+                        </div>
+                    </div>
+                    <span class="ibexa-compared-part ibexa-compared-part--{{ new_name_diff.getStatus() }}">
+                        {{ new_name_diff.getToken() }}
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+        {% if have_alternative_text %}
+            <div>
+                <span>
+                    {{ 'ezimage.alternative_text'|trans|desc('Alternative text') }}:
+                </span>
+                {% with {
+                    'comparison_result': alternativeTextComparisonResult
+                } %}
+                    {{ block('string_diff_render') }}
+                {% endwith %}
+            </div>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block ezobjectrelation_field_comparison %}
+    {% apply spaceless %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezobjectrelationlist')|trim}) %}
+        <div {{ block( 'field_attributes' ) }}>
+            {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+                headline: 'ezobjectrelation.single_relation'|trans|desc('Single relation'),
+                head_cols: [
+                    { content: 'ezobjectrelation.name'|trans|desc('Name') },
+                    { content: 'ezobjectrelation.content_type'|trans|desc('Content type') },
+                    { content: 'ezobjectrelation.version_created'|trans|desc('Version created') },
+                ],
+            } %}
+                {% block tbody %}
+                    {% if comparison_result.from.getInteger() is not null %}
+                        {% embed '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+                            class: "ibexa-compared-part--relation-row ibexa-compared-part--#{comparison_result.from.getStatus()}",
+                        } %}
+                            {% block body_row_cells %}
+                                {{ render(controller('Ibexa\\Bundle\\AdminUi\\Controller\\ContentController::relationViewAction', {
+                                    'contentId': comparison_result.from.getInteger(),
+                                })) }}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+                    {% if comparison_result.to.getInteger() is not null %}
+                        {% embed '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+                            class: "ibexa-compared-part--relation-row ibexa-compared-part--#{comparison_result.to.getStatus()}",
+                        } %}
+                            {% block body_row_cells %}
+                                {{ render(controller('Ibexa\\Bundle\\AdminUi\\Controller\\ContentController::relationViewAction', {
+                                    'contentId': comparison_result.to.getInteger(),
+                                })) }}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    {% endapply %}
+{% endblock %}
+
+{% block ezobjectrelationlist_field_comparison %}
+    {% set removedList = comparison_result.getRemovedRelations() %}
+    {% set unchangedList = comparison_result.getUnchangedRelations() %}
+    {% set addedList = comparison_result.getAddedRelations() %}
+
+    {% apply spaceless %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezobjectrelationlist')|trim}) %}
+        <div {{ block( 'field_attributes' ) }}>
+            {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+                headline: 'ezobjectrelation.single_relation'|trans|desc('Single relation'),
+                head_cols: [
+                    { content: 'ezobjectrelationlist.name'|trans|desc('Name') },
+                    { content: 'ezobjectrelationlist.content_type'|trans|desc('Content type') },
+                    { content: 'ezobjectrelationlist.version_created'|trans|desc('Version created') },
+                ],
+            } %}
+                {% block tbody %}
+                    {% for removedId in removedList.getCollection() %}
+                        {% embed '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+                            class: "ibexa-compared-part--relation-row ibexa-compared-part--#{removedList.getStatus()}",
+                        } %}
+                            {% block body_row_cells %}
+                                {{ render(controller('Ibexa\\Bundle\\AdminUi\\Controller\\ContentController::relationViewAction', {
+                                    'contentId': removedId,
+                                })) }}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endfor %}
+                    {% for relationId in unchangedList.getCollection() %}
+                        {% embed '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+                            class: "ibexa-compared-part--relation-row ibexa-compared-part--#{unchangedList.getStatus()}",
+                        } %}
+                            {% block body_row_cells %}
+                                {{ render(controller('Ibexa\\Bundle\\AdminUi\\Controller\\ContentController::relationViewAction', {
+                                    'contentId': relationId,
+                                })) }}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endfor %}
+                    {% for addedId in addedList.getCollection() %}
+                        {% embed '@ibexadesign/ui/component/table/table_body_row.html.twig' with {
+                            class: "ibexa-compared-part--relation-row ibexa-compared-part--#{addedList.getStatus()}",
+                        } %}
+                            {% block body_row_cells %}
+                                {{ render(controller('Ibexa\\Bundle\\AdminUi\\Controller\\ContentController::relationViewAction', {
+                                    'contentId': addedId,
+                                })) }}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    {% endapply %}
+{% endblock %}
+
+{% block ezmedia_field_comparison %}
+    {% apply spaceless %}
+        {% set fileComparisonResult = comparison_result.getFileComparisonResult() %}
+        {% set fileNameComparisonResult = comparison_result.getFileNameComparisonResult() %}
+        {% set fileSizeComparisonResult = comparison_result.getFileSizeComparisonResult() %}
+        {% set hasControllerResult = comparison_result.getHasControllerComparisonResult() %}
+        {% set typeResult = comparison_result.getMimeTypeComparisonResult() %}
+        {% set autoplayResult = comparison_result.getAutoplayComparisonResult() %}
+        {% set loopResult = comparison_result.getloopComparisonResult() %}
+
+        {% set have_old_media = fileComparisonResult.from.getId() is not null %}
+        {% set have_new_media = fileComparisonResult.to.getId() is not null %}
+
+        {% set old_name_diff = fileNameComparisonResult.getTokenStringDiffs()[0] %}
+
+        {% set new_name_diff = old_name_diff %}
+        {% if fileNameComparisonResult.getTokenStringDiffs()|length > 1 %}
+            {% set new_name_diff = fileNameComparisonResult.getTokenStringDiffs()[1] %}
+        {% endif %}
+
+        {% if have_old_media %}
+            {% set old_type = typeResult.getTokenStringDiffs()[0] %}
+            {% set old_file_name = fileNameComparisonResult.getTokenStringDiffs()[0].getToken() %}
+            {% set old_route_reference = ibexa_route( 'ibexa.content.download', {
+                'content': content,
+                'fieldIdentifier': field_definition.identifier,
+                'inLanguage': content.prioritizedFieldLanguageCode,
+                'version': app.request.get('versionNoB'),
+                'filename': old_file_name
+            } ) %}
+        {% endif %}
+
+        {% if have_new_media %}
+            {% set new_type = typeResult.getTokenStringDiffs()[1] ?? typeResult.getTokenStringDiffs()[0] %}
+            {% set new_file_name =
+                fileNameComparisonResult.getTokenStringDiffs()[1].getToken()
+                ?? fileNameComparisonResult.getTokenStringDiffs()[0].getToken()
+            %}
+            {% set new_route_reference = ibexa_route( 'ibexa.content.download', {
+                'content': content,
+                'fieldIdentifier': field_definition.identifier,
+                'inLanguage': content.prioritizedFieldLanguageCode,
+                'version': app.request.get('versionNoA'),
+                'filename': new_file_name
+            } ) %}
+        {% endif %}
+
+
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' ibexa-field-preview ibexa-field-preview--ezmedia')|trim}) %}
+        {% set type = field_settings.mediaType %}
+
+        <div class="ezmedia-comparison">
+            {% if have_old_media %}
+                {% autoescape false %}
+                    {% if type == "html5_video"
+                        or type == "quick_time"
+                        or type == "windows_media_player"
+                        or type == "real_player" %}
+                        <div class="ezmedia-comparison__version-wrapper">
+                            <div {{ block( 'field_attributes' ) }}>
+                                <div class="ibexa-field-preview__media ibexa-compared-part--{{ fileComparisonResult.from.getStatus() }}">
+                                    <div class="ibexa-field-preview__video-wrapper">
+                                        <video src="{{ ibexa_path( old_route_reference ) }}" width="100%" controls>
+                                            {{ 'ezmedia.browser_does_not_support_html5_video'|trans|desc('Your browser does not support HTML5 video') }}
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="ibexa-field-preview__media-meta">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>{{ 'ezmedia.video_file_properties'|trans|desc('Video file properties') }}:</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ 'ezmedia.file_name'|trans|desc('File name') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ old_name_diff.getStatus() }}">
+                                                    {{ old_name_diff.getToken() }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.type'|trans|desc('Type') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ old_type.getStatus() }}">
+                                                    {{ old_type.getToken() }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.size'|trans|desc('Size') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ fileSizeComparisonResult.from.getStatus() }}">
+                                                    {{ fileSizeComparisonResult.from.getInteger()|ibexa_file_size(1) }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.display_controls'|trans|desc('Display controls') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ hasControllerResult.from.getStatus() }}">
+                                                    {{ hasControllerResult.from.getBool() ? 'ezmedia.yes'|trans|desc('Yes') : 'ezmedia.no'|trans|desc('No')  }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.auto_play'|trans|desc('Autoplay') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ autoplayResult.from.getStatus() }}">
+                                                    {{ autoplayResult.from.getBool() ? 'ezmedia.yes'|trans|desc('Yes') : 'ezmedia.no'|trans|desc('No')  }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.loop'|trans|desc('Loop') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ loopResult.from.getStatus() }}">
+                                                    {{ loopResult.from.getBool() ? 'ezmedia.yes'|trans|desc('Yes') : 'ezmedia.no'|trans|desc('No')  }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endautoescape %}
+            {% endif %}
+            {% if have_new_media %}
+                {% autoescape false %}
+                    {% if type == "html5_video"
+                        or type == "quick_time"
+                        or type == "windows_media_player"
+                        or type == "real_player" %}
+                        <div class="ezmedia-comparison__version-wrapper">
+                            <div {{ block( 'field_attributes' ) }}>
+                                <div class="ibexa-field-preview__media ibexa-compared-part--{{ fileComparisonResult.to.getStatus() }}">
+                                    <div class="ibexa-field-preview__video-wrapper">
+                                        <video src="{{ ibexa_path( new_route_reference ) }}" width="100%" controls>
+                                            {{ 'ezmedia.browser_does_not_support_html5_video'|trans|desc('Your browser does not support HTML5 video') }}
+                                        </video>
+                                    </div>
+                                </div>
+                                <div class="ibexa-field-preview__media-meta">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>{{ 'ezmedia.video_file_properties'|trans|desc('Video file properties') }}:</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ 'ezmedia.file_name'|trans|desc('File name') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ new_name_diff.getStatus() }}">
+                                                    {{ new_name_diff.getToken() }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.type'|trans|desc('Type') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ new_type.getStatus() }}">
+                                                    {{ new_type.getToken() }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.size'|trans|desc('Size') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ fileSizeComparisonResult.to.getStatus() }}">
+                                                    {{ fileSizeComparisonResult.to.getInteger()|ibexa_file_size(1) }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.display_controls'|trans|desc('Display controls') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ hasControllerResult.to.getStatus() }}">
+                                                    {{ hasControllerResult.to.getBool() ? 'ezmedia.yes'|trans|desc('Yes') : 'ezmedia.no'|trans|desc('No')  }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.auto_play'|trans|desc('Autoplay') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ autoplayResult.to.getStatus() }}">
+                                                    {{ autoplayResult.to.getBool() ? 'ezmedia.yes'|trans|desc('Yes') : 'ezmedia.no'|trans|desc('No')  }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ 'ezmedia.loop'|trans|desc('Loop') }}:</td>
+                                            <td>
+                                                <span class="ibexa-compared-part ibexa-compared-part--{{ loopResult.to.getStatus() }}">
+                                                    {{ loopResult.to.getBool() ? 'ezmedia.yes'|trans|desc('Yes') : 'ezmedia.no'|trans|desc('No')  }}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endautoescape %}
+            {% endif %}
+        </div>
+    {% endapply %}
+{% endblock %}
+
+{% block ezmatrix_field_comparison %}
+    {% set columns_settings = field_settings['columns'] %}
+    {% set row_results = comparison_result.getRowsComparisonResult() %}
+
+    {% apply spaceless %}
+
+    {% set body_rows = [] %}
+    {% for row_result in row_results %}
+        {% set body_row_cols = [] %}
+        {% for column in columns_settings %}
+            {% set col_comparison %}
+                {% if row_result.haveCellComparisonResult(column['identifier']) %}
+                    {% with {
+                        'comparison_result': row_result.getCellComparisonResult(column['identifier']).getStringComparisonResult()
+                    } %}
+                        {{ block('string_diff_render') }}
+                    {% endwith %}
+                {% endif %}
+            {% endset %}
+            {% set body_row_cols = body_row_cols|merge([{
+                content: col_comparison,
+                raw: true,
+            }]) %}
+        {% endfor %}
+        {% set body_rows = body_rows|merge([{ cols: body_row_cols }]) %}
+    {% endfor %}
+
+    {% set head_cols = [] %}
+    {% for column in columns_settings %}
+        {% set head_cols = head_cols|merge([{ content: column['name'] }]) %}
+    {% endfor %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline: 'field.columns'|trans|desc('Columns'),
+        head_cols,
+        body_rows,
+    } %}
+
+    {% endapply %}
+{% endblock %}
+
+{% block ezimageasset_field_comparison %}
+    {% with {
+        'comparison_result': comparison_result
+    } %}
+        {{ block('ezimage_field_comparison') }}
+    {% endwith %}
+{% endblock %}

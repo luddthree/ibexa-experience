@@ -1,0 +1,9 @@
+# Captcha
+
+ibexa.form_builder.captcha.get_url:
+    path: /form/captcha/get-url/{fieldId}
+    methods: [GET]
+    defaults:
+        _controller: Ibexa\Bundle\FormBuilder\Controller\CaptchaController::getCaptchaPathAction
+    options:
+        expose: true

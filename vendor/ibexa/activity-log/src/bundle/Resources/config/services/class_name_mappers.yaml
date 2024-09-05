@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Ibexa\Contracts\ActivityLog\ClassNameMapperInterface:
+            tags:
+                - { name: ibexa.activity_log.class_name_mapper, priority: -10 }
+
+    Ibexa\ActivityLog\ObjectClassToShortNameMapper:
+        arguments:
+            $classNameToShortNameMappers: !tagged_iterator ibexa.activity_log.class_name_mapper
+
+    Ibexa\ActivityLog\ClassNameMapper\ContentClassNameMapper: ~
+
+    Ibexa\ActivityLog\ClassNameMapper\LocationClassNameMapper: ~
+
+    Ibexa\ActivityLog\ClassNameMapper\ProductClassNameMapper: ~
+
+    Ibexa\ActivityLog\ClassNameMapper\SiteClassNameMapper: ~

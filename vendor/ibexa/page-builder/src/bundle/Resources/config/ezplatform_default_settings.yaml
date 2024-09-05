@@ -1,0 +1,12 @@
+parameters:
+    # Siteaccesses
+    ibexa.site_access.config.default.page_builder.siteaccess_list: []
+
+    # Block Configuration
+    ibexa.site_access.config.default.page_builder.block_styling_enabled: true
+
+    # Cross Origin Helper
+    ibexa.site_access.config.default.page_builder.inject_cross_origin_helper: true
+
+    # Siteaccesses allowed hosts for PageBuilder
+    ibexa.site_access.config.default.page_builder.siteaccess_hosts: []

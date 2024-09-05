@@ -1,0 +1,43 @@
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% set table_template_path = table_template_path|default('@ibexadesign/ibexa_workflow/admin/content_view/tab/versions/table.html.twig') %}
+
+{% extends '@ibexadesign/content/tab/versions/tab.html.twig' %}
+{% trans_default_domain 'ibexa_workflow' %}
+
+{% block table_drafts %}
+    {% import _self as tab %}
+
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+        headline: 'tab.versions.draft_under_edit'|trans()|desc('Drafts to review'),
+        actions: tab.table_header_tools(form_version_remove_draft),
+    } %}
+    {% include table_template_path with {
+        'versions': draft_pager.currentPageResults,
+        'is_draft': true,
+        'form': form_version_remove_draft,
+        'have_to_paginate': draft_pager.haveToPaginate,
+        'content_is_user': content_is_user,
+        'stages_map': workflow_stages_map
+    } %}
+
+    {% if draft_pager.haveToPaginate %}
+        <div class="row justify-content-center align-items-center mb-2">
+            <span class="ibexa-pagination__text">
+                {{ 'location_view.tab.versions.pagination.viewing'|trans({
+                    '%viewing%': draft_pager.currentPageResults|length,
+                    '%total%': draft_pager.nbResults
+                })|desc('Viewing <strong>%viewing%</strong> out of <strong>%total%</strong> items')|raw }}
+            </span>
+        </div>
+        <div class="row justify-content-center align-items-center ibexa-pagination__btn mb-4">
+            {{ pagerfanta(draft_pager, 'ibexa', {
+                'routeName': draft_pagination_params.route_name,
+                'routeParams': draft_pagination_params.route_params|merge({
+                    '_fragment': constant('Ibexa\\AdminUi\\Tab\\LocationView\\VersionsTab::URI_FRAGMENT'),
+                }),
+                'pageParameter': '[page][version_draft]'
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

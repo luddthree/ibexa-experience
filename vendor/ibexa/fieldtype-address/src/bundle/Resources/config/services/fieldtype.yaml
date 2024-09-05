@@ -1,0 +1,41 @@
+parameters:
+    ibexa.field_type.address.identifier: 'ibexa_address'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypeAddress\FieldType\Type:
+        autoconfigure: false
+        public: true
+        parent: Ibexa\Core\FieldType\FieldType
+        arguments:
+            $fieldTypeIdentifier: '%ibexa.field_type.address.identifier%'
+            $translator: '@translator'
+        tags:
+            - { name: ibexa.field_type, alias: '%ibexa.field_type.address.identifier%' }
+
+    Ibexa\FieldTypeAddress\FieldType\Converter\AddressConverter:
+        arguments:
+            $fieldTypeIdentifier: '%ibexa.field_type.address.identifier%'
+        tags:
+            - { name: ibexa.field_type.storage.legacy.converter, alias: '%ibexa.field_type.address.identifier%' }
+
+    Ibexa\FieldTypeAddress\FieldType\Mapper\AddressFormMapper:
+        arguments:
+            $configuration: '%ibexa.address.formats%'
+        tags:
+            - { name: ibexa.admin_ui.field_type.form.mapper.definition, fieldType: '%ibexa.field_type.address.identifier%' }
+            - { name: ibexa.admin_ui.field_type.form.mapper.value, fieldType: '%ibexa.field_type.address.identifier%' }
+
+    Ibexa\FieldTypeAddress\FieldType\Indexable:
+        tags:
+            - { name: ibexa.field_type.indexable, alias: '%ibexa.field_type.address.identifier%' }
+
+    Ibexa\FieldTypeAddress\FieldType\Resolver\FormatConfigurationResolver:
+        arguments:
+            $configuration: '%ibexa.address.formats%'
+
+    Ibexa\FieldTypeAddress\Form\Type\AddressFieldsType: ~

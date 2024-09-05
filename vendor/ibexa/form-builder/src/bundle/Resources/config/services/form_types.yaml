@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FormBuilder\Form\Type\:
+        resource: ../../../lib/Form/Type/*
+
+    Ibexa\FormBuilder\Form\Type\FieldAttribute\Action\LocationType:
+        arguments:
+            $locationService: '@ibexa.api.service.location'
+            $contentTypeService: '@ibexa.api.service.content_type'
+            $imageFieldType: '@Ibexa\Core\FieldType\Image\Type'
+        tags:
+            - form.type
+
+    Ibexa\FormBuilder\Form\Type\AjaxCaptchaType:
+        public: true
+        arguments:
+            - '@session'
+            - '@gregwar_captcha.generator'
+            - '@translator'
+            - '%gregwar_captcha.config%'
+        tags:
+            - { name: form.type, alias: captcha }

@@ -1,0 +1,17 @@
+ibexa_taxonomy:
+    taxonomies:
+        tags:
+            parent_location_remote_id: taxonomy_tags_folder
+            content_type: tag
+            field_mappings:
+                identifier: identifier
+                parent: parent
+                name: name
+            assigned_content_tab: true
+        product_categories:
+            parent_location_remote_id: taxonomy_product_categories_folder
+            content_type: product_category
+            field_mappings:
+                identifier: identifier
+                parent: parent
+                name: name

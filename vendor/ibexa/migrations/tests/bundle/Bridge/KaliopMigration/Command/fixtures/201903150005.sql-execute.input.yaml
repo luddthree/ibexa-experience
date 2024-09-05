@@ -1,0 +1,9 @@
+-
+    type: 'sql'
+    mysql: 'CREATE TABLE `foo_table` (`objectattribute_id` bigint(20) unsigned NOT NULL,`foo_name` varchar(255) NOT NULL,`foo_content` varchar(255) NOT NULL,`objectattribute_version` int(10) unsigned NOT NULL,PRIMARY KEY (`objectattribute_id`,`objectattribute_version`,`foo_name`),KEY `foo_idx_content` (`objectattribute_id`,`objectattribute_version`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
+
+-
+    type: 'sql'
+    mode: exec
+    mysql: 'CREATE TABLE `foo_table` (`objectattribute_id` bigint(20) unsigned NOT NULL,`foo_name` varchar(255) NOT NULL,`foo_content` varchar(255) NOT NULL,`objectattribute_version` int(10) unsigned NOT NULL,PRIMARY KEY (`objectattribute_id`,`objectattribute_version`,`foo_name`),KEY `foo_idx_content` (`objectattribute_id`,`objectattribute_version`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8;'
+    sqlite: 'CREATE TABLE `foo_table_sqlite` (`objectattribute_id` bigint(20) unsigned NOT NULL,`foo_name` varchar(255) NOT NULL,`foo_content` varchar(255) NOT NULL,`objectattribute_version` int(10) unsigned NOT NULL,PRIMARY KEY (`objectattribute_id`,`objectattribute_version`,`foo_name`),KEY `foo_idx_content` (`objectattribute_id`,`objectattribute_version`) USING BTREE) ENGINE=InnoDB DEFAULT CHARSET=utf8;'

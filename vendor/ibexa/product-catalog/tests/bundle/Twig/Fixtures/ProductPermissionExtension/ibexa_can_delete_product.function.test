@@ -1,0 +1,16 @@
+--TEST--
+"ibexa_permission_delete_product" function
+--TEMPLATE--
+{{ ibexa_permission_delete_product() }}
+{{ ibexa_permission_delete_product(unremovable) }}
+{{ ibexa_permission_delete_product(product) }}
+
+--DATA--
+return [
+    'unremovable' => $this->getProduct('unremovable'),
+    'product' => $this->getProduct('product'),
+]
+--EXPECT--
+1
+
+1

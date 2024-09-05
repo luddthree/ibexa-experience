@@ -1,0 +1,13 @@
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+<div class="ibexa-content-tree-content-form-container ibexa-content-tree-content-form-container--edit">
+    <div class="ibexa-extra-actions-container">
+        {% include '@ibexadesign/content/widget/content_edit.html.twig' with {
+            form,
+            data_actions: 'content-tree-edit',
+            action: path('ibexa.content.edit', {
+                'formName': 'content_tree_content_edit'
+            })
+        } only %}
+    </div>
+</div>

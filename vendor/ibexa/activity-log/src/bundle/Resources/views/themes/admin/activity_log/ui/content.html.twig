@@ -1,0 +1,45 @@
+{% extends '@ibexadesign/activity_log/ui/default.html.twig' %}
+
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{%- block activity_log_description_widget -%}
+    {%- set related_object = log.getRelatedObject() -%}
+
+    {%- if related_object is null -%}
+        <span class="ibexa-al-data-grid__data-cell">
+            {{- log.objectName -}}
+        </span>
+    {%- else -%}
+        {%- set content_type = related_object.getContentType() -%}
+        {%- set version_info = related_object.getVersionInfo() -%}
+
+        {%- set content_info = version_info.getContentInfo() -%}
+        {%- set main_location = content_info.getMainLocation() -%}
+
+        <span class="ibexa-al-data-grid__data-cell">{{ content_type.name }}</span>
+        <a
+            class="ibexa-al-data-grid__data-cell"
+            href="{{ path('ibexa.content.view', {
+                contentId: log.getObjectId(),
+                locationId: content_info.mainLocationId
+            }) }}"
+        >
+            {{- ibexa_content_name(related_object) -}}
+        </a>
+        {%- if main_location is not null -%}
+            {%- set parent_location = main_location.getParentLocation() -%}
+            {%- set parent_location_content_info = parent_location.getContentInfo() -%}
+
+            <span class="ibexa-al-data-grid__data-cell">{{ 'activity_log.data_grid.in_label'|trans()|desc('in') }}</span>
+            <a
+                class="ibexa-al-data-grid__data-cell"
+                href="{{ path('ibexa.content.view', {
+                    contentId: parent_location_content_info.id,
+                    locationId: parent_location_content_info.mainLocationId
+                }) }}"
+            >
+                {{- ibexa_content_name(parent_location_content_info) -}}
+            </a>
+        {%- endif -%}
+    {%- endif -%}
+{%- endblock activity_log_description_widget -%}

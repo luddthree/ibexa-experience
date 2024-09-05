@@ -1,0 +1,132 @@
+{% extends '@ibexadesign/content/form_fields.html.twig' %}
+
+{% block ezplatform_fieldtype_ezform_row %}
+    {% set fieldtype = form.parent %}
+    {% set translation_mode = fieldtype.vars.mainLanguageCode != fieldtype.vars.languageCode %}
+    {% set fieldtype_is_not_translatable = translation_mode and not fieldtype.vars.value.fieldDefinition.isTranslatable %}
+    {% set readonly = fieldtype_is_not_translatable or fieldtype.vars.disabled %}
+    {% set root_form_value = form.parent.parent.parent.vars.value %}
+    {% if root_form_value.contentType is defined %}
+        {% set title = root_form_value.contentType.name %}
+    {% else %}
+        {% set content = root_form_value.content is defined ? root_form_value.content : root_form_value.contentDraft %}
+        {% set title = content.versionInfo.name %}
+    {% endif %}
+
+    {% set widget_container_block %}
+        {{- form_row(form) -}}
+        <div class="ibexa-fb-content-edit-form ibexa-fb-content-edit-form--no-value {{ readonly ? 'ibexa-fb-content-edit-form--disabled' }}">
+            <div class="ibexa-fb-content-edit-form__call-to-action">
+                <p class="ibexa-fb-content-edit-form__message">
+                    {{ 'no.fields.in.form'|trans({}, 'ibexa_form_builder')|desc('There are no fields in this form.') }}
+                </p>
+                <p class="ibexa-fb-content-edit-form__message ibexa-fb-content-edit-form__message--create-form">
+                    <svg class="ibexa-icon ibexa-icon--tiny-small ">
+                        <use xlink:href="{{ ibexa_icon_path('system-information') }}"></use>
+                    </svg>
+                    {{ 'create.form'|trans({}, 'ibexa_form_builder')|desc('Create your form.') }}
+                </p>
+                <button
+                    type="button"
+                    class="ibexa-fb-content-edit-form__btn ibexa-fb-content-edit-form__btn--create btn ibexa-btn ibexa-btn--secondary"
+                    data-open-form-builder
+                    {{ readonly ? 'disabled' }}
+                >
+                    {{ 'build.form'|trans({}, 'ibexa_form_builder')|desc('Build form') }}
+                </button>
+            </div>
+
+            <div class="ibexa-fb-content-edit-form__modal ibexa-fb-modal" tabindex="-1">
+                <div class="ibexa-fb-modal__header">
+                    <div class="ibexa-fb-modal__header-title-wrapper">
+                        <h1 class="ibexa-fb-modal__title">
+                            {{ 'building.form'|trans({}, 'ibexa_form_builder')|desc('Build form') }}: {{ title }}
+                        </h1>
+                    </div>
+
+                    <div class="ibexa-fb-modal__header-context-menu-wrapper">
+                        <ul class="ibexa-context-menu">
+                            <li class="ibexa-context-menu__item ibexa-fb-modal__save-menu-item">
+                                {{ include('@ibexadesign/ui/component/split_btn/split_btn.html.twig', {
+                                    type: 'primary',
+                                    label: 'form.save_and_close'|trans({}, 'ibexa_form_builder')|desc('Save and close'),
+                                    main_btn_attr: {
+                                        'data-save-and-close-form-builder': ''
+                                    },
+                                    subitems: [
+                                        {
+                                            label: 'form.save'|trans({}, 'ibexa_form_builder')|desc('Save'),
+                                            action_attr: {
+                                                'data-save-form-builder': '',
+                                            }
+                                        }
+                                    ],
+                                    popup_params: {
+                                        branch_attr: {
+                                            class: 'ibexa-fb-modal__multilevel-popup-menu-branch',
+                                        },
+                                    },
+                                }) }}
+                            </li>
+                            <li class="ibexa-context-menu__item">
+                                <button
+                                    class="btn ibexa-btn ibexa-btn--secondary-light ibexa-fb-modal__close"
+                                    type="button"
+                                    data-close-form-builder
+                                >
+                                    <span class="ibexa-btn__label">
+                                        {{ 'form.close'|trans({}, 'ibexa_form_builder')|desc('Discard') }}
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ibexa-fb-modal__body">
+                    <div id="ibexa-fb-root"></div>
+                </div>
+            </div>
+
+            <div class="ibexa-fb-content-edit-form__preview">
+                <div class="ibexa-fb-content-edit-form__preview-actions">
+                    <button
+                        type="button"
+                        class="ibexa-fb-content-edit-form__preview-action ibexa-fb-content-edit-form__preview-action--edit btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+                        title="{{ 'form.edit'|trans({}, 'ibexa_form_builder')|desc('Edit') }}"
+                        data-open-form-builder
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-fb-content-edit-form__preview-icon">
+                            <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+                        </svg>
+                        <span class="ibexa-btn__label">{{ 'form.edit'|trans({}, 'ibexa_form_builder')|desc('Edit') }}</span>
+                    </button>
+                    <button
+                        type="button"
+                        class="ibexa-fb-content-edit-form__preview-action ibexa-fb-content-edit-form__preview-action--trash btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+                        title="{{ 'form.remove'|trans({}, 'ibexa_form_builder')|desc('Delete') }}"
+                    >
+                        <svg class="ibexa-icon ibexa-icon--small ibexa-fb-content-edit-form__preview-icon">
+                            <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                        </svg>
+                        <span class="ibexa-btn__label">{{ 'form.remove'|trans({}, 'ibexa_form_builder')|desc('Delete') }}</span>
+                    </button>
+                </div>
+                <iframe
+                    class="ibexa-fb-content-edit-form__preview-iframe"
+                    width="100%"
+                    sandbox="allow-scripts allow-same-origin"
+                    name="form-preview"
+                    data-ibexa-form-preview
+                ></iframe>
+                <div class="ibexa-fb-content-edit-form__preview-preloader">
+                    <svg class="ibexa-icon ibexa-spin ibexa-icon--secondary">
+                        <use xlink:href="{{ ibexa_icon_path('spinner') }}"></use>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    {% endset %}
+
+    {{ block('form_row_fieldtype') }}
+{% endblock %}

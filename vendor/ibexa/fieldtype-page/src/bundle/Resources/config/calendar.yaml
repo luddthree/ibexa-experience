@@ -1,0 +1,8 @@
+system:
+    admin_group:
+        calendar:
+            event_types:
+                page_block_reveal:
+                    color: '#47BEDB'
+                page_block_hide:
+                    color: '#F18A6B'

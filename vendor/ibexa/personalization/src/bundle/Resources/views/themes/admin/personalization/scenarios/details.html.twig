@@ -1,0 +1,148 @@
+{% extends '@ibexadesign/personalization/base_details.html.twig' %}
+
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.personalization'|trans|desc('Personalization'), url: path('ibexa.personalization.dashboard', { 'customerId': customer_id }) },
+        { value: 'breadcrumb.scenarios'|trans|desc('Scenarios'), url: path('ibexa.personalization.scenarios', { 'customerId': customer_id }) },
+        { value: scenario ? scenario.title : '' },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if can_edit %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                <a
+                    class="btn ibexa-btn ibexa-btn--primary"
+                    href="{{ path('ibexa.personalization.scenario.edit', {
+                        'name': scenario.referenceCode,
+                        'customerId': customer_id
+                    }) }}"
+                >
+                    <span class="ibexa-btn__label">{{ 'ibexa_personalization.scenario.edit_short'|trans|desc('Edit') }}</span>
+                </a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block header %}
+    {% embed '@ibexadesign/ui/page_title.html.twig' with {
+        title: scenario ? scenario.title : '',
+    } %}
+        {% block bottom %}
+            <div class="ibexa-perso-details__subtitle">
+                {{ 'ibexa_personalization.scenario.details.subtitle'|trans|desc('Scenario') }}
+            </div>
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+
+{% block details %}
+    {% if scenario %}
+        {% set details_items = [
+            {
+                label: 'ibexa_personalization.scenario.scenario_name'|trans|desc('Scenario name'),
+                content: scenario.title,
+            },
+            {
+                label: 'ibexa_personalization.scenario.id'|trans|desc('Scenario ID'),
+                content: scenario.referenceCode,
+            },
+        ] %}
+
+        {% if scenario.description %}
+            {% set details_items = details_items|merge([
+                {
+                    label: 'ibexa_personalization.scenario.description'|trans|desc('Scenario description'),
+                    content: scenario.description,
+                },
+            ]) %}
+        {% endif %}
+
+        {% if scenario.inputItemType.description %}
+            {% set details_items = details_items|merge([
+                {
+                    label: 'ibexa_personalization.scenario.input_type'|trans|desc('Input type'),
+                    content: scenario.inputItemType.description,
+                },
+            ]) %}
+        {% endif %}
+
+        {% if scenario.outputItemTypes|length %}
+            {% set content %}
+                <ul class="list-unstyled">
+                    {% for outputItem in scenario.outputItemTypes %}
+                        <li>{{ outputItem.description }}</li>
+                    {% endfor %}
+                </ul>
+            {% endset %}
+            {% set details_items = details_items|merge([
+                {
+                    label: 'ibexa_personalization.scenario.output_type'|trans|desc('Output type'),
+                    content,
+                },
+            ]) %}
+        {% endif %}
+
+        {% if standardFilterSet.excludeContextItems or
+                profileFilterSet.excludeAlreadyConsumed or
+                profileFilterSet.excludeRepeatedRecommendations > 0 or
+                profileFilterSet.attributeBoost
+        %}
+            {% set content %}
+                {% include '@ibexadesign/personalization/scenarios/parts/user_profile_setting.html.twig' with {
+                    'excludeContextItems': standardFilterSet.excludeContextItems,
+                    'profileFilterSet': profileFilterSet
+                } only %}
+            {% endset %}
+            {% set details_items = details_items|merge([
+                {
+                    label: 'ibexa_personalization.scenario.user_profile_setting'|trans|desc('User profile setting'),
+                    content,
+                },
+            ]) %}
+        {% endif %}
+
+        {% if is_commerce and (
+                standardFilterSet.excludeContextItems or
+                standardFilterSet.excludeCheaperItems or
+                standardFilterSet.excludeItemsWithoutPrice or
+                standardFilterSet.excludeTopSellingResults or
+                standardFilterSet.excludeVariants or
+                standardFilterSet.minimalItemPrice > 0 or
+                profileFilterSet.excludeAlreadyPurchased
+        ) %}
+            {% set content %}
+                {% include '@ibexadesign/personalization/scenarios/parts/commerce_setting.html.twig' with {
+                    'standardFilterSet': standardFilterSet,
+                    'excludeAlreadyPurchased': profileFilterSet.excludeAlreadyPurchased
+                } only %}
+            {% endset %}
+            {% set details_items = details_items|merge([
+                {
+                    label: 'ibexa_personalization.scenario.commerce_settings'|trans|desc('Commerce settings'),
+                    content,
+                },
+            ]) %}
+        {% endif %}
+
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            headline: 'ibexa_personalization.scenario.details.details'|trans|desc('Scenario details'),
+            items: details_items,
+        } only %}
+
+        {% embed '@ibexadesign/ui/component/details/details.html.twig' with {
+            headline: 'ibexa_personalization.scenario.strategy'|trans|desc('Strategy'),
+            scenario,
+        } only %}
+            {% block details_items %}
+                {% include '@ibexadesign/personalization/scenarios/parts/strategy.html.twig' with {
+                    'stages': scenario.stages
+                } only %}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+{% endblock %}

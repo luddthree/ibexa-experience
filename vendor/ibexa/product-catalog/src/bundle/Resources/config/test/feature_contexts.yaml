@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\ProductCatalog\Behat\Context\AttributesContext: ~
+
+  Ibexa\ProductCatalog\Behat\Context\AttributeGroupsContext: ~
+
+  Ibexa\ProductCatalog\Behat\Context\CatalogsContext: ~
+
+  Ibexa\ProductCatalog\Behat\Context\CustomerGroupsContext: ~
+
+  Ibexa\ProductCatalog\Behat\Context\ProductTypesContext: ~
+
+  Ibexa\ProductCatalog\Behat\Context\ProductsContext: ~
+
+  Ibexa\ProductCatalog\Behat\Context\CurrenciesContext: ~

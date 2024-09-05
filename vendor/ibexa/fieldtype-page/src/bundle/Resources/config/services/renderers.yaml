@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderer: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\RendererInterface: '@Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Twig\TwigRenderer'
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Renderer\Event\Listener\PreviewTemplateEventSubscriber: ~

@@ -1,0 +1,31 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$str of function trim expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/WorkflowParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Workflow\\\\Event\\\\Subscriber\\\\TimelineTransitionEntriesSubscriber\\:\\:getStageDefinitionMetadataList\\(\\) should return array\\<Ibexa\\\\Workflow\\\\Value\\\\WorkflowStageDefinitionMetadata\\> but returns array\\<string, Ibexa\\\\Workflow\\\\Value\\\\WorkflowStageDefinitionMetadata\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TimelineTransitionEntriesSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$versions of class Ibexa\\\\AdminUi\\\\Form\\\\Data\\\\Version\\\\VersionRemoveData constructor expects array, array\\<int, false\\>\\|false given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/UiComponentsSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$arr1 of function array_replace expects array, Symfony\\\\Component\\\\Workflow\\\\Workflow given\\.$#"
+			count: 1
+			path: src/lib/Factory/Registry/WorkflowRegistryFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$representation of class Symfony\\\\Component\\\\Workflow\\\\Marking constructor expects array\\<int\\>, array\\<string, int\\>\\|false given\\.$#"
+			count: 1
+			path: src/lib/MarkingStore/WorkflowMarkingStore.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of function array_filter expects array, array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\>\\|null given\\.$#"
+			count: 1
+			path: src/lib/Security/Limitation/WorkflowTransitionLimitationType.php

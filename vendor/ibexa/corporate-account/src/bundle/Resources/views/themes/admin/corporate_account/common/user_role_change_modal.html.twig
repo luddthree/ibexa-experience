@@ -1,0 +1,33 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'user.change_role_modal.title'|trans|desc('Change role'),
+    class: 'ibexa-ca-user-role-change-modal',
+    id: 'ibexa-ca-user-role-change-modal',
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+    {% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+    {% block content_before %}
+        {{ form_start(form, {
+            action: form_action,
+        }) }}
+    {% endblock %}
+    {% block body_content %}
+        {{ form_row(form.new_role) }}
+        {{ form_widget(form.member, { attr: { hidden: true }}) }}
+    {% endblock %}
+    {% block footer_content %}
+        {{ form_widget(form.change) }}
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--secondary"
+            data-bs-dismiss="modal"
+        >
+            {{ 'user.change_role_modal.canbel_btn.label'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+    {% block content_after %}
+        {{ form_end(form) }}
+    {% endblock %}
+{% endembed %}

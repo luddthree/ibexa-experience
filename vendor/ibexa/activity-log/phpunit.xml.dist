@@ -1,0 +1,21 @@
+<phpunit
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
+        bootstrap="vendor/autoload.php"
+        failOnWarning="true"
+        colors="true">
+    <php>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=4&amp;max[direct]=0&amp;verbose=0"/>
+    </php>
+    <testsuites>
+        <testsuite name="bundle">
+            <directory>tests/bundle</directory>
+        </testsuite>
+        <testsuite name="lib">
+            <directory>tests/lib</directory>
+        </testsuite>
+    </testsuites>
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
+    </listeners>
+</phpunit>

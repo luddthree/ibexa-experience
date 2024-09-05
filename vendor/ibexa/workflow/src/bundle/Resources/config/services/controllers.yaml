@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Workflow\Controller\TransitionController: ~
+
+    Ibexa\Bundle\Workflow\Controller\WorkflowController:
+        parent: Ibexa\Contracts\AdminUi\Controller\Controller
+        autowire: true
+        autoconfigure: false
+        public: true
+
+    Ibexa\Bundle\Workflow\Controller\SuggestReviewerController: ~

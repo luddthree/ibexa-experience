@@ -1,0 +1,14 @@
+{% extends "@IbexaCore/content_fields.html.twig" %}
+
+{% trans_default_domain 'ibexa_form_builder' %}
+
+{% block ezform_field %}
+{% apply spaceless %}
+    {% if not ibexa_field_is_empty(content, field) %}
+        <iframe class="border-0" src="{{ path('ibexa.form_builder.form.preview_form_field', {
+            'contentId': content.id,
+            'languageCode': field.languageCode
+        }) }}" width="100%" sandbox="allow-scripts allow-same-origin" name="form-preview"></iframe>
+    {% endif %}
+{% endapply %}
+{% endblock %}

@@ -1,0 +1,7 @@
+when@test:
+    framework:
+        test: true
+        session:
+            storage_factory_id: session.storage.factory.mock_file
+        http_client:
+            mock_response_factory: Ibexa\Tests\Integration\ConnectorQualifio\MockHttpClientCallback

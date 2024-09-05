@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Renderer\MatcherBlockRenderer:
+        lazy: true
+
+    Ibexa\Workflow\Notification\Renderer:
+        tags:
+            - { name: ibexa.notification.renderer, alias: 'Workflow:StageChange' }
+
+    Ibexa\Workflow\Notification\NotifyReviewerActionRenderer:
+        tags:
+            - { name: ibexa.notification.renderer, alias: 'Workflow:NotifyReviewer' }
+
+    Ibexa\Workflow\Notification\AskUnlockRenderer:
+        tags:
+            - { name: ibexa.notification.renderer, alias: 'Workflow:AskUnlock' }
+
+    Ibexa\Workflow\Notification\Factory: ~

@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Workflow\Templating\Twig\MatcherValueRenderingExtension: ~
+
+    Ibexa\Bundle\Workflow\Templating\Twig\WorkflowTimelineEntryRenderingExtension: ~
+
+    Twig\Extensions\DateExtension: ~

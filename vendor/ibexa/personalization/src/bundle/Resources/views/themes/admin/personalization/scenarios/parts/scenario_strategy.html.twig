@@ -1,0 +1,193 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% form_theme strategy '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% macro strategy_name(strategy) %}
+    {% set names = {
+        'primary_models': 'scenario.strategy.primary_models_name'|trans|desc('Primary models'),
+        'fallback': 'scenario.strategy.fallback_name'|trans|desc('Fallback level 1'),
+        'fail_safe': 'scenario.strategy.fail_safe'|trans|desc('Fallback level 2'),
+        'ultimately_fail_safe': 'scenario.strategy.ultimately_fail_safe'|trans|desc('Fail-safe'),
+     } %}
+    {{ names[strategy.vars.name] }}
+{% endmacro %}
+
+<div class="ibexa-perso-strategy-models">
+    <div class="ibexa-perso-strategy-models__wrapper">
+        <div class="ibexa-perso-strategy-models__title-container">
+            <h3 class="ibexa-perso-strategy-models__title">{{ _self.strategy_name(strategy) }}</h3>
+            <button
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-perso-strategy-models__open-modal-button"
+                type="button"
+                data-strategy-modal-selector="#{{ strategy.vars.id }}-modal"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('settings-block') }}"></use>
+                </svg>
+            </button>
+        </div>
+
+        {% for strategyModel in strategy.models %}
+            {% set reference_code = strategyModel.reference_code.vars.value %}
+            {% set model_instance = '' %}
+            {% set model_name = '' %}
+            {% set data_type_supported = '' %}
+            {% set is_website_context_supported = '' %}
+
+            {% if reference_code is not empty %}
+                {% for model in models|filter(model => reference_code is same as model.referenceCode) %}
+                    {% set model_instance = model %}
+                    {% set model_name = ('models.name.' ~ model.referenceCode)|trans %}
+                    {% set data_type_supported = ibexa_personalization_supported_model_data_types(model) %}
+                    {% set is_website_context_supported = model.websiteContextSupported %}
+
+                    {% if model.maximumRatingAge %}
+                        {% set model_name =  model_name ~ '(' ~ model.maximumRatingAge|format_interval ~ ')' %}
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            {% set is_model_selected = model_name != '' %}
+
+            <div
+                class="ibexa-perso-strategy-model {{ not is_model_selected ? 'ibexa-perso-strategy-model--hidden' }}"
+                data-type="existing"
+                data-model-name="{{ model_name }}"
+                data-reference-code="{{ reference_code }}"
+                data-data-type-supported-values="{{ data_type_supported }}"
+                data-website-context-supported="{{ is_website_context_supported }}"
+            >
+                <div
+                    class="ibexa-perso-strategy-model__content"
+                    draggable="true"
+                >
+                    {{ form_widget(strategyModel.reference_code, {
+                        attr: { hidden: true, class: 'ibexa-perso-strategy-model__reference-code-input' }
+                    }) }}
+
+                    <div class="ibexa-perso-strategy-model__icon">
+                        <svg class="ibexa-icon ibexa-icon--tiny-small">
+                            <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+                        </svg>
+                    </div>
+
+                    <div class="ibexa-perso-strategy-model__name">
+                        {{ model_name }}
+                    </div>
+
+                    <div class="ibexa-perso-strategy-model__settings {{ reference_code is empty ? 'd-none' }} ">
+                        <div class="ibexa-perso-strategy-model__select-submodels-container">
+                            {{ form_row(strategyModel.data_type, {
+                                attr: {
+                                    dropdown_class: 'ibexa-dropdown--small ibexa-dropdown--custom-init',
+                                },
+                            }) }}
+                        </div>
+                        <div class="ibexa-perso-strategy-model__select-context-container {{ is_website_context_supported is empty ? 'd-none' }}">
+                            {{ form_row(strategyModel.context, {
+                                label: 'scenario.strategy.context'|trans|desc('Context'),
+                                attr: {
+                                    class: 'ibexa-perso-strategy-model__select-context',
+                                    dropdown_class: 'ibexa-dropdown--small ibexa-dropdown--custom-init',
+                                }
+                            }) }}
+                        </div>
+                        <button type="button" class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-scenario-strategy-edit__remove-model-button">
+                            <svg class="ibexa-icon ibexa-icon--tiny-small">
+                                <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% include '@ibexadesign/personalization/scenarios/parts/scenario_strategy_placeholder.html.twig' with {
+                is_hidden: model_name != '',
+            } only %}
+        {% endfor %}
+
+        {% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+            title: _self.strategy_name(strategy),
+            class: 'ibexa-modal--strategy-edit',
+            id: strategy.vars.id ~ '-modal',
+        } %}
+            {% trans_default_domain 'ibexa_personalization' %}
+            {% form_theme strategy '@ibexadesign/ui/form_fields.html.twig' %}
+
+            {% block body_content %}
+                <div class="ibexa-modal__inputs">
+                    <div class="ibexa-modal__row-input">
+                        {{ form_widget(strategy.category_path.whole_site, {
+                            label: 'scenario.strategy.recommend_items_from_whole_site'|trans|desc('Recommend items from the whole site')
+                        }) }}
+                    </div>
+
+                    <div class="ibexa-modal__row-input">
+                        {% set categoryChecked = strategy.category_path.same_category.checked %}
+
+                        {{ form_widget(categoryChecked, {
+                            attr: { class: 'ibexa-modal__input ibexa-modal__input' },
+                            label: 'scenario.strategy.recommend_items_from_same_category'|trans|desc('Recommend items from the same category')
+                        }) }}
+
+                        <div
+                            class="ibexa-modal__sub-row-input ibexa-modal__sub-row-input--first-level
+                                {% if not categoryChecked.vars.checked %}ibexa-modal__sub-row-input--inactive{% endif %}"
+                        >
+                            {{ form_widget(strategy.category_path.same_category.include_parent, {
+                                attr: { class: 'ibexa-modal__input ibexa-modal__input--include-parent' },
+                                label: 'scenario.strategy.include_parent_category_and_subcategories'|trans|desc(
+                                    'Also include the parent category and its subcategories')
+                            }) }}
+                        </div>
+
+                        <div
+                            class="ibexa-modal__sub-row-input ibexa-modal__sub-row-input--second-level
+                                {% if not categoryChecked.vars.checked %}ibexa-modal__sub-row-input--inactive{% endif %}"
+                        >
+                            {{ form_widget(strategy.category_path.same_category.subcategory_level, {
+                                attr: { class: 'ibexa-modal__input ibexa-modal__input--levels' }
+                            }) }}
+                            <label class="ibexa-label">
+                                {{ 'scenario.strategy.levels_up'|trans|desc('level(s) up') }}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ibexa-modal__row-input">
+                        {% set mainCategoryChecked = strategy.category_path.main_category_and_subcategories.checked %}
+
+                        {{ form_widget(mainCategoryChecked, {
+                            attr: { class: 'ibexa-modal__input ibexa-modal__input' },
+                            label: 'scenario.strategy.recommend_items_from_same_main_category_and_subcategories'|trans|desc('Recommend items from the same main category and its subcategories')
+                        }) }}
+
+                        <div class="ibexa-modal__sub-row-input ibexa-modal__sub-row-input--first-level {% if not mainCategoryChecked.vars.checked %}ibexa-modal__sub-row-input--inactive{% endif %}">
+                            {{ form_widget(strategy.category_path.main_category_and_subcategories.subcategory_level, {
+                                attr: { class: 'ibexa-modal__input ibexa-modal__input--category-levels' }
+                            }) }}
+                            <label class="ibexa-label">
+                                {{ 'scenario.strategy.category_level_and_below'|trans|desc('category level(s) and below') }}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+            {% block footer_content %}
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--primary ibexa-modal__prepare-save-button"
+                    data-bs-dismiss="modal"
+                >
+                    {{ 'scenario.strategy.save'|trans|desc('Save') }}
+                </button>
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--secondary ibexa-modal__discard-settings-button"
+                    data-bs-dismiss="modal"
+                >
+                    {{ 'scenario.strategy.discard'|trans|desc('Cancel') }}
+                </button>
+            {% endblock %}
+        {% endembed %}
+    </div>
+</div>

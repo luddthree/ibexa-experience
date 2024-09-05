@@ -1,0 +1,4 @@
+system:
+    default:
+        limitation_value_templates:
+            - { template: '@ibexadesign/personalization/limitation/limitation_values.html.twig', priority: 10 }

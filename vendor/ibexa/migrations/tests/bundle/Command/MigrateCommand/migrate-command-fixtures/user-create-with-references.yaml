@@ -1,0 +1,48 @@
+-
+    type: user
+    mode: create
+    metadata:
+        login: __foo__
+        email: anonymous@link.invalid
+        password: __PASSWORD__
+        enabled: true
+        mainLanguage: eng-US
+    groups:
+        - 15b256dbea2ae72418ff5facc999e8f9
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: Anonymous
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: signature
+            fieldTypeIdentifier: eztext
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            fieldTypeIdentifier: ezimage
+            languageCode: eng-US
+            value: null
+    references:
+        -   name: ref__user_id
+            type: user_id
+-
+    type: role
+    mode: create
+    metadata:
+        identifier: foo
+    policies:
+        -
+            module: user
+            function: login
+    actions:
+        -   action: assign_role_to_user
+            id: 'reference:ref__user_id'
+

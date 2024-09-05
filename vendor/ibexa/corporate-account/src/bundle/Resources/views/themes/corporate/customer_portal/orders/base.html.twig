@@ -1,0 +1,21 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block content %}
+    <div class="ibexa-container">
+        <div class="ibexa-ca-orders">
+            {% include '@ibexadesign/corporate_account/common/orders_table.html.twig' with {
+                orders,
+                company,
+                headline: 'orders.table.headline'|trans({ '%count%': orders.getNbResults })|desc('List (%count%)'),
+            } only %}
+
+            {% if orders.haveToPaginate %}
+                {% include '@ibexadesign/ui/pagination.html.twig' with {
+                    pager: orders,
+                } %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

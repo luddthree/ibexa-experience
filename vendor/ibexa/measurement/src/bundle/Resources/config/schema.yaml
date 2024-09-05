@@ -1,0 +1,132 @@
+tables:
+    ibexa_measurement_type:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            name: { type: string, nullable: false, length: 192 }
+        uniqueConstraints:
+            ibexa_measurement_type_name: { fields: [ name ] }
+
+    ibexa_measurement_unit:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            type_id: { type: integer, nullable: false }
+            identifier: { type: string, nullable: false, length: 192 }
+        uniqueConstraints:
+            ibexa_measurement_unit_type_identifier: { fields: [ type_id, identifier ] }
+        foreignKeys:
+            ibexa_measurement_unit_type_fk:
+                fields: [ type_id ]
+                foreignTable: ibexa_measurement_type
+                foreignFields: [ id ]
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }
+
+    ibexa_measurement_value:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            content_field_id: { type: integer, nullable: false }
+            version_no: { type: integer, nullable: false }
+            unit_id: { type: integer, nullable: false }
+            value: { type: float, nullable: false }
+        uniqueConstraints:
+            ibexa_measurement_value_attr_ver: { fields: [ content_field_id, version_no ] }
+            ibexa_measurement_value_attr_ver_unit: { fields: [ content_field_id, version_no, unit_id ] }
+        foreignKeys:
+            ibexa_measurement_value_attr_fk:
+                fields: [ content_field_id, version_no ]
+                foreignTable: ezcontentobject_attribute
+                foreignFields: [ id, version ]
+                options: { onDelete: CASCADE, onUpdate: CASCADE }
+            ibexa_measurement_value_unit_fk:
+                fields: [ unit_id ]
+                foreignTable: ibexa_measurement_unit
+                foreignFields: [ id ]
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }
+
+    ibexa_measurement_range_value:
+        id:
+            id: { type: integer, nullable: false, options: { autoincrement: true } }
+        fields:
+            content_field_id: { type: integer, nullable: false }
+            version_no: { type: integer, nullable: false }
+            unit_id: { type: integer, nullable: false }
+            min_value: { type: float, nullable: false }
+            max_value: { type: float, nullable: false }
+        uniqueConstraints:
+            ibexa_measurement_range_value_attr_ver: { fields: [ content_field_id, version_no ] }
+            ibexa_measurement_range_value_attr_ver_type_unit: { fields: [ content_field_id, version_no, unit_id ] }
+        foreignKeys:
+            ibexa_measurement_range_value_attr_fk:
+                fields: [ content_field_id, version_no ]
+                foreignTable: ezcontentobject_attribute
+                foreignFields: [ id, version ]
+                options: { onDelete: CASCADE, onUpdate: CASCADE }
+            ibexa_measurement_range_value_unit_fk:
+                fields: [ unit_id ]
+                foreignTable: ibexa_measurement_unit
+                foreignFields: [ id ]
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }
+
+    ibexa_product_specification_attribute_measurement_value:
+        id:
+            id: { type: integer, nullable: false }
+        fields:
+            value: { type: float, nullable: true }
+            unit_id: { type: integer, nullable: true }
+            base_value: { type: float, nullable: true }
+            base_unit_id: { type: integer, nullable: true }
+        indexes:
+            ibexa_product_specification_attr_value_measurement_unit_idx:
+                fields: [ unit_id ]
+            ibexa_product_specification_attr_value_measurement_baseunit_idx:
+                fields: [ base_unit_id ]
+        foreignKeys:
+            ibexa_product_specification_attr_single_measurement_value_fk:
+                foreignTable: ibexa_product_specification_attribute
+                fields: [id]
+                foreignFields: [id]
+                options: { onDelete: CASCADE, onUpdate: CASCADE }
+            ibexa_product_specification_attr_single_measurement_unit_fk:
+                fields: [unit_id]
+                foreignFields: [id]
+                foreignTable: ibexa_measurement_unit
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }
+            ibexa_product_specification_attr_single_measurement_baseunit_fk:
+                fields: [base_unit_id]
+                foreignFields: [id]
+                foreignTable: ibexa_measurement_unit
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }
+
+    ibexa_product_specification_attribute_measurement_range:
+        id:
+            id: { type: integer, nullable: false }
+        fields:
+            min_value: { type: float, nullable: true }
+            max_value: { type: float, nullable: true }
+            unit_id: { type: integer, nullable: true }
+            base_unit_id: { type: integer, nullable: true }
+            base_min_value: { type: float, nullable: true }
+            base_max_value: { type: float, nullable: true }
+        indexes:
+            ibexa_product_specification_attr_range_measurement_unit_idx:
+                fields: [unit_id]
+            ibexa_product_specification_attr_range_measurement_baseunit_idx:
+                fields: [base_unit_id]
+        foreignKeys:
+            ibexa_product_specification_attr_range_measurement_range_fk:
+                foreignTable: ibexa_product_specification_attribute
+                fields: [id]
+                foreignFields: [id]
+                options: { onDelete: CASCADE, onUpdate: CASCADE }
+            ibexa_product_specification_attr_range_measurement_unit_fk:
+                fields: [unit_id]
+                foreignFields: [id]
+                foreignTable: ibexa_measurement_unit
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }
+            ibexa_product_specification_attr_range_measurement_baseunit_fk:
+                fields: [base_unit_id]
+                foreignFields: [id]
+                foreignTable: ibexa_measurement_unit
+                options: { onDelete: RESTRICT, onUpdate: CASCADE }

@@ -1,0 +1,26 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Form\DataMapper\SiteCreateMapper:
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Form\DataMapper\SiteUpdateMapper:
+        public: false
+
+    Ibexa\Bundle\SiteFactory\Form\DataMapper\SiteFactorySiteAccessLimitationMapper:
+        class: Ibexa\Bundle\SiteFactory\Form\DataMapper\SiteFactorySiteAccessLimitationMapper
+        parent: Ibexa\AdminUi\Limitation\Mapper\MultipleSelectionBasedMapper
+        autowire: true
+        autoconfigure: false
+        public: false
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: SiteAccess }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: SiteAccess }
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+            $siteAccessKeyGenerator: '@Ibexa\AdminUi\Siteaccess\SiteAccessKeyGenerator'
+            $siteAccessNameGenerator: '@Ibexa\AdminUi\Siteaccess\SiteAccessNameGenerator'
+

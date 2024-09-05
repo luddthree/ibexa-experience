@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.connector.qualifio.translation.extractor.custom_tag:
+        class: Ibexa\FieldTypeRichText\Translation\Extractor\CustomTagExtractor
+        arguments:
+            $customTags: '%ibexa.field_type.richtext.custom_tags%'
+            $domain: '%ibexa.field_type.richtext.custom_tags.translation_domain%'
+            $allowlist: ['qualifio']
+        tags:
+            -   name: jms_translation.extractor
+                alias: ibexa.translation_extractor.connector.qualifio.custom_tags

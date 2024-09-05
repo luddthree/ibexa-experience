@@ -1,0 +1,65 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_fieldtypes_comparison_preview' %}
+
+{% block body_class %}ibexa-version-compare-single-view{% endblock %}
+
+{% block left_sidebar %}{% endblock %}
+
+{% block header_row %}
+    {% include '@ibexadesign/version_comparison/header.html.twig' with {
+        'select_versions_form': select_versions_form,
+        'content_a': content_a,
+        'single': true
+    } %}
+{% endblock %}
+
+{% block main_container %}
+    {% set has_content_b = content_b is not null %}
+
+    <div class="ibexa-version-compare ibexa-version-compare--wide" data-content-id={{ content_a.id }}>
+        <section class="ibexa-version-compare__content ibexa-fieldgroup">
+            {% for fieldDefinition in content_a.contentType.fieldDefinitions %}
+                {% set field_was_empty = ibexa_field_is_empty(content_a, fieldDefinition.identifier) %}
+                {% set field_is_empty = has_content_b and ibexa_field_is_empty(content_b, fieldDefinition.identifier) %}
+                {% set field_diff = version_diff is not null ? version_diff.getFieldValueDiffByIdentifier(fieldDefinition.identifier) : null  %}
+                {% set wrapper_class = field_diff is not null and field_diff.isChanged() ? 'ibexa-version-compare__field-wrapper--changed' : '' %}
+                {% if field_diff is not null and field_diff.isChanged() %}
+                    {% set wrapper_class = field_was_empty and not field_is_empty ? 'ibexa-version-compare__field-wrapper--added' : wrapper_class %}
+                    {% set wrapper_class = not field_was_empty and field_is_empty ? 'ibexa-version-compare__field-wrapper--removed' : wrapper_class %}
+                {% endif %}
+
+                <div class="ibexa-version-compare__field-wrapper {{ wrapper_class }}">
+                    {% block field_diff %}
+                        <div class="ibexa-content-field">
+                            <p class="ibexa-content-field__name">{{ fieldDefinition.name }}</p>
+                            <div class="ibexa-content-field__value">
+                                {% if not field_diff.isChanged() %}
+                                    {% if ibexa_field_is_empty(content_a, fieldDefinition.identifier) %}
+                                        <em>{{ 'fieldview.field.empty'|trans({}, 'ibexa_fieldtypes_comparison_preview')|desc('This field is empty') }}</em>
+                                    {% else %}
+                                        {{ ibexa_render_field(content_a, fieldDefinition.identifier) }}
+                                    {% endif %}
+                                {% else %}
+                                    {{ ibexa_render_comparison_result(
+                                        content_a,
+                                        field_diff.getFieldDefinition,
+                                        field_diff.getComparisonResult
+                                    ) }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-version-comparison-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-version-comparison-js', null, 'ibexa') }}
+{% endblock %}

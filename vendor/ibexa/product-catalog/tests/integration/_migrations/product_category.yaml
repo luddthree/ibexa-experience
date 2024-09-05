@@ -1,0 +1,101 @@
+- type: content_type
+  mode: create
+  metadata:
+      identifier: product_category_tag
+      contentTypeGroups: [ Content ]
+      mainTranslation: eng-GB
+      nameSchema: '<name|identifier>'
+      container: false
+      translations: { eng-GB: { name: Product category } }
+  fields:
+      - identifier: identifier
+        type: ezstring
+        position: 0
+        translations: { eng-GB: { name: 'Identifier' } }
+        required: true
+      - identifier: parent
+        type: ibexa_taxonomy_entry
+        position: 1
+        translations: { eng-GB: { name: 'Parent' } }
+        required: false
+        fieldSettings: { taxonomy: product_categories }
+      - identifier: name
+        type: ezstring
+        position: 2
+        translations: { eng-GB: { name: 'Name' } }
+        required: true
+
+- type: section
+  mode: create
+  metadata: { identifier: product_taxonomy, name: Products Taxonomy }
+
+### FOLDERS
+- type: content
+  mode: create
+  metadata:
+      contentType: folder
+      mainTranslation: eng-GB
+      alwaysAvailable: true
+      section: { identifier: product_taxonomy }
+  location:
+      locationRemoteId: product_category_taxonomy_folder
+      parentLocationId: 1
+  fields:
+      - { fieldDefIdentifier: name, languageCode: eng-GB, value: Products Taxonomy }
+
+- type: content
+  mode: create
+  metadata:
+      contentType: folder
+      mainTranslation: eng-GB
+      alwaysAvailable: true
+      section: { identifier: product_taxonomy }
+  location:
+      locationRemoteId: product_category_taxonomy_folder_root
+      parentLocationRemoteId: product_category_taxonomy_folder
+  fields:
+      - { fieldDefIdentifier: name, languageCode: eng-GB, value: Products Taxonomy }
+
+### ROOT TAG
+- type: content
+  mode: create
+  metadata:
+      contentType: product_category_tag
+      mainTranslation: eng-GB
+      alwaysAvailable: true
+      section: { identifier: product_taxonomy }
+  location:
+      locationRemoteId: product_category_taxonomy_root_tag
+      parentLocationRemoteId: product_category_taxonomy_folder_root
+  fields:
+      - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: product_root }
+      - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry: ~ } }
+      - { fieldDefIdentifier: name, languageCode: eng-GB, value: Product Root Tag }
+
+### TAG 0001
+- type: content
+  mode: create
+  metadata:
+      contentType: product_category_tag
+      mainTranslation: eng-GB
+      alwaysAvailable: true
+      section: { identifier: product_taxonomy }
+  location: { parentLocationRemoteId: product_category_taxonomy_root_tag }
+  fields:
+      - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: product_taxonomy_0001 }
+      - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry: 1 } }
+      - { fieldDefIdentifier: name, languageCode: eng-GB, value: Product Tag 0001 }
+
+### TAG 0002
+- type: content
+  mode: create
+  metadata:
+      contentType: product_category_tag
+      mainTranslation: eng-GB
+      alwaysAvailable: true
+      section: { identifier: product_taxonomy }
+  location: { parentLocationRemoteId: product_category_taxonomy_root_tag }
+  fields:
+      - { fieldDefIdentifier: identifier, languageCode: eng-GB, value: product_taxonomy_0002 }
+      - { fieldDefIdentifier: parent, languageCode: eng-GB, value: { taxonomy_entry: 1 } }
+      - { fieldDefIdentifier: name, languageCode: eng-GB, value: Product Tag 0002 }

@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\ValueConverter\LocationList: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\ValueConverter\ContentTypeList: ~
+
+    Ibexa\FieldTypePage\FieldType\Page\Block\Attribute\ValueConverter\Multiple: ~

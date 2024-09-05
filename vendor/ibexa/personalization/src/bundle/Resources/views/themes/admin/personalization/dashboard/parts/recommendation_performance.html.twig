@@ -1,0 +1,28 @@
+
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div class="ibexa-perso-charts__header">
+    <h2 class="ibexa-perso-charts__header-headline">{{ 'dashboard.recommendation_performance.recommendations_performance'|trans|desc('Recommendations performance') }}</h2>
+    <div class="ibexa-perso-charts__header-tools">
+        <div class="ibexa-perso-charts__filter">
+            {% set dashboard_params = app.request.query.get('dashboard') %}
+
+            {% set charts_download_link = path('ibexa.personalization.report.recommendation_detailed', {
+                'customerId': customer_id,
+                'date_interval': dashboard_params.chart.period.date_interval|default('P0Y0M0DT24H'),
+                'end_date': dashboard_params.chart.end_date|default('now'|date('U'))
+                })
+            %}
+
+            {% include '@ibexadesign/personalization/dashboard/parts/time_range_form.html.twig' with {
+                values: form.vars.value.chart,
+                time_range_type_select: form.children.chart.children.select,
+                period_inputs: form.children.chart.children.period,
+                class: 'ibexa-perso-charts__inputs-container',
+                download_link: charts_download_link,
+                download_class: 'ibexa-perso-charts__download-full-report',
+                show_label: true,
+            } %}
+        </div>
+    </div>
+</div>

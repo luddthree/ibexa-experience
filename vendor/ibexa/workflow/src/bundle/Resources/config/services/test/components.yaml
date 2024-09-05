@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\Workflow\Behat\Component\Table\ReviewQueue: ~
+
+  Ibexa\Workflow\Behat\Component\Table\WorkflowListTable: ~
+
+  Ibexa\Workflow\Behat\Component\WorkflowEventHistory: ~
+
+  Ibexa\Workflow\Behat\Component\WorkflowEventHistoryPopup: ~
+
+  Ibexa\Workflow\Behat\Component\WorkflowPopup: ~

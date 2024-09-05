@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\HttpCache\UserContext\CustomerGroupContextProvider:
+        tags:
+            - { name: fos_http_cache.user_context_provider }

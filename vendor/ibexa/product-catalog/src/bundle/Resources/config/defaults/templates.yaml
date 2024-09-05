@@ -1,0 +1,20 @@
+system:
+    default:
+        limitation_value_templates:
+            - { template: '@ibexadesign/product_catalog/product_type/limitation/limitation_values.html.twig', priority: 10 }
+        product_catalog:
+            assets:
+                templates:
+                    - { template: "@ibexadesign/product_catalog/assets_preview.html.twig" }
+            completeness:
+                tasks:
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/content_completeness_task.html.twig"
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/attributes_completeness_task.html.twig"
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/assets_completeness_task.html.twig"
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/availability_completeness_task.html.twig"
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/variants_completeness_task.html.twig"
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/prices_completeness_task.html.twig"
+                    - template: "@ibexadesign/product_catalog/product/tab/completeness/translations_completeness_task.html.twig"
+            catalogs:
+                filter_preview_templates:
+                    - { template: "@ibexadesign/product_catalog/catalog/edit/filter_preview_blocks.html.twig" }

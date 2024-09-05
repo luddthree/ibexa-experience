@@ -1,0 +1,287 @@
+imports:
+    - { resource: persistence/attributes.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    _instanceof:
+        Ibexa\ProductCatalog\Local\Persistence\Legacy\GatewayInterface:
+            tags:
+                - 'ibexa.product_catalog.common.doctrine_gateway'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Gateway\Translation\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Gateway\Translation\GatewayInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Gateway\Translation\DoctrineDatabase'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $transformationProcessor: '@Ibexa\Core\Persistence\TransformationProcessor\PreprocessedBased'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinition\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Gateway\Translation\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Gateway\Translation\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Gateway\Translation\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $transformationProcessor: '@Ibexa\Core\Persistence\TransformationProcessor\PreprocessedBased'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeGroup\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $transformationProcessor: '@Ibexa\Core\Persistence\TransformationProcessor\PreprocessedBased'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Gateway\Translation\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Gateway\Translation\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Gateway\Translation\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Repository\CriterionMapper:
+        arguments:
+            $mappers: !tagged_iterator ibexa.product_catalog.common.criterion_mapper
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Common\CriterionMapper\FieldValueCriterionMapper:
+        tags:
+            - name: ibexa.product_catalog.common.criterion_mapper
+              priority: -100
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Common\CriterionMapper\LogicalAndCriterionMapper:
+        tags:
+            - name: ibexa.product_catalog.common.criterion_mapper
+              priority: -100
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Common\CriterionMapper\LogicalOrCriterionMapper:
+        tags:
+            - name: ibexa.product_catalog.common.criterion_mapper
+              priority: -100
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Common\CriterionMapper\Price\CurrencyCriterionMapper:
+        tags:
+            - name: ibexa.product_catalog.common.criterion_mapper
+                # Needs to be executed before generic field value mapper
+              priority: -90
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Common\CriterionMapper\Price\CustomerGroupCriterionMapper:
+        tags:
+            -   name: ibexa.product_catalog.common.criterion_mapper
+                # Needs to be executed before generic field value mapper
+                priority: -90
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\DomainMapperInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\DomainMapper
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\DomainMapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\CustomerGroup\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\DomainMapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\DomainMapperInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\DomainMapper
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Currency\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\HandlerInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\Handler'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\GatewayInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\Gateway\DoctrineDatabase'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Product\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\BasicDomainMapper:
+        tags:
+            - 'ibexa.product_catalog.product_price.inheritance.domain_mapper'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\BasicMapper:
+        tags:
+            - 'ibexa.product_catalog.product_price.inheritance.mapper'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\CustomerGroup\Persister:
+        tags:
+            - 'ibexa.product_catalog.product_price.inheritance.persister'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\CustomerGroup\DomainMapper:
+        tags:
+            - 'ibexa.product_catalog.product_price.inheritance.domain_mapper'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\CustomerGroup\Mapper:
+        tags:
+            - 'ibexa.product_catalog.product_price.inheritance.mapper'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $inheritancePersisters: !tagged_iterator 'ibexa.product_catalog.product_price.inheritance.persister'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\GatewayInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\Gateway\DoctrineDatabase'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\HandlerInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\Handler'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductPrice\Mapper:
+        arguments:
+            $mappers: !tagged_iterator 'ibexa.product_catalog.product_price.inheritance.mapper'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeVatCategory\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\GatewayInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\Gateway\DoctrineDatabase'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\HandlerInterface:
+        alias: 'Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\Handler'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductAvailability\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\AttributeDefinitionAssignment\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Asset\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $transformationProcessor: '@Ibexa\Core\Persistence\TransformationProcessor\PreprocessedBased'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Handler
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Gateway\Translation\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Gateway\Translation\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Gateway\Translation\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\DomainMapperInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\DomainMapper
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\DomainMapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\CatalogQuerySerializerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\CatalogQuerySerializer
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\Catalog\CatalogQuerySerializer: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\Gateway\DoctrineDatabase:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\GatewayInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\Gateway\DoctrineDatabase
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\Mapper: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\Handler: ~
+
+    Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\HandlerInterface:
+        alias: Ibexa\ProductCatalog\Local\Persistence\Legacy\ProductTypeSettings\Handler

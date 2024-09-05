@@ -1,0 +1,32 @@
+-
+    type: user
+    mode: update
+    match:
+        field: id
+        value: 14
+    metadata:
+        login: null
+        email: null
+        password: __PASSWORD__
+        enabled: null
+    fields: {  }
+-
+    type: user
+    mode: update
+    match:
+        field: id
+        value: 14
+    metadata:
+        login: __USERNAME_2__
+        email: editor2@emailbox.com
+        password: __PASSWORD__
+        enabled: false
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            fieldTypeIdentifier: ezstring
+            value: __FIRST_NAME_2__
+        -
+            fieldDefIdentifier: last_name
+            fieldTypeIdentifier: ezstring
+            value: __LAST_NAME_2__

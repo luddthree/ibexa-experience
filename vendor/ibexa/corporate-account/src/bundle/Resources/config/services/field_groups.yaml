@@ -1,0 +1,12 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\FieldType\FieldGroupsListDecorator:
+        decorates: Ibexa\Core\Helper\FieldsGroups\FieldsGroupsList
+        lazy: true
+        arguments:
+            $innerService: '@.inner'
+

@@ -1,0 +1,13 @@
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+{% set content_name = content is not null ? ibexa_content_name(content) : '' %}
+<button
+    class="btn ibexa-btn ibexa-btn--info"
+    type="button"
+    data-target="#{{ form.vars.id }}"
+    data-udw-config="{{ ibexa_udw_config(udw_config_name, {}) }}"
+    data-starting-location-id="{{ ibexa_admin_ui_config.universalDiscoveryWidget.startingLocationId }}"
+    {{ data_open_udw }}
+    {% if content_name is not empty %} hidden{% endif %}>
+    {{ 'select.content'|trans|desc('Select content') }}
+</button>

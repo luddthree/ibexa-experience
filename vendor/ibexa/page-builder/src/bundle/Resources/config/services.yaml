@@ -1,0 +1,19 @@
+imports:
+    - { resource: services/block.yaml }
+    - { resource: services/controller.yaml }
+    - { resource: services/events.yaml }
+    - { resource: services/form_types.yaml }
+    - { resource: services/http.yaml }
+    - { resource: services/menu.yaml }
+    - { resource: services/migrate_richtext_namespaces.yaml }
+    - { resource: services/page_builder.yaml }
+    - { resource: services/serializer.yaml }
+    - { resource: services/siteaccess.yaml }
+    - { resource: services/templating.yaml }
+    - { resource: services/timeline.yaml }
+    - { resource: services/user_settings.yaml }
+
+#
+# Do not place any services here,
+# it's required to keep services well organized in services/ directory
+#

@@ -1,0 +1,44 @@
+services:
+    Ibexa\Bundle\ProductCatalog\REST\Input\Parser\Query\Criterion\ProductSortClausesRegistry:
+        arguments:
+            - !tagged_iterator ibexa.product_catalog.rest.product.sort_clause
+
+    ibexa.rest.input.parser.internal.sortclause.product_name:
+        parent: Ibexa\Rest\Server\Common\Parser
+        class: Ibexa\Rest\Server\Input\Parser\SortClause\DataKeyValueObjectClass
+        arguments:
+            - 'ProductName'
+            - 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductName'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.sortclause.ProductName }
+            - { name: ibexa.product_catalog.rest.product.sort_clause }
+
+    ibexa.rest.input.parser.internal.sortclause.product_code:
+        parent: Ibexa\Rest\Server\Common\Parser
+        class: Ibexa\Rest\Server\Input\Parser\SortClause\DataKeyValueObjectClass
+        arguments:
+            - 'ProductCode'
+            - 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductCode'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.sortclause.ProductCode }
+            - { name: ibexa.product_catalog.rest.product.sort_clause }
+
+    ibexa.rest.input.parser.internal.sortclause.product_availability:
+        parent: Ibexa\Rest\Server\Common\Parser
+        class: Ibexa\Rest\Server\Input\Parser\SortClause\DataKeyValueObjectClass
+        arguments:
+            - 'ProductAvailability'
+            - 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\ProductAvailability'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.sortclause.ProductAvailability }
+            - { name: ibexa.product_catalog.rest.product.sort_clause }
+
+    ibexa.rest.input.parser.internal.sortclause.created_at:
+        parent: Ibexa\Rest\Server\Common\Parser
+        class: Ibexa\Rest\Server\Input\Parser\SortClause\DataKeyValueObjectClass
+        arguments:
+            - 'CreatedAt'
+            - 'Ibexa\Contracts\ProductCatalog\Values\Product\Query\SortClause\CreatedAt'
+        tags:
+            - { name: ibexa.rest.input.parser, mediaType: application/vnd.ibexa.api.internal.sortclause.CreatedAt }
+            - { name: ibexa.product_catalog.rest.product.sort_clause }

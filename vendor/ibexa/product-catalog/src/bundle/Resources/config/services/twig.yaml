@@ -1,0 +1,121 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductPermissionExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductPermissionRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductTypePermissionExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductTypePermissionRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\AttributeGroupPermissionExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\AttributeGroupPermissionRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\AttributeDefinitionPermissionExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\AttributeDefinitionPermissionRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\Test\ProductTypeUsedExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\Test\ProductTypeUsedRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\RenderProductExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\RenderProductRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\ParseUrlExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\Test\AttributeDefinitionUsedExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\Test\AttributeDefinitionUsedRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\Test\AttributeGroupUsedExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\Test\AttributeGroupUsedRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductAssetExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductAssetRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\RenderCatalogExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\RenderCatalogRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\RenderProductCompletenessExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\RenderProductCompletenessRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\PriceExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\PriceRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductTypeExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductTypeRuntime:
+        tags:
+            -   name: twig.runtime
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductAvailabilityExtension:
+        tags:
+            -   name: twig.extension
+
+    Ibexa\Bundle\ProductCatalog\Twig\ProductAvailabilityRuntime:
+        tags:
+            -   name: twig.runtime

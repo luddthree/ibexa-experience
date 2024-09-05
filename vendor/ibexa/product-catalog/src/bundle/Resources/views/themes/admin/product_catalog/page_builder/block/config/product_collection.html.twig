@@ -1,0 +1,16 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
+
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+{% block body_class %}{{ parent() }} ibexa-pb-block-config--product-collection{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-product-catalog-css', null, 'ibexa') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-product-collection-block-js', null, 'ibexa') }}
+{% endblock %}
+

@@ -1,0 +1,57 @@
+{% extends '@ibexadesign/personalization/dashboard/dashboard.html.twig' %}
+
+{% block summary %}
+    {% include '@ibexadesign/personalization/dashboard/summary.html.twig' with { 'summary': summary } only %}
+{% endblock %}
+
+{% block charts %}
+    <section class="container ibexa-perso-charts" data-charts-data='{{ charts }}' data-customer-id="{{ customer_id }}">
+        {% include '@ibexadesign/personalization/dashboard/parts/recommendation_performance.html.twig' %}
+        <div class="row ibexa-perso-charts__body">
+            <div class="col-lg-6 col-md-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/revenue.html.twig' %}
+            </div>
+            <div class="col-lg-6 col-md-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/recommendation_calls.html.twig' %}
+            </div>
+            <div class="col-lg-6 col-md-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/conversion_rate.html.twig' %}
+            </div>
+            <div class="col-lg-6 col-md-12 ibexa-perso-charts__item">
+                {% include '@ibexadesign/personalization/dashboard/parts/chart/collected_events.html.twig' %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block popularity %}
+    {% include '@ibexadesign/personalization/dashboard/parts/popularity.html.twig'
+        with { 'popularity_list': popularity_list, 'form': form } only %}
+{% endblock %}
+
+{% block products_purchased %}
+    {% set dashboard_params = app.request.query.get('dashboard') %}
+    {% set page_params = app.request.query.get('page') %}
+    {% set scroll_to_selector = '' %}
+
+    {% if page_params is not null or (dashboard_params is not null and dashboard_params.revenue is not null) %}
+        {% set scroll_to_selector = '.ibexa-products-purchased' %}
+    {% endif %}
+
+    <section class="container ibexa-container ibexa-products-purchased" data-scroll-to="{{ scroll_to_selector }}">
+        {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: 'dashboard.products_purchased'|trans|desc('Products purchased'),
+            actions: include('@ibexadesign/personalization/dashboard/parts/time_range_form.html.twig', {
+                    values: form.vars.value.revenue,
+                    time_range_type_select: form.children.revenue.children.select,
+                    period_inputs: form.children.revenue.children.period,
+                    class: 'ibexa-products-purchased__inputs-container',
+                    show_label: false,
+                    is_right: true,
+                }),
+        } only %}
+        <div class="ibexa-products-purchased__table-container">
+            {% include '@ibexadesign/personalization/dashboard/parts/products_purchased_table.html.twig' %}
+        </div>
+    </section>
+{% endblock %}

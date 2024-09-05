@@ -1,0 +1,28 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+<div
+    class="ibexa-perso-segments-sub-group-item"
+    data-group-sub-item-id={{ group_sub_item_id }}
+>
+    <div
+        class="ibexa-perso-segments-sub-group-item__content"
+    >
+        <div class="ibexa-perso-segments-sub-group-item__icon">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('drag') }}"></use>
+            </svg>
+        </div>
+        <div
+            class="ibexa-perso-segments-sub-group-item__name"
+            title={{ group_sub_item_name }}
+        >
+            {{ group_sub_item_name }}
+        </div>
+        <span class="ibexa-perso-segments-sub-group-item__status"></span>
+        <button type="button" class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-perso-segments-sub-group-item__remove-btn">
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    </div>
+</div>

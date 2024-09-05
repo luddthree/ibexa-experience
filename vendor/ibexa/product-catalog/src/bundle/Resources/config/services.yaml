@@ -1,0 +1,54 @@
+imports:
+    - { resource: services/attributes.yaml }
+    - { resource: services/cache.yaml }
+    - { resource: services/catalog_filters.yaml }
+    - { resource: services/controllers.yaml }
+    - { resource: services/event_subscribers.yaml }
+    - { resource: services/field_types.yaml }
+    - { resource: services/filtering.yaml }
+    - { resource: services/forms.yaml }
+    - { resource: services/http_cache.yaml }
+    - { resource: services/graphql/**.yaml }
+    - { resource: services/installer.yaml }
+    - { resource: services/menu.yaml }
+    - { resource: services/migrations.yaml }
+    - { resource: services/permission.yaml }
+    - { resource: services/persistence.yaml }
+    - { resource: services/number_formatter.yaml }
+    - { resource: services/papi.yaml }
+    - { resource: services/param_converters.yaml }
+    - { resource: services/rest/**.yaml }
+    - { resource: services/search/common.yaml }
+    - { resource: services/search/legacy.yaml }
+    - { resource: services/serializer.yaml }
+    - { resource: services/siteaccess.yaml }
+    - { resource: services/tabs/**.yaml }
+    - { resource: services/twig.yaml }
+    - { resource: services/ui.yaml }
+    - { resource: services/query_types.yaml }
+    - { resource: services/validators.yaml }
+    - { resource: services/view_matcher.yaml }
+    - { resource: services/views.yaml }
+    - { resource: services/name_schema.yaml }
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\Form\Type\:
+        resource: './../../Form/Type'
+        tags:
+            - { name: form.type }
+
+    Ibexa\Bundle\ProductCatalog\Form\Extension\:
+        resource: './../../Form/Extension'
+        tags:
+            - { name: form.type_extension }
+
+    Ibexa\ProductCatalog\Money\DecimalMoneyFactory: ~
+
+    Ibexa\ProductCatalog\Money\IntlMoneyFactory:
+        arguments:
+            $numberFormatterFactory: '@ibexa.product_catalog.number_formatter.currency.factory'

@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Behat\DataProvider\TaxonomyEntryFieldTypeDataProvider: ~
+
+    Ibexa\Taxonomy\Behat\DataProvider\TaxonomyEntryAssignmentFieldTypeDataProvider: ~

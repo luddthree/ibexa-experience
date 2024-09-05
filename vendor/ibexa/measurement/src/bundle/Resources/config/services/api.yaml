@@ -1,0 +1,6 @@
+services:
+    Ibexa\Contracts\Measurement\MeasurementServiceInterface: '@Ibexa\Measurement\MeasurementService'
+    Ibexa\Contracts\Measurement\MeasurementTypeFactoryInterface: '@Ibexa\Measurement\MeasurementTypeFactory'
+    Ibexa\Contracts\Measurement\Parser\MeasurementParserInterface: '@Ibexa\Measurement\Parser\MeasurementParser'
+    Ibexa\Contracts\Measurement\Formatter\MeasurementValueFormatterInterface: '@Ibexa\Measurement\Formatter\MeasurementValueFormatter'
+    Ibexa\Contracts\Measurement\Formatter\MeasurementSignFormatterInterface: '@Ibexa\Measurement\Formatter\MeasurementSignFormatter'

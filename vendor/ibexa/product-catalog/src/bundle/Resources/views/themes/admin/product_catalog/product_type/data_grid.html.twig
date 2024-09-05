@@ -1,0 +1,26 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+
+{% for product_type in product_types %}
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: product_type.name },
+        { content: product_type.identifier },
+    ]}]) %}
+{% endfor %}
+
+{% set empty_table_info_text = 'product_type.no_search_results.info_text'|trans|desc('Sorry, there are no product types for your search') %}
+{% set empty_table_action_text = 'product_type.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with {
+    headline,
+    head_cols: [
+        { content: 'product_type.list.column.name'|trans|desc('Name') },
+        { content: 'product_type.column.identifier'|trans|desc('Identifier') },
+    ],
+    body_rows: body_rows,
+    empty_table_info_text,
+    empty_table_action_text,
+} %}

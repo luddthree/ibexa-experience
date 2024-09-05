@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\PageBuilder\UserSetting\AutomaticallyOpenBlockSettings:
+        tags:
+            - { name: ibexa.user.setting.value, identifier: block_settings, group: content_edit, priority: 5 }
+            - { name: ibexa.user.setting.mapper.form, identifier: block_settings }
+
+    Ibexa\PageBuilder\UI\Config\Provider\AutomaticallyOpenBlockSettings:
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'automaticallyOpenBlockSettings' }
+
+    Ibexa\PageBuilder\UI\Config\Provider\IsPageBuilderVisited:
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'isPageBuilderVisited' }

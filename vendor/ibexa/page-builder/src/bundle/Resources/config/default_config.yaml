@@ -1,0 +1,8 @@
+timeline:
+    serializer:
+        metadata_dirs:
+            Ibexa\Contracts\PageBuilder: '@IbexaPageBuilderBundle/Resources/config/serializer/contracts'
+            Ibexa\PageBuilder: '@IbexaPageBuilderBundle/Resources/config/serializer'
+        event_type_map:
+            basic: Ibexa\PageBuilder\PageBuilder\Timeline\BasicEvent
+            recurring: Ibexa\PageBuilder\PageBuilder\Timeline\RecurringEvent

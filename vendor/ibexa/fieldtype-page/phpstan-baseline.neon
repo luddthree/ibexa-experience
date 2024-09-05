@@ -1,0 +1,2531 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot access property \\$value on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Field\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Cannot cast Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Translation to string\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Parameter \\#1 \\$contentId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:loadContent\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: src/bundle/Controller/BlockController.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\AbstractConfigurationAwareCompilerPass\\:\\:fetchConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/AbstractConfigurationAwareCompilerPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\AttributeFormTypeMapperPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/AttributeFormTypeMapperPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\BlockDefinitionConfigurationCompilerPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/BlockDefinitionConfigurationCompilerPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\BlockDefinitionConfigurationCompilerPass\\:\\:sortBlockViews\\(\\) has parameter \\$views with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/BlockDefinitionConfigurationCompilerPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\BlockDefinitionConfigurationCompilerPass\\:\\:sortBlockViews\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/BlockDefinitionConfigurationCompilerPass.php
+
+		-
+			message: "#^Binary operation \"\\.\" between array\\|bool\\|float\\|int\\|string\\|null and '/'\\|'\\\\\\\\' results in an error\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/PageResolverBlocksTypesPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\GraphQL\\\\PageResolverBlocksTypesPass\\:\\:getTypesMap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/PageResolverBlocksTypesPass.php
+
+		-
+			message: "#^Binary operation \"\\.\" between array\\|bool\\|float\\|int\\|string\\|null and '/'\\|'\\\\\\\\' results in an error\\.$#"
+			count: 2
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksAttributesTypesPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\GraphQL\\\\RegisterBlocksAttributesTypesPass\\:\\:getDefinedTypes\\(\\) should return array\\<string\\> but returns array\\<int, int\\|string\\>\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksAttributesTypesPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\GraphQL\\\\RegisterBlocksTypesPass\\:\\:getTypes\\(\\) should return array\\<string\\> but returns array\\<int, int\\|string\\>\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksTypesPass.php
+
+		-
+			message: "#^PHPDoc tag @param references unknown parameter\\: \\$directory$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksTypesPass.php
+
+		-
+			message: "#^Parameter \\#1 \\$dirs of method Symfony\\\\Component\\\\Finder\\\\Finder\\:\\:in\\(\\) expects array\\<string\\>\\|string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksTypesPass.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function file_exists expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksTypesPass.php
+
+		-
+			message: "#^Parameter \\#1 \\$filename of function is_dir expects string, array\\|bool\\|float\\|int\\|string\\|null given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksTypesPass.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, int\\|string given\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/GraphQL/RegisterBlocksTypesPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\DependencyInjection\\\\Compiler\\\\LayoutsCompilerPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/LayoutsCompilerPass.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 5
+			path: src/bundle/DependencyInjection/IbexaFieldTypePageExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\FieldTypePage\\\\IbexaFieldTypePageBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaFieldTypePageBundle.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of method Ibexa\\\\FieldTypePage\\\\Registry\\\\LayoutDefinitionRegistry\\:\\:getLayoutDefinitionById\\(\\) expects int, string given\\.$#"
+			count: 1
+			path: src/bundle/Twig/LayoutExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\:\\:getBlockById\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: src/contracts/FieldType/LandingPage/Model/Page.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\:\\:getZoneByIdentifier\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: src/contracts/FieldType/LandingPage/Model/Page.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeDefinition\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/FieldType/Page/Block/Definition/BlockAttributeDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeDefinition\\:\\:setOptions\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/FieldType/Page/Block/Definition/BlockAttributeDefinition.php
+
+		-
+			message: "#^Property Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeDefinition\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/contracts/FieldType/Page/Block/Definition/BlockAttributeDefinition.php
+
+		-
+			message: "#^Cannot access property \\$fieldSettings on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/Providers/BlockDefinitions.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ApplicationConfig\\\\Providers\\\\BlockDefinitions\\:\\:getConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/Providers/BlockDefinitions.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ApplicationConfig\\\\Providers\\\\BlockDefinitionsInterface\\:\\:getConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/Providers/BlockDefinitionsInterface.php
+
+		-
+			message: "#^Cannot access property \\$fieldSettings on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/Providers/LayoutDefinitions.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ApplicationConfig\\\\Providers\\\\LayoutDefinitions\\:\\:getConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/Providers/LayoutDefinitions.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ApplicationConfig\\\\Providers\\\\LayoutDefinitionsInterface\\:\\:getConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ApplicationConfig/Providers/LayoutDefinitionsInterface.php
+
+		-
+			message: "#^Cannot call method getId\\(\\) on Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent\\|false\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:fetchEventsByName\\(\\) should return array\\<Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent\\> but returns array\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:iAskForHideEventWithNameByItsId\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:iAskForNextMonthBlockHideEvents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:iAskForQuantityOfNextMonthBlockHideEvents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:iReceiveHideEventForBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:iReceiveProperBlockHideEvent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:\\$blockHideEventSource \\(Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEventSource\\) does not accept Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEventSource\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:\\$blockHideEventType \\(Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEventType\\) does not accept Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEventType\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:\\$fetchedHideEvents \\(array\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\) does not accept iterable\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:\\$hideEventFetchedById \\(Ibexa\\\\Contracts\\\\Calendar\\\\Event\\) does not accept Ibexa\\\\Contracts\\\\Calendar\\\\Event\\|false\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockHideEventsSourceContext\\:\\:\\$hideEventFetchedByName \\(Ibexa\\\\Contracts\\\\Calendar\\\\Event\\) does not accept Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent\\|false\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockHideEventsSourceContext.php
+
+		-
+			message: "#^Cannot call method getId\\(\\) on Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent\\|false\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:fetchEventsByName\\(\\) should return array\\<Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent\\> but returns array\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:iAskForNextMonthBlockRevealEvents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:iAskForQuantityOfNextMonthBlockRevealEvents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:iAskForRevealEventWithNameByItsId\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:iReceiveProperBlockRevealEvent\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:iReceiveRevealEventForBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:\\$fetchedRevealEvents \\(array\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\) does not accept iterable\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:\\$revealEventFetchedById \\(Ibexa\\\\Contracts\\\\Calendar\\\\Event\\) does not accept Ibexa\\\\Contracts\\\\Calendar\\\\Event\\|false\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Behat\\\\Context\\\\BlockRevealEventsSourceContext\\:\\:\\$revealEventFetchedByName \\(Ibexa\\\\Contracts\\\\Calendar\\\\Event\\) does not accept Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent\\|false\\.$#"
+			count: 1
+			path: src/lib/Behat/Context/BlockRevealEventsSourceContext.php
+
+		-
+			message: "#^Parameter \\#1 \\$scheduleVersionIds of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\EntriesProviderInterface\\:\\:getScheduledEntriesByIds\\(\\) expects array\\<int\\>, array\\<int\\<0, max\\>, string\\> given\\.$#"
+			count: 1
+			path: src/lib/Calendar/AbstractFromProviderEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$scheduledEntries of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSource\\:\\:buildEventList\\(\\) expects array\\<Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\>, iterable\\<Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\> given\\.$#"
+			count: 2
+			path: src/lib/Calendar/AbstractFromProviderEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getBlockName\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getBlockType\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getContent\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getDate\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getLanguage\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getUser\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of class Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEvent constructor expects Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEventType, Ibexa\\\\Contracts\\\\Calendar\\\\EventType\\\\EventTypeInterface given\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Calendar\\\\Event\\:\\:getBlockName\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEventType\\:\\:__construct\\(\\) has parameter \\$actions with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEventType\\:\\:getActions\\(\\) should return Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection but returns Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventType.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockHideEventType\\:\\:\\$actions \\(Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\) does not accept Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockHideEventType.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getBlockName\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getBlockType\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getContent\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getDate\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getLanguage\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryInterface\\:\\:getUser\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of class Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEvent constructor expects Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEventType, Ibexa\\\\Contracts\\\\Calendar\\\\EventType\\\\EventTypeInterface given\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventSource.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Calendar\\\\Event\\:\\:getBlockName\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEventType\\:\\:__construct\\(\\) has parameter \\$actions with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEventType\\:\\:getActions\\(\\) should return Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection but returns Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventType.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockRevealEventType\\:\\:\\$actions \\(Ibexa\\\\Contracts\\\\Calendar\\\\EventCollection\\) does not accept Ibexa\\\\Calendar\\\\EventAction\\\\EventActionCollection\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockRevealEventType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilder\\:\\:getDate\\(\\) should return DateTime but returns DateTime\\|false\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockVisibilityEntryBuilder.php
+
+		-
+			message: "#^Parameter \\#1 \\$id of class Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledVisibilityEntry constructor expects string, int given\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockVisibilityEntryBuilder.php
+
+		-
+			message: "#^Parameter \\#2 \\$user of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilder\\:\\:buildEntry\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\User, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\User\\\\User\\|null given\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockVisibilityEntryBuilder.php
+
+		-
+			message: "#^Parameter \\#3 \\$content of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilder\\:\\:buildEntry\\(\\) expects Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content, Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content\\|null given\\.$#"
+			count: 1
+			path: src/lib/Calendar/BlockVisibilityEntryBuilder.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:buildBlockEntryList\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Calendar/Provider/BlockVisibilityEntriesProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:getLanguagesIds\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Calendar/Provider/BlockVisibilityEntriesProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:getLanguagesIds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Calendar/Provider/BlockVisibilityEntriesProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$blockEntries of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:buildBlockEntryList\\(\\) expects iterable\\<Ibexa\\\\FieldTypePage\\\\Persistence\\\\BlockEntry\\>, array\\<Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledVisibilityEntry\\> given\\.$#"
+			count: 1
+			path: src/lib/Calendar/Provider/BlockVisibilityEntriesProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$blockEntries of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:buildBlockEntryList\\(\\) expects iterable\\<Ibexa\\\\FieldTypePage\\\\Persistence\\\\BlockEntry\\>, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Persistence\\\\ValueObject\\> given\\.$#"
+			count: 1
+			path: src/lib/Calendar/Provider/BlockVisibilityEntriesProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\REST\\\\BlockVisibilityEventVisitor\\:\\:generateAttribute\\(\\) has parameter \\$value with no type specified\\.$#"
+			count: 1
+			path: src/lib/Calendar/REST/BlockVisibilityEventVisitor.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/Calendar/REST/BlockVisibilityEventVisitor.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledVisibilityEntry\\:\\:getId\\(\\) should return string but returns int\\.$#"
+			count: 1
+			path: src/lib/Calendar/ScheduledVisibilityEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledVisibilityEntry\\:\\:\\$id \\(int\\) does not accept string\\.$#"
+			count: 1
+			path: src/lib/Calendar/ScheduledVisibilityEntry.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledVisibilityEntry\\:\\:\\$versionNumber is never written, only read\\.$#"
+			count: 1
+			path: src/lib/Calendar/ScheduledVisibilityEntry.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\BlockFragmentRenderEvent\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockFragmentRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\BlockFragmentRenderEvent\\:\\:getOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockFragmentRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\BlockFragmentRenderEvent\\:\\:setOptions\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockFragmentRenderEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Event\\\\BlockFragmentRenderEvent\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/BlockFragmentRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\PageToPersistenceEvent\\:\\:__construct\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/PageToPersistenceEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\PageToPersistenceEvent\\:\\:getValue\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/PageToPersistenceEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\PageToPersistenceEvent\\:\\:setValue\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/PageToPersistenceEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Event\\\\PageToPersistenceEvent\\:\\:\\$value type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/PageToPersistenceEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\Subscriber\\\\AddMissingAttributesOnLoadSubscriber\\:\\:getBlockDefinition\\(\\) has parameter \\$visitedBlockDefinitions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AddMissingAttributesOnLoadSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/AddMissingAttributesOnLoadSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\Subscriber\\\\EmbedAttributeSubscriber\\:\\:__construct\\(\\) has parameter \\$attributeTypes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/EmbedAttributeSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\Subscriber\\\\EmbedAttributeSubscriber\\:\\:getBlockDefinition\\(\\) has parameter \\$visitedBlockDefinitions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/EmbedAttributeSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Event\\\\Subscriber\\\\EmbedAttributeSubscriber\\:\\:isBlockTypeValid\\(\\) has parameter \\$visitedBlockDefinitions with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/EmbedAttributeSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/EmbedAttributeSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:hasBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/EmbedAttributeSubscriber.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/RichTextBlockSubscriber.php
+
+		-
+			message: "#^Cannot access property \\$identifier on Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\FieldDefinition\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TagBlockResponseSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$referenceDate of method Ibexa\\\\FieldTypePage\\\\Event\\\\Subscriber\\\\TagBlockResponseSubscriber\\:\\:getBlockVisibilityTtl\\(\\) expects DateTimeInterface, DateTimeInterface\\|null given\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/TagBlockResponseSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Exception\\\\BlockRenderException\\:\\:__construct\\(\\) has parameter \\$blockType with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/BlockRenderException.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Exception\\\\BlockRenderException\\:\\:__construct\\(\\) has parameter \\$errorMessage with no type specified\\.$#"
+			count: 1
+			path: src/lib/Exception/BlockRenderException.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\ArrayTransformerInterface\\|JMS\\\\Serializer\\\\SerializerInterface\\:\\:deserialize\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\ArrayTransformerInterface\\|JMS\\\\Serializer\\\\SerializerInterface\\:\\:fromArray\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\ArrayTransformerInterface\\|JMS\\\\Serializer\\\\SerializerInterface\\:\\:serialize\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\ArrayTransformerInterface\\|JMS\\\\Serializer\\\\SerializerInterface\\:\\:toArray\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Converter\\\\AbstractSerializerBasedConverter\\:\\:fromArray\\(\\) has parameter \\$array with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Converter\\\\AbstractSerializerBasedConverter\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/AbstractSerializerBasedConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Converter\\\\BlockDefinitionConverter\\:\\:toHash\\(\\) should return array\\<array\\{type\\: string, name\\: string, category\\: string, thumbnail\\: string, visible\\: bool, views\\: array\\<string, array\\{name\\: string\\}\\>, attributes\\: array\\<string, array\\{id\\: string, name\\: string, type\\: string, value\\: string, constraints\\: array\\<string, array\\<string, mixed\\>\\|string\\>\\}\\>, compontent\\?\\: string\\}\\> but returns array\\<int\\<0, max\\>, array\\{type\\: string, name\\: string, category\\: string, thumbnail\\: string, visible\\: bool, views\\: array\\<array\\{name\\: mixed\\}\\>, attributes\\: array\\<int\\<0, max\\>, array\\{id\\: string, name\\: string, type\\: string, value\\: mixed, constraints\\: array\\<string, array\\<string, mixed\\>\\|string\\>\\}\\>, component\\?\\: string\\}\\>\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/BlockDefinitionConverter.php
+
+		-
+			message: "#^Offset 'name' does not exist on string\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/BlockDefinitionConverter.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/BlockDefinitionConverter.php
+
+		-
+			message: "#^PHPDoc tag @param has invalid value \\(\\\\Ibexa\\\\FieldTypePage\\\\Registry\\\\LayoutDefinitionRegistry\\)\\: Unexpected token \"\\\\n     \", expected variable at offset 72$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Converter/LayoutDefinitionConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Definition\\\\LayoutDefinition\\:\\:__construct\\(\\) has parameter \\$zones with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Definition/LayoutDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Definition\\\\LayoutDefinition\\:\\:getZones\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Definition/LayoutDefinition.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Definition\\\\LayoutDefinition\\:\\:\\$zones type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Definition/LayoutDefinition.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\LegacyConverter\\:\\:toFieldDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/LegacyConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\LegacyConverter\\:\\:toFieldValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/LegacyConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\LegacyConverter\\:\\:toStorageFieldDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/LegacyConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\LegacyConverter\\:\\:toStorageValue\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/LegacyConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataText5 \\(string\\) does not accept string\\|false\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/LegacyConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldValue\\:\\:\\$dataInt \\(int\\) does not accept array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/LegacyConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Mapper\\\\LandingPageFormMapper\\:\\:prepareChoices\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Mapper/LandingPageFormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Mapper\\\\LandingPageFormMapper\\:\\:prepareChoices\\(\\) should return array\\<string, array\\<string, string\\>\\> but returns array\\<int\\|string, array\\>\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Mapper/LandingPageFormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Mapper\\\\LandingPageFormMapper\\:\\:prepareLabels\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Mapper/LandingPageFormMapper.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\:\\:getPage\\(\\)\\.$#"
+			count: 4
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Core\\\\FieldType\\\\Value\\:\\:getPage\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Type\\:\\:checkValueStructure\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Type\\:\\:fromPersistenceValue\\(\\) should return Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value but returns Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Type\\:\\:getRelations\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^PHPDoc tag @return with type Ibexa\\\\Core\\\\FieldType\\\\Value is not subtype of native type Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Parameter \\#1 \\$fieldValue of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\RelationCollector\\:\\:collect\\(\\) expects Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value, Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value given\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Core\\\\FieldType\\\\FieldType\\:\\:isEmptyValue\\(\\) expects Ibexa\\\\Core\\\\FieldType\\\\Value, Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value given\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Type\\:\\:toHash\\(\\) expects Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value, Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value given\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Parameter \\#2 \\$value of class Ibexa\\\\FieldTypePage\\\\Event\\\\PageFromPersistenceEvent constructor expects Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value, Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\Value given\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Type\\:\\:\\$blockService \\(Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Service\\\\BlockService\\) does not accept Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Service\\\\BlockServiceInterface\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Type.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value\\:\\:\\$page \\(Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\) does not accept Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Page\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/LandingPage/Value.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\FormTypeMapper\\\\ContentTypeListFormTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/FormTypeMapper/ContentTypeListFormTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\FormTypeMapper\\\\GenericChoiceFormTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/FormTypeMapper/GenericChoiceFormTypeMapper.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\FormTypeMapper\\\\GenericChoiceFormTypeMapper\\:\\:\\$blockDefinitionFactory is never read, only written\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/FormTypeMapper/GenericChoiceFormTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\FormTypeMapper\\\\LocationListFormTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/FormTypeMapper/LocationListFormTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\FormTypeMapper\\\\ScheduleAttributeFormTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/FormTypeMapper/ScheduleAttributeFormTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\FormTypeMapper\\\\ScheduleLoadedSnapshotAttributeFormTypeMapper\\:\\:map\\(\\) has parameter \\$constraints with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/FormTypeMapper/ScheduleLoadedSnapshotAttributeFormTypeMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Attribute\\\\ValueConverter\\\\LocationList\\:\\:fromStorageValue\\(\\) should return array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\> but returns iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\>\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/ValueConverter/LocationList.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\<string\\>, array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ContentType\\\\ContentType\\> given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Attribute/ValueConverter/Multiple.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Context\\\\GraphQlQueryBlockContext\\:\\:__construct\\(\\) has parameter \\$queryContext with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Context/GraphQlQueryBlockContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Context\\\\GraphQlQueryBlockContext\\:\\:getQueryContext\\(\\) return type with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Context/GraphQlQueryBlockContext.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Context\\\\GraphQlQueryBlockContext\\:\\:\\$queryContext with generic class ArrayObject does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Context/GraphQlQueryBlockContext.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Attribute\\\\Validator\\\\ConstraintClassRegistry\\:\\:setConstraintClasses\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Attribute/Validator/ConstraintClassRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Attribute\\\\Validator\\\\ConstraintClassRegistry\\:\\:\\$registry type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Attribute/Validator/ConstraintClassRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Attribute\\\\Validator\\\\ConstraintFactory\\:\\:getConstraint\\(\\) has parameter \\$constraint with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Attribute/Validator/ConstraintFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactory\\:\\:resolveBlockDefinition\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/BlockDefinitionFactory.php
+
+		-
+			message: "#^Offset 'block_type' does not exist on array\\{identifier\\: string, name\\: string\\|null, category\\: string\\|null, thumbnail\\: string\\|null, visible\\: bool, configuration_template\\: string, component\\: string, attributes\\: array\\<string, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\}\\>\\}\\|array\\{identifier\\: string, name\\: string\\|null, category\\: string\\|null, thumbnail\\: string\\|null, visible\\: bool, configuration_template\\: string, views\\: array\\<string, array\\{name\\: string, template\\: string, priority\\: int\\}\\>, attributes\\: array\\<string, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\}\\>\\}\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/BlockDefinitionFactory.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Cache\\\\BlockDefinitionFactoryCacheHandler\\:\\:getBlockDefinition\\(\\) should return Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinition but returns object\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Cache/BlockDefinitionFactoryCacheHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Cache\\\\BlockDefinitionFactoryCacheHandler\\:\\:getBlockIdentifiers\\(\\) should return array\\<string\\> but returns object\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Cache/BlockDefinitionFactoryCacheHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Cache/BlockDefinitionFactoryCacheHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockAttributeDefinitionEvent\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockAttributeDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockAttributeDefinitionEvent\\:\\:getConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockAttributeDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockAttributeDefinitionEvent\\:\\:setConfiguration\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockAttributeDefinitionEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockAttributeDefinitionEvent\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockAttributeDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockDefinitionEvent\\:\\:__construct\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockDefinitionEvent\\:\\:getConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockDefinitionEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockDefinitionEvent\\:\\:setConfiguration\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockDefinitionEvent.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Event\\\\BlockDefinitionEvent\\:\\:\\$configuration type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Event/BlockDefinitionEvent.php
+
+		-
+			message: "#^Parameter \\#1 \\$thumbnail of method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinition\\:\\:setThumbnail\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/BlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Parameter \\#1 \\$views of method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinition\\:\\:setViews\\(\\) expects array\\<string\\>, array\\<string, array\\<string, int\\|string\\>\\> given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/BlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Parameter \\#2 \\$attributeIdentifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeFactoryInterface\\:\\:create\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/BlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Parameter \\#3 \\$attribute of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeFactoryInterface\\:\\:create\\(\\) expects array\\{identifier\\: string, name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, value\\?\\: mixed, category\\: string, options\\?\\: array\\}, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\} given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/BlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Strategy\\\\BlockDefinitionFactoryStrategyInterface\\:\\:create\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/BlockDefinitionFactoryStrategyInterface.php
+
+		-
+			message: "#^Offset 'views' does not exist on array\\{identifier\\: string, name\\: string\\|null, category\\: string\\|null, thumbnail\\: string\\|null, visible\\: bool, configuration_template\\: string, component\\: string, attributes\\: array\\<string, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\}\\>\\}\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/ReactBlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Parameter \\#1 \\$thumbnail of method Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinition\\:\\:setThumbnail\\(\\) expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/ReactBlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Parameter \\#2 \\$attributeIdentifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeFactoryInterface\\:\\:create\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/ReactBlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Parameter \\#3 \\$attribute of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockAttributeFactoryInterface\\:\\:create\\(\\) expects array\\{identifier\\: string, name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, value\\?\\: mixed, category\\: string, options\\?\\: array\\}, array\\{name\\?\\: string, type\\: string, validators\\?\\: array\\<string, array\\{identifier\\?\\: string, message\\?\\: string, options\\?\\: mixed\\}\\>, identifier\\?\\: string, value\\?\\: mixed, category\\: string, options\\?\\: array\\} given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Definition/Strategy/ReactBlockDefinitionFactoryStrategy.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/BannerBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/BannerBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/BannerBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\BannerBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/BannerBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\BannerBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/BannerBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\CollectionBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\CollectionBlockListener\\:\\:getViewMatchConfiguration\\(\\) has parameter \\$configuration with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\CollectionBlockListener\\:\\:getViewMatchConfiguration\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Variable \\$location in PHPDoc tag @var does not exist\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/CollectionBlockListener.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$contentId\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:getContentInfo\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 3
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\ContentListBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\ContentListBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of class Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\ParentLocationId constructor expects array\\<int\\>\\|int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ContentListBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/EmbedBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/EmbedBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/EmbedBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\EmbedBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/EmbedBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\EmbedBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/EmbedBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\GalleryBlockListener\\:\\:findContentItems\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\GalleryBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\GalleryBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$locationId of method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LocationService\\:\\:loadLocation\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/GalleryBlockListener.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\ValueObject\\:\\:\\$contentInfo\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Cannot cast Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute to int\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\KeywordBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\KeywordBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function strstr expects string, Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of class Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Query\\\\Criterion\\\\ContentTypeIdentifier constructor expects array\\<string\\>\\|string, array\\<int, string\\>\\|Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\MAFormBlockListener\\:\\:\\$connection\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/MAFormBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/MAFormBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/MAFormBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\MAFormBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/MAFormBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\MAFormBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/MAFormBlockListener.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\MAFormBlockListener\\:\\:\\$container is never read, only written\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/MAFormBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ReactBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ReactBlockListener.php
+
+		-
+			message: "#^Access to an undefined property ezcFeed\\:\\:\\$item\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Access to an undefined property ezcFeed\\:\\:\\$link\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 5
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\RssBlockListener\\:\\:getFeeds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\RssBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\RssBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\RssBlockListener\\:\\:prepareFeeds\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\RssBlockListener\\:\\:\\$contentService is never read, only written\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/RssBlockListener.php
+
+		-
+			message: "#^Cannot access property \\$attributes on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Cannot call method getTimestamp\\(\\) on DateTimeImmutable\\|false\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 2
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\ScheduleBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$date of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\ScheduleBlockListener\\:\\:getNextEvent\\(\\) expects DateTimeInterface, DateTimeImmutable\\|false given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$date of method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Scheduler\\:\\:scheduleToDate\\(\\) expects DateTimeInterface\\|null, DateTime\\|false given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Parameter \\#2 \\$dateTime of method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\ScheduleSnapshotService\\:\\:restoreFromSnapshot\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/ScheduleBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/TemplateAttributesListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/TemplateAttributesListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\TemplateAttributesListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/TemplateAttributesListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\TemplateAttributesListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/TemplateAttributesListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:getParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/VideoBlockListener.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\RenderRequestInterface\\:\\:setParameters\\(\\)\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/VideoBlockListener.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/VideoBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\VideoBlockListener\\:\\:getSubscribedEvents\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/VideoBlockListener.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Event\\\\Listener\\\\VideoBlockListener\\:\\:onBlockPreRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Event/Listener/VideoBlockListener.php
+
+		-
+			message: "#^Argument of an invalid type Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\Extractor\\\\BlockAttributeRelationExtractorInterface supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Relation/BlockAttributeTypeRelationExtractorRegistry.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\BlockAttributeTypeRelationExtractorRegistry\\:\\:\\$extractors \\(Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\Extractor\\\\BlockAttributeRelationExtractorInterface\\) does not accept iterable\\<Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\Extractor\\\\BlockAttributeRelationExtractorInterface\\>\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Relation/BlockAttributeTypeRelationExtractorRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\Extractor\\\\BlockAttributeRelationExtractorInterface\\:\\:extract\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Relation/Extractor/BlockAttributeRelationExtractorInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\Extractor\\\\EmbedBlockAttributeRelationExtractor\\:\\:extract\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Relation/Extractor/EmbedBlockAttributeRelationExtractor.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_column expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\> given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Relation/Extractor/LocationListBlockAttributeRelationExtractor.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Relation\\\\Extractor\\\\RichTextBlockAttributeRelationExtractor\\:\\:extract\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Relation/Extractor/RichTextBlockAttributeRelationExtractor.php
+
+		-
+			message: "#^Class Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\ContentCreateBlockContext not found\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Event/Listener/PreviewTemplateEventSubscriber.php
+
+		-
+			message: "#^Class Ibexa\\\\PageBuilder\\\\Block\\\\Context\\\\ContentEditBlockContext not found\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Event/Listener/PreviewTemplateEventSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\Event\\\\Listener\\\\PreviewTemplateEventSubscriber\\:\\:onBlockPostRender\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Event/Listener/PreviewTemplateEventSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\Event\\\\PostRenderEvent\\:\\:setRenderedBlock\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Event/PostRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\Event\\\\PreRenderEvent\\:\\:setRenderRequest\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Event/PreRenderEvent.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\Twig\\\\TwigRenderRequest\\:\\:setParameters\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Twig/TwigRenderRequest.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Renderer\\\\Twig\\\\TwigRenderRequest\\:\\:setTemplate\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Block/Renderer/Twig/TwigRenderRequest.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Mapper\\\\PageFormMapper\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Mapper/PageFormMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Mapper\\\\PageFormMapper\\:\\:mapFieldValueForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Mapper/PageFormMapper.php
+
+		-
+			message: "#^Access to an undefined property Ibexa\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Value\\:\\:\\$value\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Access to constant EDITORIAL_MODE_PARAMETER on an unknown class Ibexa\\\\Bundle\\\\PageBuilder\\\\Controller\\\\PageController\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Cannot access property \\$attributes on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 3
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Cannot access property \\$query on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\ParameterProvider\\:\\:getEditorialModeViewParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\ParameterProvider\\:\\:getViewParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Offset 'reference_timestamp' on string in isset\\(\\) does not exist\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Parameter \\#2 \\$default of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\<string\\>\\:\\:get\\(\\) expects string\\|null, array given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Variable \\$page in PHPDoc tag @var does not match any variable in the foreach loop\\: \\$zone$#"
+			count: 1
+			path: src/lib/FieldType/Page/ParameterProvider.php
+
+		-
+			message: "#^Cannot cast Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Translation to string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Service/BlockService.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Service\\\\BlockService\\:\\:getValidator\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Service/BlockService.php
+
+		-
+			message: "#^Offset 'template' does not exist on string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Service/BlockService.php
+
+		-
+			message: "#^Parameter \\#2 \\$constraint of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\Attribute\\\\Validator\\\\ConstraintFactory\\:\\:getConstraint\\(\\) expects array, array\\<string, mixed\\>\\|string given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Service/BlockService.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Service\\\\PageService\\:\\:\\$eventDispatcher \\(Symfony\\\\Component\\\\EventDispatcher\\\\EventDispatcher\\) does not accept Symfony\\\\Contracts\\\\EventDispatcher\\\\EventDispatcherInterface\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Service/PageService.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\DoctrineGateway\\:\\:loadAttributesAssignedToPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\DoctrineGateway\\:\\:loadBlocksAssignedToPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\DoctrineGateway\\:\\:loadPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\DoctrineGateway\\:\\:loadPageByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\DoctrineGateway\\:\\:loadPagesMappedToContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\DoctrineGateway\\:\\:loadZonesAssignedToPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/DoctrineGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:loadAttributesAssignedToPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:loadBlocksAssignedToPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:loadPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:loadPageByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:loadPagesMappedToContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:loadZonesAssignedToPage\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$languageCode with type string\\|null is not subtype of native type string\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$versionNo with type int\\|null is not subtype of native type int\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Gateway.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\Cache\\\\PageHandler\\:\\:insertPage\\(\\) has parameter \\$page with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/Cache/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\Cache\\\\PageHandler\\:\\:loadPageByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/Cache/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\Cache\\\\PageHandler\\:\\:loadPageByContentId\\(\\) should return array but returns object\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/Cache/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\Cache\\\\PageHandler\\:\\:loadPagesMappedToContent\\(\\) has parameter \\$languageCodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/Cache/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\Cache\\\\PageHandler\\:\\:loadPagesMappedToContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/Cache/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:insertBlock\\(\\) has parameter \\$block with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:insertPage\\(\\) has parameter \\$page with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:insertPage\\(\\) should return int but returns int\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:insertZone\\(\\) has parameter \\$zone with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:loadPageByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:loadPagesMappedToContent\\(\\) has parameter \\$languageCodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandler\\:\\:loadPagesMappedToContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$attributeId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:assignAttributeToBlock\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$blockId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:assignBlockToZone\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$blockId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:insertBlockDesign\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$blockId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:insertBlockVisibility\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#1 \\$zoneId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:assignZoneToPage\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#2 \\$blockId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:assignAttributeToBlock\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#2 \\$pageId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:assignZoneToPage\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Parameter \\#2 \\$zoneId of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Gateway\\:\\:assignBlockToZone\\(\\) expects int, int\\|null given\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandlerInterface\\:\\:insertPage\\(\\) has parameter \\$page with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandlerInterface\\:\\:loadPageByContentId\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandlerInterface\\:\\:loadPagesMappedToContent\\(\\) has parameter \\$languageCodes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\Handler\\\\PageHandlerInterface\\:\\:loadPagesMappedToContent\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/Handler/PageHandlerInterface.php
+
+		-
+			message: "#^Class Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage extends generic class Ibexa\\\\Contracts\\\\Core\\\\FieldType\\\\GatewayBasedStorage but does not specify its types\\: T$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:deleteFieldData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:deleteFieldData\\(\\) has parameter \\$fieldIds with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:deleteFieldData\\(\\) should return bool but empty return statement found\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:deleteFieldData\\(\\) should return bool but return statement is missing\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:getFieldData\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:getFieldData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:getIndexData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Storage\\\\PageStorage\\:\\:storeFieldData\\(\\) has parameter \\$context with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$page has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between null and array will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/FieldType/Page/Storage/PageStorage.php
+
+		-
+			message: "#^Class Ibexa\\\\FieldTypePage\\\\Form\\\\DataTransformer\\\\NestedAttributeDataTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/NestedAttributeDataTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\DataTransformer\\\\NestedAttributeDataTransformer\\:\\:__construct\\(\\) has parameter \\$attributes with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/NestedAttributeDataTransformer.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Form\\\\DataTransformer\\\\NestedAttributeDataTransformer\\:\\:\\$attributes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/NestedAttributeDataTransformer.php
+
+		-
+			message: "#^Class Ibexa\\\\FieldTypePage\\\\Form\\\\DataTransformer\\\\ScheduleAttributeDataTransformer implements generic interface Symfony\\\\Component\\\\Form\\\\DataTransformerInterface but does not specify its types\\: T, R$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/ScheduleAttributeDataTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\DataTransformer\\\\ScheduleAttributeDataTransformer\\:\\:transform\\(\\) has parameter \\$value with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/ScheduleAttributeDataTransformer.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between null and array will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Form/DataTransformer/ScheduleAttributeDataTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeContentTypeListType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeContentTypeListType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeContentTypeListType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeContentTypeListType.php
+
+		-
+			message: "#^PHPDoc tag @return has invalid value \\(\\{@inheritdoc\\}\\)\\: Unexpected token \"\\{\", expected type at offset 19$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeContentTypeListType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeEmbedType\\:\\:buildView\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeEmbedType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeLocationListType\\:\\:buildView\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeLocationListType.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function array_map expects array, iterable\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\> given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeLocationListType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeMultipleType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeMultipleType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeMultipleType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeMultipleType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeRadioType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeRadioType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeSelectType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeSelectType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\BlockAttribute\\\\AttributeSelectType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/AttributeSelectType.php
+
+		-
+			message: "#^PHPDoc tag @throws with type EzSystems\\\\EzPlatformPageFieldType\\\\Exception\\\\Registry\\\\AttributeFormMapperNotFoundException\\|EzSystems\\\\EzPlatformPageFieldType\\\\Exception\\\\Registry\\\\AttributeValidatorNotFoundException is not subtype of Throwable$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/NestedAttributeValueType.php
+
+		-
+			message: "#^PHPDoc tag @throws with type EzSystems\\\\EzPlatformPageFieldType\\\\Exception\\\\Registry\\\\AttributeValidatorNotFoundException is not subtype of Throwable$#"
+			count: 1
+			path: src/lib/Form/Type/BlockAttribute/NestedAttributeValueType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\PageFieldType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/PageFieldType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Form\\\\Type\\\\PageFieldType\\:\\:getName\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/PageFieldType.php
+
+		-
+			message: "#^PHPDoc tag @return has invalid value \\(\\{@inheritdoc\\}\\)\\: Unexpected token \"\\{\", expected type at offset 19$#"
+			count: 4
+			path: src/lib/Form/Type/PageFieldType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FragmentRenderer\\\\BlockRenderOptionsFragmentRenderer\\:\\:dispatchFragmentRenderEvent\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FragmentRenderer/BlockRenderOptionsFragmentRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\FragmentRenderer\\\\BlockRenderOptionsFragmentRenderer\\:\\:render\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/FragmentRenderer/BlockRenderOptionsFragmentRenderer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\PageFieldDefinitionMapper\\:\\:canMap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/GraphQL/PageFieldDefinitionMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\BlockAttributeStorageValueResolver\\:\\:resolveAttributeSerializedValueFromContext\\(\\) has parameter \\$context with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/BlockAttributeStorageValueResolver.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$contentId with type string is incompatible with native type int\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/BlockAttributeStorageValueResolver.php
+
+		-
+			message: "#^PHPDoc tag @return with type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Content is incompatible with native type Ibexa\\\\GraphQL\\\\Value\\\\Item\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/BlockAttributeStorageValueResolver.php
+
+		-
+			message: "#^Parameter \\#2 \\$attribute of method Ibexa\\\\FieldTypePage\\\\Serializer\\\\AttributeSerializationDispatcher\\:\\:serialize\\(\\) expects Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute, Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null given\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/BlockAttributeStorageValueResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageBlockResolver\\:\\:resolvePageBlockHtml\\(\\) has parameter \\$context with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageBlockResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:__construct\\(\\) has parameter \\$blocksTypesMap with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:resolvePage\\(\\) has parameter \\$context with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:resolvePageBlockAttributeType\\(\\) has parameter \\$context with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:resolvePageBlockAttributeType\\(\\) should return GraphQL\\\\Type\\\\Definition\\\\Type but returns GraphQL\\\\Type\\\\Definition\\\\Type\\|null\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:resolvePageBlockAttributes\\(\\) has parameter \\$context with generic class ArrayObject but does not specify its types\\: TKey, TValue$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:resolvePageBlockType\\(\\) should return GraphQL\\\\Type\\\\Definition\\\\Type but returns GraphQL\\\\Type\\\\Definition\\\\Type\\|null\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\PageResolver\\:\\:\\$blocksTypesMap type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/PageResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\RichtextBlockAttributeTypeResolver\\:\\:resolveRichTextStringXmlToHtml5\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/RichtextBlockAttributeTypeResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\RichtextBlockAttributeTypeResolver\\:\\:resolveRichTextStringXmlToHtml5Edit\\(\\) should return string but returns string\\|false\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/RichtextBlockAttributeTypeResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Resolver\\\\SchedulerBlockResolver\\:\\:resolverSchedulerBlockEventType\\(\\) should return GraphQL\\\\Type\\\\Definition\\\\Type but returns GraphQL\\\\Type\\\\Definition\\\\Type\\|null\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Resolver/SchedulerBlockResolver.php
+
+		-
+			message: "#^Binary operation \"\\+\" between array\\{identifier\\: \\(int\\|string\\)\\} and string results in an error\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/DomainIterator.php
+
+		-
+			message: "#^Parameter \\#1 \\$identifier of method Ibexa\\\\FieldTypePage\\\\FieldType\\\\Page\\\\Block\\\\Definition\\\\BlockDefinitionFactoryInterface\\:\\:getBlockDefinition\\(\\) expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/DomainIterator.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockAttributeField\\:\\:attributeField\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockAttributeField.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockAttributeField\\:\\:blockName\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockAttributeField.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockAttributeField\\:\\:canWork\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockAttributeField.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockAttributeField\\:\\:hasBlockAttributeDefinition\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockAttributeField.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockAttributeField\\:\\:hasBlockDefinition\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockAttributeField.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockAttributeField\\:\\:work\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockAttributeField.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockType\\:\\:blockType\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockType\\:\\:canWork\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockType\\:\\:work\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockViewsType\\:\\:canWork\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockViewsType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockViewsType\\:\\:viewsType\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockViewsType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockViewsType\\:\\:work\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockViewsType.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockViewsValue\\:\\:canWork\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockViewsValue.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockViewsValue\\:\\:viewsType\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockViewsValue.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlockViewsValue\\:\\:work\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlockViewsValue.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlocksIndex\\:\\:blockType\\(\\) has parameter \\$args with no type specified\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlocksIndex.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlocksIndex\\:\\:canWork\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlocksIndex.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\GraphQL\\\\Schema\\\\Worker\\\\BlocksIndex\\:\\:work\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/GraphQL/Schema/Worker/BlocksIndex.php
+
+		-
+			message: "#^Variable \\$view in isset\\(\\) always exists and is not nullable\\.$#"
+			count: 1
+			path: src/lib/Migration/Model/BlockValueDenormalizer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapper\\:\\:isValid\\(\\) has parameter \\$rawData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/BlockEntriesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapper\\:\\:map\\(\\) has parameter \\$rows with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/BlockEntriesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapper\\:\\:mapEntry\\(\\) has parameter \\$rawData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/BlockEntriesMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Persistence\\\\EntriesHandlerInterface\\:\\:countVersionsEntriesInDateRange\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/EntriesHandlerInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Persistence\\\\EntriesMapperInterface\\:\\:map\\(\\) has parameter \\$rawData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Persistence/EntriesMapperInterface.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Persistence\\\\Gateway\\\\BlockVisibilityEntriesHandler\\:\\:getDbPlatform\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/BlockVisibilityEntriesHandler.php
+
+		-
+			message: "#^Offset 'count' does not exist on array\\<int, array\\<string, mixed\\>\\>\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/BlockVisibilityEntriesHandler.php
+
+		-
+			message: "#^Parameter \\#4 \\$condition of method Doctrine\\\\DBAL\\\\Query\\\\QueryBuilder\\:\\:leftJoin\\(\\) expects string\\|null, Doctrine\\\\DBAL\\\\Query\\\\Expression\\\\CompositeExpression given\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/BlockVisibilityEntriesHandler.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Persistence\\\\Gateway\\\\BlockVisibilityEntriesHandler\\:\\:\\$entriesMapper \\(Ibexa\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapper\\) does not accept Ibexa\\\\FieldTypePage\\\\Persistence\\\\EntriesMapperInterface\\.$#"
+			count: 1
+			path: src/lib/Persistence/Gateway/BlockVisibilityEntriesHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Registry\\\\LayoutDefinitionRegistry\\:\\:addLayoutDefinition\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Registry/LayoutDefinitionRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Registry\\\\LayoutDefinitionRegistry\\:\\:getDefaultLayout\\(\\) has parameter \\$availableLayouts with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Registry/LayoutDefinitionRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Registry\\\\LayoutDefinitionRegistry\\:\\:getLayoutDefinitions\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Registry/LayoutDefinitionRegistry.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Item\\\\UnavailableContentInfo\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Item/UnavailableContentInfo.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Item\\\\UnavailableLocation\\:\\:__construct\\(\\) has parameter \\$properties with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Item/UnavailableLocation.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 8
+			path: src/lib/ScheduleBlock/ScheduleService.php
+
+		-
+			message: "#^Cannot call method setValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 5
+			path: src/lib/ScheduleBlock/ScheduleService.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 7
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Cannot call method setValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 3
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\ScheduleSnapshotService\\:\\:getEventsChunks\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\ScheduleSnapshotService\\:\\:initializeAttributesFromSnapshot\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 2
+			path: src/lib/ScheduleBlock/Scheduler.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Slot\\:\\:\\$item \\(Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Item\\\\Item\\) does not accept Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Item\\\\Item\\|null\\.$#"
+			count: 2
+			path: src/lib/ScheduleBlock/Slot.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\AbstractEvent\\:\\:\\$dateTime \\(DateTime\\) does not accept DateTimeInterface\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/AbstractEvent.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\EventInterface\\:\\:getItem\\(\\)\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemAddedEventProcessor.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemAddedEventProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\EventInterface\\:\\:getItemId\\(\\)\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemRemovedEventProcessor.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemRemovedEventProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\EventInterface\\:\\:getMap\\(\\)\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemsReorderedEventProcessor.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemsReorderedEventProcessor.php
+
+		-
+			message: "#^Cannot call method setValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemsReorderedEventProcessor.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\EventInterface\\:\\:getLimit\\(\\)\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/LimitChangedEventProcessor.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/LimitChangedEventProcessor.php
+
+		-
+			message: "#^Cannot call method setValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/LimitChangedEventProcessor.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\Context\\:\\:getVisitingStack\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/AttributeHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\AttributeHandler\\:\\:deserializeAttribute\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/AttributeHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\AttributeHandler\\:\\:getSubscribingMethods\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/AttributeHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\AttributeHandler\\:\\:serializeAttribute\\(\\) has parameter \\$type with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/AttributeHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\AttributeHandler\\:\\:serializeAttribute\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/AttributeHandler.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$visitingStack contains generic class SplStack but does not specify its types\\: TValue$#"
+			count: 1
+			path: src/lib/Serializer/Handler/AttributeHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\LocationHandler\\:\\:deserializeLocation\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\LocationHandler\\:\\:deserializeLocation\\(\\) should return Ibexa\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null but returns Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\LocationHandler\\:\\:getSubscribingMethods\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\LocationHandler\\:\\:serializeLocation\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\Handler\\\\LocationHandler\\:\\:serializeUnavailableLocation\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^PHPDoc tag @param for parameter \\$location with type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location is not subtype of native type Ibexa\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^PHPDoc tag @return with type Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null is not subtype of native type Ibexa\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Location\\|null\\.$#"
+			count: 1
+			path: src/lib/Serializer/Handler/LocationHandler.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\SerializerInterface\\:\\:fromArray\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Serializer/NonSharedSerializer.php
+
+		-
+			message: "#^Call to an undefined method JMS\\\\Serializer\\\\SerializerInterface\\:\\:toArray\\(\\)\\.$#"
+			count: 1
+			path: src/lib/Serializer/NonSharedSerializer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\NonSharedSerializer\\:\\:fromArray\\(\\) has parameter \\$data with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/NonSharedSerializer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\NonSharedSerializer\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Serializer/NonSharedSerializer.php
+
+		-
+			message: "#^Method Ibexa\\\\FieldTypePage\\\\Serializer\\\\SerializerFactory\\:\\:__construct\\(\\) has parameter \\$handlers with no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: src/lib/Serializer/SerializerFactory.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Serializer\\\\SerializerFactory\\:\\:\\$handlers \\(array\\<JMS\\\\Serializer\\\\Handler\\\\SubscribingHandlerInterface\\>\\) does not accept iterable\\.$#"
+			count: 1
+			path: src/lib/Serializer/SerializerFactory.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Validator\\\\Constraints\\\\ContentContainerType\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/ContentContainerType.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Validator\\\\Constraints\\\\ContentContainerType\\:\\:\\$types has no type specified\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/ContentContainerType.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Validator\\\\Constraint\\:\\:\\$message\\.$#"
+			count: 2
+			path: src/lib/Validator/Constraints/ContentContainerTypeValidator.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between null and int will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/ContentContainerTypeValidator.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Validator\\\\Constraints\\\\ContentType\\:\\:\\$message has no type specified\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/ContentType.php
+
+		-
+			message: "#^Property Ibexa\\\\FieldTypePage\\\\Validator\\\\Constraints\\\\ContentType\\:\\:\\$types type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/ContentType.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Validator\\\\Constraint\\:\\:\\$message\\.$#"
+			count: 2
+			path: src/lib/Validator/Constraints/ContentTypeValidator.php
+
+		-
+			message: "#^Access to an undefined property Symfony\\\\Component\\\\Validator\\\\Constraint\\:\\:\\$types\\.$#"
+			count: 2
+			path: src/lib/Validator/Constraints/ContentTypeValidator.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between null and int will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/ContentTypeValidator.php
+
+		-
+			message: "#^Cannot call method hasChildNodes\\(\\) on DOMElement\\|null\\.$#"
+			count: 1
+			path: src/lib/Validator/Constraints/NotBlankRichTextValidator.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\EntriesProviderInterface\\:\\:method\\(\\)\\.$#"
+			count: 3
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryIdProvider\\:\\:method\\(\\)\\.$#"
+			count: 2
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Cannot access offset 0 on array\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>\\|\\(iterable\\<Ibexa\\\\Contracts\\\\Calendar\\\\Event\\>&Traversable\\)\\.$#"
+			count: 4
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:buildEventQuery\\(\\) has parameter \\$languages with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:createEvent\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:providerForTestGetCount\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:providerForTestLoadEvents\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:testGetCount\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:testGetEventsForExcludedIdentifier\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:testGetEventsForNotExcludedIdentifier\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:testLoadEvents\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:testLoadEvents\\(\\) has parameter \\$eventsIdToFetch with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$fromDate of method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:buildEventQuery\\(\\) expects DateTime, DateTime\\|false given\\.$#"
+			count: 3
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$toDate of method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\AbstractFromProviderEventSourceTest\\:\\:buildEventQuery\\(\\) expects DateTime, DateTime\\|false given\\.$#"
+			count: 3
+			path: tests/lib/Calendar/AbstractFromProviderEventSourceTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilder\\:\\:method\\(\\)\\.$#"
+			count: 2
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\FieldTypePage\\\\Persistence\\\\EntriesHandlerInterface\\:\\:method\\(\\)\\.$#"
+			count: 4
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Cannot call method format\\(\\) on DateTime\\|false\\.$#"
+			count: 4
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntriesProviderTest\\:\\:testCountScheduledEntries\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntriesProviderTest\\:\\:testCountScheduledEntriesInDateRange\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntriesProviderTest\\:\\:testGetScheduledEntriesByIds\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntriesProviderTest\\:\\:testGetScheduledEntriesInDateRange\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$start of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:countScheduledEntriesInDateRange\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$start of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:getScheduledEntriesInDateRange\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$end of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:countScheduledEntriesInDateRange\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$end of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:getScheduledEntriesInDateRange\\(\\) expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$languages of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:countScheduledEntriesInDateRange\\(\\) expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\>, array\\<int, array\\<string, int\\>\\> given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$languages of method Ibexa\\\\FieldTypePage\\\\Calendar\\\\Provider\\\\BlockVisibilityEntriesProvider\\:\\:getScheduledEntriesInDateRange\\(\\) expects array\\<Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Content\\\\Language\\>, array\\<int, array\\<string, int\\>\\> given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntriesProviderTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\ContentService\\:\\:method\\(\\)\\.$#"
+			count: 4
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\LanguageService\\:\\:method\\(\\)\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\UserService\\:\\:method\\(\\)\\.$#"
+			count: 3
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilderTest\\:\\:providerForTestBuildWhenContentIsNotAccessible\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilderTest\\:\\:testBuildWhenContentIsNotAccessible\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilderTest\\:\\:testBuildWhenUserDoesNorExist\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\BlockVisibilityEntryBuilderTest\\:\\:testBuildWhenUserExistsAndContentIsAccessible\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$date of class Ibexa\\\\FieldTypePage\\\\Calendar\\\\ScheduledVisibilityEntry constructor expects DateTimeInterface, DateTime\\|false given\\.$#"
+			count: 1
+			path: tests/lib/Calendar/BlockVisibilityEntryBuilderTest.php
+
+		-
+			message: "#^Call to an undefined method Ibexa\\\\Contracts\\\\Calendar\\\\EventType\\\\EventTypeInterface\\:\\:method\\(\\)\\.$#"
+			count: 1
+			path: tests/lib/Calendar/ScheduledEntryIdProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryIdProviderTest\\:\\:createEvent\\(\\) has parameter \\$id with no type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/ScheduledEntryIdProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryIdProviderTest\\:\\:providerForTestFromCursor\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Calendar/ScheduledEntryIdProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryIdProviderTest\\:\\:testFromCursor\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/ScheduledEntryIdProviderTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Calendar\\\\ScheduledEntryIdProviderTest\\:\\:testFromCursorWhenCursorIsEmpty\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Calendar/ScheduledEntryIdProviderTest.php
+
+		-
+			message: "#^Cannot cast Ibexa\\\\Contracts\\\\Core\\\\Repository\\\\Values\\\\Translation to string\\.$#"
+			count: 1
+			path: tests/lib/FieldType/Page/Service/BlockServiceTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Form\\\\DataTransformer\\\\NestedAttributeDataTransformerTest\\:\\:getEmptyData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Form/DataTransformer/NestedAttributeDataTransformerTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapperTest\\:\\:providerForTestMap\\(\\) return type has no value type specified in iterable type iterable\\.$#"
+			count: 1
+			path: tests/lib/Persistence/BlockEntriesMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapperTest\\:\\:testMap\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: tests/lib/Persistence/BlockEntriesMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapperTest\\:\\:testMap\\(\\) has parameter \\$expectedResult with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Persistence/BlockEntriesMapperTest.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\FieldTypePage\\\\Persistence\\\\BlockEntriesMapperTest\\:\\:testMap\\(\\) has parameter \\$rawData with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/Persistence/BlockEntriesMapperTest.php

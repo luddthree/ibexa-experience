@@ -1,0 +1,21 @@
+tables:
+  ezsite:
+    id:
+      id: { type: integer, nullable: false, options: { autoincrement: true } }
+    fields:
+      name: { type: string, nullable: false, length: 255, options: { default: '' } }
+      created: { type: integer, nullable: false }
+  ezsite_public_access:
+    id:
+      public_access_identifier: { type: string, nullable: false, length: 255, options: { autoincrement: false } }
+    fields:
+      site_id: { type: integer, nullable: false }
+      site_access_group: { type: string, nullable: false, length: 255, options: { default: '' } }
+      status: { type: integer, nullable: false }
+      config: { type: text, nullable: false, length: 65535 }
+      site_matcher_host: { type: string, nullable: true, length: 255 }
+      site_matcher_path: { type: string, nullable: true, length: 255 }
+    indexes:
+      ezsite_public_access_site_id: { fields: [site_id] }
+    foreignKeys:
+      fk_ezsite_public_access_site_id: { fields: [site_id], foreignTable: ezsite, foreignFields: [id] }

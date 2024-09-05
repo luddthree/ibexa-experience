@@ -1,0 +1,6 @@
+{% trans_default_domain 'ibexa_page_builder_block' %}
+
+<div class="block-{{ block.type }} {{ block.class }}">
+    {{ 'general.render_error'|trans({'%name%': block.name})|desc('Block %name% could not be rendered due to an internal error.') }}
+    <style type="text/css">{{ block.style|raw }}</style>
+</div>

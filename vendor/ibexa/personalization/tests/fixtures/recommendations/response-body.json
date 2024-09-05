@@ -1,0 +1,63 @@
+{
+    "contextItems" : [ {
+        "itemId" : 1,
+        "itemType" : 1,
+        "sources" : [ "REQUEST" ],
+        "viewers" : 0
+    } ],
+    "recommendationItems" : [ {
+        "itemId" : 1,
+        "itemType" : 1,
+        "relevance" : 1,
+        "links" : {
+            "clickRecommended" : "//event.click.link.invalid",
+            "rendered" : "//event.rendered.link.invalid"
+        },
+        "attributes" : [ {
+            "key" : "image",
+            "values" : [ "/link.invalid" ]
+        }, {
+            "key" : "title",
+            "values" : [ "Foo" ]
+        }, {
+            "key" : "name",
+            "values" : [ "Foo" ]
+        } ]
+    }, {
+        "itemId" : 2,
+        "itemType" : 1,
+        "relevance" : 1,
+        "links" : {
+            "clickRecommended" : "//event.click.link.invalid",
+            "rendered" : "//event.rendered.link.invalid"
+        },
+        "attributes" : [ {
+            "key" : "image",
+            "values" : [ "/link.invalid" ]
+        }, {
+            "key" : "title",
+            "values" : [ "Bar" ]
+        }, {
+            "key" : "name",
+            "values" : [ "bar" ]
+        } ]
+    }, {
+        "itemId" : 3,
+        "itemType" : 1,
+        "relevance" : 1,
+        "links" : {
+            "clickRecommended" : "//event.click.link.invalid",
+            "rendered" : "//event.rendered.link.invalid"
+        },
+        "attributes" : [ {
+            "key" : "image",
+            "values" : [ "/link.invalid" ]
+        }, {
+            "key" : "title",
+            "values" : [ "Baz" ]
+        }, {
+            "key" : "name",
+            "values" : [ "Baz" ]
+        } ]
+    } ]
+}

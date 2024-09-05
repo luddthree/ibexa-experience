@@ -1,0 +1,22 @@
+-
+    type: user_group
+    mode: update
+    metadata:
+        alwaysAvailable: true
+        contentTypeIdentifier: user_group
+        mainLanguage: eng-US
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        ownerId: 14
+        parentGroupId: 4
+        remoteId: 3c160cca19fb135f83bd02d911f04db2
+        sectionId: 2
+    match:
+        field: remoteId
+        value: 3c160cca19fb135f83bd02d911f04db2
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: New Editors
+    roles:
+        - Anonymous

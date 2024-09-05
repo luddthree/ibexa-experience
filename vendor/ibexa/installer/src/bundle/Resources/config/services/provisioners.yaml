@@ -1,0 +1,37 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Product provisioners
+    #
+    Ibexa\Installer\Provisioner\CommonProvisioner:
+        tags:
+            - { name: 'ibexa.installer.provisioner.headless', priority: 70 }
+            - { name: 'ibexa.installer.provisioner.experience', priority: 70 }
+            - { name: 'ibexa.installer.provisioner.commerce', priority: 70 }
+
+    Ibexa\Installer\Provisioner\HeadlessProvisioner:
+        arguments:
+            $db: '@ibexa.persistence.connection'
+        tags:
+            - { name: 'ibexa.installer.provisioner.headless', priority: 100 }
+            - { name: 'ibexa.installer.provisioner.experience', priority: 100 }
+            - { name: 'ibexa.installer.provisioner.commerce', priority: 100 }
+
+    Ibexa\Installer\Provisioner\ExperienceProvisioner:
+        arguments:
+            $db: '@ibexa.persistence.connection'
+        tags:
+            - { name: 'ibexa.installer.provisioner.experience', priority: 90 }
+            - { name: 'ibexa.installer.provisioner.commerce', priority: 90 }
+
+    Ibexa\Installer\Provisioner\CommerceProvisioner:
+        arguments:
+            $commerceSiteConfig: '@?Ibexa\Bundle\Commerce\Eshop\Api\Configuration\CommerceSiteConfig'
+            $projectDir: '%kernel.project_dir%'
+            $repositoryConfigurationProvider: '@Ibexa\Bundle\Core\ApiLoader\RepositoryConfigurationProvider'
+        tags:
+            - { name: 'ibexa.installer.provisioner.commerce', priority: 80 }

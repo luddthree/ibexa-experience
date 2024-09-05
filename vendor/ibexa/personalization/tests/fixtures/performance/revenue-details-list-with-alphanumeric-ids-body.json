@@ -1,0 +1,38 @@
+[
+    {
+        "timeRecommended": "2020-10-11T11:29:04.000",
+        "timeConsumed": "2020-10-11T12:29:02.000",
+        "item": {
+            "id": "d8038e2af9770f108b763c368c05fd02",
+            "type": 42,
+            "title": null
+        },
+        "price": 89.15,
+        "quantity": 1,
+        "currency": "EUR"
+    },
+    {
+        "timeRecommended": "2020-10-10T15:29:04.000",
+        "timeConsumed": "2020-10-10T16:29:01.000",
+        "item": {
+            "id": "637d58bfddf164627bdfd265733280a0",
+            "type": 42,
+            "title": null
+        },
+        "price": 95.99,
+        "quantity": 1,
+        "currency": "EUR"
+    },
+    {
+        "timeRecommended": "2020-10-10T13:29:04.000",
+        "timeConsumed": "2020-10-10T14:29:01.000",
+        "item": {
+            "id": "40faa822edc579b02c25f6bb7beec3ad",
+            "type": 42,
+            "title": null
+        },
+        "price": 80,
+        "quantity": 1,
+        "currency": "EUR"
+    }
+]

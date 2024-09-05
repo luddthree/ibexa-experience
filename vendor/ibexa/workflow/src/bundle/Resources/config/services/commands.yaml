@@ -1,0 +1,13 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Workflow\Command\MigrateFlexWorkflowCommand:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+
+    Ibexa\Bundle\Workflow\Command\WorkflowMetadataCleanupCommand:
+        arguments:
+            $transactionHandler: '@Ibexa\Core\Persistence\Cache\TransactionHandler'

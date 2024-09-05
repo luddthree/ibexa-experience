@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\VersionComparison\ComparisonValue;
+
+use Ibexa\Contracts\Core\Repository\Values\ValueObject;
+
+class HashMap extends ValueObject
+{
+    /**
+     * Array that is compared with another based on key.
+     *
+     * @var array|null
+     */
+    public $hashMap;
+}
+
+class_alias(HashMap::class, 'EzSystems\EzPlatformVersionComparison\ComparisonValue\HashMap');

@@ -1,0 +1,27 @@
+{% extends '@ibexadesign/customer_portal/account/base.html.twig' %}
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% form_theme form_forgot_user_password_with_login '@ibexadesign/ui/form_fields.html.twig'  %}
+
+{%- block content -%}
+    <h2 class="ibexa-ca-login__actions-headline">
+        {{ 'account.forgot_user_password.with_login.reset_your_password'|trans|desc('Reset your password') }}
+    </h2>
+    <p>
+        {{ 'account.forgot_user_password.with_login.login'|trans|desc(
+            'This email is connected with several accounts. Enter your login instead.') }}
+    </p>
+    {% if form_forgot_user_password_with_login is defined %}
+        {{ form_start(form_forgot_user_password_with_login, {'attr': {'class': 'ibexa-form-validate'}}) }}
+        <fieldset>
+            {{ form_row(form_forgot_user_password_with_login.login) }}
+        </fieldset>
+        {{ form_widget(form_forgot_user_password_with_login.reset, {'attr': {'class': 'btn ibexa-btn ibexa-btn--primary ibexa-ca-login__btn ibexa-ca-login__btn--reset-password'}}) }}
+
+        {{ form_end(form_forgot_user_password_with_login) }}
+    {% endif %}
+    <p class="mt-5">
+        {{ 'account.forgot_user_password.with_login.contact_administrator'|trans|desc(
+            'If you do not remember your login, contact your Administrator.') }}
+    </p>
+{%- endblock content -%}

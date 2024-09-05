@@ -1,0 +1,59 @@
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+<label class="ibexa-label">
+    {{ 'block.schedule.select_content.wrapper.label'|trans|desc('Content items') }}
+</label>
+<div class="ibexa-pb-schedule__content-items-wrapper">
+    <div class="ibexa-pb-schedule__btn-wrapper">
+        <div class="ibexa-pb-schedule__content-items-label">{{ 'block.schedule.select_content.label'|trans|desc('Select Content item(s)') }}</div>
+        <div>
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--info ibexa-btn--select-content"
+                data-udw-config="{{ ibexa_udw_config('multiple', {}) }}"
+            >
+                {{ 'block.schedule.btn.select_content'|trans|desc('Select content') }}
+            </button>
+        </div>
+    </div>
+    <div class="ibexa-pb-schedule__items-wrapper">
+        <div class="ibexa-pb-schedule__content-items-label">{{ 'block.schedule.now_showing'|trans|desc('Now showing') }}</div>
+        <div class="ibexa-pb-schedule__no-active-items-info">
+            <span>{{ 'block.schedule.no_items'|trans|desc('No Content item(s) are displayed in the block') }}</span>
+        </div>
+        <ol
+            class="ibexa-pb-schedule__active-items"
+            data-active-item-template="{{ include('@IbexaPageBuilder/page_builder/block/config/schedule_now_item.html.twig', {
+                'content_name': '{{ content_name }}',
+                'location_id': '{{ location_id }}',
+                'item_id': '{{ item_id }}',
+                'airtime': '{{ airtime }}',
+                'content_type_name': '{{ content_type_name }}',
+                'additional_classes': '{{ additional_classes }}',
+            })|e('html_attr') }}"
+            data-placeholder="{{ include('@IbexaPageBuilder/page_builder/block/config/schedule_placeholder.html.twig', {})|e('html_attr')  }}"
+        >
+        </ol>
+        <div class="ibexa-pb-schedule__content-items-label">{{ 'block.schedule.queue'|trans|desc('Queue') }}</div>
+        <div class="ibexa-pb-schedule__no-queued-items-info">
+            <span>{{ 'block.schedule.no_items_scheduled'|trans|desc('No Content item(s) scheduled to display in the block') }}</span>
+        </div>
+        <ol
+            class="ibexa-pb-schedule__queue-items"
+            data-queue-template="{{ include('@IbexaPageBuilder/page_builder/block/config/schedule_queue_item.html.twig', {
+                'content_name': '{{ content_name }}',
+                'location_id': '{{ location_id }}',
+                'item_id': '{{ item_id }}',
+                'airtime': '{{ airtime }}',
+                'airtime_formatted': '{{ airtime_formatted }}',
+                'additional_classes': '{{ additional_classes }}',
+            })|e('html_attr') }}"
+        >
+        </ol>
+    </div>
+    <div class="ibexa-pb-schedule__loading">
+        <svg class="ibexa-icon ibexa-spin">
+            <use xlink:href="{{ ibexa_icon_path('spinner') }}" />
+        </svg>
+    </div>
+</div>

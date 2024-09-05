@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Personalization\Event\Subscriber\ProductEventSubscriber: ~
+
+    Ibexa\ProductCatalog\Personalization\Event\Subscriber\PersonalizationProductVariantSubscriber: ~

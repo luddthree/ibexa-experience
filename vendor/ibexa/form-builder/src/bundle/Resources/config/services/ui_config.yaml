@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\FormBuilder\ApplicationConfig\FormBuilderConfigProvider:
+        tags:
+            - { name: ibexa.admin_ui.config.provider, key: 'formBuilder.config' }
+

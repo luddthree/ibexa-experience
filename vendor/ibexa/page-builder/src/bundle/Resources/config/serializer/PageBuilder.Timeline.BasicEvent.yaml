@@ -1,0 +1,3 @@
+Ibexa\PageBuilder\PageBuilder\Timeline\BasicEvent:
+    exclusion_policy: all
+    access_type: public_method

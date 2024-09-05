@@ -1,0 +1,33 @@
+services:
+    _instanceof:
+        Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\CriterionMapperInterface:
+            tags:
+                - 'ibexa.product_catalog.rest.product.criterion.mapper'
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\ColorCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\CreatedAtCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\CreatedAtRangeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\FloatAttributeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\FloatAttributeRangeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\IntegerAttributeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\IntegerAttributeRangeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\ProductAvailabilityCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\IsVirtualCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\ProductCategoryCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\ProductCodeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\ProductNameCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\ProductTypeCriterionMapper: ~
+
+    Ibexa\Bundle\ProductCatalog\REST\Value\Criterion\Mapper\SelectionAttributeCriterionMapper: ~

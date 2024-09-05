@@ -1,0 +1,59 @@
+{% trans_default_domain 'ibexa_locationview' %}
+{% form_theme form '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% set subtitleTemplate = 'content.create.tag.editing_details'|trans({ '%content%': '{{ name }}' })|desc('under: %content%') %}
+
+<div
+    class="ibexa-extra-actions ibexa-extra-actions--create ibexa-extra-actions--taxonomy ibexa-extra-actions--hidden
+        {% if form.language.vars.choices|length == 1 %} ibexa-extra-actions--prevent-show {% endif %}"
+    data-actions="create"
+>
+    {{ form_start(form, {
+        action: path('ibexa.taxonomy.entry.create.proxy', { taxonomyName : taxonomy_entry.taxonomy }),
+        attr: { autocomplete: 'off' }
+    }) }}
+        <div class="ibexa-extra-actions__header">
+            <h2>{{ 'content.create.create_content'|trans|desc('Create content') }}</h2>
+            <div class="ibexa-extra-actions__header-subtitle" data-template="{{subtitleTemplate|e('html_attr')}}">
+                {% if content is defined %}
+                    {{ 'content.create.tag.editing_details'|trans({ '%content%': ibexa_content_name(content) })|desc('under: %content%') }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="ibexa-extra-actions__content ibexa-extra-actions__content--create">
+            <label class="ibexa-label ibexa-extra-actions__section-header">{{ 'content.create.select_language'|trans|desc('Select a language:') }}</label>
+            <div class="ibexa-extra-actions__section-content">
+                {% if form.language.vars.choices|length == 1 %}
+                    {{ form_widget(form.language, {
+                        attr: { 
+                            class: 'ez-content-create form-control',
+                            readonly: true
+                        }
+                    }) }}
+                {% else %}
+                    {{ form_widget(form.language, {
+                        attr: { class: 'form-control' }
+                    }) }}
+                {% endif %}
+            </div>
+            {{ form_widget(form.content_type, {
+                attr: { hidden: 'hidden' } })
+            }}
+            {{ form_widget(form.parent_entry, {
+                attr: { hidden: 'hidden' }
+            }) }}
+        </div>
+        <div class="ibexa-extra-actions__confirm-wrapper">
+            {{ form_widget(form.create, {
+                attr : { class: 'ibexa-btn ibexa-btn--primary' }
+            }) }}
+            <button
+                type="button"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-extra-actions__btn ibexa-extra-actions__btn--cancel"
+            >
+                {{ 'content.create.cancel_btn.label'|trans|desc('Discard') }}
+            </button>
+        </div>
+    {{ form_end(form) }}
+</div>
+

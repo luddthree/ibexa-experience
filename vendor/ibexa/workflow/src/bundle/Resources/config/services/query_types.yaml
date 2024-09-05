@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\QueryType\UsersQueryType:
+        tags:
+            - {name: ibexa.query_type}

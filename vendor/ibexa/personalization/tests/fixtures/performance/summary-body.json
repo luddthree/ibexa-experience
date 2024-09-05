@@ -1,0 +1,9 @@
+{
+    "totalRecoCalls": "1000",
+    "currentClickedRecoPercent": "10",
+    "previousClickedRecoPercent": "5",
+    "clickedRecoDelta": "5",
+    "totalImportedItems": "10000",
+    "lastProductFeed": "2020-09-10T00:00:00.000000+0000",
+    "eventsCollected": "2000"
+}

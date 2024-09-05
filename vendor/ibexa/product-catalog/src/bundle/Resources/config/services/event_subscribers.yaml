@@ -1,0 +1,97 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\:
+        resource: './../../EventSubscriber'
+        exclude:
+            - './../../EventSubscriber/PageBuilder'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalProductListViewSubscriber:
+        arguments:
+            $productTaxonomyName: 'product_categories'
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalProductTypeListViewSubscriber:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalCustomerGroupListViewSubscriber:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalAttributeDefinitionListViewSubscriber:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalAttributeDefinitionViewSubscriber:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalAttributeGroupListViewSubscriber:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\LocalAttributeGroupViewSubscriber:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\CurrencyListViewSubscriber:
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\DeleteProductSubscriber:
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\CurrencyResolverSubscriber:
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\MainMenuSubscriber:
+        arguments:
+            $productTaxonomyName: 'product_categories'
+            $commerceSiteConfig: '@?Ibexa\Bundle\Commerce\Eshop\DependencyInjection\Configuration\CommerceSiteConfig'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\RegionResolverSubscriber:
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\PriceSearchEventSubscriber:
+        arguments:
+            $searchHandler: '@ibexa.spi.search'
+            $persistenceHandler: '@ibexa.api.persistence_handler'
+        tags:
+            - { name: kernel.event.subscriber }
+
+    Ibexa\Bundle\ProductCatalog\EventSubscriber\ProductFieldGroupsViewSubscriber:
+        arguments:
+            $configProvider: '@Ibexa\ProductCatalog\Config\ConfigProviderInterface'
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+            $fieldsProvider: '@Ibexa\Contracts\ContentForms\Content\Form\Provider\GroupedContentFormFieldsProviderInterface'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    Ibexa\ProductCatalog\Event\NameSchemaSubscriber:
+        tags:
+            - { name: kernel.event_subscriber }

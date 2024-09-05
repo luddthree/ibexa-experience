@@ -1,0 +1,33 @@
+ibexa.version.compare.split:
+    path: /version/compare-split/{contentInfoId}/{versionNoA}/{versionALanguageCode}/{versionNoB}/{versionBLanguageCode}
+    options:
+        expose: true
+    defaults:
+        _controller: 'Ibexa\Bundle\VersionComparison\Controller\VersionComparisonController::splitAction'
+        versionNoB: null
+        versionBLanguageCode: null
+
+ibexa.version.compare.unified:
+    path: /version/comparison-unified/{contentInfoId}/{versionNoA}/{versionALanguageCode}/{versionNoB}/{versionBLanguageCode}
+    options:
+        expose: true
+    defaults:
+        _controller: 'Ibexa\Bundle\VersionComparison\Controller\VersionComparisonController::unifiedAction'
+        versionNoB: null
+        versionBLanguageCode: null
+
+ibexa.version.side_by_side_comparison:
+    path: /version/side-by-side-comparison/{contentInfoId}/{versionNoA}/{versionNoB}
+    options:
+        expose: true
+    defaults:
+        _controller: 'Ibexa\Bundle\VersionComparison\Controller\VersionComparisonController::sideBySideCompareAction'
+        versionNoB: null
+
+ibexa.version.compare:
+    path: /version/comparison/{contentInfoId}/{versionNoA}/{versionNoB}
+    options:
+        expose: true
+    defaults:
+        _controller: 'Ibexa\Bundle\VersionComparison\Controller\VersionComparisonController::compareAction'
+        versionNoB: null

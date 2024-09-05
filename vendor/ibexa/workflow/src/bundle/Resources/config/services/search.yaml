@@ -1,0 +1,45 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\Search\Criterion\Handler\ContentIsOnInitialStage:
+        lazy: true
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $workflowDefinitionMetadataRegistry: '@Ibexa\Contracts\Workflow\Registry\WorkflowDefinitionMetadataRegistryInterface'
+        tags:
+            - { name: ibexa.workflow.criterion.handler }
+
+    Ibexa\Workflow\Search\Criterion\Handler\ContentIsOnLastStage:
+        lazy: true
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+            $workflowDefinitionMetadataRegistry: '@Ibexa\Contracts\Workflow\Registry\WorkflowDefinitionMetadataRegistryInterface'
+        tags:
+            - { name: ibexa.workflow.criterion.handler }
+
+    Ibexa\Workflow\Search\Criterion\Handler\ContentIsOnSpecificStage:
+        lazy: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriterionHandler
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - { name: ibexa.workflow.criterion.handler }
+
+    Ibexa\Workflow\Search\Criterion\Handler\OriginatedByUserId:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - { name: ibexa.workflow.criterion.handler }
+
+    Ibexa\Workflow\Search\Criterion\Handler\ContentIsInTrash:
+        arguments:
+            $connection: '@ibexa.persistence.connection'
+        tags:
+            - { name: ibexa.workflow.criterion.handler }
+
+    ibexa.workflow.search.criteria_converter:
+        class: Ibexa\Core\Search\Legacy\Content\Common\Gateway\CriteriaConverter
+
+

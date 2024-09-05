@@ -1,0 +1,7 @@
+{% block block_configuration_attribute_qualifio_channel_list_widget %}
+    {% set list_item_template_path = '@ibexadesign/qualifio/dropdown/dropdown_item.html.twig' %}
+    {% set dropdown_class = 'ibexa-dropdown--qualifio' %}
+    {% set items_class = 'ibexa-dropdown__items--qualifio' %}
+
+    {{ form_widget(form, { list_item_template_path, attr: { dropdown_class }, items_class }) }}
+{% endblock %}

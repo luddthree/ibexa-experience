@@ -1,0 +1,60 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Event\Subscriber\ContentEventsSubscriber:
+        arguments:
+            $entityManager: '@ibexa.doctrine.orm.entity_manager'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ConfigureMainMenuSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ContentFormEventsSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ContentViewTabSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ConfigureContentRightSidebarMenuSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ContentEditCustomValidationSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ContentTypeEventsSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ValidateTaxonomyEntryAssignmentSubscriber:
+        arguments:
+            $taxonomyEntryAssignmentFieldType: '@Ibexa\Taxonomy\FieldType\TaxonomyEntryAssignment\Type'
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\SynchronizeEntryWithContentSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\UniversalDiscovery\Event\Subscriber\ContentCreateSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\ContentCreateContentTypeChoiceLoaderSubscriber:
+        tags:
+            - kernel.event_subscriber
+
+    Ibexa\Taxonomy\Event\Subscriber\RemoveTaxonomyEntrySubscriber:
+        arguments:
+            $searchHandler: '@ibexa.spi.search'
+            $persistenceHandler: '@ibexa.api.persistence_handler'
+        tags:
+            - kernel.event_subscriber

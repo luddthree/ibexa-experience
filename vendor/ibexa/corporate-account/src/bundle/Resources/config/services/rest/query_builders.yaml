@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\REST\QueryBuilder\FromGetQueryContentQueryBuilder: ~
+
+    Ibexa\CorporateAccount\REST\QueryBuilder\ContentQueryBuilderInterface:
+        alias: Ibexa\CorporateAccount\REST\QueryBuilder\FromGetQueryContentQueryBuilder

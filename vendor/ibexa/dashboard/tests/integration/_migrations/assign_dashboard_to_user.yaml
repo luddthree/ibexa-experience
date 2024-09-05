@@ -1,0 +1,45 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: dashboard_landing_page
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2024-01-10T08:02:23+00:00'
+        publicationDate: '2024-01-05T12:08:49+00:00'
+        remoteId: caf3f869e8cf7ca19d6330a17fed9614
+        alwaysAvailable: true
+        section:
+            id: 11
+            identifier: dashboard
+    location:
+        parentLocationRemoteId: predefined_dashboards
+        locationRemoteId: 74a7566bf8f60d4cd167aad32d8cc9ba
+        hidden: false
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Default dashboard'
+        -
+            fieldDefIdentifier: dashboard
+            languageCode: eng-GB
+            value:
+                layout: dashboard_three_rows_two_columns
+                zones:
+                    - { id: '4748', name: top, blocks: [{ visible: true, id: '8828', type: quick_actions, name: 'Quick actions', view: default, class: null, style: null, compiled: '', since: null, till: null, attributes: [{ id: '6739', name: actions, value: 'create_content,create_form' }] }] }
+                    - { id: '4749', name: middle-left, blocks: [] }
+                    - { id: '4750', name: middle-right, blocks: [] }
+                    - { id: '4751', name: bottom, blocks: [] }
+    references:
+        -
+            name: 'ref__content__dashboard_landing_page__default dashboard'
+            type: content_id
+        -
+            name: 'ref_location__dashboard_landing_page__default dashboard'
+            type: location_id
+        -
+            name: 'ref_path__dashboard_landing_page__default dashboard'
+            type: path
+    actions:
+        - { action: assign_dashboard_to_user, value: admin }

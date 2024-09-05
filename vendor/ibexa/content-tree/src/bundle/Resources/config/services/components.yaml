@@ -1,0 +1,65 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ContentTree\Component\FormComponent:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        abstract: true
+
+    Ibexa\ContentTree\Component\ContentCreateForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/content_create.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\ContentEditForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/content_edit.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\LocationMoveForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/location_move.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\LocationCopyForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/location_copy.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\LocationCopySubtreeForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/location_copy_subtree.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\LocationTrashForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/location_trash.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\ContentVisibilityForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/content_visibility.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }
+
+    Ibexa\ContentTree\Component\ContentTranslationForm:
+        parent: Ibexa\ContentTree\Component\FormComponent
+        arguments:
+            $template: '@@ibexadesign/content-tree/component/content_translation.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-tree-after' }

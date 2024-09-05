@@ -1,0 +1,86 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "RegionView": {
+            "type": "object",
+            "properties": {
+                "_media-type": {
+                    "type": "string"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "RegionQuery": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "_media-type"
+                    ]
+                },
+                "Result": {
+                    "type": "object",
+                    "properties": {
+                        "_media-type": {
+                            "type": "string"
+                        },
+                        "count": {
+                            "type": "integer"
+                        },
+                        "RegionList": {
+                            "type": "object",
+                            "properties": {
+                                "_media-type": {
+                                    "type": "string"
+                                },
+                                "Region": {
+                                    "type": "array",
+                                    "items": [
+                                        {
+                                            "type": "object",
+                                            "properties": {
+                                                "_media-type": {
+                                                    "type": "string"
+                                                },
+                                                "identifier": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "_media-type",
+                                                "identifier"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "_media-type",
+                                "Region"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "_media-type",
+                        "count",
+                        "RegionList"
+                    ]
+                }
+            },
+            "required": [
+                "_media-type",
+                "identifier",
+                "RegionQuery",
+                "Result"
+            ]
+        }
+    },
+    "required": [
+        "RegionView"
+    ]
+}
+

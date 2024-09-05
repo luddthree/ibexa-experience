@@ -1,0 +1,90 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+{% import "@ibexadesign/product_catalog/price_macros.html.twig" as price_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set head_cols = [] %}
+{% set body_rows = [] %}
+
+{% if can_edit %}
+    {% set head_cols = [
+        { has_checkbox: true },
+        { content: 'customer_group.list.column.name'|trans|desc('Name') },
+        { content: 'customer_group.list.column.identifier'|trans|desc('Identifier') },
+        { content: 'customer_group.list.column.description'|trans|desc('Description') },
+        { content: 'customer_group.list.column.global_price_rate'|trans|desc('Global price rate') },
+        { },
+    ] %}
+
+    {% for customer_group in customer_groups %}
+        {% set view_url = path('ibexa.product_catalog.customer_group.view', {
+            customerGroupId: customer_group.id,
+        }) %}
+        {% set edit_url = path('ibexa.product_catalog.customer_group.update', {
+            customerGroupId: customer_group.id,
+        }) %}
+        {% set checkbox_name = bulk_delete_form.customer_groups.vars.full_name ~ "[]" %}
+
+        {% set body_rows = body_rows|merge([{ cols: [
+            {
+                has_checkbox: true,
+                content: data_grid_macros.cell_checkbox(checkbox_name, customer_group.id)
+            },
+            { content: data_grid_macros.cell_name(customer_group.name, view_url) },
+            { content: customer_group.identifier },
+            { content: customer_group.description },
+            { content: price_macros.format_rate(customer_group.getGlobalPriceRate()) },
+            { has_action_btns: true, content: data_grid_macros.cell_edit(edit_url) }
+        ]}]) %}
+    {% endfor %}
+{% else %}
+    {% set head_cols = [
+        { content: 'customer_group.list.column.name'|trans|desc('Name') },
+        { content: 'customer_group.list.column.identifier'|trans|desc('Identifier') },
+        { content: 'customer_group.list.column.description'|trans|desc('Description') },
+        { content: 'customer_group.list.column.global_price_rate'|trans|desc('Global price rate') },
+    ] %}
+
+    {% for customer_group in customer_groups %}
+        {% set view_url = path('ibexa.product_catalog.customer_group.view', {
+            customerGroupId: customer_group.id,
+        }) %}
+
+        {% set body_rows = body_rows|merge([{ cols: [
+            { content: data_grid_macros.cell_name(customer_group.name, view_url) },
+            { content: customer_group.identifier },
+            { content: customer_group.description },
+            { content: price_macros.format_rate(customer_group.getGlobalPriceRate()) },
+        ]}]) %}
+    {% endfor %}
+{% endif %}
+
+{% set actions %}
+    {% if can_edit %}
+        {% set delete_modal_id = 'customer-group-delete-modal' %}
+        {% set delete_modal_message = 'modal.bulk_delete.customer_group.confirm_message'|trans|desc(
+            'Delete the selected customer groups permanently?'
+        ) %}
+
+        {{ data_grid_macros.header_delete_action(delete_modal_id, delete_modal_message) }}
+    {% endif %}
+{% endset %}
+
+{% if has_filters|default(false) %}
+    {% set empty_table_info_text = 'customer_group.no_search_results.info_text'|trans|desc('Sorry, there are no customer groups for your search') %}
+    {% set empty_table_action_text = 'customer_group.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+{% else %}
+    {% set empty_table_info_text = 'customer_group.no_customer_groups.info_text'|trans|desc('Add your first customer group') %}
+    {% set empty_table_action_text = 'customer_group.no_customer_groups.action_text'|trans|desc('With customer groups you can classify your customers, set custom prices and add companies.') %}
+{% endif %}
+
+{{ form_start(bulk_delete_form) }}
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline,
+        actions,
+        empty_table_info_text,
+        empty_table_action_text,
+        head_cols,
+        body_rows,
+    } %}
+{{ form_end(bulk_delete_form) }}

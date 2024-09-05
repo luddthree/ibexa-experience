@@ -1,0 +1,10 @@
+{%- block main -%}
+    {%- block activity_log_description_row -%}
+        <span class="ibexa-al-block__action">
+            {%- block activity_log_action -%}
+                {{ log.getAction() }}
+            {%- endblock -%}
+        </span>
+        {%- block activity_log_description_widget -%}{%- endblock activity_log_description_widget -%}
+    {%- endblock activity_log_description_row -%}
+{%- endblock main -%}

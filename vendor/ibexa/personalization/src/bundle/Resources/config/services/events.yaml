@@ -1,0 +1,43 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Event\Listener\ConfigurePersonalizationMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: ezplatform_admin_ui.menu_configure.main_menu, method: renderMenu, priority: -45 }
+
+    Ibexa\Personalization\Event\Listener\ModifyModelEditRightSidebarMenuListener:
+        tags:
+            -    name: kernel.event_listener
+                 event: ibexa_personalization.menu_configure.model_edit_sidebar_right
+                 method: renderMenu
+                 priority: -100
+
+    # Custom Exception handler, redirects to Installation Key update page
+    Ibexa\Personalization\Event\Listener\InvalidInstallationKeyListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onInvalidInstallationKey, priority: 255 }
+
+    Ibexa\Personalization\Event\Listener\LoginListener:
+        arguments:
+            $siteAccessService: '@Ibexa\Core\MVC\Symfony\SiteAccess\SiteAccessService'
+            $trackingEndpointUrl: '%ibexa.personalization.server.event_tracking.endpoint%'
+        tags:
+            - { name: kernel.event_listener, event: security.interactive_login, priority: 255 }
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    Ibexa\Personalization\Event\Subscriber\LocationEventSubscriber: ~
+
+    Ibexa\Personalization\Event\Subscriber\ContentEventSubscriber: ~
+
+    Ibexa\Personalization\Event\Subscriber\ObjectStateEventSubscriber: ~
+
+    Ibexa\Personalization\Event\Subscriber\RecommendationEventSubscriber: ~
+
+    Ibexa\Personalization\Event\Subscriber\TrashEventSubscriber: ~
+
+    Ibexa\Personalization\Event\Subscriber\UserAPIRequestDefaultSourceEventSubscriber: ~
+
+    Ibexa\Personalization\Event\Subscriber\UserCollectionGeneratorEventSubscriber: ~

@@ -1,0 +1,126 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block main_container_class %}ibexa-main-container--perso-welcome{% endblock %}
+
+{% block content_column %}
+    {% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+        class: 'ibexa-modal--terms-and-condition',
+        size: 'extra-large',
+        no_header: true,
+        id: 'terms-and-conditions-modal',
+    } %}
+        {% trans_default_domain 'ibexa_personalization' %}
+
+        {% block content %}
+            <div class="modal-content ibexa-modal__content-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4 ibexa-modal__left-sidebar">
+                            <div class="ibexa-modal__close-btn-wrapper">
+                                <button type="button" class="btn ibexa-btn ibexa-btn--ghost close" data-bs-dismiss="modal" aria-label="Close">
+                                    <svg class="ibexa-icon ibexa-icon--small">
+                                        <use xlink:href="{{ ibexa_icon_path('discard') }}"></use>
+                                    </svg>
+                                    <span class="ibexa-btn__label">
+                                        {{ 'welcome.terms.back'|trans|desc('Back') }}
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="ibexa-modal__table-of-contents">
+                                <span class="ibexa-modal__table-of-contents-title">
+                                    {{ "welcome.terms.table_of_contents"|trans|desc("Table of contents") }}
+                                </span>
+                                <ul class="list-unstyled ibexa-modal__table-of-contents-list">
+                                    {% for category in termsAndConditions.items %}
+                                        <li
+                                            class="ibexa-modal__table-of-contents-list-item
+                                                {% if loop.first %}ibexa-modal__table-of-contents-list-item--active{% endif %}"
+                                        >
+                                            <a
+                                                href="#"
+                                                class="ibexa-modal__table-of-contents-list-link"
+                                                data-scroll-to={{ category.title|replace({ ' ': '_' })|lower }}
+                                            >
+                                                {{ category.title|capitalize }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-8 ibexa-modal__content">
+                            <h1 class="ibexa-modal__content-title">
+                                {{ "welcome.terms.terms_and_conditions"|trans|desc("Terms and conditions") }}
+                            </h1>
+                            <div class="ibexa-modal__content-terms">
+                                {{ termsAndConditions.header|raw }}
+                                {% for index, category in termsAndConditions.items %}
+                                    <h5 class="ibexa-modal__content-terms-section-title" id="{{ category.title|replace({' ': '_'})|lower }}">{{ index + 1 }}. {{ category.title }}</h5>
+                                    {% for subindex, subcategory in category.items %}
+                                        <h6 class="ibexa-modal__content-terms-subsection-title">
+                                            {{ index + 1 }}.{{ subindex + 1 }}
+                                            {% if subcategory.title is defined %}
+                                                {{ subcategory.title }}
+                                            {% endif %}
+                                        </h6>
+                                        <div class="ibexa-modal__content-terms-description">{{ subcategory.text|raw }}</div>
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="ibexa-modal__content-actions">
+                                <button
+                                    class="btn ibexa-btn ibexa-btn--primary ibexa-modal__accept-terms-and-conditions-button"
+                                    data-bs-dismiss="modal"
+                                >
+                                    {{ "welcome.terms.accept"|trans|desc("Accept") }}
+                                </button>
+                                <button
+                                    class="btn ibexa-btn ibexa-btn--secondary ibexa-modal__cancel-btn"
+                                    data-bs-dismiss="modal"
+                                >
+                                    {{ "welcome.terms.cancel"|trans|desc("Cancel") }}
+                                </button>
+                                <a
+                                    target="_blank"
+                                    class="btn ibexa-btn ibexa-btn--ghost ibexa-modal__download-btn"
+                                    href="http://www.ibexa.co/media/files/license-information-etc/ibexa-enterprise-subscription-terms-and-conditions-appendix-a-ibexa-personalization"
+                                >
+                                    <svg class="ibexa-icon ibexa-icon--small">
+                                        <use xlink:href="{{ ibexa_icon_path('download') }}"></use>
+                                    </svg>
+                                    <span class="ibexa-btn__label">
+                                        {{ "welcome.terms.download_pdf"|trans|desc("Download PDF") }}
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    {% endembed %}
+
+    <div class="ibexa-perso-welcome">
+        <div class="ibexa-perso-welcome__container">
+            {% include '@ibexadesign/personalization/carousel.html.twig' %}
+            <div class="ibexa-perso-welcome__actions">
+                <div class="ibexa-perso-welcome__column">
+                    {% block details %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-welcome-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}

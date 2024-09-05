@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\SiteContext\Controller\:
+        resource: './../../Controller'
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\SiteContext\EventSubscriber\:
+        resource: './../../EventSubscriber'
+        tags:
+            - kernel.event.subscriber

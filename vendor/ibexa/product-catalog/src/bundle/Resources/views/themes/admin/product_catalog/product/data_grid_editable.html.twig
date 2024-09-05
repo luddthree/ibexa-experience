@@ -1,0 +1,103 @@
+{% import "@ibexadesign/product_catalog/data_grid_macros.html.twig" as data_grid_macros %}
+{% import "@ibexadesign/product_catalog/product_macros.html.twig" as product_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+{% set products_count = products|length %}
+{% set can_delete_products = ibexa_permission_delete_product() %}
+
+{{ form_start(bulk_delete_form) }}
+    {% for product in products %}
+        {% set is_product_available = product.hasAvailability() and product.availability.isAvailable() %}
+        {% set edit_url = path('ibexa.product_catalog.product.edit', { productCode: product.code }) %}
+        {% set view_url = path('ibexa.product_catalog.product.view', { productCode: product.code }) %}
+        {% set checkbox_value = product.code %}
+        {% set checkbox_name = bulk_delete_form.products.vars.full_name ~ "[]" %}
+        {% set availability %}
+            {{ product_macros.availability_badge(is_product_available) }}
+        {% endset %}
+        {% set stock %}
+            {% if product.hasAvailability() %}
+                {{ product.availability.isInfinite()
+                    ? 'product.list.unlimited'|trans|desc('Unlimited')
+                    : product.availability.stock
+                }}
+            {% endif %}
+        {% endset %}
+        {% set variantsCount = product.variantsList.totalCount %}
+        {% set variantsColText = variantsCount > 0
+            ? 'product.is_variant.yes'|trans|desc('Yes') ~ ' (' ~ variantsCount ~ ')'
+            : 'product.is_variant.no'|trans|desc('No')
+        %}
+        {% set body_rows = body_rows|merge([{ cols: [
+            {
+                has_checkbox: true,
+                content: data_grid_macros.cell_checkbox(checkbox_name, checkbox_value)
+            },
+            { content: data_grid_macros.cell_name(product.name, view_url) },
+            { content: data_grid_macros.cell_image(product, ['ibexa-pc-data-grid__image-wrapper--product']) },
+            { content: product.code },
+            { content: product.productType.name },
+            { content: product.createdAt | ibexa_full_datetime },
+            { content: variantsColText },
+            { content: availability },
+            { content: stock },
+            { has_action_btns: true, content: ibexa_permission_delete_product(product) ? data_grid_macros.cell_edit(edit_url) : '' }
+        ]}]) %}
+    {% endfor %}
+
+    {% if no_product_types %}
+        {% set empty_table_info_text = 'product.no_product_types.info_text'|trans|desc('Add your first product') %}
+        {% set empty_table_action_text = 'product.no_product_types.action_text'|trans|desc('To create products, you need to have at least one product type.') %}
+
+        {% set empty_table_extra_actions %}
+            {% include '@ibexadesign/ui/component/table/empty_table_extra_actions.html.twig' with {
+                url: path('ibexa.product_catalog.product_type.list'),
+                label: 'product.no_product_types.link_label'|trans|desc('Go to product types')
+            } %}
+        {% endset %}
+    {% elseif no_products %}
+        {% set empty_table_info_text = 'product.no_products.info_text'|trans|desc('Add your first product') %}
+        {% set empty_table_action_text = 'product.no_products.action_text'|trans|desc('Content items which you or your User group can review will show up here.') %}
+    {% else %}
+        {% set empty_table_info_text = 'product.no_search_results.info_text'|trans|desc('Sorry, there are no products for your search') %}
+        {% set empty_table_action_text = 'product.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+    {% endif %}
+
+    {% set actions %}
+        {% if can_delete_products %}
+            {% set delete_modal_id = 'product-delete-modal' %}
+            {% set delete_modal_message = 'modal.bulk_delete.products.confirm_message'|trans|desc(
+                'Delete the selected products permanently?'
+            ) %}
+
+            {{ data_grid_macros.header_delete_action(delete_modal_id, delete_modal_message) }}
+        {% endif %}
+
+        {% if search_form.sortClause is defined %}
+            {% include '@ibexadesign/product_catalog/product/data_grid_sort_order_dropdown.html.twig' %}
+        {% endif %}
+    {% endset %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline,
+        head_cols: [
+            { has_checkbox: true },
+            { content: 'product.list.column.name'|trans|desc('Name') },
+            { content: 'product.list.column.thumbnail'|trans|desc('Image') },
+            { content: 'product.list.column.code'|trans|desc('Code') },
+            { content: 'product.list.column.type'|trans|desc('Type') },
+            { content: 'product.list.column.created'|trans|desc('Created') },
+            { content: 'product.list.column.variant'|trans|desc('Variant') },
+            { content: 'product.list.column.available'|trans|desc('Availability') },
+            { content: 'product.list.column.stock'|trans|desc('Stock') },
+            { },
+        ],
+        actions,
+        body_rows,
+        empty_table_info_text,
+        empty_table_action_text,
+        empty_table_extra_actions: empty_table_extra_actions|default('')
+    } %}
+{{ form_end(bulk_delete_form) }}

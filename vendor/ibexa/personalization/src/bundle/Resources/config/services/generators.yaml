@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Personalization\Generator\ItemList\ItemListOutputGenerator: ~
+
+    Ibexa\Personalization\Generator\ItemList\ItemListOutputGeneratorInterface:
+        '@Ibexa\Personalization\Generator\ItemList\ItemListOutputGenerator'
+
+    Ibexa\Personalization\Generator\File\ExportFileGenerator:
+        arguments:
+            $outputGenerator: '@Ibexa\Rest\Output\Generator\Json'
+        tags:
+            - { name: monolog.logger, channel: ibexa.personalization }
+
+    Ibexa\Personalization\Generator\File\ExportFileGeneratorInterface:
+        '@Ibexa\Personalization\Generator\File\ExportFileGenerator'

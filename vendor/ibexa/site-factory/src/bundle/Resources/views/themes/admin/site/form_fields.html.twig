@@ -1,0 +1,222 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% trans_default_domain "ibexa_site_factory" %}
+
+{% block form_errors %}
+    <div class="ibexa-form-error">
+        <em class="ibexa-field-edit__error ibexa-form-error__row ibexa-field-edit__error--hidden"></em>
+    </div>
+{% endblock %}
+
+{% block text_row %}
+    <div class='ibexa-sf-edit-widget ibexa-sf-edit-widget--name'>
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{% block design_choice_row %}
+    {% set attr = attr|merge({ 
+        'hidden': true,
+        'class': 'form-control'
+    }) %}
+
+    {% if data == null %}
+        {% if choices|length %}
+            {% set selectedId = choices[0].value %}
+        {% endif %}
+    {% else %}
+        {% set selectedId = data.identifier %}
+    {% endif %}
+
+    <div class='ibexa-sf-edit-widget ibexa-sf-edit-widget--design'>
+        {{ form_label(form) }}
+
+        <div class="ibexa-sf-design-layouts">
+            {{ block('choice_widget',  'bootstrap_5_layout.html.twig') }}
+            {% for choice in choices %}
+                <div 
+                    class="ibexa-sf-design-layouts__item {{ selectedId == choice.value ? 'ibexa-sf-design-layouts__item--selected' }}"
+                    data-id="{{ choice.value }}"
+                    data-site-skeleton="{{ choice.attr['data-site-skeleton'] }}"
+                    data-parent-location-id="{{ choice.attr['data-parent-location'] }}"
+                >
+                    <img class="ibexa-sf-design-layouts__item-image" src="{{ choice.attr['data-thumbnail'] }}">
+                    <p class="ibexa-sf-design-layouts__item-desc">{{ choice.label }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{% block publicAccess_entry_row %}
+    {% set default_header_label =  'site.view.new_domain'|trans|desc('New domain') %}
+
+    {%- embed "@ibexadesign/ui/component/collapse.html.twig" with {
+        'is_expanded': true,
+        'class': 'ibexa-sf-public-access__list-item ibexa-collapse--heavy',
+        'body_id': form.vars.id ~ '_collapse',
+        'header_label': form.matcherConfiguration.vars.value.host|default(default_header_label)
+    } -%}
+        {% block header_content %}
+            <input type="checkbox" class="ibexa-input ibexa-input--checkbox ibexa-sf-sections__public-access-checkbox" />
+            {{ parent() }}
+        {% endblock %}
+        {% block body_content %}
+            {% trans_default_domain "ibexa_site_factory" %}
+            {{ form_row(form.matcherConfiguration.host, { 
+                'label': 'site.view.create.access.label'|trans|desc('Domain name'),
+                'attr': {
+                    'class': 'ibexa-input--domain-name'
+                } }) 
+            }}
+            {{ form_row(form.matcherConfiguration.path) }}
+            
+            {% if form.status is defined %}
+                {{ form_row(form.status) }}
+            {% endif %}
+
+            {{ form_row(form.config.languages) }}
+        {% endblock %}
+    {%- endembed -%}
+{% endblock %}
+
+{% block publicAccesses_entry_config_languages_row %}
+    {% set languages = value != '' ? value|split(', ') : [] %}
+
+    <div class="ibexa-sf-edit-widget ibexa-sf-edit-widget--public-access-languages">
+        {{ form_label(form) }}
+
+        {% set attr = attr|merge({ 
+            'hidden': true, 
+            'class': 'ibexa-sf-form-languages__input' 
+        }) %}
+
+        <div class="ibexa-sf-form-languages">
+            {{ block('form_widget') }}
+            <div class="ibexa-sf-form-languages__info">{{ 'site.view.edit.choose_language'|trans|desc('Choose language') }}</div>
+            <ol 
+                class="ibexa-sf-form-languages__items"
+                data-template="{{ include('@ibexadesign/site/form_language_row.html.twig', {
+                    'language_code': '__language_code__',
+                    'language_name': '__language_name__'
+                })|e('html_attr') }}"
+                data-placeholder="{{ include('@ibexadesign/site/form_language_placeholder.html.twig')|e('html_attr') }}"
+            >
+                {% for language_code in languages %}
+                    {% include '@ibexadesign/site/form_language_row.html.twig' with {
+                        'language_code': language_code,
+                        'language_name': ibexa_admin_ui_config.languages.mappings[language_code].name
+                    } %}
+                {% endfor %}
+            </ol>
+            {% include '@ibexadesign/site/language_selector.html.twig' with {
+                'selected_languages': languages
+            } %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block publicAccesses_entry_status_row %}
+    <div class="ibexa-sf-form-status">
+        {{ form_label(form) }}
+        <div class="ibexa-sf-form-status__widget">
+            {% with { 'checked': value == 1 } %}
+                {{ block('toggle_widget') }}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _site_create_parentLocationId_row %}
+    <div class='ibexa-sf-edit-widget ibexa-sf-edit-widget--parent-location'>
+        {{ form_label(form) }}
+        <div class="ibexa-sf-parent-location">
+            {% set item_breadcrumb = ibexa_path_to_locations(path_string)|map((location) => ibexa_content_name(location.content))|join(' / ') %}
+            {% set items = [{ id: form.vars.value, name: item_breadcrumb }] %}
+
+            {{ include('@ibexadesign/ui/component/tag_view_select/tag_view_select.html.twig', {
+                form,
+                items,
+                attr: {
+                    'id': 'parent-location-select-content',
+                    'class': 'ibexa-sf-parent-location__btn-select-path',
+                    'data-input-selector': '#' ~ form.vars.id,
+                    'data-udw-config': ibexa_udw_config('single_container', {}),
+                    'disabled': not can_select_parent_location,
+                    'hidden': not can_select_parent_location
+                },
+                is_single_select: true,
+                can_be_empty: not form.vars.required,
+            }) }}
+        </div>
+        {{ form_errors(form) }}
+    </div>
+{% endblock %}
+
+{% block _site_create_copySiteSkeleton_row %}
+    {% set attr = attr|merge({ 
+        'hidden': true, 
+        'checked': value == 1 
+    }) %}
+    {% set hideSiteSkeletonClass = form.parent.design.vars.choices.0.data.siteSkeletonLocation is null
+        ? 'ibexa-sf-form-site-skeleton--is-hidden'
+        : ''
+    %}
+
+    <div class="ibexa-sf-form-site-skeleton {{ hideSiteSkeletonClass }}">
+        {{ form_label(form) }}
+        <div class="ibexa-sf-form-site-skeleton__widget">
+            {% with { 'checked': value == 1 } %}
+                {{ block('toggle_widget') }}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block _site_create_publicAccesses_entry_row %}
+    {{ block('publicAccess_entry_row') }}
+{% endblock %}
+
+{% block _site_create_publicAccesses_entry_config_languages_row %}
+    {{ block('publicAccesses_entry_config_languages_row') }}
+{% endblock %}
+
+{% block _site_create_publicAccesses_entry_status_row %}
+    {{ block('publicAccesses_entry_status_row') }}
+{% endblock %}
+
+{% block _site_update_parentLocationId_row %}
+    <div class='ibexa-sf-edit-widget ibexa-sf-edit-widget--parent-location ibexa-sf-edit-widget--information-only'>
+        {{ form_label(form) }}
+        <div class="ibexa-tag-view-select">
+            {% set item_breadcrumb = ibexa_path_to_locations(path_string)|map((location) => ibexa_content_name(location.content))|join(' / ') %}
+            {% set items = [{ id: form.vars.value, name: item_breadcrumb }] %}
+
+            <div class="ibexa-tag-view-select__selected-list">
+                {% for item in items %}
+                    {{ include('@ibexadesign/ui/component/tag_view_select/tag_view_select_selected_item_tag.html.twig', {
+                        id: item.id,
+                        name: item.name,
+                        is_deletable: false,
+                        is_disabled: true
+                    }) }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _site_update_publicAccesses_entry_row %}
+    {{ block('publicAccess_entry_row') }}
+{% endblock %}
+
+{% block _site_update_publicAccesses_entry_config_languages_row %}
+    {{ block('publicAccesses_entry_config_languages_row') }}
+{% endblock %}
+
+{% block _site_update_publicAccesses_entry_status_row %}
+    {{ block('publicAccesses_entry_status_row') }}
+{% endblock %}

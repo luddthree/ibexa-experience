@@ -1,0 +1,128 @@
+ibexa.corporate_account.customer_portal.customer_center:
+    path:  /customer-portal/customer-center
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\CustomerCenterController::showAction'
+
+ibexa.corporate_account.customer_portal.pending_orders:
+    path: /customer-portal/pending-orders
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\OrdersController::showPendingOrdersAction'
+
+ibexa.corporate_account.customer_portal.past_orders:
+    path: /customer-portal/past-orders
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\OrdersController::showPastOrdersAction'
+
+ibexa.corporate_account.customer_portal.contact:
+    path: /customer-portal/contact
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ContactController::showAction'
+
+ibexa.corporate_account.customer_portal.edit_billing_address:
+    path: /customer-portal/edit/billing_address
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\BillingAddressController::editAction'
+
+ibexa.corporate_account.customer_portal.members:
+    path: /customer-portal/members
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController::showAction'
+
+ibexa.corporate_account.customer_portal.create_member:
+    path: /customer-portal/members/add
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController::createAction'
+
+ibexa.corporate_account.customer_portal.edit_member:
+    path: /customer-portal/members/edit/{memberId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController::editAction'
+
+ibexa.corporate_account.customer_portal.activate_member:
+    path: /customer-portal/members/activate/{memberId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController::activateAction'
+
+ibexa.corporate_account.customer_portal.deactivate_member:
+    path: /customer-portal/members/deactivate_member/{memberId}
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController::deactivateAction'
+
+ibexa.corporate_account.customer_portal.change_corporate_role:
+    path: /customer-portal/members/change_role
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MembersController::changeRoleAction'
+
+ibexa.corporate_account.customer_portal.address_book:
+    path: /customer-portal/address-book
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\AddressBookController::showAction'
+
+ibexa.corporate_account.customer_portal.my_profile:
+    path: /customer-portal/my-profile
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MyProfileController::showAction'
+
+ibexa.corporate_account.customer_portal.my_profile.edit:
+    path: /customer-portal/my-profile/edit
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\MyProfileController::editAction'
+
+ibexa.corporate_account.customer_portal.update_default_shipping_address:
+    path: /customer-portal/set-as-default-shipping-address
+    methods: ['POST']
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ShippingAddressController::setAsDefaultAction'
+
+ibexa.corporate_account.customer_portal.address_book_items.delete:
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ShippingAddressController::deleteAction'
+    path: /customer-portal/delete-shipping-address
+    methods: [POST]
+
+ibexa.corporate_account.customer_portal.edit_address:
+    path: /customer-portal/address/{shippingAddressId}/edit
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ShippingAddressController::editAction'
+    requirements:
+        addressId: \d+
+
+ibexa.corporate_account.customer_portal.create_address:
+    path: /customer-portal/address/create
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ShippingAddressController::createAction'
+
+ibexa.corporate_account.customer_portal.company.invite:
+    path: /customer-portal/invite
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\InvitationController::sendInvitationsAction'
+
+ibexa.corporate_account.customer_portal.company.reinvite:
+    path: /customer-portal/reinvite
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\InvitationController::reinviteAction'
+
+ibexa.corporate_account.customer_portal.company.resend:
+    path: /customer-portal/resend
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\InvitationController::resendAction'
+
+ibexa.corporate_account.customer_portal.corporate_account.register:
+    path: /customer-portal/register
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ApplicationController::createAction'
+
+ibexa.corporate_account.customer_portal.corporate_account.register.confirmation:
+    path: /customer-portal/register/confirmation
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ApplicationController::confirmationAction'
+
+ibexa.corporate_account.customer_portal.corporate_account.register.already_exists:
+    path: /customer-portal/register/already-exists
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ApplicationController::alreadyExistsAction'
+
+ibexa.corporate_account.customer_portal.corporate_account.register.wait:
+    path: /customer-portal/register/wait
+    defaults:
+        _controller: 'Ibexa\Bundle\CorporateAccount\Controller\CorporatePortal\ApplicationController::waitAction'

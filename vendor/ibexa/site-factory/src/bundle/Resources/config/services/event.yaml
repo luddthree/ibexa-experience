@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\SiteFactory\ServiceEvent\SiteService:
+        decorates: Ibexa\SiteFactory\Service\SiteService
+        arguments:
+            $innerService: '@Ibexa\SiteFactory\ServiceEvent\SiteService.inner'
+
+    Ibexa\Contracts\SiteFactory\Service\SiteServiceInterface:
+        alias: Ibexa\SiteFactory\ServiceEvent\SiteService
+
+    Ibexa\SiteFactory\Event\EventDispatcher:
+        decorates: 'event_dispatcher'
+        arguments:
+            $innerEventDispatcher: '@.inner'

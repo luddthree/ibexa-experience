@@ -1,0 +1,19 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+<div>
+    {% for publicAccess in publicAccesses %}
+        {% if location is not null %}
+            {% set url = path('ibexa.content.view', {
+                locationId: location.id,
+                contentId: location.contentId
+            }) %}
+            <a href="{{ url }}" title="{{ 'site.action.root'|trans|desc('Go to root') }}" data-placement="right">
+                {{ ibexa_admin_ui_config.languages.mappings[publicAccess.language].name }}
+            </a>
+            {% if loop.last == false %},{% endif %}
+        {% else %}
+            {{ ibexa_admin_ui_config.languages.mappings[publicAccess.language].name }}
+            {% if loop.last == false %},{% endif %}
+        {% endif %}
+    {% endfor %}
+</div>

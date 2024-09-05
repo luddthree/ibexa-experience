@@ -1,0 +1,31 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% embed '@ibexadesign/corporate_account/common/members_table.html.twig' with {
+    members,
+    company_id: company.id,
+    company,
+    empty_table_info_text: 'company.members.table.empty.info'|trans|desc('Company has no members'),
+    activate_path: 'ibexa.corporate_account.company.member.activate',
+    deactivate_path: 'ibexa.corporate_account.company.member.deactivate',
+} only %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block table_actions %}
+        <a
+            href="{{ path('ibexa.corporate_account.company.member.create', {
+                companyId: company_id,
+            }) }}"
+            class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--small"
+        >
+            <span class="ibexa-btn__label">
+                {{ 'company.details.tab.members.table.users.action.add_new'|trans|desc('Add') }}
+            </span>
+        </a>
+    {% endblock %}
+{% endembed %}
+
+{% include '@ibexadesign/corporate_account/common/user_status_change_confirmation_modal.html.twig' %}
+{% include '@ibexadesign/corporate_account/common/user_role_change_modal.html.twig' with {
+    form: change_role_form,
+    form_action: path('ibexa.corporate_account.company.member.change_role'),
+} %}

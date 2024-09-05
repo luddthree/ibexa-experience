@@ -1,0 +1,79 @@
+{
+    "ScenarioBlockTemplateList": {
+        "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplateList+json",
+        "ScenarioBlockTemplate": [
+            {
+                "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplate+json",
+                "id": "foo",
+                "label": "foo",
+                "template": "@ibexa_design\/foo.html.twig",
+                "parameters": []
+            },
+            {
+                "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplate+json",
+                "id": "bar",
+                "label": "Bar",
+                "template": "@ibexa_design\/bar.html.twig",
+                "parameters": [
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplateParameter+json",
+                        "name": "foo",
+                        "label": "foo",
+                        "type": "text",
+                        "required": false
+                    },
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplateParameter+json",
+                        "name": "bar",
+                        "label": "bar",
+                        "type": "text",
+                        "required": true,
+                        "mappable": true
+                    },
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplateParameter+json",
+                        "name": "collection",
+                        "label": "collection",
+                        "type": "array",
+                        "required": false,
+                        "spec": [
+                            {
+                                "name": "email",
+                                "type": "email",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name"
+                            }
+                        ]
+                    },
+                    {
+                        "_media-type": "application\/vnd.ibexa.api.ScenarioBlockTemplateParameter+json",
+                        "name": "events",
+                        "label": "My Text",
+                        "type": "text",
+                        "required": false,
+                        "nested": [
+                            {
+                                "name": "data",
+                                "mappable": true,
+                                "type": "array",
+                                "spec": [
+                                    {
+                                        "label": "Name",
+                                        "name": "name",
+                                        "type": "text",
+                                        "required": true,
+                                        "mappable": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

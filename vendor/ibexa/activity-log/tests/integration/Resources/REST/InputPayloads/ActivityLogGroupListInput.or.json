@@ -1,0 +1,11 @@
+{
+  "ActivityLogGroupListInput": {
+    "criteria": [
+      {"type": "or", "criteria": [
+        {"type": "action", "value": "bar_action"},
+        {"type": "object_class", "class": "stdClass", "ids": ["bar"]},
+        {"type": "user", "value": [14]}
+      ]}
+    ]
+  }
+}

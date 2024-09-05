@@ -1,0 +1,47 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Repository\Event\AttributeGroupService:
+        decorates: Ibexa\Contracts\ProductCatalog\Local\LocalAttributeGroupServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'
+
+    Ibexa\ProductCatalog\Local\Repository\Event\AttributeDefinitionService:
+        decorates: Ibexa\Contracts\ProductCatalog\Local\LocalAttributeDefinitionServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'
+
+    Ibexa\ProductCatalog\Local\Repository\Event\CurrencyService:
+        decorates: Ibexa\Contracts\ProductCatalog\CurrencyServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'
+
+    Ibexa\ProductCatalog\Local\Repository\Event\ProductService:
+        decorates: Ibexa\Contracts\ProductCatalog\Local\LocalProductServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'
+
+    Ibexa\ProductCatalog\Local\Repository\Event\ProductPriceService:
+        decorates: Ibexa\Contracts\ProductCatalog\ProductPriceServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'
+
+    Ibexa\ProductCatalog\Local\Repository\Event\ProductAvailabilityService:
+        decorates: Ibexa\Contracts\ProductCatalog\ProductAvailabilityServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'
+
+    Ibexa\ProductCatalog\Local\Repository\Event\CatalogService:
+        decorates: Ibexa\Contracts\ProductCatalog\CatalogServiceInterface
+        arguments:
+            $innerService: '@.inner'
+            $eventDispatcher: '@event_dispatcher'

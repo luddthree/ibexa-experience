@@ -1,0 +1,162 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section class="ibexa-pc-product-type-details">
+    <div class="ibexa-view-rawcontentview">
+        {% set details_actions %}
+            {% form_theme language_switch_form '@ibexadesign/product_catalog/form_fields.html.twig' %}
+            {% set selected_language = app.request.query.get('language') %}
+
+            {{ form_start(language_switch_form, { attr: { class: 'form-inline ibexa-raw-content-title__language-form' } }) }}
+                {% set source %}
+                    {{ form_widget(language_switch_form.language) }}
+                {% endset %}
+
+                <label class="ibexa-label">{{ 'product_type.view.preview'|trans|desc('Preview') }}</label>
+
+                {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+                    source: source,
+                    choices: language_switch_form.language.vars.choices,
+                    value: selected_language,
+                    is_small: true,
+                } %}
+            {{ form_end(language_switch_form, { render_rest: false }) }}
+        {% endset %}
+
+        {% set global_properties_items = [
+            {
+                label: 'product_type.view.details.name'|trans|desc('Name'),
+                content: product_type.contentType.name,
+            },
+             {
+                label: 'product_type.view.details.identifier'|trans|desc('Identifier'),
+                content: product_type.contentType.identifier,
+            },
+            {
+                label: 'product_type.view.details.type'|trans|desc('Type'),
+                content: ibexa_product_type_get_type(product_type),
+            },
+            {
+                label: 'product_type.view.details.description'|trans|desc('Description'),
+                content: product_type.contentType.description|default(''),
+            },
+            {
+                label: 'product_type.view.details.name_schema'|trans|desc('Product name pattern'),
+                content: product_type.contentType.nameSchema,
+            },
+            {
+                label: 'product_type.view.details.url_alias_schema'|trans|desc('URL alias name pattern'),
+                content: product_type.contentType.urlAliasSchema,
+            },
+        ] %}
+
+        {% include '@ibexadesign/ui/component/details/details.html.twig' with {
+            headline: 'product_type.view.details.title'|trans|desc('Details'),
+            items: global_properties_items,
+            headline_items: details_actions
+        } only %}
+
+        <div class="ibexa-table-header">
+            <div class="ibexa-table-header__headline">
+                {{ "product_type.view.details.product_field_definitions"|trans|desc("Product Field definitions") }}
+            </div>
+        </div>
+        {% for group in field_definitions_by_group %}
+            {% set body_rows = [] %}
+
+            {% for field_definition in group.fieldDefinitions %}
+                {% set body_rows = body_rows|merge([{
+                    cols: [
+                        { content: field_definition.name },
+                        { content: field_definition.identifier },
+                        { content: field_definition.fieldTypeIdentifier },
+                    ]
+                }]) %}
+            {% endfor %}
+
+            {% if body_rows is not empty %}
+                <section class="ibexa-fieldgroup container">
+                    <div class="ibexa-fieldgroup__header">
+                        <span class="ibexa-fieldgroup__header-name">{{ group.name }}</span>
+                    </div>
+                    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                        head_cols: [
+                            { content: 'product_type.view.details.group.name'|trans|desc('Name'), class: 'ibexa-table__head-cell--field-definitions-head' },
+                            { content: 'product_type.view.details.group.identifier'|trans|desc('Identifier'), class: 'ibexa-table__head-cell--field-definitions-head' },
+                            { content: 'product_type.view.details.group.type'|trans|desc('Type'), class: 'ibexa-table__head-cell--field-definitions-head' },
+                        ],
+                        body_rows,
+                    } %}
+                </section>
+            {% endif %}
+        {% endfor %}
+
+        {% set attribute_definitions = product_type.getAttributesDefinitions() %}
+
+        {% if attribute_definitions is not empty %}
+            {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+                headline: 'product_type.view.details.attribtues'|trans|desc('Attributes'),
+            } only %}
+
+            {% set body_rows = [] %}
+
+            {% for attribute_definition in attribute_definitions %}
+                {% set attribute = attribute_definition.getAttributeDefinition() %}
+
+                {% set body_rows = body_rows|merge([{
+                    cols: [
+                        { content: attribute.identifier },
+                        { content: attribute.name },
+                        { content: attribute.type.name },
+                        { content: attribute.group.name },
+                    ]
+                }]) %}
+            {% endfor %}
+
+            {% if body_rows is not empty %}
+                <section class="ibexa-fieldgroup container">
+                    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                        head_cols: [
+                            { content: 'product_type.view.details.attribute.identifier'|trans|desc('Identifier'), class: 'ibexa-table__head-cell--attributes-head' },
+                            { content: 'product_type.view.details.attribute.name'|trans|desc('Name'), class: 'ibexa-table__head-cell--attributes-head' },
+                            { content: 'product_type.view.details.attribute.type'|trans|desc('Type'), class: 'ibexa-table__head-cell--attributes-head' },
+                            { content: 'product_type.view.details.attribute.group'|trans|desc('Group'), class: 'ibexa-table__head-cell--attributes-head' },
+                        ],
+                        body_rows,
+                    } %}
+                </section>
+            {% endif %}
+        {% endif %}
+
+        {% if vat_categories_by_region is not empty %}
+            {% include '@ibexadesign/ui/component/table/table_header.html.twig' with {
+                headline: 'product_type.view.details.vat_rates'|trans|desc('VAT Rates'),
+                notice_message: 'product_type.view.details.headline.notice'|trans|desc('If VAT rates require configuration, contact your administrator.')
+            } only %}
+
+            {% set body_rows = [] %}
+
+            {% for region, vat_category in vat_categories_by_region %}
+                {% set body_rows = body_rows|merge([{
+                    cols: [
+                        { content: region },
+                        { content: vat_category.identifier|default('-') },
+                        { content: vat_category ? vat_category.vatValue ~ '%' : '-' },
+                    ]
+                }]) %}
+            {% endfor %}
+
+            {% if body_rows is not empty %}
+                <section class="ibexa-fieldgroup container">
+                    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+                        head_cols: [
+                            { content: 'product_type.view.details.vat_rate.region'|trans|desc('Region'), class: 'ibexa-table__head-cell--vat_rates-head' },
+                            { content: 'product_type.view.details.vat_rate.identifer'|trans|desc('Identifier'), class: 'ibexa-table__head-cell--vat_rates-head' },
+                            { content: 'product_type.view.details.vat_rate.value'|trans|desc('Value'), class: 'ibexa-table__head-cell--vat_rates-head' },
+                        ],
+                        body_rows,
+                    } %}
+                </section>
+            {% endif %}
+        {% endif %}
+    </div>
+</section>

@@ -1,0 +1,99 @@
+{% trans_default_domain 'ibexa_corporate_account' %}
+
+{% set table_actions %}
+    {% block table_actions %}{% endblock %}
+{% endset %}
+
+{% set body_rows = [] %}
+{% for row in invitations %}
+
+    {% set invitation_is_expired = ibexa_is_invitation_expired(row) %}
+    {% set col_link_expired %}
+        {% if invitation_is_expired %}
+            <span class="ibexa-ca-invitation-table__link-expired">
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('previewed') }}"></use>
+                </svg>
+                {{ 'table.invitations.link_expired.label'|trans|desc('Link expired') }}
+            </span>
+        {% endif %}
+    {% endset %}
+
+    {% set col_action_btns %}
+        {% if not invitation_is_expired %}
+            <button
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-ca-invitation-table__copy-link-btn"
+                title="{{ 'table.invitations.actions.copy_link.title'|trans|desc('Copy link') }}"
+                data-link="{{ url('ibexa.user.from_invite.register', {
+                    inviteHash: row.getHash(),
+                    siteaccess: row.getSiteAccessIdentifier(),
+                })|e('html_attr') }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('link') }}"></use>
+                </svg>
+            </button>
+            <button
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-ca-invitation-table__resend-btn"
+                title="{{ 'table.invitations.actions.resend_invitation.title'|trans|desc('Re-send invitation') }}"
+                data-invite-hash="{{ row.getHash() }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('send-mail') }}"></use>
+                </svg>
+            </button>
+        {% endif %}
+
+        {% if invitation_is_expired %}
+            <button
+                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--small ibexa-ca-invitation-table__reinvite-btn"
+                title="{{ 'table.invitations.actions.reinvite.title'|trans|desc('Reinvite') }}"
+                data-invite-hash="{{ row.getHash() }}"
+            >
+                <svg class="ibexa-icon ibexa-icon--small">
+                    <use xlink:href="{{ ibexa_icon_path('mail') }}"></use>
+                </svg>
+            </button>
+        {% endif %}
+
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: row.getEmail() },
+        { content: row.getRole().identifier },
+        { content: row.createdAt()|ibexa_short_date },
+        { content: col_link_expired },
+        { has_action_btns: true, content: col_action_btns },
+    ] }]) %}
+{% endfor %}
+
+{% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+    head_cols: [
+        { content: 'table.invitations.header.email'|trans|desc('Email') },
+        { content: 'table.invitations.header.role'|trans|desc('Role') },
+        { content: 'table.invitations.header.date'|trans|desc('Invitation date') },
+        { },
+        { },
+    ],
+    body_rows,
+    empty_table_info_text: empty_table_info_text|default(''),
+    empty_table_action_text: empty_table_action_text|default(''),
+    class: 'ibexa-ca-invitation-table',
+} %}
+    {% trans_default_domain 'ibexa_corporate_account' %}
+
+    {% block header %}
+        {% embed '@ibexadesign/ui/component/table/table_header.html.twig' with {
+            headline: 'table.invitations.headline'|trans({ '%count%': invitations|length })|desc('List (%count%)'),
+            table_actions,
+            invitations,
+        } only %}
+            {% block actions %}
+                {{ table_actions }}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+
+
+{% block invitations_forms %}{% endblock %}

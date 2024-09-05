@@ -1,0 +1,89 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\FormBuilder\Form\Mapper\ValidatorConfigurationMapperRegistry:
+        arguments:
+            $mappers: !tagged ibexa.form_builder.form.type.validator.mapper
+
+    ibexa.form_builder.validator_form_type_mapper.required:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorCheckboxType
+            $typeIdentifier: 'required'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.min_length:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorIntegerType
+            $typeIdentifier: 'min_length'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.max_length:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorIntegerType
+            $typeIdentifier: 'max_length'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.min_value:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorNumberType
+            $typeIdentifier: 'min_value'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.max_value:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorNumberType
+            $typeIdentifier: 'max_value'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.min_choices:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorIntegerType
+            $typeIdentifier: 'min_choices'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.max_choices:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorIntegerType
+            $typeIdentifier: 'max_choices'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.regex:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorRegexType
+            $typeIdentifier: 'regex'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.upload_size:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorIntegerType
+            $typeIdentifier: 'upload_size'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }
+
+    ibexa.form_builder.validator_form_type_mapper.extensions:
+        class: Ibexa\FormBuilder\Form\Mapper\FieldValidator\GenericFieldValidatorTypeMapper
+        arguments:
+            $formTypeClass: Ibexa\FormBuilder\Form\Type\FieldValidator\ValidatorStringType
+            $typeIdentifier: 'extensions'
+        tags:
+            - { name: ibexa.form_builder.form.type.validator.mapper }

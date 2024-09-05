@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @copyright Copyright (C) Ibexa AS. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ */
+declare(strict_types=1);
+
+namespace Ibexa\CorporateAccount\Form\Type\ShippingAddress;
+
+use Ibexa\CorporateAccount\Form\Data\ShippingAddress\ShippingAddressItemDeleteData;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+final class ShippingAddressItemDeleteType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder->add('address_book_items', CollectionType::class, [
+            'entry_type' => ShippingAddressItemCheckboxType::class,
+            'entry_options' => [
+                'required' => false,
+                'label' => false,
+            ],
+            'label' => false,
+            'allow_add' => true,
+        ]);
+
+        $builder->add('delete', SubmitType::class, [
+            'label' => false,
+            'attr' => ['hidden' => true],
+        ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => ShippingAddressItemDeleteData::class,
+            'translation_domain' => 'forms',
+        ]);
+    }
+}

@@ -1,0 +1,58 @@
+-   type: content
+    mode: create
+    metadata:
+        contentType: user_group
+        mainTranslation: eng-GB
+        alwaysAvailable: true
+        remoteId: private_customer_group
+    location:
+        parentLocationId: 5
+        locationRemoteId: private_customer_group_location
+        hidden: false
+        sortField: !php/const Ibexa\Contracts\Core\Repository\Values\Content\Location::SORT_FIELD_NAME
+        sortOrder: ASC
+        priority: 0
+    fields:
+        -   fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Private Customer Test Group
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: user
+        mainTranslation: eng-GB
+    location:
+        parentLocationRemoteId: private_customer_group_location
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-GB
+            value: Test
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-GB
+            value: Private
+        -
+            fieldDefIdentifier: user_account
+            languageCode: eng-GB
+            value:
+                hasStoredLogin: true
+                contentId: 10
+                login: test
+                email: private@link.invalid
+                passwordHash: $2y$10$35gOSQs6JK4u4whyERaeUuVeQBi2TUBIZIfP7HEj7sfz.MxvTuOeC
+                passwordHashType: '7'
+                passwordUpdatedAt: null
+                enabled: true
+                maxLogin: 1000
+                plainPassword: null
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-GB
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-GB
+            value: null
+

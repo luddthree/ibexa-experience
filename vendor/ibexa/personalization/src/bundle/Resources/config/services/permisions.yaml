@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Permission\PermissionChecker: ~
+
+    Ibexa\Personalization\Permission\PermissionCheckerInterface:
+        '@Ibexa\Personalization\Permission\PermissionChecker'
+
+    Ibexa\Personalization\Permission\CustomerTypeChecker: ~
+
+    Ibexa\Personalization\Permission\CustomerTypeCheckerInterface:
+        '@Ibexa\Personalization\Permission\CustomerTypeChecker'

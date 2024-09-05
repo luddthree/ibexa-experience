@@ -1,0 +1,607 @@
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: f5c88a2209584891056f987fd965b0ba
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: f5c88a2209584891056f987fd965b0ba
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 5
+        modificationDate: '2002-10-06T15:19:56+00:00'
+        publishedDate: '2002-10-06T15:19:56+00:00'
+        name: Users
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Users
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'Main group'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: faaeb9be3bd98ed09f606fc16d144eca
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: faaeb9be3bd98ed09f606fc16d144eca
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 45
+        modificationDate: '2003-12-23T11:53:25+00:00'
+        publishedDate: '2002-10-06T16:11:05+00:00'
+        name: 'Anonymous User'
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-US
+            value: Anonymous
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: user_account
+            languageCode: eng-US
+            value:
+                hasStoredLogin: true
+                contentId: 10
+                login: anonymous
+                email: anonymous@link.invalid
+                passwordHash: $2y$10$35gOSQs6JK4u4whyERaeUuVeQBi2TUBIZIfP7HEj7sfz.MxvTuOeC
+                passwordHashType: '7'
+                passwordUpdatedAt: null
+                enabled: true
+                maxLogin: 1000
+                plainPassword: null
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-US
+            value: null
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 5f7f0bdb3381d6a461d8c29ff53d908f
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 5f7f0bdb3381d6a461d8c29ff53d908f
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 12
+        modificationDate: '2012-07-24T14:35:42+00:00'
+        publishedDate: '2002-10-06T16:12:26+00:00'
+        name: Members
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Members
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 9b47a45624b023b1a76c73b74d704acf
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 9b47a45624b023b1a76c73b74d704acf
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 13
+        modificationDate: '2002-10-06T16:12:55+00:00'
+        publishedDate: '2002-10-06T16:12:55+00:00'
+        name: 'Administrator users'
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Administrator users'
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 3c160cca19fb135f83bd02d911f04db2
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 3c160cca19fb135f83bd02d911f04db2
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 14
+        modificationDate: '2002-10-06T16:13:14+00:00'
+        publishedDate: '2002-10-06T16:13:14+00:00'
+        name: Editors
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Editors
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 1bb4fe25487f05527efa8bfd394cecc7
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 1bb4fe25487f05527efa8bfd394cecc7
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 15
+        modificationDate: '2012-07-24T14:35:40+00:00'
+        publishedDate: '2002-10-06T16:13:50+00:00'
+        name: 'Administrator User'
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: first_name
+            languageCode: eng-US
+            value: Administrator
+        -
+            fieldDefIdentifier: last_name
+            languageCode: eng-US
+            value: User
+        -
+            fieldDefIdentifier: user_account
+            languageCode: eng-US
+            value:
+                hasStoredLogin: true
+                contentId: 14
+                login: admin
+                email: admin@link.invalid
+                passwordHash: $2y$10$FDn9NPwzhq85cLLxfD5Wu.L3SL3Z/LNCvhkltJUV0wcJj7ciJg2oy
+                passwordHashType: '7'
+                passwordUpdatedAt: null
+                enabled: true
+                maxLogin: 10
+                plainPassword: null
+        -
+            fieldDefIdentifier: signature
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: image
+            languageCode: eng-US
+            value: null
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: a6e35cbcb7cd6ae4b691f3eee30cd262
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: a6e35cbcb7cd6ae4b691f3eee30cd262
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 43
+        modificationDate: '2003-08-12T13:37:37+00:00'
+        publishedDate: '2003-08-12T13:37:37+00:00'
+        name: Media
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Media
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 15b256dbea2ae72418ff5facc999e8f9
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 15b256dbea2ae72418ff5facc999e8f9
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 44
+        modificationDate: '2003-12-23T11:52:10+00:00'
+        publishedDate: '2003-12-23T11:52:10+00:00'
+        name: 'Anonymous users'
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Anonymous users'
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: 'User group for the anonymous user'
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 241d538ce310074e602f29f49e44e938
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 241d538ce310074e602f29f49e44e938
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 48
+        modificationDate: '2004-03-19T08:16:30+00:00'
+        publishedDate: '2004-03-19T08:16:30+00:00'
+        name: Setup
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Setup
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: false
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: e7ff633c6b8e0fd3531e74c6e712bead
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: e7ff633c6b8e0fd3531e74c6e712bead
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 51
+        modificationDate: '2004-03-25T13:09:57+00:00'
+        publishedDate: '2004-03-25T13:09:57+00:00'
+        name: Images
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Images
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 732a5acd01b51a6fe6eab448ad4138a9
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 732a5acd01b51a6fe6eab448ad4138a9
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 52
+        modificationDate: '2004-03-25T13:10:20+00:00'
+        publishedDate: '2004-03-25T13:10:20+00:00'
+        name: Files
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Files
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 09082deb98662a104f325aaa8c4933d3
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 09082deb98662a104f325aaa8c4933d3
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 53
+        modificationDate: '2004-03-25T13:10:33+00:00'
+        publishedDate: '2004-03-25T13:10:33+00:00'
+        name: Multimedia
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Multimedia
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 27437f3547db19cf81a33c92578b2c89
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 27437f3547db19cf81a33c92578b2c89
+        alwaysAvailable: false
+        mainLanguageCode: eng-US
+        mainLocationId: 54
+        modificationDate: '2004-04-15T08:09:51+00:00'
+        publishedDate: '2004-04-15T08:09:51+00:00'
+        name: 'Common INI settings'
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: 'Common INI settings'
+        -
+            fieldDefIdentifier: indexpage
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: defaultpage
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugoutput
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugbyip
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugiplist
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: debugredirection
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: viewcaching
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: templatecache
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: templatecompile
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: imagesmall
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: imagemedium
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: imagelarge
+            languageCode: eng-US
+            value: null
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 08799e609893f7aba22f10cb466d9cc8
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 08799e609893f7aba22f10cb466d9cc8
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 58
+        modificationDate: '2004-12-14T11:18:52+00:00'
+        publishedDate: '2004-12-14T11:18:52+00:00'
+        name: Design
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Design
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-US
+            value: null
+        -
+            fieldDefIdentifier: show_children
+            languageCode: eng-US
+            value: true
+        -
+            fieldDefIdentifier: tags
+            languageCode: eng-US
+            value: {  }
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 8a9c9c761004866fb458d89910f52bee
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-GB
+        creatorId: 14
+        remoteId: 8a9c9c761004866fb458d89910f52bee
+        alwaysAvailable: true
+        mainLanguageCode: eng-GB
+        mainLocationId: 2
+        modificationDate: '2007-11-28T16:51:36+00:00'
+        publishedDate: '2007-11-19T13:54:46+00:00'
+        name: Home
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: f8cc7a4cf8a964a1a0ea6666f5da7d0d
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-GB
+        creatorId: 14
+        remoteId: f8cc7a4cf8a964a1a0ea6666f5da7d0d
+        alwaysAvailable: false
+        mainLanguageCode: eng-GB
+        mainLocationId: 60
+        modificationDate: '2012-03-28T09:34:42+00:00'
+        publishedDate: '2012-03-28T09:33:25+00:00'
+        name: 'Contact Us'
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'Contact Us'
+        -
+            fieldDefIdentifier: sender_name
+            languageCode: eng-GB
+            value: 'Firstname Lastname'
+        -
+            fieldDefIdentifier: subject
+            languageCode: eng-GB
+            value: Subject
+        -
+            fieldDefIdentifier: message
+            languageCode: eng-GB
+            value: 'Message text'
+        -
+            fieldDefIdentifier: email
+            languageCode: eng-GB
+            value: sender@example.com
+        -
+            fieldDefIdentifier: recipient
+            languageCode: eng-GB
+            value: recipient@example.com
+-
+    type: content
+    mode: update
+    match:
+        field: content_remote_id
+        value: 14e4411b264a6194a33847843919451a
+        only_visible_content: true
+    metadata:
+        initialLanguageCode: eng-US
+        creatorId: 14
+        remoteId: 14e4411b264a6194a33847843919451a
+        alwaysAvailable: true
+        mainLanguageCode: eng-US
+        mainLocationId: 61
+        modificationDate: '2012-07-24T14:35:41+00:00'
+        publishedDate: '2012-07-24T14:35:41+00:00'
+        name: Partners
+        ownerId: 14
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-US
+            value: Partners
+        -
+            fieldDefIdentifier: description
+            languageCode: eng-US
+            value: null

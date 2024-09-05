@@ -1,0 +1,35 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% block main_container_class %}ibexa-main-container--perso-welcome{% endblock %}
+
+{% set step_class_name = 'ibexa-perso-welcome-step--' ~ step_name %}
+
+{% block content_column %}
+    <div class="ibexa-perso-account">
+        <div class="ibexa-perso-account__container">
+            {% include '@ibexadesign/ui/component/step/steps.html.twig' with {
+                steps,
+                attr: {
+                    class: 'ibexa-perso-account__step',
+                },
+            } %}
+            <div class="ibexa-perso-account__separator"></div>
+            <div class="ibexa-perso-account__actions">
+                <div class="ibexa-perso-account__wrapper {{ step_class_name }}">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>    
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-personalization-account-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-personalization-css', null, 'ibexa') }}
+{% endblock %}

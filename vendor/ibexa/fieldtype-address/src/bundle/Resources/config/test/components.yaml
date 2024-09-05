@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Ibexa\FieldTypeAddress\Behat\Component\Fields\FieldTypeAddress:
+        tags: [ 'ibexa.testing.browser.component.field_type' ]

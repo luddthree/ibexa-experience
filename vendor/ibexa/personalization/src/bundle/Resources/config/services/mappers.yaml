@@ -1,0 +1,15 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Personalization\Mapper\OutputTypeAttributesMapper: ~
+
+    Ibexa\Personalization\Mapper\OutputTypeAttributesMapperInterface:
+        '@Ibexa\Personalization\Mapper\OutputTypeAttributesMapper'
+
+    Ibexa\Personalization\Mapper\Search\SearchAttributesResultMapper: ~
+
+    Ibexa\Personalization\Mapper\Search\SearchAttributesResultMapperInterface:
+        '@Ibexa\Personalization\Mapper\Search\SearchAttributesResultMapper'

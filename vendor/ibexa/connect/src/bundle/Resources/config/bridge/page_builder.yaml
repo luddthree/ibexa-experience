@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Bundle\Connect\EventSubscriber\BlockDefinitionEventSubscriber: ~
+
+    Ibexa\Bundle\Connect\EventSubscriber\PageBuilderPreRenderEventSubscriber:
+        arguments:
+            $blockClient: '@Ibexa\Connect\PageBuilder\BlockClient'
+
+    Ibexa\Bundle\Connect\EventSubscriber\PageBuilder\CustomerGroupIdWebhookSubscriber: ~
+
+    Ibexa\Bundle\Connect\EventSubscriber\PageBuilder\SendUserIdWebhookSubscriber: ~
+
+    Ibexa\Connect\PageBuilder\BlockClient:
+        arguments:
+            $httpClient: '@ibexa.connect.http_client'

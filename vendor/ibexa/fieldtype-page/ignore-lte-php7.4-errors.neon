@@ -1,0 +1,26 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#2 \\$str of function explode expects string, Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute given\\.$#"
+			count: 2
+			path: src/lib/FieldType/Page/Block/Event/Listener/KeywordBlockListener.php
+
+		-
+			message: "#^Cannot access offset int\\<0, max\\> on array\\<int, array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\EventInterface\\>\\>\\|false\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of function array_filter expects array, array\\<int, array\\<int\\<0, max\\>, Ibexa\\\\Contracts\\\\FieldTypePage\\\\ScheduleBlock\\\\Timeline\\\\Event\\\\EventInterface\\>\\>\\|false given\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/ScheduleSnapshotService.php
+
+		-
+			message: "#^Parameter \\#2 \\$arr2 of function array_replace expects array, array\\<string, mixed\\>\\|false given\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemsReorderedEventProcessor.php
+
+		-
+			message: "#^Parameter \\#2 \\$items of method Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\ScheduleService\\:\\:arrangeItems\\(\\) expects array\\<Ibexa\\\\FieldTypePage\\\\ScheduleBlock\\\\Item\\\\Item\\>, array\\<null\\> given\\.$#"
+			count: 1
+			path: src/lib/ScheduleBlock/Timeline/Event/Processor/ItemsReorderedEventProcessor.php

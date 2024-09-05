@@ -1,0 +1,20 @@
+-
+    type: object_state_group
+    mode: create
+    metadata:
+        identifier: custom_publication_state
+        mainTranslation: eng-GB
+        translations:
+            eng-GB:
+                name: 'Custom Publication State'
+-
+    type: object_state
+    mode: create
+    metadata:
+        identifier: preview
+        mainTranslation: eng-GB
+        objectStateGroup: ez_lock
+        priority: false
+        translations:
+            eng-GB:
+                name: Preview

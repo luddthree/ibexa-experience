@@ -1,0 +1,7 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\Bundle\OAuth2Client\Twig\OAuth2Extension: ~

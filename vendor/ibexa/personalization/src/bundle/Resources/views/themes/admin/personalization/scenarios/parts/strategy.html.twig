@@ -1,0 +1,44 @@
+{% trans_default_domain 'ibexa_personalization' %}
+
+{% macro render_models(models) %}
+    {% for model in models %}
+        <div class="ibexa-perso-scenario-strategy__model">
+            {{ ('models.name.' ~ model.modelReferenceCode)|trans }}
+        </div>
+    {% endfor %}
+{% endmacro render_models %}
+
+<div class="ibexa-perso-scenario-strategy">
+    <div class="ibexa-perso-scenario-strategy__item">
+        <div class="ibexa-perso-scenario-strategy__item-title ibexa-label">
+            {{ 'scenario.strategy_primary_models'|trans|desc('Primary models') }}
+        </div>
+        <div class="ibexa-perso-scenario-strategy__models ibexa-perso-scenario-strategy__models--primary">
+            {{ _self.render_models(stages['primary_models'].xingModels|default(null)) }}
+        </div>
+    </div>
+    <div class="ibexa-perso-scenario-strategy__item">
+        <div class="ibexa-perso-scenario-strategy__item-title ibexa-label">
+            {{ 'scenario.strategy_fall_back'|trans|desc('Fallback level 1') }}
+        </div>
+        <div class="ibexa-perso-scenario-strategy__models">
+            {{ _self.render_models(stages['fallback'].xingModels|default(null)) }}
+        </div>
+    </div>
+    <div class="ibexa-perso-scenario-strategy__item">
+        <div class="ibexa-perso-scenario-strategy__item-title ibexa-label">
+            {{ 'scenario.fail_safe_models'|trans|desc('Fallback level 2') }}
+        </div>
+        <div class="ibexa-perso-scenario-strategy__models">
+            {{ _self.render_models(stages['fail_safe'].xingModels|default(null)) }}
+        </div>
+    </div>
+    <div class="ibexa-perso-scenario-strategy__item">
+        <div class="ibexa-perso-scenario-strategy__item-title ibexa-label">
+            {{ 'scenario.strategy_ultimately_fail_safe'|trans|desc('Fail-safe') }}
+        </div>
+        <div class="ibexa-perso-scenario-strategy__models">
+            {{ _self.render_models(stages['ultimately_fail_safe'].xingModels|default(null)) }}
+        </div>
+    </div>
+</div>

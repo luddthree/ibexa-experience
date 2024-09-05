@@ -1,0 +1,71 @@
+{% extends '@ibexadesign/customer_portal/layout_with_menu.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'members.breadcrumb'|trans|desc('Members') },
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    <ul class="ibexa-context-menu">
+        {% if can_invite %}
+            <li class="ibexa-context-menu__item">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#ibexa-user-invitation-modal"
+                >
+                    <span class="ibexa-btn__label">
+                        {{ 'members.context_menu.invite_members'|trans|desc('Invite members') }}
+                    </span>
+                </button>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'members.title'|trans|desc('Members'),
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% include '@ibexadesign/corporate_account/common/invitation_modal.html.twig' with {
+        form: invitation_form,
+        extra_class: 'ibexa-ca-invite-members',
+        action: path('ibexa.corporate_account.customer_portal.company.invite')
+    } %}
+
+    {% set tabs = [
+        { id: 'active_users', label: 'members.tab.active_users.label'|trans|desc('Users'), active: true },
+    ] %}
+
+    {% if can_invite %}
+        {% set tabs = tabs|merge([
+            { id: 'invitation', label: 'members.tab.invitation.label'|trans|desc('Invitations') },
+        ]) %}
+    {% endif %}
+    {% embed '@ibexadesign/ui/component/tab/tabs.html.twig' with {
+        tabs: tabs,
+        hide_toggler: true,
+    } %}
+        {% block tab_content %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'active_users', active: true } %}
+                {% block content %}
+                    {% include '@ibexadesign/customer_portal/members/members_active_users.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+            {% embed '@ibexadesign/ui/component/tab/tab_pane.html.twig' with { id: 'invitation' } %}
+                {% block content %}
+                    {% include '@ibexadesign/customer_portal/members/members_invitation.html.twig' %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+
+    {% include '@ibexadesign/corporate_account/common/user_status_change_confirmation_modal.html.twig' %}
+{% endblock %}

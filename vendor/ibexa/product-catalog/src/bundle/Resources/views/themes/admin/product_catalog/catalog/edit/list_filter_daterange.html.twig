@@ -1,0 +1,26 @@
+{% set is_filled_filter = criteria.vars.value.min is defined or criteria.vars.value.min is defined %}
+
+{% embed '@ibexadesign/product_catalog/catalog/edit/list_filter_tags.html.twig' with {
+    is_empty_filter: not is_filled_filter,
+} %}
+    {% block content %}
+        {% trans_default_domain 'ibexa_product_catalog' %}
+
+        {% if is_filled_filter %}
+            {% set date_pattern = ibexa_admin_ui_config.dateFormat.shortDate %}
+            {% set min_date = criteria.vars.value.min ? criteria.vars.value.min|format_date( 'short', pattern=date_pattern, timezone='UTC' ) : '...' %}
+            {% set max_date = criteria.vars.value.max ? criteria.vars.value.max|format_date( 'short', pattern=date_pattern, timezone='UTC' ) : '...' %}
+            {% set value = min_date  ~ " - " ~ max_date %}
+
+            {{ include('@ibexadesign/ui/tag.html.twig', {
+                content: value,
+                is_loading_state: false,
+                is_deletable: not is_filter_preview,
+                tag_attributes: {
+                    'class': 'ibexa-pc-edit-catalog-list-filter-tag',
+                    'data-tag-text': value,
+                }
+            }) }}
+        {% endif %}
+    {% endblock %}
+{% endembed %}

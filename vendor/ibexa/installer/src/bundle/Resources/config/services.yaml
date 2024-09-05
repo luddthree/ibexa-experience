@@ -1,0 +1,9 @@
+imports:
+    - { resource: services/event_subscribers.yaml }
+    - { resource: services/loaders.yaml }
+    - { resource: services/installers.yaml }
+    - { resource: services/executors.yaml }
+    - { resource: services/provisioners.yaml }
+    - { resource: services/gateways.yaml }
+    - { resource: services/commands.yaml }
+    - { resource: services/migrations.yaml }

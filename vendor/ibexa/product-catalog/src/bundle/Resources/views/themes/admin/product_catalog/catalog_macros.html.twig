@@ -1,0 +1,12 @@
+{%- macro status_class(status) -%}
+    {% set status_classess = {
+        'published': 'ibexa-badge--success',
+        'draft': 'ibexa-badge--warning',
+    } %}
+
+    {{ status_classess[status]|default('') }}
+{%- endmacro -%}
+
+{%- macro status_node(status) -%}
+    <span class="ibexa-badge {{ _self.status_class(status) }}">{{ status|ibexa_render_catalog_status }}</span>
+{%- endmacro -%}

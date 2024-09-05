@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    ibexa.activity_log.persistence.serializer:
+        class: Symfony\Component\Serializer\Serializer
+        arguments:
+            - []
+            - ['@ibexa.activity_log.persistence.encoder.json']
+
+    ibexa.activity_log.persistence.encoder.json:
+        class: Symfony\Component\Serializer\Encoder\JsonEncoder

@@ -1,0 +1,41 @@
+{% trans_default_domain 'ibexa_calendar_events' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'modal.discard.header'|trans|desc('Are you sure you want to cancel the publication of the selected content?'),
+    class: 'ibexa-modal--discard-publish-later ibexa-discard-publish-later-modal',
+    id: 'discard-publish-later-modal',
+} %}
+    {% trans_default_domain 'ibexa_calendar_events' %}
+
+    {% block body_content %}
+        {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: '',
+            head_cols: [
+                { has_icon: true },
+                { content: 'modal.discard.table.name.label'|trans|desc('Name') },
+                { content: 'modal.discard.table.event.label'|trans|desc('Event') },
+                { content: 'modal.discard.table.language.label'|trans|desc('Modified language') },
+            ],
+            class: 'ibexa-discard-publish-later-modal__table',
+            table_body_class: 'ibexa-discard-publish-later-modal__table-body',
+            attr: {
+                'data-table-row-template': include('@IbexaScheduler/calendar_modals/modal_discard_publish_later_row.html.twig', {
+                    'content_type_identifier': '{{ content_type_identifier }}',
+                    'content_name': '{{ content_name }}',
+                    'event_name': '{{ event_name }}',
+                    'language': '{{ language }}',
+                }),
+            },
+        } %}
+            {% block tbody %}{% endblock %}
+        {% endembed %}
+    {% endblock %}
+    {% block footer_content %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--primary ibexa-btn--confirm-discard-scheduling" data-bs-dismiss="modal">
+            {{ 'modal.discard.button.confirm.label'|trans|desc('Cancel publication') }}
+        </button>
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--cancel-discard-scheduling" data-bs-dismiss="modal">
+            {{ 'modal.discard.button.cancel.label'|trans|desc('Cancel') }}
+        </button>
+    {% endblock %}
+{% endembed %}

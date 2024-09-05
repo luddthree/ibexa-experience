@@ -1,0 +1,224 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+    public: false
+
+  Ibexa\VersionComparison\Engine\Value\StringComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\DateTimeComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\IntegerComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\FloatComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\BooleanComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\HashMapComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\CollectionComparisonEngine: ~
+
+  Ibexa\VersionComparison\Engine\Value\HtmlComparisonEngine: ~
+
+  ibexa.internal.version_comparison.image_binary_file_comparison_engine:
+    class: Ibexa\VersionComparison\Engine\Value\BinaryFileComparisonEngine
+    arguments:
+      $ioService: '@ibexa.field_type.ezimage.io_service.published'
+
+  Ibexa\VersionComparison\Engine\Value\BinaryFileComparisonEngine:
+    arguments:
+      $ioService: '@ibexa.field_type.ezbinaryfile.io_service'
+
+  Ibexa\VersionComparison\Engine\FieldType\TextLineComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\TextLine\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\DateComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Date\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\TimeComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Time\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\DateTimeComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\DateTime\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\FloatComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Float\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\IntegerComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Integer\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\TextBlockComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\TextBlock\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\MapLocationComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\MapLocation\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\EmailAddressComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\EmailAddress\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\AuthorComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Author\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\CheckboxComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Checkbox\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\SelectionComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Selection\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\CountryComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Country\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\UrlComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Url\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\BinaryFileComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\BinaryFile\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\RichTextComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\RichText\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\ImageComparisonEngine:
+    arguments:
+      $binaryFileComparisonEngine: '@ibexa.internal.version_comparison.image_binary_file_comparison_engine'
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Image\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\RelationComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Relation\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\RelationListComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\RelationList\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\MediaComparisonEngine:
+    arguments:
+      $binaryFileComparisonEngine: '@Ibexa\VersionComparison\Engine\Value\BinaryFileComparisonEngine'
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Media\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\MatrixComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\Matrix\Value }
+
+  Ibexa\VersionComparison\Engine\FieldType\ImageAssetComparisonEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\ImageAsset\Value }
+
+  Ibexa\VersionComparison\Engine\NoComparisonValueEngine:
+    tags:
+      - { name: ibexa.field_type.comparable.engine, supported_type: Ibexa\VersionComparison\FieldType\NoComparison }
+
+  Ibexa\VersionComparison\FieldType\NonComparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: eznoncomparable }
+
+  Ibexa\VersionComparison\FieldType\TextLine\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezstring }
+
+  Ibexa\VersionComparison\FieldType\Date\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezdate }
+
+  Ibexa\VersionComparison\FieldType\Time\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: eztime }
+
+  Ibexa\VersionComparison\FieldType\DateTime\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezdatetime }
+
+  Ibexa\VersionComparison\FieldType\Float\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezfloat }
+
+  Ibexa\VersionComparison\FieldType\Integer\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezinteger }
+
+  Ibexa\VersionComparison\FieldType\TextBlock\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: eztext }
+
+  Ibexa\VersionComparison\FieldType\MapLocation\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezgmaplocation }
+
+  Ibexa\VersionComparison\FieldType\EmailAddress\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezemail }
+
+  Ibexa\VersionComparison\FieldType\Author\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezauthor }
+
+  Ibexa\VersionComparison\FieldType\Checkbox\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezboolean }
+
+  Ibexa\VersionComparison\FieldType\Selection\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezselection }
+
+  Ibexa\VersionComparison\FieldType\Country\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezcountry }
+
+  Ibexa\VersionComparison\FieldType\Url\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezurl }
+
+  Ibexa\VersionComparison\FieldType\BinaryFile\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezbinaryfile }
+
+  Ibexa\VersionComparison\FieldType\RichText\Comparable:
+    arguments:
+        $converter: '@ibexa.richtext.converter.output.xhtml5'
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezrichtext }
+
+  Ibexa\VersionComparison\FieldType\Image\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezimage }
+
+  Ibexa\VersionComparison\FieldType\Relation\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezobjectrelation }
+
+  Ibexa\VersionComparison\FieldType\RelationList\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezobjectrelationlist }
+
+  Ibexa\VersionComparison\FieldType\Media\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezmedia }
+
+  Ibexa\VersionComparison\FieldType\Matrix\Comparable:
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezmatrix }
+
+  Ibexa\VersionComparison\FieldType\ImageAsset\Comparable:
+    arguments:
+        $contentService: '@ibexa.api.service.content'
+        $assetMapper: '@Ibexa\Core\FieldType\ImageAsset\AssetMapper'
+        $imageType: '@Ibexa\Core\FieldType\Image\Type'
+    tags:
+      - { name: ibexa.field_type.comparable, alias: ezimageasset }

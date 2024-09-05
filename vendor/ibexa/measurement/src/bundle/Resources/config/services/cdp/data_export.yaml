@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    Ibexa\Measurement\CDP\Export\Content\FieldValueProcessor\FieldType\SimpleMeasurementFieldValueProcessor:
+        arguments:
+            $fieldType: '@Ibexa\Measurement\FieldType\MeasurementType'
+        tags:
+            - { name: 'ibexa.cdp.export.content.field_value_processor', priority: -100 }
+
+    Ibexa\Measurement\CDP\Export\Content\FieldValueProcessor\FieldType\RangeMeasurementFieldValueProcessor:
+        arguments:
+            $fieldType: '@Ibexa\Measurement\FieldType\MeasurementType'
+        tags:
+            - { name: 'ibexa.cdp.export.content.field_value_processor', priority: -100 }

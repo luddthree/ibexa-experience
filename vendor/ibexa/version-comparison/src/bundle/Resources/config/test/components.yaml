@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+    public: false
+
+  Ibexa\VersionComparison\Behat\Component\VersionTab: ~
+
+  Ibexa\VersionComparison\Behat\Component\VersionPreview:
+    arguments:
+      $fieldTypeComponents: !tagged_iterator ibexa.testing.browser.component.field_type
+      $changedFieldComponents: !tagged_iterator ibexa.testing.browser.component.version_comparison.single_column_field_type_preview
+
+  _instanceof:
+    Ibexa\VersionComparison\Behat\Component\Preview\SingleColumnFieldTypePreviewInterface:
+      tags: [ 'ibexa.testing.browser.component.version_comparison.single_column_field_type_preview' ]
+
+  Ibexa\VersionComparison\Behat\Component\Preview\SingleColumnBaseFieldTypePreview: ~
+
+  Ibexa\VersionComparison\Behat\Component\Preview\SingleColumnRelationsPreview: ~
+
+  Ibexa\VersionComparison\Behat\Component\Preview\SingleColumnBinaryPreview: ~
+
+  Ibexa\VersionComparison\Behat\Component\Preview\SingleColumnImagePreview: ~

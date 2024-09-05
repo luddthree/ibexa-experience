@@ -1,0 +1,31 @@
+{% trans_default_domain 'ibexa_content_fields' %}
+
+{% block ezimageasset_field %}
+    {% apply spaceless %}
+        {% if not ibexa_field_is_empty(content, field) and parameters.available %}
+            <div {{ block('field_attributes') }}>
+                {{ render(controller(
+                    'Ibexa\\Bundle\\Connector\\Dam\\Controller\\AssetViewController::viewAction', {
+                        destinationContentId: field.value.destinationContentId,
+                        assetSource: field.value.source ?? null,
+                        viewType: 'asset_image',
+                        no_layout: true,
+                        params: {
+                            parameters: parameters|default({})|merge({
+                                alternativeText: field.value.alternativeText,
+                                transformation: transformation ?? null
+                            })
+                        }
+                    }
+                )) }}
+            </div>
+        {% endif %}
+    {% endapply %}
+{% endblock %}
+
+{% block field_attributes %}
+    {% apply spaceless %}
+        {% set attr = attr|default( {} ) %}
+        {% for attrname, attrvalue in attr %}{{ attrname }}="{{ attrvalue }}" {% endfor %}
+    {% endapply %}
+{% endblock %}

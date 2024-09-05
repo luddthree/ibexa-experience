@@ -1,0 +1,40 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+
+{% for entry in custom_price_items %}
+    {% set is_custom_price_rule = false %}
+    {% set price = entry.price %}
+    {% set customer_group = entry.customerGroup %}
+
+    {% if price %}
+        {% set is_custom_price_rule = price.getCustomPriceRule() is not null %}
+    {% endif %}
+
+    {% set custom_price_rule = is_custom_price_rule
+        ? price.getCustomPriceRule() ~ '%'
+        : '-' %}
+
+    {% set custom_price = (price and price.getCustomPriceAmount())
+        ? price.getCustomPriceAmount()|number_format(currency_subunits) ~ ' ' ~ price.currency.code|currency_symbol
+        : '-' %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: customer_group.name },
+        { content: price
+            ? price.getBaseAmount()|number_format(currency_subunits) ~ ' ' ~ price.currency.code|currency_symbol
+            : '-'
+        },
+        {
+            content: customer_group.getGlobalPriceRate()|number_format(2) ~ '%',
+            class: 'ibexa-pc-product-custom-price__global-price-rule-cell'
+            ~ (is_custom_price_rule ? ' ibexa-pc-product-custom-price__global-price-rule-cell--unused')
+        },
+        { content: custom_price_rule },
+        { content: custom_price },
+    ]}]) %}
+{% endfor %}
+
+{% include '@admin/product_catalog/product/tab/price/base_price.html.twig' %}
+
+{% include '@admin/product_catalog/product/tab/price/custom_price_table.html.twig' %}

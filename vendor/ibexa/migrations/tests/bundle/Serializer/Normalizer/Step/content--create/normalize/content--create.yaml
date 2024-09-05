@@ -1,0 +1,24 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: foo
+        mainTranslation: en-US
+        creatorId: null
+        modificationDate: '2020-10-30T11:40:09+00:00'
+        publicationDate: '2020-10-30T11:40:09+00:00'
+        remoteId: foo
+        alwaysAvailable: true
+        section:
+            id: 1
+            identifier: foo_section_identifier
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: null
+        locationRemoteId: null
+        hidden: true
+        sortField: 1
+        sortOrder: 1
+        priority: 1
+    fields: {  }
+    references: {  }

@@ -1,0 +1,10 @@
+ibexa.user.default_profile_image.initials:
+    path: /user/default_profile_image/initials.svg
+
+ibexa.rest.product_catalog:
+    resource: '@IbexaProductCatalogBundle/Resources/config/routing_rest.yaml'
+    prefix: '%ibexa.rest.path_prefix%'
+
+ibexa.rest:
+    resource: '@IbexaRestBundle/Resources/config/routing.yml'
+    prefix: '%ibexa.rest.path_prefix%'

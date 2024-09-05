@@ -1,0 +1,35 @@
+system:
+    admin_group:
+        # Edit
+        content_edit_view:
+            full:
+                page_builder:
+                    controller: 'Ibexa\Bundle\PageBuilder\Controller\PageController::editAction'
+                    template: '@IbexaPageBuilder/page_builder/edit.html.twig'
+                    match:
+                        \Ibexa\PageBuilder\Matcher\ContentBased\Identifier\FieldType:
+                            - ezlandingpage
+                    params:
+                        view_base_layout: '@IbexaPageBuilder/content_edit:content_wrapper.html.twig'
+        # Create
+        content_create_view:
+            full:
+                page_builder:
+                    controller: 'Ibexa\Bundle\PageBuilder\Controller\PageController::createAction'
+                    template: '@IbexaPageBuilder/page_builder/create.html.twig'
+                    match:
+                        \Ibexa\PageBuilder\Matcher\ContentTypeBased\Identifier\FieldType:
+                            - ezlandingpage
+                    params:
+                        view_base_layout: '@IbexaPageBuilder/content_edit/content_wrapper.html.twig'
+        # Translate
+        content_translate_view:
+            full:
+                page_builder:
+                    controller: 'Ibexa\Bundle\PageBuilder\Controller\PageController::translateAction'
+                    template: '@IbexaPageBuilder/page_builder/edit.html.twig'
+                    match:
+                        \Ibexa\PageBuilder\Matcher\ContentTypeBased\Identifier\FieldType:
+                            - ezlandingpage
+                    params:
+                        view_base_layout: '@IbexaPageBuilder/content_edit/content_wrapper.html.twig'

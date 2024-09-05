@@ -1,0 +1,121 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#1 \\$arr1 of function array_uintersect_assoc expects array, array\\<string, array\\<string, array\\<int, mixed\\>\\>\\|string\\|null\\>\\|\\(Closure\\)\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Command/FastlyMigrateConfigurationCommand.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function array_filter expects \\(callable\\(int\\)\\: bool\\)\\|null, Closure\\(string\\)\\: bool given\\.$#"
+			count: 1
+			path: src/bundle/Command/FastlyMigrateConfigurationCommand.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Compiler\\\\KernelPass\\:\\:process\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Compiler/KernelPass.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FastlyConfigParser\\:\\:addSemanticConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FastlyConfigParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FastlyConfigParser\\:\\:mapConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FastlyConfigParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FastlyConfigParser\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FastlyConfigParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FastlyVariationsParser\\:\\:mapConfig\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FastlyVariationsParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FastlyVariationsParser\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FastlyVariationsParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\FastlyVariationsParser\\:\\:preMap\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/FastlyVariationsParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\DependencyInjection\\\\IbexaFastlyExtension\\:\\:load\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaFastlyExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Fastly\\\\IbexaFastlyBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaFastlyBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ImageOptimizer\\\\AliasConfigurationMapper\\:\\:map\\(\\) should return array\\<string, int\\|string\\> but returns array\\<string, array\\<string, mixed\\>\\|string\\>\\.$#"
+			count: 1
+			path: src/lib/ImageOptimizer/AliasConfigurationMapper.php
+
+		-
+			message: "#^Offset 'filters' on array\\{reference\\: string\\|null, filters\\: array\\<string, array\\<int, mixed\\>\\>\\} on left side of \\?\\? always exists and is not nullable\\.$#"
+			count: 1
+			path: src/lib/ImageOptimizer/AliasConfigurationMapper.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ImageOptimizer\\\\VariationHandler\\:\\:getVariation\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ImageOptimizer/VariationHandler.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ImageOptimizer\\\\VariationResolver\\:\\:resolve\\(\\) has parameter \\$path with no type specified\\.$#"
+			count: 1
+			path: src/lib/ImageOptimizer/VariationResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ImageOptimizer\\\\VariationResolver\\:\\:resolve\\(\\) has parameter \\$variation with no type specified\\.$#"
+			count: 1
+			path: src/lib/ImageOptimizer/VariationResolver.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ProxyClient\\\\Fastly\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ProxyClient/Fastly.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ProxyClient\\\\Fastly\\:\\:getFastlyKey\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/ProxyClient/Fastly.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ProxyClient\\\\Fastly\\:\\:getFastlyServiceId\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/ProxyClient/Fastly.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ProxyClient\\\\Fastly\\:\\:getHeaders\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ProxyClient/Fastly.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ProxyClient\\\\Fastly\\:\\:invalidateTags\\(\\) has parameter \\$tags with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ProxyClient/Fastly.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\ProxyClient\\\\Fastly\\:\\:purge\\(\\) has parameter \\$headers with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/ProxyClient/Fastly.php
+
+		-
+			message: "#^Method Ibexa\\\\Fastly\\\\PurgeClient\\\\FastlyPurgeClient\\:\\:purge\\(\\) has parameter \\$tags with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/PurgeClient/FastlyPurgeClient.php
+
+		-
+			message: "#^Method Ibexa\\\\Tests\\\\Fastly\\\\ImageOptimizer\\\\AliasConfigurationMapperTest\\:\\:testAliasConfigurationFilter\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/lib/ImageOptimizer/AliasConfigurationMapperTest.php

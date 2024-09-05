@@ -1,0 +1,52 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Ibexa\Migration\StepExecutor\StepExecutorInterface:
+            tags: [ 'ibexa.migrations.step_executor' ]
+        Ibexa\Migration\StepExecutor\UserContextAwareStepExecutorInterface:
+            calls:
+                - [ setPermissionResolver, ['@Ibexa\Contracts\Core\Repository\PermissionService'] ]
+
+    Ibexa\Segmentation\StepExecutor\SegmentCreateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Segmentation\StepExecutor\ActionExecutor\Segment\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.segment'
+
+    Ibexa\Segmentation\StepExecutor\SegmentUpdateStepExecutor:
+        arguments:
+            $actionExecutor: '@Ibexa\Segmentation\StepExecutor\ActionExecutor\Segment\Executor'
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.segment'
+
+    Ibexa\Segmentation\StepExecutor\SegmentDeleteStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.segment'
+
+    Ibexa\Segmentation\StepExecutor\SegmentGroupCreateStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.segment_group'
+
+    Ibexa\Segmentation\StepExecutor\SegmentGroupUpdateStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.segment_group'
+
+    Ibexa\Segmentation\StepExecutor\SegmentGroupDeleteStepExecutor:
+        tags:
+            -   name: container.service_subscriber
+                key: Ibexa\Migration\StepExecutor\ReferenceDefinition\ResolverInterface
+                id: 'ibexa.migrations.reference_definition.resolver.segment_group'

@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Ibexa\ConnectorQualifio\Security\JWT\Token\AbstractTokenEnricher: ~
+
+    Ibexa\ConnectorQualifio\Security\JWT\Token\Enricher\:
+        resource: '../../../lib/Security/JWT/Token/Enricher/*'
+        tags: [ibexa.qualifio.token.enricher]

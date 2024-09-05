@@ -1,0 +1,72 @@
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% set column_headers = {
+    'id': 'block.order.column.id'|trans|desc('Order number'),
+    'identifier': 'block.order.column.identifier'|trans|desc('Order ID'),
+    'company_name': 'block.order.column.company_name'|trans|desc('Company name'),
+    'user_name': 'block.order.column.customer_name'|trans|desc('Customer name'),
+    'status': 'block.order.column.status'|trans|desc('Status'),
+    'total_value': 'block.order.column.total_value'|trans|desc('Total value'),
+    'created_at': 'block.order.column.created_at'|trans|desc('Created'),
+    'modified_at': 'block.order.column.modified_at'|trans|desc('Updated')
+} %}
+
+<div id="ibexa-page-block-{{ block_id }}" class="block-tag {{ block_class }}">
+    <div class="ibexa-container">
+        {% set head_cols = [] %}
+        {% set body_rows = [] %}
+
+        {% for column in columns %}
+            {% set head_cols = head_cols|merge([
+                { content: column_headers[column] }
+            ]) %}
+        {% endfor %}
+
+        {% for order in orders %}
+            {% set col = [] %}
+
+            {% if 'id' in columns %}
+                {% set col = col|merge([{ content: order.getId() }]) %}
+            {% endif %}
+
+            {% if 'identifier' in columns %}
+                {% set col = col|merge([{ content: order.getIdentifier() }]) %}
+            {% endif %}
+
+            {% if 'company_name' in columns %}
+                {% set col = col|merge([{ content: order.getCompany().getName() }]) %}
+            {% endif %}
+
+            {% if 'user_name' in columns %}
+                {% set col = col|merge([{ content: order.getUser().getName() }]) %}
+            {% endif %}
+
+            {% if 'status' in columns %}
+                {% set col = col|merge([{ content: order|ibexa_order_status_label }]) %}
+            {% endif %}
+
+            {% if 'total_value' in columns %}
+                {% set col = col|merge([{ content: order.getValue().getTotalGross()|ibexa_format_price }]) %}
+            {% endif %}
+
+            {% if 'created_at' in columns %}
+                {% set col = col|merge([{ content: order.getCreatedAt()|ibexa_full_datetime }]) %}
+            {% endif %}
+
+            {% if 'modified_at' in columns %}
+                {% set col = col|merge([{ content: order.getModifiedAt()|ibexa_full_datetime }]) %}
+            {% endif %}
+
+            {% set body_rows = body_rows|merge([{ cols: col }]) %}
+        {% endfor %}
+
+        {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: 'block.order.table.headline'|trans({ '%count%': orders|length })|desc('List (%count%)'),
+            head_cols,
+            body_rows,
+            empty_table_info_text: 'block.order.table.empty'|trans|desc('No orders'),
+        } %}
+    </div>
+
+    <style type="text/css">{{ block_style|raw }}</style>
+</div>

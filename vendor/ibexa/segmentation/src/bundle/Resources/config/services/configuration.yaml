@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Segmentation\Configuration\ProtectedSegmentGroupsConfiguration: ~
+
+    Ibexa\Contracts\Segmentation\Configuration\ProtectedSegmentGroupsConfigurationInterface: '@Ibexa\Segmentation\Configuration\ProtectedSegmentGroupsConfiguration'

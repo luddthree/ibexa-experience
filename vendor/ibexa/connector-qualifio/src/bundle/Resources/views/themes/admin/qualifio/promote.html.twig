@@ -1,0 +1,26 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% block body_class %}ibexa-qualifio{% endblock %}
+{% block main_container_class %}ibexa-qf{% endblock %}
+
+{% block content_column %}
+    {% set iframe_url = "https://product-embeds.ibexa.co/ibexa-engage-promotion" %}
+    {% if is_activated %}
+        {% set iframe_url = "https://product-embeds.ibexa.co/ibexa-engage-promotion/activated" %}
+    {% endif %}
+
+    <div class="ibexa-qf-content">
+        <iframe
+            class="ibexa-qf-iframe"
+            src="{{ iframe_url }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-qualifio-css', null, 'ibexa') }}
+{% endblock %}

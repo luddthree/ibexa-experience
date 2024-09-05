@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Workflow\SupportStrategy\MatcherSupportStrategy: ~
+
+    Ibexa\Workflow\SupportStrategy\Matcher\ContentTypeMatcher:
+        arguments:
+            $identifier: 'content_type'
+        tags:
+            - ibexa.workflow.matcher
+
+    Ibexa\Workflow\SupportStrategy\Matcher\ContentStatusMatcher:
+        arguments:
+            $identifier: 'content_status'
+        tags:
+            - ibexa.workflow.matcher
+
+    Ibexa\Workflow\SupportStrategy\Matcher\MatcherRegistry:
+        arguments:
+            $matchers: !tagged ibexa.workflow.matcher

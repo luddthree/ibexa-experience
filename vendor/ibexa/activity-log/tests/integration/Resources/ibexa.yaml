@@ -1,0 +1,13 @@
+ibexa:
+    repositories:
+        default:
+            search:
+                engine: '%env(SEARCH_ENGINE)%'
+                connection: default
+
+    system:
+        default:
+            languages:
+                - eng-US
+                - eng-GB
+                - ger-DE

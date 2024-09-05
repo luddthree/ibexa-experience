@@ -1,0 +1,42 @@
+-   type: repeatable
+    mode: create
+    iterations: 10
+    steps:
+        -   type: reference
+            mode: set
+            name: 'ref_foo_###XXX i XXX###'
+            value: '###XXX to_string(i) XXX###'
+
+-
+    type: repeatable
+    mode: create
+    iterations: 10
+    steps:
+        -   type: content
+            mode: create
+            metadata:
+                contentType: folder
+                mainTranslation: eng-US
+                remoteId: '###XXX "foo " ~ i XXX###'
+            location:
+                parentLocationId: 1
+            fields:
+                -   fieldDefIdentifier: name
+                    languageCode: eng-US
+                    value: '###XXX faker().name() XXX###'
+                -   fieldDefIdentifier: short_name
+                    languageCode: eng-US
+                    value: "reference:ref_foo_###XXX i XXX###"
+                -   fieldDefIdentifier: show_children
+                    languageCode: eng-US
+                    value: '###XXX to_bool(i % 3) XXX###'
+                -   fieldDefIdentifier: tags
+                    languageCode: eng-US
+                    value: { }
+            references:
+                -   name: 'ref__content__folder__media_###XXX i XXX###'
+                    type: content_id
+                -   name: 'ref_location__folder__media_###XXX i XXX###'
+                    type: location_id
+                -   name: 'ref_path__folder__media_###XXX i XXX###'
+                    type: path

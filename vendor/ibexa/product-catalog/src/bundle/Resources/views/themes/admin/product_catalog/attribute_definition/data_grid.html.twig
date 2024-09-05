@@ -1,0 +1,39 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set body_rows = [] %}
+{% set empty_table_info_text = 'attribute_definition.no_search_results.info_text'|trans|desc('Sorry, there are no attributes for your search') %}
+{% set empty_table_action_text = 'attribute_definition.no_search_results.action_text'|trans|desc('Try again with new search criteria') %}
+
+{% for attribute_definition in attributes_definitions %}
+    {% set view_url = path('ibexa.product_catalog.attribute_definition.view', {
+        'attributeDefinitionIdentifier': attribute_definition.identifier,
+    }) %}
+
+    {% set cell_name %}
+        <a href="{{ view_url }}">{{ attribute_definition.name }}</a>
+    {% endset %}
+
+    {% set body_rows = body_rows|merge([{ cols: [
+        { content: cell_name },
+        { content: attribute_definition.identifier },
+        { content: attribute_definition.type.name },
+        { content: attribute_definition.group.name },
+        { content: attribute_definition.position },
+    ]}]) %}
+{% endfor %}
+
+{% include '@ibexadesign/ui/component/table/table.html.twig' with
+    {
+        headline,
+        head_cols: [
+            { content: 'attribute_definition.list.column.name'|trans|desc('Name') },
+            { content: 'attribute_definition.list.column.identifier'|trans|desc('Identifier') },
+            { content: 'attribute_definition.list.column.attribute_type'|trans|desc('Type') },
+            { content: 'attribute_definition.list.column.attribute_group'|trans|desc('Attribute Group') },
+            { content: 'attribute_definition.list.column.position'|trans|desc('Position') },
+        ],
+        body_rows: body_rows,
+        empty_table_info_text,
+        empty_table_action_text,
+    }
+%}

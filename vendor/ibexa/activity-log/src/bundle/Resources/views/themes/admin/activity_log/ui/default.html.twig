@@ -1,0 +1,12 @@
+{%- block main -%}
+    {%- block activity_log_description_row -%}
+        <div class="ibexa-al-data-grid__data-column ibexa-al-data-grid__data-column--description">
+            <span class="ibexa-al-data-grid__data-cell">
+                {% block activity_log_action %}
+                    {{ log.getAction() }}
+                {% endblock %}
+            </span>
+            {%- block activity_log_description_widget -%}{%- endblock activity_log_description_widget -%}
+        </div>
+    {%- endblock activity_log_description_row -%}
+{%- endblock main -%}

@@ -1,0 +1,25 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    ibexa.product_catalog.ui.tabs.customer_group:
+        parent: Ibexa\AdminUi\Component\TabsComponent
+        arguments:
+            $twig: '@twig'
+            $eventDispatcher: '@event_dispatcher'
+            $template: '@@ibexadesign/product_catalog/ui/tab/customer_group.html.twig'
+            $groupIdentifier: 'customer-group'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'customer-group-block' }
+
+    Ibexa\ProductCatalog\Tab\CustomerGroup\TranslationsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'customer-group' }
+
+    Ibexa\ProductCatalog\Tab\CustomerGroup\DetailsTab:
+        parent: Ibexa\Contracts\AdminUi\Tab\AbstractTab
+        tags:
+            - { name: ibexa.admin_ui.tab, group: 'customer-group' }

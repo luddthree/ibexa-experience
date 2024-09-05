@@ -1,0 +1,41 @@
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+<div class="form-group ibexa-pb-collection">
+    <div>
+        <button
+            type="button"
+            class="btn ibexa-btn ibexa-btn--info ibexa-btn--select-content"
+            data-udw-config="{{ ibexa_udw_config('multiple', {}) }}"
+            data-target="{{ form.vars.id }}"
+        >
+            {{ 'block.collection.select.content'|trans|desc('Select content') }}
+        </button>
+    </div>
+    <ol
+        class="ibexa-pb-collection__items"
+        data-template="{{ include('@IbexaPageBuilder/page_builder/block/config/collection_item.html.twig', {
+            content_name: '{{ content_name }}',
+            content_type_name: '{{ content_type_name }}',
+            id: '{{ id }}'
+        })|e('html_attr')  }}"
+        data-placeholder="{{ include('@IbexaPageBuilder/page_builder/block/config/collection_placeholder.html.twig', {
+        })|e('html_attr')  }}"
+    >
+        {% for location in locations %}
+            {% set content_type_name = content_types[location.contentInfo.contentTypeId].getName() %}
+            {% set versionInfo = location.content.getVersionInfo() %}
+            {% set content_id = location.contentInfo.id %}
+            {% set location_id = location.id %}
+            {% set version_languages = versionInfo.getLanguages()  %}
+            {% set language_codes = version_languages|reduce((output, language) => output|merge([ language.getLanguageCode() ]), []) %}
+
+            {{ include('@IbexaPageBuilder/page_builder/block/config/collection_item.html.twig', {
+                content_name: ibexa_content_name(location.contentInfo),
+                content_type_name: content_type_name,
+                id: location_id,
+                content_id: content_id,
+                language_codes,
+            }) }}
+        {% endfor %}
+    </ol>
+</div>

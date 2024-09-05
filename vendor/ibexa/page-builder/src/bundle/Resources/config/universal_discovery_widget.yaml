@@ -1,0 +1,15 @@
+system:
+    default:
+        universal_discovery_widget_module:
+            configuration:
+                block_banner:
+                    multiple: false
+                    allowed_content_types: ['image']
+                block_gallery:
+                    multiple: false
+                    containers_only: true
+                block_content_list:
+                    multiple: false
+                    containers_only: true
+                embed_video:
+                    multiple: false

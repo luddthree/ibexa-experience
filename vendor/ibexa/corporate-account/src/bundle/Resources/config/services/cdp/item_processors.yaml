@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\CorporateAccount\Cdp\Export\User\CompanyInfoUserItemProcessor:
+        parent: Ibexa\Contracts\Cdp\Export\User\AbstractUserItemProcessor
+        tags:
+            - { name: 'ibexa.cdp.export.user.item_processor', priority: 10 }

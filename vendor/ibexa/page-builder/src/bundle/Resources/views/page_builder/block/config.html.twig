@@ -1,0 +1,126 @@
+{% extends "@ibexadesign/ui/layout.html.twig" %}
+
+{% trans_default_domain 'ibexa_page_builder_block_config' %}
+
+{% set is_back_to_top_disabled = true %}
+{% block body_class %}ibexa-pb-block-config {% endblock %}
+
+{% block header_row %}{% endblock %}
+{% block side_column %}{% endblock %}
+{% block content_header %}{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+
+    {% if language_code is defined %}
+        <meta name="LanguageCode" content="{{ language_code }}" />
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% set styling_options = {} %}
+    {% if not is_styling_enabled %}
+        {% set styling_options = {
+            'attr': { 'hidden': not is_styling_enabled },
+            'label': false
+        } %}
+    {% endif %}
+    {# @todo we can provide a way to inject custom form themes so it's less painful than it's for the field types #}
+    {% set default_form_templates = ibexa_admin_ui_config.blockEditFormTemplates %}
+    {% set form_templates = form_templates is defined ? default_form_templates|merge(form_templates) : default_form_templates %}
+    {% form_theme form with form_templates %}
+    {{ form_start(form, { 'attr': { 'novalidate': true }}) }}
+    <div class="ibexa-pb-block-config__content">
+        {% include '@IbexaPageBuilder/page_builder/block/config_nav.html.twig' with { class: 'ibexa-pb-block-config__header' } %}
+        <div class="tab-content ibexa-tab-content ibexa-pb-block-config__body">
+            <div id="ibexa-tab-basic" class="tab-pane ibexa-tab-content__pane ibexa-pb-block-config__tab active" role="tabpanel" aria-labelledby="ibexa-tab-label-basic">
+                {% block basic_tab_content %}
+                <div class="ibexa-pb-block-config__fields">
+                    <div class="ibexa-pb-block-config__field ibexa-pb-block-config__field--name">
+                        <div class="ibexa-field-edit ibexa-field-edit--required ibexa-field-edit ibexa-field-edit--required {{ form.name.vars.errors|length > 0 ? 'is-invalid' : '' }}">
+                            <div class="ibexa-field-edit__label-wrapper ibexa-field-edit__label-wrapper">
+                                {{ form_label(form.name) }}
+                            </div>
+                            <div class="ibexa-field-edit__data ibexa-field-edit__data">
+                                <div class="ibexa-data-source ibexa-data-source">
+                                    {{ form_widget(form.name, { 'attr': { 'class': 'ibexa-data-source__input ibexa-data-source__input' }}) }}
+                                </div>
+                            </div>
+                            <div class="ibexa-form-error">
+                                {{ form_errors(form.name) }}
+                            </div>
+                        </div>
+                    </div>
+                    {% block basic_attributes %}
+                        {% if attributes_per_category['default'] is defined %}
+                            {% for identifier in attributes_per_category['default'] %}
+                                <div class="ibexa-pb-block-config__field ibexa-pb-block-config__field--other">
+                                    {% block config_entry %}
+                                        {{ form_row(form.attributes[identifier]) }}
+                                    {% endblock %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endblock %}
+                </div>
+                {% endblock %}
+            </div>
+            {% for category in attributes_per_category|keys %}
+                {% if category not in ['default', 'design', 'scheduler'] %}
+                    <div id="ibexa-tab-{{ category }}" class="tab-pane ibexa-tab-content__pane ibexa-pb-block-config__tab" role="tabpanel" aria-labelledby="ibexa-tab-label-{{ category }}">
+                        {% for identifier in attributes_per_category[category] %}
+                            {{ form_row(form.attributes[identifier]) }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div id="ibexa-tab-design" class="tab-pane ibexa-tab-content__pane ibexa-pb-block-config__tab" role="tabpanel" aria-labelledby="ibexa-tab-label-design">
+                {% block design_tab_content %}
+                    {{ form_row(form.view) }}
+                    {{ form_row(form.class) }}
+                    {{ form_row(form.style) }}
+
+                    {% if attributes_per_category['design'] is defined %}
+                        {% for identifier in attributes_per_category['design'] %}
+                            {{ form_row(form.attributes[identifier]) }}
+                        {% endfor %}
+                    {% endif %}
+                {% endblock %}
+            </div>
+            <div id="ibexa-tab-scheduler" class="tab-pane ibexa-tab-content__pane ibexa-pb-block-config__tab" role="tabpanel" aria-labelledby="ibexa-tab-label-scheduler">
+                {% block visibility_tab_content %}
+                    <label class="ibexa-pb-block-config__tab-label">{{ 'tab.scheduler.schedule_visibility'|trans|desc('Schedule block visibility') }}</label>
+                    <div class="ibexa-pb-scheduler-tab">
+                        <div class="ibexa-pb-reveal-hide-date-time">
+                            {{ form_row(form.since) }}
+                            {{ form_row(form.till) }}
+                        </div>
+                    </div>
+
+                    {% if attributes_per_category['scheduler'] is defined %}
+                        {% for identifier in attributes_per_category['scheduler'] %}
+                            {{ form_row(form.attributes[identifier]) }}
+                        {% endfor %}
+                    {% endif %}
+                {% endblock %}
+            </div>
+        </div>
+        {{ include('@IbexaPageBuilder/page_builder/block/config_actions.html.twig') }}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('ibexa-richtext-onlineeditor-js', null, 'richtext') }}
+    {{ encore_entry_script_tags('ibexa-page-builder-block-config-js', null, 'ibexa') }}
+    {{ encore_entry_script_tags('ibexa-admin-ui-tabs-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-richtext-onlineeditor-css', null, 'richtext') }}
+    {{ encore_entry_link_tags('ibexa-page-builder-config-css', null, 'ibexa') }}
+{% endblock %}

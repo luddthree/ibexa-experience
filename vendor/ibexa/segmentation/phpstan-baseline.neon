@@ -1,0 +1,346 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot access property \\$name on Ibexa\\\\Segmentation\\\\Value\\\\SegmentGroup\\|null\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_column expects array, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#1 \\$segmentGroup of method Ibexa\\\\Contracts\\\\Segmentation\\\\SegmentationServiceInterface\\:\\:removeSegmentGroup\\(\\) expects Ibexa\\\\Segmentation\\\\Value\\\\SegmentGroup, Ibexa\\\\Segmentation\\\\Value\\\\SegmentGroup\\|null given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of function array_map expects array, iterable\\<\\(int\\|string\\), mixed\\> given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupDeleteData\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Value\\\\SegmentCreateStruct\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Value\\\\SegmentGroupCreateStruct\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Value\\\\SegmentGroupUpdateStruct\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Parameter \\#2 \\$handler of method Ibexa\\\\AdminUi\\\\Form\\\\SubmitHandler\\:\\:handle\\(\\) expects callable\\(mixed\\)\\: \\(Symfony\\\\Component\\\\HttpFoundation\\\\Response\\|null\\), Closure\\(Ibexa\\\\Segmentation\\\\Value\\\\SegmentUpdateStruct\\)\\: Symfony\\\\Component\\\\HttpFoundation\\\\RedirectResponse given\\.$#"
+			count: 1
+			path: src/bundle/Controller/SegmentController.php
+
+		-
+			message: "#^Cannot call method scalarNode\\(\\) on Symfony\\\\Component\\\\Config\\\\Definition\\\\Builder\\\\NodeParentInterface\\|null\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/SegmentationParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Segmentation\\\\DependencyInjection\\\\Configuration\\\\Parser\\\\SegmentationParser\\:\\:mapConfig\\(\\) has parameter \\$scopeSettings with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/Configuration/Parser/SegmentationParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Segmentation\\\\DependencyInjection\\\\IbexaSegmentationExtension\\:\\:load\\(\\) has parameter \\$configs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSegmentationExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Segmentation\\\\DependencyInjection\\\\IbexaSegmentationExtension\\:\\:prepend\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSegmentationExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Segmentation\\\\DependencyInjection\\\\IbexaSegmentationExtension\\:\\:prependBazingaJsTranslationConfiguration\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/DependencyInjection/IbexaSegmentationExtension.php
+
+		-
+			message: "#^Parameter \\#1 \\$input of static method Symfony\\\\Component\\\\Yaml\\\\Yaml\\:\\:parse\\(\\) expects string, string\\|false given\\.$#"
+			count: 2
+			path: src/bundle/DependencyInjection/IbexaSegmentationExtension.php
+
+		-
+			message: "#^Parameter \\#2 \\$config of method Symfony\\\\Component\\\\DependencyInjection\\\\ContainerBuilder\\:\\:prependExtensionConfig\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
+			count: 4
+			path: src/bundle/DependencyInjection/IbexaSegmentationExtension.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Segmentation\\\\IbexaSegmentationBundle\\:\\:build\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/bundle/IbexaSegmentationBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Bundle\\\\Segmentation\\\\IbexaSegmentationBundle\\:\\:getConfigParsers\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/bundle/IbexaSegmentationBundle.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Component\\\\InfobarComponent\\:\\:render\\(\\) has parameter \\$contextParameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Component/InfobarComponent.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData\\:\\:__construct\\(\\) has parameter \\$segments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData\\:\\:getSegments\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData\\:\\:getSegments\\(\\) should return array but returns array\\|null\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData\\:\\:setSegments\\(\\) has parameter \\$segments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentBulkDeleteData.php
+
+		-
+			message: "#^Property Ibexa\\\\Segmentation\\\\Data\\\\SegmentBulkDeleteData\\:\\:\\$segments type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData\\:\\:__construct\\(\\) has parameter \\$segmentGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentGroupBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData\\:\\:getSegmentGroups\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentGroupBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData\\:\\:getSegmentGroups\\(\\) should return array but returns array\\|null\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentGroupBulkDeleteData.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData\\:\\:setSegmentGroups\\(\\) has parameter \\$segmentGroups with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentGroupBulkDeleteData.php
+
+		-
+			message: "#^Property Ibexa\\\\Segmentation\\\\Data\\\\SegmentGroupBulkDeleteData\\:\\:\\$segmentGroups type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Data/SegmentGroupBulkDeleteData.php
+
+		-
+			message: "#^Cannot call method debug\\(\\) on Psr\\\\Log\\\\LoggerInterface\\|null\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/PersonalizationUserSegmentsSubscriber.php
+
+		-
+			message: "#^Parameter \\#2 \\$default of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\:\\:get\\(\\) expects bool\\|float\\|int\\|string\\|null, array given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/SegmentPreviewSubscriber.php
+
+		-
+			message: "#^Cannot call method getValue\\(\\) on Ibexa\\\\Contracts\\\\FieldTypePage\\\\FieldType\\\\LandingPage\\\\Model\\\\Attribute\\|null\\.$#"
+			count: 2
+			path: src/lib/Event/Subscriber/TargetingBlockRenderSubscriber.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TargetingBlockRenderSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Event\\\\Subscriber\\\\TargetingBlockRenderSubscriber\\:\\:getContentMap\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TargetingBlockRenderSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Event\\\\Subscriber\\\\TargetingBlockRenderSubscriber\\:\\:getContentMap\\(\\) should return array but returns mixed\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TargetingBlockRenderSubscriber.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Event/Subscriber/TargetingBlockRenderSubscriber.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\ChoiceLoader\\\\SegmentGroupChoiceLoader\\:\\:loadChoicesForValues\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/ChoiceLoader/SegmentGroupChoiceLoader.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\ChoiceLoader\\\\SegmentGroupChoiceLoader\\:\\:loadValuesForChoices\\(\\) has parameter \\$choices with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Form/ChoiceLoader/SegmentGroupChoiceLoader.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: src/lib/Form/DataTransformer/AttributeTargetedContentMapTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\DataTransformer\\\\AttributeTargetedContentMapTransformer\\:\\:reverseTransform\\(\\) should return string\\|null but returns string\\|false\\.$#"
+			count: 2
+			path: src/lib/Form/DataTransformer/AttributeTargetedContentMapTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\DataTransformer\\\\AttributeTargetedContentMapTransformer\\:\\:transform\\(\\) should return string\\|null but returns string\\|false\\.$#"
+			count: 2
+			path: src/lib/Form/DataTransformer/AttributeTargetedContentMapTransformer.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 2
+			path: src/lib/Form/DataTransformer/AttributeTargetedContentMapTransformer.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\AttributeTargetedContentMapType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AttributeTargetedContentMapType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\AttributeTargetedContentMapType\\:\\:buildView\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/AttributeTargetedContentMapType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentBulkDeleteType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentBulkDeleteType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentBulkDeleteType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentBulkDeleteType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentCreateType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentCreateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentCreateType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentCreateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupBulkDeleteType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupBulkDeleteType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupBulkDeleteType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupBulkDeleteType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupCreateType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupCreateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupCreateType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupCreateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupDeleteType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupDeleteType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupDeleteType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupDeleteType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupUpdateType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupUpdateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentGroupUpdateType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentGroupUpdateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentUpdateType\\:\\:buildForm\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentUpdateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Form\\\\Type\\\\SegmentUpdateType\\:\\:configureOptions\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/lib/Form/Type/SegmentUpdateType.php
+
+		-
+			message: "#^Method Ibexa\\\\Segmentation\\\\Loader\\\\UserSegmentsForcedLoadStrategy\\:\\:__construct\\(\\) has parameter \\$segments with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/lib/Loader/UserSegmentsForcedLoadStrategy.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/Permission/Limitation/Mapper/SegmentGroupLimitationMapper.php
+
+		-
+			message: "#^Call to function is_int\\(\\) with Ibexa\\\\Segmentation\\\\Value\\\\Segment will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Service/SegmentationService.php
+
+		-
+			message: "#^Call to function is_int\\(\\) with Ibexa\\\\Segmentation\\\\Value\\\\SegmentGroup will always evaluate to false\\.$#"
+			count: 1
+			path: src/lib/Service/SegmentationService.php
+
+		-
+			message: "#^Cannot access property \\$query on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 1
+			path: src/lib/Tab/UserViewTab.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on Symfony\\\\Component\\\\HttpFoundation\\\\Request\\|null\\.$#"
+			count: 2
+			path: src/lib/Tab/UserViewTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$maxPerPage of method Pagerfanta\\\\Pagerfanta\\<mixed\\>\\:\\:setMaxPerPage\\(\\) expects int, mixed given\\.$#"
+			count: 1
+			path: src/lib/Tab/UserViewTab.php
+
+		-
+			message: "#^Parameter \\#1 \\$userContentTypeIdentifier of class Ibexa\\\\AdminUi\\\\Specification\\\\ContentType\\\\ContentTypeIsUser constructor expects array, mixed given\\.$#"
+			count: 1
+			path: src/lib/Tab/UserViewTab.php

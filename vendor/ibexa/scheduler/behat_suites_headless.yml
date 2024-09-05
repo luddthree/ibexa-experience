@@ -1,0 +1,15 @@
+browser:
+      suites:
+          scheduler:
+              paths: [ vendor/ibexa/scheduler/features ]
+              filters:
+                tags: '@IbexaHeadless'
+              contexts:
+                - Ibexa\AdminUi\Behat\BrowserContext\ContentUpdateContext
+                - Ibexa\AdminUi\Behat\BrowserContext\ContentViewContext
+                - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
+                - Ibexa\AdminUi\Behat\BrowserContext\NotificationContext
+                - Ibexa\AdminUi\Behat\BrowserContext\ContentActionsMenuContext
+                - Ibexa\Behat\Browser\Context\AuthenticationContext
+                - Ibexa\Behat\Browser\Context\DebuggingContext
+                - Ibexa\Scheduler\Behat\BrowserContext\DateBasedPublisherContext

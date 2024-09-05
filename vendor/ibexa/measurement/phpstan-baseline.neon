@@ -1,0 +1,171 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\ConfigResolver\\\\MeasurementTypes\\:\\:getTypesConfiguration\\(\\) should return array\\<string, array\\<string\\>\\> but returns mixed\\.$#"
+			count: 1
+			path: src/lib/ConfigResolver/MeasurementTypes.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\ConfigResolver\\\\MeasurementTypes\\:\\:getUnitsByType\\(\\) should return array\\<string, array\\<string, string\\>\\> but returns array\\<string\\>\\.$#"
+			count: 1
+			path: src/lib/ConfigResolver/MeasurementTypes.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\FieldType\\\\MeasurementType\\:\\:toHash\\(\\) should return array\\{measurementType\\: string, measurementUnit\\: string, inputType\\: int, value\\: float, measurementRangeMinimumValue\\: float, measurementRangeMaximumValue\\: float\\}\\|null but returns array\\{measurementType\\: string, measurementUnit\\: string, inputType\\: int, value\\?\\: float, measurementRangeMinimumValue\\?\\: float, measurementRangeMaximumValue\\?\\: float\\}\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementType.php
+
+		-
+			message: "#^Cannot access offset 'inputType' on array\\|bool\\|float\\|int\\|string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat1 \\(float\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat1 \\(float\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat2 \\(float\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat2 \\(float\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat3 \\(float\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat3 \\(float\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 3
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat4 \\(float\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataFloat4 \\(float\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 2
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataText1 \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataText2 \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataText3 \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Property Ibexa\\\\Core\\\\Persistence\\\\Legacy\\\\Content\\\\StorageFieldDefinition\\:\\:\\$dataText3 \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/lib/FieldType/MeasurementValueConverter.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\FieldType\\\\Storage\\\\Gateway\\\\MeasurementValueStorageGateway\\:\\:loadRangeValueFieldData\\(\\) should return array\\{type_name\\: string, unit_identifier\\: string, min_value\\: float, max_value\\: float\\} but returns array\\<string, mixed\\>\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway/MeasurementValueStorageGateway.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\FieldType\\\\Storage\\\\Gateway\\\\MeasurementValueStorageGateway\\:\\:loadSimpleValueFieldData\\(\\) should return array\\{type_name\\: string, unit_identifier\\: string, value\\: float\\} but returns array\\<string, mixed\\>\\.$#"
+			count: 1
+			path: src/lib/FieldType/Storage/Gateway/MeasurementValueStorageGateway.php
+
+		-
+			message: "#^Parameter \\#1 \\$type of method Ibexa\\\\Contracts\\\\Measurement\\\\ConfigResolver\\\\MeasurementTypesInterface\\:\\:getUnitsByType\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/lib/Form/Type/MeasurementType.php
+
+		-
+			message: "#^Cannot use array destructuring on array\\<int, float\\|string\\|null\\>\\|null\\.$#"
+			count: 2
+			path: src/lib/Parser/MeasurementParser.php
+
+		-
+			message: "#^Method Ibexa\\\\Measurement\\\\ProductCatalog\\\\Form\\\\Attribute\\\\Formatter\\\\MeasurementSingleValueFormatter\\:\\:getValueSign\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/lib/ProductCatalog/Form/Attribute/Formatter/MeasurementSingleValueFormatter.php
+
+		-
+			message: "#^Parameter \\#1 \\$sign of method Ibexa\\\\Contracts\\\\Measurement\\\\Formatter\\\\MeasurementSignFormatterInterface\\:\\:format\\(\\) expects 'gt'\\|'gte'\\|'lt'\\|'lte'\\|'none'\\|'pm', string given\\.$#"
+			count: 1
+			path: src/lib/ProductCatalog/Form/Attribute/Formatter/MeasurementSingleValueFormatter.php
+
+		-
+			message: "#^Parameter \\#1 \\$innerTransformer of class Ibexa\\\\Bundle\\\\ProductCatalog\\\\Form\\\\DataTransformer\\\\StringToArrayTransformer constructor expects Symfony\\\\Component\\\\Form\\\\DataTransformerInterface\\<Ibexa\\\\Contracts\\\\Measurement\\\\Value\\\\ValueInterface\\|null, int\\|string\\>\\|null, Ibexa\\\\Measurement\\\\ProductCatalog\\\\Form\\\\Attribute\\\\DataTransformer\\\\MeasurementTransformer given\\.$#"
+			count: 1
+			path: src/lib/ProductCatalog/Form/Attribute/Mapper/MeasurementVariantFormMapper.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/Storage/Gateway/Definition/TypeGateway.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/Storage/Gateway/Definition/TypeGateway.php
+
+		-
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 1
+			path: src/lib/Storage/Gateway/Definition/UnitGateway.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/lib/Storage/Gateway/Definition/UnitGateway.php
+
+		-
+			message: "#^Cannot call method import\\(\\) on mixed\\.$#"
+			count: 1
+			path: tests/integration/bootstrap.php
+
+		-
+			message: "#^Cannot call method importSchema\\(\\) on mixed\\.$#"
+			count: 1
+			path: tests/integration/bootstrap.php
+
+		-
+			message: "#^Parameter \\#1 \\$sign of method Ibexa\\\\Measurement\\\\Formatter\\\\MeasurementSignFormatter\\:\\:format\\(\\) expects 'gt'\\|'gte'\\|'lt'\\|'lte'\\|'none'\\|'pm', '~' given\\.$#"
+			count: 1
+			path: tests/lib/Formatter/MeasurementSignFormatterTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Measurement\\\\ProductCatalog\\\\Form\\\\Attribute\\\\DataTransformer\\\\MeasurementTransformer\\:\\:reverseTransform\\(\\) expects string\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/lib/ProductCatalog/Form/Attribute/DataTransformer/MeasurementTransformerTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of method Ibexa\\\\Measurement\\\\ProductCatalog\\\\Form\\\\Attribute\\\\DataTransformer\\\\MeasurementTransformer\\:\\:transform\\(\\) expects Ibexa\\\\Contracts\\\\Measurement\\\\Value\\\\ValueInterface\\|null, stdClass given\\.$#"
+			count: 1
+			path: tests/lib/ProductCatalog/Form/Attribute/DataTransformer/MeasurementTransformerTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$attribute of method Ibexa\\\\Measurement\\\\ProductCatalog\\\\Form\\\\Attribute\\\\Search\\\\RangeMeasurementIndexDataProvider\\:\\:getFieldsForAttribute\\(\\) expects Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\Attribute\\<Ibexa\\\\Contracts\\\\Measurement\\\\Value\\\\RangeValueInterface\\|null\\>, Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\Attribute\\<Ibexa\\\\Contracts\\\\Measurement\\\\Value\\\\RangeValueInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\> given\\.$#"
+			count: 1
+			path: tests/lib/ProductCatalog/Form/Attribute/Search/RangeMeasurementIndexDataProviderTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$attribute of method Ibexa\\\\Measurement\\\\ProductCatalog\\\\Form\\\\Attribute\\\\Search\\\\SimpleMeasurementIndexDataProvider\\:\\:getFieldsForAttribute\\(\\) expects Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\Attribute\\<Ibexa\\\\Contracts\\\\Measurement\\\\Value\\\\SimpleValueInterface\\|null\\>, Ibexa\\\\ProductCatalog\\\\Local\\\\Persistence\\\\Values\\\\Attribute\\<Ibexa\\\\Contracts\\\\Measurement\\\\Value\\\\SimpleValueInterface&PHPUnit\\\\Framework\\\\MockObject\\\\MockObject\\> given\\.$#"
+			count: 1
+			path: tests/lib/ProductCatalog/Form/Attribute/Search/SimpleMeasurementIndexDataProviderTest.php

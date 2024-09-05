@@ -1,0 +1,38 @@
+-
+    type: content_type
+    mode: create
+    metadata:
+        identifier: seo_content_type
+        mainTranslation: eng-GB
+        creatorId: 14
+        urlAliasSchema: ''
+        nameSchema: '<seo_field>'
+        container: false
+        defaultAlwaysAvailable: true
+        defaultSortField: 2
+        defaultSortOrder: 0
+        contentTypeGroups:
+            - Content
+        translations:
+            eng-GB:
+                name: 'SEO content type'
+    fields:
+        -
+            identifier: seo_field
+            type: ibexa_seo
+            position: 0
+            translations: {  }
+            required: false
+            searchable: false
+            infoCollector: false
+            translatable: true
+            category: ''
+            defaultValue: null
+            fieldSettings:
+                types:
+                    foo: { fields: { field1: value1 }, type: foo }
+            validatorConfiguration: {  }
+    references:
+        -
+            name: ref__seo_content_type__content_type_id
+            type: content_type_id

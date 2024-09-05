@@ -1,0 +1,5 @@
+system:
+    admin_group:
+        page_builder_forms:
+            block_edit_form_templates:
+                - { template: '@ibexadesign/segmentation/page_builder/block_edit_form_types.html.twig', priority: 100 }

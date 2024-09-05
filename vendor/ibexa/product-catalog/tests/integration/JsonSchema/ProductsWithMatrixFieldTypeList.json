@@ -1,0 +1,78 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+        "data": {
+            "type": "object",
+            "properties": {
+                "products": {
+                    "type": "object",
+                    "properties": {
+                        "byType": {
+                            "type": "object",
+                            "properties": {
+                                "trouserses": {
+                                    "type": "object",
+                                    "properties": {
+                                        "edges": {
+                                            "type": "array",
+                                            "items": [
+                                                {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "node": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "code": {
+                                                                    "type": "string"
+                                                                },
+                                                                "fields": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "matrix": {
+                                                                            "type": "array",
+                                                                            "items": {}
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "matrix"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "code",
+                                                                "fields"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "node"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "edges"
+                                    ]
+                                }
+                            },
+                            "required": [
+                                "trouserses"
+                            ]
+                        }
+                    },
+                    "required": [
+                        "byType"
+                    ]
+                }
+            },
+            "required": [
+                "products"
+            ]
+        }
+    },
+    "required": [
+        "data"
+    ]
+}

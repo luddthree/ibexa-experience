@@ -1,0 +1,37 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: landing_page
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2007-11-28T16:51:36+00:00'
+        publicationDate: '2007-11-19T13:54:46+00:00'
+        remoteId: 8a9c9c761004866fb458d89910f52bee
+        alwaysAvailable: true
+        section:
+            id: 1
+            identifier: standard
+    location:
+        parentLocationId: 1
+        parentLocationRemoteId: 629709ba256fe317c3ddcee35453a96a
+        locationRemoteId: f3e90596361e31d496d4026eb624c983
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home
+    references:
+        -
+            name: ref__content__landing_page__home
+            type: content_id
+        -
+            name: ref_location__landing_page__home
+            type: location_id
+        -
+            name: ref_path__landing_page__home
+            type: path

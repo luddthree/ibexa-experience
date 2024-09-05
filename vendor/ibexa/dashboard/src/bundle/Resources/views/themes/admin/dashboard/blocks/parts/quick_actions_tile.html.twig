@@ -1,0 +1,44 @@
+{% import "@ibexadesign/ui/component/macros.html.twig" as html %}
+{% import _self as macros %}
+
+{%- macro render_content(icon_name ,label, sublabel) -%}
+    <div class="ibexa-db-quick-actions__tile-icon">
+        <svg class="ibexa-icon ibexa-icon--medium">
+            <defs>
+                <linearGradient id="myGradient" x1="0" y1="0" x2="100%" y2="100%">
+                    <stop offset="0" stop-color="var(--ibexa-color-gradient-start)" />
+                    <stop offset="1" stop-color="var(--ibexa-color-gradient-end)" />
+                </linearGradient>
+            </defs>
+            <use xlink:href="{{ ibexa_icon_path(icon_name|default('file')) }}"></use>
+        </svg>
+    </div>
+    <div class="ibexa-db-quick-actions__tile-content">
+        <div class="ibexa-db-quick-actions__tile-sublabel">{{ sublabel }}</div>
+        <div class="ibexa-db-quick-actions__tile-label">{{ label }}</div>
+    </div>
+{%- endmacro -%}
+
+{% if action.href is defined %}
+    <a
+        href="{{ action.href }}"
+        class="ibexa-db-quick-actions__tile ibexa-db-quick-actions__tile--anchor"
+    >
+        {{ macros.render_content(icon_name, action.label, action.sublabel) }}
+    </a>
+{% elseif action.udw is defined %}
+    <button
+        class="ibexa-db-quick-actions__tile ibexa-db-quick-actions__tile--udw-btn"
+        data-udw-title="{{ action.udw.title }}"
+        data-udw-config="{{ ibexa_udw_config(action.udw.config_name, action.udw.context) }}"
+    >
+        {{ macros.render_content(icon_name, action.label, action.sublabel) }}
+    </button>
+{% else %}
+    <button
+        class="ibexa-db-quick-actions__tile ibexa-db-quick-actions__tile--btn"
+        {{ html.attributes(action.data) }}
+    >
+        {{ macros.render_content(icon_name, action.label, action.sublabel) }}
+    </button>
+{% endif %}

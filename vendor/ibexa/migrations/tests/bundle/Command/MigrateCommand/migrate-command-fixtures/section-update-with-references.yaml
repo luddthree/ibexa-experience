@@ -1,0 +1,17 @@
+-
+    type: section
+    mode: update
+    match:
+        field: identifier
+        value: standard
+    metadata:
+        identifier: __NEW_IDENTIFIER__
+        name: __NEW_NAME__
+-
+    type: section
+    mode: update
+    match:
+        field: id
+        value: 1
+    metadata:
+        name: __NEWER_NAME__

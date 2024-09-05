@@ -1,0 +1,13 @@
+{% extends '@IbexaPageBuilder/page_builder/block/config.html.twig' %}
+
+{% block body_class %}{{ parent() }} ibexa-pb-block-config--richtext{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="LanguageCode" content="{{ language_code }}" />
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('ibexa-page-builder-config-richtext-css', null, 'ibexa') }}
+{% endblock %}

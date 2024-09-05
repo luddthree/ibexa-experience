@@ -1,0 +1,33 @@
+services:
+    ibexa.form_builder.component.javascripts:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@ibexadesign/form_builder/javascripts.component.html.twig'
+            $parameters:
+                config: '@=service("Ibexa\\FormBuilder\\ApplicationConfig\\FormBuilderConfigProvider").getConfig()'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'script-body' }
+
+    ibexa.form_builder.component.stylesheets:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@ibexadesign/form_builder/stylesheets.component.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'stylesheet-head' }
+
+    Ibexa\FormBuilder\Component\FormBuilderComponent:
+        parent: Ibexa\AdminUi\Component\TwigComponent
+        autowire: true
+        autoconfigure: false
+        public: false
+        arguments:
+            $template: '@@ibexadesign/form_builder/component.html.twig'
+        tags:
+            - { name: ibexa.admin_ui.component, group: 'content-create-form-after' }
+            - { name: ibexa.admin_ui.component, group: 'content-edit-form-after' }

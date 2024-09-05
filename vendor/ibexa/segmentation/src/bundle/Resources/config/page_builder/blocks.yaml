@@ -1,0 +1,30 @@
+blocks:
+    targeting:
+        name: Targeting
+        category: default
+        thumbnail: '/bundles/ibexaicons/img/all-icons.svg#profile'
+        configuration_template: '@ibexadesign/segmentation/page_builder/block/config/targeting.html.twig'
+        views:
+            default: { name: 'Default block layout', template: '@ibexadesign/segmentation/page_builder/blocks/targeting.html.twig', priority: -255 }
+        attributes:
+            default_content_id:
+                name: Select default content
+                type: embed
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a Content item
+            content_map:
+                name: Setup segment and content matching priority rules
+                type: segment_content_map
+                validators:
+                    not_blank:
+                        message: You must provide value
+                    regexp:
+                        options:
+                            pattern: '/[0-9]+/'
+                        message: Choose a Content item
+

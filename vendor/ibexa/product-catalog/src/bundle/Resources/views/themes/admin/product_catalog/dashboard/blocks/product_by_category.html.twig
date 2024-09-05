@@ -1,0 +1,16 @@
+{% trans_default_domain 'ibexa_dashboard' %}
+
+{% set default_block_name = 'dashboard.products_by_categories.title'|trans|desc('Products by categories') %}
+
+<div id="ibexa-page-block-{{ block_id }}" class="block-tag {{ block_class }}">
+    <div class="ibexa-db-product-category">
+        <h2 class="ibexa-db-product-category__header">{{ block_name|default(default_block_name) }}</h2>
+        {% if chart_data is defined and chart_data|length > 0 %}
+            {% include '@ibexadesign/product_catalog/ui/component/chart/product_category_chart.html.twig' with {
+                chart_data: chart_data
+            } only %}
+        {% else %}
+            {% include '@ibexadesign/ui/empty_chart.html.twig' %}
+        {% endif %}
+    </div>
+</div>

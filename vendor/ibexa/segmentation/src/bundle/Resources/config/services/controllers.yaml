@@ -1,0 +1,53 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: false
+
+    Ibexa\Bundle\Segmentation\Controller\SegmentController:
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\UserSegment\UserSegmentListController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\UserSegment\UserSegmentAssignController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        calls:
+            - [ setInputDispatcher, [ '@Ibexa\Rest\Input\Dispatcher' ] ]
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\UserSegment\UserSegmentUnassignController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\Segment\SegmentViewController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\Segment\SegmentListController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\SegmentGroup\SegmentGroupViewController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments
+
+    Ibexa\Bundle\Segmentation\Controller\REST\SegmentGroup\SegmentGroupListController:
+        parent: Ibexa\Rest\Server\Controller
+        autowire: true
+        tags:
+            - controller.service_arguments

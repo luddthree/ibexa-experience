@@ -1,0 +1,13 @@
+-
+    mode: create
+    type: object_state_group
+    identifier: custom_publication_state
+    names:
+        eng-GB: 'Custom Publication State'
+-
+    mode: create
+    type: object_state
+    object_state_group: ez_lock
+    identifier: preview
+    names:
+        eng-GB: 'Preview'

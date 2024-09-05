@@ -1,0 +1,104 @@
+{% extends '@ibexadesign/customer_portal/registration/registration_layout.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% from '@ibexadesign/content/edit_macros.html.twig' import render_form_field, render_field_group %}
+
+{% set default_form_templates = ibexa_admin_ui_config.contentEditFormTemplates %}
+{% set form_templates = form_templates is defined ? default_form_templates|merge(form_templates) : default_form_templates %}
+
+{% form_theme form with form_templates %}
+
+{% block banner %}
+    <div class="ibexa-ca-registration-banner">
+        <div class="ibexa-ca-registration-banner__info">
+            <h1 class="ibexa-ca-registration-banner__info-title">
+                {{ 'registration.banner.info.title'|trans|desc(
+                    'Are you interested in doing business with us?<br> Send your application to be considered as a business partner.
+                ')|raw }}
+            </h1>
+            <span class="ibexa-ca-registration-banner__info-message">
+                {{ 'registration.banner.info.message'|trans|desc('Your application will be evaluated.') }}
+            </span>
+        </div>
+        <div class="ibexa-ca-registration-banner__steps">
+            <div class="ibexa-ca-registration-banner__step">
+                <div class="ibexa-ca-registration-banner__step-number">
+                    {{ 'registration.banner.step_1.title'|trans|desc('Step 1') }}
+                </div>
+                <div class="ibexa-ca-registration-banner__step-content">
+                    {{ 'registration.banner.step_1.action'|trans|desc('Submit your application') }}
+                </div>
+            </div>
+            <div class="ibexa-ca-registration-banner__step">
+                <div class="ibexa-ca-registration-banner__step-number">
+                    {{ 'registration.banner.step_2.title'|trans|desc('Step 2') }}
+                </div>
+                <div class="ibexa-ca-registration-banner__step-content">
+                    {{ 'registration.banner.step_2.action'|trans|desc('Application review') }}
+                </div>
+            </div>
+            <div class="ibexa-ca-registration-banner__step">
+                <div class="ibexa-ca-registration-banner__step-number">
+                    {{ 'registration.banner.step_3.title'|trans|desc('Step 3') }}
+                </div>
+                <div class="ibexa-ca-registration-banner__step-content">
+                    {{ 'registration.banner.step_3.action'|trans|desc('Application approval') }}
+                </div>
+            </div>
+            <div class="ibexa-ca-registration-banner__step">
+                <div class="ibexa-ca-registration-banner__step-number">
+                    {{ 'registration.banner.step_4.title'|trans|desc('Step 4') }}
+                </div>
+                <div class="ibexa-ca-registration-banner__step-content">
+                    {{ 'registration.banner.step_4.action'|trans|desc('Set up and manage your team') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {% block form %}
+        {{ form_start(form, {'attr': {'class': 'ibexa-form-validate ibexa-ca-registration-form'}}) }}
+            <div class="ibexa-ca-registration-form__fields">
+                {% block form_fields %}
+                    <h2 class="ibexa-ca-registration-form__title">
+                        {{ 'registration.form.basic_information_group.title'|trans|desc('Basic information') }}
+                    </h2>
+                    {{ render_form_field(form.fieldsData.name) }}
+                    {{ render_form_field(form.fieldsData.vat) }}
+                    {{ render_form_field(form.fieldsData.website) }}
+
+                    <h2 class="ibexa-ca-registration-form__title">
+                        {{ 'registration.form.contact_information_group.title'|trans|desc('Contact information') }}
+                    </h2>
+                    {{ render_field_group(grouped_fields.Member, form) }}
+
+                    <h2 class="ibexa-ca-registration-form__title">
+                        {{ 'registration.form.billing_address_group.title'|trans|desc('Billing address') }}
+                    </h2>
+                    {{ render_form_field(form.fieldsData.address) }}
+                {% endblock %}
+            </div>
+            {{ form_widget(form.publish, {
+                label: 'registration.form.submit.btn'|trans|desc('Register'),
+                attr: { class: 'ibexa-btn ibexa-btn--primary ibexa-ca-registration-form__submit-btn' },
+            }) }}
+            {{ form_widget(form.publishAndEdit, { attr: { hidden: true }}) }}
+        {{ form_end(form) }}
+    {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include '@ibexadesign/content/edit/javascripts.html.twig' %}
+    {{ encore_entry_script_tags('ibexa-admin-ui-edit-base-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% include '@ibexadesign/content/edit/stylesheets.html.twig' %}
+{% endblock %}

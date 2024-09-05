@@ -1,0 +1,30 @@
+{% trans_default_domain 'ibexa_page_builder_modal_add_translation' %}
+
+{% embed '@ibexadesign/ui/component/modal/modal.html.twig' with {
+    title: 'tab.translations.add.title'|trans|desc('Create new translation'),
+    class: 'ibexa-translation',
+    id,
+} %}
+    {% trans_default_domain 'ibexa_page_builder_modal_add_translation' %}
+    {% form_theme form '@ibexadesign/ui/form_fields.html.twig' '@ibexadesign/content/translation_add_form_fields.html.twig' %}
+
+    {% block content_before %}
+        {{ form_start(form, { action: path('ibexa.translation.add')}) }}
+    {% endblock %}
+    {% block body_content %}
+        <span class="ibexa-translation__title">
+            {{ 'tab.translations.add.base_language'|trans|desc('Base this translation on an existing translation') }}
+        </span>
+        {{ form_widget(form.base_language, { attr: { class: 'ibexa-translation__language-wrapper' }}) }}
+    {% endblock %}
+    {% block footer_content %}
+        <button type="button" class="btn ibexa-btn ibexa-btn--secondary" data-bs-dismiss="modal">
+            {{ 'tab.translations.add.cancel'|trans|desc('Cancel') }}
+        </button>
+        {{ form_widget(form.add, { attr: { class: 'btn ibexa-btn ibexa-btn--primary ibexa-btn--create-translation' }}) }}
+        {{ form_widget(form.language, { attr: { hidden: 'hidden' }}) }}
+    {% endblock %}
+    {% block content_after %}
+        {{ form_end(form) }}
+    {% endblock %}
+{% endembed %}

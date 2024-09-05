@@ -1,0 +1,5 @@
+-
+    type: reference
+    mode: set
+    name: __NAME__
+    value: __VALUE__

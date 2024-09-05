@@ -1,0 +1,52 @@
+{% set close_href = path('ibexa.corporate_account.customer_portal.my_profile') %}
+
+{% extends '@ibexadesign/corporate_account/edit.html.twig' %}
+
+{% trans_default_domain 'ibexa_customer_portal' %}
+
+{% block main_container_class %}{{ parent() }} ibexa-ca-customer_portal-profile-edit{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/edit_header.html.twig' with {
+        action_name: 'profile.edit.editing'|trans|desc('Editing'),
+        title: 'Change my personal information',
+        icon_name: 'file',
+    } %}
+{% endblock %}
+
+{% set context_actions %}
+    {% set menu_items %}
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <button
+                type="button"
+                data-click="#member_edit_update"
+                class="btn ibexa-btn ibexa-btn--primary ibexa-btn--trigger"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'profile.edit.save_btn.label'|trans|desc('Save') }}
+                </span>
+            </button>
+        </li>
+        <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+            <button
+                type="button"
+                data-click="#member_edit_cancel"
+                class="btn ibexa-btn ibexa-btn--secondary ibexa-btn--trigger"
+            >
+                <span class="ibexa-btn__label">
+                    {{ 'profile.edit.cancel_btn.label'|trans|desc('Cancel') }}
+                </span>
+            </button>
+        </li>
+    {% endset %}
+
+    {{ include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', {
+        menu_items,
+    }) }}
+{% endset %}
+
+{% block form_fields %}
+    {{- form_widget(form.update, { attr: { hidden: true }}) -}}
+    {{- form_widget(form.cancel, { attr: { hidden: true }}) -}}
+    {{ parent() }}
+{% endblock %}

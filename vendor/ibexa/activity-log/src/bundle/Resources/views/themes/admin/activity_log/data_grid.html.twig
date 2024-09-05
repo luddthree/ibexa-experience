@@ -1,0 +1,85 @@
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% trans_default_domain 'ibexa_activity_log' %}
+{% form_theme search_form with '@ibexadesign/activity_log/filters/form_fields.html.twig' %}
+
+{% set today_date_string = "now"|date('Ymd') %}
+{% set last_group_date_string = null %}
+{% set search_query = search_form.vars.value.getQuery() ?? null %}
+{% set default_headline = results_headline(activity_logs_groups|length, search_query) %}
+{% set headline = custom_results_headline ?? default_headline %}
+
+<div class="ibexa-al-data-grid">
+    {% if has_search_bar %}
+        <div class="ibexa-al-data-grid__search-bar">
+            {{ form_widget(search_form.query) }}
+        </div>
+    {% endif %}
+
+    {% include '@ibexadesign/ui/component/table/table_header.html.twig' with { headline } %}
+
+    <div class="ibexa-al-data-grid__data-rows">
+        {% for group in activity_logs_groups %}
+            {% set group_datetime = group.getLoggedAt() %}
+            {% set group_date_string = group_datetime.format('Ymd') %}
+
+            {% if last_group_date_string != group_date_string %}
+                {% set last_group_date_string = group_date_string %}
+
+                <div class="ibexa-al-data-grid__data-row-header">
+                    {{ today_date_string == group_date_string 
+                        ? 'activity_log.data_grid.today_label'|trans()|desc('Today')
+                        : group_datetime|ibexa_full_date
+                    }}
+                </div>
+            {% endif %}
+
+            {{ ibexa_render_activity_log_group(group) }}
+        {% else %}
+            <div class="ibexa-al-list-search-form__no-results">
+                {% if search_form.query.vars.value %}
+                    {% set no_results_hints = [
+                        'activity_log.events_list.search.no_results.hint.check_spelling'|trans|desc('Check the spelling of keywords.'),
+                        'activity_log.events_list.search.no_results.hint.more_general'|trans|desc('Try more general keywords.'),
+                        'activity_log.events_list.search.no_results.hint.different_kewords'|trans|desc('Try different keywords.'),
+                        'activity_log.events_list.search.no_results.hint.fewer_keywords'|trans|desc('Try fewer keywords. Reducing keywords results in more matches.'),
+                    ] %}
+
+                    <img src="/bundles/ibexaadminui/img/no-results.svg" />
+                    <h2 class="ibexa-al-list-search-form__no-results-title">
+                        {{ 'activity_log.events_list.search.no_results.title'|trans({'%query%': search_form.vars.value.query})|desc('No results found for "%query%"') }}
+                    </h2>
+
+                    <div class="ibexa-al-list-search-form__no-results-subtitle">
+                        {% for hint in no_results_hints %}
+                            <div class="ibexa-al-list-search-form__no-results-hint">
+                                <div  class="ibexa-al-list-search-form__no-results-hint-icon-wrapper">
+                                    <svg class="ibexa-icon ibexa-icon--small-medium">
+                                        <use xlink:href="{{ ibexa_icon_path('approved') }}"></use>
+                                    </svg>
+                                </div>
+                                <div class="ibexa-al-list-search-form__no-results-hint-text">{{ hint }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <img
+                        src="{{ asset('/bundles/ibexaadminui/img/ibexa-empty-table.svg') }}"
+                        alt="{{ 'activity_log.events_list.no_events'|trans()|desc('There are no events yet.') }}"
+                    />
+                    <h2 class="ibexa-al-list-search-form__no-results-title">
+                        {{ 'activity_log.events_list.no_events'|trans()|desc('There are no events yet.') }}
+                    </h2>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if activity_logs_groups is defined and activity_logs_groups.haveToPaginate() %}
+        <div class="ibexa-al-data-grid__paginator">
+            {% include '@ibexadesign/ui/pagination.html.twig' with {
+                pager: activity_logs_groups
+            } %}
+        </div>
+    {% endif %}
+</div>

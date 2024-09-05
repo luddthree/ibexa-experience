@@ -1,0 +1,28 @@
+ibexa.image_editor.update_image_asset:
+    path: /image-editor/update/{contentId}/{languageCode}
+    methods: [PUT]
+    controller: Ibexa\Bundle\ImageEditor\Controller\ImageAssetController::updateExistingImageAsset
+    defaults:
+        languageCode: null
+    options:
+        expose: true
+
+ibexa.image_editor.create_from_image_asset:
+    path: /image-editor/create-from/{fromContentId}/{languageCode}
+    methods: [POST]
+    controller: Ibexa\Bundle\ImageEditor\Controller\ImageAssetController::createNewImageAsset
+    defaults:
+        languageCode: null
+    options:
+        expose: true
+
+ibexa.image_editor.get_base_64:
+    path: /image-editor/base64/{contentId}/{fieldIdentifier}/{versionNo}/{languageCode}
+    methods: [GET]
+    controller: Ibexa\Bundle\ImageEditor\Controller\Base64Controller::getBase64
+    defaults:
+        versionNo: null
+        languageCode: null
+    options:
+        expose: true
+

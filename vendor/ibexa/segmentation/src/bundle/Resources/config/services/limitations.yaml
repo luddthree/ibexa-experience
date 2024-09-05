@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    #
+    # Repository Limitation Types
+    #
+
+    Ibexa\Segmentation\Permission\Limitation\SegmentGroupLimitationType:
+        tags:
+            - { name: ibexa.permissions.limitation_type, alias: SegmentGroup }
+
+    #
+    # Mappers
+    #
+
+    Ibexa\Segmentation\Permission\Limitation\Mapper\SegmentGroupLimitationMapper:
+        calls:
+            - [setFormTemplate, ['%ibexa.content_forms.limitation.multiple_selection.template%']]
+        tags:
+            - { name: ibexa.admin_ui.limitation.mapper.form, limitationType: SegmentGroup }
+            - { name: ibexa.admin_ui.limitation.mapper.value, limitationType: SegmentGroup }

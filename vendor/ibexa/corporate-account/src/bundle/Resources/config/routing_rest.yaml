@@ -1,0 +1,13 @@
+# Note: this resource needs to be imported with `prefix: '%ibexa.rest.path_prefix%'` attribute
+
+ibexa.corporate_account.rest.companies:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing/rest/companies.yaml'
+
+ibexa.corporate_account.rest.members:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing/rest/members.yaml'
+
+ibexa.corporate_account.rest.sales_representatives:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing/rest/sales_representatives.yaml'
+
+ibexa.corporate_account.rest.root:
+    resource: '@IbexaCorporateAccountBundle/Resources/config/routing/rest/root.yaml'

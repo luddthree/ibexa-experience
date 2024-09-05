@@ -1,0 +1,75 @@
+paths:
+  - ./src
+exclude_files:
+  - .*test.*
+layers:
+  - name: GenerateCommand
+    collectors:
+      - type: className
+        regex: .*Bundle\\Migration\\Command\\GenerateCommand.*
+
+  - name: MigrateCommand
+    collectors:
+      - type: className
+        regex: .*Bundle\\Migration\\Command\\MigrateCommand.*
+
+  - name: StepsSerializer
+    collectors:
+      - type: className
+        regex: .*Bundle\\Migration\\Serializer\\StepsSerializer.*
+
+  - name: Normalizer
+    collectors:
+      - type: className
+        regex: .*Bundle\\Migration\\Serializer\\Normalizer\\.*Normalizer.*
+
+  - name: StepDenormalizer
+    collectors:
+      - type: className
+        regex: .*Bundle\\Migration\\Serializer\\Denormalizer\\.*StepDenormalizer.*
+
+  - name: Generator
+    collectors:
+      - type: className
+        regex: .*Migration\\Generator\\.*Generator.*
+
+  - name: Executor
+    collectors:
+      - type: className
+        regex: .*Migration\\Executor\\.*Executor.*
+
+  - name: MigrationRunner
+    collectors:
+      - type: className
+        regex: .*Migration\\Runner\\MigrationRunner.*
+
+
+#  - name: SymfonySerializer
+#    collectors:
+#      - type: className
+#        regex: \\Symfony\\Component\\Serializer\\SerializerInterface
+ruleset:
+  GenerateCommand:
+    - Generator
+
+  MigrateCommand:
+    - MigrationRunner
+
+  MigrationRunner:
+    - StepsSerializer
+
+  Generator:
+    - StepsSerializer
+
+  StepsSerializer:
+
+  SymfonySerializer:
+#    - Normalizer
+
+  StepDenormalizer:
+    - Executor
+
+  Executor:
+    - StepDenormalizer
+
+  Normalizer:

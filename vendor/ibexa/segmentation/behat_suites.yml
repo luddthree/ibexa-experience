@@ -1,0 +1,15 @@
+browser:
+    suites:
+        segmentation:
+            paths:
+              - '%paths.base%/vendor/ibexa/segmentation/features/Segmentation.feature'
+            contexts:
+              - Ibexa\Behat\API\Context\TestContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NavigationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\NotificationContext
+              - Ibexa\AdminUi\Behat\BrowserContext\ContentActionsMenuContext
+              - Ibexa\AdminUi\Behat\BrowserContext\UserNotificationContext
+              - Ibexa\Behat\Browser\Context\AuthenticationContext
+              - Ibexa\Segmentation\Behat\Context\SegmentationContext
+              - Ibexa\Behat\Browser\Context\AuthenticationContext
+              - Ibexa\Migration\Behat\Context\MigrationContext

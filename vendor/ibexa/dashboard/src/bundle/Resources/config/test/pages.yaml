@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Ibexa\Workflow\Behat\Page\DashboardPage:
+    class: Ibexa\Dashboard\Behat\Page\DashboardPage
+
+  Ibexa\AdminUi\Behat\Page\DashboardPage:
+    class: Ibexa\Dashboard\Behat\Page\DashboardPage
+

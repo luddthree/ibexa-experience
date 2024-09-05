@@ -1,0 +1,10 @@
+--TEST--
+"ibexa_taxonomy_name" function
+--TEMPLATE--
+{{ null|ibexa_taxonomy_name ? '<non empty string>' : '<empty string>'}}
+{{ 'category'|ibexa_taxonomy_name }}
+--DATA--
+return []
+--EXPECT--
+<empty string>
+Product category

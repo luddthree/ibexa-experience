@@ -1,0 +1,70 @@
+{% import "@ibexadesign/product_catalog/product_macros.html.twig" as product_macros %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+<section class="ibexa-pc-product-availability">
+    {% set body_rows = [] %}
+    {% set col_availability %}
+        {% set is_product_available = has_availability and availability.isAvailable() %}
+
+        {{ product_macros.availability_badge(is_product_available) }}
+    {% endset %}
+    {% set col_stock %}
+        {% if has_availability %}
+            {{ availability.isInfinite()
+                ? 'product.list.unlimited'|trans|desc('Unlimited')
+                : availability.getStock()
+            }}
+        {% endif %}
+    {% endset %}
+
+    {% if availability is not null %}
+        {% set body_rows = [{ cols: [
+            { content: col_availability },
+            { content: col_stock },
+        ]}] %}
+    {% endif %}
+
+    {% if ibexa_permission_edit_product(product) %}
+        {% set table_actions %}
+            {% if has_availability %}
+                {% set icon_name = 'edit' %}
+                {% set label = 'product.view.availability.label.edit'|trans|desc('Edit') %}
+                {% set availability_url = path('ibexa.product_catalog.product.availability.update', {
+                    productCode: product.code,
+                }) %}
+            {% else %}
+                {% set icon_name = 'create' %}
+                {% set label = 'product.view.availability.label.create'|trans|desc('Create') %}
+                {% set availability_url = path('ibexa.product_catalog.product.availability.create', {
+                    productCode: product.code,
+                }) %}
+            {% endif %}
+
+            <a href="{{ availability_url }}" class="btn ibexa-btn ibexa-btn--tertiary ibexa-btn--small">
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--secondary">
+                    <use xlink:href="{{ ibexa_icon_path(icon_name) }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{ label }}</span>
+            </a>
+        {% endset %}
+    {% endif %}
+
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        class: 'ibexa-pc-product-availability__table',
+        headline: 'product.view.availability.title'|trans|desc('Availability'),
+        head_cols: [
+            {
+                class: 'ibexa-pc-product-availability__table-header-cell ibexa-pc-product-availability__table-header-cell--available',
+                content: 'product.view.available.label'|trans|desc('Availability')
+            },
+            {
+                content: 'product.view.stock.label'|trans|desc('Stock')
+            },
+        ],
+        body_rows,
+        empty_table_info_text: 'product.view.availability.no_availability.info'|trans|desc('Make this product available'),
+        empty_table_action_text: 'product.view.availability.no_availability.action'|trans|desc('Specify stock quantity and start selling product.'),
+        actions: ibexa_permission_edit_product(product) ? table_actions ,
+    } %}
+</section>

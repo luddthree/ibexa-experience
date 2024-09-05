@@ -1,0 +1,13 @@
+--TEST--
+"ibexa_seo_is_empty" function
+--TEMPLATE--
+{{ ibexa_seo_is_empty(content_with_seo) ? 'Yes' : 'No' }}
+{{ ibexa_seo_is_empty(content_without_seo)  ? 'Yes' : 'No' }}
+--DATA--
+return [
+    'content_with_seo' => $this->createContent(true),
+    'content_without_seo' => $this->createContent(false),
+]
+--EXPECT--
+No
+Yes

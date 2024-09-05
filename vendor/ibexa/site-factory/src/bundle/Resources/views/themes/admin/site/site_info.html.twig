@@ -1,0 +1,30 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+<div class="ibexa-site-factory-info">
+    <div class="ibexa-site-factory-info__status">
+    {% include '@ibexadesign/common/status.html.twig' with {
+        'status': status,
+    } %}
+    </div>
+    <div class="ibexa-site-factory-info__content">
+        <b>
+            {% if view_path %}
+                <a href="{{ view_path }}">{{ name }}</a>
+            {% else %}
+                {{ name }}
+            {% endif %}
+        </b>
+        <br />
+        {% if root_location is not null %}
+            <a
+                    href="{{ path('ibexa.content.view', {contentId: root_location.content.id, locationId: root_location.id}) }}"
+                    class="ibexa-site-factory-info__root-link"
+                    title="{{ 'site.action.root'|trans|desc('Go to root') }}"
+            >
+                {% include '@ibexadesign/site/location_breadcrumb.html.twig' with {
+                    'locations': ibexa_path_to_locations(root_location.pathString)
+                } %}
+            </a>
+        {% endif %}
+    </div>
+</div>

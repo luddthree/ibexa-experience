@@ -1,0 +1,378 @@
+services:
+    _defaults:
+        autowire: true
+        # Warning: Do NOT enable autoconfigure for Serializer and Normalizer services.
+        # They will be tagged with "serializer.normalizer" tag and injected to main app serializer service if done so.
+        autoconfigure: false
+        public: false
+
+    _instanceof:
+        Ibexa\Bundle\Migration\Serializer\Denormalizer\StepNormalizerInterface:
+            tags: [ 'ibexa.migrations.serializer.step_normalizer' ]
+
+        Psr\Log\LoggerAwareInterface:
+            calls:
+                - [ setLogger, [ '@?logger' ] ]
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentType\ContentTypeCreateMetadataDenormalizer:
+        arguments:
+            $defaultLanguage: '%ibexa.migrations.default.language_code%'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentTypeGroup\ContentTypeGroupCreateMetadataDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentTypeGroup\ContentTypeGroupUpdateMetadataDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentTypeGroup\ContentTypeGroupCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentTypeGroup\ContentTypeGroupUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentTypeGroup\ContentTypeGroupDeleteStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\MatchNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentType\MatcherNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\RoleCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\Role\PolicyNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\Role\PolicyListNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\Role\CreateMetadataNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\Role\UpdateMetadataNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\RoleDeleteStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\RoleUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Limitation\LimitationNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\UserCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\User\CreateMetadataDenormalizer:
+        arguments:
+            $defaultLanguage: '%ibexa.migrations.default.language_code%'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\UserGroupCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\UserGroupUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\UserGroupDeleteStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\UserUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentDeleteStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentTypeCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentTypeUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentTypeDeleteStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ContentUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\LanguageCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ReferenceLoadStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -80 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ReferenceSaveStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -80 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ReferenceSetStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -80 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ReferenceListStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -80 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\LocationUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\LocationSwapStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ObjectStateCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ObjectStateGroupCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\SectionCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\SectionUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\ServiceCallStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+        # Container added in extension
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\SQLStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\RepeatableStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: 100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\SettingCreateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\SettingDeleteStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Step\SettingUpdateStepNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Generic\VirtualProxyNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -70 }
+
+    ibexa.migrations.serializer.date_time_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\DateTimeNormalizer
+        arguments:
+            - datetime_format: '%ibexa.migrations.default.date_time.format%'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -90 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\ContentTypeGroupsNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\FieldDefinitionCollectionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -120 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\FieldDefinitionNormalizer:
+        arguments:
+            $contentFieldStrategy: '@Ibexa\Core\Repository\Strategy\ContentThumbnail\Field\ContentFieldStrategy'
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -130 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Content\CreateMetadataNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Content\MigrationFieldNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Content\SectionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\UserGroup\CreateMetadataNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\UserGroup\UpdateMetadataNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Content\ObjectStateDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Content\Action\AssignObjectStateActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Content\Action\AssignParentLocationActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Content\Action\AssignSectionActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Content\Action\HideActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Content\Action\RevealActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\AssignContentTypeGroupActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\RemoveDraftsActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\RemoveFieldByIdentifierActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ContentType\Action\UnassignContentTypeGroupActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Role\Action\AssignToUserActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Role\Action\AssignToUserGroupActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Action\AssignRoleActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Content\Action\AssignObjectStateActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\Action\AssignContentTypeGroupActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\Action\RemoveDraftsActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\Action\RemoveFieldByIdentifierActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ContentType\Action\UnassignContentTypeGroupActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Role\Action\AssignToUserActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Role\Action\AssignToUserGroupActionNormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\UserGroup\Action\UnassignRoleActionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\Generic\ByDefinitionNormalizer:
+        arguments:
+            - '@ibexa.migrations.serializer.by_definition_normalizer.class_metadata_factory.loader'
+            - '@ibexa.migrations.serializer.by_definition_normalizer.class_metadata_factory'
+            - '@ibexa.migrations.serializer.by_definition_normalizer.name_converter'
+            - groups: [ !php/const Ibexa\Bundle\Migration\Serializer\Normalizer\Generic\ByDefinitionNormalizer::MIGRATION_GROUP ]
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -200 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\LocationNormalizer:
+        tags: [ 'ibexa.migrations.serializer.normalizer' ]
+
+    ibexa.migrations.serializer.object_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -300 }
+
+    # Denormalizers
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\StepsDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -110 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\StepDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }
+        arguments:
+            $stepNormalizers: !tagged_iterator 'ibexa.migrations.serializer.step_normalizer'
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\ReferenceResolutionDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -90 }
+
+    Ibexa\Bundle\Migration\Serializer\Normalizer\ExpressionNormalizer:
+        arguments:
+            $defaultContext: '@Ibexa\Bundle\Migration\Serializer\Denormalizer\Template\ExpressionLanguageContext'
+            $expressionLanguage: '@ibexa.migrations.template.expression_language'
+        tags:
+            # A high priority is necessary for Expressions to be recognized before processing user-defined steps
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: 10 }
+
+    ibexa.migrations.normalizer.array_denormalizer:
+        class: Ibexa\Bundle\Migration\Serializer\Denormalizer\ArrayDenormalizer
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -150 }
+
+    Ibexa\Bundle\Migration\Serializer\Denormalizer\Action\LimitationDenormalizer:
+        tags:
+            - { name: 'ibexa.migrations.serializer.normalizer', priority: -100 }

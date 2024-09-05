@@ -1,0 +1,18 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block _invite_members_invitations_entry_widget %}
+    {% embed '@ibexadesign/user/invitation/modal_entry.html.twig' %}
+        {% block entry_form_fields %}
+            {{ form_widget(form.children.email, {
+                wrapper_attr: {
+                    class: 'ibexa-ca-invite-members__entry-email-wrapper ibexa-user-invitation-modal__email-wrapper',
+                },
+                attr: {
+                    type: 'email',
+                    class: 'ibexa-ca-invite-members__entry-email',
+                },
+            }) }}
+            {{ form_widget(form.children.role) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

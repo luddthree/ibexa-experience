@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ActivityLogGroupList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="ActivityLogGroup">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="user_id" type="xs:integer" />
+              <xs:element name="logged_at" type="xs:integer" />
+              <xs:element maxOccurs="unbounded" minOccurs="0" name="ActivityLog">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="object_id" type="xs:string" />
+                    <xs:element name="object_class" type="xs:string" />
+                    <xs:element name="action" type="xs:string" />
+                    <xs:element name="data">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" minOccurs="0" name="value" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="media-type" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="media-type" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="media-type" type="xs:string" use="required" />
+      <xs:attribute name="href" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

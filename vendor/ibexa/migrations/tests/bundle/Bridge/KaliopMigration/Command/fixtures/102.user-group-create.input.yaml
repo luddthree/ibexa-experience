@@ -1,0 +1,18 @@
+-
+    type: user_group
+    mode: create
+    parent_group_id: 42
+    remote_id: 'editors_uk'
+    name: 'Editors_UK'
+    description: 'Editors UK'
+    roles: ['Editor']
+    lang: eng-GB
+-
+    type: user_group
+    mode: create
+    parent_group_id: 42
+    remote_id: 'editors_uk_2'
+    name: 'Editors_UK_2'
+    description: 'Editors UK_2'
+    roles: [1]
+    lang: eng-GB

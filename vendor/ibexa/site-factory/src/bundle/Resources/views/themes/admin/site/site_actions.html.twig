@@ -1,0 +1,81 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+{% if type is defined and type == 'grid' %}
+    {% set items = [] %}
+
+    {% if site.id is defined and has_templates %}
+        {% set items = items|merge([
+            {
+                'label': 'site.action.settings'|trans|desc('Site settings'),
+                'action_attr': {
+                    'href': path('ibexa.site_factory.edit', { siteId: site.id })
+                },
+            },
+            {
+                'label': 'site.action.details'|trans|desc('Site details'),
+                'action_attr': {
+                    'href': path('ibexa.site_factory.view', { siteId: site.id })
+                },
+            },
+        ]) %}
+    {% endif %}
+
+    {% if modal_delete_target is defined and site.id is defined and can_delete and site.status == 0 %}
+        {% set items = items|merge([{ 
+            'label': 'site.action.delete'|trans|desc('Delete'),
+            'class': 'ibexa-btn--delete',
+            'action_attr': {
+                'data-bs-toggle': "modal",
+                'data-bs-target': "#" ~  modal_delete_target,
+                'data-site-id': site.id,
+            },
+        }]) %}
+    {% endif %}
+
+    {% if items|length %}
+        <button
+            class="ibexa-sf-list-grid-entry__tools-trigger btn ibexa-btn ibexa-btn--no-text ibexa-btn--small"
+            type="button"
+        >
+            <svg class="ibexa-icon ibexa-icon--tools ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('options') }}"></use>
+            </svg>
+        </button>
+
+        <div class="ibexa-sf-list-grid-entry__tools-list">
+            {{ include('@ibexadesign/ui/component/popup_menu/popup_menu.html.twig', { items }) }}
+        </div>
+    {% endif %}
+{% else %}
+    {% if site.id is defined %}
+        {% set edit_path = path('ibexa.site_factory.edit', { siteId: site.id }) %}
+        <a
+            title="{{ 'site.action.settings'|trans|desc('Site settings') }}"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text"
+            {% if has_templates %}
+                href="{{ edit_path }}"
+            {% else %}
+                disabled
+            {% endif %}
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('edit') }}"></use>
+            </svg>
+        </a>
+    {% endif %}
+
+    {% if modal_delete_target is defined and site.id is defined and can_delete %}
+        <button
+            title="{{ 'site.action.delete'|trans|desc('Delete') }}"
+            class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--no-text ibexa-btn--delete"
+            data-bs-toggle="modal"
+            data-bs-target="#{{ modal_delete_target }}"
+            data-site-id="{{ site.id }}"
+            {{ site.status != 0 ? 'disabled' }}
+        >
+            <svg class="ibexa-icon ibexa-icon--small">
+                <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+            </svg>
+        </button>
+    {% endif %}
+{% endif %}

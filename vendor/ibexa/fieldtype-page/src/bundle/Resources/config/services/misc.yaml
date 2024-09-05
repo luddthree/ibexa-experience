@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+        public: true
+
+    Ibexa\FieldTypePage\FieldType\Page\FieldDefinitionLocator: ~
+
+    Ibexa\Bundle\FieldTypePage\CacheWarmer\ProxyCacheWarmer:
+        tags:
+            - { name: kernel.cache_warmer }

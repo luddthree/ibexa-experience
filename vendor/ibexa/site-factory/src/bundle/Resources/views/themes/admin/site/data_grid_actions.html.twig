@@ -1,0 +1,68 @@
+{% trans_default_domain "ibexa_site_factory" %}
+
+{% set min_width_view_switcher_item = 180 %}
+{% set choices = [
+    {
+        value: 'grid',
+        label: 'header.grid_view'|trans()|desc('Grid view'),
+        icon: 'view-grid',
+        url: url('ibexa.site_factory.grid', { 'locationId': location.id ?? null })
+    },
+    {
+        value: 'list',
+        label: 'header.list_view'|trans()|desc('List view'),
+        icon: 'view-list',
+        url: url('ibexa.site_factory.list', { 'locationId': location.id ?? null })
+    }
+] %}
+
+<div class="ibexa-sf-list-actions">
+    <div class="ibexa-sf-list-actions__delete-action">
+        {% if can_delete %}
+            {% set modal_data_target = 'delete-sites-modal' %}
+            <button
+                id="delete-sites"
+                class="btn ibexa-btn ibexa-btn--ghost"
+                data-bs-toggle="modal"
+                data-bs-target="#{{ modal_data_target }}"
+                title="{{ 'site.list.action.delete'|trans|desc('Delete Site') }}"
+                disabled
+            >
+                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                </svg>
+                <span class="ibexa-btn__label">{{ 'site.list.delete'|trans|desc('Delete') }}</span>
+            </button>
+            {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+                'id': modal_data_target,
+                'message': 'site.modal.message'|trans|desc('Do you want to delete the Site(s)?'),
+                'data_click': '#sites_delete_delete',
+            }%}
+        {% endif %}
+    </div>
+    <div class="ibexa-sf-list-actions__view-action">
+        {% for choice in choices %}
+            <a class="ibexa-sf-list-change-view" href="{{ choice.url }}" data-view-value="{{ choice.value }}"></a>
+        {% endfor %}
+
+        {% set source %}
+            <select class="form-control ibexa-input ibexa-sf-list-view-switcher">
+                {% for choice in choices %}
+                    <option value="{{ choice.value }}" {% if view_type == choice.value %} selected="selected" {% endif %}>
+                        {{ choice.label }}
+                    </option>
+                {% endfor %}
+            </select>
+        {% endset %}
+
+        {% include '@ibexadesign/ui/component/dropdown/dropdown.html.twig' with {
+            source: source,
+            choices: choices,
+            value: view_type,
+            is_small: true,
+            class: 'ibexa-view-switcher ibexa-dropdown--switcher',
+            selected_item_label: 'site.view_switcher.view'|trans|desc('View'),
+            min_item_width: min_width_view_switcher_item,
+        } %}
+    </div>
+</div>

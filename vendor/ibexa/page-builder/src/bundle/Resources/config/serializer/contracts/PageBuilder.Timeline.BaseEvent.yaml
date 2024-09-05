@@ -1,0 +1,33 @@
+Ibexa\Contracts\PageBuilder\PageBuilder\Timeline\BaseEvent:
+    exclusion_policy: all
+    access_type: public_method
+    discriminator: ~ # keep empty
+    properties:
+        name:
+            type: string
+            accessor:
+                getter: getName
+                setter: setName
+            skip_when_empty: false
+            expose: true
+        description:
+            type: string
+            accessor:
+                getter: getDescription
+                setter: setDescription
+            skip_when_empty: false
+            expose: true
+        date:
+            type: DateTime<'U'>
+            accessor:
+                getter: getDate
+                setter: setDate
+            skip_when_empty: false
+            expose: true
+        icon:
+            type: string
+            accessor:
+                getter: getIcon
+                setter: setIcon
+            skip_when_empty: false
+            expose: true

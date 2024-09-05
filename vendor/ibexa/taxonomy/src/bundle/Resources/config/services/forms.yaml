@@ -1,0 +1,63 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyEntryType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyEntryFieldType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyEntryAssignmentFieldType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\EntryListType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyEntryCreateType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyEntryDeleteType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyEntryMoveType:
+        tags:
+            - form.type
+
+    Ibexa\Taxonomy\Form\Type\TaxonomyType:
+        tags:
+            - form.type
+
+    #
+    # Extensions
+    #
+    Ibexa\Taxonomy\Form\Type\Extension\TaxonomyEntryContentEditTypeExtension:
+        tags:
+            - form.type_extension
+
+    Ibexa\Taxonomy\Form\Type\Extension\FieldDefinitionsCollectionTypeExtension:
+        tags:
+            - form.type_extension
+
+    Ibexa\Taxonomy\Form\Type\Extension\ParentTaxonomyEntryFieldTypeExtension:
+        tags:
+            - form.type_extension
+
+    #
+    # Validation
+    #
+    Ibexa\Taxonomy\Form\Type\Validation\UniqueIdentifierValidator:
+        tags:
+            - validator.constraint_validator
+
+    Ibexa\Taxonomy\Form\Type\Validation\NestedValidator:
+        tags:
+            - validator.constraint_validator

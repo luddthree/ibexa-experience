@@ -1,0 +1,62 @@
+{% extends '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% trans_default_domain 'ibexa_activity_log' %}
+
+{% block _activity_log_search_query_widget %}
+    {{ form_widget(form, {
+        has_search: true,
+        should_clear_button_send_form: true,
+        attr: {
+            class: 'ibexa-al-data-grid__search-bar-query-input',
+            placeholder: 'activity_log.list.data_grid.search'|trans|desc('Search...')
+        }
+    }) }}
+{% endblock %}
+
+{% block user_choice_row %}
+    {% embed '@ibexadesign/activity_log/filters/filter_item.html.twig' with {
+        target_id: form.vars.id|slug,
+        extra_class: 'ibexa-al-filters__item--user',
+        label: 'ibexa.activity_log.search_form.label.users'|trans|desc('Users'),
+    } %}
+        {% block content %}
+            {{ form_widget(form) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock user_choice_row %}
+
+{% block activity_log_object_class_choice_row %}
+    {% embed '@ibexadesign/activity_log/filters/filter_item.html.twig' with {
+        target_id: form.vars.id|slug,
+        extra_class: 'ibexa-al-filters__item--object-class',
+        label: 'ibexa.activity_log.search_form.label.object_class'|trans|desc('Activity area'),
+    } %}
+        {% block content %}
+            {{ form_widget(form) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock activity_log_object_class_choice_row %}
+
+{% block activity_log_action_choice_row %}
+    {% embed '@ibexadesign/activity_log/filters/filter_item.html.twig' with {
+        target_id: form.vars.id|slug,
+        extra_class: 'ibexa-al-filters__item--action',
+        label: 'ibexa.activity_log.search_form.label.action'|trans|desc('Activity type'),
+    } %}
+        {% block content %}
+            {{ form_widget(form) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock activity_log_action_choice_row %}
+
+{% block ibexa_activity_log_time_choice_row %}
+    {% embed '@ibexadesign/activity_log/filters/filter_item.html.twig' with {
+        target_id: form.vars.id|slug,
+        extra_class: 'ibexa-al-filters__item--time',
+        label: 'ibexa.activity_log.search_form.label.time'|trans|desc('Time'),
+    } %}
+        {% block content %}
+            {{ form_widget(form, { forced_parent: true }) }}
+        {% endblock %}
+    {% endembed %}
+{% endblock ibexa_activity_log_time_choice_row %}

@@ -1,0 +1,38 @@
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set empty_table_info_text = 'product_price.no_customer_group.info_text'|trans|desc('Add custom prices') %}
+{% set empty_table_action_text = 'product_price.no_customer_group.action_text'|trans|desc('To add custom prices, you need to have at least one customer group.') %}
+{% set empty_table_extra_actions %}
+    {% include '@ibexadesign/ui/component/table/empty_table_extra_actions.html.twig' with {
+        url: path('ibexa.product_catalog.customer_group.list'),
+        label: 'product_price.no_customer_group.link_label'|trans|desc('Go to customer groups')
+    } %}
+{% endset %}
+
+<div class="ibexa-pc-product-prices__custom-price">
+    {% include '@ibexadesign/ui/component/table/table.html.twig' with {
+        headline: 'product.view.prices.custome_price.title'|trans|desc('Custom price'),
+        head_cols: [
+            { content: 'product.view.prices.custome_price.customer_group'|trans|desc('Customer group') },
+            { content: 'product.view.prices.custome_price.base_price'|trans|desc('Base price') },
+            { content: 'product.view.prices.custome_price.global_price_rule'|trans|desc('Global price rule') },
+            { content: 'product.view.prices.custome_price.custom_price_rule'|trans|desc('Custom price rule') },
+            { content: 'product.view.prices.custome_price'|trans|desc('Custom price') },
+        ],
+        body_rows,
+    } %}
+    {% if custom_price_items.haveToPaginate() %}
+        {% include '@ibexadesign/ui/pagination.html.twig' with {
+            'pager': custom_price_items,
+            'paginaton_params': {
+                'routeName': 'ibexa.product_catalog.product.view',
+                'routeParams': {
+                    'productCode': product.code,
+                    '_fragment': constant('Ibexa\\ProductCatalog\\Tab\\Product\\PricesTab::URI_FRAGMENT'),
+                    'currency': currency.code|default(null)
+                },
+                'pageParameter': '[page][custom_prices]'
+            }
+        } %}
+    {% endif %}
+</div>

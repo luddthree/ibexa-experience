@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    Ibexa\Bundle\Dashboard\ViewMatcher\IsDashboardMatcher:
+        tags:
+            - { name: ibexa.view.matcher, identifier: Ibexa\IsDashboard }

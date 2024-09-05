@@ -1,0 +1,58 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Product\Product: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Product\ProductCreateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Product\ProductUpdateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Product\ProductVariant: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\CustomerGroup\CustomerGroup: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\CustomerGroup\CustomerGroupCreateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\CustomerGroup\CustomerGroupUpdateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\ProductType\ProductType: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\ProductType\ProductTypeCreateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\ProductType\ProductTypeUpdateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\AttributeGroup\AttributeGroup: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\AttributeGroup\AttributeGroupCreateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\AttributeGroup\AttributeGroupUpdateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\AttributeDefinition\AttributeDefinition: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\AttributeDefinition\AttributeDefinitionCreateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\AttributeDefinition\AttributeDefinitionUpdateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Catalog\Catalog: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Catalog\CatalogCreateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\ContextProvider\Catalog\CatalogUpdateStruct: ~
+
+    Ibexa\ProductCatalog\Local\Permission\PermissionResolver:
+        arguments:
+            $isDebug: '%kernel.debug%'
+
+    Ibexa\Contracts\ProductCatalog\PermissionResolverInterface:
+        alias: Ibexa\ProductCatalog\Local\Permission\PermissionResolver
+
+    Ibexa\ProductCatalog\Local\Permission\ContextResolver:
+        arguments:
+            - !tagged_iterator ibexa.product_catalog.permission.context_provider
+
+    Ibexa\ProductCatalog\Security\Authorization\PolicyVoter:
+        tags:
+            - { name: security.voter }

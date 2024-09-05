@@ -1,0 +1,31 @@
+{% macro image_preview(content, content_type) %}
+    {% set image_src = '' %}
+
+    {% for field in content_type.fieldDefinitions|filter(field => field.fieldTypeIdentifier is same as('ezimage')) %}
+        {% if loop.first %}
+            {% set image_uri = content.fields[field.identifier][content.versionInfo.initialLanguageCode].uri %}
+            {% set image_src = image_uri ?? '' %}
+        {% endif %}
+    {% endfor %}
+
+    <img class="ibexa-pb-embed-meta__preview" src="{{ image_src }}" {% if image_src == '' %}hidden{% endif %} />
+    <svg class="ibexa-pb-embed-meta__preview-icon ibexa-icon" {% if image_src != '' %}hidden{% endif %}>
+        <use xlink:href="{{ ibexa_icon_path(content_type.identifier) }}"></use>
+    </svg>
+{% endmacro %}
+
+{% macro video_preview(content, content_type) %}
+    {% set video_src = '' %}
+
+    {% for field in content_type.fieldDefinitions|filter(field => field.fieldTypeIdentifier is same as('ezmedia')) %}
+        {% if loop.first %}
+            {% set video_uri = content.fields[field.identifier][content.versionInfo.initialLanguageCode].uri %}
+            {% set video_src = video_uri ?? '' %}
+        {% endif %}
+    {% endfor %}
+
+    <video class="ibexa-pb-embed-meta__preview" src="{{ video_src }}" {% if video_src == '' %}hidden{% endif %} controls></video>
+    <svg class="ibexa-pb-embed-meta__preview-icon ibexa-icon" {% if video_src != '' %}hidden{% endif %}>
+        <use xlink:href="{{ ibexa_icon_path(content_type.identifier) }}"></use>
+    </svg>
+{% endmacro %}

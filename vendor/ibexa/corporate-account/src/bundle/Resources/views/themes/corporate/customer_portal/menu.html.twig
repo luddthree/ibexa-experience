@@ -1,0 +1,53 @@
+{% extends '@KnpMenu/menu.html.twig' %}
+{% import 'knp_menu.html.twig' as knp_menu %}
+
+{% block root %}
+    <nav class="ibexa-ca-main-menu">
+        <ul class="ibexa-ca-main-menu__items">
+            {% for item in item.children %}
+                {{ block('group') }}
+            {% endfor %}
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block group %}
+    {% set is_subgroup = item.children|length > 0 %}
+
+    {% if is_subgroup %}
+        <li class="ibexa-ca-main-menu__subgroup">
+            <div class="ibexa-ca-main-menu__subgroup-title">{{ block('label') }}</div>
+            <ul class="ibexa-ca-main-menu__subgroup-items">
+                {% for item in item.children %}
+                    {{ block('item') }}
+                {% endfor %}
+            </ul>
+        </li>
+    {% else %}
+        {{ block('item') }}
+    {% endif %}
+{% endblock %}
+
+{% block item %}
+    {% import 'knp_menu.html.twig' as knp_menu %}
+
+    {% set classes = [
+        'ibexa-ca-main-menu__item-link',
+        (matcher.isCurrent(item) ? options.currentClass|trim),
+    ] %}
+
+    {% set link_attributes = {
+        'href': item.uri,
+        'class': classes|join(' ')
+    } %}
+
+    <li
+        data-tooltip-placement="right"
+        data-tooltip-extra-class="ibexa-tooltip--navigation"
+        class="ibexa-ca-main-menu__item"
+    >
+        <a {{ knp_menu.attributes(link_attributes) }}>
+            {{ block('label') }}
+        </a>
+    </li>
+{% endblock %}

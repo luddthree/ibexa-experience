@@ -1,0 +1,11 @@
+Ibexa\Scheduler\Timeline\FuturePublicationEvent:
+    exclusion_policy: all
+    access_type: public_method
+    properties:
+        futureVersionNo:
+            type: int
+            accessor:
+                getter: getFutureVersionNo
+                setter: setFutureVersionNo
+            skip_when_empty: false
+            expose: true

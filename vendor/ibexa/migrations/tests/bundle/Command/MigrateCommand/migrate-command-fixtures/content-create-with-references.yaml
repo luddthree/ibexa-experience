@@ -1,0 +1,76 @@
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: folder
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2021-01-19T13:21:10+01:00'
+        publicationDate: '2021-01-19T13:21:10+01:00'
+        remoteId: db1092a7eb82b9ceb74c888654e87151
+        alwaysAvailable: true
+        section:
+            id: 1
+    location:
+        parentLocationId: 2
+        parentLocationRemoteId: null
+        locationRemoteId: 95a9815cf7cbce84691f2b83968da31f
+        hidden: false
+        sortField: 1
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: 'All Rides'
+        -
+            fieldDefIdentifier: short_name
+            languageCode: eng-GB
+            value: null
+    actions: {  }
+    references:
+        -
+            name: 'ref__content__folder__all rides'
+            type: content_id
+        -
+            name: 'ref_location__folder__all rides'
+            type: location_id
+        -
+            name: 'ref_path__folder__all rides'
+            type: path
+-
+    type: content
+    mode: create
+    metadata:
+        contentType: landing_page
+        mainTranslation: eng-GB
+        creatorId: 14
+        modificationDate: '2007-11-28T16:51:36+00:00'
+        publicationDate: '2007-11-19T13:54:46+00:00'
+        remoteId: foo
+        alwaysAvailable: true
+        section:
+            identifier: standard
+    location:
+        parentLocationId: 'reference:ref_location__folder__all rides'
+        locationRemoteId: foo_location
+        hidden: false
+        sortField: 8
+        sortOrder: 1
+        priority: 0
+    fields:
+        -
+            fieldDefIdentifier: name
+            languageCode: eng-GB
+            value: Home
+    references:
+        -
+            name: ref__content__landing_page__home
+            type: content_id
+        -
+            name: ref_location__landing_page__home
+            type: location_id
+        -
+            name: ref_path__landing_page__home
+            type: path

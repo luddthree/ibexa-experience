@@ -1,0 +1,7 @@
+system:
+    default:
+        seo:
+            types:
+                - meta_tags
+                - open_graph
+                - twitter

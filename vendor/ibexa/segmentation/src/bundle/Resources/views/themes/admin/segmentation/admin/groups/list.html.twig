@@ -1,0 +1,164 @@
+{% extends '@ibexadesign/ui/layout.html.twig' %}
+
+{% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+{% trans_default_domain 'ibexa_segmentation' %}
+
+{% form_theme form_segment_group_bulk_delete '@ibexadesign/ui/form_fields.html.twig' %}
+
+{% block body_class %}ibexa-segment-group-list-view ibexa-has-full-width-footer{% endblock %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'breadcrumb.admin'|trans|desc('Admin') },
+        { value: 'segment_groups.list.title'|trans|desc('Segment Groups') }
+    ]} %}
+{% endblock %}
+
+{% block header %}
+    {% include '@ibexadesign/ui/page_title.html.twig' with {
+        title: 'segment_groups.list.title'|trans|desc('Segment Groups'),
+    } %}
+{% endblock %}
+
+{% block context_menu %}
+    {% set menu_items %}
+        {% if can_create %}
+            <li class="ibexa-context-menu__item ibexa-adaptive-items__item">
+                <button
+                    type="button"
+                    class="btn ibexa-btn ibexa-btn--primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#create-segment-group-modal"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">
+                        {{ 'segment_groups.list.create'|trans|desc('Create') }}
+                    </span>
+                </button>
+            </li>
+            {% include '@ibexadesign/segmentation/admin/groups/modal/create_segment_group.html.twig' with { 'form': form_segment_group_create } %}
+        {% endif %}
+    {% endset %}
+
+    {{ include('@ibexadesign/ui/component/context_menu/context_menu.html.twig', {
+        menu_items: menu_items,
+    }) }}
+{% endblock %}
+
+{% block content %}
+    <section class="container ibexa-container">
+        {% set body_rows = [] %}
+        {% for segment_group in pager.currentPageResults %}
+            {% set col_checkbox %}
+                {% if can_delete %}
+                    {% set attributes = {'disabled': segment_group.identifier in protected_segment_groups} %}
+                    {{ form_widget(form_segment_group_bulk_delete.segment_groups[segment_group.id], attributes) }}
+                {% else %}
+                    {% do form_segment_group_bulk_delete.segment_groups[segment_group.id].setRendered() %}
+                {% endif %}
+            {% endset %}
+
+            {% set col_name %}
+                <a href="{{ path('ibexa.segmentation.group.view', {'segmentGroupId': segment_group.id}) }}">
+                    {{ segment_group.name }}
+                </a>
+            {% endset %}
+
+            {% set col_segments_count %}
+                {% if segments_per_group[segment_group.id]|length > 0 %}
+                    <ul class="list-unstyled">
+                        {% for segment in segments_per_group[segment_group.id] %}
+                            <li>{{ segment.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    0
+                {% endif %}
+            {% endset %}
+
+            {% set body_rows = body_rows|merge([{ cols: [
+                { has_checkbox: true, content: col_checkbox, raw: true },
+                { content: col_name, raw: true },
+                { content: segment_group.identifier },
+                { content: col_segments_count, raw: true },
+            ] }]) %}
+        {% endfor %}
+
+        {% embed '@ibexadesign/ui/component/table/table.html.twig' with {
+            headline: custom_results_headline ?? results_headline(pager.getNbResults()),
+            head_cols: [
+                { has_checkbox: true },
+                { content: 'segment_groups.list.name'|trans|desc('Name') },
+                { content: 'segment_groups.list.identifier'|trans|desc('Identifier') },
+                { content: 'segment_groups.list.segments_count'|trans|desc('Segments under this group') },
+            ],
+            body_rows,
+            empty_table_info_text: 'segment_groups.list.empty'|trans|desc('No Segment Groups.'),
+        } %}
+            {% block header %}
+                {% embed '@ibexadesign/ui/component/table/table_header.html.twig' %}
+                    {% trans_default_domain 'ibexa_segmentation' %}
+
+                    {% block actions %}
+                        {% if can_delete %}
+                            {% set modal_data_target = 'bulk-delete-segment-group-modal' %}
+                            <button
+                                id="bulk-delete-segment-group"
+                                type="button"
+                                class="btn ibexa-btn ibexa-btn--ghost ibexa-btn--small"
+                                disabled
+                                data-bs-toggle="modal"
+                                data-bs-target="#{{ modal_data_target }}"
+                            >
+                                <svg class="ibexa-icon ibexa-icon--small ibexa-icon--trash">
+                                    <use xlink:href="{{ ibexa_icon_path('trash') }}"></use>
+                                </svg>
+                                <span class="ibexa-btn__label">
+                                    {{ 'segment_group.list.segment_group.action.bulk_delete'|trans|desc('Delete') }}
+                                </span>
+                            </button>
+                            {% include '@ibexadesign/ui/modal/bulk_delete_confirmation.html.twig' with {
+                                'id': modal_data_target,
+                                'message': 'segment_group.list.segment_group_bulk_delete.modal.message'|trans|desc('Do you want to delete the Segment Group(s)?'),
+                                'data_click': '#segment_group_bulk_delete_delete',
+                            }%}
+                        {% endif %}
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
+            {% block between_header_and_table %}
+                {{ form_start(form_segment_group_bulk_delete, {
+                    'action': path('ibexa.segmentation.group.bulk_delete'),
+                    'attr': { 'class': 'ibexa-toggle-btn-state', 'data-toggle-button-id': '#bulk-delete-segment-group' }
+                }) }}
+            {% endblock %}
+        {% endembed %}
+
+        {{ form_widget(form_segment_group_bulk_delete.delete) }}
+        {{ form_end(form_segment_group_bulk_delete) }}
+
+        {% if pager.haveToPaginate %}
+            <div class="row justify-content-center align-items-center mb-2">
+                <span class="ibexa-pagination__text">
+                    {{ 'segment_groups.list.viewing'|trans({
+                    '%viewing%': pager.currentPageResults|length,
+                    '%total%': pager.nbResults})|desc('Viewing <strong>%viewing%</strong> out of <strong>%total%</strong> items')|raw }}
+                </span>
+            </div>
+            <div class="row justify-content-center align-items-center ibexa-pagination__btn mb-5">
+                {{ pagerfanta(pager, 'ibexa') }}
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('ibexa-segmentation-common-js', null, 'ibexa') }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('ibexa-segmentation-common-css', null, 'ibexa') }}
+{% endblock %}

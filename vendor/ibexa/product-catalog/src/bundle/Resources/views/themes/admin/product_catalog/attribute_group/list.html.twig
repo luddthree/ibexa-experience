@@ -1,0 +1,45 @@
+{% extends "@ibexadesign/product_catalog/list.html.twig" %}
+
+{% trans_default_domain 'ibexa_product_catalog' %}
+
+{% set pager = attribute_groups %}
+{% set header_title = 'attribute_group.list.title'|trans|desc('Attribute groups') %}
+
+{% block breadcrumbs %}
+    {% include '@ibexadesign/ui/breadcrumbs.html.twig' with { items: [
+        { value: 'product_catalog'|trans|desc('Product Catalog') },
+        { value: 'attribute_group.breadcrumb.list'|trans|desc('Attribute groups') }
+    ]} %}
+{% endblock %}
+
+{% block context_menu %}
+    {% if is_editable %}
+        <ul class="ibexa-context-menu">
+            <li class="ibexa-context-menu__item">
+                <a
+                    href="{{ path('ibexa.product_catalog.attribute_group.create') }}"
+                    class="btn ibexa-btn ibexa-btn--primary ibexa-btn--create"
+                >
+                    <svg class="ibexa-icon ibexa-icon--small ibexa-icon--create">
+                        <use xlink:href="{{ ibexa_icon_path('create') }}"></use>
+                    </svg>
+                    <span class="ibexa-btn__label">{{ 'attribute_group.list.action.create'|trans|desc('Create') }}</span>
+                </a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block data_grid %}
+    {% from '@ibexadesign/ui/component/macros.html.twig' import results_headline %}
+
+    {% set search_query = search_form.vars.value.getQuery() ?? null %}
+    {% set default_headline = results_headline(attribute_groups|length, false, search_query) %}
+    {% set headline = custom_results_headline ?? default_headline %}
+
+    {% if is_editable %}
+        {% include '@ibexadesign/product_catalog/attribute_group/data_grid_editable.html.twig' %}
+    {% else %}
+        {% include '@ibexadesign/product_catalog/attribute_group/data_grid.html.twig' %}
+    {% endif %}
+{% endblock %}
